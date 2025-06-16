@@ -9,6 +9,8 @@ class Product:
     price: int
     lastUpdated: datetime
 
-    def updatePrice(self, )
+    def update_price(price: int):
+        pass
+
 
 
