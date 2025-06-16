@@ -21,4 +21,5 @@ class ICache(ABC):
     def get_price(url: str) -> Optional[int]:
         pass
 
-    
+class TelegramNotifier(ABC):
+    pass

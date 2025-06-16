@@ -1,5 +1,5 @@
-from core.priceparser import PriceParser
-from core.pricemonitor import PriceMonitor
+from core.price_parser import PriceParser
+from core.price_monitor import PriceMonitor
 
 
 class PriceTracker:
