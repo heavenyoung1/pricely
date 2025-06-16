@@ -9,17 +9,14 @@ class IMarketPlace(ABC):
 
 class INotifier(ABC):
     @abstractmethod
-    def notify(chat_id: int, product: Product, old_price: int) -> None:
+    def notify(self, chat_id: int, product: Product, old_price: int) -> None:
         pass
 
 class ICache(ABC):
     @abstractmethod
-    def save_price(url: str, price: int) -> None:
+    def save_price(self, url: str, price: int) -> None:
         pass
 
     @abstractmethod
-    def get_price(url: str) -> Optional[int]:
+    def get_price(self, url: str) -> Optional[int]:
         pass
-
-class TelegramNotifier(ABC):
-    pass
