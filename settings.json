@@ -1,0 +1,22 @@
+{
+    // Форматирование Python-кода
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length", "88",
+        "--skip-string-normalization"
+    ],
+    
+    // Автоформатирование при сохранении
+    "editor.formatOnSave": true,
+    
+    // Форматировщик по умолчанию для Python
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    
+    // Игнорирование папок (опционально)
+    "black-formatter.ignore": [
+        "**/.venv/**",
+        "**/venv/**"
+    ]
+}
