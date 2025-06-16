@@ -3,6 +3,11 @@ from models.product import Product
 from typing import Optional
 
 class IMarketPlace(ABC):
+
+    @abstractmethod
+    def _get_id(self, url: str) -> str:
+        pass
+
     @abstractmethod
     def parse_product(self, url: str) -> Product:
         pass
