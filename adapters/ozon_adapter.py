@@ -17,19 +17,22 @@ class OzonAdapter(IMarketPlace):
         service = Service(self.driver_path)
         self.driver = webdriver.Chrome(service=service)
 
-    @staticmethod
     def _get_id(url: str) -> str:
         splitedStr = url.split("/")[-2]
         ID = splitedStr[-10:]
         return ID
 
     def parse_product(self, url: str) -> Product:
-        self.driver.get(url)
-        try:
-            name_elem = WebDriverWait(self.driver, 10000).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, '.m8p_27.tsHeadline550Medium'))
+            self.driver.get(url)
+            product_ID = self._get_id(url)
+            name = self.driver.find_element(By.CSS_SELECTOR, 'm8p_27 .tsHeadline550Medium')
+            price = self.driver.find_element(By.CSS_SELECTOR, '.om7_27 o5m_27')
+            last_updated = datetime.now()
+            # Проверить и перевести цену в INT
+            return Product(
+                 id=product_ID,
+                 url=url,
+                 name=name,
+                 price=price,
+                 last_updated=last_updated,
             )
-            return name_elem.text
-        except Exception as e:
-            print(f"Ошибка при ожидании элемента: {e}")
-            return None
