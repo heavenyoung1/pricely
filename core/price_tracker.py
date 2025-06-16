@@ -7,8 +7,8 @@ class PriceTracker:
         self.parser = parser
         self.monitor = monitor
 
-        def add_product():
+    def add_product():
             pass
 
-        def monitor_price():
+    def monitor_price():
             pass
