@@ -4,11 +4,6 @@ import time
 import random
 from typing import Dict
 
-
-
-
-
-
 class PriceMonitor:
     def __init__(
             self,
