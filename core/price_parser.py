@@ -3,8 +3,9 @@ from typing import Optional
 from adapters.interfaces import IMarketPlace
 
 class PriceParser():
-    def __init__(self, adapter: dict[str, IMarketPlace]):
-        self.adapter = adapter
+    def __init__(self, adapters: dict[str, IMarketPlace]):
+        self.adapters = adapters
 
-    def parse(self, url: str, markerplace: str) -> Product:
-        pass
+    def parse(self, url: str, marketplace: str) -> Product:
+        adapter = self.adapters.get(marketplace)
+        return adapter.parse_product(url)
