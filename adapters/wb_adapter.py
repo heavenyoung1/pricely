@@ -1,12 +1,12 @@
-from adapters.interfaces import IMarketPlace
 from dataclasses import dataclass
-from models.product import Product
+from datetime import datetime
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from datetime import datetime
+
+from adapters.interfaces import IMarketPlace
+from models.product import Product
 
 @dataclass
 class WBAdapter(IMarketPlace):

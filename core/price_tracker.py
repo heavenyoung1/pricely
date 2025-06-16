@@ -1,8 +1,11 @@
-from core.price_parser import PriceParser
-from core.price_monitor import PriceMonitor
 from adapters.ozon_adapter import OzonAdapter
 from adapters.wb_adapter import WBAdapter
+
+from core.price_parser import PriceParser
+from core.price_monitor import PriceMonitor
 from core.price_cache import JSONPriceCache
+
+
 
 class PriceTracker:
     def __init__(

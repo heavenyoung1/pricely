@@ -1,8 +1,9 @@
-from adapters.interfaces import IMarketplace, INotifier, ICache
-from models.product import Product
-import time
 import random
+import time
 from typing import Dict
+
+from adapters.interfaces import IMarketplace, INotifier, ICache
+
 
 class PriceMonitor:
     def __init__(

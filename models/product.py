@@ -9,8 +9,9 @@ class Product:
     price: int
     last_updated: datetime
 
-    def update_price(price: int):
-        pass
+    def update_price(self, price: int) -> None:
+        self.price = price
+        self.last_updated = datetime.now()
 
 
 

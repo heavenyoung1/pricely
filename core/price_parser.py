@@ -1,6 +1,5 @@
-from models.product import Product
-from typing import Optional
 from adapters.interfaces import IMarketPlace
+from models.product import Product
 
 class PriceParser():
     def __init__(self, adapters: dict[str, IMarketPlace]):

@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
-from models.product import Product
 from typing import Optional
+
+from models.product import Product
+
 
 class IMarketPlace(ABC):
 
