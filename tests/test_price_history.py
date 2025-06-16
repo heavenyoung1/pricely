@@ -28,3 +28,11 @@ def test_add_price(price_history):
 
 def test_get_last_price(price_history):
     assert price_history.get_last_price() == 950
+
+def test_get_last_price_empty():
+    empty_history = PriceHistory(
+        id="1234567890",
+        url="https://ozon.ru/product/1234567890",
+        history=[]
+    )
+    assert empty_history.get_last_price() is None
