@@ -20,3 +20,5 @@ class ICache(ABC):
     @abstractmethod
     def get_price(url: str) -> Optional[int]:
         pass
+
+    
