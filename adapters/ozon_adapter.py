@@ -33,6 +33,3 @@ class OzonAdapter(IMarketPlace):
         except Exception as e:
             print(f"Ошибка при ожидании элемента: {e}")
             return None
-
-ozon = OzonAdapter(driver_path='C:\\Users\\Mefyod-EA\\Documents\\my_projects\\chromedriver.exe')
-print(ozon.parse_product('https://www.ozon.ru/product/nabor-kvadratnyh-konteynerov-dlya-edy-i-hraneniya-fusion-6-sht-2082762097/?campaignId=543'))

@@ -7,7 +7,7 @@ class Product:
     url: str
     name: str
     price: int
-    lastUpdated: datetime
+    last_updated: datetime
 
     def update_price(price: int):
         pass
