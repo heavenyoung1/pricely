@@ -27,5 +27,5 @@ class PriceTracker:
         self.monitor.cache.save_price(url, product.price)
         return product
 
-    def monitor_price():
-            pass
+    def monitor_price(self, url: str, chat_id: int, marketplace: str) -> None:
+        self.monitor.monitor(url, chat_id)
