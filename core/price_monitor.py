@@ -1,9 +1,10 @@
+import asyncio
 import random
 import time
 from typing import Dict
-import asyncio
 
 from adapters.interfaces import IMarketPlace, ICache, INotifier
+from models.product import Product
 
 
 class PriceMonitor:
@@ -41,13 +42,13 @@ class PriceMonitor:
             self.attempts[url] = attempts
 
     async def check_once(self, url: str, chat_id: int) -> None:
-            """Check the product price once and notify if it has changed."""
-            try:
-                product = self.parser.parse_product(url)
-                old_price = self.cache.get_price(url)
-                if old_price is not None and old_price != product.price:
-                    await self.notifier.notify(chat_id, product, old_price)
-                self.cache.save_price(url, product.price)
-                self.attempts[url] = 0
-            except Exception:
-                self.attempts[url] = self.attempts.get(url, 0) + 1
+        """Check the product price once and notify if it has changed."""
+        try:
+            product = self.parser.parse_product(url)
+            old_price = self.cache.get_price(url)
+            if old_price is not None and old_price != product.price:
+                await self.notifier.notify(chat_id, product, old_price)
+            self.cache.save_price(url, product.price)
+            self.attempts[url] = 0
+        except Exception:
+            self.attempts[url] = self.attempts.get(url, 0) + 1
