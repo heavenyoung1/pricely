@@ -30,3 +30,8 @@ def test_parse_product(wb_adapter):
     assert product.price == 450
     assert product.url == 'https://www.wildberries.ru/catalog/1234577890/detail.aspx'
     assert isinstance(product.last_updated, datetime)
+
+def test_parse_product_error(wb_adapter):
+    wb_adapter.driver.find_element.side_effect = Exception('Element not found')
+    with pytest.raises(ValueError, match="Ошибка парсинга Wildberries"):
+        wb_adapter.parse_product("https://wildberries.ru/catalog/123")

@@ -23,12 +23,14 @@ class WBAdapter(IMarketPlace):
         return ID
 
     def parse_product(self, url: str) -> Product:
+        try:
             self.driver.get(url)
             product_ID = self._get_id(url)
+
             name = self.driver.find_element(By.CSS_SELECTOR, '.product-page__title').text
             price = self.driver.find_element(By.CSS_SELECTOR, '.price-block__wallet-price red-price').text
             last_updated = datetime.now()
-            # Проверить и перевести цену в INT
+
             return Product(
                  id=product_ID,
                  url=url,
@@ -36,5 +38,7 @@ class WBAdapter(IMarketPlace):
                  price=price,
                  last_updated=last_updated,
             )
+        except Exception as e:
+            raise ValueError("Ошибка парсинга Wildberries") from e
 
     
