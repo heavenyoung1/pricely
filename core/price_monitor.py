@@ -2,13 +2,13 @@ import random
 import time
 from typing import Dict
 
-from adapters.interfaces import IMarketplace, INotifier, ICache
+from adapters.interfaces import IMarketPlace, ICache, INotifier
 
 
 class PriceMonitor:
     def __init__(
             self,
-            parser: IMarketplace,
+            parser: IMarketPlace,
             cache: ICache,
             notifier: INotifier,
             interval: int = 3600,
