@@ -8,6 +8,5 @@ dependencies = [
     "black>=25.1.0",
     "pytest>=8.4.0",
     "pytest-asyncio>=1.0.0",
-    "python-telegram-bot>=22.1",
     "selenium>=4.33.0",
 ]

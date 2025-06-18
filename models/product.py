@@ -3,7 +3,7 @@ from datetime import datetime
 
 @dataclass
 class Product:
-    id: int
+    id: str
     url: str
     name: str
     price: int
