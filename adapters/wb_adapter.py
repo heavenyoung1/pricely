@@ -17,6 +17,7 @@ class WBAdapter(IMarketPlace):
         service = Service(self.driver_path)
         self.driver = webdriver.Chrome(service=service)
 
+    @staticmethod
     def _get_id(url: str) -> str:
         ID = url.split("/")[-2]
         return ID
@@ -24,8 +25,8 @@ class WBAdapter(IMarketPlace):
     def parse_product(self, url: str) -> Product:
             self.driver.get(url)
             product_ID = self._get_id(url)
-            name = self.driver.find_element(By.CSS_SELECTOR, '.product-page__title')
-            price = self.driver.find_element(By.CSS_SELECTOR, '.price-block__wallet-price red-price')
+            name = self.driver.find_element(By.CSS_SELECTOR, '.product-page__title').text
+            price = self.driver.find_element(By.CSS_SELECTOR, '.price-block__wallet-price red-price').text
             last_updated = datetime.now()
             # Проверить и перевести цену в INT
             return Product(
@@ -35,7 +36,5 @@ class WBAdapter(IMarketPlace):
                  price=price,
                  last_updated=last_updated,
             )
-    
-wb = WBAdapter()
 
     
