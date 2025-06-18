@@ -7,4 +7,6 @@ class PriceParser():
 
     def parse(self, url: str, marketplace: str) -> Product:
         adapter = self.adapters.get(marketplace)
+        if adapter is None:
+            raise ValueError(f'Маркетплейс {marketplace} не поддерживается')
         return adapter.parse_product(url)
