@@ -1,12 +1,9 @@
 [project]
 name = "pricely"
-version = "0.1.0"
+version = "0.2.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "black>=25.1.0",
     "pytest>=8.4.0",
-    "pytest-asyncio>=1.0.0",
-    "selenium>=4.33.0",
 ]
