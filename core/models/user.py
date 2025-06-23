@@ -1,12 +1,11 @@
 from dataclasses import dataclass
-from uuid import uuid4
 from typing import List
 
 from core.models.product import Product
 
 @dataclass
 class User:
-    id: uuid4
+    id: str
     telegram_id: str
     products: List['Product'] = []
 
