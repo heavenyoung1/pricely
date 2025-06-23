@@ -1,9 +1,13 @@
+from datetime import datetime
+
 from core.interfaces.notifier import INotifier
 from core.interfaces.parser import IProductParserFactory
 from core.interfaces.product import IProductRepo
 from core.interfaces.user import IUserRepo
 from core.models.user import User
 from core.models.product import Product
+from core.models.price import Price
+from utils.logger import logger
 
 class ProductTracker:
     def __init__(
@@ -54,8 +58,29 @@ class ProductTracker:
             error_msg = f'Ошибка при добавлении товара {product.name}'
             raise RuntimeError(error_msg)
 
-    def check_price():
-        pass
+    def check_price(self) -> None:
+        """ Проверяет цены всех отслеживаемых товаров """
+        try:
+            products = self.product_repo.find_all()
+            for product in products:
+                parser = self.parser_factory.get_parser(product.url)
+                try:
+                    product_info = parser.parse(product.url)
+                    price_change = product.update_price(product_info.last_price)
+                    if price_change['changed'] == True:
+                        self.product_repo.save(product)
 
+                        # Сохраняем историю цены
+                        price = Price(
+                            id='1',
+                            product_id=product.id,
+                            price=product.price,
+                            timestamp=datetime.now()
+                        )
+                except Exception as e:
+                    logger.error(f'Ошибка при парсинге {product.url}: {str(e)}')
+        except Exception as e:
+            logger.error(f'Ошибка при проверке цен: {str(e)}')
+            raise RuntimeError(f'Ошибка при процерке цен: {str(e)}')
 
 
