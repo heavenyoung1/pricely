@@ -1,14 +1,17 @@
 from abc import ABC, abstractmethod
+from typing import Optional, List
+
+from core.models.product import Product
 
 class IProductRepo(ABC):
     @abstractmethod
-    def save():
+    async def save(self, product) -> None:
         pass
 
     @abstractmethod
-    def find_all():
+    async def find_all(self) -> List['Product']:
         pass
 
     @abstractmethod
-    def find_by_url():
+    async def find_by_url(self, url: str) -> Optional['Product']:
         pass
