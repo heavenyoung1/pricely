@@ -12,7 +12,7 @@ class User:
 
     def follow(self, product: Product) -> None:
         if product not in self.products:
-            self.products.append[product]
+            self.products.append(product)
 
     def unfollow(self, product: Product) -> None:
         self.products.remove(product)
