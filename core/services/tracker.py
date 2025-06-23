@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Dict
 
 from core.interfaces.notifier import INotifier
 from core.interfaces.parser import IProductParserFactory
@@ -23,7 +24,7 @@ class ProductTracker:
         self.product_repo = product_repo
         self.notifier = notifier
         self.parser_factory = parser_factory
-        self.price_repo = IPriceRepo
+        self.price_repo = price_repo
 
     def track_product(self, user: User, url: str) -> None:
         """ Добавляет товар на отслеживание для пользователя """
@@ -61,17 +62,17 @@ class ProductTracker:
             error_msg = f'Ошибка при добавлении товара {product.name}'
             raise RuntimeError(error_msg)
 
-    def check_price(self) -> None:
+    async def check_price(self) -> None:
         """ Проверяет цены всех отслеживаемых товаров """
         try:
-            products = self.product_repo.find_all()
+            products = await self.product_repo.find_all()
             for product in products:
                 parser = self.parser_factory.get_parser(product.url)
                 try:
-                    product_info = parser.parse(product.url)
+                    product_info = await parser.parse(product.url)
                     price_change = product.update_price(product_info.last_price)
                     if price_change['changed'] == True:
-                        self.product_repo.save(product)
+                        await self.product_repo.save(product)
 
                         # Сохраняем историю цены
                         price = Price(
@@ -80,7 +81,7 @@ class ProductTracker:
                             price=product.price,
                             timestamp=datetime.now()
                         )
-                        self.price_repo.save(price)
+                        await self.price_repo.save(price)
                 except Exception as e:
                     logger.error(f'Ошибка при парсинге {product.url}: {str(e)}')
         except Exception as e:
@@ -88,3 +89,6 @@ class ProductTracker:
             raise RuntimeError(f'Ошибка при процерке цен: {str(e)}')
 
 
+    async def notify_users(self, product: Product, price_change: Dict) -> None:
+        """  """
+        users = await self.user_repo.fin
