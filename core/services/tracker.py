@@ -4,6 +4,7 @@ from core.interfaces.notifier import INotifier
 from core.interfaces.parser import IProductParserFactory
 from core.interfaces.product import IProductRepo
 from core.interfaces.user import IUserRepo
+from core.interfaces.price import IPriceRepo
 from core.models.user import User
 from core.models.product import Product
 from core.models.price import Price
@@ -15,12 +16,14 @@ class ProductTracker:
             user_repo: IUserRepo,
             product_repo: IProductRepo,
             notifier: INotifier,
-            parser_factory: IProductParserFactory
+            parser_factory: IProductParserFactory,
+            price_repo: IPriceRepo,
             ):
         self.user_repo = user_repo
         self.product_repo = product_repo
         self.notifier = notifier
         self.parser_factory = parser_factory
+        self.price_repo = IPriceRepo
 
     def track_product(self, user: User, url: str) -> None:
         """ Добавляет товар на отслеживание для пользователя """
@@ -77,6 +80,7 @@ class ProductTracker:
                             price=product.price,
                             timestamp=datetime.now()
                         )
+                        self.price_repo.save(price)
                 except Exception as e:
                     logger.error(f'Ошибка при парсинге {product.url}: {str(e)}')
         except Exception as e:
