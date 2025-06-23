@@ -80,7 +80,7 @@ class ProductTracker:
                         price = Price(
                             id='1',
                             product_id=product.id,
-                            price=product.price,
+                            price=product.last_price,
                             timestamp=datetime.now()
                         )
                         await self.price_repo.save(price)
