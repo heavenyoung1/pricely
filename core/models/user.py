@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List
 
 from core.models.product import Product
@@ -7,11 +7,11 @@ from core.models.product import Product
 class User:
     id: str
     telegram_id: str
-    products: List['Product'] = []
+    products: List['Product'] = field(default_factory=list)
 
-    def follow(self, product: Product) -> None:
+    def subscribe(self, product: Product) -> None:
         if product not in self.products:
             self.products.append(product)
 
-    def unfollow(self, product: Product) -> None:
+    def unsubscribe(self, product: Product) -> None:
         self.products.remove(product)

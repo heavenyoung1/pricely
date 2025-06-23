@@ -32,7 +32,7 @@ class ProductTracker:
             # Проверяем, существует ли уже товар
             being_product = self.product_repo.find_by_url(url)
             if being_product:
-                user.follow(being_product)
+                user.subscribe(being_product)
                 await self.user_repo.save(user)
                 await self.notifier.notify(user, f'Вы, {user.telegram_id}, подписаны на товар {being_product.name}')
                 return
@@ -53,7 +53,7 @@ class ProductTracker:
 
             # Сохраняем товар и подписку пользователя
             await self.product_repo.save(product)
-            user.follow(product)
+            user.subscribe(product)
             await self.user_repo.save(product)
 
             # Уведомляем пользователя о подписке
@@ -95,7 +95,7 @@ class ProductTracker:
         try:
             users = await self.user_repo.find_all() 
             for user in users:
-                if product in user.follow:
+                if product in user.subscribe:
                     message = (
                         f'Цена на товар '{product.name}' изменилась!\n'
                         f'Старая цена: {price_change['old_price']} ₽\n'

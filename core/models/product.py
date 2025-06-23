@@ -1,5 +1,13 @@
 from dataclasses import dataclass
-from typing import Dict
+from typing import Dict, Optional
+
+@dataclass
+class ProductInfo:
+    id: str
+    name: str
+    url: str
+    last_price: float
+    image_url: Optional[str]
 
 @dataclass
 class Product:
@@ -13,7 +21,6 @@ class Product:
     def update_price(self, new_price: int) -> Dict:
         changed: bool = self.last_price != new_price
         result = {
-            'name': self.name,
             'changed': changed,
             'last_price': self.last_price,
             'new_price': new_price,
@@ -21,6 +28,5 @@ class Product:
 
         if changed:
             self.last_price = new_price
-            return result
         return result
 
