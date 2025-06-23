@@ -4,7 +4,7 @@ from core.models.product import Product
 
 class IProductParser(ABC):
     @abstractmethod
-    def parse(self, url: str) -> 'Product':
+    async def parse(self, url: str) -> 'Product':
         pass
 
     @abstractmethod
