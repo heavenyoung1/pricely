@@ -18,6 +18,14 @@ class ProductTracker:
         self.parser_factory = parser_factory
 
     def track_product(self, user: User, url: str) -> None:
-        existing_product = self.product_repo.find_by_url(url)
+        being_product = self.product_repo.find_by_url(url)
+        if being_product:
+            user.follow(being_product)
+            self.user_repo.save(user)
+            self.notifier.notify(user, f'Вы, {user.telegram_id}, подписаны на товар {being_product.na}')
+            return
         
+        # Парсим товар
+        parser = self.parser_factory.get
+
 

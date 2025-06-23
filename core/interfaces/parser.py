@@ -7,6 +7,10 @@ class IProductParser(ABC):
     def parse(self, url: str) -> 'Product':
         pass
 
+    @abstractmethod
+    def get_marketplace(self) -> None:
+        pass
+
 class IProductParserFactory(ABC):
     @abstractmethod
     def get_parser(self, url: str) -> IProductParser:
