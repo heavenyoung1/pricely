@@ -5,7 +5,7 @@ from core.models.product import Product
 
 class IProductRepo(ABC):
     @abstractmethod
-    async def save(self, product) -> None:
+    async def save(self, product: 'Product') -> None:
         pass
 
     @abstractmethod

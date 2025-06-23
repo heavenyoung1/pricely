@@ -5,7 +5,7 @@ from core.models.user import User
 
 class IUserRepo(ABC):
     @abstractmethod
-    async def save(self, user) -> None:
+    async def save(self, user: 'User') -> None:
         pass
 
     @abstractmethod
@@ -13,5 +13,5 @@ class IUserRepo(ABC):
         pass
     
     @abstractmethod
-    async def find_all(self) -> Optional[List['User']]:
+    async def find_all(self) -> List['User']:
         pass
