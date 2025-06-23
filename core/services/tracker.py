@@ -27,7 +27,7 @@ class ProductTracker:
         self.price_repo = price_repo
 
     def track_product(self, user: User, url: str) -> None:
-        """ Добавляет товар на отслеживание для пользователя """
+        ''' Добавляет товар на отслеживание для пользователя '''
         try:
             # Проверяем, существует ли уже товар
             being_product = self.product_repo.find_by_url(url)
@@ -63,7 +63,7 @@ class ProductTracker:
             raise RuntimeError(error_msg)
 
     async def check_price(self) -> None:
-        """ Проверяет цены всех отслеживаемых товаров """
+        ''' Проверяет цены всех отслеживаемых товаров '''
         try:
             products = await self.product_repo.find_all()
             for product in products:
@@ -90,5 +90,19 @@ class ProductTracker:
 
 
     async def notify_users(self, product: Product, price_change: Dict) -> None:
-        """  """
-        users = await self.user_repo.fin
+        '''  '''
+        try:
+            users = await self.user_repo.find_all() 
+            for user in users:
+                if product in user.follow:
+                    message = (
+                        f'Цена на товар '{product.name}' изменилась!\n'
+                        f'Старая цена: {price_change['old_price']} ₽\n'
+                        f'Новая цена: {price_change['new_price']} ₽\n'
+                        f'Ссылка: {product.url}'
+                    ) 
+                    await self.notifier.notify(user, message)
+        except Exception as e:
+            logger.error(f'Ошибка при уведомлении пользователей: {str(e)}')
+            raise RuntimeError(f'Ошибка при уведомлении: {str(e)}')
+
