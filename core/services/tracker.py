@@ -93,7 +93,7 @@ class ProductTracker:
 
 
     async def notify_users(self, product: Product, price_change: Dict) -> None:
-        '''  '''
+        ''' Уведомляет подписанных пользователей об изменении цены '''
         try:
             users = await self.user_repo.find_all() 
             for user in users:
