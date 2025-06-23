@@ -6,7 +6,7 @@ class Product:
     name: str
     url: str
     marketplace: str # Оптимизировать
-    lastPrice: int
-    imageUrl: str # Опциональоно
+    last_price: int
+    image_url: str # Опциональоно
 
 
