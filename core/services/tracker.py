@@ -30,7 +30,7 @@ class ProductTracker:
             if being_product:
                 user.follow(being_product)
                 self.user_repo.save(user)
-                self.notifier.notify(user, f'Вы, {user.telegram_id}, подписаны на товар {being_product.na}')
+                self.notifier.notify(user, f'Вы, {user.telegram_id}, подписаны на товар {being_product.name}')
                 return
             
             # Парсим товар
