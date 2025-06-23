@@ -3,6 +3,7 @@ from core.interfaces.parser import IProductParserFactory
 from core.interfaces.product import IProductRepo
 from core.interfaces.user import IUserRepo
 from core.models.user import User
+from core.models.product import Product
 
 class ProductTracker:
     def __init__(
@@ -26,6 +27,20 @@ class ProductTracker:
             return
         
         # Парсим товар
-        parser = self.parser_factory.get
+        parser = self.parser_factory.get_parser(url)
+        product_info = parser.parse(url)
+
+        # Создаём новый товар
+        product = Product(
+            id=product_info.id, #Далее переопределить метод для парсинга ID товара
+            name=product_info.name,
+            url=product_info.url,
+            marketplace=parser.get_marketplace(),
+            last_price=product_info.last_price,
+            image_url=product_info.image_url,
+        )
+
+        
+
 
 
