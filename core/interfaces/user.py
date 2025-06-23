@@ -13,5 +13,5 @@ class IUserRepo(ABC):
         pass
     
     @abstractmethod
-    async def find_all(self) -> List['User']:
+    async def find_by_product_id(self, product_id: str) -> List['User']:
         pass

@@ -99,11 +99,11 @@ class ProductTracker:
             for user in users:
                 if product in user.subscribe:
                     message = (
-                        f'Цена на товар '{product.name}' изменилась!\n'
-                        f'Старая цена: {price_change['old_price']} ₽\n'
-                        f'Новая цена: {price_change['new_price']} ₽\n'
-                        f'Ссылка: {product.url}'
-                    ) 
+                        f"Цена на товар '{product.name}' изменилась!\n"
+                        f"Старая цена: {price_change['old_price']} ₽\n"
+                        f"Новая цена: {price_change['new_price']} ₽\n"
+                        f"Ссылка: {product.url}"
+                    )
                     await self.notifier.notify(user, message)
         except Exception as e:
             logger.error(f'Ошибка при уведомлении пользователей: {str(e)}')
