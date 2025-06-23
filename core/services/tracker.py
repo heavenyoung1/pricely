@@ -26,20 +26,20 @@ class ProductTracker:
         self.parser_factory = parser_factory
         self.price_repo = price_repo
 
-    def track_product(self, user: User, url: str) -> None:
+    async def track_product(self, user: User, url: str) -> None:
         ''' Добавляет товар на отслеживание для пользователя '''
         try:
             # Проверяем, существует ли уже товар
             being_product = self.product_repo.find_by_url(url)
             if being_product:
                 user.follow(being_product)
-                self.user_repo.save(user)
-                self.notifier.notify(user, f'Вы, {user.telegram_id}, подписаны на товар {being_product.name}')
+                await self.user_repo.save(user)
+                await self.notifier.notify(user, f'Вы, {user.telegram_id}, подписаны на товар {being_product.name}')
                 return
             
             # Парсим товар
             parser = self.parser_factory.get_parser(url)
-            product_info = parser.parse(url)
+            product_info = await parser.parse(url)
 
             # Создаём новый товар
             product = Product(
@@ -52,14 +52,15 @@ class ProductTracker:
             )
 
             # Сохраняем товар и подписку пользователя
-            self.product_repo.save(product)
+            await self.product_repo.save(product)
             user.follow(product)
-            self.user_repo.save(product)
+            await self.user_repo.save(product)
 
             # Уведомляем пользователя о подписке
-            self.notifier.notify(user, f'Добавлен товар для отслеживания f{product.name}')
+            await self.notifier.notify(user, f'Добавлен товар для отслеживания f{product.name}')
         except Exception as e:
             error_msg = f'Ошибка при добавлении товара {product.name}'
+            await self.notifier.notify(user, error_msg)
             raise RuntimeError(error_msg)
 
     async def check_price(self) -> None:
