@@ -84,6 +84,7 @@ class ProductTracker:
                             timestamp=datetime.now()
                         )
                         await self.price_repo.save(price)
+                        await self.notify_users(product, price_change)
                 except Exception as e:
                     logger.error(f'Ошибка при парсинге {product.url}: {str(e)}')
         except Exception as e:
