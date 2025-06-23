@@ -8,7 +8,7 @@ class IProductParser(ABC):
         pass
 
     @abstractmethod
-    def get_marketplace(self) -> None:
+    def get_marketplace(self) -> str:
         pass
 
 class IProductParserFactory(ABC):
