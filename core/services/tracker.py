@@ -67,7 +67,7 @@ class ProductTracker:
     async def check_price(self) -> None:
         ''' Проверяет цены всех отслеживаемых товаров '''
         try:
-            products = await self.product_repo.find_all()
+            products = await self.product_repo.find_by_product_id(product_info.id)
             for product in products:
                 parser = self.parser_factory.get_parser(product.url)
                 try:
@@ -95,7 +95,7 @@ class ProductTracker:
     async def notify_users(self, product: Product, price_change: Dict) -> None:
         ''' Уведомляет подписанных пользователей об изменении цены '''
         try:
-            users = await self.user_repo.find_all() 
+            users = await self.user_repo.find_by_product_id(product.id) 
             for user in users:
                 if product in user.subscribe:
                     message = (
