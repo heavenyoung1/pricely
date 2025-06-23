@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Optional
 
+from core.models.user import User
+
 class IUserRepo(ABC):
     @abstractmethod
     async def save(self, user) -> None:
