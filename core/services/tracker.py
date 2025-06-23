@@ -60,6 +60,7 @@ class ProductTracker:
             await self.notifier.notify(user, f'Добавлен товар для отслеживания f{product.name}')
         except Exception as e:
             error_msg = f'Ошибка при добавлении товара {product.name}'
+            logger.error(error_msg)
             await self.notifier.notify(user, error_msg)
             raise RuntimeError(error_msg)
 
