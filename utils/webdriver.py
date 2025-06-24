@@ -21,4 +21,6 @@ def init_driver():
     
     return driver
 
+
 driver = init_driver()
+
