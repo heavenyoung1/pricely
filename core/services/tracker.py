@@ -39,28 +39,15 @@ class ProductTracker:
                 return
             
             # Парсим и создаём товар
-            parser = self.parser_factory.get_parser(url)
-            product_info = await parser.parse(url)
-
-            # Создаём новый товар
-            product = Product(
-                id=product_info.id, #Далее переопределить метод для парсинга ID товара
-                name=product_info.name,
-                url=product_info.url,
-                marketplace=parser.get_marketplace(),
-                last_price=product_info.last_price,
-                image_url=product_info.image_url,
-            )
-
-            # Сохраняем товар и подписку пользователя
+            product = await self.parse_product(url)
             await self.product_repo.save(product)
+
             user.subscribe(product)
             await self.user_repo.save(user)
+            await self.notifier.notify(user, f'Добавлен товар для отслеживания: {product.name}')
 
-            # Уведомляем пользователя о подписке
-            await self.notifier.notify(user, f'Добавлен товар для отслеживания {product.name}')
         except Exception as e:
-            error_msg = f'Ошибка при добавлении товара {product.name}'
+            error_msg = f"Ошибка при добавлении товара: {str(e)}"
             logger.error(error_msg)
             await self.notifier.notify(user, error_msg)
             raise RuntimeError(error_msg)
