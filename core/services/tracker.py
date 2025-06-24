@@ -67,7 +67,7 @@ class ProductTracker:
     async def check_price(self) -> None:
         ''' Проверяет цены всех отслеживаемых товаров '''
         try:
-            products = await self.product_repo.find_by_product_id(product_info.id)
+            products = await self.product_repo.find_all()
             for product in products:
                 parser = self.parser_factory.get_parser(product.url)
                 try:
