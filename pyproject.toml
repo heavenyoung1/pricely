@@ -6,4 +6,6 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "pytest>=8.4.0",
+    "selenium>=4.33.0",
+    "selenium-wire>=5.1.0",
 ]
