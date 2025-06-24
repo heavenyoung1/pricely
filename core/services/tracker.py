@@ -54,7 +54,7 @@ class ProductTracker:
             # Сохраняем товар и подписку пользователя
             await self.product_repo.save(product)
             user.subscribe(product)
-            await self.user_repo.save(product)
+            await self.user_repo.save(user)
 
             # Уведомляем пользователя о подписке
             await self.notifier.notify(user, f'Добавлен товар для отслеживания {product.name}')
