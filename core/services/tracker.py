@@ -30,15 +30,15 @@ class ProductTracker:
     async def track_product(self, user: User, url: str) -> None:
         ''' Добавляет товар на отслеживание для пользователя '''
         try:
-            # Проверяем, существует ли уже товар
+            # Проверяем, существует ли такой товар
             being_product = await self.product_repo.find_by_url(url)
             if being_product:
                 user.subscribe(being_product)
                 await self.user_repo.save(user)
-                await self.notifier.notify(user, f'Вы, {user.telegram_id}, подписаны на товар {being_product.name}')
+                await self.notifier.notify(user, f'Вы, подписаны на товар {being_product.name}')
                 return
             
-            # Парсим товар
+            # Парсим и создаём товар
             parser = self.parser_factory.get_parser(url)
             product_info = await parser.parse(url)
 
