@@ -2,7 +2,7 @@ from functools import wraps
 from utils.logger import logger
 
 class BaseParser:
-    def __init__(self, driver:):
+    def __init__(self, driver):
         self.driver = driver
         self.timeout = 10
     
