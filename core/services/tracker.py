@@ -30,7 +30,7 @@ class ProductTracker:
         ''' Добавляет товар на отслеживание для пользователя '''
         try:
             # Проверяем, существует ли уже товар
-            being_product = self.product_repo.find_by_url(url)
+            being_product = await self.product_repo.find_by_url(url)
             if being_product:
                 user.subscribe(being_product)
                 await self.user_repo.save(user)
@@ -57,7 +57,7 @@ class ProductTracker:
             await self.user_repo.save(product)
 
             # Уведомляем пользователя о подписке
-            await self.notifier.notify(user, f'Добавлен товар для отслеживания f{product.name}')
+            await self.notifier.notify(user, f'Добавлен товар для отслеживания {product.name}')
         except Exception as e:
             error_msg = f'Ошибка при добавлении товара {product.name}'
             logger.error(error_msg)
