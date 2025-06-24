@@ -1,38 +1,40 @@
-from datetime import datetime
-from typing import Dict
+from utils.webdriver import init_driver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-from core.interfaces.notifier import INotifier
-from core.interfaces.parser import IProductParserFactory
-from core.interfaces.product import IProductRepo
-from core.interfaces.user import IUserRepo
-from core.interfaces.price import IPriceRepo
-from core.models.user import User
-from core.models.product import Product
-from core.models.price import Price
-from utils.logger import logger
+base_driver = init_driver()
+url = 'https://www.ozon.ru/product/lanch-boks-850-ml-konteyner-dlya-hraneniya-edy-s-otdeleniyami-i-priborami-1549274404/'
+base_driver.get(url)
 
-class ProductTracker:
-    def __init__(
-            self, 
-            user_repo: IUserRepo,
-            product_repo: IProductRepo,
-            notifier: INotifier,
-            parser_factory: IProductParserFactory,
-            price_repo: IPriceRepo,
-            ):
-        self.user_repo = user_repo
-        self.product_repo = product_repo
-        self.notifier = notifier
-        self.parser_factory = parser_factory
-        self.price_repo = price_repo
+name = WebDriverWait(base_driver, 10).until(
+    EC.presence_of_element_located((By.CSS_SELECTOR, '.mp9_27.tsHeadline550Medium'))
+).text
 
-    async def track_product(self, user, url):
-        # 1. Проверка: есть ли товар в базе
-        being_product = self.product_repo.find_by_url(url)
+price_obj = WebDriverWait(base_driver, 10).until(
+    EC.presence_of_element_located((By.CSS_SELECTOR, '.m8o_27.om6_27'))
+).text
+price = price_obj.split()[0].strip()
 
-        if being_product:
-            user.subscribe(being_product)
-            self.user_repo.save(user) #ЗАЧЕМ НАМ ТАБЛИЦА С ПОЛЬЗОВАТЕЛЯМИ, НУ ОК?
-            self.notifier.notify(user, f'Вы подписались на товар')
+articule_obj = WebDriverWait(base_driver, 10).until(
+    EC.presence_of_element_located((By.XPATH, "//div[contains(text(), 'Артикул')]"))
+).text
+articule = articule_obj.split()[-1].strip()
 
-        parser = self.parser_factory.
+image = WebDriverWait(base_driver, 10).until(
+    EC.presence_of_element_located((By.CSS_SELECTOR, 'img[elementtiming^="lcp_eltiming_webGallery"]'))
+)
+score_obj = WebDriverWait(base_driver, 10).until(
+    EC.presence_of_element_located((By.XPATH, "//div[contains(text(), 'отзыв')]"))
+).text
+rating = score_obj.split('•')[0].strip()
+
+print('-----------')
+print(url)
+print("Название:", name)
+print("Артикул:", articule)
+print("Цена:", price)
+print("Рейтинг:", rating)
+print("Изображение:", image.get_attribute("src"))
+print('-----------')
+
