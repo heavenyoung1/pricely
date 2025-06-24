@@ -110,3 +110,15 @@ class ProductTracker:
             logger.error(f'Ошибка при уведомлении пользователей: {str(e)}')
             raise RuntimeError(f'Ошибка при уведомлении: {str(e)}')
 
+    async def parse_product(self, url: str) -> Product:
+        ''' '''
+        parser = self.parser_factory.get_parser(url)
+        product_info = await parser.parse(url)
+        return Product(
+            id=product_info.id,
+            name=product_info.name,
+            url=product_info.url,
+            marketplace=parser.get_marketplace(),
+            last_price=product_info.last_price,
+            image_url=product_info.image_url
+        )
