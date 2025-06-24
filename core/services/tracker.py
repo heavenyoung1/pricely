@@ -1,5 +1,6 @@
 from datetime import datetime
 from typing import Dict
+from uuid import uuid4
 
 from core.interfaces.notifier import INotifier
 from core.interfaces.parser import IProductParserFactory
@@ -78,9 +79,9 @@ class ProductTracker:
 
                         # Сохраняем историю цены
                         price = Price(
-                            id='1',
+                            id=str(uuid4()),
                             product_id=product.id,
-                            price=product.last_price,
+                            price=price_change['new_price'],
                             timestamp=datetime.now()
                         )
                         await self.price_repo.save(price)
