@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "bs4>=0.0.2",
+    "cloudscraper>=1.2.71",
     "pytest>=8.4.0",
     "requests>=2.32.4",
     "selenium>=4.33.0",
