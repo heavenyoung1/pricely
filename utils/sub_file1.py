@@ -3,7 +3,8 @@ from selenium.webdriver.chrome.options import Options
 import time
 import json
 
-def get_fresh_cookies_and_headers(url):
+def get_fresh_session_data(url):
+    """Запускает headless браузер, загружает страницу и возвращает актуальные cookies и заголовки"""
     options = Options()
     options.add_argument('--headless')
     options.add_argument('-disable-gpu')
@@ -12,25 +13,30 @@ def get_fresh_cookies_and_headers(url):
     driver = webdriver.Chrome(options=options)
     driver.get(url)
 
-    time.sleep(5)    # Дать странице полностью загрузиться, можно заменить на явное ожидание
+    try:
+        time.sleep(5) # Как будто дичайший костыль?? Переделать под движок типа кода ниже
 
-    cookies = driver.get_cookies()
+        # Явное ожидание загрузки страницы (можно настроить под нужный элемент)
+        # WebDriverWait(driver, 10).until(
+        #     EC.presence_of_element_located((By.TAG_NAME, 'body'))
+        # )
 
-    cookie_dict = {}
-    for cookie in cookies:
-        #cookie_dict[cookie.name] = cookie.value # Какой из двух вариантов лучшк и какой работает??
-        cookie_dict[cookie['name']] = cookie['value']
+        cookies = {cookie['name']: cookie['value'] for cookie in driver.get_cookies()}
+        user_agent = driver.execute_script('return navigator.userAgent')
 
-    headers = {
-        'user-agent': driver.execute_script('return navigator.userAgent')
-    }
+        session_data = {
+            "cookies": cookies,
+            "headers": {
+                "user-agent": user_agent
+            }
+        }
 
-    driver.quit()
+        return session_data
 
-    return cookie_dict, headers
+    finally:    
+        driver.quit()
 
 if __name__ == "__main__":
     target_url = "https://www.ozon.ru/"
-    cookies, headers = get_fresh_cookies_and_headers(target_url)
-
-    print(json.dumps({"cookies": cookies, "headers": headers}, indent=2, ensure_ascii=False))
+    session_data = get_fresh_session_data(target_url)
+    print(json.dumps(session_data, indent=2, ensure_ascii=False))
