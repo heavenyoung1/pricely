@@ -18,11 +18,11 @@ def get_fresh_cookies_and_headers(url):
 
     cookie_dict = {}
     for cookie in cookies:
-        cookie_dict[cookie.name] = cookie.value # Какой из двух вариантов лучшк и какой работает??
+        #cookie_dict[cookie.name] = cookie.value # Какой из двух вариантов лучшк и какой работает??
         cookie_dict[cookie['name']] = cookie['value']
 
     headers = {
-        'user-agent': driver.execute_script['return navigator.userAgent']
+        'user-agent': driver.execute_script('return navigator.userAgent')
     }
 
     driver.quit()
