@@ -24,14 +24,17 @@ def get_fresh_session_data(url):
         cookies = {cookie['name']: cookie['value'] for cookie in driver.get_cookies()}
         user_agent = driver.execute_script('return navigator.userAgent')
 
-        session_data = {
-            "cookies": cookies,
-            "headers": {
-                "user-agent": user_agent
-            }
+        headers = {
+            'user-agent': user_agent,
+            'accept': 'application/json',
+            'accept-language': 'en-US,en;q=0.9',
+            'content-type': 'application/json'
         }
 
-        return session_data
+        return {
+            'cookies': cookies,
+            'headers': headers
+        }
 
     finally:    
         driver.quit()
