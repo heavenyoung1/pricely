@@ -46,8 +46,6 @@ class OzonParserUseCase:
     def execute_articule(self) -> str:
         """Извлекает артикул с указанной страницы, проверяя наличие текста 'Артикул:'."""
         try:
-            self.session.navigate(self.url)
-            # Ждем, пока элемент с артикулом станет видимым
             elements = WebDriverWait(self.session.driver, 10).until(
                 EC.presence_of_all_elements_located((By.XPATH, "//div[contains(@class, 'ga5_3_1-a2') and contains(@class, 'tsBodyControl400Small')]"))
             )
@@ -57,7 +55,7 @@ class OzonParserUseCase:
                     articule = text.replace("Артикул: ", "").strip()
                     logger.info(f"Найден артикул: {articule}")
                     return articule
-            logger.warning("Элемент с 'Артикул:' не найден")
+            logger.error("Элемент с 'Артикул:' не найден")
             return "N/A"
         except Exception as e:
             logger.error(f"Ошибка при извлечении артикула: {e}")
@@ -66,7 +64,6 @@ class OzonParserUseCase:
     def execute_name_of_product(self) -> str:
         """Извлекает название товара с указанной страницы."""
         try:
-            self.session.navigate(self.url)
             name_element = WebDriverWait(self.session.driver, 10).until(
                 EC.visibility_of_element_located((By.XPATH, "//div[@data-widget='webProductHeading']//h1"))
             )
@@ -80,7 +77,6 @@ class OzonParserUseCase:
     def execute_rating(self) -> float:
         """Извлекает рейтинг товара с указанной страницы."""
         try:
-            self.session.navigate(self.url)
             rating_element = WebDriverWait(self.session.driver, 10).until(
                 EC.visibility_of_element_located((By.XPATH, "//div[contains(@class, 'ga5_3_1-a2') and contains(@class, 'tsBodyControl500Medium')]"))
             )
@@ -95,7 +91,6 @@ class OzonParserUseCase:
     def execute_price_with_card(self) -> int:
         """Извлекает цену с картой с указанной страницы."""
         try:
-            self.session.navigate(self.url)
             price_element = WebDriverWait(self.session.driver, 10).until(
                 EC.visibility_of_element_located((By.XPATH, "//span[contains(@class, 'ky3_27') and contains(@class, 'k1y_27')]"))
             )
@@ -110,7 +105,6 @@ class OzonParserUseCase:
     def execute_price_without_card(self) -> int:
         """Извлекает цену без карты с указанной страницы."""
         try:
-            self.session.navigate(self.url)
             price_element = WebDriverWait(self.session.driver, 10).until(
                 EC.visibility_of_element_located((By.XPATH, "//span[contains(@class, 'y7k_27') and contains(@class, 'ky8_27') and contains(@class, 'k1z_27')]"))
             )
@@ -125,7 +119,6 @@ class OzonParserUseCase:
     def execute_price_default(self) -> int:
         """Извлекает базовую цену с указанной страницы."""
         try:
-            self.session.navigate(self.url)
             price_element = WebDriverWait(self.session.driver, 10).until(
                 EC.visibility_of_element_located((By.XPATH, "//span[contains(@class, 'k7y_27') and contains(@class, 'k8y_27') and contains(@class, 'k6y_27') and contains(@class, 'yk7_27')]"))
             )
@@ -140,7 +133,6 @@ class OzonParserUseCase:
     def execute_image_url(self) -> str:
         """Извлекает URL изображения товара с указанной страницы."""
         try:
-            self.session.navigate(self.url)
             image_container = WebDriverWait(self.session.driver, 10).until(
                 EC.visibility_of_element_located((By.XPATH, "//div[contains(@class, 'jk2_27') and contains(@class, 'j2k_27')]"))
             )
@@ -154,7 +146,6 @@ class OzonParserUseCase:
     def execute_category_product(self) -> List[str]:
         """Извлекает категории товара с указанной страницы из списка ol/li."""
         try:
-            self.session.navigate(self.url)
             # Ждем, пока список ol станет видимым
             ol_element = WebDriverWait(self.session.driver, 10).until(
                 EC.visibility_of_element_located((By.XPATH, "//ol[contains(@class, 'e0d_11') and contains(@class, 'tsBodyControl400Small')]"))
