@@ -80,7 +80,9 @@ class SessionEngine:
 
     def get_cookies(self) -> List[Dict]:
         """Возвращает текущие куки браузера"""
+        logger.info(self.driver.get_cookies())
         return self.driver.get_cookies()
+    
     
     def get_headers(self) -> Dict[str, str]:
         return {
@@ -99,5 +101,17 @@ class SessionEngine:
         except Exception as e:
             logger.error(f'Ошибка перехода на {url}. Ошибка {e}')
             raise
+
+    def refresh_session(self, url: str = None) -> None:
+        """Обновляет сессию, очищая куки и переходя на URL (если указан)"""
+        try:
+            self.driver.delete_all_cookies()
+            logger.info("Куки очищены")
+            if url:
+                self.navigate(url)
+        except Exception as e:
+            logger.error(f"Ошибка при обновлении сессии: {e}")
+            raise     
+
 
 
