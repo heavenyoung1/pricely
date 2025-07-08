@@ -2,7 +2,6 @@ from domain.entities.product import Product
 from adapters.session_engine import SessionEngine
 from utils.logger import logger
 
-
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
