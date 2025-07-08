@@ -60,7 +60,7 @@ class SessionEngine:
 
             self.driver = webdriver.Chrome(options=options)
             self._apply_stealth_settings()
-            logger.info("WebDriver успешно инициализирован.")
+            logger.info("WebDriver успешно инициализирован")
         except Exception as e:
             logger.error(f"Ошибка при инициализации WebDriver: {e}")
             raise
@@ -112,6 +112,17 @@ class SessionEngine:
         except Exception as e:
             logger.error(f"Ошибка при обновлении сессии: {e}")
             raise     
+    
+    def close(self) -> None:
+        if self.driver:
+            self.driver.quit()
+            self.driver = None
+            logger.info("WebDriver закрыт")
 
+    def __enter__(self):
+        """Поддержка контекстного менеджера"""
+        return self
 
-
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """Закрытие при выходе из контекстного менеджера"""
+        self.close()
