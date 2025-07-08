@@ -77,3 +77,27 @@ class SessionEngine:
             fix_hairline=True,
             user_agent=self.user_agent,
         )
+
+    def get_cookies(self) -> List[Dict]:
+        """Возвращает текущие куки браузера"""
+        return self.driver.get_cookies()
+    
+    def get_headers(self) -> Dict[str, str]:
+        return {
+            "User-Agent": self.user_agent,
+            "Accept-Language": "en-US,en;q=0.9",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Connection": "keep-alive",
+        }
+    
+    def navigate(self, url: str, wait_after: int = 10) -> None:
+        """Переходит по указанному URL и ожидает загрузки"""
+        try:
+            self.driver.get(url)
+            time.sleep(wait_after) # Ожидание для загрузки контента
+            logger.info(f'Вы успешно перешли на {url}')
+        except Exception as e:
+            logger.error(f'Ошибка перехода на {url}. Ошибка {e}')
+            raise
+
+
