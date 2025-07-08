@@ -82,7 +82,8 @@ class SessionEngine:
     def find_element(self, by: str, value: str) -> WebElement:
         """Поиск одного элемента на странице"""
         try:    
-            return self.driver.find_element(by=By.__getattribute__(by), value=value)
+            element = self.driver.find_element(by=By.__getattribute__(by), value=value)
+            return element
         except Exception as e:
             logger.error(f"Ошибка при поиске элементов: {e}")
             return 

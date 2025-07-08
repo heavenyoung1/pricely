@@ -25,3 +25,17 @@ class OzonParserUseCase:
     def execute(self) -> list[Product]:
         """Выполняет парсинг товаров с Ozon с использованием XPath"""
         return None
+
+
+# Тестирование функции
+if __name__ == "__main__":
+    # Создаем экземпляр SessionEngine
+    session = SessionEngine()
+    # Создаем экземпляр OzonParserUseCase с session и url
+    ozon = OzonParserUseCase(session, 'https://www.ozon.ru/product/shorty-meet-aida-belyy-1550627699/')
+    # Вызываем метод
+    name = ozon.execute_name_of_product()
+    print(f"Название товара: {name}")
+
+    # Закрываем сессию
+    session.close()
