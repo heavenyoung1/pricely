@@ -147,12 +147,16 @@ class OzonParserUseCase:
             return "N/A"
 
     def execute_category_product(self) -> List[str]:
-        """Извлекает категории товара с указанной страницы."""
+        """Извлекает категории товара с указанной страницы из списка ol/li."""
         try:
             self.session.navigate(self.url)
-            # Предположим, что категории находятся в элементах с классом (нужен реальный XPath)
-            category_elements = self.session.find_elements(by="xpath", value="//div[contains(@class, 'breadcrumbs')]//a")
-            categories = [self._extract_text(elem) for elem in category_elements if self._extract_text(elem)]
+            # Ждем, пока список ol станет видимым
+            ol_element = WebDriverWait(self.session.driver, 10).until(
+                EC.visibility_of_element_located((By.XPATH, "//ol[contains(@class, 'breadcrumbs')]"))
+            )
+            # Находим все li внутри ol
+            category_elements = ol_element.find_elements(by="xpath", value=".//li")
+            categories = [self._extract_text(elem.find_element(by="tag name", value="a")) for elem in category_elements if elem.find_element(by="tag name", value="a")]
             logger.info(f"Найдены категории: {categories}")
             return categories if categories else []
         except Exception as e:
