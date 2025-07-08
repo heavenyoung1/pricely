@@ -14,7 +14,7 @@ class CustomLogger:
     
     def _initialize_logger(self):
         """Инициализирует конфигурацию логгера."""
-        self.logger = logging.getLogger("AuthServiceLogger")
+        self.logger = logging.getLogger("LOGGER")
         self.logger.setLevel(logging.DEBUG)  # Уровень логирования по умолчанию
 
         # Удаляем все существующие обработчики, чтобы избежать дублирования

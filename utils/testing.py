@@ -1,8 +1,11 @@
-from time import sleep
-from engine.driver_factory import init_driver  # Замени на путь к твоей функции
+from engine.session_engine import SessionEngine
+import time
 
-driver = init_driver()
-driver.get("https://www.ozon.ru/")
-sleep(5)
-print(driver.title)
-driver.quit()
+with SessionEngine() as session:
+    session.navigate("https://www.ozon.ru/")
+    print("Cookies:", session.get_cookies())
+    print("Headers:", session.get_headers())
+    time.sleep(5)
+    print("Title:", session.driver.title)
+    session.refresh_session("https://www.ozon.ru/")  # Обновляем сессию
+    print("New Cookies:", session.get_cookies())
