@@ -44,16 +44,21 @@ class OzonParserUseCase:
         return "N/A"
 
     def execute_articule(self) -> str:
-        """Извлекает артикул с указанной страницы."""
+        """Извлекает артикул с указанной страницы, проверяя наличие текста 'Артикул:'."""
         try:
             self.session.navigate(self.url)
-            articule_element = WebDriverWait(self.session.driver, 10).until(
-                EC.visibility_of_element_located((By.XPATH, "//div[contains(@class, 'ga5_3_1-a2') and contains(@class, 'tsBodyControl400Small')]"))
+            # Ждем, пока элемент с артикулом станет видимым
+            elements = WebDriverWait(self.session.driver, 10).until(
+                EC.presence_of_all_elements_located((By.XPATH, "//div[contains(@class, 'ga5_3_1-a2') and contains(@class, 'tsBodyControl400Small')]"))
             )
-            articule_text = self._extract_text(articule_element)
-            articule = articule_text.replace("Артикул: ", "").strip() if articule_text else "N/A"
-            logger.info(f"Найден артикул: {articule}")
-            return articule
+            for element in elements:
+                text = self._extract_text(element)
+                if "Артикул:" in text:
+                    articule = text.replace("Артикул: ", "").strip()
+                    logger.info(f"Найден артикул: {articule}")
+                    return articule
+            logger.warning("Элемент с 'Артикул:' не найден")
+            return "N/A"
         except Exception as e:
             logger.error(f"Ошибка при извлечении артикула: {e}")
             return "N/A"
@@ -152,13 +157,65 @@ class OzonParserUseCase:
             self.session.navigate(self.url)
             # Ждем, пока список ol станет видимым
             ol_element = WebDriverWait(self.session.driver, 10).until(
-                EC.visibility_of_element_located((By.XPATH, "//ol[contains(@class, 'breadcrumbs')]"))
+                EC.visibility_of_element_located((By.XPATH, "//ol[contains(@class, 'e0d_11') and contains(@class, 'tsBodyControl400Small')]"))
             )
             # Находим все li внутри ol
             category_elements = ol_element.find_elements(by="xpath", value=".//li")
-            categories = [self._extract_text(elem.find_element(by="tag name", value="a")) for elem in category_elements if elem.find_element(by="tag name", value="a")]
+            categories = []
+            for elem in category_elements:
+                # Извлекаем текст из <span> внутри <a>
+                span_element = elem.find_element(by="xpath", value=".//span")
+                category_text = self._extract_text(span_element)
+                if category_text:
+                    categories.append(category_text)
             logger.info(f"Найдены категории: {categories}")
             return categories if categories else []
         except Exception as e:
             logger.error(f"Ошибка при извлечении категорий: {e}")
             return []
+        
+    def execute(self) -> Product:
+            """Выполняет полный парсинг товара с указанной страницы."""
+            try:
+                self.session.navigate(self.url)
+                id = self.execute_articule()
+                name = self.execute_name_of_product()
+                rating = self.execute_rating()
+                price_with_card = self.execute_price_with_card()
+                price_without_card = self.execute_price_without_card()
+                price_default = self.execute_price_default()
+                discount_amount = self._extract_discount_amount(price_with_card, price_without_card)
+                link = self.url
+                url_image = self.execute_image_url()
+                category_product = self.execute_category_product()
+
+                product = Product(
+                    id=id,
+                    name=name,
+                    rating=rating,
+                    price_with_card=price_with_card,
+                    price_without_card=price_without_card,
+                    price_default=price_default,
+                    discount_amount=discount_amount,
+                    link=link,
+                    url_image=url_image,
+                    category_product=category_product
+                )
+                logger.info(f"Успешно создан объект Product: {product}")
+                return product
+            except Exception as e:
+                logger.error(f"Ошибка при полном парсинге: {e}")
+                return Product("N/A", "N/A", 0.0, 0, 0, 0, 0.0, self.url, "N/A", [])
+
+# Тестирование функции
+if __name__ == "__main__":
+    # Создаем экземпляр SessionEngine
+    session = SessionEngine(headless=True)
+    # Создаем экземпляр OzonParserUseCase с session и url
+    ozon = OzonParserUseCase(session, 'https://www.ozon.ru/product/shorty-meet-aida-belyy-1550627699/')
+    # Вызываем метод
+    product = ozon.execute()
+    print(f"Получен продукт: {product}")
+
+    # Закрываем сессию
+    session.close()
