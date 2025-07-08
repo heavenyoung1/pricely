@@ -5,6 +5,7 @@ from selenium_stealth import stealth
 from utils.logger import logger
 from typing import Dict, List, Optional
 import time
+from selenium.webdriver.remote.webelement import WebElement
 
 
 class SessionEngine:
@@ -77,6 +78,22 @@ class SessionEngine:
             fix_hairline=True,
             user_agent=self.user_agent,
         )
+
+    def find_element(self, by: str, value: str) -> WebElement:
+        """Поиск одного элемента на странице"""
+        try:    
+            return self.driver.find_element(by=By.__getattribute__(by), value=value)
+        except Exception as e:
+            logger.error(f"Ошибка при поиске элементов: {e}")
+            return 
+        
+    def find_elements(self, by: str, value: str) -> List[WebElement]:
+            """Поиск нескольких элементов на странице"""
+            try:
+                return self.driver.find_elements(by=By.__getattribute__(by), value=value)
+            except Exception as e:
+                logger.error(f"Ошибка при поиске элементов: {e}")
+                return []
 
     def get_cookies(self) -> List[Dict]:
         """Возвращает текущие куки браузера"""
