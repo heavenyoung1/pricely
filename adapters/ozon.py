@@ -11,6 +11,7 @@ class OzonParserUseCase:
     def __init__(self, session_engine: SessionEngine, url: str):
         self.session = session_engine
         self.url = url
+        self.wait = WebDriverWait(self.session.driver, 10)
 
     def _extract_text(self, element) -> str:
         """Вспомогательный метод для извлечения текста элемента."""
@@ -28,12 +29,14 @@ class OzonParserUseCase:
             return 0.0
         # Извлекаем число до "•" (например, "4.9" из "4.9 • 5 058 отзывов")
         return float(text.split("•")[0].strip()) if "•" in text else 0.0
-
-    def _extract_discount_amount(self, price_with_card: int, price_without_card: int) -> float:
+    
+    def _calculate_discount(self, price_now, price_old) -> int:
         """Вычисляет сумму скидки на основе цен с и без карты."""
-        if price_without_card > 0 and price_with_card > 0:
-            return price_without_card - price_with_card
-        return 0.0
+        price_now = self.execute_price_without_card()
+        price_old = self.execute_price_default()
+        discount = int(((price_old - price_now) / price_old) * 100) // 1
+        logger.info(f"Размер скидки составляет: {discount}%")
+        return discount
 
     def _extract_image_url(self, element) -> str:
         """Извлекает URL изображения из элемента <img>."""
@@ -174,7 +177,7 @@ class OzonParserUseCase:
                 price_with_card = self.execute_price_with_card()
                 price_without_card = self.execute_price_without_card()
                 price_default = self.execute_price_default()
-                discount_amount = self._extract_discount_amount(price_with_card, price_without_card)
+                discount_amount = self._calculate_discount(price_without_card, price_default)
                 link = self.url
                 url_image = self.execute_image_url()
                 category_product = self.execute_category_product()
