@@ -2,6 +2,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from adapters.session_engine import SessionEngine
+from domain.entities.product import Product
 from utils.logger import logger
 from typing import List
 
@@ -9,6 +10,26 @@ class SeleniumAdapter:
     def __init__(self, session_engine: SessionEngine):
         self.session = session_engine
         self.waiting_driver = WebDriverWait(self.session.driver, 10) # Единый объект для ожидания
+
+    def get_product_data(self, url: str) -> Product:
+            """Извлекает все данные продукта с указанной страницы."""
+            try:
+                self.session.navigate(url)
+                return Product(
+                    id=self.get_articule(),
+                    name=self.get_name(),
+                    rating=self.get_rating(),
+                    price_with_card=self.get_price_with_card(),
+                    price_without_card=self.get_price_without_card(),
+                    price_default=self.get_price_default(),
+                    discount_amount=0.0,  # Вычисляется в use case
+                    link=url,
+                    url_image=self.get_image_url(),
+                    category_product=self.get_categories()
+                )
+            except Exception as e:
+                logger.error(f"Ошибка при извлечении данных продукта: {e}")
+                return Product("N/A", "N/A", 0.0, 0, 0, 0, 0.0, url, "N/A", [])
 
     def _extract_text(self, element) -> str:
         """Вспомогательный метод для извлечения текста элемента"""
