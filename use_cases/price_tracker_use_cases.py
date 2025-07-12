@@ -22,5 +22,22 @@ class PriceTrackerUseCase:
             product = self.repository.get_product_data(url)
             previous_price = self.state_manager.get_previous_price(url)
             current_price = product.price_without_card
+
+            if previous_price > 0 and current_price != previous_price:
+                price_change = current_price - previous_price
+                message = (f'Цена изменена для {product.name}!\n'
+                           f'URL: {url}\n'
+                           f'Предыдущая цена: {previous_price} руб.\n'
+                           f'Текущая цена: {current_price} руб.\n'
+                           f'Изменение: {price_change} руб.')
+                #self._send_telegram_message(message)
+                logger.info(f'Отправлено уведомление об изменении цены: {message}')
+            else:
+                logger.info(f'Цена для {url} не изменилась или это первая проверка')
+
+            # Обновляем сохраненную цену
+            self.state_manager.update_price(url, current_price)
+            product.previous_price_without_card = previous_price # Обновляем для следующей итерации
+
         except Exception as e:
-            logger.error(f"Ошибка при проверке цены для {url}: {e}")
+            logger.error(f'Ошибка при проверке цены для {url}: {e}')
