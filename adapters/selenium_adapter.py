@@ -24,8 +24,8 @@ class SeleniumAdapter:
                 rating=self.get_rating(),
                 price_with_card=self.get_price_with_card(),
                 price_without_card=self.get_price_without_card(),
+                previous_price_without_card=0, # Значение по умолчанию, обновляется в use case
                 price_default=self.get_price_default(),
-                discount_amount=0.0,  # Вычисляется в use case
                 link=url,
                 url_image=self.get_image_url(),
                 category_product=self.get_categories()
@@ -34,7 +34,7 @@ class SeleniumAdapter:
             return product
         except Exception as e:
             logger.error(f"Ошибка при извлечении данных продукта: {e}")
-            return Product("N/A", "N/A", 0.0, 0, 0, 0, 0.0, url, "N/A", [])
+            return Product("N/A", "N/A", 0.0, 0, 0, 0, 0, 0, 0.0, url, "N/A", [])
 
     def _extract_text(self, element) -> str:
         """Вспомогательный метод для извлечения текста элемента."""

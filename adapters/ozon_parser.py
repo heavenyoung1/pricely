@@ -30,6 +30,7 @@ class OzonParserUseCase:
                 rating=product_data.rating,
                 price_with_card=product_data.price_with_card,
                 price_without_card=product_data.price_without_card,
+                previous_price_without_card=product_data.previous_price_without_card,
                 price_default=product_data.price_default,
                 discount_amount=discount_amount,
                 link=url,
