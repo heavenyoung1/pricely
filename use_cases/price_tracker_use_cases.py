@@ -6,6 +6,7 @@ from utils.state_manager import StateManager
 from utils.logger import logger
 import schedule
 import time
+import requests
 
 class PriceTrackerUseCase:
     def __init__(self, repository: ProductRepository, state_manager: StateManager, urls: list, chat_id: str, bot_token: str):
@@ -30,7 +31,7 @@ class PriceTrackerUseCase:
                            f'Предыдущая цена: {previous_price} руб.\n'
                            f'Текущая цена: {current_price} руб.\n'
                            f'Изменение: {price_change} руб.')
-                #self._send_telegram_message(message)
+                self._send_telegram_message(message)
                 logger.info(f'Отправлено уведомление об изменении цены: {message}')
             else:
                 logger.info(f'Цена для {url} не изменилась или это первая проверка')
@@ -41,3 +42,19 @@ class PriceTrackerUseCase:
 
         except Exception as e:
             logger.error(f'Ошибка при проверке цены для {url}: {e}')
+
+    def _send_telegram_message(self, message: str):
+        '''Отправляет сообщение в Telegram'''
+        url = f'https://api.telegram.org/bot{self.bot_token}/sendMessage'
+        payload = {
+            'chat_id': self.chat_id,
+            'text': message
+        }
+        try:
+            response = requests.post(url=url, data=payload)
+            if response.status_code == 200:
+                logger.info(f'Сообщение успешно отправлено в Telegram')
+            else:
+                logger.error(f'Ошибка отправки сообщения в Telegram: {response.text}')
+        except Exception as e:
+            logger.error(f'Ошибка при отправке сообщения в Telegram: {e}')
