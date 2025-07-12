@@ -19,3 +19,11 @@ class StateManager:
             logger.warning('Ошибка декодирования JSON, возвращаем пустой словарь')
             return {}
         
+    def save_states(self):
+        '''Сохраняет состояния цен в файл'''
+        try:
+            with open (self.filename, 'w', encoding='utf-8') as file:
+                json.dump(self.states,f, ensure_ascii=False, indent=4)
+            logger.info(f'Состояния сохранены в {self.filename}')
+        except Exception as e:
+            logger.error(f'Ошибка при сохранении состояний: {e}')
