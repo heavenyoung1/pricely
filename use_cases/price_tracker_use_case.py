@@ -65,6 +65,9 @@ class PriceTrackerUseCase:
         '''Запуск периодической проверки цен'''
         logger.info(f'Запуск отслеживания цен с интервалом {interval_hours} часов')
         for url in self.urls:
+            # Немедленный запуск первой проверки
+            self.check_price_change(url)
+            # Планирование последующих проверок
             schedule.every(interval_hours).hours.do(self.check_price_change, url)
 
         while True:
