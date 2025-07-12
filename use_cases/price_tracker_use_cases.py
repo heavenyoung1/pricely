@@ -8,6 +8,8 @@ import schedule
 import time
 import requests
 
+from config.settings import bot_token, chat_id
+
 class PriceTrackerUseCase:
     def __init__(self, repository: ProductRepository, state_manager: StateManager, urls: list, chat_id: str, bot_token: str):
         self.repository = repository
@@ -59,7 +61,7 @@ class PriceTrackerUseCase:
         except Exception as e:
             logger.error(f'Ошибка при отправке сообщения в Telegram: {e}')
 
-    def start_tracking(self, interval_hours: int = 6):
+    def start_tracking(self, interval_hours: int = 1):
         '''Запуск периодической проверки цен'''
         logger.info('Запуск отслеживания цен с интервалом {interval_hours} часов')
         for url in self.urls:
@@ -67,4 +69,15 @@ class PriceTrackerUseCase:
 
         while True:
             schedule.run_pending()
-            time.sleep(60)                  # Проверка каждую минуту
+            time.sleep(60) # Проверка каждую минуту
+
+# Тестирование
+if __name__ == "__main__":
+    session = SessionEngine(headless=True)
+    selenium_adapter = SeleniumAdapter(session)
+    state_manager = StateManager()
+    urls = ['https://www.ozon.ru/product/shorty-meet-aida-belyy-1550627699/']
+    chat_id = chat_id
+    bot_token = bot_token
+    tracker = PriceTrackerUseCase(selenium_adapter, state_manager, urls, chat_id, bot_token)
+    tracker.start_tracking(1)  # Проверка каждый час
