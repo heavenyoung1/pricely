@@ -27,3 +27,13 @@ class StateManager:
             logger.info(f'Состояния сохранены в {self.filename}')
         except Exception as e:
             logger.error(f'Ошибка при сохранении состояний: {e}')
+
+    def get_previous_price(self, url: str) -> int:
+        '''Получает предыдущую цену по URL'''
+        return self.states.get(url, 0)
+    
+    def update_price(self, url: str, price: int):
+        '''Обновляет цену для URL'''
+        self.states[url] = price
+        self.save_states
+    
