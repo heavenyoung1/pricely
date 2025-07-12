@@ -44,6 +44,7 @@ def init_driver(headless: bool = False, user_agent: str = None, proxy: str = Non
         "--disable-gpu",                                  # Отключает использование GPU
         "--disable-blink-features=AutomationControlled",  # Скрывает признаки автоматизации
         "--start-maximized",                              # Запускает браузер в максимальном размере окна
+        "--log-level=3",                                  # Уровень 3 подавляет большинство сообщений
     ]
 
     if headless:
