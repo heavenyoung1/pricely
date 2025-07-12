@@ -58,3 +58,13 @@ class PriceTrackerUseCase:
                 logger.error(f'Ошибка отправки сообщения в Telegram: {response.text}')
         except Exception as e:
             logger.error(f'Ошибка при отправке сообщения в Telegram: {e}')
+
+    def start_tracking(self, interval_hours: int = 6):
+        '''Запуск периодической проверки цен'''
+        logger.info('Запуск отслеживания цен с интервалом {interval_hours} часов')
+        for url in self.urls:
+            schedule.every(interval_hours).hours.do(self.check_price_change, url)
+
+        while True:
+            schedule.run_pending()
+            time.sleep(60)                  # Проверка каждую минуту
