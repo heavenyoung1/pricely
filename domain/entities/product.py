@@ -3,6 +3,7 @@ from typing import List
 
 @dataclass
 class Product:
+    '''Сущность Product (товар)'''
     id: str  # артикул
     name: str
     rating: float
