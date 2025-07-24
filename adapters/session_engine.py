@@ -22,4 +22,9 @@ class SessionEngine:
         self.driver = driver(headless=headless, user_agent=user_agent, proxy=proxy, wait_time=wait_time)
         self.wait_time = wait_time
         logger.info("SessionEngine инициализирован")
-        
+
+    def open_page(self, url: str) -> None:
+        logger.info(f'Открытие страницы: {url}')
+        self.driver.get(url)
+
+
