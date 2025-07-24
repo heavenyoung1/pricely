@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium_stealth import stealth
 from selenium.webdriver.chrome.options import Options
 
-from config.settings import DEFAULT_USER_AGENT
+from config.settings import settings
 
 def apply_stealth_settings(driver, user_agent: str = None) -> None:
     """
@@ -19,10 +19,13 @@ def apply_stealth_settings(driver, user_agent: str = None) -> None:
         webgl_vendor="Intel Inc.",
         renderer="Intel Iris OpenGL Engine",
         fix_hairline=True,
-        user_agent=user_agent or DEFAULT_USER_AGENT,
+        user_agent=user_agent,
     )
 
-def init_driver(headless: bool = False, user_agent: str = None, proxy: str = None, wait_time: int = 10) -> webdriver.Chrome:
+def init_driver(headless: bool = settings.SELENIUM_HEADLESS, 
+                user_agent: str = settings.DEFAULT_USER_AGENT, 
+                proxy: str = settings.SELENIUM_WAIT_TIME, 
+                wait_time: int = settings.SELENIUM_WAIT_TIME) -> webdriver.Chrome:
     """
     Инициализирует Chrome WebDriver с поддержкой stealth-настроек.
     
