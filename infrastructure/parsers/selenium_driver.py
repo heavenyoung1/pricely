@@ -20,7 +20,7 @@ def apply_stealth_settings(driver, user_agent: str = None) -> None:
         **stealth_settings,
     )
 
-def init_driver(headless: bool = settings.SELENIUM_HEADLESS, 
+def driver(headless: bool = settings.SELENIUM_HEADLESS, 
                 user_agent: str = settings.DEFAULT_USER_AGENT, 
                 proxy: str = settings.SELENIUM_WAIT_TIME, 
                 wait_time: int = settings.SELENIUM_WAIT_TIME) -> webdriver.Chrome:
