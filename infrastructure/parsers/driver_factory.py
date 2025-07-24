@@ -1,12 +1,8 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium_stealth import stealth
+from selenium.webdriver.chrome.options import Options
 
-DEFAULT_USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) " 
-    "Chrome/90.0.4430.212 Safari/537.36 "
-)
+from config.settings import DEFAULT_USER_AGENT
 
 def apply_stealth_settings(driver, user_agent: str = None) -> None:
     """
