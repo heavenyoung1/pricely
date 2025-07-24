@@ -1,6 +1,6 @@
 import logging
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+#from selenium import webdriver
+#from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -27,18 +27,18 @@ class SessionEngine:
         logger.info(f'Открытие страницы: {url}')
         self.driver.get(url)
 
+    def find_element(self, by: str, value: str):
+        '''Ищет элемент на странице'''
+        return WebDriverWait(self.driver, self.wait_time).until(
+            EC.presence_of_element_located((by, value))
+        )
+    
     def close(self) -> None:
        '''Закрывает WebDriver''' 
        if self.driver:
            self.driver.quit()
            self.driver = None
            logger.info('WebDriver закрыт')
-
-    def find_element(self, by: str, value: str):
-        '''Ищет элемент на странице'''
-        return WebDriverWait(self.driver, self.wait_time).until(
-            EC.presence_of_element_located((by, value))
-        )
     
     def __enter__(self):
         """Поддержка контекстного менеджера."""
