@@ -27,4 +27,17 @@ class SessionEngine:
         logger.info(f'Открытие страницы: {url}')
         self.driver.get(url)
 
+    def close(self) -> None:
+       '''Закрывает WebDriver''' 
+       if self.driver:
+           self.driver.quit()
+           self.driver = None
+           logger.info('WebDriver закрыт')
+
+    def find_element(self, by: str, value: str):
+        '''Ищет элемент на странице'''
+        return WebDriverWait(self.driver, self.wait_time).until(
+            EC.presence_of_element_located((by, value))
+        )
+
 
