@@ -3,13 +3,18 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from typing import List, Optional
 
-from  import SessionEngine
+from adapters.selenium_adapter import SessionEngine
 
-class SeleniumBrowser(Browser):
+class SeleniumBrowser():
     """Реализация интерфейса Browser с использованием Selenium."""
     
     def __init__(self, headless: bool = True, user_agent: str = None, proxy: str = None, wait_time: int = 10):
-        self.session = SessionEngine(headless=headless, user_agent=user_agent, proxy=proxy, wait_time=wait_time)
+        self.session = SessionEngine(
+                                    headless=headless, 
+                                    user_agent=user_agent, 
+                                    proxy=proxy, 
+                                    wait_time=wait_time,
+            )
     
     def open_page(self, url: str) -> None:
         self.session.open_page(url)
