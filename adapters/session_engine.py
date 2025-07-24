@@ -39,5 +39,13 @@ class SessionEngine:
         return WebDriverWait(self.driver, self.wait_time).until(
             EC.presence_of_element_located((by, value))
         )
+    
+    def __enter__(self):
+        """Поддержка контекстного менеджера."""
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """Закрытие при выходе из контекстного менеджера."""
+        self.close()
 
 
