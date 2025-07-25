@@ -1,7 +1,6 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import List, Dict, Optional
 
-from utils.logger import logger
 
 class Settings(BaseSettings):
     '''
