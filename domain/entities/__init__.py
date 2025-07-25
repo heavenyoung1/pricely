@@ -1,0 +1,1 @@
+# Entities - основные бизнес-сущности (Product, User, PriceHistory)

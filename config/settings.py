@@ -7,7 +7,8 @@ class Settings(BaseSettings):
     :param headless: Запуск без графического интерфейса
     :param user_agent: Пользовательский user-agent
     :param proxy: Прокси-сервер (http://host:port)
-    :param wait_time: Зарезервировано для будущих фич'''
+    :param wait_time: Зарезервировано для будущих фич
+    '''
     # Telegram Bot Settings
     TELEGRAM_TOKEN: str = "your-telegram-bot-token"
     TELEGRAM_API_URL: str = "https://api.telegram.org"
