@@ -1,7 +1,7 @@
 # 📉 Pricely
 
 # Структура проекта
-
+```
 price_monitor/
 ├── domain/
 │   ├── __init__.py
@@ -36,3 +36,4 @@ price_monitor/
 │   ├── __init__.py
 │   └── settings.py          # Конфигурация
 └── main.py                  # Точка входа
+```
