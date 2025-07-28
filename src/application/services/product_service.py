@@ -24,4 +24,20 @@ class ProductService:
                 url_image: str,
                 category_product: List[str],
                 timestamp: datetime,
-        )
+        ) -> Product:
+            product = Product(
+                id=id,
+                name=name,
+                rating=rating,
+                price_with_card=price_with_card,
+                price_without_card=price_without_card,
+                previous_price_without_card=previous_price_without_card,
+                price_default=price_default,
+                discount_amount=discount_amount,
+                link=link,
+                url_image=url_image,
+                category_product=category_product,
+                timestamp=timestamp,
+            )
+            self.repository.save(product)
+            return product
