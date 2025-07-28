@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from datetime import datetime
 from typing import List
 
 @dataclass
@@ -15,3 +16,4 @@ class Product:
     link: str
     url_image: str
     category_product: List[str]
+    timestamp: datetime
