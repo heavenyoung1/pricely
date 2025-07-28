@@ -11,6 +11,18 @@ from src.interfaces.repositories.product_repository import ProductRepository
 logger = logging.getLogger(__name__)
 
 class ProductService:
+    """
+    Creates a new product with validated data.
+
+    Args:
+        **kwargs: Fields for Product model (id: str, name: str, rating: float, etc.)
+
+    Returns:
+        Product: The created product instance.
+
+    Raises:
+        ValidationError: If the provided data does not match the Product model schema.
+    """
     def __init__(self, repository: ProductRepository):
         self.repository = repository
 
