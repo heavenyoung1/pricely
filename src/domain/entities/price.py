@@ -3,8 +3,8 @@ from typing import List
 from datetime import datetime
 
 @dataclass
-class PriceTag:
-    '''Сущность - Метка Цены'''
+class PriceStamp:
+    '''Сущность - Клейм Цены'''
     ID_stamp: int                       # ID клейма 
     ID_product: str                     # ID продукта 
     time_stamp: datetime                # Время клейма 
