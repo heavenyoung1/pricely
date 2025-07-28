@@ -19,38 +19,8 @@ class ProductService:
         try:
             product = Product(**kwargs)
             self.repository.save(product)
+            logger.info(f'Product created {product.id}')
             return product
         except ValidationError as validate_error:
-            logger.error(f'Error of Validate Error, {validate_error}')
-
-        # def create_product(
-        #         self,
-        #         id: str,
-        #         name: str,
-        #         rating: float,
-        #         price_with_card: int,
-        #         price_without_card: int,
-        #         previous_price_without_card: int,
-        #         price_default: int,
-        #         discount_amount: float,
-        #         link: str,
-        #         url_image: str,
-        #         category_product: List[str],
-        #         timestamp: datetime,
-        # ) -> Product:
-        #     product = Product(
-        #         id=id,
-        #         name=name,
-        #         rating=rating,
-        #         price_with_card=price_with_card,
-        #         price_without_card=price_without_card,
-        #         previous_price_without_card=previous_price_without_card,
-        #         price_default=price_default,
-        #         discount_amount=discount_amount,
-        #         link=link,
-        #         url_image=url_image,
-        #         category_product=category_product,
-        #         timestamp=timestamp,
-        #     )
-        #     self.repository.save(product)
-        #     return product
+            logger.error(f'Validation Error, {validate_error}')
+            raise
