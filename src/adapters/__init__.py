@@ -1,0 +1,1 @@
+# Interface Adapters (контроллеры, презентеры)
