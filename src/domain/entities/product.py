@@ -17,7 +17,8 @@ class Product:
     rating: float
     price_with_card: int
     price_without_card: int
-    #previous_price_without_card: int
+    previous_price_with_card: int
+    previous_price_without_card: int
     price_default: int
     #discount_amount: float
     link: str

@@ -6,5 +6,6 @@ from src.interfaces.repositories.product_repository import ProductRepository
 from src.domain.entities.price import PriceStamp
 
 
-class JSONProductRepository(ProductRepository):
-    def save
+# class JSONProductRepository(ProductRepository):
+#     def save:
+#         pass

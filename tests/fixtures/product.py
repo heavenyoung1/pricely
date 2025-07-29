@@ -10,7 +10,8 @@ def product_test():
             'rating': 4.9,
             'price_with_card': 500,
             'price_without_card': 561,
-            #previous_price_without_card: int
+            'previous_price_with_card': 600,
+            'previous_price_without_card': 600,
             'price_default': 899,
             #discount_amount: float
             'link': 'https://www.ozon.ru/product/chasha-dlya-kalyana-glinyanaya-cosmo-bowl-turkish-shot-1804652778/',
