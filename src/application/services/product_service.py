@@ -1,11 +1,11 @@
 
 from datetime import datetime
 from pydantic import ValidationError, validate_call
-from typing import List
+from typing import List, Optional
 import logging
 
 from src.domain.entities.product import Product
-from src.domain.entities.price import PriceStamp
+#from src.domain.entities.price import PriceStamp
 from src.interfaces.repositories.product_repository import ProductRepository
 
 logger = logging.getLogger(__name__)
@@ -36,3 +36,6 @@ class ProductService:
         except ValidationError as validate_error:
             logger.error(f'Validation Error, {validate_error}')
             raise
+
+    # def get_product_by_id(self, product_id: str) -> Optional[Product]:
+        
