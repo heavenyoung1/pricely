@@ -1,9 +1,11 @@
-from typing import List
+from sqlalchemy import String
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
+from typing import List
 
 from src.infrastruture.database.base import Base
+from src.infrastruture.database.product import DBProduct
 
 class DBUser(Base):
     '''Модель пользователя для БД.
