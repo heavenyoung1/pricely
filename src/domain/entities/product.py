@@ -1,7 +1,7 @@
 #from dataclasses import dataclass
 from pydantic.dataclasses import dataclass
 from datetime import datetime
-from pydantic import ConfigDict
+# from pydantic import ConfigDict, HttpUrl
 from typing import List
 
 # Strict Mode - Строгий режим, запрещающий конвертацию типов 
@@ -9,7 +9,6 @@ from typing import List
 config = ConfigDict(strict=True)
 
 @dataclass(config=config)
-#@dataclass(config=ConfigDict(strict=True))
 class Product:
     '''Сущность Product (товар)'''
     id: str
