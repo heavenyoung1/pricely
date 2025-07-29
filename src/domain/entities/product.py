@@ -1,7 +1,7 @@
 #from dataclasses import dataclass
 from pydantic.dataclasses import dataclass
 from datetime import datetime
-# from pydantic import ConfigDict, HttpUrl
+from pydantic import ConfigDict
 from typing import List
 
 # Strict Mode - Строгий режим, запрещающий конвертацию типов 

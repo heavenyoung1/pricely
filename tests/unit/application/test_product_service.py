@@ -1,5 +1,6 @@
 from datetime import datetime
 from unittest.mock import Mock
+from pydantic import HttpUrl
 import pytest
 import logging
 
@@ -46,6 +47,7 @@ def test_success_create_product(product_test):
     assert isinstance(product.price_default, int)
     assert isinstance(product.price_without_card, int)
     assert isinstance(product.price_default, int)
+    assert isinstance(product.link, str)
     assert isinstance(product.category_product, list)
     assert isinstance(product.timestamp, datetime)
 
