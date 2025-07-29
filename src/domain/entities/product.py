@@ -12,7 +12,7 @@ class Product:
     price_without_card: int
     #previous_price_without_card: int
     price_default: int
-    discount_amount: float
+    #discount_amount: float
     link: str
     url_image: str
     category_product: List[str]

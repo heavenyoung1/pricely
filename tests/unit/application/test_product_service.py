@@ -29,9 +29,9 @@ def product_test():
     }
 
 
-def test_success_create_product():
+def test_success_create_product(product_test):
     repository = Mock()
     service = ProductService(repository)
-    product = service.create_product(product_test)
+    product = service.create_product(**product_test)
     assert product.id == '1804652778'
     
