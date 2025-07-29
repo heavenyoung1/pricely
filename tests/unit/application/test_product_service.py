@@ -14,7 +14,7 @@ def product_test():
             'id' :'1804652778',
             'name': 'Чаша для кальяна глиняная',
             'rating': 4.9,
-            'price_with_card': 500.0,
+            'price_with_card': 500,
             'price_without_card': 561,
             #previous_price_without_card: int
             'price_default': 899,

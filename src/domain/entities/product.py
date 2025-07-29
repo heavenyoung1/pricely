@@ -1,4 +1,5 @@
-from dataclasses import dataclass
+#from dataclasses import dataclass
+from pydantic.dataclasses import dataclass
 from datetime import datetime
 from pydantic import ConfigDict
 from typing import List
@@ -8,6 +9,7 @@ from typing import List
 config = ConfigDict(strict=True)
 
 @dataclass(config=config)
+#@dataclass(config=ConfigDict(strict=True))
 class Product:
     '''Сущность Product (товар)'''
     id: str
