@@ -2,8 +2,7 @@ from datetime import datetime
 from typing import List
 from typing import Optional
 from sqlalchemy import ForeignKey
-from sqlalchemy import String
-
+from sqlalchemy import ForeignKey, String, Integer, Float, DateTime, JSON
 from sqlalchemy.orm import DeclarativeBase
 
 from sqlalchemy.orm import Mapped
@@ -24,14 +23,14 @@ class DBProduct(Base):
     url_image: Mapped[str] = mapped_column(String(500))
 
     # numeric data type
-    rating: Mapped[float] 
-    price_with_card: Mapped[int] 
-    price_without_card: Mapped[int] 
-    previous_price_with_card: Mapped[int] 
-    previous_price_without_card: Mapped[int] 
-    price_default: Mapped[int] 
+    rating: Mapped[float]  = mapped_column(Float(precision=2))  # 2 знака после запятой
+    price_with_card: Mapped[int] = mapped_column(Integer())
+    price_without_card: Mapped[int] = mapped_column(Integer())
+    previous_price_with_card: Mapped[int] = mapped_column(Integer())
+    previous_price_without_card: Mapped[int] = mapped_column(Integer())
+    price_default: Mapped[int] = mapped_column(Integer())
     #discount_amount: Mapped[float] 
 
     # special data type
-    category_product: Mapped[List[str]]
-    last_timestamp: Mapped[datetime]
+    category_product: Mapped[List[str]] = mapped_column(JSON)  # Для хранения списка
+    last_timestamp: Mapped[datetime] = mapped_column(DateTime())
