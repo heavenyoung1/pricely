@@ -1,18 +1,35 @@
 from datetime import datetime
 from typing import List
-from typing import Optional
 from sqlalchemy import ForeignKey, String, Integer, Float, DateTime, JSON
-from sqlalchemy.orm import DeclarativeBase
-
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 
-class Base(DeclarativeBase):
-    pass
+from src.infrastruture.database.base import Base
+from src.infrastruture.database.user import DBUser
+from src.infrastruture.database.price_stamp import DBPriceStamp
 
 class DBProduct(Base):
-    __tablename__ = 'products'
+    '''Модель продукта для БД.
+    
+    Attributes:
+        product_id: Уникальный идентификатор товара
+        user_id: ID пользователя, которому принадлежит товара
+        name: Название товара
+        link: Ссылка на товара
+        url_image: Ссылка на изображение товара
+        rating: Рейтинг товара
+        price_with_card: Цена
+        price_without_card: Цена без карты
+        previous_price_with_card: Предыдущая цена с картой
+        previous_price_without_card: Предыдущая цена без карты
+        price_default: Цена по умолчанию (без скидок и прочего)
+        category_product: Категории продукта
+        last_timestamp: Время последнего клейма
+        user: Ссылка на пользователя (отношение многие-к-одному)
+        price_stamps: История цен продукта (отношение один-ко-многим)
+        '''
+    __tablename__ = 'products' 
 
     # string data type
     product_id: Mapped[str] = mapped_column(primary_key=True)
@@ -31,7 +48,14 @@ class DBProduct(Base):
     #discount_amount: Mapped[float] 
 
     # special data type
-    
     category_product: Mapped[List[str]] = mapped_column(JSON)  # Для хранения списка
-    ID_last_stamp: Mapped[str] = mapped_column(String, ForeignKey("price_stamps.ID_stamp"), index=True)
     last_timestamp: Mapped[datetime] = mapped_column(DateTime())
+    
+    # relationships
+    user: Mapped['DBUser'] = relationship(back_populates='products')
+    price_stamps: Mapped[List["DBPriceStamp"]] = relationship(back_populates='product')
+    last_stamp: Mapped['DBPriceStamp'] = relationship(
+        foreign_keys='[DBProduct.product_id]', 
+        primaryjoin='DBProduct.product_id == DBPriceStamp.ID_product',
+        viewonly=True,
+        )
