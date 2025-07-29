@@ -1,9 +1,12 @@
 from datetime import datetime
 from unittest.mock import Mock
 import pytest
+import logging
 
 from src.application.services.product_service import ProductService
 from src.domain.entities.product import Product
+
+logger = logging.getLogger(__name__)
 
 @pytest.fixture
 def product_test():
@@ -11,7 +14,7 @@ def product_test():
             'id' :'1804652778',
             'name': 'Чаша для кальяна глиняная',
             'rating': 4.9,
-            'price_with_card': 500,
+            'price_with_card': 500.0,
             'price_without_card': 561,
             #previous_price_without_card: int
             'price_default': 899,
@@ -30,8 +33,17 @@ def product_test():
 
 
 def test_success_create_product(product_test):
+    '''TEST - SUCCESSED CREATED PRODUCT'''
+    # Arrange
     repository = Mock()
     service = ProductService(repository)
+
+    # Action
     product = service.create_product(**product_test)
+
+    #Assert
+    #logger.info(type(product.price_with_card))
+    print(type(product.price_with_card))
     assert product.id == '1804652778'
+
     

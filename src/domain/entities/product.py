@@ -1,8 +1,13 @@
 from dataclasses import dataclass
 from datetime import datetime
+from pydantic import ConfigDict
 from typing import List
 
-@dataclass
+# Strict Mode - Строгий режим, запрещающий конвертацию типов 
+# (500.0 -> 500 || float -> int) - подобное поведение ЗАПРЕЩЕНО
+config = ConfigDict(strict=True)
+
+@dataclass(config=config)
 class Product:
     '''Сущность Product (товар)'''
     id: str
