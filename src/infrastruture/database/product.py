@@ -53,9 +53,15 @@ class DBProduct(Base):
     
     # relationships
     user: Mapped['DBUser'] = relationship(back_populates='products')
-    price_stamps: Mapped[List["DBPriceStamp"]] = relationship(back_populates='product')
+    price_stamps: Mapped[List["DBPriceStamp"]] = relationship(
+        back_populates='product',
+        cascade="all, delete-orphan"
+    ) # Каскадное удаление
+
     last_stamp: Mapped['DBPriceStamp'] = relationship(
-        foreign_keys='[DBProduct.product_id]', 
-        primaryjoin='DBProduct.product_id == DBPriceStamp.ID_product',
+        foreign_keys='[DBPriceStamp.ID_product]',
+        primaryjoin='and_(DBProduct.product_id == DBPriceStamp.ID_product, '
+                'DBPriceStamp.time_stamp == DBProduct.last_timestamp)',
         viewonly=True,
-        )
+        uselist=False
+    )

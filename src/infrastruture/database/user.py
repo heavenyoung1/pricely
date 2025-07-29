@@ -19,4 +19,7 @@ class DBUser(Base):
 
     id: Mapped[str] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(50))
-    products: Mapped[List['DBProduct']] = relationship(back_populates="user")
+    products: Mapped[List['DBProduct']] = relationship(
+        back_populates="user", 
+        cascade="all, delete-orphan"
+    ) # Каскадное удаление
