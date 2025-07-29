@@ -16,7 +16,7 @@ class DBProduct(Base):
 
     # string data type
     product_id: Mapped[str] = mapped_column(primary_key=True)
-    user_id: Mapped[str] = mapped_column(String, ForeignKey("users.id"), index=True)
+    user_id: Mapped[str] = mapped_column(String, ForeignKey('users.id'), index=True)
     name: Mapped[str] = mapped_column(String(100))
     link: Mapped[str] = mapped_column(String(500)) 
     url_image: Mapped[str] = mapped_column(String(500))
