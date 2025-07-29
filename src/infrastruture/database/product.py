@@ -1,7 +1,6 @@
 from datetime import datetime
 from typing import List
 from typing import Optional
-from sqlalchemy import ForeignKey
 from sqlalchemy import ForeignKey, String, Integer, Float, DateTime, JSON
 from sqlalchemy.orm import DeclarativeBase
 
@@ -32,5 +31,7 @@ class DBProduct(Base):
     #discount_amount: Mapped[float] 
 
     # special data type
+    
     category_product: Mapped[List[str]] = mapped_column(JSON)  # Для хранения списка
+    ID_last_stamp: Mapped[str] = mapped_column(String, ForeignKey("price_stamps.ID_stamp"), index=True)
     last_timestamp: Mapped[datetime] = mapped_column(DateTime())
