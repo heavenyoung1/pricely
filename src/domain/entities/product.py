@@ -12,6 +12,7 @@ config = ConfigDict(strict=True)
 class Product:
     '''Сущность Product (товар)'''
     id: str
+    user_id: str
     name: str
     rating: float
     price_with_card: int

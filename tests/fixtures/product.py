@@ -5,6 +5,7 @@ from datetime import datetime
 def product_test():
     return {
             'id' :'1804652778',
+            'user_id': '0000000000',
             'name': 'Чаша для кальяна глиняная',
             'rating': 4.9,
             'price_with_card': 500,
