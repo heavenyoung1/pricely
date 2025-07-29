@@ -13,7 +13,7 @@ from src.infrastruture.database.base import Base
 
 class DBPriceStamp(Base):
     '''Модель клейма цены для БД'''
-    __tablename__ == 'price_stamps'
+    __tablename__ = 'price_stamps'
 
     ID_stamp: Mapped[str] = mapped_column(primary_key=True)
     ID_product: Mapped[str] = mapped_column(String, ForeignKey("product.id"), index=True)
