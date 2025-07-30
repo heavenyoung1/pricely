@@ -13,3 +13,5 @@ class PriceStamp:
     previous_price_with_card: int
     previous_price_without_card: int
     price_default: int
+
+    
