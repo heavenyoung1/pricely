@@ -16,7 +16,7 @@ class DataBaseSettings(BaseSettings):
     USER: str
     PASS: str
     NAME: str
-    CONN: str
+    CONN: str = 'postgresql+psycopg2'
 
     def get_connection_db(self):
         '''Формирует строку подключения для PostgreSQL'''
