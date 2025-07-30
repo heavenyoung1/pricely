@@ -19,6 +19,7 @@ class PGSQLProductRepository(ProductRepository):
         self.session = session
 
     def save_one_product(self, product: Product, price_stamp: PriceStamp) -> None:
+        #НУЖНО ЛИ ПЕРЕДАВАТЬ СЮДА СЕССИЮ?? СЕЙЧАС ОНА НЕ ВИДНА!!!
         db_product  = DBProduct(
             id=product.id,
             user_id=product.user_id,
