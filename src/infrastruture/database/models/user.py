@@ -4,11 +4,11 @@ from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 from typing import List
 
-from src.infrastruture.database.base import Base
-from src.infrastruture.database.product import DBProduct
+from src.infrastruture.database.models.base import Base
+from src.infrastruture.database.models.product import DBProduct
 
 class DBUser(Base):
-    '''Модель пользователя для БД.
+    '''Модель пользователя для БД
     
     Attributes:
         id: Уникальный идентификатор пользователя

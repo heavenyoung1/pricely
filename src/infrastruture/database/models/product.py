@@ -5,12 +5,12 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 
-from src.infrastruture.database.base import Base
-from src.infrastruture.database.user import DBUser
-from src.infrastruture.database.price_stamp import DBPriceStamp
+from src.infrastruture.database.models.base import Base
+from src.infrastruture.database.models.user import DBUser
+from src.infrastruture.database.models.price_stamp import DBPriceStamp
 
 class DBProduct(Base):
-    '''Модель продукта для БД.
+    '''Модель продукта для БД
     
     Attributes:
         product_id: Уникальный идентификатор товара

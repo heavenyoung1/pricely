@@ -5,11 +5,11 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 
-from src.infrastruture.database.base import Base
-from src.infrastruture.database.product import DBProduct
+from src.infrastruture.database.models.base import Base
+from src.infrastruture.database.models.product import DBProduct
 
 class DBPriceStamp(Base):
-    '''Модель клейма цены для БД.
+    '''Модель клейма цены для БД
     
     Attributes:
         ID_stamp: Уникальный идентификатор клейма
