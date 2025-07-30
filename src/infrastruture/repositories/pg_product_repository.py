@@ -31,7 +31,7 @@ class PGSQLProductRepository(ProductRepository):
             link=product.link,
             url_image=product.url_image,
             category_product=product.category_product,
-            timestamp=product.timestamp
+            timestamp=product.timestamp,
         )
         session.merge(db_product)
 
@@ -42,8 +42,16 @@ class PGSQLProductRepository(ProductRepository):
             price_with_card=price_stamp.price_with_card,
             price_without_card=price_stamp.price_without_card,
             previous_price_without_card=price_stamp.previous_price_without_card,
-            price_default=price_stamp.price_default
+            price_default=price_stamp.price_default,
         )
         session.add(db_price_stamp)
         session.commit()
 
+    def save_few_products(self, products: List[Product], price_stamp: PriceStamp) -> None:
+        for product in products:
+            self.save_one_product(product)
+
+    def find_product_by_id(self, product_id: str) -> Optional[Product]:
+        
+            
+            
