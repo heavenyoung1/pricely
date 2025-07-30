@@ -52,6 +52,9 @@ class PGSQLProductRepository(ProductRepository):
             self.save_one_product(product)
 
     def find_product_by_id(self, product_id: str) -> Optional[Product]:
-        
+        product = Session.query(Product).filter(product_id).first()
+        if product.id == product_id:
+            return product
+        #Сомнительное дерьмо, переделать, особенно с сессией какая-то шляпа
             
             
