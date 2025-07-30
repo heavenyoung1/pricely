@@ -6,9 +6,9 @@ from src.domain.entities.price import PriceStamp
 
 class PriceRepository(ABC):
     @abstractmethod
-    def save_price_stamp(self, product: Product, price_stamp: PriceStamp)
+    def save_price_stamp(self, product: Product, price_stamp: PriceStamp):
         pass
 
     @abstractmethod
-    def delete_all_stamps(self, product: Product, price_stamp: PriceStamp)
+    def delete_stamps_for_product(self, product: Product, price_stamp: PriceStamp):
         pass
