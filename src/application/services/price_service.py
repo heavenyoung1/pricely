@@ -21,20 +21,4 @@ class PriceStampService:
             return price_stamp
         except Exception as e:
             logger.error(f'Error of price claim, {e}')
-            raise 
-
-
-
-
-
-
-    @validate_call
-    def create_product(self, **kwargs) -> Product:
-        try:
-            product = Product(**kwargs)
-            self.repository.save(product)
-            logger.info(f'Product with ID: {product.id} has been created!')
-            return product
-        except ValidationError as validate_error:
-            logger.error(f'Validation Error, {validate_error}')
             raise
