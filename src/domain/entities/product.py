@@ -26,19 +26,17 @@ class Product:
     category_product: List[str]
     timestamp: datetime
 
-
-# Раскомментировать и проверить работоспособность
-    # def to_orm(self) -> 'DBProduct':
-    #     return DBProduct(
-    #         id=self.id,
-    #         user_id=self.user_id,
-    #         name=self.name,
-    #         rating=self.rating,
-    #         price_with_card=self.price_with_card,
-    #         price_without_card=self.price_without_card,
-    #         price_default=self.price_default,
-    #         link=self.link,
-    #         url_image=self.url_image,
-    #         category_product=self.category_product,
-    #         timestamp=self.timestamp
-    #     )
+    def to_orm(self) -> 'DBProduct':
+        return DBProduct(
+            id=self.id,
+            user_id=self.user_id,
+            name=self.name,
+            rating=self.rating,
+            price_with_card=self.price_with_card,
+            price_without_card=self.price_without_card,
+            price_default=self.price_default,
+            link=self.link,
+            url_image=self.url_image,
+            category_product=self.category_product,
+            timestamp=self.timestamp
+        )

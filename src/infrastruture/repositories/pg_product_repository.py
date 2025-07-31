@@ -19,42 +19,47 @@ class PGSQLProductRepository(ProductRepository):
         self.session = session
 
     def save_one_product(self, product: Product, price_stamp: PriceStamp) -> None:
-        #НУЖНО ЛИ ПЕРЕДАВАТЬ СЮДА СЕССИЮ?? СЕЙЧАС ОНА НЕ ВИДНА!!!
-        db_product  = DBProduct(
-            id=product.id,
-            user_id=product.user_id,
-            name=product.name,
-            rating=product.rating,
-            price_with_card=product.price_with_card,
-            price_without_card=product.price_without_card,
-            price_default=product.price_default,
-            link=product.link,
-            url_image=product.url_image,
-            category_product=product.category_product,
-            timestamp=product.timestamp,
-        )
-        session.merge(db_product)
+        db_product = product.to_orm()
+        self.session.merge()
+        self.session.commit()
 
-        # Сохраняем клейм цены
-        db_price_stamp = DBPriceStamp(
-            ID_product=product.id,
-            time_stamp=price_stamp.time_stamp,
-            price_with_card=price_stamp.price_with_card,
-            price_without_card=price_stamp.price_without_card,
-            previous_price_without_card=price_stamp.previous_price_without_card,
-            price_default=price_stamp.price_default,
-        )
-        session.add(db_price_stamp)
-        session.commit()
+    # def save_one_product(self, product: Product, price_stamp: PriceStamp) -> None:
+    #     #НУЖНО ЛИ ПЕРЕДАВАТЬ СЮДА СЕССИЮ?? СЕЙЧАС ОНА НЕ ВИДНА!!!
+    #     db_product  = DBProduct(
+    #         id=product.id,
+    #         user_id=product.user_id,
+    #         name=product.name,
+    #         rating=product.rating,
+    #         price_with_card=product.price_with_card,
+    #         price_without_card=product.price_without_card,
+    #         price_default=product.price_default,
+    #         link=product.link,
+    #         url_image=product.url_image,
+    #         category_product=product.category_product,
+    #         timestamp=product.timestamp,
+    #     )
+    #     session.merge(db_product)
 
-    def save_few_products(self, products: List[Product], price_stamp: PriceStamp) -> None:
-        for product in products:
-            self.save_one_product(product)
+    #     # Сохраняем клейм цены
+    #     db_price_stamp = DBPriceStamp(
+    #         ID_product=product.id,
+    #         time_stamp=price_stamp.time_stamp,
+    #         price_with_card=price_stamp.price_with_card,
+    #         price_without_card=price_stamp.price_without_card,
+    #         previous_price_without_card=price_stamp.previous_price_without_card,
+    #         price_default=price_stamp.price_default,
+    #     )
+    #     session.add(db_price_stamp)
+    #     session.commit()
 
-    def find_product_by_id(self, product_id: str) -> Optional[Product]:
-        product = Session.query(Product).filter(product_id).first()
-        if product.id == product_id:
-            return product
+    # def save_few_products(self, products: List[Product], price_stamp: PriceStamp) -> None:
+    #     for product in products:
+    #         self.save_one_product(product)
+
+    # def find_product_by_id(self, product_id: str) -> Optional[Product]:
+    #     product = Session.query(Product).filter(product_id).first()
+    #     if product.id == product_id:
+    #         return product
         #Сомнительное дерьмо, переделать, особенно с сессией какая-то шляпа
             
             
