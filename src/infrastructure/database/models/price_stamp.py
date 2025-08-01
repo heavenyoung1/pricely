@@ -1,12 +1,12 @@
 from datetime import datetime
-from sqlalchemy import ForeignKey, String, Integer, Float, DateTime, JSON
+from sqlalchemy import ForeignKey, String, Integer, DateTime
 
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 
-from src.infrastruture.database.models.base import Base
-from src.infrastruture.database.models.product import DBProduct
+from .base import Base
+from .product import DBProduct
 
 class DBPriceStamp(Base):
     '''Модель клейма цены для БД

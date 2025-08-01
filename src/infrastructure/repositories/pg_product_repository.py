@@ -3,7 +3,7 @@ from src.interfaces.repositories.product_repository import ProductRepository
 from src.domain.entities.price import PriceStamp
 
 from sqlalchemy.orm import Session
-from infrastruture.database.core.database import engine, SessionFactory
+from src.infrastructure.database.core.database import engine, SessionFactory
 
 class PGSQLProductRepository(ProductRepository):
     def __init__(self, session: Session):

@@ -5,12 +5,11 @@ from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 from typing import List, TYPE_CHECKING
 
-from src.infrastructure.database.models.base import Base
+from src.infrastructure.database.models import Base
 
 if TYPE_CHECKING:
-
-    from src.infrastructure.database.models.user import DBUser
-    from src.infrastructure.database.models.price_stamp import DBPriceStamp
+    from .user import DBUser
+    from .price_stamp import DBPriceStamp
 
 class DBProduct(Base):
     '''Модель продукта для БД

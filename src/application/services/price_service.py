@@ -3,7 +3,6 @@ from pydantic import ValidationError, validate_call
 from typing import List, Optional
 import logging
 
-from src.domain.entities.product import Product
 from src.domain.entities.price import PriceStamp
 from src.interfaces.repositories.price_repository import PriceRepository
 

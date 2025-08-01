@@ -3,6 +3,7 @@ from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy import create_engine
 from typing import Generator
 
+
 class DataBaseSettings(BaseSettings):
     '''Настройки подключения к базе данных'''
     model_config = SettingsConfigDict(
@@ -53,5 +54,6 @@ def get_db() -> Generator[Session, None, None]:
 
 # Инициализация базы данных (создание таблиц)
 def init_db():
-    from src.infrastruture.database.models.base import Base
+    from ..models import Base
+    #from src.infrastructure.database.models import Base
     Base.metadata.create_all(bind=engine)

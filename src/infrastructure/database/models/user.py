@@ -4,10 +4,10 @@ from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 from typing import List, TYPE_CHECKING
 
-from src.infrastructure.database.models.base import Base
+from .base import Base
 
 if TYPE_CHECKING:
-    from src.infrastructure.database.models.product import DBProduct
+    from .product import DBProduct
 
 class DBUser(Base):
     '''Модель пользователя для БД

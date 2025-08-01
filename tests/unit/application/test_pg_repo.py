@@ -3,7 +3,7 @@ from unittest.mock import Mock, create_autospec
 from sqlalchemy.orm import Session
 
 from src.domain.entities import Product, PriceStamp
-from src.infrastruture.repositories.pg_product_repository import PGSQLProductRepository
+from src.infrastructure.repositories.pg_product_repository import PGSQLProductRepository
 from tests.fixtures.product import product_test
 
 def test_product_to_orm_conversion(product_test):

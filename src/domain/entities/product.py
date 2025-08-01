@@ -3,8 +3,6 @@ from datetime import datetime
 from pydantic import ConfigDict
 from typing import List
 
-from src.infrastruture.database.models.product import DBProduct
-
 # Strict Mode - Строгий режим, запрещающий конвертацию типов 
 # (500.0 -> 500 || float -> int) - подобное поведение ЗАПРЕЩЕНО
 config = ConfigDict(strict=True)
@@ -28,7 +26,7 @@ class Product:
     last_timestamp: datetime
 
     def to_orm(self) -> 'DBProduct':
-        from src.infrastruture.database.models.product import DBProduct  # Ленивый импорт
+        from .product import DBProduct  # Ленивый импорт
         return DBProduct(
             product_id=self.product_id,
             user_id=self.user_id,
