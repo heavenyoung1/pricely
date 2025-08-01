@@ -28,7 +28,7 @@ class ProductService:
         try:
             product = Product(**kwargs)
             self.repository.save(product)
-            logger.info(f'Product with ID: {product.id} has been created!')
+            logger.info(f'Product with ID: {product.product_id} has been created!')
             return product
         except ValidationError as validate_error:
             logger.error(f'Validation Error, {validate_error}')
