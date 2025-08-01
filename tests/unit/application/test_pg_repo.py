@@ -16,4 +16,4 @@ def test_product_to_orm_conversion(product_test):
 
     # Assert
     assert isinstance(db_product, DBProduct)  # Проверяем тип
-    assert db_product.id == product_test['id']
+    assert db_product.product_id == product_test['product_id']
