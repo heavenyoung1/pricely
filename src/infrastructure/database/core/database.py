@@ -54,6 +54,5 @@ def get_db() -> Generator[Session, None, None]:
 
 # Инициализация базы данных (создание таблиц)
 def init_db():
-    from ..models import Base
-    #from src.infrastructure.database.models import Base
+    from src.infrastructure.database.models.base import Base
     Base.metadata.create_all(bind=engine)

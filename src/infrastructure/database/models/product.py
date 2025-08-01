@@ -5,7 +5,7 @@ from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 from typing import List, TYPE_CHECKING
 
-from src.infrastructure.database.models import Base
+from src.infrastructure.database.models.base import Base
 
 if TYPE_CHECKING:
     from .user import DBUser
