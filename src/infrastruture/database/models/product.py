@@ -1,13 +1,16 @@
 from datetime import datetime
-from typing import List
 from sqlalchemy import ForeignKey, String, Integer, Float, DateTime, JSON
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
+from typing import List, TYPE_CHECKING
 
 from src.infrastruture.database.models.base import Base
-from src.infrastruture.database.models.user import DBUser
-from src.infrastruture.database.models.price_stamp import DBPriceStamp
+
+if TYPE_CHECKING:
+
+    from src.infrastruture.database.models.user import DBUser
+    from src.infrastruture.database.models.price_stamp import DBPriceStamp
 
 class DBProduct(Base):
     '''Модель продукта для БД

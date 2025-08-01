@@ -2,10 +2,12 @@ from sqlalchemy import String
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
-from typing import List
+from typing import List, TYPE_CHECKING
 
 from src.infrastruture.database.models.base import Base
-from src.infrastruture.database.models.product import DBProduct
+
+if TYPE_CHECKING:
+    from src.infrastruture.database.models.product import DBProduct
 
 class DBUser(Base):
     '''Модель пользователя для БД

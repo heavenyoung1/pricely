@@ -1,11 +1,9 @@
-#from dataclasses import dataclass
 from pydantic.dataclasses import dataclass
 from datetime import datetime
 from pydantic import ConfigDict
-from typing import List, TYPE_CHECKING
+from typing import List
 
-if TYPE_CHECKING:
-    from src.infrastruture.database.models.product import DBProduct
+from src.infrastruture.database.models.product import DBProduct
 
 # Strict Mode - Строгий режим, запрещающий конвертацию типов 
 # (500.0 -> 500 || float -> int) - подобное поведение ЗАПРЕЩЕНО
@@ -30,6 +28,7 @@ class Product:
     timestamp: datetime
 
     def to_orm(self) -> 'DBProduct':
+        from src.infrastruture.database.models.product import DBProduct  # Ленивый импорт
         return DBProduct(
             id=self.id,
             user_id=self.user_id,

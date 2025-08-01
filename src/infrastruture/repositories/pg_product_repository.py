@@ -7,11 +7,7 @@ from src.domain.entities.price import PriceStamp
 
 from sqlalchemy.orm import Session
 from infrastruture.database.core.database import engine, SessionFactory
-from src.infrastruture.database.models.base import Base
 
-from src.infrastruture.database.models.product import DBProduct
-from src.infrastruture.database.models.price_stamp import DBPriceStamp
-from src.infrastruture.database.models.user import DBUser
 
 
 class PGSQLProductRepository(ProductRepository):
