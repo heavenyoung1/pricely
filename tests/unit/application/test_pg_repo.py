@@ -1,6 +1,9 @@
 import pytest
+from unittest.mock import Mock, create_autospec
+from sqlalchemy.orm import Session
 
-from src.domain.entities.product import Product
+from src.domain.entities import Product, PriceStamp
+from src.infrastruture.repositories.pg_product_repository import PGSQLProductRepository
 from tests.fixtures.product import product_test
 
 def test_product_to_orm_conversion(product_test):
@@ -21,3 +24,19 @@ def test_product_to_orm_conversion(product_test):
     assert db_product.url_image == product_test['url_image']
     assert db_product.category_product == product_test['category_product']
     assert db_product.last_timestamp == product_test['last_timestamp']
+
+def test_save_one_product():
+    mock_session = create_autospec(Session)
+    repo = PGSQLProductRepository
+    
+    product = Mock(spec=Product)
+    
+    db_product = Mock()
+    product.to_orm.return_value = db_product  # Заглушка метода to_orm()
+
+    repo.save_one_product(product)
+
+    # Asserts
+    product.to_orm.assert_called_once() # Проверяем вызов to_orm()
+    mock_session.merge.assert_called_once_with(db_product) # Проверяем merge
+    mock_session.commit.assert_called_once() # Проверяем commit
