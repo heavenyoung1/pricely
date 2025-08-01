@@ -12,7 +12,7 @@ config = ConfigDict(strict=True)
 @dataclass(config=config)
 class Product:
     '''Сущность Product (товар)'''
-    id: str
+    product_id: str
     user_id: str
     name: str
     rating: float
@@ -25,20 +25,22 @@ class Product:
     link: str
     url_image: str
     category_product: List[str]
-    timestamp: datetime
+    last_timestamp: datetime
 
     def to_orm(self) -> 'DBProduct':
         from src.infrastruture.database.models.product import DBProduct  # Ленивый импорт
         return DBProduct(
-            id=self.id,
+            product_id=self.product_id,
             user_id=self.user_id,
             name=self.name,
             rating=self.rating,
             price_with_card=self.price_with_card,
             price_without_card=self.price_without_card,
+            previous_price_with_card=self.previous_price_with_card,
+            previous_price_without_card=self.previous_price_without_card,
             price_default=self.price_default,
             link=self.link,
             url_image=self.url_image,
             category_product=self.category_product,
-            timestamp=self.timestamp
+            last_timestamp=self.last_timestamp,
         )
