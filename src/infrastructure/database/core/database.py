@@ -29,7 +29,7 @@ db_settings = DataBaseSettings()
 
 # Создание движка (engine)
 engine = create_engine(
-    db_settings.get_connection_string(),
+    db_settings.get_connection_db(),
     pool_size=10,
     max_overflow=20,
     pool_pre_ping=True,
