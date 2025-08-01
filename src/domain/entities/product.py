@@ -2,7 +2,10 @@
 from pydantic.dataclasses import dataclass
 from datetime import datetime
 from pydantic import ConfigDict
-from typing import List
+from typing import List, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from src.infrastruture.database.models.product import DBProduct
 
 # Strict Mode - Строгий режим, запрещающий конвертацию типов 
 # (500.0 -> 500 || float -> int) - подобное поведение ЗАПРЕЩЕНО
