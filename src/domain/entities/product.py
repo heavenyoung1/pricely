@@ -26,7 +26,7 @@ class Product:
     last_timestamp: datetime
 
     def to_orm(self) -> 'DBProduct':
-        from .product import DBProduct  # Ленивый импорт
+        from src.infrastructure.database.models.product import DBProduct
         return DBProduct(
             product_id=self.product_id,
             user_id=self.user_id,
