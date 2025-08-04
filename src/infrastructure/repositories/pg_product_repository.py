@@ -24,12 +24,10 @@ class PGSQLProductRepository(ProductRepository):
         self.session.commit()
             
     def save_few_products(self, products: List, price_stamp: PriceStamp) -> None:
-        # for product in products:
-        #     product.to_orm()
-        #     self.session.merge(product)
         db_products = [product.to_orm() for product in products]
+        db_price_stamp=price_stamp.to_orm()
         self.session.bulk_save_objects(db_products, update_changed_only=True)
-
+        self.session.add(db_price_stamp)
         self.session.commit()
 
     def find_product_by_url(self, product_url: str) -> Optional[DBProduct]:
