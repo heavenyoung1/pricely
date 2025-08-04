@@ -22,5 +22,5 @@ class ProductRepository(ABC):
         pass
 
     @abstractmethod
-    def find_few_products_by_urls(self, List[product_urls]) -> List[Product]:
+    def find_few_products_by_urls(self, product_urls: List[str]) -> List[Product]:
         pass
