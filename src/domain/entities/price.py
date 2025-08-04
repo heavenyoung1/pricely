@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 @dataclass
 class PriceStamp:
     '''Сущность - Клейм Цены'''
-    ID_stamp: int                       # ID клейма 
+    ID_stamp: str                       # ID клейма 
     ID_product: str                     # ID продукта 
     time_stamp: datetime                # Время клейма 
     price_with_card: int
