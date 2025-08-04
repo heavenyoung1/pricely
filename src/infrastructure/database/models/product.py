@@ -10,6 +10,7 @@ from src.infrastructure.database.models.base import Base
 if TYPE_CHECKING:
     from .user import DBUser
     from .price_stamp import DBPriceStamp
+    from src.domain.entities.product import Product
 
 class DBProduct(Base):
     '''Модель продукта для БД
@@ -67,3 +68,21 @@ class DBProduct(Base):
         viewonly=True,
         uselist=False
     )
+
+    def to_domain(self) -> 'Product':
+        from src.domain.entities.product import Product
+        return Product(
+            product_id=self.product_id,
+            user_id=self.user_id,
+            name=self.name,
+            rating=self.rating,
+            price_with_card=self.price_with_card,
+            price_without_card=self.price_without_card,
+            previous_price_with_card=self.previous_price_with_card,
+            previous_price_without_card=self.previous_price_without_card,
+            price_default=self.price_default,
+            link=self.link,
+            url_image=self.url_image,
+            category_product=self.category_product,
+            last_timestamp=self.last_timestamp,
+        )

@@ -3,9 +3,14 @@ from sqlalchemy import ForeignKey, String, Integer, DateTime
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
+from typing import TYPE_CHECKING
 
 from src.infrastructure.database.models.base import Base
 from src.infrastructure.database.models.product import DBProduct
+
+
+if TYPE_CHECKING:
+    from src.domain.entities.price import PriceStamp
 
 
 class DBPriceStamp(Base):
@@ -34,3 +39,16 @@ class DBPriceStamp(Base):
 
     # Relationships
     product: Mapped['DBProduct'] = relationship(back_populates='price_stamps')
+
+    def to_domain(self) -> 'PriceStamp':
+        from src.domain.entities.price import PriceStamp
+        return PriceStamp(
+            ID_stamp=self.ID_stamp,
+            ID_product=self.ID_product,
+            time_stamp=self.time_stamp,
+            price_with_card=self.previous_price_with_card,
+            price_without_card=self.price_without_card,
+            previous_price_with_card=self.previous_price_with_card,
+            previous_price_without_card=self.previous_price_without_card,
+            price_default=self.price_default,
+        )
