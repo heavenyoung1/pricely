@@ -18,7 +18,9 @@ class PGSQLProductRepository(ProductRepository):
 
     def save_one_product(self, product: Product, price_stamp: PriceStamp) -> None:
         db_product = product.to_orm()
+        db_price_stamp = price_stamp.to_orm()
         self.session.merge(db_product)
+        self.session.add(db_price_stamp)
         self.session.commit()
             
     def save_few_products(self, products: List, price_stamp: PriceStamp) -> None:
