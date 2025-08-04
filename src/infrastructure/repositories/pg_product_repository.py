@@ -17,13 +17,15 @@ class PGSQLProductRepository(ProductRepository):
 
     def save_one_product(self, product: Product, price_stamp: PriceStamp) -> None:
         db_product = product.to_orm()
-        self.session.merge()
+        self.session.merge(db_product)
         self.session.commit()
             
     def save_few_products(self, products: List, price_stamp: PriceStamp) -> None:
-        for product in products:
-            product.to_orm()
-            self.session.merge()
+        # for product in products:
+        #     product.to_orm()
+        #     self.session.merge(product)
+        db_products = [product.to_orm() for product in products]
+        self.session.bulk_save_objects(db_products, update_changed_only=True)
 
         self.session.commit()
 
