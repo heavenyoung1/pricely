@@ -1,5 +1,14 @@
 import pytest
 from datetime import datetime
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session
+
+from src.infrastructure.database.models.base import Base
+from src.domain.entities.product import Product
+from src.domain.entities.price import PriceStamp
+from src.infrastructure.database.models.product import DBProduct
+from src.infrastructure.database.models.price_stamp import DBPriceStamp
+from src.infrastructure.repositories.pg_product_repository import PGSQLProductRepository
 
 @pytest.fixture
 def product_test():
@@ -25,3 +34,34 @@ def product_test():
         ],
         'last_timestamp': datetime(2025, 1, 1, 1, 2, 3),  # Было 'timestamp'
     }
+
+
+def product(product_test):
+    return Product(**product_test)
+
+@pytest.fixture
+def price_stamp():
+    return PriceStamp(
+        ID_stamp='stamp1',  # Использую str, чтобы соответствовать DBPriceStamp
+        ID_product='1804652778',
+        time_stamp=datetime(2025, 1, 1, 1, 2, 3),
+        price_with_card=500,
+        price_without_card=561,
+        previous_price_with_card=600,
+        previous_price_without_card=600,
+        price_default=899,
+    )
+
+@pytest.fixture
+def db_session():
+    engine = create_engine('sqlite:///:memory:')
+    Base.metadata.create_all(engine)
+    session = Session(engine)
+    yield session
+    session.rollback()
+    Base.metadata.drop_all(engine)
+    session.close()
+
+@pytest.fixture
+def repo(db_session):
+    return PGSQLProductRepository(db_session)
