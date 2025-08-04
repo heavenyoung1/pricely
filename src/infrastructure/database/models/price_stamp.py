@@ -20,11 +20,11 @@ class DBPriceStamp(Base):
         ID_stamp: Уникальный идентификатор клейма
         ID_product: ID продукта
         time_stamp: Временная метка
-        price_with_card: Цена с картой
-        price_without_card: Цена без карты
+        price_with_card: Цена с картой (текущая)
+        price_without_card: Цена без карты (текущая)
         previous_price_with_card: Предыдущая цена с картой
         previous_price_without_card: Предыдущая цена без карты
-        price_default: Цена по умолчанию
+        price_default: Цена по умолчанию (без скидок)
         '''
     __tablename__ = 'price_stamps'
 
