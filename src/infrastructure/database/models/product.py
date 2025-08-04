@@ -28,7 +28,7 @@ class DBProduct(Base):
         previous_price_without_card: Предыдущая цена без карты
         price_default: Цена по умолчанию (без скидок и прочего)
         category_product: Категории продукта
-        last_timestamp: Время последнего клейма
+        last_timestamp: Время последнего клейма из price_stamps
         user: Ссылка на пользователя (отношение многие-к-одному)
         price_stamps: История цен продукта (отношение один-ко-многим)
         '''
@@ -38,7 +38,7 @@ class DBProduct(Base):
     product_id: Mapped[str] = mapped_column(primary_key=True)
     user_id: Mapped[str] = mapped_column(String, ForeignKey('users.id'), index=True)
     name: Mapped[str] = mapped_column(String(100))
-    link: Mapped[str] = mapped_column(String(500)) 
+    link: Mapped[str] = mapped_column(String(500), index=True) 
     url_image: Mapped[str] = mapped_column(String(500))
 
     # numeric data type
