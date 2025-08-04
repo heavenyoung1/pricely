@@ -2,6 +2,7 @@ from src.domain.entities.product import Product
 from src.interfaces.repositories.product_repository import ProductRepository
 from src.domain.entities.price import PriceStamp
 from src.domain.entities.product import Product
+from src.infrastructure.database.models.product import DBProduct
 from src.infrastructure.database.core.database import engine, SessionFactory
 
 
@@ -29,25 +30,23 @@ class PGSQLProductRepository(ProductRepository):
 
         self.session.commit()
 
-    def find_product_by_url(self, product_url: str) -> Optional[Product]:
-        db_product_url = self.session.query(Product).filter(Product.link == product_url)
+    def find_product_by_url(self, product_url: str) -> Optional[DBProduct]:
+        db_product_url = self.session.query(DBProduct).filter(DBProduct.link == product_url)
         if not db_product_url: 
             raise
         else:
             return db_product_url
         
-    def find_product_by_id(self, product_id: str) -> Optional[Product]:
-        db_product_id = self.session.query(Product).filter(Product.product_id == product_id)
+    def find_product_by_id(self, product_id: str) -> Optional[DBProduct]:
+        db_product_id = self.session.query(DBProduct).filter(DBProduct.product_id == product_id)
         if not db_product_id: 
             raise
         else:
             return db_product_id
         
-    def find_few_products_by_urls(self, product_urls: List) -> List[Product]:
+    def find_few_products_by_urls(self, product_urls: List[str]) -> List[DBProduct]:
         for product_url in product_urls:
-            db_product_url = self.session.query(Product).filter(Product.link == product_url)
-            if not db_product_url: 
-                raise
-            else:
-                return db_product_url
+            db_products = self.session.query(DBProduct).filter(DBProduct.link.in_(product_urls)).all()
+            return [Product(**db_product.__dict__) for db_product in db_products]
+                                                                  
         
