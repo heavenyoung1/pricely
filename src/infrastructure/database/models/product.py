@@ -71,7 +71,7 @@ class DBProduct(Base):
 
     def to_domain(self) -> 'Product':
         from src.domain.entities.price import PriceStamp
-        return Product(
+        return PriceStamp(
             product_id=self.product_id,
             user_id=self.user_id,
             name=self.name,
