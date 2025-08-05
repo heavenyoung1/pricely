@@ -27,7 +27,7 @@ class PGSQLProductRepository(ProductRepository):
         db_products = [product.to_orm() for product in products]
         db_price_stamps = [price_stamp.to_orm() for price_stamp in price_stamps]
         self.session.bulk_save_objects(db_products, update_changed_only=True)
-        self.session.add(db_price_stamps)
+        self.session.add_all(db_price_stamps)
         self.session.commit()
 
     def find_product_by_url(self, product_url: str) -> Optional[Product]:

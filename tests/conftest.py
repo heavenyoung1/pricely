@@ -78,6 +78,31 @@ def price_stamp() -> PriceStamp:
     )
 
 @pytest.fixture
+def price_stamps() -> list[PriceStamp]:
+    return [
+        PriceStamp(
+            ID_stamp='stamp1',
+            ID_product='1804652778',
+            time_stamp=datetime(2025, 1, 1, 1, 2, 3),
+            price_with_card=500,
+            price_without_card=561,
+            previous_price_with_card=600,
+            previous_price_without_card=600,
+            price_default=899,
+        ),
+        PriceStamp(
+            ID_stamp='stamp2',
+            ID_product='1804652779',
+            time_stamp=datetime(2025, 1, 1, 1, 2, 4),
+            price_with_card=600,
+            price_without_card=661,
+            previous_price_with_card=700,
+            previous_price_without_card=700,
+            price_default=999,
+        ),
+    ]
+
+@pytest.fixture
 def db_session() -> Generator[Session, None, None]:
     '''
     Создаёт временную in-memory SQLite базу данных и возвращает SQLAlchemy-сессию.
