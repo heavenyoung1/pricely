@@ -1,6 +1,6 @@
 from .product import Product
 from .price import Price
-from .price_claim import PriceStamp
+from .price_claim import PriceClaim
 
 #from .user import  ДОБАВИТЬ!!!
 

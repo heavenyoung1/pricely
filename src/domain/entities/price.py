@@ -1,10 +1,13 @@
-from pydantic.dataclasses import dataclass
+from pydantic import BaseModel, ConfigDict
 
-# Strict Mode - Строгий режим, запрещающий конвертацию типов 
-@dataclass(strict=True)
-class Price:
+class Price(BaseModel):
     with_card: int
     without_card: int
     previous_with_card: int
     previous_without_card: int
     default: int
+
+    model_config = ConfigDict(
+    strict=True,
+    from_attributes=True
+    )

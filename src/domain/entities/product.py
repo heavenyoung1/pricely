@@ -17,7 +17,7 @@ class Product(BaseModel):
     image_url: HttpUrl
     rating: float
     categories: List[str]
-    price_stamps: List['PriceClaim']
+    price_claims: List['PriceClaim']
 
     model_config = ConfigDict(
         strict=True,
