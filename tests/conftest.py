@@ -43,7 +43,7 @@ def product_test():
         'last_timestamp': datetime(2025, 1, 1, 1, 2, 3),  # Было 'timestamp'
     }
 
-
+@pytest.fixture
 def product(product_test):
     return Product(**product_test)
 

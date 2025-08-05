@@ -39,7 +39,6 @@ from src.infrastructure.database.models.base import Base
 from src.infrastructure.database.models.product import DBProduct
 from src.infrastructure.database.models.price_stamp import DBPriceStamp
 from src.infrastructure.repositories.pg_product_repository import PGSQLProductRepository
-from tests.fixtures.product import repo
 
 
 def test_save_one_product_unit(repo, product, price_stamp):
