@@ -21,5 +21,6 @@ class ORMProduct(Base):
     user: Mapped['ORMUser'] = relationship(back_populates='products')
     price_claims: Mapped[List['ORMPriceClaim']] = relationship(
         back_populates='product', 
-        order_by='ORMPriceClaim.time_claim.desc()'
+        order_by='ORMPriceClaim.time_claim.desc()',
+        lazy='selectin', # Улучшение производительности
         )
