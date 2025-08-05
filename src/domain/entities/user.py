@@ -6,7 +6,7 @@ from typing import List, TYPE_CHECKING
 if TYPE_CHECKING:
     from .product import Product
 
-config = ConfigDict(strict=True)
+config = ConfigDict(strict=True, from_attributes=True,  arbitrary_types_allowed=True)
 
 @dataclass(config=config)
 class User:
@@ -14,6 +14,10 @@ class User:
     username: str
     chat_id: str
     products: List['Product']
+
+    # Конфиг для работы с ORM
+    class Config:
+        orm_mode = True  # Разрешает загрузку данных из ORM-объектов
 
     @field_validator('username')
     def validate_username(cls, value: str) -> str:

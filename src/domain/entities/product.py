@@ -1,6 +1,6 @@
-from pydantic.dataclasses import dataclass
-from pydantic import ConfigDict, field_validator, HttpUrl
+from pydantic import BaseModel, HttpUrl, field_validator, ConfigDict
 from typing import List, TYPE_CHECKING
+import json
 
 if TYPE_CHECKING:
     from .price_claim import PriceClaim
@@ -8,7 +8,6 @@ if TYPE_CHECKING:
 # Strict Mode - Строгий режим, запрещающий конвертацию типов 
 config = ConfigDict(strict=True)
 
-@dataclass(config=config)
 class Product:
     '''Сущность Product (товар)'''
     product_id: str
@@ -20,8 +19,7 @@ class Product:
     categories: List[str]
     price_stamps: List['PriceClaim']
 
-    @field_validator('rating')
-    def validate_raiting(cls, value: float) -> float:
-        if not 0 <= value <= 5:
-            raise ValueError('Рейтинг должен быть от 0 до 5')
-        return value
+    model_config = ConfigDict(
+        strict=True,
+        from_attributes=True  # Разрешает загрузку данных из ORM-объектов
+    )
