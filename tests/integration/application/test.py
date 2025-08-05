@@ -58,12 +58,11 @@ def test_save_few_products_integration(repo, db_session, product, price_stamps):
     )
 
     products = [product, product2]
-    # Price_stamps, как сделать два разных price_stamp
-    # чтобы было два разных объекта для сохранения
 
     repo.save_few_products(products, price_stamps)
 
     # Проверяем продукты
     db_products = db_session.query(DBProduct).all()
     assert len(db_products) == 2
-
+    assert db_products[0].product_id == '1804652778'
+    assert db_products[1].product_id == '1804652779'
