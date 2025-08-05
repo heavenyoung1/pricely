@@ -85,3 +85,13 @@ def test_find_product_by_url_unit(repo, product):
         mock_query.return_value.filter.assert_called_once()
         mock_db_product.to_domain.assert_called_once()
         assert result == product
+
+def test_find_product_by_url_not_found_unit(repo):
+    with patch.object(repo.session, 'query', return_value=MagicMock()) as mock_query:
+        mock_query.return_value.filter.return_value.first.return_value = None
+
+        result = repo.find_product_by_url('https://example.com')
+
+        mock_query.assert_called_once_with(DBProduct)
+        mock_query.return_value.filter.assert_called_once()
+        assert result is None
