@@ -1,32 +1,3 @@
-# import pytest
-# from unittest.mock import Mock, create_autospec
-# from sqlalchemy.orm import Session
-
-# from src.domain.entities import Product, PriceStamp
-# from src.infrastructure.repositories.pg_product_repository import PGSQLProductRepository
-# from tests.fixtures.product import product_test
-#--------------------------------------------------
-
-# Пока что не нужен
-# def test_product_to_orm_conversion(product_test):
-#     '''Проверяет, что метод to_orm() корректно конвертирует Product в DBProduct'''
-#     product = Product(**product_test)
-#     db_product = product.to_orm()
-
-#     assert db_product.product_id == product_test['product_id']
-#     assert db_product.user_id == product_test['user_id']
-#     assert db_product.name == product_test['name']
-#     assert db_product.rating == pytest.approx(product_test['rating'])  # Для float используем approx
-#     assert db_product.price_with_card == product_test['price_with_card']
-#     assert db_product.price_without_card == product_test['price_without_card']
-#     assert db_product.previous_price_with_card == product_test['previous_price_with_card']
-#     assert db_product.previous_price_without_card == product_test['previous_price_without_card']
-#     assert db_product.price_default == product_test['price_default']
-#     assert db_product.link == product_test['link']
-#     assert db_product.url_image == product_test['url_image']
-#     assert db_product.category_product == product_test['category_product']
-#     assert db_product.last_timestamp == product_test['last_timestamp']
-
 from unittest.mock import patch, MagicMock
 import pytest
 from datetime import datetime
@@ -40,8 +11,17 @@ from src.infrastructure.database.models.product import DBProduct
 from src.infrastructure.database.models.price_stamp import DBPriceStamp
 from src.infrastructure.repositories.pg_product_repository import PGSQLProductRepository
 
+'''
+Тестирование методов репозитория PGSQLProductRepository.
+Все тесты являются юнит-тестами и используют патчи для изоляции внешних зависимостей.
+'''
 
 def test_save_one_product_unit(repo, product, price_stamp):
+    '''
+    Тестирует метод save_one_product:
+    Проверяет, что объекты Product и PriceStamp корректно конвертируются в ORM-модели
+    и сохраняются в базу данных через методы merge, add и commit.
+    '''
     with patch.object(Product, 'to_orm', return_value=MagicMock(spec=DBProduct)) as mock_to_orm, \
         patch.object(PriceStamp, 'to_orm', return_value=MagicMock(spec=DBPriceStamp)) as mock_price_to_orm, \
         patch.object(repo.session, 'merge') as mock_merge, \
@@ -50,15 +30,20 @@ def test_save_one_product_unit(repo, product, price_stamp):
 
         repo.save_one_product(product, price_stamp)
 
-        mock_to_orm.assert_called_once()
-        mock_price_to_orm.assert_called_once()
-        mock_merge.assert_called_once()
-        mock_add.assert_called_once()
-        mock_commit.assert_called_once()
+        mock_to_orm.assert_called_once()              # Проверяем, что конвертация продукта была вызвана
+        mock_price_to_orm.assert_called_once()        # Проверяем, что конвертация цены была вызвана
+        mock_merge.assert_called_once()               # Проверяем, что merge был вызван
+        mock_add.assert_called_once()                 # Проверяем, что add был вызван
+        mock_commit.assert_called_once()              # Проверяем, что commit был вызван
 
 def test_save_few_products_unit(repo, product, price_stamp):
-    products = [product, product]  # Два одинаковых продукта для теста
-    price_stamps = [price_stamp, price_stamp]  # Передаём price_stamp как список
+    '''
+    Тестирует метод save_few_products:
+    Проверяет, что несколько объектов Product и PriceStamp корректно конвертируются и сохраняются в базу.
+    '''
+    products = [product, product]                    # Используем два одинаковых объекта продукта
+    price_stamps = [price_stamp, price_stamp]        # Используем два одинаковых объекта цены
+
     with patch.object(Product, 'to_orm', return_value=MagicMock(spec=DBProduct)) as mock_to_orm, \
          patch.object(PriceStamp, 'to_orm', return_value=MagicMock(spec=DBPriceStamp)) as mock_price_to_orm, \
          patch.object(repo.session, 'bulk_save_objects') as mock_bulk_save, \
@@ -67,13 +52,17 @@ def test_save_few_products_unit(repo, product, price_stamp):
 
         repo.save_few_products(products, price_stamps)
 
-        assert mock_to_orm.call_count == 2  # Вызывается для каждого продукта
-        assert mock_price_to_orm.call_count == 2  # Вызывается для каждого price_stamp
-        mock_bulk_save.assert_called_once()
-        mock_add.assert_called_once()
-        mock_commit.assert_called_once()
+        assert mock_to_orm.call_count == 2            # Проверяем, что to_orm вызван дважды для продуктов
+        assert mock_price_to_orm.call_count == 2      # Проверяем, что to_orm вызван дважды для цен
+        mock_bulk_save.assert_called_once()           # bulk_save_objects должен быть вызван
+        mock_add.assert_called_once()                 # add вызывается один раз
+        mock_commit.assert_called_once()              # commit вызывается один раз
 
 def test_find_product_by_url_unit(repo, product):
+    '''
+    Тестирует метод find_product_by_url:
+    Проверяет, что если продукт найден в БД по URL, он корректно преобразуется обратно в доменную сущность.
+    '''
     mock_db_product = MagicMock(spec=DBProduct)
     mock_db_product.to_domain.return_value = product
     with patch.object(repo.session, 'query', return_value=MagicMock()) as mock_query:
@@ -84,9 +73,13 @@ def test_find_product_by_url_unit(repo, product):
         mock_query.assert_called_once_with(DBProduct)
         mock_query.return_value.filter.assert_called_once()
         mock_db_product.to_domain.assert_called_once()
-        assert result == product
+        assert result == product                     # Результат должен быть эквивалентен оригинальному продукту
 
 def test_find_product_by_url_not_found_unit(repo):
+    '''
+    Тестирует метод find_product_by_url:
+    Проверяет, что если продукт не найден по URL, метод возвращает None.
+    '''
     with patch.object(repo.session, 'query', return_value=MagicMock()) as mock_query:
         mock_query.return_value.filter.return_value.first.return_value = None
 
@@ -94,11 +87,16 @@ def test_find_product_by_url_not_found_unit(repo):
 
         mock_query.assert_called_once_with(DBProduct)
         mock_query.return_value.filter.assert_called_once()
-        assert result is None
+        assert result is None                        # Ожидаем None, если продукт не найден
 
 def test_find_product_by_id_unit(repo, product):
+    '''
+    Тестирует метод find_product_by_id:
+    Проверяет, что при наличии продукта с указанным ID он корректно возвращается как доменная сущность.
+    '''
     mock_db_product = MagicMock(spec=DBProduct)
     mock_db_product.to_domain.return_value = product
+
     with patch.object(repo.session, 'query', return_value=MagicMock()) as mock_query:
         mock_query.return_value.filter.return_value.first.return_value = mock_db_product
 
@@ -110,6 +108,10 @@ def test_find_product_by_id_unit(repo, product):
         assert result == product
 
 def test_find_few_products_by_urls_unit(repo, product):
+    '''
+    Тестирует метод find_few_products_by_urls:
+    Проверяет, что при запросе нескольких URL возвращается список соответствующих продуктов.
+    '''
     mock_db_product = MagicMock(spec=DBProduct)
     mock_db_product.to_domain.return_value = product
     with patch.object(repo.session, 'query', return_value=MagicMock()) as mock_query:
@@ -119,6 +121,6 @@ def test_find_few_products_by_urls_unit(repo, product):
 
         mock_query.assert_called_once_with(DBProduct)
         mock_query.return_value.filter.assert_called_once()
-        assert mock_db_product.to_domain.call_count == 2
+        assert mock_db_product.to_domain.call_count == 2     # Два продукта должны быть конвертированы
         assert len(result) == 2
         assert result == [product, product]
