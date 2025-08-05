@@ -95,3 +95,16 @@ def test_find_product_by_url_not_found_unit(repo):
         mock_query.assert_called_once_with(DBProduct)
         mock_query.return_value.filter.assert_called_once()
         assert result is None
+
+def test_find_product_by_id_unit(repo, product):
+    mock_db_product = MagicMock(spec=DBProduct)
+    mock_db_product.to_domain.return_value = product
+    with patch.object(repo.session, 'query', return_value=MagicMock()) as mock_query:
+        mock_query.return_value.filter.return_value.first.return_value = mock_db_product
+
+        result = repo.find_product_by_id('prod1')
+
+        mock_query.assert_called_once_with(DBProduct)
+        mock_query.return_value.filter.assert_called_once()
+        mock_db_product.to_domain.assert_called_once()
+        assert result == product
