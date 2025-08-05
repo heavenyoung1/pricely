@@ -1,18 +1,18 @@
 import logging
 import pytest
 from datetime import datetime
+from typing import Generator, Dict
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
 from src.infrastructure.database.models.base import Base
 from src.domain.entities.product import Product
 from src.domain.entities.price import PriceStamp
-from src.infrastructure.database.models.product import DBProduct
-from src.infrastructure.database.models.price_stamp import DBPriceStamp
 from src.infrastructure.repositories.pg_product_repository import PGSQLProductRepository
 
 
-def pytest_configure(config):
+def pytest_configure(config) -> None:
     '''
     Конфигурация pytest:
     Устанавливает базовый формат логирования для всех тестов.
@@ -24,7 +24,7 @@ def pytest_configure(config):
     )
 
 @pytest.fixture
-def product_test():
+def product_test() -> Dict[str, object]:
     '''
     Возвращает словарь с тестовыми данными для продукта.
     Используется для инициализации экземпляра доменной сущности Product.
@@ -53,7 +53,7 @@ def product_test():
     }
 
 @pytest.fixture
-def product(product_test):
+def product(product_test: Dict[str, object]) -> Product:
     '''
     Возвращает экземпляр доменной сущности Product,
     инициализированный данными из фикстуры product_test.
@@ -61,7 +61,7 @@ def product(product_test):
     return Product(**product_test)
 
 @pytest.fixture
-def price_stamp():
+def price_stamp() -> PriceStamp:
     '''
     Возвращает экземпляр доменной сущности PriceStamp
     с тестовыми значениями. Используется в тестах, связанных с ценами продукта.
@@ -78,7 +78,7 @@ def price_stamp():
     )
 
 @pytest.fixture
-def db_session():
+def db_session() -> Generator[Session, None, None]:
     '''
     Создаёт временную in-memory SQLite базу данных и возвращает SQLAlchemy-сессию.
     Используется для изолированного тестирования, не требующего подключения к реальной БД.
@@ -97,7 +97,7 @@ def db_session():
     session.close()
 
 @pytest.fixture
-def repo(db_session):
+def repo(db_session: Session) -> PGSQLProductRepository:
     '''
     Возвращает экземпляр репозитория PGSQLProductRepository,
     инициализированный сессией к временной in-memory базe данных.
