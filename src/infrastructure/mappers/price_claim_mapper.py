@@ -1,0 +1,2 @@
+class PriceClaimMapper:
+    pass
