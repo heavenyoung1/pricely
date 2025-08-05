@@ -108,3 +108,17 @@ def test_find_product_by_id_unit(repo, product):
         mock_query.return_value.filter.assert_called_once()
         mock_db_product.to_domain.assert_called_once()
         assert result == product
+
+def test_find_few_products_by_urls_unit(repo, product):
+    mock_db_product = MagicMock(spec=DBProduct)
+    mock_db_product.to_domain.return_value = product
+    with patch.object(repo.session, 'query', return_value=MagicMock()) as mock_query:
+        mock_query.return_value.filter.return_value.all.return_value = [mock_db_product, mock_db_product]
+
+        result = repo.find_few_products_by_urls(['https://example.com/1', 'https://example.com/2'])
+
+        mock_query.assert_called_once_with(DBProduct)
+        mock_query.return_value.filter.assert_called_once()
+        assert mock_db_product.to_domain.call_count == 2
+        assert len(result) == 2
+        assert result == [product, product]
