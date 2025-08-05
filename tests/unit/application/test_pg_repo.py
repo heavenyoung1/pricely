@@ -8,7 +8,7 @@ from src.domain.entities.product import Product
 from domain.entities.price_claim import PriceStamp
 from src.infrastructure.database.models.base import Base
 from src.infrastructure.database.models.product import DBProduct
-from src.infrastructure.database.models.price_stamp import DBPriceStamp
+from infrastructure.database.models.price_claim import DBPriceStamp
 from src.infrastructure.repositories.pg_product_repository import PGSQLProductRepository
 
 '''

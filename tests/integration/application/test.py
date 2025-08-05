@@ -4,7 +4,7 @@ from src.domain.entities.product import Product
 from domain.entities.price_claim import PriceStamp
 
 from src.infrastructure.database.models.product import DBProduct
-from src.infrastructure.database.models.price_stamp import DBPriceStamp
+from infrastructure.database.models.price_claim import DBPriceStamp
 
 def test_save_one_product_integration(repo, db_session, product, price_stamp):
     repo.save_one_product(product, price_stamp)

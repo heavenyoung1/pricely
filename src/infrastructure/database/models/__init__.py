@@ -3,6 +3,6 @@
 from .base import Base
 from .user import DBUser
 from .product import DBProduct
-from .price_stamp import DBPriceStamp
+from .price_claim import DBPriceStamp
 
 __all__ = ['DBUser', 'DBProduct', 'DBPriceStamp', 'Base']
