@@ -18,7 +18,7 @@ class ORMProduct(Base):
     image_url: Mapped[str] = mapped_column(String)
     rating: Mapped[float] = mapped_column(Float)
     categories: Mapped[str] = mapped_column(String)  # Храним как JSON
-    user: Mapped['ORMUser'] = relationship(back_populates='products')
+    user: Mapped['ORMUser'] = relationship(back_populates='products', lazy='selectin')
     price_claims: Mapped[List['ORMPriceClaim']] = relationship(
         back_populates='product', 
         order_by='ORMPriceClaim.time_claim.desc()',
