@@ -13,6 +13,11 @@ from src.infrastructure.repositories.pg_product_repository import PGSQLProductRe
 
 
 def pytest_configure(config):
+    '''
+    Конфигурация pytest:
+    Устанавливает базовый формат логирования для всех тестов.
+    Уровень логирования — INFO, выводится время, имя логгера, уровень и сообщение.
+    '''
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -20,6 +25,10 @@ def pytest_configure(config):
 
 @pytest.fixture
 def product_test():
+    '''
+    Возвращает словарь с тестовыми данными для продукта.
+    Используется для инициализации экземпляра доменной сущности Product.
+    '''
     return {
         'product_id': '1804652778',  # Было 'id'
         'user_id': '0000000000',
@@ -45,10 +54,18 @@ def product_test():
 
 @pytest.fixture
 def product(product_test):
+    '''
+    Возвращает экземпляр доменной сущности Product,
+    инициализированный данными из фикстуры product_test.
+    '''
     return Product(**product_test)
 
 @pytest.fixture
 def price_stamp():
+    '''
+    Возвращает экземпляр доменной сущности PriceStamp
+    с тестовыми значениями. Используется в тестах, связанных с ценами продукта.
+    '''
     return PriceStamp(
         ID_stamp='stamp1',  # Использую str, чтобы соответствовать DBPriceStamp
         ID_product='1804652778',
@@ -62,6 +79,15 @@ def price_stamp():
 
 @pytest.fixture
 def db_session():
+    '''
+    Создаёт временную in-memory SQLite базу данных и возвращает SQLAlchemy-сессию.
+    Используется для изолированного тестирования, не требующего подключения к реальной БД.
+
+    После завершения теста:
+    - транзакция откатывается,
+    - таблицы удаляются,
+    - соединение закрывается.
+    '''
     engine = create_engine('sqlite:///:memory:')
     Base.metadata.create_all(engine)
     session = Session(engine)
@@ -72,4 +98,8 @@ def db_session():
 
 @pytest.fixture
 def repo(db_session):
+    '''
+    Возвращает экземпляр репозитория PGSQLProductRepository,
+    инициализированный сессией к временной in-memory базe данных.
+    '''
     return PGSQLProductRepository(db_session)
