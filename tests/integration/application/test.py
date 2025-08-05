@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from src.domain.entities.product import Product
-from src.domain.entities.price import PriceStamp
+from domain.entities.price_claim import PriceStamp
 
 from src.infrastructure.database.models.product import DBProduct
 from src.infrastructure.database.models.price_stamp import DBPriceStamp

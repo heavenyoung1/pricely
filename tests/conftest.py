@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 from src.infrastructure.database.models.base import Base
 from src.domain.entities.product import Product
-from src.domain.entities.price import PriceStamp
+from domain.entities.price_claim import PriceStamp
 from src.infrastructure.repositories.pg_product_repository import PGSQLProductRepository
 
 

@@ -16,22 +16,23 @@ class DBProduct(Base):
     '''Модель продукта для БД
     
     Attributes:
-        product_id: Уникальный идентификатор товара
-        user_id: ID пользователя, которому принадлежит товара
-        name: Название товара
-        link: Ссылка на товара
-        url_image: Ссылка на изображение товара
-        rating: Рейтинг товара
-        price_with_card: Цена
-        price_without_card: Цена без карты
-        previous_price_with_card: Предыдущая цена с картой
-        previous_price_without_card: Предыдущая цена без карты
-        price_default: Цена по умолчанию (без скидок и прочего)
-        category_product: Категории продукта
-        last_timestamp: Время последнего клейма из price_stamps
-        user: Ссылка на пользователя (отношение многие-к-одному)
-        price_stamps: История цен продукта (отношение один-ко-многим)
-        '''
+        product_id:                     ID товара
+        user_id:                        ID пользователя, которому принадлежит товар
+        name:                           Название товара
+        link:                           Ссылка на товар
+        url_image:                      Ссылка на изображение товара
+        rating:                         Рейтинг товара
+        price_with_card:                Текущая цена с картой
+        price_without_card:             Текущая цена без карты
+        previous_price_with_card:       Предыдущая цена с картой
+        previous_price_without_card:    Предыдущая цена без карты
+        price_default:                  Цена по умолчанию (без скидок)
+        category_product:               Категории продукта
+        last_timestamp:                 Время последнего клейма из price_stamps
+        user:                           Ссылка на пользователя (отношение многие-к-одному)
+        price_stamps:                   История цен продукта (отношение один-ко-многим)
+        last_stamp:                     Последний клейм цены (для оптимизации)
+    '''
     __tablename__ = 'products' 
 
     # string data type
@@ -62,16 +63,15 @@ class DBProduct(Base):
     ) # Каскадное удаление
 
     last_stamp: Mapped['DBPriceStamp'] = relationship(
-        foreign_keys='[DBPriceStamp.ID_product]',
+        'DBPriceStamp',
         primaryjoin='and_(DBProduct.product_id == DBPriceStamp.ID_product, '
-                'DBPriceStamp.time_stamp == DBProduct.last_timestamp)',
+                    'DBPriceStamp.time_stamp == DBProduct.last_timestamp)',
         viewonly=True,
         uselist=False
     )
 
     def to_domain(self) -> 'Product':
-        from src.domain.entities.price import PriceStamp
-        return PriceStamp(
+        return Product(
             product_id=self.product_id,
             user_id=self.user_id,
             name=self.name,

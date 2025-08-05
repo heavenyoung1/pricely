@@ -3,7 +3,7 @@ from typing import Optional, List
 
 from src.domain.entities.product import Product
 from src.interfaces.repositories.product_repository import ProductRepository
-from src.domain.entities.price import PriceStamp
+from domain.entities.price_claim import PriceStamp
 
 
 # class JSONProductRepository(ProductRepository):

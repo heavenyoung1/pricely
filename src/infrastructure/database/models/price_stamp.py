@@ -10,7 +10,7 @@ from src.infrastructure.database.models.product import DBProduct
 
 
 if TYPE_CHECKING:
-    from src.domain.entities.price import PriceStamp
+    from domain.entities.price_claim import PriceStamp
 
 
 class DBPriceStamp(Base):
@@ -41,7 +41,7 @@ class DBPriceStamp(Base):
     product: Mapped['DBProduct'] = relationship(back_populates='price_stamps')
 
     def to_domain(self) -> 'PriceStamp':
-        from src.domain.entities.price import PriceStamp
+        from domain.entities.price_claim import PriceStamp
         return PriceStamp(
             ID_stamp=self.ID_stamp,
             ID_product=self.ID_product,
