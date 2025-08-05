@@ -55,3 +55,20 @@ def test_save_one_product_unit(repo, product, price_stamp):
         mock_merge.assert_called_once()
         mock_add.assert_called_once()
         mock_commit.assert_called_once()
+
+def test_save_few_products_unit(repo, product, price_stamp):
+    products = [product, product]  # Два одинаковых продукта для теста
+    price_stamps = [price_stamp, price_stamp]  # Передаём price_stamp как список
+    with patch.object(Product, 'to_orm', return_value=MagicMock(spec=DBProduct)) as mock_to_orm, \
+         patch.object(PriceStamp, 'to_orm', return_value=MagicMock(spec=DBPriceStamp)) as mock_price_to_orm, \
+         patch.object(repo.session, 'bulk_save_objects') as mock_bulk_save, \
+         patch.object(repo.session, 'add') as mock_add, \
+         patch.object(repo.session, 'commit') as mock_commit:
+
+        repo.save_few_products(products, price_stamps)
+
+        assert mock_to_orm.call_count == 2  # Вызывается для каждого продукта
+        assert mock_price_to_orm.call_count == 2  # Вызывается для каждого price_stamp
+        mock_bulk_save.assert_called_once()
+        mock_add.assert_called_once()
+        mock_commit.assert_called_once()
