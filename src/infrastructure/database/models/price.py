@@ -1,11 +1,12 @@
 from sqlalchemy import Integer, ForeignKey
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import TYPE_CHECKING
 
 from .base import Base
 
 if TYPE_CHECKING:
     from .base import Base
+    from .price_claim import ORMPriceClaim
 
 class ORMPrice(Base):
     __tablename__ = 'prices'
@@ -16,3 +17,4 @@ class ORMPrice(Base):
     previous_without_card: Mapped[int] = mapped_column(Integer)
     default: Mapped[int] = mapped_column(Integer)
     price_claim_id: Mapped[str] = mapped_column(ForeignKey('price_claims.claim_id'))
+    price_claim: Mapped['ORMPriceClaim'] = relationship(back_populates='price')

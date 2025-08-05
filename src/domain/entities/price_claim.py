@@ -12,7 +12,7 @@ config = ConfigDict(strict=True)
 
 @dataclass(config=config)
 class PriceClaim:
-    '''Сущность - Клейм Цены'''
+    '''Сущность - клейм Цены'''
     claim_id: str
     product_id: str
     time_claim: datetime
