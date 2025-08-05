@@ -8,8 +8,8 @@ if TYPE_CHECKING:
 # Strict Mode - Строгий режим, запрещающий конвертацию типов 
 config = ConfigDict(strict=True)
 
-class Product:
-    '''Сущность Product (товар)'''
+class Product(BaseModel):
+    '''Сущность - товар'''
     product_id: str
     user_id: str
     name: str
