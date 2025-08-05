@@ -1,2 +1,6 @@
+if TYPE_CHECKING:
+    from src.domain.entities import 
+
 class UserMapper:
-    pass
+    @staticmethod
+    def to_orm(user: User)

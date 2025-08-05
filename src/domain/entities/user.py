@@ -1,23 +1,22 @@
-from pydantic.dataclasses import dataclass, field_validator
-from pydantic import ConfigDict
-
-from typing import List, TYPE_CHECKING
+from pydantic import BaseModel, ConfigDict, field_validator
+from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .product import Product
+    from .price import Price
 
-config = ConfigDict(strict=True, from_attributes=True,  arbitrary_types_allowed=True)
+config = ConfigDict(strict=True, from_attributes=True, )
 
-@dataclass(config=config)
-class User:
+
+class User(BaseModel):
     user_id: str
     username: str
     chat_id: str
-    products: List['Product']
+    products: str
 
-    # Конфиг для работы с ORM
-    class Config:
-        orm_mode = True  # Разрешает загрузку данных из ORM-объектов
+    model_config = ConfigDict(
+    strict=True,
+    from_attributes=True
+    )
 
     @field_validator('username')
     def validate_username(cls, value: str) -> str:

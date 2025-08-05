@@ -1,5 +1,3 @@
-# Frameworks & Drivers (репозитории, DB, внешние сервисы)
-
 from .base import Base
 
 from .product import ORMroduct

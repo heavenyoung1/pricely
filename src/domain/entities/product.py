@@ -1,6 +1,5 @@
-from pydantic import BaseModel, HttpUrl, field_validator, ConfigDict
+from pydantic import BaseModel, HttpUrl, ConfigDict
 from typing import List, TYPE_CHECKING
-import json
 
 if TYPE_CHECKING:
     from .price_claim import PriceClaim
