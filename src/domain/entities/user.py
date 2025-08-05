@@ -1,12 +1,14 @@
-from dataclasses import dataclass
-from typing import List
+from pydantic.dataclasses import dataclass
+from pydantic import ConfigDict
 
 from typing import List, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from .product import Product
 
-@dataclass 
+config = ConfigDict(strict=True)
+
+@dataclass(config=config)
 class User:
     user_id: str
     username: str
