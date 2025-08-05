@@ -66,3 +66,7 @@ def test_save_few_products_integration(repo, db_session, product, price_stamps):
     assert len(db_products) == 2
     assert db_products[0].product_id == '1804652778'
     assert db_products[1].product_id == '1804652779'
+
+    # Проверяем клеймо
+    db_price_stamp = db_session.query(DBPriceStamp).filter_by(ID_stamp='stamp1').first()
+    assert db_price_stamp is not None
