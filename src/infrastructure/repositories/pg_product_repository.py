@@ -4,13 +4,13 @@ from src.domain.entities import Product, PriceClaim
 from src.infrastructure.database.core import with_session
 from sqlalchemy import select
 
-from src.infrastructure.database.models import ORM
+from src.infrastructure.database.models import ORMProduct
 
 class PGSQLProductRepository(ProductRepository):
     @with_session
     def save_product(self, product: Product, price_claim: PriceClaim, session=None) -> None:
         '''Сохранить продукт и связанный ценовой клейм в базе данных'''
-        stmt = select(ORMroduct).where(ORMroduct.product_id == product.product_id)
+        stmt = select(ORMProduct).where(ORMProduct.product_id == product.product_id)
         result = session.execute(stmt).scalar_one_or_none()
 
         if result:

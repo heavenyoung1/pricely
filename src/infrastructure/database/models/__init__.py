@@ -1,6 +1,6 @@
 from .base import Base
 
-from .product import ORMroduct
+from .product import ORMProduct
 from .price import ORMPrice
 from .price_claim import ORMPriceClaim
 from .user import ORMUser
