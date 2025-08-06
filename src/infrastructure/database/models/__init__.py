@@ -5,4 +5,4 @@ from .price import ORMPrice
 from .price_claim import ORMPriceClaim
 from .user import ORMUser
 
-__all__ = [ 'Base', 'ORMroduct', 'ORMPrice', 'ORMPriceClaim', 'ORMUser']
+__all__ = [ 'Base', 'ORMProduct', 'ORMPrice', 'ORMPriceClaim', 'ORMUser']

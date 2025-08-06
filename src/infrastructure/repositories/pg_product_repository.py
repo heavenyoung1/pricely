@@ -1,24 +1,23 @@
 from sqlalchemy.orm import Session
 from src.interfaces.repositories import ProductRepository
 from src.domain.entities import Product, PriceClaim
+from src.infrastructure.database.core import with_session
 from sqlalchemy import select
 
-from src.infrastructure.database.models import ORMroduct
+from src.infrastructure.database.models import ORM
 
 class PGSQLProductRepository(ProductRepository):
-    def __init__(self, session: Session):
-        self.session = session
-
-    def save_product(self, product: Product, price_claim: PriceClaim) -> None:
+    @with_session
+    def save_product(self, product: Product, price_claim: PriceClaim, session=None) -> None:
         '''Сохранить продукт и связанный ценовой клейм в базе данных'''
-        try:
-            # Создаем запрос
-            stmt = select(ORMroduct).where(ORMroduct.product_id == product.product_id)
+        stmt = select(ORMroduct).where(ORMroduct.product_id == product.product_id)
+        result = session.execute(stmt).scalar_one_or_none()
 
-            with Session(self.engine) as session:  # self.engine - ваш движок SQLAlchemy
-                result = session.execute(stmt)
-
-        except:
+        if result:
+            # Реализовать метод для обновления товара, хотя это и должен быть save, или нет??
+            pass
+        if not result:
+            # Что мы здесь должны вызывать то?? что то типа Product(и сюда положить данные) и еще PriceClaim()
             pass
                                                                   
         
