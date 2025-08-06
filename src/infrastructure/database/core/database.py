@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from functools import wraps
-from typing import Optional, Any, Callable
+from typing import Any, Callable
 
 # Настройка логгера
 logger = logging.getLogger(__name__)
@@ -89,7 +89,7 @@ def get_db_session() -> str:
         logger.error(f"Ошибка создания фабрики сессий: {e}")
         raise
 
-def with_session(func):
+def with_session(func) -> Callable:
     '''Декоратор для автоматического управления сессиями БД.
 
     Автоматически:
