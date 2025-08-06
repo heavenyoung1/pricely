@@ -16,5 +16,5 @@ class PriceMapper:
             previous_with_card=price.previous_with_card,
             previous_without_card=price.previous_without_card,
             default=price.default,
-            price_claims_id=claim_id,
+            price_claim_id=claim_id,
         )
