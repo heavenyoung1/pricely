@@ -1,5 +1,6 @@
 from typing import TYPE_CHECKING
 from src.infrastructure.database.models import ORMUser
+from .product_mapper import ProductMapper
 
 if TYPE_CHECKING:
     from src.domain.entities import User
@@ -9,8 +10,10 @@ class UserMapper:
     def to_orm(user: User) -> ORMUser:
         '''Преобразовать User в ORMUser'''
         return ORMUser(
-            user_ud=user.user_id,
+            user_id=user.user_id,
             username=user.username,
             chat_id=user.chat_id,
-            product=user.products #НУ ТУТ ТОЧНО НЕ ТАК!!!
+            products=[
+                ProductMapper.to_orm(product) for product in user.products
+            ]
         )
