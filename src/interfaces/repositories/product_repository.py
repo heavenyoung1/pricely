@@ -1,16 +1,13 @@
 from abc import ABC, abstractmethod
-from typing import Optional, List
+from typing import Optional, List, TYPE_CHECKING
 
-from src.domain.entities.product import Product
-from domain.entities.price_claim import PriceStamp
+if TYPE_CHECKING:
+    from src.domain.entities import Product, PriceClaim
+
 
 class ProductRepository(ABC):
     @abstractmethod
-    def save_one_product(self, product: Product, price_stamp: PriceStamp) -> None:
-        pass
-
-    @abstractmethod
-    def save_few_products(self, products: List[Product], price_stamp: PriceStamp) -> None:
+    def save_product(self, product: Product, price_claim: PriceClaim) -> None:
         pass
 
     @abstractmethod
@@ -22,5 +19,9 @@ class ProductRepository(ABC):
         pass
 
     @abstractmethod
-    def find_few_products_by_urls(self, product_urls: List[str]) -> List[Product]:
+    def find_all_products_for_user(self, user_id: str) -> Optional[List[Product]]:
+        pass
+
+    @abstractmethod
+    def delete_product(self, product_id: str) -> None:
         pass

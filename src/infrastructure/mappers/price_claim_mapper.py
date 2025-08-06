@@ -3,7 +3,6 @@ from src.infrastructure.database.models import ORMPriceClaim
 from .price_mapper import PriceMapper
 
 
-
 class PriceClaimMapper:
     @staticmethod
     def to_orm(price_claim: PriceClaim) -> ORMPriceClaim:
