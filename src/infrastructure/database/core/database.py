@@ -1,7 +1,7 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from sqlalchemy.orm import sessionmaker, Session
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from typing import Generator
+from functools import wraps
 
 
 class DataBaseSettings(BaseSettings):
@@ -24,35 +24,29 @@ class DataBaseSettings(BaseSettings):
         '''Формирует строку подключения для PostgreSQL'''
         return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{self.NAME}'
 
-# Инициализация настроек БД   
-db_settings = DataBaseSettings()
+def get_db_engine():
+    '''Создаёт и возвращает движок SQLAlchemy для подключения к базе данных'''
+    db_settings = DataBaseSettings()
+    engine = create_engine(db_settings.get_connection_db())
+    return engine
 
-# Создание движка (engine)
-engine = create_engine(
-    db_settings.get_connection_db(),
-    pool_size=10,
-    max_overflow=20,
-    pool_pre_ping=True,
-    echo=False  # Включить для отладки SQL-запросов
-)
+def get_db_session():
+    '''Создаёт и возвращает фабрику сессий SQLAlchemy'''
+    engine = get_db_engine()
+    SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+    return SessionLocal
 
-# Фабрика сессий
-SessionFactory = sessionmaker(
-    bind=engine,
-    autoflush=False,
-    expire_on_commit=False,
-)
-
-# Генератор сессий
-def get_db() -> Generator[Session, None, None]:
-    """Генератор сессий для работы с БД"""
-    db = SessionFactory()
-    try:
-        yield db
-    finally:
-        db.close()
-
-# Инициализация базы данных (создание таблиц)
-def init_db():
-    from src.infrastructure.database.models.base import Base
-    Base.metadata.create_all(bind=engine)
+def with_session(func):
+    '''Декоратор для управления сессией SQLAlchemy'''
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        SessionLocal = get_db_session()
+        with SessionLocal() as session:
+            try:
+                result = func(*args, session=session, **kwargs)
+                session.commit()
+                return result
+            except Exception as e:
+                session.rollback()
+                raise e
+    return wrapper
