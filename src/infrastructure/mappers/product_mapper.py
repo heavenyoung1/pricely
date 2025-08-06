@@ -7,6 +7,12 @@ class ProductMapper:
     @staticmethod
     def to_orm(product: Product) -> ORMProduct:
         '''Преобразовать Product в ORMProduct'''
+        try:
+            categories_json = json.dumps(product.categories)
+        except TypeError as e:
+            raise ValueError(f'ERROR - Ошибка сериалиции КАТЕГОРИИ в JSON!')
+
+
         return ORMProduct(
             product_id=product.product_id,
             user_id=product.user_id,
@@ -15,7 +21,7 @@ class ProductMapper:
             image_url=str(product.image_url),
             rating=product.rating,
             categories=json.dumps(product.categories),
-            price_claim=[
+            price_claims=[
                 PriceClaimMapper.to_orm(claim) for claim in product.price_claims
             ]
         )
