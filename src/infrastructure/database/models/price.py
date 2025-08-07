@@ -1,6 +1,7 @@
-from sqlalchemy import Integer, ForeignKey
+from sqlalchemy import Integer, ForeignKey, DateTime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import TYPE_CHECKING
+from datetime import datetime
 
 from .base import Base
 
@@ -16,4 +17,4 @@ class ORMPrice(Base):
     previous_with_card: Mapped[int] = mapped_column(Integer)
     previous_without_card: Mapped[int] = mapped_column(Integer)
     default: Mapped[int] = mapped_column(Integer)
-    date_claim: Mapped[str] = mapped_column(ForeignKey('price_claims.claim_id'))
+    date_claim: Mapped[datetime] = mapped_column(DateTime)

@@ -11,7 +11,7 @@ class User(BaseModel):
     user_id: str
     username: str
     chat_id: str
-    products: str
+    products: str # Определиться!
 
     model_config = ConfigDict(
     strict=True,
