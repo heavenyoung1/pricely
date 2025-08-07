@@ -6,7 +6,6 @@ from .base import Base
 
 if TYPE_CHECKING:
     from .base import Base
-    from .price_claim import ORMPriceClaim
 
 class ORMPrice(Base):
     __tablename__ = 'prices'

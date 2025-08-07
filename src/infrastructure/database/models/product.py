@@ -7,7 +7,6 @@ from .base import Base
 if TYPE_CHECKING:
     from .base import Base
     from .user import ORMUser
-    from .price_claim import ORMPriceClaim
 
 class ORMProduct(Base):
     __tablename__ = 'products'
