@@ -1,4 +1,5 @@
 from sqlalchemy import String
+from sqlalchemy import Integer, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import List, TYPE_CHECKING
 
@@ -13,4 +14,4 @@ class ORMUser(Base):
     user_id: Mapped[str] = mapped_column(primary_key=True)
     username: Mapped[str] = mapped_column(String)
     chat_id: Mapped[str] = mapped_column(String)
-    products: Mapped[List['ORMProduct']] = relationship(back_populates='user')
+    products: Mapped[List['ORMProduct']] = mapped_column(ForeignKey('products.user_id'))

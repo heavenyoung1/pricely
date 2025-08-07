@@ -10,16 +10,11 @@ if TYPE_CHECKING:
 
 class ORMProduct(Base):
     __tablename__ = 'products'
-    product_id: Mapped[str] = mapped_column(primary_key=True)
+    id: Mapped[str] = mapped_column(primary_key=True)
     user_id: Mapped[str] = mapped_column(ForeignKey('users.user_id'))
+    price_id: Mapped['ORMUser'] = mapped_column(ForeignKey('prices.id'))
     name: Mapped[str] = mapped_column(String)
     link: Mapped[str] = mapped_column(String)
     image_url: Mapped[str] = mapped_column(String)
     rating: Mapped[float] = mapped_column(Float)
     categories: Mapped[str] = mapped_column(String)  # Храним как JSON
-    user: Mapped['ORMUser'] = relationship(back_populates='products', lazy='selectin')
-    price_claims: Mapped[List['ORMPriceClaim']] = relationship(
-        back_populates='product', 
-        order_by='ORMPriceClaim.time_claim.desc()',
-        lazy='selectin', # Улучшение производительности
-        )

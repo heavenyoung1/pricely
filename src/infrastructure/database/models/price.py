@@ -5,15 +5,15 @@ from typing import TYPE_CHECKING
 from .base import Base
 
 if TYPE_CHECKING:
-    from .base import Base
+    from . import ORMProduct
 
 class ORMPrice(Base):
     __tablename__ = 'prices'
     id: Mapped[str] = mapped_column(primary_key=True)
+    product_id: Mapped['ORMProduct'] = mapped_column(ForeignKey('products.id'))
     with_card: Mapped[int] = mapped_column(Integer)
     without_card: Mapped[int] = mapped_column(Integer)
     previous_with_card: Mapped[int] = mapped_column(Integer)
     previous_without_card: Mapped[int] = mapped_column(Integer)
     default: Mapped[int] = mapped_column(Integer)
-    price_claim_id: Mapped[str] = mapped_column(ForeignKey('price_claims.claim_id'))
-    price_claim: Mapped['ORMPriceClaim'] = relationship(back_populates='price')
+    date_claim: Mapped[str] = mapped_column(ForeignKey('price_claims.claim_id'))
