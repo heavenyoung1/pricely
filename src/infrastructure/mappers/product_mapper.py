@@ -21,9 +21,10 @@ class ProductMapper:
             image_url=str(product.image_url),
             rating=product.rating,
             categories=json.dumps(product.categories),
-            price_claims=[
-                PriceClaimMapper.to_orm(claim) for claim in product.price_claims
-            ]
+            # PriceClaims маппятся в репозитории, чтобы избежать дублирования
+            # price_claims=[
+            #     PriceClaimMapper.to_orm(claim) for claim in product.price_claims
+            # ]
         )
     
     def update_orm(orm_product: ORMProduct, product: Product) -> None:
