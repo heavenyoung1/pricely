@@ -19,13 +19,8 @@ class PGSQLProductRepository(ProductRepository):
 
         if existing_product:
             # Обновляем существующий продукт
-            orm_product = ProductMapper.to_orm(product)
-            existing_product.user_id = orm_product.user_id
-            existing_product.name = orm_product.name
-            existing_product.link = orm_product.link
-            existing_product.image_url = orm_product.image_url
-            existing_product.rating = orm_product.rating
-            existing_product.categories = orm_product.categories
+            orm_product = ProductMapper.update_orm(product)
+
 
             # Добавляем новый ценовой клейм
             orm_price_claim = PriceClaimMapper(price_claim)

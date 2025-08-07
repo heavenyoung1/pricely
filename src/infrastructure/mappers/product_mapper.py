@@ -25,3 +25,12 @@ class ProductMapper:
                 PriceClaimMapper.to_orm(claim) for claim in product.price_claims
             ]
         )
+    
+    def update_orm(orm_product: ORMProduct, product: Product) -> None:
+        '''Обновляет существующий ORMProduct на основе доменного Product.'''
+        orm_product.user_id = product.user_id
+        orm_product.name = product.name
+        orm_product.link = product.link
+        orm_product.image_url = product.image_url
+        orm_product.rating = product.rating
+        orm_product.categories = product.categories

@@ -13,3 +13,5 @@ class PriceClaimMapper:
         time_claim=price_claim.time_claim,
         price=PriceMapper.to_orm(price_claim.price, price_claim.claim_id),
         )
+    
+    def update_orm(orm_price_claim: ORMPriceClaim)
