@@ -17,8 +17,3 @@ class User(BaseModel):
     strict=True,
     from_attributes=True
     )
-
-    @field_validator('username')
-    def validate_username(cls, value: str) -> str:
-        if not value.strip():
-            raise ValueError('Username не может быть пустым')

@@ -1,22 +1,19 @@
 from pydantic import BaseModel, HttpUrl, ConfigDict
 from typing import List, TYPE_CHECKING
 
-if TYPE_CHECKING:
-    from .price_claim import PriceClaim
-
 # Strict Mode - Строгий режим, запрещающий конвертацию типов 
 config = ConfigDict(strict=True)
 
 class Product(BaseModel):
     '''Сущность - товар'''
-    product_id: str
+    id: str
     user_id: str
+    price_id: str
     name: str
     link: HttpUrl
     image_url: HttpUrl
     rating: float
     categories: List[str]
-    price_claims: List['PriceClaim']
 
     model_config = ConfigDict(
         strict=True,
