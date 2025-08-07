@@ -1,11 +1,12 @@
 import json
+from sqlalchemy.orm import Session
+
 from src.domain.entities import Product
 from src.infrastructure.database.models import ORMProduct
-from .price_claim_mapper import PriceClaimMapper
 
 class ProductMapper:
     @staticmethod
-    def to_orm(product: Product) -> ORMProduct:
+    def to_orm(product: Product, session: Session = None) -> ORMProduct:
         '''Преобразовать Product в ORMProduct'''
         try:
             categories_json = json.dumps(product.categories)
@@ -14,24 +15,22 @@ class ProductMapper:
 
 
         return ORMProduct(
-            product_id=product.product_id,
+            id=product.product_id,
             user_id=product.user_id,
+            price_id=product.price_id,
             name=product.name,
             link=str(product.link),
             image_url=str(product.image_url),
             rating=product.rating,
             categories=json.dumps(product.categories),
-            # PriceClaims маппятся в репозитории, чтобы избежать дублирования
-            # price_claims=[
-            #     PriceClaimMapper.to_orm(claim) for claim in product.price_claims
-            # ]
         )
     
+    @staticmethod
     def update_orm(orm_product: ORMProduct, product: Product) -> None:
         '''Обновляет существующий ORMProduct на основе доменного Product.'''
         orm_product.user_id = product.user_id
         orm_product.name = product.name
-        orm_product.link = product.link
-        orm_product.image_url = product.image_url
+        orm_product.link = str(product.link)
+        orm_product.image_url = str(product.image_url)
         orm_product.rating = product.rating
-        orm_product.categories = product.categories
+        orm_product.categories = json.dumps(product.categories)
