@@ -9,6 +9,8 @@ from src.domain.entities import Product, Price, User
 
 @pytest.fixture
 def session():
+    '''Создает временную сессию SQLite в памяти для тестов.
+    Автоматически создает таблицы и закрывает сессию после использования.'''
     engine = create_engine('sqlite:///:memory:')
     ORMUser.metadata.create_all(engine)
     SessionLocal = sessionmaker(bind=engine)
@@ -18,6 +20,14 @@ def session():
 
 @pytest.fixture
 def product():
+    '''Фикстура тестового продукта с минимальными обязательными полями:
+    - id: тестовый идентификатор товара
+    - user_id: привязка к пользователю
+    - name: название товара
+    - link: валидный URL товара
+    - image_url: валидный URL изображения
+    - rating: рейтинг товара
+    - categories: список категорий'''
     return Product(
         id='01234567521',
         user_id='user1',
@@ -31,6 +41,13 @@ def product():
 
 @pytest.fixture
 def price():
+    '''Фикстура тестовой цены с параметрами:
+    - id: идентификатор ценового снимка
+    - product_id: привязка к продукту
+    - with_card/without_card: текущие цены
+    - previous_*: предыдущие цены (опционально)
+    - default: цена по умолчанию
+    - claim: метка времени фиксации цены'''
     return Price(
         id='price1',
         product_id='prod1',
@@ -44,9 +61,14 @@ def price():
 
 @pytest.fixture
 def user():
+    '''Фикстура тестового пользователя с полями:
+    - user_id: уникальный идентификатор
+    - username: имя пользователя
+    - chat_id: идентификатор чата
+    - products: JSON-строка со списком ID товаров'''
     return User(
-        user_id="user1",
-        username="test_user",
-        chat_id="123456",
+        user_id='user1',
+        username='test_user',
+        chat_id='123456',
         products='["prod1"]'  # JSON с ID продуктов
     )
