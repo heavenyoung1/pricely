@@ -22,7 +22,7 @@ class ProductMapper:
             link=str(product.link),
             image_url=str(product.image_url),
             rating=product.rating,
-            categories=json.dumps(product.categories),
+            categories=categories_json,
         )
     
     @staticmethod

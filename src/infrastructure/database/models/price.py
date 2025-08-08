@@ -2,9 +2,12 @@ from __future__ import annotations
 from sqlalchemy import Integer, ForeignKey, DateTime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 from .base import Base
 
+if TYPE_CHECKING:
+    from .product import ORMProduct
 
 class ORMPrice(Base):
     __tablename__ = 'prices'
@@ -21,4 +24,9 @@ class ORMPrice(Base):
     date_claim: Mapped[datetime] = mapped_column(DateTime)
 
     # связь с товаром
-    product = relationship('ORMProduct', back_populates='prices')
+    product: Mapped['ORMProduct'] = relationship(
+        'ORMProduct',
+        back_populates='prices',
+        foreign_keys=[id],  # Явно указываем внешний ключ
+        lazy='selectin'
+    )

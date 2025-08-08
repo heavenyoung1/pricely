@@ -23,10 +23,10 @@ class ORMProduct(Base):
     categories: Mapped[str] = mapped_column(String)  # Храним как JSON
 
     # связи
-    user: Mapped['ORMUser'] = relationship('ORMUser', back_populates='products')
+    user: Mapped['ORMUser'] = relationship('ORMUser', back_populates='products', lazy='selectin')
 
     # текущая (последняя) цена
-    price: Mapped['ORMPrice'] = relationship('ORMPrice', foreign_keys=[price_id], post_update=True)
+    price: Mapped['ORMPrice'] = relationship('ORMPrice', foreign_keys=[price_id], post_update=True, lazy='selectin')
 
     # история цен
     prices: Mapped[list['ORMPrice']] = relationship(
@@ -34,4 +34,6 @@ class ORMProduct(Base):
         back_populates='product', 
         primaryjoin='ORMProduct.product_id == ORMPrices.product_id',  # Явно указываем условие соединения
         foreign_keys=[ORMPrice.product_id],
+        lazy='selectin',
+        cascade='all, delete-orphan'
         )
