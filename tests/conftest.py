@@ -31,7 +31,7 @@ def product():
     return Product(
         id='01234567521',
         user_id='user1',
-        price_id=None,
+        price_id='price1',
         name='Test Product',
         link=HttpUrl('http://example.com'),
         image_url=HttpUrl('http://example.com/image.jpg'),

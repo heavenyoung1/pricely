@@ -15,7 +15,7 @@ class ProductMapper:
 
 
         return ORMProduct(
-            id=product.product_id,
+            id=product.id,
             user_id=product.user_id,
             price_id=product.price_id,
             name=product.name,
