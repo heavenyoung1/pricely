@@ -6,11 +6,8 @@ from src.domain.entities.product import Product
 if TYPE_CHECKING:
     from src.domain.entities import Price
 
+
 class PriceRepository(ABC):
     @abstractmethod
     def save_price_stamp(self, product: Product, price: Price):
-        pass
-
-    @abstractmethod
-    def delete_stamps_for_product(self, product: Product, price: Price):
         pass

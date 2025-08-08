@@ -2,12 +2,12 @@ from abc import ABC, abstractmethod
 from typing import Optional, List, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.domain.entities import Product, PriceClaim
+    from src.domain.entities import Product
 
 
 class ProductRepository(ABC):
     @abstractmethod
-    def save_product(self, product: Product, price_claim: PriceClaim) -> None:
+    def save_product(self, product: Product) -> None:
         pass
 
     @abstractmethod
