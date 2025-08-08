@@ -1,5 +1,5 @@
 from src.domain.repositories import UserRepository
-from src.domain.entities import User
+from src.domain.entities import Price
 from src.infrastructure.mappers.user_mapper import UserMapper
 from src.infrastructure.database.models import ORMUser
 from src.infrastructure.database.core.database import with_session

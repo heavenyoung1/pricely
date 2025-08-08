@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Optional, List
-from src.domain.entitites import User
+from src.domain.entities import User
 from sqlalchemy.orm import Session
 
 class UserRepository(ABC):

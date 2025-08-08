@@ -1,7 +1,7 @@
 import logging
 
 from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
-from src.domain.entitites import Product, Price
+from src.domain.entities import Product, Price
 
 logger = logging.getLogger(__name__)
 
