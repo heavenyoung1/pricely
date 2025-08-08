@@ -15,18 +15,18 @@ class ORMPrice(Base):
     id: Mapped[str] = mapped_column(primary_key=True)
     product_id: Mapped[str] = mapped_column(ForeignKey('products.id'), nullable=False)
 
-    with_card: Mapped[int] = mapped_column(Integer)
-    without_card: Mapped[int] = mapped_column(Integer)
-    previous_with_card: Mapped[int] = mapped_column(Integer)
-    previous_without_card: Mapped[int] = mapped_column(Integer)
-    default: Mapped[int] = mapped_column(Integer)
+    with_card: Mapped[int] = mapped_column(Integer, nullable=False)
+    without_card: Mapped[int] = mapped_column(Integer, nullable=False)
+    previous_with_card: Mapped[int] = mapped_column(Integer, nullable=False)
+    previous_without_card: Mapped[int] = mapped_column(Integer, nullable=False)
+    default: Mapped[int] = mapped_column(Integer, nullable=False)
 
-    date_claim: Mapped[datetime] = mapped_column(DateTime)
+    date_claim: Mapped[datetime] = mapped_column(DateTime, nullable=False)
 
     # связь с товаром
     product: Mapped['ORMProduct'] = relationship(
         'ORMProduct',
         back_populates='prices',
-        foreign_keys=[id],  # Явно указываем внешний ключ
+        foreign_keys=[product_id],
         lazy='selectin'
     )
