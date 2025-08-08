@@ -1,9 +1,6 @@
 from pydantic import BaseModel, HttpUrl, ConfigDict
 from typing import List
 
-# Strict Mode - Строгий режим, запрещающий конвертацию типов 
-config = ConfigDict(strict=True)
-
 class Product(BaseModel):
     '''Сущность - товар'''
     id: str

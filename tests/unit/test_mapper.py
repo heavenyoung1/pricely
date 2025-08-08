@@ -27,4 +27,6 @@ def test_price_mapper_to_orm(price):
 def test_user_mapper_to_orm(user):
     orm_user = UserMapper.to_orm(user)
     assert orm_user.id == user.id
-    
+    assert orm_user.username == user.username
+    assert orm_user.chat_id == user.chat_id
+    assert orm_user.products == user.products
