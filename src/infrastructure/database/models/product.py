@@ -29,4 +29,9 @@ class ORMProduct(Base):
     price: Mapped['ORMPrice'] = relationship('ORMPrice', foreign_keys=[price_id], post_update=True)
 
     # история цен
-    prices: Mapped[list['ORMPrice']] = relationship('ORMPrice', back_populates='product', foreign_keys=[ORMPrice.product_id])
+    prices: Mapped[list['ORMPrice']] = relationship(
+        'ORMPrice', 
+        back_populates='product', 
+        primaryjoin='ORMProduct.product_id == ORMPrices.product_id',  # Явно указываем условие соединения
+        foreign_keys=[ORMPrice.product_id],
+        )
