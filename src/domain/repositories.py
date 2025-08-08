@@ -49,12 +49,12 @@ class PriceRepository(ABC):
 
 class UserRepository(ABC):
     @abstractmethod
-    def save_user(self, user: User) -> None:
+    def save(self, user: User) -> None:
         '''Сохранить или обновить пользователя.'''
         pass
 
     @abstractmethod
-    def get_user(self, user_id: str) -> User:
+    def get(self, user_id: str) -> User:
         '''Получить пользователя по ID.'''
         pass
 
