@@ -1,10 +1,9 @@
 import logging
 from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
-from src.domain.entitites import Product, Price
+from src.domain.entitites import Price
 
 logger = logging.getLogger(__name__)
 
-# Здесь находится бизнес-логика, которая управляет несколькими сущностями
 
 class UpdatePriceUseCase:
     def __init__(self, product_repo: ProductRepository, price_repo: PriceRepository):

@@ -3,7 +3,6 @@ from src.domain.repositories import ProductRepository, PriceRepository, UserRepo
 
 logger = logging.getLogger(__name__)
 
-# Здесь находится бизнес-логика, которая управляет несколькими сущностями
 
 class DeleteProductUseCase:
     def __init__(self, product_repo: ProductRepository):

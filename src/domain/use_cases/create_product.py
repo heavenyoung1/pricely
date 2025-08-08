@@ -4,8 +4,6 @@ from src.domain.repositories import ProductRepository, PriceRepository, UserRepo
 
 logger = logging.getLogger(__name__)
 
-# Здесь находится бизнес-логика, которая управляет несколькими сущностями
-
 class CreateProductUseCase:
     def __init__(
             self,
