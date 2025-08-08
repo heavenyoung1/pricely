@@ -11,7 +11,7 @@ class ProductMapper:
         try:
             categories_json = json.dumps(product.categories)
         except TypeError as e:
-            raise ValueError(f'ERROR - Ошибка сериалиции КАТЕГОРИИ в JSON!')
+            raise ValueError(f'ERROR - Ошибка сериалиции КАТЕГОРИИ в JSON! {e}')
 
 
         return ORMProduct(
