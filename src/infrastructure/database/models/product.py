@@ -14,13 +14,13 @@ class ORMProduct(Base):
     
     id: Mapped[str] = mapped_column(primary_key=True)
     user_id: Mapped[str] = mapped_column(ForeignKey('users.id'), nullable=True)
-    price_id: Mapped[str] = mapped_column(ForeignKey('prices.id'))
+    price_id: Mapped[str] = mapped_column(ForeignKey('prices.id'), nullable=True)
 
-    name: Mapped[str] = mapped_column(String)
-    link: Mapped[str] = mapped_column(String)
-    image_url: Mapped[str] = mapped_column(String)
-    rating: Mapped[float] = mapped_column(Float)
-    categories: Mapped[str] = mapped_column(String)  # Храним как JSON
+    name: Mapped[str] = mapped_column(String, nullable=False)
+    link: Mapped[str] = mapped_column(String, nullable=False)
+    image_url: Mapped[str] = mapped_column(String, nullable=False)
+    rating: Mapped[float] = mapped_column(Float, nullable=False)
+    categories: Mapped[str] = mapped_column(String, nullable=False)  # Храним как JSON
 
     # связи
     user: Mapped['ORMUser'] = relationship('ORMUser', back_populates='products', lazy='selectin')
@@ -30,10 +30,9 @@ class ORMProduct(Base):
 
     # история цен
     prices: Mapped[list['ORMPrice']] = relationship(
-        'ORMPrice', 
-        back_populates='product', 
-        primaryjoin='ORMProduct.product_id == ORMPrices.product_id',  # Явно указываем условие соединения
-        foreign_keys=[ORMPrice.product_id],
+        'ORMPrice',
+        back_populates='product',
+        primaryjoin='ORMProduct.id == ORMPrice.product_id',
         lazy='selectin',
         cascade='all, delete-orphan'
-        )
+    )
