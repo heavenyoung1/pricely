@@ -1,12 +1,10 @@
 import json
 from sqlalchemy import select
 from sqlalchemy.orm import Session
-from typing import TYPE_CHECKING
 
 from src.infrastructure.database.models import ORMUser, ORMProduct
+from src.domain.entities import User
 
-if TYPE_CHECKING:
-    from src.domain.entities import User
 
 class UserMapper:
     @staticmethod

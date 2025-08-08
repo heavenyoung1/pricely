@@ -1,10 +1,9 @@
 from sqlalchemy.orm import Session
 from typing import TYPE_CHECKING
 
+from src.domain.entities import Price
 from src.infrastructure.database.models import ORMPrice
 
-if TYPE_CHECKING:
-    from src.domain.entities import Price
 
 class PriceMapper:
     @staticmethod
