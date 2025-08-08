@@ -1,19 +1,20 @@
+from __future__ import annotations
 from sqlalchemy import String, Float, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from typing import List, TYPE_CHECKING
+from typing import TYPE_CHECKING
+from .price import ORMPrice
 
 from .base import Base
 
 if TYPE_CHECKING:
-    from . import ORMUser
-    from . import ORMPrice
+    from .user import ORMUser
 
 class ORMProduct(Base):
     __tablename__ = 'products'
     
     id: Mapped[str] = mapped_column(primary_key=True)
-    user_id: Mapped[str] = mapped_column(ForeignKey('users.user_id'), nullable=True)
-    price_id: Mapped['ORMUser'] = mapped_column(ForeignKey('prices.id'))
+    user_id: Mapped[str] = mapped_column(ForeignKey('users.id'), nullable=True)
+    price_id: Mapped[str] = mapped_column(ForeignKey('prices.id'))
 
     name: Mapped[str] = mapped_column(String)
     link: Mapped[str] = mapped_column(String)
@@ -28,4 +29,4 @@ class ORMProduct(Base):
     price: Mapped['ORMPrice'] = relationship('ORMPrice', foreign_keys=[price_id], post_update=True)
 
     # история цен
-    prices: Mapped[list['ORMPrice']] = relationship('ORMPrice', back_populates='product', foreign_keys='ORMPrice.product_id')
+    prices: Mapped[list['ORMPrice']] = relationship('ORMPrice', back_populates='product', foreign_keys=[ORMPrice.product_id])
