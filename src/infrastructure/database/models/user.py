@@ -13,7 +13,12 @@ class ORMUser(Base):
     __tablename__ = 'users'
     id: Mapped[str] = mapped_column(String, primary_key=True)
 
-    username: Mapped[str] = mapped_column(String)
-    chat_id: Mapped[str] = mapped_column(String)
+    username: Mapped[str] = mapped_column(String, nullable=False)
+    chat_id: Mapped[str] = mapped_column(String, nullable=False)
 
-    products: Mapped[list['ORMProduct']] = relationship('ORMProduct', back_populates='user')
+    products: Mapped[list['ORMProduct']] = relationship(
+        'ORMProduct',
+        back_populates='user',
+        lazy='selectin',
+        cascade='all, delete-orphan'
+    )
