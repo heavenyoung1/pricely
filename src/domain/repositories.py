@@ -1,12 +1,13 @@
 from abc import ABC, abstractmethod
 from typing import Optional, List
 from .entities import Product, Price, User
+from sqlalchemy.orm import Session
 
 # Доменный слой описывает контракты, инфраструктура реализует
 
 class ProductRepository(ABC):
     @abstractmethod
-    def save_product(self, product: Product) -> None:
+    def save(self, product: Product) -> None:
         '''Сохранить или обновить товары.'''
         pass
 
@@ -20,10 +21,6 @@ class ProductRepository(ABC):
         '''Удалить товар из отслеживаемых'''
         pass
 
-    # @abstractmethod
-    # def find_product_by_id(self, product_id: str) -> Optional[Product]:
-    #     pass
-
     @abstractmethod
     def get_all_product(self, user_id: str) -> Optional[List[Product]]:
         '''Получить все товары пользвателя по ID пользователя.'''
@@ -34,12 +31,12 @@ class ProductRepository(ABC):
 class PriceRepository(ABC):
 
     @abstractmethod
-    def save_price(self, price: Price) -> None:
+    def save(self, price: Price) -> None:
         '''Сохранить или обновить цену.'''
         pass
 
     @abstractmethod
-    def get_price(self, price_id: str) -> Price:
+    def get(self, price_id: str) -> Price:
         '''Получить цену по ID.'''
         pass
 

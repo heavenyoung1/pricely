@@ -22,6 +22,3 @@ class ORMUser(Base):
         lazy='selectin',
         cascade='all, delete-orphan'
     )
-
-    # lazy='selectin' для эффективной загрузки
-    # cascade='all, delete-orphan' для удаления связанных продуктов при удалении пользователя
