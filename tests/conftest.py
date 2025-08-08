@@ -53,10 +53,10 @@ def price():
         product_id='prod1',
         with_card=100,
         without_card=120,
-        previous_with_card=None,
-        previous_without_card=None,
-        default=0,
-        claim=datetime(2023, 1, 1)
+        previous_with_card=250,
+        previous_without_card=270,
+        default=300,
+        claim=datetime(2025, 1, 1)
     )
 
 @pytest.fixture

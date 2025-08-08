@@ -7,7 +7,7 @@ from src.infrastructure.database.models import ORMPrice
 
 class PriceMapper:
     @staticmethod
-    def to_orm(price: Price, session: Session) -> ORMPrice:
+    def to_orm(price: Price, session: Session = None) -> ORMPrice:
         '''Преобразовать Price в ORMPrice'''
         return ORMPrice(
             id=price.id,
