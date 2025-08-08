@@ -11,7 +11,7 @@ class UserMapper:
     def to_orm(user: User, session: Session = None) -> ORMUser:
         '''Преобразовать User в ORMUser'''
         orm_user = ORMUser(
-            user_id=user.user_id,
+            id=user.id,
             username=user.username,
             chat_id=user.chat_id
         )

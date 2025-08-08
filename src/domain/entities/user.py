@@ -8,7 +8,7 @@ config = ConfigDict(strict=True, from_attributes=True, )
 
 
 class User(BaseModel):
-    user_id: str
+    id: str
     username: str
     chat_id: str
     products: str # Определиться!

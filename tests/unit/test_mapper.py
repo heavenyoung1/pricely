@@ -13,7 +13,7 @@ def test_product_mapper_to_orm(product):
     assert orm_product.rating == product.rating
     assert orm_product.categories == json.dumps(product.categories)
 
-def test_price_mapper_to_orm(price, session):
+def test_price_mapper_to_orm(price):
     orm_price = PriceMapper.to_orm(price)
     assert orm_price.id == price.id
     assert orm_price.product_id == price.product_id
@@ -24,3 +24,7 @@ def test_price_mapper_to_orm(price, session):
     assert orm_price.default == price.default
     assert orm_price.date_claim == price.claim
 
+def test_user_mapper_to_orm(user):
+    orm_user = UserMapper.to_orm(user)
+    assert orm_user.id == user.id
+    

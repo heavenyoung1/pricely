@@ -62,12 +62,12 @@ def price():
 @pytest.fixture
 def user():
     '''Фикстура тестового пользователя с полями:
-    - user_id: уникальный идентификатор
+    - id: уникальный идентификатор
     - username: имя пользователя
     - chat_id: идентификатор чата
     - products: JSON-строка со списком ID товаров'''
     return User(
-        user_id='user1',
+        id='user1',
         username='test_user',
         chat_id='123456',
         products='["prod1"]'  # JSON с ID продуктов
