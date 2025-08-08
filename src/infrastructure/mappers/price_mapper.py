@@ -1,5 +1,6 @@
+import json
 from src.domain.entities import Price
-from src.infrastructure.database.models import ORMPrice
+from src.infrastructure.database.models import ORMPrice 
 
 class PriceMapper:
     @staticmethod
@@ -14,9 +15,9 @@ class PriceMapper:
             default=entity.default,
             date_claim=entity.claim,
         )
-    
+
     @staticmethod
-    def to_domain(model: ORMPrice) -> Price:
+    def to_entity(model: ORMPrice) -> Price:
         return Price(
             id=model.id,
             product_id=model.product_id,
