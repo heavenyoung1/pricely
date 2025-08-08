@@ -14,8 +14,8 @@ class ProductService:
             price_repository: PriceRepository,
             user_repository: UserRepository,
     ):
-        self.product_repository = product_repository,
-        self.price_repository = price_repository,
+        self.product_repository = product_repository
+        self.price_repository = price_repository
         self.user_repository = user_repository
 
     def create_product(self, product: Product, price: Price, user: User) -> Product:
