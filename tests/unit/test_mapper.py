@@ -29,4 +29,5 @@ def test_user_mapper_to_orm(user):
     assert orm_user.id == user.id
     assert orm_user.username == user.username
     assert orm_user.chat_id == user.chat_id
-    assert orm_user.products == user.products
+    # Проверяем, что ID продуктов совпадают
+    assert [product.id for product in orm_user.products] == json.loads(user.products)

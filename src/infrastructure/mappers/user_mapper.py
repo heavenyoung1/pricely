@@ -10,18 +10,21 @@ class UserMapper:
     @staticmethod
     def to_orm(user: User, session: Session = None) -> ORMUser:
         '''Преобразовать User в ORMUser'''
+        try:
+            product_ids = json.loads(user.products) if user.products else []
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Failed to decode products JSON: {e}")
+
+        # Создаём ORMUser
         orm_user = ORMUser(
             id=user.id,
             username=user.username,
             chat_id=user.chat_id
         )
-        # Если products — строка JSON, загружаем продукты
-        if user.products and session:
-            try:
-                product_ids = json.loads(user.products)
-                orm_user.products = session.execute(
-                    select(ORMProduct).where(ORMProduct.id.in_(product_ids))
-                ).scalars().all()
-            except json.JSONDecodeError:
-                raise ValueError('ERROR - Invalid JSON in User.products')
+
+        # Создаём заглушки ORMProduct для каждого ID
+        orm_user.products = [
+            ORMProduct(id=product_id) for product_id in product_ids
+        ]
+
         return orm_user
