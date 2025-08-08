@@ -19,7 +19,7 @@ class ProductMapper:
             categories=json.dumps(entity.categories),
         )
     
-    def to_entity(model: ORMProduct) -> Product:
+    def to_domain(model: ORMProduct) -> Product:
         return Product(
             id=model.id,
             user_id=model.user_id,

@@ -12,7 +12,7 @@ class UserMapper:
         # связь products задаём через ORM
 
     @staticmethod
-    def to_entity(model: ORMUser) -> User:
+    def to_domain(model: ORMUser) -> User:
         return User(
             id=model.id,
             username=model.username,
