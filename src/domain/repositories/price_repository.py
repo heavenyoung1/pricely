@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Optional, List
-from src.domain.entitites
+from src.domain.entitites import Price
 from sqlalchemy.orm import Session
 
 class PriceRepository(ABC):
