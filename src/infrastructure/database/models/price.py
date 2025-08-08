@@ -10,11 +10,17 @@ if TYPE_CHECKING:
 
 class ORMPrice(Base):
     __tablename__ = 'prices'
+
     id: Mapped[str] = mapped_column(primary_key=True)
     product_id: Mapped['ORMProduct'] = mapped_column(ForeignKey('products.id'))
+
     with_card: Mapped[int] = mapped_column(Integer)
     without_card: Mapped[int] = mapped_column(Integer)
     previous_with_card: Mapped[int] = mapped_column(Integer)
     previous_without_card: Mapped[int] = mapped_column(Integer)
     default: Mapped[int] = mapped_column(Integer)
+
     date_claim: Mapped[datetime] = mapped_column(DateTime)
+
+    # связь с товаром
+    product = relationship('ORMProduct', back_populates='prices')
