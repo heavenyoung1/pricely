@@ -15,5 +15,7 @@ class ProductService:
         self.price_repository = price_repository,
         self.user_repository = user_repository
 
-        def save_product(self, product: Product, price: Price):
+    def create_product(self, product: Product, price: Price, user: User) -> Product:
+        '''Создаёт или обновляет продукт, цену и пользователя.'''
+        self.price_repository.save_
         
