@@ -10,16 +10,16 @@ class ProductRepository(ABC):
         pass
 
     @abstractmethod
-    def get_product(self, product_id: str) -> Product:
+    def get(self, product_id: str) -> Product:
         '''Получить товар по ID.'''
         pass
 
     @abstractmethod
-    def delete_product(self, product_id: str) -> None:
+    def delete(self, product_id: str) -> None:
         '''Удалить товар из отслеживаемых'''
         pass
 
     @abstractmethod
-    def get_all_product(self, user_id: str) -> Optional[List[Product]]:
+    def get_all(self, user_id: str) -> Optional[List[Product]]:
         '''Получить все товары пользвателя по ID пользователя.'''
         pass
