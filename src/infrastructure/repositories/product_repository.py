@@ -24,7 +24,7 @@ class ProductRepositoryImpl(ProductRepository):
     def delete(self, product_id):
         orm_model = self.session.get(ORMProduct, product_id)
         logger.info(f'Продукт {ProductMapper.to_domain(orm_model)} получен по id: {orm_model.id}')
-        self.session.delete(ORMProduct) # как дальше удалить, чтобы удалился нужный элемент
+        self.session.delete(orm_model) # как дальше удалить, чтобы удалился нужный элемент
 
     def get_all(self, user_id):
         orm_model = self.session.get(ORMProduct, user_id)
