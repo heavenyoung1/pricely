@@ -42,7 +42,7 @@ class ProductService:
             
         Raises:
             ProductCreationError: Если не удалось создать продукт.'''
-        with self.uow_factory as uow:
+        with self.uow_factory() as uow:
             use_case = CreateProductUseCase(
                 product_repo=uow.product_repository(),
                 price_repo=uow.price_repository(),
@@ -60,7 +60,7 @@ class ProductService:
         Raises:
             ProductNotFoundError: Если продукт не существует.
         '''
-        with self.uow_factory as uow:
+        with self.uow_factory() as uow:
             use_case = DeleteProductUseCase(
                 product_repo=uow.product_repository(),
             )
@@ -76,7 +76,7 @@ class ProductService:
         Returns:
             Optional[Product]: Найденный продукт или None.
         '''
-        with self.uow_factory as uow:
+        with self.uow_factory() as uow:
             use_case = GetProductUseCase(
                 product_repo=uow.product_repository(),
             )
@@ -92,7 +92,7 @@ class ProductService:
         Raises:
             PriceUpdateError: Если не удалось обновить цену.
         '''
-        with self.uow_factory as uow:
+        with self.uow_factory() as uow:
             use_case = UpdatePriceUseCase(
                 product_repo=uow.product_repository(),
                 price_repo=uow.price_repository(),
