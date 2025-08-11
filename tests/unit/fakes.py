@@ -15,6 +15,9 @@ class InMemoryProductRepository(ProductRepository):
     def delete(self, product_id: str):
         if product_id in self.products:
             del self.products[product_id]
+    
+    def get_all(self) -> list[Product]:
+        return list(self._storage.values())
 
 class InMemoryPriceRepository(PriceRepository):
     def __init__(self):
