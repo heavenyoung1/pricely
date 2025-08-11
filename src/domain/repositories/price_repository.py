@@ -10,16 +10,26 @@ class PriceRepository(ABC):
         pass
 
     @abstractmethod
-    def _get_relevant_price_id(self, product_id: str) -> str:
-        '''Получить актуальный PRICE_ID по.'''
-        pass   
+    def get_relevant_price_id(self, product_id: str) -> Optional[str]:
+        '''Получить ID актуальной цены по ID продукта.'''
+        pass
 
     @abstractmethod
-    def get(self, price_id: str) -> Price:
+    def get(self, price_id: str) -> Optional[Price]:
         '''Получить цену по ID.'''
         pass
 
     @abstractmethod
-    def get_prices_by_product(self, product_id: str) -> list[Price]:
+    def get_prices_by_product(self, product_id: str) -> List[Price]:
         '''Получить все цены для продукта.'''
+        pass
+
+    @abstractmethod
+    def delete(self, price_id: str) -> None:
+        '''Удалить цену по ID.'''
+        pass
+
+    @abstractmethod
+    def get_all(self, user_id: str) -> List[Price]:
+        '''Получить все цены для пользователя по ID.'''
         pass

@@ -67,7 +67,7 @@ class ProductRepositoryImpl(ProductRepository):
         return product
 
     @with_session
-    def delete(self, product_id: str) -> bool:
+    def delete(self, product_id: str) -> None:
         '''
         Удаляет товар по его ID.
         

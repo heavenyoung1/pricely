@@ -16,7 +16,7 @@ class PriceRepositoryImpl(PriceRepository):
     def save(self, price):
         self.session.merge(PriceMapper.to_orm(price))
 
-    def _get_relevant_price_id(self, product_id):
+    def get_relevant_price_id(self, product_id):
         # Здесь мы получаем актуальную цену по USER_ID??
         # Ведь нелогично получать просто цену
         # Мы должны получать МОДЕЛЬ PRICE в зависимости от того какой PRICE_ID в модели PRODUCT!!!
