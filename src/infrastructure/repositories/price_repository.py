@@ -15,7 +15,6 @@ logger = logging.getLogger(__name__)
 class PriceRepositoryImpl(PriceRepository):
     def __init__(self, session: Session, product_repository: ProductRepository):
         self.session = session
-        self.product_repository = product_repository
 
     @with_session
     def save(self, price: Price, session: Session) -> None:
