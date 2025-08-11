@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 class ProductRepositoryImpl(ProductRepository):
-    '''Реализация репозитория для работы с продуктами в базе данных.'''
+    '''Реализация репозитория для работы с товарами в базе данных.'''
     
     def __init__(self, session: Session):
         '''
@@ -27,7 +27,7 @@ class ProductRepositoryImpl(ProductRepository):
     @with_session
     def save(self, product: Product) -> None:
         '''
-        Сохраняет продукт в базу данных.
+        Сохраняет товар в базу данных.
         
         Args:
             product: Доменный объект продукта для сохранения
@@ -36,7 +36,7 @@ class ProductRepositoryImpl(ProductRepository):
             DatabaseError: При ошибках работы с БД
         '''
         try:
-            logger.info(f'Сохранение продукта: {product}')
+            logger.info(f'Сохранение товара: {product}')
             orm_product = ProductMapper.to_orm(product)
             self.session.merge(orm_product)
             logger.debug(f'Продукт успешно сохранен (ID: {orm_product.id})')
@@ -47,69 +47,69 @@ class ProductRepositoryImpl(ProductRepository):
     @with_session
     def get(self, product_id: str) -> Optional['Product']:
         '''
-        Получает продукт по его ID.
+        Получает товар по его ID.
         
         Args:
-            product_id: Идентификатор продукта
+            product_id: Идентификатор товара
             
         Returns:
-            Optional[Product]: Найденный продукт или None если не найден
+            Optional[Product]: Найденный товар или None если не найден
         '''
-        logger.debug(f'Поиск продукта по ID: {product_id}')
+        logger.debug(f'Поиск товар по ID: {product_id}')
         orm_model = self.session.get(ORMProduct, product_id)
         
         if not orm_model:
-            logger.warning(f'Продукт с ID {product_id} не найден')
+            logger.warning(f'Товар с ID {product_id} не найден')
             return None
         
         product = ProductMapper.to_domain(orm_model)
-        logger.info(f'Найден продукт: {product} (ID: {orm_model.id})')
+        logger.info(f'Найден Товар: {product} (ID: {orm_model.id})')
         return product
 
     @with_session
     def delete(self, product_id: str) -> bool:
         '''
-        Удаляет продукт по его ID.
+        Удаляет товар по его ID.
         
         Args:
-            product_id: Идентификатор продукта для удаления
+            product_id: Идентификатор товара для удаления
             
         Returns:
-            bool: True если удаление успешно, False если продукт не найден
+            bool: True если удаление успешно, False если товар не найден
         '''
-        logger.info(f'Попытка удаления продукта с ID: {product_id}')
+        logger.info(f'Попытка удаления товара с ID: {product_id}')
         orm_model = self.session.get(ORMProduct, product_id)
         
         if not orm_model:
-            logger.warning(f'Продукт с ID {product_id} не найден для удаления')
+            logger.warning(f'Товар с ID {product_id} не найден для удаления')
             return False
             
         try:
             self.session.delete(orm_model)
-            logger.info(f'Продукт с ID {product_id} успешно удален')
+            logger.info(f'Товар с ID {product_id} успешно удален')
             return True
         except Exception as e:
-            logger.error(f'Ошибка удаления продукта {product_id}: {str(e)}')
+            logger.error(f'Ошибка удаления товара {product_id}: {str(e)}')
             raise
 
     @with_session
     def get_all(self, user_id: str) -> List['Product']:
 
         '''
-        Получает все продукты для указанного пользователя.
+        Получает все товары для указанного пользователя.
         
         Args:
             user_id: Идентификатор пользователя
             
         Returns:
-            List[Product]: Список продуктов пользователя (может быть пустым)
+            List[Product]: Список товаров пользователя (может быть пустым)
         '''
-        logger.debug(f'Поиск всех продуктов пользователя {user_id}')
+        logger.debug(f'Поиск всех товаров пользователя {user_id}')
         try:
             orm_models = self.session.query(ORMProduct).filter_by(user_id=user_id).all()
             products = [ProductMapper.to_domain(m) for m in orm_models]
-            logger.info(f'Найдено {len(products)} продуктов для пользователя {user_id}')
+            logger.info(f'Найдено {len(products)} товаров для пользователя {user_id}')
             return products
         except Exception as e:
-            logger.error(f'Ошибка получения продуктов пользователя {user_id}: {str(e)}')
+            logger.error(f'Ошибка получения товаров пользователя {user_id}: {str(e)}')
             raise

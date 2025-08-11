@@ -1,25 +1,57 @@
 from abc import ABC, abstractmethod
-from typing import Optional, List
-from src.domain.entities import Product
-from sqlalchemy.orm import Session
+from typing import Optional, List, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from src.domain.entities import Product 
 
 class ProductRepository(ABC):
     @abstractmethod
     def save(self, product: Product) -> None:
-        '''Сохранить или обновить товары.'''
+        '''
+        Сохранить или обновить товар.
+        
+        Raises:
+            DatabaseError: При ошибках работы с БД
+            ValueError: При невалидных данных товара
+        '''
         pass
 
     @abstractmethod
-    def get(self, product_id: str) -> Product:
-        '''Получить товар по ID.'''
+    def get(self, product_id: str) -> Optional['Product']:
+        '''
+        Найти продукт по ID.
+        
+        Args:
+            product_id: Идентификатор продукта
+            
+        Returns:
+            Optional[Product]: Найденный продукт или None
+        '''
+        pass
+
+    @abstractmethod
+    def get_all(self, user_id: str) -> Optional[List['Product']]:
+        '''
+        Получить все продукты пользователя.
+        
+        Args:
+            user_id: Идентификатор пользователя
+            
+        Returns:
+            List[Product]: Список продуктов (пустой, если нет продуктов)
+        '''
         pass
 
     @abstractmethod
     def delete(self, product_id: str) -> None:
-        '''Удалить товар из отслеживаемых'''
+        '''
+        Удалить продукт по ID.
+        
+        Args:
+            product_id: Идентификатор продукта
+            
+        Returns:
+            bool: True если удаление успешно, False если продукт не найден
+        '''
         pass
 
-    @abstractmethod
-    def get_all(self, user_id: str) -> Optional[List[Product]]:
-        '''Получить все товары пользвателя по ID пользователя.'''
-        pass
