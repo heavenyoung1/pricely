@@ -1,10 +1,13 @@
 import logging
 from typing import Optional, TYPE_CHECKING
 
-from src.application.use_cases import CreateProductUseCase
-from src.application.use_cases import DeleteProductUseCase
-from src.application.use_cases import GetProductUseCase
-from src.application.use_cases import UpdatePriceUseCase
+from src.application.use_cases import (
+    CreateProductUseCase,
+    DeleteProductUseCase,
+    GetProductUseCase,
+    UpdatePriceUseCase
+)
+
 from src.infrastructure.database.core.unit_of_work import UnitOfWork
 
 if TYPE_CHECKING:
@@ -13,15 +16,32 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 class ProductService:
+    '''Сервис для управления товарами и их ценами.
+    
+    Обеспечивает:
+    - Создание товаров с ценами
+    - Удаление товаров
+    - Получение информации о товарах
+    - Обновление цен
+    '''
+
     def __init__(self, uow_factory):
-        '''
-        uow_factory — функция или класс, создающий UnitOfWork.
-        Например: lambda: UnitOfWork()
-        '''
+        '''Инициализирует сервис.
+        
+        Args:
+            uow_factory (Callable[[], UnitOfWork]): Фабрика для создания UoW'''
         self.uow_factory = uow_factory
 
     def create_product_with_price(self, product, price, user) -> None:
-        '''Создать товар с ценой и обновить пользователя.'''
+        '''Создает новый продукт с ценой и связывает с пользователем.
+        
+        Args:
+            product (Product): Создаваемый продукт
+            price (Price): Начальная цена продукта
+            user (User): Владелец продукта
+            
+        Raises:
+            ProductCreationError: Если не удалось создать продукт.'''
         with self.uow_factory as uow:
             use_case = CreateProductUseCase(
                 product_repo=uow.product_repository(),
@@ -32,16 +52,30 @@ class ProductService:
             uow.commit()
 
     def delete_product(self, product_id) -> None:
-        '''Удалить товар.'''
+        '''Удаляет продукт по его идентификатору.
+        
+        Args:
+            product_id (str): ID удаляемого продукта
+            
+        Raises:
+            ProductNotFoundError: Если продукт не существует.
+        '''
         with self.uow_factory as uow:
             use_case = DeleteProductUseCase(
                 product_repo=uow.product_repository(),
             )
-        use_case.execute(product_id)
-        uow.commit()
+            use_case.execute(product_id)
+            uow.commit()
 
     def get_product(self, product_id) -> Optional['Product']:
-        '''Получить товар.'''
+        '''Получает информацию о продукте.
+        
+        Args:
+            product_id (str): ID запрашиваемого продукта
+            
+        Returns:
+            Optional[Product]: Найденный продукт или None.
+        '''
         with self.uow_factory as uow:
             use_case = GetProductUseCase(
                 product_repo=uow.product_repository(),
@@ -49,7 +83,15 @@ class ProductService:
         use_case.execute(product_id)
 
     def update_price(self, price , product_id) -> None:
-        '''Обновить цену товара.'''
+        '''Обновляет цену для указанного продукта.
+        
+        Args:
+            price (Price): Новая цена
+            product_id (str): ID продукта
+            
+        Raises:
+            PriceUpdateError: Если не удалось обновить цену.
+        '''
         with self.uow_factory as uow:
             use_case = UpdatePriceUseCase(
                 product_repo=uow.product_repository(),
