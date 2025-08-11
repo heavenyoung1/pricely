@@ -13,11 +13,11 @@ class InMemoryProductRepository(ProductRepository):
         return self.products.get(product_id)
 
     def delete(self, product_id: str):
-        if product_id in self.products:
-            del self.products[product_id]
+        self.products.pop(product_id, None)
     
     def get_all(self) -> list[Product]:
-        return list(self._storage.values())
+        return list(self.products.values())
+
 
 class InMemoryPriceRepository(PriceRepository):
     def __init__(self):
@@ -30,18 +30,18 @@ class InMemoryPriceRepository(PriceRepository):
         return self.prices.get(price_id)
     
     def delete(self, price_id: str) -> None:
-        self._storage.pop(price_id, None)
+        self.prices.pop(price_id, None)
 
     def get_all(self) -> list[Price]:
-        return list(self._storage.values())
+        return list(self.prices.values())
 
     def get_prices_by_product(self, product_id: str) -> list[Price]:
-        return [p for p in self._storage.values() if p.product_id == product_id]
+        return [p for p in self.prices.values() if p.product_id == product_id]
 
     def get_relevant_price_id(self, product_id: str) -> str | None:
-        # В тестах можно просто вернуть последнюю цену по продукту
         prices = self.get_prices_by_product(product_id)
         return prices[-1].id if prices else None
+
 
 class InMemoryUserRepository(UserRepository):
     def __init__(self):
@@ -52,3 +52,6 @@ class InMemoryUserRepository(UserRepository):
 
     def get(self, user_id: str):
         return self.users.get(user_id)
+    
+    def delete(self, user_id: str):
+        self.users.pop(user_id, None)
