@@ -4,11 +4,15 @@ from src.domain.entities import Price
 from sqlalchemy.orm import Session
 
 class PriceRepository(ABC):
-
     @abstractmethod
     def save(self, price: Price) -> None:
         '''Сохранить или обновить цену.'''
         pass
+
+    @abstractmethod
+    def _get_relevant_price_id(self, product_id: str) -> str:
+        '''Получить актуальный PRICE_ID по.'''
+        pass   
 
     @abstractmethod
     def get(self, price_id: str) -> Price:
