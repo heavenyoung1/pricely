@@ -55,6 +55,6 @@ def test_full_flow():
 
     assert saved_product is not None
     assert saved_price is not None
-    assert 'p1' is not None
+    assert saved_user is not None
 
     print("✅ Цепочка DTO → Entity → UseCase → Service → Repo работает!")
