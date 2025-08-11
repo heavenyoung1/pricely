@@ -25,11 +25,11 @@ class PriceRepository(ABC):
         pass
 
     @abstractmethod
-    def delete(self, price_id: str) -> None:
-        '''Удалить цену по ID.'''
-        pass
-
-    @abstractmethod
     def get_all(self, user_id: str) -> List[Price]:
         '''Получить все цены для пользователя по ID.'''
+        pass
+    
+    @abstractmethod
+    def delete(self, price_id: str) -> None:
+        '''Удалить цену по ID.'''
         pass
