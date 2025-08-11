@@ -12,8 +12,8 @@ from tests.unit.fake_uow import FakeUnitOfWork
 logger = logging.getLogger(__name__)
 
 def test_full_flow():
-    uow_factory = lambda: FakeUnitOfWork()
-    service = ProductService(uow_factory)
+    uow = FakeUnitOfWork()
+    service = ProductService(lambda: uow)  # теперь сервис использует тот же самый uow
     logger.debug('Инициализирован ProductService')
 
     # 1. DTO → Entity
@@ -52,7 +52,7 @@ def test_full_flow():
     # 2. ENTITY → UseCase → Service → Repo
     service.create_product_with_price(product_entity, price_entity, user_entity)
 
-    uow = uow_factory()
+    #uow = uow_factory()
 
     print('Products in repo:', uow.product_repository()._products)  # Отладочный вывод
     print('Prices in repo:', uow.price_repository()._prices)
