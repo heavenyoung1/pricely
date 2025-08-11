@@ -1,4 +1,6 @@
 import pytest
+import logging
+import sys
 from datetime import datetime
 from pydantic import HttpUrl
 from sqlalchemy import create_engine
@@ -6,6 +8,14 @@ from sqlalchemy.orm import sessionmaker
 
 from src.infrastructure.database.models import ORMProduct, ORMUser, ORMPrice
 from src.domain.entities import Product, Price, User
+
+@pytest.fixture(autouse=True)
+def setup_logging():
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        stream=sys.stdout
+    )
 
 @pytest.fixture
 def session():

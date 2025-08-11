@@ -1,6 +1,6 @@
 from src.interfaces.dto.product_dto import ProductCreateDTO, PriceCreateDTO, UserCreateDTO
 from src.application.services.product_service import ProductService
-
+import logging
 from src.interfaces.dto.dto_to_entity import (
     product_dto_to_entity, 
     price_dto_to_entity, 
@@ -9,9 +9,12 @@ from src.interfaces.dto.dto_to_entity import (
 
 from tests.unit.fake_uow import FakeUnitOfWork
 
+logger = logging.getLogger(__name__)
+
 def test_full_flow():
     uow_factory = lambda: FakeUnitOfWork()
     service = ProductService(uow_factory)
+    logger.debug('Инициализирован ProductService')
 
     # 1. DTO → Entity
     product_dto = ProductCreateDTO(
@@ -40,6 +43,7 @@ def test_full_flow():
         chat_id='12345',
         products=[]
     )
+    logger.debug('DTO преобразованы в Entity')
 
     product_entity = product_dto_to_entity(product_dto)
     price_entity = price_dto_to_entity(price_dto)
@@ -49,12 +53,21 @@ def test_full_flow():
     service.create_product_with_price(product_entity, price_entity, user_entity)
 
     uow = uow_factory()
+
+    print('Products in repo:', uow.product_repository()._products)  # Отладочный вывод
+    print('Prices in repo:', uow.price_repository()._prices)
+    print('Users in repo:', uow.user_repository()._users)
+
     saved_product = uow.product_repository().get('p1')
     saved_price = uow.price_repository().get('pr1')
     saved_user = uow.user_repository().get('u1')
+    logger.debug(f'Получены сохраненные объекты: product={saved_product is not None}, price={saved_price is not None}, user={saved_user is not None}')
+    logger.debug(f'{saved_product}')
+    logger.debug(f'{saved_price}')
+    logger.debug(f'{saved_user}')
 
     assert saved_product is not None
     assert saved_price is not None
     assert saved_user is not None
 
-    print("✅ Цепочка DTO → Entity → UseCase → Service → Repo работает!")
+    print('✅ Цепочка DTO → Entity → UseCase → Service → Repo работает!')
