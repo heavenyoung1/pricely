@@ -49,9 +49,9 @@ def test_full_flow():
     service.create_product_with_price(product_entity, price_entity, user_entity)
 
     uow = uow_factory()
-    saved_product = uow.product_repository.get('p1')
-    saved_price = uow.price_repository.get('pr1')
-    saved_user = uow.user_repository.get('u1')
+    saved_product = uow.product_repository().get('p1')
+    saved_price = uow.price_repository().get('pr1')
+    saved_user = uow.user_repository().get('u1')
 
     assert saved_product is not None
     assert saved_price is not None
