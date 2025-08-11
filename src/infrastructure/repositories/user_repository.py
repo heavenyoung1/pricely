@@ -11,13 +11,33 @@ from sqlalchemy.orm import Session
 logger = logging.getLogger(__name__)
 
 class UserRepositoryImpl(UserRepository):
+    '''Реализация репозитория для работы с пользователями в базе данных.'''
     @with_session
     def save(self, user, session: Session):
-        '''Сохранить или обновить пользователя.'''
+        '''
+        Сохраняет или обновляет пользователя в БД.
+        
+        Args:
+            user (User): Доменный объект пользователя
+            session (Session): Сессия SQLAlchemy
+            
+        Raises:
+            DatabaseError: При ошибках работы с БД
+        '''
         self.session.merge(UserMapper.to_orm(user))
 
     @with_session
     def get(self, user_id, session: Session):
+        '''
+        Получает пользователя по ID из БД.
+        
+        Args:
+            user_id (str): Идентификатор пользователя
+            session (Session): Сессия SQLAlchemy
+            
+        Returns:
+            Optional[User]: Найденный пользователь или None
+        '''
         orm_user = session.get(ORMUser, user_id)
         if orm_user:
             user = UserMapper.to_domain(orm_user)
@@ -28,6 +48,16 @@ class UserRepositoryImpl(UserRepository):
     
     @with_session
     def delete(self, user_id: str, session: Session) -> None:
+        '''
+        Удаляет пользователя по ID из БД.
+        
+        Args:
+            user_id (str): Идентификатор пользователя
+            session (Session): Сессия SQLAlchemy
+            
+        Raises:
+            DatabaseError: При ошибках удаления
+        '''
         orm_user = self.session(ORMUser, user_id)
         if orm_user:
             session.delete(ORMUser, orm_user)
