@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
-from typing import Optional, List, TYPE_CHECKING
+from typing import Optional, List
+from src.domain.entities import Product
 
-if TYPE_CHECKING:
-    from src.domain.entities import Product 
+
 
 class ProductRepository(ABC):
     @abstractmethod

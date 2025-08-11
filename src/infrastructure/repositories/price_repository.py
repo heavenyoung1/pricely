@@ -6,9 +6,8 @@ from src.domain.repositories import ProductRepository, PriceRepository, UserRepo
 from src.infrastructure.mappers import ProductMapper, PriceMapper, UserMapper
 from src.infrastructure.database.models import ORMProduct, ORMPrice, ORMUser
 from src.infrastructure.database.core import with_session
+from src.domain.entities import Product, Price
 
-if TYPE_CHECKING:
-    from src.domain.entities import Product, Price
 
 logger = logging.getLogger(__name__)
 

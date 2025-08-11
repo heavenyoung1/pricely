@@ -3,12 +3,11 @@ from typing import Optional, List, TYPE_CHECKING
 
 from src.domain.repositories import ProductRepository
 from src.infrastructure.mappers import ProductMapper
+from src.domain.entities import Product 
 from src.infrastructure.database.models import ORMProduct
 from src.infrastructure.database.core import with_session
 from sqlalchemy.orm import Session
 
-if TYPE_CHECKING:
-    from src.domain.entities import Product 
 
 logger = logging.getLogger(__name__)
 
