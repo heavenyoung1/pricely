@@ -10,6 +10,11 @@ class UserRepository(ABC):
         pass
 
     @abstractmethod
-    def get(self, user_id: str) -> User:
+    def get(self, user_id: str) -> Optional[User]:
         '''Получить пользователя по ID.'''
+        pass
+
+    @abstractmethod
+    def delete(self, user_id: str) -> None:
+        '''Удалить пользователя по ID.'''
         pass

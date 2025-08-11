@@ -3,18 +3,34 @@ import logging
 from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
 from src.infrastructure.mappers import ProductMapper, PriceMapper, UserMapper
 from src.infrastructure.database.models import ORMProduct, ORMPrice, ORMUser
+from src.infrastructure.database.core import with_session
+
 from sqlalchemy.orm import Session
 
 
 logger = logging.getLogger(__name__)
 
 class UserRepositoryImpl(UserRepository):
-    def __init__(self, session: Session):
-        self.session = session
-
-    def save(self, user):
+    @with_session
+    def save(self, user, session: Session):
+        '''Сохранить или обновить пользователя.'''
         self.session.merge(UserMapper.to_orm(user))
 
-    def get(self, user_id):
-        orm_user = self.session.get(ORMUser, user_id)
-        return UserMapper.to_domain(orm_user) if ORMUser else None
+    @with_session
+    def get(self, user_id, session: Session):
+        orm_user = session.get(ORMUser, user_id)
+        if orm_user:
+            user = UserMapper.to_domain(orm_user)
+            logger.info(f"Пользователь {user} получен по id: {user_id}")
+            return user
+        logger.warning(f"Пользователь с id {user_id} не найден")
+        return None
+    
+    @with_session
+    def delete(self, user_id: str, session: Session) -> None:
+        orm_user = self.session(ORMUser, user_id)
+        if orm_user:
+            session.delete(ORMUser, orm_user)
+            logger.info(f"Пользователь c id: {user_id} удален")
+        logger.warning(f"Пользователь с id {user_id} не найден")
+        return None
