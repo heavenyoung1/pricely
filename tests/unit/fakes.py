@@ -28,6 +28,20 @@ class InMemoryPriceRepository(PriceRepository):
 
     def get(self, price_id: str):
         return self.prices.get(price_id)
+    
+    def delete(self, price_id: str) -> None:
+        self._storage.pop(price_id, None)
+
+    def get_all(self) -> list[Price]:
+        return list(self._storage.values())
+
+    def get_prices_by_product(self, product_id: str) -> list[Price]:
+        return [p for p in self._storage.values() if p.product_id == product_id]
+
+    def get_relevant_price_id(self, product_id: str) -> str | None:
+        # В тестах можно просто вернуть последнюю цену по продукту
+        prices = self.get_prices_by_product(product_id)
+        return prices[-1].id if prices else None
 
 class InMemoryUserRepository(UserRepository):
     def __init__(self):
