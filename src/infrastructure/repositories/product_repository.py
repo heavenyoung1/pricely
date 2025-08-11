@@ -24,7 +24,6 @@ class ProductRepositoryImpl(ProductRepository):
         '''
         self.session = session
 
-    @with_session
     def save(self, product: Product) -> None:
         '''
         Сохраняет товар в базу данных.
@@ -39,12 +38,11 @@ class ProductRepositoryImpl(ProductRepository):
             logger.info(f'Сохранение товара: {product}')
             orm_product = ProductMapper.to_orm(product)
             self.session.merge(orm_product)
-            logger.debug(f'Продукт успешно сохранен (ID: {orm_product.id})')
+            logger.debug(f'Товар успешно сохранен (ID: {orm_product.id})')
         except Exception as e:
             logger.error(f'Ошибка сохранения продукта {product}: {str(e)}')
             raise
 
-    @with_session
     def get(self, product_id: str) -> Optional['Product']:
         '''
         Получает товар по его ID.
@@ -66,8 +64,7 @@ class ProductRepositoryImpl(ProductRepository):
         logger.info(f'Найден Товар: {product} (ID: {orm_model.id})')
         return product
 
-    @with_session
-    def delete(self, product_id: str) -> None:
+    def delete(self, product_id: str) -> bool:
         '''
         Удаляет товар по его ID.
         
@@ -92,7 +89,6 @@ class ProductRepositoryImpl(ProductRepository):
             logger.error(f'Ошибка удаления товара {product_id}: {str(e)}')
             raise
 
-    @with_session
     def get_all(self, user_id: str) -> List['Product']:
 
         '''

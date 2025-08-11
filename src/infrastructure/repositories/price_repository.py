@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 class PriceRepositoryImpl(PriceRepository):
-    def __init__(self, session: Session, product_repository: ProductRepository):
+    def __init__(self, session: Session):
         self.session = session
 
     @with_session

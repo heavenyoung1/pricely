@@ -43,7 +43,7 @@ class ProductRepository(ABC):
         pass
 
     @abstractmethod
-    def delete(self, product_id: str) -> None:
+    def delete(self, product_id: str) -> bool:
         '''
         Удалить продукт по ID.
         
