@@ -17,7 +17,7 @@ class PriceMapper:
         )
 
     @staticmethod
-    def to_entity(model: ORMPrice) -> Price:
+    def to_domain(model: ORMPrice) -> Price:
         return Price(
             id=model.id,
             product_id=model.product_id,
