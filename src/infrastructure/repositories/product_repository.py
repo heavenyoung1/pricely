@@ -25,7 +25,7 @@ class ProductRepositoryImpl(ProductRepository):
         self.session = session
 
     @with_session
-    def save(self, product) -> None:
+    def save(self, product: Product) -> None:
         '''
         Сохраняет продукт в базу данных.
         
@@ -45,7 +45,7 @@ class ProductRepositoryImpl(ProductRepository):
             raise
 
     @with_session
-    def get(self, product_id: int) -> Optional['Product']:
+    def get(self, product_id: str) -> Optional['Product']:
         '''
         Получает продукт по его ID.
         
@@ -67,7 +67,7 @@ class ProductRepositoryImpl(ProductRepository):
         return product
 
     @with_session
-    def delete(self, product_id: int) -> bool:
+    def delete(self, product_id: str) -> bool:
         '''
         Удаляет продукт по его ID.
         
@@ -93,7 +93,7 @@ class ProductRepositoryImpl(ProductRepository):
             raise
 
     @with_session
-    def get_all(self, user_id: int) -> List['Product']:
+    def get_all(self, user_id: str) -> List['Product']:
 
         '''
         Получает все продукты для указанного пользователя.
