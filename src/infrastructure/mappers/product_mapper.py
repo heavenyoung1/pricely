@@ -1,6 +1,6 @@
 from src.domain.entities import Product
 from src.interfaces.dto import ProductDTO
-from src.infrastructure.database.models import ProductORM
+from src.infrastructure.database.models import ORMProduct
 
 
 class ProductMapper:
@@ -30,7 +30,7 @@ class ProductMapper:
         )
 
     @staticmethod
-    def domain_to_orm(domain: Product) -> ProductORM:
+    def domain_to_orm(domain: Product) -> ORMProduct:
         return ProductORM(
             id=domain.id,
             user_id=domain.user_id,
@@ -43,7 +43,7 @@ class ProductMapper:
         )
 
     @staticmethod
-    def orm_to_domain(orm: ProductORM) -> Product:
+    def orm_to_domain(orm: ORMProduct) -> Product:
         return Product(
             id=orm.id,
             user_id=orm.user_id,

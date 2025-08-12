@@ -1,6 +1,6 @@
 from src.domain.entities import User
 from src.interfaces.dto import UserDTO
-from src.infrastructure.database.models import UserORM
+from src.infrastructure.database.models import ORMUser
 
 
 class UserMapper:
@@ -23,8 +23,8 @@ class UserMapper:
         )
 
     @staticmethod
-    def domain_to_orm(domain: User) -> UserORM:
-        return UserORM(
+    def domain_to_orm(domain: User) -> ORMUser:
+        return ORMUser(
             id=domain.id,
             username=domain.username,
             chat_id=domain.chat_id,
@@ -32,7 +32,7 @@ class UserMapper:
         )
 
     @staticmethod
-    def orm_to_domain(orm: UserORM) -> User:
+    def orm_to_domain(orm: ORMUser) -> User:
         return User(
             id=orm.id,
             username=orm.username,

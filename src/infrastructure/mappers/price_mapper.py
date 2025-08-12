@@ -1,6 +1,6 @@
 from src.domain.entities import Price
 from src.interfaces.dto import PriceDTO
-from src.infrastructure.database.models import PriceORM
+from src.infrastructure.database.models import ORMPrice
 
 
 class PriceMapper:
@@ -31,8 +31,8 @@ class PriceMapper:
         )
 
     @staticmethod
-    def domain_to_orm(domain: Price) -> PriceORM:
-        return PriceORM(
+    def domain_to_orm(domain: Price) -> ORMPrice:
+        return ORMPrice(
             id=domain.id,
             product_id=domain.product_id,
             with_card=domain.with_card,
@@ -44,7 +44,7 @@ class PriceMapper:
         )
 
     @staticmethod
-    def orm_to_domain(orm: PriceORM) -> Price:
+    def orm_to_domain(orm: ORMPrice) -> Price:
         return Price(
             id=orm.id,
             product_id=orm.product_id,
