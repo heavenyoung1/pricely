@@ -4,7 +4,7 @@ from datetime import datetime
 from src.domain.entities import Price
 
 
-class PriceCreateDTO(BaseModel):
+class PriceDTO(BaseModel):
     id: str
     product_id: str
     with_card: int

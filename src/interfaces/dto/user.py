@@ -1,8 +1,10 @@
 from pydantic import BaseModel
 from typing import List
+
 from src.domain.entities import User
 
-class UserCreateDTO(BaseModel):
+
+class UserDTO(BaseModel):
     id: str
     username: str
     chat_id: str

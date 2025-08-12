@@ -1,9 +1,9 @@
-from .product import ProductCreateDTO
-from .price import PriceCreateDTO
-from .user import UserCreateDTO
+from .product import ProductDTO
+from .price import PriceDTO
+from .user import UserDTO
 
 __all__ = [
-    'ProductCreateDTO',
-    'PriceCreateDTO',
-    'UserCreateDTO',
+    'ProductDTO',
+    'PriceDTO',
+    'UserDTO',
 ]

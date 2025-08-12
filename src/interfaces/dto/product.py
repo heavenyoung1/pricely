@@ -4,7 +4,7 @@ from typing import List
 from src.domain.entities import Product
 
 
-class ProductCreateDTO(BaseModel):
+class ProductDTO(BaseModel):
     id: str
     user_id: str
     name: str
