@@ -5,7 +5,7 @@ from typing import Optional, List , TYPE_CHECKING
 from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
 from src.infrastructure.mappers import ProductMapper, PriceMapper, UserMapper
 from src.infrastructure.database.models import ORMProduct, ORMPrice, ORMUser
-from src.infrastructure.database.core import with_session
+#from src.infrastructure.database.core import with_session
 from src.domain.entities import Product, Price
 
 
@@ -20,7 +20,7 @@ class PriceRepositoryImpl(PriceRepository):
     - Получение цен по продуктам и пользователям
     - Управление актуальными ценами
     '''
-    def __init__(self, session: Session, product_repository: ProductRepository):
+    def __init__(self, session: Session):
         '''Инициализирует репозиторий цен.
         
         Args:
@@ -28,7 +28,6 @@ class PriceRepositoryImpl(PriceRepository):
             product_repository (ProductRepository): Репозиторий продуктов для зависимостей
         '''
         self.session = session
-        self.product_repository = product_repository
 
     def save(self, price: Price, session: Session) -> None:
         '''Сохраняет или обновляет цену в базе данных.

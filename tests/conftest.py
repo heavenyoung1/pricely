@@ -7,6 +7,7 @@ from pydantic import HttpUrl
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+from src.infrastructure.repositories import ProductRepositoryImpl
 from src.infrastructure.database.models import ORMProduct, ORMUser, ORMPrice
 from src.interfaces.dto import ProductDTO, PriceDTO, UserDTO
 from src.domain.entities import Product, Price, User
@@ -26,11 +27,18 @@ def session():
     '''Создает временную сессию SQLite в памяти для тестов.
     Автоматически создает таблицы и закрывает сессию после использования.'''
     engine = create_engine('sqlite:///:memory:')
+    ORMProduct.metadata.create_all(engine)
+    ORMPrice.metadata.create_all(engine)
     ORMUser.metadata.create_all(engine)
-    SessionLocal = sessionmaker(bind=engine)
-    session = SessionLocal()
+    Session = sessionmaker(bind=engine)
+    session = Session()
     yield session
     session.close() 
+
+@pytest.fixture
+def product_repo(session):
+    """Фикстура репозитория продуктов с сессией."""
+    return ProductRepositoryImpl(session=session)
 
 # ----- # ----- # ----- Фикстуры DTO слоя ----- # ----- # ----- #
 

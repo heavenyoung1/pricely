@@ -16,11 +16,12 @@ class UnitOfWork:
     ..     repo = uow.product_repository()
     ..     product = repo.get(product_id)
     '''
-    def __init__(self):
+    def __init__(self, session_factory: Callable[[], Session]):
         '''Инициализирует Unit of Work.
         
         Создает фабрику сессий для использования репозиториями.'''
-        self.session_factory = get_db_session()
+        self.session_factory = session_factory
+        self._repositories = {}
 
     def __enter__(self):
         '''Вход в контекстный менеджер.
@@ -46,6 +47,20 @@ class UnitOfWork:
     def commit(self):
         """Явно фиксирует транзакцию."""
         self.session.commit()
+
+    def get_repository(self, repo_type: Type):
+        if repo_type not in self._repositories:
+            # Ленивая загрузка репозиториев
+            if repo_type.__name__ == 'ProductRepository':
+                from src.infrastructure.repositories.product_repository import ProductRepositoryImpl
+                self._repositories[repo_type] = ProductRepositoryImpl(self.session)
+            elif repo_type.__name__ == 'PriceRepository':
+                from src.infrastructure.repositories.price_repository import PriceRepositoryImpl
+                self._repositories[repo_type] = PriceRepositoryImpl(self.session)
+            elif repo_type.__name__ == 'UserRepository':
+                from src.infrastructure.repositories.user_repository import UserRepositoryImpl
+                self._repositories[repo_type] = UserRepositoryImpl(self.session)
+        return self._repositories[repo_type]
 
     def product_repository(self) -> ProductRepository:
         '''Создает и возвращает репозиторий продуктов.
