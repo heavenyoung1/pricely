@@ -1,33 +1,56 @@
-import json
 from src.domain.entities import Product
-from src.infrastructure.database.models import ORMProduct
+from src.interfaces.dto import ProductDTO
+from src.infrastructure.database.models import ProductORM
 
-# Инфраструктура — ORM-модели и мапперы
-# Тут остаются SQLAlchemy-модели, но мапперы теперь работают с чистыми доменными сущностями
 
 class ProductMapper:
     @staticmethod
-    def to_orm(entity: Product) -> Product:
-        return ORMProduct(
-            id=entity.id,
-            user_id=entity.user_id,
-            price_id=entity.price_id,
-            name=entity.name,
-            link=entity.link,
-            image_url=entity.image_url,
-            rating=entity.rating,
-            categories=json.dumps(entity.categories),
-        )
-    
-    def to_domain(model: ORMProduct) -> Product:
+    def dto_to_domain(dto: ProductDTO) -> Product:
         return Product(
-            id=model.id,
-            user_id=model.user_id,
-            price_id=model.price_id,
-            name=model.name,
-            link=model.link,
-            image_url=model.image_url,
-            rating=model.rating,
-            categories=json.loads(model.categories),
+            id=dto.id,
+            user_id=dto.user_id,
+            price_id='',  # заполнит UseCase
+            name=dto.name,
+            link=str(dto.link),
+            image_url=str(dto.image_url),
+            rating=dto.rating,
+            categories=dto.categories,
         )
-    
+
+    @staticmethod
+    def domain_to_dto(domain: Product) -> ProductDTO:
+        return ProductDTO(
+            id=domain.id,
+            user_id=domain.user_id,
+            name=domain.name,
+            link=domain.link,
+            image_url=domain.image_url,
+            rating=domain.rating,
+            categories=domain.categories
+        )
+
+    @staticmethod
+    def domain_to_orm(domain: Product) -> ProductORM:
+        return ProductORM(
+            id=domain.id,
+            user_id=domain.user_id,
+            price_id=domain.price_id,
+            name=domain.name,
+            link=domain.link,
+            image_url=domain.image_url,
+            rating=domain.rating,
+            categories=domain.categories
+        )
+
+    @staticmethod
+    def orm_to_domain(orm: ProductORM) -> Product:
+        return Product(
+            id=orm.id,
+            user_id=orm.user_id,
+            price_id=orm.price_id,
+            name=orm.name,
+            link=orm.link,
+            image_url=orm.image_url,
+            rating=orm.rating,
+            categories=list(orm.categories) if orm.categories else []
+        )

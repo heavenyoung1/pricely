@@ -1,30 +1,57 @@
-import json
 from src.domain.entities import Price
-from src.infrastructure.database.models import ORMPrice 
+from src.interfaces.dto import PriceDTO
+from src.infrastructure.database.models import PriceORM
+
 
 class PriceMapper:
     @staticmethod
-    def to_orm(entity: Price) -> ORMPrice:
-        return ORMPrice(
-            id=entity.id,
-            product_id=entity.product_id,
-            with_card=entity.with_card,
-            without_card=entity.without_card,
-            previous_with_card=entity.previous_with_card,
-            previous_without_card=entity.previous_without_card,
-            default=entity.default,
-            date_claim=entity.claim,
+    def dto_to_domain(dto: PriceDTO) -> Price:
+        return Price(
+            id=dto.id,
+            product_id=dto.product_id,
+            with_card=dto.with_card,
+            without_card=dto.without_card,
+            previous_with_card=dto.previous_with_card,
+            previous_without_card=dto.previous_without_card,
+            default=dto.default,
+            claim=dto.claim
         )
 
     @staticmethod
-    def to_domain(model: ORMPrice) -> Price:
+    def domain_to_dto(domain: Price) -> PriceDTO:
+        return PriceDTO(
+            id=domain.id,
+            product_id=domain.product_id,
+            with_card=domain.with_card,
+            without_card=domain.without_card,
+            previous_with_card=domain.previous_with_card,
+            previous_without_card=domain.previous_without_card,
+            default=domain.default,
+            claim=domain.claim
+        )
+
+    @staticmethod
+    def domain_to_orm(domain: Price) -> PriceORM:
+        return PriceORM(
+            id=domain.id,
+            product_id=domain.product_id,
+            with_card=domain.with_card,
+            without_card=domain.without_card,
+            previous_with_card=domain.previous_with_card,
+            previous_without_card=domain.previous_without_card,
+            default=domain.default,
+            claim=domain.claim
+        )
+
+    @staticmethod
+    def orm_to_domain(orm: PriceORM) -> Price:
         return Price(
-            id=model.id,
-            product_id=model.product_id,
-            with_card=model.with_card,
-            without_card=model.without_card,
-            previous_with_card=model.previous_with_card,
-            previous_without_card=model.previous_without_card,
-            default=model.default,
-            claim=model.date_claim,
+            id=orm.id,
+            product_id=orm.product_id,
+            with_card=orm.with_card,
+            without_card=orm.without_card,
+            previous_with_card=orm.previous_with_card,
+            previous_without_card=orm.previous_without_card,
+            default=orm.default,
+            claim=orm.claim
         )
