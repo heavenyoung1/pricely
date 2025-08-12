@@ -14,8 +14,10 @@ def test_dto_to_domain(product_dto):
 def test_domain_to_dto(product):
     dto = ProductMapper.domain_to_dto(product)
     assert isinstance(dto, ProductDTO)
-    assert dto.id == product.id
-    assert dto.link == product.link
+    assert str(dto.link) == product.link  # Исправленное сравнение
+    assert str(dto.image_url) == product.image_url
+    assert dto.rating == product.rating
+    assert dto.categories == product.categories
 
 def test_domain_to_orm(product):
     orm = ProductMapper.domain_to_orm(product)

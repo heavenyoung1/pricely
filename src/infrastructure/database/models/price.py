@@ -21,7 +21,7 @@ class ORMPrice(Base):
     previous_without_card: Mapped[int] = mapped_column(Integer, nullable=False)
     default: Mapped[int] = mapped_column(Integer, nullable=False)
 
-    date_claim: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    claim: Mapped[datetime] = mapped_column(DateTime, nullable=False)
 
     # связь с товаром
     product: Mapped['ORMProduct'] = relationship(

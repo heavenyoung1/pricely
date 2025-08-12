@@ -1,5 +1,6 @@
 import pytest
 import logging
+import json
 import sys
 from datetime import datetime
 from pydantic import HttpUrl
@@ -114,7 +115,7 @@ def user():
 
 @pytest.fixture
 def orm_product(session):
-    '''Фикстура тестового ORM Product'''
+    '''Фикстура тестового ORM Product с JSON-сериализованными категориями'''
     product = ORMProduct(
         id='p1',
         user_id='u1',
@@ -123,7 +124,7 @@ def orm_product(session):
         link='https://example.com/product',
         image_url='https://example.com/image.jpg',
         rating=4.5,
-        categories=['cat1', 'cat2']
+        categories=json.dumps(['cat1', 'cat2'])  # Явная сериализация в JSON
     )
     session.add(product)
     session.commit()

@@ -1,3 +1,5 @@
+from pydantic import HttpUrl
+import json
 from src.domain.entities import Product
 from src.interfaces.dto import ProductDTO
 from src.infrastructure.database.models import ORMProduct
@@ -23,10 +25,10 @@ class ProductMapper:
             id=domain.id,
             user_id=domain.user_id,
             name=domain.name,
-            link=domain.link,
-            image_url=domain.image_url,
+            link=HttpUrl(domain.link),  # Конвертируем строку в HttpUrl
+            image_url=HttpUrl(domain.image_url),
             rating=domain.rating,
-            categories=domain.categories
+            categories=domain.categories,
         )
 
     @staticmethod
@@ -39,7 +41,7 @@ class ProductMapper:
             link=domain.link,
             image_url=domain.image_url,
             rating=domain.rating,
-            categories=domain.categories
+            categories=json.dumps(domain.categories),  # Сериализуем список в JSON строку
         )
 
     @staticmethod
@@ -52,5 +54,5 @@ class ProductMapper:
             link=orm.link,
             image_url=orm.image_url,
             rating=orm.rating,
-            categories=list(orm.categories) if orm.categories else []
+            categories=json.loads(orm.categories) if orm.categories else []  # Десериализуем JSON строку
         )
