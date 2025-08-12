@@ -1,5 +1,5 @@
 import logging
-from typing import Optional, TYPE_CHECKING
+from typing import Optional
 
 from src.application.use_cases import (
     CreateProductUseCase,
@@ -7,11 +7,9 @@ from src.application.use_cases import (
     GetProductUseCase,
     UpdatePriceUseCase
 )
-
+from src.domain.entities import Product, Price, User
 from src.infrastructure.database.core.unit_of_work import UnitOfWork
 
-if TYPE_CHECKING:
-    from src.domain.entities import Product, Price, User
 
 logger = logging.getLogger(__name__)
 
@@ -81,8 +79,9 @@ class ProductService:
                 product_repo=uow.product_repository(),
             )
         use_case.execute(product_id)
+        # return use_case.execute(product_id) Точно ли нужен return если мы вызываем его в GetProductUseCase 
 
-    def update_price(self, price , product_id: str) -> None:
+    def update_price(self, price: Price , product_id: str) -> None:
         '''Обновляет цену для указанного продукта.
         
         Args:

@@ -80,5 +80,5 @@ def user():
         id='515032006',
         username='heavenyoung',
         chat_id='123456',
-        products='["1509058661"]'  # JSON с ID продуктов
+        products=[]  # Пустой список для нового продукта
     )
