@@ -39,14 +39,14 @@ def product():
     - rating: рейтинг товара
     - categories: список категорий'''
     return Product(
-        id='01234567521',
-        user_id='user1',
-        price_id='price1',
-        name='Test Product',
-        link=HttpUrl('http://example.com'),
-        image_url=HttpUrl('http://example.com/image.jpg'),
-        rating=4.5,
-        categories=['electronics', 'gadgets']
+        id='1509058661',
+        user_id='515032006',
+        price_id='1',
+        name='Кофе молотый DeLonghi',
+        link='https://www.ozon.ru/product/kofe-molotyy-delonghi-ground-selection-blend-250g-1509058661/?at=XQtkVkGBKc9WVJm3FygvwZkCxvwByoTrX0ZDZsggNYvE',
+        image_url='https://ir.ozone.ru/s3/multimedia-1-f/wc1000/7413709479.jpg',
+        rating=4.9,
+        categories=['Продукты питания', 'Чай, кофе и какао', 'Кофе', 'Молотый', 'Delonghi']
     )
 
 @pytest.fixture
@@ -59,14 +59,14 @@ def price():
     - default: цена по умолчанию
     - claim: метка времени фиксации цены'''
     return Price(
-        id='price1',
-        product_id='prod1',
-        with_card=100,
-        without_card=120,
-        previous_with_card=250,
-        previous_without_card=270,
-        default=300,
-        claim=datetime(2025, 1, 1)
+        id='1',
+        product_id='1509058661',
+        with_card=582,
+        without_card=629,
+        previous_with_card=582,
+        previous_without_card=629,
+        default=1394,
+        claim=datetime(2025, 1, 1),
     )
 
 @pytest.fixture
@@ -77,8 +77,8 @@ def user():
     - chat_id: идентификатор чата
     - products: JSON-строка со списком ID товаров'''
     return User(
-        id='user1',
-        username='test_user',
+        id='515032006',
+        username='heavenyoung',
         chat_id='123456',
-        products='["prod1"]'  # JSON с ID продуктов
+        products='["1509058661"]'  # JSON с ID продуктов
     )
