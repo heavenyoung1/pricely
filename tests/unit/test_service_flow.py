@@ -1,7 +1,7 @@
 from src.interfaces.dto.product_dto import ProductCreateDTO, PriceCreateDTO, UserCreateDTO
 from src.application.services.product_service import ProductService
 import logging
-from src.interfaces.dto.dto_to_entity import (
+from interfaces.dto.dto_to_domain import (
     product_dto_to_entity, 
     price_dto_to_entity, 
     user_dto_to_entity

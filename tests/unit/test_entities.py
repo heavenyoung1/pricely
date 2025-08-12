@@ -21,4 +21,4 @@ def test_price_logic(price):
 def test_user_relations(user, product):
     '''Проверяем связи между сущностями'''
     assert user.id == product.user_id
-    assert product.id in eval(user.products)
+    assert product.id in user.products  # Без eval
