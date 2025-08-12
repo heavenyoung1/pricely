@@ -56,7 +56,7 @@ class PriceRepositoryImpl(PriceRepository):
         '''
         orm_product = session.get(ORMProduct, product_id)
         if orm_product:
-            price_id = orm_product.price_id  # Предполагаю, что в ORMProduct есть поле price_id
+            price_id = orm_product.price_id 
             logger.info(f'Актуальный price_id для продукта {product_id}: {price_id}')
             return price_id
         logger.warning(f'Продукт с id {product_id} не найден')
