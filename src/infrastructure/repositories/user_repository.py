@@ -3,7 +3,6 @@ import logging
 from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
 from src.infrastructure.mappers import ProductMapper, PriceMapper, UserMapper
 from src.infrastructure.database.models import ORMProduct, ORMPrice, ORMUser
-from src.infrastructure.database.core import with_session
 
 from sqlalchemy.orm import Session
 
@@ -12,7 +11,6 @@ logger = logging.getLogger(__name__)
 
 class UserRepositoryImpl(UserRepository):
     '''Реализация репозитория для работы с пользователями в базе данных.'''
-    @with_session
     def save(self, user, session: Session):
         '''
         Сохраняет или обновляет пользователя в БД.
@@ -26,7 +24,6 @@ class UserRepositoryImpl(UserRepository):
         '''
         self.session.merge(UserMapper.to_orm(user))
 
-    @with_session
     def get(self, user_id, session: Session):
         '''
         Получает пользователя по ID из БД.
@@ -46,7 +43,6 @@ class UserRepositoryImpl(UserRepository):
         logger.warning(f"Пользователь с id {user_id} не найден")
         return None
     
-    @with_session
     def delete(self, user_id: str, session: Session) -> None:
         '''
         Удаляет пользователя по ID из БД.
