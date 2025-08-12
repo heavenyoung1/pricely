@@ -11,7 +11,7 @@ from src.application.use_cases import (
 from src.infrastructure.database.core.unit_of_work import UnitOfWork
 
 if TYPE_CHECKING:
-    from src.domain.entities import Product
+    from src.domain.entities import Product, Price, User
 
 logger = logging.getLogger(__name__)
 
@@ -32,7 +32,7 @@ class ProductService:
             uow_factory (Callable[[], UnitOfWork]): Фабрика для создания UoW'''
         self.uow_factory = uow_factory
 
-    def create_product_with_price(self, product, price, user) -> None:
+    def create_product_with_price(self, product: Product, price: Price, user: User) -> None:
         '''Создает новый продукт с ценой и связывает с пользователем.
         
         Args:
@@ -51,7 +51,7 @@ class ProductService:
             use_case.execute(product, price, user)
             uow.commit()
 
-    def delete_product(self, product_id) -> None:
+    def delete_product(self, product_id: str) -> None:
         '''Удаляет продукт по его идентификатору.
         
         Args:
@@ -67,7 +67,7 @@ class ProductService:
             use_case.execute(product_id)
             uow.commit()
 
-    def get_product(self, product_id) -> Optional['Product']:
+    def get_product(self, product_id: str) -> Optional['Product']:
         '''Получает информацию о продукте.
         
         Args:
@@ -82,7 +82,7 @@ class ProductService:
             )
         use_case.execute(product_id)
 
-    def update_price(self, price , product_id) -> None:
+    def update_price(self, price , product_id: str) -> None:
         '''Обновляет цену для указанного продукта.
         
         Args:

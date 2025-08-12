@@ -1,12 +1,11 @@
 import logging
-from typing import Optional, List, TYPE_CHECKING
+from typing import Optional, List
+from sqlalchemy.orm import Session
 
 from src.domain.repositories import ProductRepository
 from src.infrastructure.mappers import ProductMapper
 from src.domain.entities import Product 
 from src.infrastructure.database.models import ORMProduct
-from src.infrastructure.database.core import with_session
-from sqlalchemy.orm import Session
 
 
 logger = logging.getLogger(__name__)
