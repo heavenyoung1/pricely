@@ -123,7 +123,7 @@ def orm_product(session):
         link='https://example.com/product',
         image_url='https://example.com/image.jpg',
         rating=4.5,
-        categories='['cat1', 'cat2']'
+        categories=['cat1', 'cat2']
     )
     session.add(product)
     session.commit()
@@ -153,7 +153,7 @@ def orm_user(session):
         id='u1',
         username='test_user',
         chat_id='12345',
-        products='['p1', 'p2']'
+        products=['p1', 'p2']
     )
     session.add(user)
     session.commit()
