@@ -27,6 +27,7 @@ class UnitOfWork:
         
         Returns:
             UnitOfWork: Текущий экземпляр UnitOfWork'''
+        self.session = self.session_factory()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -36,25 +37,33 @@ class UnitOfWork:
             exc_type: Тип исключения (если было)
             exc_val: Экземпляр исключения
             exc_tb: Traceback объекта'''
-        pass  # Нет общей сессии, так как @with_session в репозиториях
+        if exc_type is None:
+            self.session.commit()
+        else:
+            self.session.rollback()
+        self.session.close()
+
+    def commit(self):
+        """Явно фиксирует транзакцию."""
+        self.session.commit()
 
     def product_repository(self) -> ProductRepository:
         '''Создает и возвращает репозиторий продуктов.
         
         Returns:
             ProductRepository: Реализация репозитория продуктов'''
-        return ProductRepositoryImpl()
+        return ProductRepositoryImpl(session=self.session)
 
     def price_repository(self) -> PriceRepository:
         '''Создает и возвращает репозиторий цен.
         
         Returns:
             PriceRepository: Реализация репозитория цен'''
-        return PriceRepositoryImpl()
+        return PriceRepositoryImpl(session=self.session)
 
     def user_repository(self) -> UserRepository:
         '''Создает и возвращает репозиторий пользователей.
         
         Returns:
             UserRepository: Реализация репозитория пользователей'''
-        return UserRepositoryImpl()
+        return UserRepositoryImpl(session=self.session)

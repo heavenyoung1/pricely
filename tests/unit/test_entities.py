@@ -14,11 +14,11 @@ def test_product_structure(product):
 
 def test_price_logic(price):
     '''Проверяем бизнес-логику цен'''
-    assert price.with_card < price.without_card, 'Цена по карте должна быть ниже'
-    assert price.default > price.without_card, 'Базовая цена должна быть выше'
-    assert isinstance(price.claim, datetime), 'Дата должна быть datetime'
+    assert price.with_card < price.without_card
+    assert price.default > price.without_card
+    assert isinstance(price.claim, datetime)
 
 def test_user_relations(user, product):
     '''Проверяем связи между сущностями'''
     assert user.id == product.user_id
-    assert product.id in eval(user.products)  # Осторожно с eval, лучше использовать json.loads
+    assert product.id in eval(user.products)
