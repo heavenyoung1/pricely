@@ -31,7 +31,7 @@ class ProductMapper:
 
     @staticmethod
     def domain_to_orm(domain: Product) -> ORMProduct:
-        return ProductORM(
+        return ORMProduct(
             id=domain.id,
             user_id=domain.user_id,
             price_id=domain.price_id,
