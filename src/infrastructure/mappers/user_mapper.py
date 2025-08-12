@@ -24,11 +24,12 @@ class UserMapper:
 
     @staticmethod
     def domain_to_orm(domain: User) -> ORMUser:
+        # Создаем ORM объект без products - они будут добавлены отдельно в репозитории
         return ORMUser(
             id=domain.id,
             username=domain.username,
             chat_id=domain.chat_id,
-            products=domain.products
+            # products не устанавливаем здесь - это должно делаться в репозитории
         )
 
     @staticmethod
@@ -37,5 +38,5 @@ class UserMapper:
             id=orm.id,
             username=orm.username,
             chat_id=orm.chat_id,
-            products=list(orm.products) if orm.products else []
+            products=[product.id for product in orm.products] if orm.products else []
         )

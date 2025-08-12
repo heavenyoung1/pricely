@@ -148,14 +148,19 @@ def orm_price(session):
     return price
 
 @pytest.fixture
-def orm_user(session):
+def orm_user(session, orm_product):
     '''Фикстура тестового ORM User'''
     user = ORMUser(
         id='u1',
         username='test_user',
         chat_id='12345',
-        products=['p1', 'p2']
+        #products=['p1', 'p2'] # НЕ передаем products в конструктор!
     )
     session.add(user)
+    #session.commit()
+    session.flush()  # Сохраняем user в базу, чтобы получить ID
+
+    # Устанавливаем связи ПОСЛЕ создания объекта
+    user.products = [orm_product]
     session.commit()
     return user

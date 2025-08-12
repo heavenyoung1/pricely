@@ -27,4 +27,5 @@ def test_orm_to_domain(orm_user):
     domain = UserMapper.orm_to_domain(orm_user)
     assert isinstance(domain, User)
     assert domain.id == orm_user.id
-    assert domain.products == orm_user.products
+    assert len(domain.products) == 1
+    assert 'p1' in domain.products
