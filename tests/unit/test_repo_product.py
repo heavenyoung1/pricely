@@ -12,3 +12,4 @@ def test_save_product(product_repo, product: Product, session):
     product_repo.save(product)
     saved_product = session.query(ORMProduct).get(product.id)
     print(saved_product)
+    

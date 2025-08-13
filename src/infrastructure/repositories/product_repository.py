@@ -34,7 +34,7 @@ class ProductRepositoryImpl(ProductRepository):
         '''
         try:
             logger.info(f'Сохранение товара: {product}')
-            orm_product = ProductMapper.dto_to_domain(product)
+            orm_product = ProductMapper.domain_to_orm(product)
             self.session.merge(orm_product)
             logger.debug(f'Товар успешно сохранен (ID: {orm_product.id})')
         except Exception as e:
@@ -58,7 +58,7 @@ class ProductRepositoryImpl(ProductRepository):
             logger.warning(f'Товар с ID {product_id} не найден')
             return None
         
-        product = ProductMapper.dto_to_domain(orm_model)
+        product = ProductMapper.domain_to_orm(orm_model)
         logger.info(f'Найден Товар: {product} (ID: {orm_model.id})')
         return product
 
@@ -101,7 +101,7 @@ class ProductRepositoryImpl(ProductRepository):
         logger.debug(f'Поиск всех товаров пользователя {user_id}')
         try:
             orm_models = self.session.query(ORMProduct).filter_by(user_id=user_id).all()
-            products = [ProductMapper.dto_to_domain(m) for m in orm_models]
+            products = [ProductMapper.domain_to_orm(m) for m in orm_models]
             logger.info(f'Найдено {len(products)} товаров для пользователя {user_id}')
             return products
         except Exception as e:
