@@ -93,8 +93,8 @@ class PriceRepositoryImpl(PriceRepository):
         logger.info(f"Найдено {len(prices)} цен для продукта {product_id}")
         return prices
     
-    def get_all(self, user_id: str) -> List[Price]:
-        '''Получает все цены для указанного пользователя.
+    def get_all(self, product_id: str) -> List[Price]:
+        '''Получает все цены для указанного товара.
         
         Args:
             user_id (str): Идентификатор пользователя
@@ -105,7 +105,7 @@ class PriceRepositoryImpl(PriceRepository):
         '''
         logger.debug(f"Получение всех цен для пользователя {user_id}")
         orm_prices = self.session.query(ORMPrice).filter_by(user_id=user_id).all()
-        prices = [PriceMapper.domain_to_orm(p) for p in orm_prices]
+        prices = [PriceMapper.orm_to_domain(p) for p in orm_prices]
         logger.info(f"Найдено {len(prices)} цен для пользователя {user_id}")
         return prices
     
