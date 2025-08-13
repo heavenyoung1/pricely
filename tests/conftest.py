@@ -7,7 +7,7 @@ from pydantic import HttpUrl
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from src.infrastructure.repositories import ProductRepositoryImpl
+from src.infrastructure.repositories import ProductRepositoryImpl, PriceRepositoryImpl, UserRepositoryImpl
 from src.infrastructure.database.models import ORMProduct, ORMUser, ORMPrice
 from src.interfaces.dto import ProductDTO, PriceDTO, UserDTO
 from src.domain.entities import Product, Price, User
@@ -39,6 +39,16 @@ def session():
 def product_repo(session):
     """Фикстура репозитория продуктов с сессией."""
     return ProductRepositoryImpl(session=session)
+
+@pytest.fixture
+def price_repo(session):
+    """Фикстура репозитория продуктов с сессией."""
+    return PriceRepositoryImpl(session=session)
+
+@pytest.fixture
+def user_repo(session):
+    """Фикстура репозитория продуктов с сессией."""
+    return UserRepositoryImpl(session=session)
 
 # ----- # ----- # ----- Фикстуры DTO слоя ----- # ----- # ----- #
 

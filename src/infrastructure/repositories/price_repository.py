@@ -1,34 +1,27 @@
 import logging
+from typing import Optional, List
 from sqlalchemy.orm import Session
-from typing import Optional, List , TYPE_CHECKING    
 
-from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
-from src.infrastructure.mappers import ProductMapper, PriceMapper, UserMapper
-from src.infrastructure.database.models import ORMProduct, ORMPrice, ORMUser
-from src.domain.entities import Product, Price
-
+from src.domain.repositories import PriceRepository
+from src.infrastructure.mappers import PriceMapper
+from src.domain.entities import Price
+from src.infrastructure.database.models import ORMPrice, ORMProduct
 
 logger = logging.getLogger(__name__)
 
+
 class PriceRepositoryImpl(PriceRepository):
-    '''
-    Реализация репозитория для работы с ценами в базе данных.
-    
-    Обеспечивает:
-    - CRUD операции с ценами
-    - Получение цен по продуктам и пользователям
-    - Управление актуальными ценами
-    '''
+    '''Реализация репозитория для работы с ценами в базе данных.'''
+
     def __init__(self, session: Session):
         '''Инициализирует репозиторий цен.
         
         Args:
             session (Session): SQLAlchemy сессия для работы с БД
-            product_repository (ProductRepository): Репозиторий продуктов для зависимостей
         '''
         self.session = session
 
-    def save(self, price: Price, session: Session) -> None:
+    def save(self, price: Price) -> None:
         '''Сохраняет или обновляет цену в базе данных.
         
         Args:
@@ -38,11 +31,16 @@ class PriceRepositoryImpl(PriceRepository):
         Raises:
             DatabaseError: При ошибках сохранения
         '''
-        orm_price = PriceMapper.to_orm(price)
-        session.merge(orm_price)
-        logger.info(f'Цена сохранена: {price}')
+        try:
+            logger.info(f"Сохранение цены: {price}")
+            orm_price = PriceMapper.domain_to_orm(price)
+            self.session.merge(orm_price)
+            logger.debug(f"Цена успешно сохранена (ID: {orm_price.id})")
+        except Exception as e:
+            logger.error(f"Ошибка сохранения цены {price}: {str(e)}")
+            raise
 
-    def get_relevant_price_id(self, product_id: str, session: Session) -> Optional[str]:
+    def get_relevant_price_id(self, product_id: str) -> Optional[str]:
         '''Получает ID актуальной цены для указанного продукта.
         
         Args:
@@ -52,15 +50,15 @@ class PriceRepositoryImpl(PriceRepository):
         Returns:
             Optional[str]: ID актуальной цены или None, если продукт не найден
         '''
-        orm_product = session.get(ORMProduct, product_id)
+        logger.debug(f"Получение актуальной цены для продукта {product_id}")
+        orm_product = self.session.get(ORMProduct, product_id)
         if orm_product:
-            price_id = orm_product.price_id 
-            logger.info(f'Актуальный price_id для продукта {product_id}: {price_id}')
-            return price_id
-        logger.warning(f'Продукт с id {product_id} не найден')
+            logger.info(f"Актуальный price_id для продукта {product_id}: {orm_product.price_id}")
+            return orm_product.price_id
+        logger.warning(f"Продукт с ID {product_id} не найден")
         return None
     
-    def get(self, price_id: str, session: Session) -> Optional[Price]:
+    def get(self, price_id: str) -> Optional[Price]:
         '''Получает цену по её идентификатору.
         
         Args:
@@ -70,15 +68,16 @@ class PriceRepositoryImpl(PriceRepository):
         Returns:
             Optional[Price]: Найденный объект цены или None
         '''
-        orm_price = session.get(ORMPrice, price_id)
-        if orm_price:
-            price = PriceMapper.to_domain(orm_price)
-            logger.info(f'Цена {price} получена по id: {price_id}')
-            return price
-        logger.warning(f'Цена с id {price_id} не найдена')
-        return None
+        logger.debug(f"Поиск цены по ID: {price_id}")
+        orm_model = self.session.get(ORMPrice, price_id)
+        if not orm_model:
+            logger.warning(f"Цена с ID {price_id} не найдена")
+            return None
+        price = PriceMapper.domain_to_orm(orm_model)
+        logger.info(f"Найдена цена: {price} (ID: {orm_model.id})")
+        return price
     
-    def get_prices_by_product(self, product_id: str, session: Session) -> List[Price]:
+    def get_prices_by_product(self, product_id: str) -> List[Price]:
         '''Получает все цены для указанного продукта.
         
         Args:
@@ -88,12 +87,13 @@ class PriceRepositoryImpl(PriceRepository):
         Returns:
             List[Price]: Список цен продукта (может быть пустым)
         '''
-        orm_prices = session.query(ORMPrice).filter(ORMPrice.product_id == product_id).all()
-        prices = [PriceMapper.to_domain(orm_price) for orm_price in orm_prices]
-        logger.info(f'Получено {len(prices)} цен для продукта {product_id}')
+        logger.debug(f"Получение всех цен для продукта {product_id}")
+        orm_prices = self.session.query(ORMPrice).filter_by(product_id=product_id).all()
+        prices = [PriceMapper.domain_to_orm(p) for p in orm_prices]
+        logger.info(f"Найдено {len(prices)} цен для продукта {product_id}")
         return prices
     
-    def get_all(self, user_id: str, session: Session) -> List[Price]:
+    def get_all(self, user_id: str) -> List[Price]:
         '''Получает все цены для указанного пользователя.
         
         Args:
@@ -103,12 +103,13 @@ class PriceRepositoryImpl(PriceRepository):
         Returns:
             List[Price]: Список цен пользователя (может быть пустым)
         '''
-        orm_prices = session.query(ORMPrice).filter(ORMPrice.user_id == user_id).all()
-        prices = [PriceMapper.to_domain(orm_price) for orm_price in orm_prices]
-        logger.info(f'Получено {len(prices)} цен для пользователя {user_id}')
+        logger.debug(f"Получение всех цен для пользователя {user_id}")
+        orm_prices = self.session.query(ORMPrice).filter_by(user_id=user_id).all()
+        prices = [PriceMapper.domain_to_orm(p) for p in orm_prices]
+        logger.info(f"Найдено {len(prices)} цен для пользователя {user_id}")
         return prices
     
-    def delete(self, price_id: str, session: Session) -> None:
+    def delete(self, price_id: str) -> None:
         '''Удаляет цену по её идентификатору.
         
         Args:
@@ -118,12 +119,19 @@ class PriceRepositoryImpl(PriceRepository):
         Raises:
             DatabaseError: При ошибках удаления
         '''
-        orm_price = session.get(ORMPrice, price_id)
-        if orm_price:
-            session.delete(orm_price)
-            logger.info(f'Цена удалена по id: {price_id}')
-        else:
-            logger.warning(f'Цена с id {price_id} не найдена')
+        logger.info(f"Попытка удаления цены с ID: {price_id}")
+        orm_price = self.session.get(ORMPrice, price_id)
+        if not orm_price:
+            logger.warning(f"Цена с ID {price_id} не найдена для удаления")
+            return False
+        try:
+            self.session.delete(orm_price)
+            self.session.commit()
+            logger.info(f"Цена с ID {price_id} успешно удалена")
+            return True
+        except Exception as e:
+            logger.error(f"Ошибка удаления цены {price_id}: {str(e)}")
+            raise
 
 
 
