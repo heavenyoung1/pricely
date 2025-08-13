@@ -81,6 +81,7 @@ class ProductRepositoryImpl(ProductRepository):
             
         try:
             self.session.delete(orm_model)
+            self.session.commit()  # Добавил коммит, чтобы изменения применились к БД!
             logger.info(f'Товар с ID {product_id} успешно удален')
             return True
         except Exception as e:
