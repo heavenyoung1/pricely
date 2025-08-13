@@ -73,7 +73,7 @@ class PriceRepositoryImpl(PriceRepository):
         if not orm_model:
             logger.warning(f"Цена с ID {price_id} не найдена")
             return None
-        price = PriceMapper.domain_to_orm(orm_model)
+        price = PriceMapper.orm_to_domain(orm_model)
         logger.info(f"Найдена цена: {price} (ID: {orm_model.id})")
         return price
     
@@ -89,7 +89,7 @@ class PriceRepositoryImpl(PriceRepository):
         '''
         logger.debug(f"Получение всех цен для продукта {product_id}")
         orm_prices = self.session.query(ORMPrice).filter_by(product_id=product_id).all()
-        prices = [PriceMapper.domain_to_orm(p) for p in orm_prices]
+        prices = [PriceMapper.orm_to_domain(p) for p in orm_prices]
         logger.info(f"Найдено {len(prices)} цен для продукта {product_id}")
         return prices
     
