@@ -94,7 +94,7 @@ class PriceRepositoryImpl(PriceRepository):
         return prices
 
     
-    def delete(self, price_id: str) -> None:
+    def delete(self, price_id: str) -> bool:
         '''Удаляет цену по её идентификатору.
         
         Args:

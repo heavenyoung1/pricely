@@ -14,24 +14,9 @@ class ProductRepositoryImpl(ProductRepository):
     '''Реализация репозитория для работы с товарами в базе данных.'''
     
     def __init__(self, session: Session):
-        '''
-        Инициализация репозитория.
-        
-        Args:
-            session: SQLAlchemy Session для работы с БД
-        '''
         self.session = session
 
     def save(self, product: Product) -> None:
-        '''
-        Сохраняет товар в базу данных.
-        
-        Args:
-            product: Доменный объект продукта для сохранения
-            
-        Raises:
-            DatabaseError: При ошибках работы с БД
-        '''
         try:
             logger.info(f'Сохранение товара: {product}')
             orm_product = ProductMapper.domain_to_orm(product)
@@ -42,46 +27,26 @@ class ProductRepositoryImpl(ProductRepository):
             raise
 
     def get(self, product_id: str) -> Optional['Product']:
-        '''
-        Получает товар по его ID.
-        
-        Args:
-            product_id: Идентификатор товара
-            
-        Returns:
-            Optional[Product]: Найденный товар или None если не найден
-        '''
+        '''Получает товар по ID.'''
         logger.debug(f'Поиск товар по ID: {product_id}')
         orm_model = self.session.get(ORMProduct, product_id)
-        
         if not orm_model:
             logger.warning(f'Товар с ID {product_id} не найден')
             return None
-        
         product = ProductMapper.domain_to_orm(orm_model)
         logger.info(f'Найден Товар: {product} (ID: {orm_model.id})')
         return product
 
     def delete(self, product_id: str) -> bool:
-        '''
-        Удаляет товар по его ID.
-        
-        Args:
-            product_id: Идентификатор товара для удаления
-            
-        Returns:
-            bool: True если удаление успешно, False если товар не найден
-        '''
+        '''Удаляет товар по ID.'''
         logger.info(f'Попытка удаления товара с ID: {product_id}')
         orm_model = self.session.get(ORMProduct, product_id)
-        
         if not orm_model:
             logger.warning(f'Товар с ID {product_id} не найден для удаления')
             return False
-            
         try:
             self.session.delete(orm_model)
-            self.session.commit()  # Добавил коммит, чтобы изменения применились к БД!
+            #self.session.commit() # БЕЗ НЕГО НЕ РАБОТАЕТ, НО МНЕ НУЖНО ЦЕНТРАЛИЗОВАННОЕ УПРАВЛЕНИЕ ТРАНЗАКЦИЯМИ!!!
             logger.info(f'Товар с ID {product_id} успешно удален')
             return True
         except Exception as e:
@@ -89,16 +54,7 @@ class ProductRepositoryImpl(ProductRepository):
             raise
 
     def get_all(self, user_id: str) -> List['Product']:
-
-        '''
-        Получает все товары для указанного пользователя.
-        
-        Args:
-            user_id: Идентификатор пользователя
-            
-        Returns:
-            List[Product]: Список товаров пользователя (может быть пустым)
-        '''
+        '''Получает все товары пользователя.'''
         logger.debug(f'Поиск всех товаров пользователя {user_id}')
         try:
             orm_models = self.session.query(ORMProduct).filter_by(user_id=user_id).all()
