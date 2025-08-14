@@ -8,93 +8,41 @@ from src.application.use_cases import (
     UpdatePriceUseCase
 )
 from src.domain.entities import Product, Price, User
-from src.infrastructure.database.core.unit_of_work import UnitOfWork
-
+from src.infrastructure.database.core import UnitOfWork, with_uow
 
 logger = logging.getLogger(__name__)
 
 class ProductService:
-    '''Сервис для управления товарами и их ценами.
-    
-    Обеспечивает:
-    - Создание товаров с ценами
-    - Удаление товаров
-    - Получение информации о товарах
-    - Обновление цен
-    '''
-
     def __init__(self, uow_factory):
-        '''Инициализирует сервис.
-        
-        Args:
-            uow_factory (Callable[[], UnitOfWork]): Фабрика для создания UoW'''
         self.uow_factory = uow_factory
 
-    def create_product_with_price(self, product: Product, price: Price, user: User) -> None:
-        '''Создает новый продукт с ценой и связывает с пользователем.
-        
-        Args:
-            product (Product): Создаваемый продукт
-            price (Price): Начальная цена продукта
-            user (User): Владелец продукта
-            
-        Raises:
-            ProductCreationError: Если не удалось создать продукт.'''
-        with self.uow_factory() as uow:
-            use_case = CreateProductUseCase(
-                product_repo=uow.product_repository(),
-                price_repo=uow.price_repository(),
-                user_repo=uow.user_repository(),
-            )
-            use_case.execute(product, price, user)
-            uow.commit()
+    @with_uow(lambda self: self.uow_factory())  # commit=True по умолчанию
+    def create(self, product: Product, price: Price, user: User, uow: UnitOfWork) -> None:
+        use_case = CreateProductUseCase(
+            product_repo=uow.product_repository(),
+            price_repo=uow.price_repository(),
+            user_repo=uow.user_repository(),
+        )
+        use_case.execute(product, price, user)
 
-    def delete_product(self, product_id: str) -> None:
-        '''Удаляет продукт по его идентификатору.
-        
-        Args:
-            product_id (str): ID удаляемого продукта
-            
-        Raises:
-            ProductNotFoundError: Если продукт не существует.
-        '''
-        with self.uow_factory() as uow:
-            use_case = DeleteProductUseCase(
-                product_repo=uow.product_repository(),
-            )
-            use_case.execute(product_id)
-            uow.commit()
-
-    def get_product(self, product_id: str) -> Optional['Product']:
-        '''Получает информацию о продукте.
-        
-        Args:
-            product_id (str): ID запрашиваемого продукта
-            
-        Returns:
-            Optional[Product]: Найденный продукт или None.
-        '''
-        with self.uow_factory() as uow:
-            use_case = GetProductUseCase(
-                product_repo=uow.product_repository(),
+    @with_uow(lambda self: self.uow_factory())  # commit=True по умолчанию
+    def delete(self, product_id: str, uow: UnitOfWork) -> None:
+        use_case = DeleteProductUseCase(
+            product_repo=uow.product_repository(),
             )
         use_case.execute(product_id)
-        # return use_case.execute(product_id) Точно ли нужен return если мы вызываем его в GetProductUseCase 
 
-    def update_price(self, price: Price , product_id: str) -> None:
-        '''Обновляет цену для указанного продукта.
-        
-        Args:
-            price (Price): Новая цена
-            product_id (str): ID продукта
-            
-        Raises:
-            PriceUpdateError: Если не удалось обновить цену.
-        '''
-        with self.uow_factory() as uow:
-            use_case = UpdatePriceUseCase(
-                product_repo=uow.product_repository(),
-                price_repo=uow.price_repository(),
-            )
-            use_case.execute(price , product_id)
-            uow.commit()
+    @with_uow(lambda self: self.uow_factory())  # commit=True по умолчанию
+    def get(self, product_id: str, uow: UnitOfWork) -> Optional['Product']:
+        use_case = GetProductUseCase(
+            product_repo=uow.product_repository(),
+        )
+        use_case.execute(product_id)
+
+    @with_uow(lambda self: self.uow_factory())  # commit=True по умолчанию
+    def update(self, price: Price , product_id: str, uow: UnitOfWork) -> None:
+        use_case = UpdatePriceUseCase(
+            product_repo=uow.product_repository(),
+            price_repo=uow.price_repository(),
+        )
+        use_case.execute(price , product_id)
