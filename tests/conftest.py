@@ -11,7 +11,7 @@ from src.infrastructure.repositories import ProductRepositoryImpl, PriceReposito
 from src.infrastructure.database.models import ORMProduct, ORMUser, ORMPrice
 from src.interfaces.dto import ProductDTO, PriceDTO, UserDTO
 from src.domain.entities import Product, Price, User
-
+from src.infrastructure.database.core import UnitOfWork
 # ----- # ----- # ----- Общие настройки ----- # ----- # ----- #
 
 @pytest.fixture(autouse=True)
@@ -49,6 +49,10 @@ def price_repo(session):
 def user_repo(session):
     """Фикстура репозитория продуктов с сессией."""
     return UserRepositoryImpl(session=session)
+
+@pytest.fixture
+def uow():
+    return UnitOfWork(session=session)
 
 # ----- # ----- # ----- Фикстуры DTO слоя ----- # ----- # ----- #
 

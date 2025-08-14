@@ -12,44 +12,20 @@ logger = logging.getLogger(__name__)
 
 class PriceRepositoryImpl(PriceRepository):
     '''Реализация репозитория для работы с ценами в базе данных.'''
-
     def __init__(self, session: Session):
-        '''Инициализирует репозиторий цен.
-        
-        Args:
-            session (Session): SQLAlchemy сессия для работы с БД
-        '''
         self.session = session
 
     def save(self, price: Price) -> None:
-        '''Сохраняет или обновляет цену в базе данных.
-        
-        Args:
-            price (Price): Доменный объект цены для сохранения
-            session (Session): SQLAlchemy сессия
-            
-        Raises:
-            DatabaseError: При ошибках сохранения
-        '''
         try:
             logger.info(f"Сохранение цены: {price}")
             orm_price = PriceMapper.domain_to_orm(price)
-            self.session.merge(orm_price)
+            self.session.merge(orm_price) # НУЖНА, НО ПОЧЕММУ???
             logger.debug(f"Цена успешно сохранена (ID: {orm_price.id})")
         except Exception as e:
             logger.error(f"Ошибка сохранения цены {price}: {str(e)}")
             raise
 
     def get_relevant_price_id(self, product_id: str) -> Optional[str]:
-        '''Получает ID актуальной цены для указанного продукта.
-        
-        Args:
-            product_id (str): Идентификатор продукта
-            session (Session): SQLAlchemy сессия
-            
-        Returns:
-            Optional[str]: ID актуальной цены или None, если продукт не найден
-        '''
         logger.debug(f"Получение актуальной цены для продукта {product_id}")
         orm_product = self.session.get(ORMProduct, product_id)
         if orm_product:
@@ -59,15 +35,6 @@ class PriceRepositoryImpl(PriceRepository):
         return None
     
     def get(self, price_id: str) -> Optional[Price]:
-        '''Получает цену по её идентификатору.
-        
-        Args:
-            price_id (str): Идентификатор цены
-            session (Session): SQLAlchemy сессия
-            
-        Returns:
-            Optional[Price]: Найденный объект цены или None
-        '''
         logger.debug(f"Поиск цены по ID: {price_id}")
         orm_model = self.session.get(ORMPrice, price_id)
         if not orm_model:
@@ -78,32 +45,13 @@ class PriceRepositoryImpl(PriceRepository):
         return price
     
     def get_all_prices_by_product(self, product_id: str) -> List[Price]:
-        '''Получает все цены для указанного продукта.
-        
-        Args:
-            product_id (str): Идентификатор продукта
-            session (Session): SQLAlchemy сессия
-            
-        Returns:
-            List[Price]: Список цен продукта (может быть пустым)
-        '''
         logger.debug(f"Получение всех цен для продукта {product_id}")
         orm_prices = self.session.query(ORMPrice).filter_by(product_id=product_id).all()
         prices = [PriceMapper.orm_to_domain(p) for p in orm_prices]
         logger.info(f"Найдено {len(prices)} цен для продукта {product_id}")
         return prices
-
     
     def delete(self, price_id: str) -> bool:
-        '''Удаляет цену по её идентификатору.
-        
-        Args:
-            price_id (str): Идентификатор цены для удаления
-            session (Session): SQLAlchemy сессия
-            
-        Raises:
-            DatabaseError: При ошибках удаления
-        '''
         logger.info(f"Попытка удаления цены с ID: {price_id}")
         orm_price = self.session.get(ORMPrice, price_id)
         if not orm_price:
@@ -111,7 +59,7 @@ class PriceRepositoryImpl(PriceRepository):
             return False
         try:
             self.session.delete(orm_price)
-            self.session.commit()
+            #self.session.commit() ТРАНЗАКЦИЯМИ УПРАВЛЯЕМ В UOW!!! 
             logger.info(f"Цена с ID {price_id} успешно удалена")
             return True
         except Exception as e:
