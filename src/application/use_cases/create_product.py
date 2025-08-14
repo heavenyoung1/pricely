@@ -20,16 +20,6 @@ class CreateProductUseCase:
         self.user_repo = user_repo
 
     def execute(self, product: Product, price: Price, user: User) -> None:
-        '''Создаёт продукт, цену и обновляет пользователя.
-
-        Args:
-            product (Product): Создаваемый продукт
-            price (Price): Начальная цена продукта
-            user (User): Владелец продукта
-
-        Raises:
-            ProductCreationError: Если не удалось создать продукт, цену или обновить пользователя
-        '''
         try:
             # Проверяем, существует ли пользователь
             existing_user = self.user_repo.get(user.id)
@@ -45,10 +35,9 @@ class CreateProductUseCase:
             self.product_repo.save(product)
             logger.info('Продукт сохранен: {product}')
 
-            # Если продукта нет у пользователя — добавляем
-            #if product.id not in user.products:
+
             user.products.append(product.id)
-            self.user_repo.save(user) # нужен ли этот шаг??
+            self.user_repo.save(user) # нужно, если хотим сохранить изменения в БД!!!
             logger.info('Продукт {product.id} добавлен пользователю {user.id}') 
 
         except Exception as e:

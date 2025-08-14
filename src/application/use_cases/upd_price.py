@@ -16,4 +16,4 @@ class UpdatePriceUseCase:
         if product_id:
             product.price_id = price.id
             self.product_repo.save(product)
-            logger.info(f"Цена обновлена для продукта {product_id}")
+            logger.info(f'Цена обновлена для продукта {product_id}')

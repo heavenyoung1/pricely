@@ -8,5 +8,5 @@ class ListProductsUseCase:
         self.product_repo = product_repo
 
     def execute(self):
-        logger.info("Получен список всех продуктов")
-        return list(self.product_repo.products.values())
+        logger.info('Получен список всех продуктов')
+        return self.product_repo.list_all()
