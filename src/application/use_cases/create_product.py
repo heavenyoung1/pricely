@@ -39,14 +39,10 @@ class CreateProductUseCase:
             self.product_repo.save(product)
             logger.info(f'Продукт сохранен: {product}')
 
-            # гарантируем сохранение связи user -> product
-            existing_user.products = list(existing_user.products or [])
-            if product.id not in existing_user.products:
-                existing_user.products.append(product.id)
-                self.user_repo.save(existing_user)
-
+            # Обновляем список продуктов пользователя
+            user.products.append(product.id)
+            self.user_repo.save(user)
             logger.info(f'Продукт {product.id} добавлен пользователю {user.id}')
-
         except Exception as e:
             raise ProductCreationError(f'Ошибка создания продукта: {e}')
 

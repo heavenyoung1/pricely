@@ -12,7 +12,6 @@ logger = logging.getLogger(__name__)
 
 class ProductRepositoryImpl(ProductRepository):
     '''Реализация репозитория для работы с товарами в базе данных.'''
-    
     def __init__(self, session: Session):
         self.session = session
 

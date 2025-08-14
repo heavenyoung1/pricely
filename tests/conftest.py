@@ -8,7 +8,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from src.infrastructure.repositories import ProductRepositoryImpl, PriceRepositoryImpl, UserRepositoryImpl
-from src.infrastructure.database.models import ORMProduct, ORMUser, ORMPrice
+from src.infrastructure.database.models import Base, ORMProduct, ORMUser, ORMPrice
 from src.interfaces.dto import ProductDTO, PriceDTO, UserDTO
 from src.domain.entities import Product, Price, User
 from src.infrastructure.database.core import UnitOfWork
@@ -26,14 +26,15 @@ def setup_logging():
 def session():
     '''Создает временную сессию SQLite в памяти для тестов.
     Автоматически создает таблицы и закрывает сессию после использования.'''
+    # Нужна ли тут какая-то модификация, rollback для транзакций??
     engine = create_engine('sqlite:///:memory:')
-    ORMProduct.metadata.create_all(engine)
-    ORMPrice.metadata.create_all(engine)
-    ORMUser.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    Base.metadata.create_all(engine)  # Создаём все таблицы
+    SessionLocal = sessionmaker(bind=engine)
+    session = SessionLocal()
+    session.begin()  # Начинаем транзакцию
     yield session
-    session.close() 
+    session.rollback()  # Откатываем изменения
+    session.close()
 
 @pytest.fixture
 def product_repo(session):
@@ -179,10 +180,9 @@ def orm_user(session, orm_product):
         #products=['p1', 'p2'] # НЕ передаем products в конструктор!
     )
     session.add(user)
-    #session.commit()
-    session.flush()  # Сохраняем user в базу, чтобы получить ID
-
-    # Устанавливаем связи ПОСЛЕ создания объекта
+    session.flush()
     user.products = [orm_product]
     session.commit()
     return user
+
+# ----- # ----- # ----- # ----- # ----- # ----- #
