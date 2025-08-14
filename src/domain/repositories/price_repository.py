@@ -20,7 +20,7 @@ class PriceRepository(ABC):
         pass
 
     @abstractmethod
-    def get_prices_by_product(self, product_id: str) -> List[Price]:
+    def get_all_prices_by_product(self, product_id: str) -> List[Price]:
         '''Получить все цены для продукта.'''
         pass
     
