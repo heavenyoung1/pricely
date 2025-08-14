@@ -23,11 +23,6 @@ class PriceRepository(ABC):
     def get_prices_by_product(self, product_id: str) -> List[Price]:
         '''Получить все цены для продукта.'''
         pass
-
-    @abstractmethod
-    def get_all(self, user_id: str) -> List[Price]:
-        '''Получить все цены для пользователя по ID.'''
-        pass
     
     @abstractmethod
     def delete(self, price_id: str) -> None:

@@ -35,8 +35,16 @@ def test_get_prices_by_product(price_repo, price, session):
     price_repo.save(price)
     session.commit()
 
-    prices_product_by_API = price_repo.get_prices_by_product(price.product_id)
+    prices_product_by_API = price_repo.get_all_prices_by_product(price.product_id)
     assert len(prices_product_by_API) == 1
     assert prices_product_by_API[0].id == price.id
     assert prices_product_by_API[0].claim == price.claim
     
+# def test_delete_price(price_repo, price, session):
+#     price_repo.save(price)
+#     session.commit()
+
+#     price_by_API = price_repo.get(price.id)
+#     deleted = price_repo.delete(price_id=price.id)
+#     assert deleted is True
+
