@@ -26,18 +26,18 @@ class ProductService:
         use_case.execute(product, price, user)
 
     @with_uow(lambda self: self.uow_factory())  # commit=True по умолчанию
-    def delete(self, product_id: str, uow: UnitOfWork) -> None:
+    def delete(self, product_id: str, uow: UnitOfWork) -> bool:
         use_case = DeleteProductUseCase(
             product_repo=uow.product_repository(),
             )
-        use_case.execute(product_id)
+        return use_case.execute(product_id)
 
     @with_uow(lambda self: self.uow_factory())  # commit=True по умолчанию
     def get(self, product_id: str, uow: UnitOfWork) -> Optional['Product']:
         use_case = GetProductUseCase(
             product_repo=uow.product_repository(),
         )
-        use_case.execute(product_id)
+        return use_case.execute(product_id)
 
     @with_uow(lambda self: self.uow_factory())  # commit=True по умолчанию
     def update(self, price: Price , product_id: str, uow: UnitOfWork) -> None:
