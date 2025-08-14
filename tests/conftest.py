@@ -6,6 +6,7 @@ from datetime import datetime
 from pydantic import HttpUrl
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from unittest.mock import MagicMock
 
 from src.infrastructure.repositories import ProductRepositoryImpl, PriceRepositoryImpl, UserRepositoryImpl
 from src.infrastructure.database.models import Base, ORMProduct, ORMUser, ORMPrice
@@ -36,6 +37,8 @@ def session():
     session.rollback()  # Откатываем изменения
     session.close()
 
+# ----- # ----- # ----- Репозитории ----- # ----- # ----- #
+
 @pytest.fixture
 def product_repo(session):
     """Фикстура репозитория продуктов с сессией."""
@@ -54,6 +57,22 @@ def user_repo(session):
 @pytest.fixture
 def uow():
     return UnitOfWork(session=session)
+
+# ----- # ----- # ----- Репозитории Mock ----- # ----- # ----- #
+@pytest.fixture
+def mock_product_repo():
+    """Мок для ProductRepository."""
+    return MagicMock()
+
+@pytest.fixture
+def mock_price_repo():
+    """Мок для PriceRepository."""
+    return MagicMock()
+
+@pytest.fixture
+def mock_user_repo():
+    """Мок для UserRepository."""
+    return MagicMock()
 
 # ----- # ----- # ----- Фикстуры DTO слоя ----- # ----- # ----- #
 
