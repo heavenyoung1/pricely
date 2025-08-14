@@ -77,7 +77,7 @@ class PriceRepositoryImpl(PriceRepository):
         logger.info(f"Найдена цена: {price} (ID: {orm_model.id})")
         return price
     
-    def get_prices_by_product(self, product_id: str) -> List[Price]:
+    def get_all_prices_by_product(self, product_id: str) -> List[Price]:
         '''Получает все цены для указанного продукта.
         
         Args:
@@ -92,22 +92,7 @@ class PriceRepositoryImpl(PriceRepository):
         prices = [PriceMapper.orm_to_domain(p) for p in orm_prices]
         logger.info(f"Найдено {len(prices)} цен для продукта {product_id}")
         return prices
-    
-    def get_all(self, product_id: str) -> List[Price]:
-        '''Получает все цены для указанного товара.
-        
-        Args:
-            user_id (str): Идентификатор пользователя
-            session (Session): SQLAlchemy сессия
-            
-        Returns:
-            List[Price]: Список цен пользователя (может быть пустым)
-        '''
-        logger.debug(f"Получение всех цен для пользователя {user_id}")
-        orm_prices = self.session.query(ORMPrice).filter_by(user_id=user_id).all()
-        prices = [PriceMapper.orm_to_domain(p) for p in orm_prices]
-        logger.info(f"Найдено {len(prices)} цен для пользователя {user_id}")
-        return prices
+
     
     def delete(self, price_id: str) -> None:
         '''Удаляет цену по её идентификатору.

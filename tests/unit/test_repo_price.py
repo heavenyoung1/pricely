@@ -36,18 +36,7 @@ def test_get_prices_by_product(price_repo, price, session):
     session.commit()
 
     prices_product_by_API = price_repo.get_prices_by_product(price.product_id)
-    print(f'PRICES!!! {prices_product_by_API}')
     assert len(prices_product_by_API) == 1
     assert prices_product_by_API[0].id == price.id
     assert prices_product_by_API[0].claim == price.claim
-
-def test_get_all_prices_for_user(price_repo, product, price, session):
-    '''Проверяет получение всех цен пользователя'''
-    price_repo.save(price)
-    session.commit()
-
-    prices = price_repo.get_all())
-    assert len(prices) == 1
-    print(f'PRICES!!! {prices}')
-
     
