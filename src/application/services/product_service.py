@@ -13,6 +13,7 @@ from src.infrastructure.database.core import UnitOfWork, with_uow
 logger = logging.getLogger(__name__)
 
 class ProductService:
+    '''Сервисный слой. Никаких commit здесь руками — коммитит UoW.'''
     def __init__(self, uow_factory):
         self.uow_factory = uow_factory
 
