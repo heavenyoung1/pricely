@@ -27,3 +27,4 @@ class DeleteProductUseCase:
         if user and product_id in user.products:
             user.products.remove(product_id)
             self.user_repo.save(user)
+        logger.info(f'Операция удаления выполнена для ID {product_id}')
