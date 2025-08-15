@@ -13,6 +13,7 @@ from src.infrastructure.database.models import Base, ORMProduct, ORMUser, ORMPri
 from src.interfaces.dto import ProductDTO, PriceDTO, UserDTO
 from src.domain.entities import Product, Price, User
 from src.infrastructure.database.core import UnitOfWork
+from src.application.services import ProductService
 # ----- # ----- # ----- Общие настройки ----- # ----- # ----- #
 
 @pytest.fixture(autouse=True)
@@ -37,21 +38,45 @@ def session():
     session.rollback()  # Откатываем изменения
     session.close()
 
+# ----- # ----- # ----- Product Service ----- # ----- # ----- #
+
+@pytest.fixture
+def mock_uow(mock_product_repo, mock_price_repo, mock_user_repo):
+    '''Мок для UnitOfWork.'''
+    mock_uow = MagicMock()
+    mock_uow.product_repository.return_value = mock_product_repo
+    mock_uow.price_repository.return_value = mock_price_repo
+    mock_uow.user_repository.return_value = mock_user_repo
+    mock_uow.__enter__.return_value = mock_uow
+    mock_uow.__exit__.return_value = None
+    return mock_uow
+
+@pytest.fixture
+def product_service(uow):
+    '''Фикстура для ProductService с реальным UnitOfWork.'''
+    return ProductService(uow_factory=lambda: uow)
+
+@pytest.fixture
+def mock_product_service(mock_uow):
+    uow_factory = MagicMock()
+    uow_factory.return_value = mock_uow
+    return ProductService(uow_factory=uow_factory)
+
 # ----- # ----- # ----- Репозитории для интеграционного тестирования ----- # ----- # ----- #
 
 @pytest.fixture
 def product_repo(session):
-    """Фикстура репозитория продуктов с сессией."""
+    '''Фикстура репозитория продуктов с сессией.'''
     return ProductRepositoryImpl(session=session)
 
 @pytest.fixture
 def price_repo(session):
-    """Фикстура репозитория продуктов с сессией."""
+    '''Фикстура репозитория продуктов с сессией.'''
     return PriceRepositoryImpl(session=session)
 
 @pytest.fixture
 def user_repo(session):
-    """Фикстура репозитория продуктов с сессией."""
+    '''Фикстура репозитория продуктов с сессией.'''
     return UserRepositoryImpl(session=session)
 
 @pytest.fixture
@@ -61,17 +86,17 @@ def uow():
 # ----- # ----- # ----- Репозитории Mock для Unit тестирования ----- # ----- # ----- #
 @pytest.fixture
 def mock_product_repo():
-    """Мок для ProductRepository."""
+    '''Мок для ProductRepository.'''
     return MagicMock()
 
 @pytest.fixture
 def mock_price_repo():
-    """Мок для PriceRepository."""
+    '''Мок для PriceRepository.'''
     return MagicMock()
 
 @pytest.fixture
 def mock_user_repo():
-    """Мок для UserRepository."""
+    '''Мок для UserRepository.'''
     return MagicMock()
 
 # ----- # ----- # ----- Фикстуры DTO слоя ----- # ----- # ----- #

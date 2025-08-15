@@ -19,11 +19,12 @@ class CreateProductUseCase:
         self.price_repo = price_repo
         self.user_repo = user_repo
 
-    def execute(self, product: Product, price: Price, user: User) -> None:
+    def execute(self, product: Product, price: Price, user_id: str) -> None:
         try:
-            existing_user = self.user_repo.get(user.id)
+            # Проверяем, существует ли пользователь
+            existing_user = self.user_repo.get(user_id)
             if not existing_user:
-                raise ValueError(f"Пользователь {user.id} не найден")
+                raise ValueError(f"Пользователь {user_id} не найден")
             
             existing_product = self.product_repo.get(product.id)
             if existing_product:
@@ -39,8 +40,8 @@ class CreateProductUseCase:
             logger.info(f'Товар сохранен: {product} с обновленным price_id - {price.id}')
 
             # Обновляем список продуктов пользователя
-            user.products.append(product.id)
-            self.user_repo.save(user)
+            existing_user.products.append(product.id)
+            self.user_repo.save(existing_user)
             logger.info(f'Продукт {product.id} добавлен пользователю {user.id}')
         except Exception as e:
             raise ProductCreationError(f'Ошибка создания продукта: {e}')
