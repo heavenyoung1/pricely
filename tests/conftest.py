@@ -37,7 +37,7 @@ def session():
     session.rollback()  # Откатываем изменения
     session.close()
 
-# ----- # ----- # ----- Репозитории ----- # ----- # ----- #
+# ----- # ----- # ----- Репозитории для интеграционного тестирования ----- # ----- # ----- #
 
 @pytest.fixture
 def product_repo(session):
@@ -58,7 +58,7 @@ def user_repo(session):
 def uow():
     return UnitOfWork(session=session)
 
-# ----- # ----- # ----- Репозитории Mock ----- # ----- # ----- #
+# ----- # ----- # ----- Репозитории Mock для Unit тестирования ----- # ----- # ----- #
 @pytest.fixture
 def mock_product_repo():
     """Мок для ProductRepository."""

@@ -20,21 +20,22 @@ class CreateProductUseCase:
         self.user_repo = user_repo
 
     def execute(self, product: Product, price: Price, user: User) -> None:
-        '''
-        Алгоритм (одна транзакция через UoW):
-        1) Проверяем пользователя
-        2) Сохраняем цену
-        3) Проставляем product.price_id и сохраняем продукт
-        4) Добавляем product.id в user.products и сохраняем пользователя
-        '''
         try:
+            # Проверяем, существует ли пользователь (ЗАЧЕМ ЗДЕСЬ ЭТО?)
+            # ЕСЛИ ПОЛЬЗОВАТЕЛЯ НЕТЮ НЕ НУЖНО ЛИ ЕГО СОЗДАТЬ???
             existing_user = self.user_repo.get(user.id)
             if not existing_user:
                 raise ProductCreationError(f'Пользователь с id {user.id} не найден')
+            
+            existing_product = self.product_repo.get(product.id)
+            if existing_product:
+                raise ProductCreationError(f'Продукт с id {product.id} уже существует')
 
+            # Сохраняем цену
             self.price_repo.save(price)
             logger.info('Цена сохранена')
 
+            # Обновляем price_id у Продукта и сохраняем его
             product.price_id = price.id
             self.product_repo.save(product)
             logger.info(f'Продукт сохранен: {product}')
