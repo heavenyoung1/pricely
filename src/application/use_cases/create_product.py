@@ -21,15 +21,13 @@ class CreateProductUseCase:
 
     def execute(self, product: Product, price: Price, user: User) -> None:
         try:
-            # Проверяем, существует ли пользователь (ЗАЧЕМ ЗДЕСЬ ЭТО?)
-            # ЕСЛИ ПОЛЬЗОВАТЕЛЯ НЕТЮ НЕ НУЖНО ЛИ ЕГО СОЗДАТЬ???
             existing_user = self.user_repo.get(user.id)
             if not existing_user:
-                raise ProductCreationError(f'Пользователь с id {user.id} не найден')
+                raise ValueError(f"Пользователь {user.id} не найден")
             
             existing_product = self.product_repo.get(product.id)
             if existing_product:
-                raise ProductCreationError(f'Продукт с id {product.id} уже существует')
+                raise ValueError(f"Продукт {product.id} уже существует")
 
             # Сохраняем цену
             self.price_repo.save(price)
@@ -38,7 +36,7 @@ class CreateProductUseCase:
             # Обновляем price_id у Продукта и сохраняем его
             product.price_id = price.id
             self.product_repo.save(product)
-            logger.info(f'Продукт сохранен: {product}')
+            logger.info(f'Товар сохранен: {product} с обновленным price_id - {price.id}')
 
             # Обновляем список продуктов пользователя
             user.products.append(product.id)
