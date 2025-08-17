@@ -58,8 +58,8 @@ def product_service(uow):
 
 @pytest.fixture
 def mock_product_service(mock_uow):
-    uow_factory = MagicMock()
-    uow_factory.return_value = mock_uow
+    uow_factory = MagicMock() # Мок для фабрики UoW
+    uow_factory.return_value = mock_uow # При вызове возвращает mock_uow
     return ProductService(uow_factory=uow_factory)
 
 # ----- # ----- # ----- Репозитории для интеграционного тестирования ----- # ----- # ----- #
