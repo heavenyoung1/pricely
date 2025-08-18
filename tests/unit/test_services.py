@@ -28,7 +28,11 @@ def test_create_product_mock(mock_product_service, mock_uow, mock_product_repo, 
 
     created_uow.product_repository.return_value
     
-    created_repo = created_uow.product_
+    created_repo = created_uow.product_repository.return_value
+    created_repo.save.assert_called_once_with(product)
+    created_repo.get.assert_not_called()
+
+    
 
 
 
