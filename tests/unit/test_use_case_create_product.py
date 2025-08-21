@@ -84,3 +84,9 @@ def test_create_product_use_case_user_not_found(mock_product_repo, mock_price_re
     # Выполняем создание товара
     with pytest.raises(ProductCreationError, match=f'Пользователь {user.id} не найден'):
         use_case.execute(product=product, user_id=user.id, price=price)
+
+    mock_user_repo.get.assert_called_once_with(user.id)
+    assert not mock_product_repo.get.called, 'get (продукт) не должен быть вызван'
+    assert not mock_price_repo.save.called, 'save (цена) не должен быть вызван'
+    assert not mock_product_repo.save.called, 'save (продукт) не должен быть вызван'
+    assert not mock_user_repo.save.called, 'save (пользователь) не должен быть вызван'
