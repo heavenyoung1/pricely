@@ -11,7 +11,8 @@ def test_create_product_use_case_success(
         mock_user_repo, 
         product, 
         price, 
-        user):
+        user,
+    ):
     
     # Настраиваем моки
     mock_user_repo.get.return_value = user      # Пользователь существует
@@ -37,4 +38,34 @@ def test_create_product_use_case_success(
     mock_price_repo.save.assert_called_once_with(price)
     mock_user_repo.save.assert_called_once_with(user)
     mock_product_repo.save.assert_called_once_with(product)
+
+def test_create_product_use_case_product_exists(
+        mock_product_repo, 
+        mock_price_repo, 
+        mock_user_repo, 
+        product, 
+        price, 
+        user,
+):
+    '''Юнит-тест: ошибка, если продукт уже существует.'''
+    # Настраиваем моки
+    mock_user_repo.get.return_value = user      # Пользователь существует
+    mock_product_repo.get.return_value = product   # Товар не существует
+
+    # Создаём use case
+    use_case = CreateProductUseCase(
+        product_repo=mock_product_repo,
+        price_repo=mock_price_repo,
+        user_repo=mock_user_repo,
+    )
+
+    # Выполняем создание продукта
+    with pytest.raises(ProductCreationError, match=f'Продукт {product.id} уже существует'):
+        use_case.execute(product=product, user_id=user.id, price=price)
+
+    mock_user_repo.get.assert_called_once_with(user.id)
+    mock_product_repo.get.assert_called_once_with(product.id)
+    assert not mock_price_repo.save.called, 'save (цена) не должен быть вызван'
+    assert not mock_product_repo.save.called, 'save (продукт) не должен быть вызван'
+    assert not mock_user_repo.save.called, 'save (пользователь) не должен быть вызван'
 

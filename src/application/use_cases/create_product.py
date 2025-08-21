@@ -24,11 +24,11 @@ class CreateProductUseCase:
             # Проверяем, существует ли пользователь
             existing_user = self.user_repo.get(user_id)
             if not existing_user:
-                raise ValueError(f"Пользователь {user_id} не найден")
+                raise ValueError(f'Пользователь {user_id} не найден')
             
             existing_product = self.product_repo.get(product.id)
             if existing_product:
-                raise ValueError(f"Продукт {product.id} уже существует")
+                raise ValueError(f'Продукт {product.id} уже существует')
 
             # Сохраняем цену
             self.price_repo.save(price)
