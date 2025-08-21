@@ -12,3 +12,5 @@ dependencies = [
     "pytest>=8.4.1",
     "sqlalchemy>=2.0.42",
 ]
+[tool.pytest.ini_options]
+cache_dir = ""

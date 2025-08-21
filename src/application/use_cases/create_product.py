@@ -42,7 +42,7 @@ class CreateProductUseCase:
             # Обновляем список продуктов пользователя
             existing_user.products.append(product.id)
             self.user_repo.save(existing_user)
-            logger.info(f'Продукт {product.id} добавлен пользователю {user.id}')
+            logger.info(f'Продукт {product.id} добавлен пользователю {existing_user.id}')
         except Exception as e:
             raise ProductCreationError(f'Ошибка создания продукта: {e}')
 
