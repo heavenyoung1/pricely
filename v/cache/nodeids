@@ -1,4 +1,5 @@
 [
   "tests/unit/test_use_case_create_product.py::test_create_product_use_case_product_exists",
-  "tests/unit/test_use_case_create_product.py::test_create_product_use_case_success"
+  "tests/unit/test_use_case_create_product.py::test_create_product_use_case_success",
+  "tests/unit/test_use_case_create_product.py::test_create_product_use_case_user_not_found"
 ]

@@ -28,7 +28,7 @@ class CreateProductUseCase:
             
             existing_product = self.product_repo.get(product.id)
             if existing_product:
-                raise ValueError(f'Продукт {product.id} уже существует')
+                raise ValueError(f'Товар {product.id} уже существует')
 
             # Сохраняем цену
             self.price_repo.save(price)
