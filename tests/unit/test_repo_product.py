@@ -39,6 +39,7 @@ def test_delete_product(product_repo, product, session):
     assert session.get(ORMProduct, product.id) is not None  # Есть до удаления
 
     deleted = product_repo.delete(product.id)
+    session.commit()  # Фиксируем изменения в базе
     assert deleted is True
     assert session.get(ORMProduct, product.id) is None
 

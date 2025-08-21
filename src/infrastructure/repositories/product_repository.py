@@ -47,6 +47,7 @@ class ProductRepositoryImpl(ProductRepository):
             self.session.delete(orm_model)
             #self.session.commit() # БЕЗ НЕГО НЕ РАБОТАЕТ, НО МНЕ НУЖНО ЦЕНТРАЛИЗОВАННОЕ УПРАВЛЕНИЕ ТРАНЗАКЦИЯМИ!!!
             logger.info(f'Товар с ID {product_id} успешно удален')
+            self.session.commit()
             return True
         except Exception as e:
             logger.error(f'Ошибка удаления товара {product_id}: {str(e)}')
