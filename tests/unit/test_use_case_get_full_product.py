@@ -34,3 +34,20 @@ def test_get_full_product_use_case_success(
     mock_price_repo.get.assert_called_once_with(product.price_id)
     mock_user_repo.get.assert_called_once_with(product.user_id)
     
+def test_get_full_product_not_found(mock_product_repo, mock_price_repo, mock_user_repo):
+    '''Возврат None, если продукта нет.'''
+
+        # Настраиваем моки: продукт существует
+    mock_product_repo.get.return_value = None
+
+    # Создаём use case
+    use_case = GetFullProductUseCase(
+        product_repo=mock_product_repo,
+        price_repo=mock_price_repo,
+        user_repo=mock_user_repo,
+    )
+    result = use_case.execute(product_id='ID_ID')
+    assert result is None
+    mock_product_repo.get.assert_called_once_with('ID_ID')
+    mock_price_repo.get.assert_not_called()
+    mock_user_repo.get.assert_not_called()
