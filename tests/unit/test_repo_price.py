@@ -49,6 +49,7 @@ def test_delete_price(price_repo, price, session):
     assert price_by_API.id == price.id
     assert price_by_API.claim == price.claim
     deleted = price_repo.delete(price_id=price.id)
+    session.commit()
     assert deleted is True
     price_by_API = price_repo.get(price.id)
     assert price_by_API is None
