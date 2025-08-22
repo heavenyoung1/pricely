@@ -17,8 +17,8 @@ class UpdatePriceUseCase:
         # 2) Обновляем продукт
         product = self.product_repo.get(product_id)
         if not product:
-            raise ValueError(f"Продукт с id {product_id} не найден")
+            raise ValueError(f'Продукт с id {product_id} не найден')
 
         product.price_id = price.id
         self.product_repo.save(product)
-        logger.info(f"Цена обновлена для продукта {product_id} -> price_id={price.id}")
+        logger.info(f'Цена обновлена для продукта {product_id} -> price_id={price.id}')

@@ -12,7 +12,7 @@ class UpdateProductPriceUseCase:
     def execute(self, product: Product, price: Price) -> None:
         product = self.product_repo.get(product.id)
         if not product:
-            raise ValueError("Продукт не найден")
+            raise ValueError('Продукт не найден')
 
         # 1) сохраняем новую цену
         self.price_repo.save(price)
