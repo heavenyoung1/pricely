@@ -5,7 +5,7 @@ from src.domain.repositories import ProductRepository, PriceRepository, UserRepo
 logger = logging.getLogger(__name__)
 
 class ProductCreationError(Exception):
-    '''Исключение для ошибок при создании продукта.'''
+    '''Исключение для ошибок при создании товара.'''
     pass
 
 class CreateProductUseCase:
