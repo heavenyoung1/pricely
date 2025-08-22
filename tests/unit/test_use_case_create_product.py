@@ -86,6 +86,8 @@ def test_create_product_use_case_user_not_found(mock_product_repo, mock_price_re
         use_case.execute(product=product, user_id=user.id, price=price)
 
     mock_user_repo.get.assert_called_once_with(user.id)
+    # Вот эта строка нужна чтобы убедиться, что выполнение метода execute остановилось на нужной строке
+    # В нашем случае строка 29 -> existing_product = self.product_repo.get(product.id) выполниться не должна
     assert not mock_product_repo.get.called, 'get (продукт) не должен быть вызван'
     assert not mock_price_repo.save.called, 'save (цена) не должен быть вызван'
     assert not mock_product_repo.save.called, 'save (продукт) не должен быть вызван'
