@@ -5,5 +5,7 @@
   "tests/unit/test_use_case_create_user.py::test_create_product_use_case_user_exists",
   "tests/unit/test_use_case_create_user.py::test_create_user_use_case_success",
   "tests/unit/test_use_case_create_user.py::test_create_user_use_case_user_exists",
-  "tests/unit/test_use_case_delete_product.py::test_delete_product_use_case_success"
+  "tests/unit/test_use_case_delete_product.py::test_delete_product_use_case_success",
+  "tests/unit/test_use_case_get_product.py::test_create_product_use_case_success",
+  "tests/unit/test_use_case_get_product.py::test_get_product_use_case_not_found"
 ]
