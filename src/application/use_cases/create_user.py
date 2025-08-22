@@ -14,7 +14,15 @@ class CreateUserUseCase:
 
     def execute(self, user: User) -> None:
         try:
+            existing = self.user_repo.get(user.id)
+            if existing:
+                raise UserCreationError(f'Пользователь {user.id} уже существует')
+
             self.user_repo.save(user)
+
+        except UserCreationError:
+            # не трогаем свои бизнесовые ошибки
+            raise
         except Exception as e:
-            logger.error(f"Ошибка при создании пользователя {user.id}: {e}")
+            logger.error(f'Ошибка при создании пользователя {user.id}: {e}')
             raise UserCreationError(f'Ошибка создания пользователя: {e}')
