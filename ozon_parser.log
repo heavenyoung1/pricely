@@ -1,0 +1,479 @@
+2025-08-23 15:01:32,807 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:01:43,019 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:01:44,230 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:03:38,074 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:03:48,285 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:03:48,355 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 15:03:49,609 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:03:50,582 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:04:00,763 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:04:00,805 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 15:04:02,056 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:04:02,964 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:04:13,146 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:04:23,515 - __main__ - ERROR - Ошибка при извлечении рейтинга: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff70a0878d5+2802741]
+	GetHandleVerifier [0x0x7ff709deeb70+79568]
+	(No symbol) [0x0x7ff709b8c0fa]
+	(No symbol) [0x0x7ff709be2a96]
+	(No symbol) [0x0x7ff709be2d4c]
+	(No symbol) [0x0x7ff709c36017]
+	(No symbol) [0x0x7ff709c0accf]
+	(No symbol) [0x0x7ff709c32e24]
+	(No symbol) [0x0x7ff709c0aa63]
+	(No symbol) [0x0x7ff709bd3c91]
+	(No symbol) [0x0x7ff709bd4a23]
+	GetHandleVerifier [0x0x7ff70a0b2ced+2979917]
+	GetHandleVerifier [0x0x7ff70a0ad0f3+2956371]
+	GetHandleVerifier [0x0x7ff70a0cacbd+3078173]
+	GetHandleVerifier [0x0x7ff709e0836e+184014]
+	GetHandleVerifier [0x0x7ff709e1024f+216495]
+	GetHandleVerifier [0x0x7ff709df70c4+113700]
+	GetHandleVerifier [0x0x7ff709df7279+114137]
+	GetHandleVerifier [0x0x7ff709dddf78+10968]
+	BaseThreadInitThunk [0x0x7ffde17ee8d7+23]
+	RtlUserThreadStart [0x0x7ffde1adc34c+44]
+
+2025-08-23 15:04:24,698 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:04:25,682 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:04:35,859 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:04:46,190 - __main__ - ERROR - Ошибка при извлечении цены с картой: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff70a0878d5+2802741]
+	GetHandleVerifier [0x0x7ff709deeb70+79568]
+	(No symbol) [0x0x7ff709b8c0fa]
+	(No symbol) [0x0x7ff709be2a96]
+	(No symbol) [0x0x7ff709be2d4c]
+	(No symbol) [0x0x7ff709c36017]
+	(No symbol) [0x0x7ff709c0accf]
+	(No symbol) [0x0x7ff709c32e24]
+	(No symbol) [0x0x7ff709c0aa63]
+	(No symbol) [0x0x7ff709bd3c91]
+	(No symbol) [0x0x7ff709bd4a23]
+	GetHandleVerifier [0x0x7ff70a0b2ced+2979917]
+	GetHandleVerifier [0x0x7ff70a0ad0f3+2956371]
+	GetHandleVerifier [0x0x7ff70a0cacbd+3078173]
+	GetHandleVerifier [0x0x7ff709e0836e+184014]
+	GetHandleVerifier [0x0x7ff709e1024f+216495]
+	GetHandleVerifier [0x0x7ff709df70c4+113700]
+	GetHandleVerifier [0x0x7ff709df7279+114137]
+	GetHandleVerifier [0x0x7ff709dddf78+10968]
+	BaseThreadInitThunk [0x0x7ffde17ee8d7+23]
+	RtlUserThreadStart [0x0x7ffde1adc34c+44]
+
+2025-08-23 15:04:47,345 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:06:01,930 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:06:12,106 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:06:12,154 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 15:06:13,314 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:06:13,795 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:06:23,993 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:06:24,044 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 15:06:25,214 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:06:25,696 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:06:35,893 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:06:46,238 - __main__ - ERROR - Ошибка при извлечении рейтинга: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff70a0878d5+2802741]
+	GetHandleVerifier [0x0x7ff709deeb70+79568]
+	(No symbol) [0x0x7ff709b8c0fa]
+	(No symbol) [0x0x7ff709be2a96]
+	(No symbol) [0x0x7ff709be2d4c]
+	(No symbol) [0x0x7ff709c36017]
+	(No symbol) [0x0x7ff709c0accf]
+	(No symbol) [0x0x7ff709c32e24]
+	(No symbol) [0x0x7ff709c0aa63]
+	(No symbol) [0x0x7ff709bd3c91]
+	(No symbol) [0x0x7ff709bd4a23]
+	GetHandleVerifier [0x0x7ff70a0b2ced+2979917]
+	GetHandleVerifier [0x0x7ff70a0ad0f3+2956371]
+	GetHandleVerifier [0x0x7ff70a0cacbd+3078173]
+	GetHandleVerifier [0x0x7ff709e0836e+184014]
+	GetHandleVerifier [0x0x7ff709e1024f+216495]
+	GetHandleVerifier [0x0x7ff709df70c4+113700]
+	GetHandleVerifier [0x0x7ff709df7279+114137]
+	GetHandleVerifier [0x0x7ff709dddf78+10968]
+	BaseThreadInitThunk [0x0x7ffde17ee8d7+23]
+	RtlUserThreadStart [0x0x7ffde1adc34c+44]
+
+2025-08-23 15:06:47,416 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:06:47,903 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:06:58,098 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:07:08,444 - __main__ - ERROR - Ошибка при извлечении цены с картой: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff70a0878d5+2802741]
+	GetHandleVerifier [0x0x7ff709deeb70+79568]
+	(No symbol) [0x0x7ff709b8c0fa]
+	(No symbol) [0x0x7ff709be2a96]
+	(No symbol) [0x0x7ff709be2d4c]
+	(No symbol) [0x0x7ff709c36017]
+	(No symbol) [0x0x7ff709c0accf]
+	(No symbol) [0x0x7ff709c32e24]
+	(No symbol) [0x0x7ff709c0aa63]
+	(No symbol) [0x0x7ff709bd3c91]
+	(No symbol) [0x0x7ff709bd4a23]
+	GetHandleVerifier [0x0x7ff70a0b2ced+2979917]
+	GetHandleVerifier [0x0x7ff70a0ad0f3+2956371]
+	GetHandleVerifier [0x0x7ff70a0cacbd+3078173]
+	GetHandleVerifier [0x0x7ff709e0836e+184014]
+	GetHandleVerifier [0x0x7ff709e1024f+216495]
+	GetHandleVerifier [0x0x7ff709df70c4+113700]
+	GetHandleVerifier [0x0x7ff709df7279+114137]
+	GetHandleVerifier [0x0x7ff709dddf78+10968]
+	BaseThreadInitThunk [0x0x7ffde17ee8d7+23]
+	RtlUserThreadStart [0x0x7ffde1adc34c+44]
+
+2025-08-23 15:07:09,614 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:07:37,056 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:07:47,247 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:07:47,311 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 15:07:48,480 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:07:49,467 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:07:59,650 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:07:59,688 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 15:08:00,877 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:08:01,848 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:08:12,028 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:08:22,347 - __main__ - ERROR - Ошибка при извлечении рейтинга: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff70a0878d5+2802741]
+	GetHandleVerifier [0x0x7ff709deeb70+79568]
+	(No symbol) [0x0x7ff709b8c0fa]
+	(No symbol) [0x0x7ff709be2a96]
+	(No symbol) [0x0x7ff709be2d4c]
+	(No symbol) [0x0x7ff709c36017]
+	(No symbol) [0x0x7ff709c0accf]
+	(No symbol) [0x0x7ff709c32e24]
+	(No symbol) [0x0x7ff709c0aa63]
+	(No symbol) [0x0x7ff709bd3c91]
+	(No symbol) [0x0x7ff709bd4a23]
+	GetHandleVerifier [0x0x7ff70a0b2ced+2979917]
+	GetHandleVerifier [0x0x7ff70a0ad0f3+2956371]
+	GetHandleVerifier [0x0x7ff70a0cacbd+3078173]
+	GetHandleVerifier [0x0x7ff709e0836e+184014]
+	GetHandleVerifier [0x0x7ff709e1024f+216495]
+	GetHandleVerifier [0x0x7ff709df70c4+113700]
+	GetHandleVerifier [0x0x7ff709df7279+114137]
+	GetHandleVerifier [0x0x7ff709dddf78+10968]
+	BaseThreadInitThunk [0x0x7ffde17ee8d7+23]
+	RtlUserThreadStart [0x0x7ffde1adc34c+44]
+
+2025-08-23 15:08:23,519 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:08:24,472 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:08:34,647 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:08:44,967 - __main__ - ERROR - Ошибка при извлечении цены с картой: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff70a0878d5+2802741]
+	GetHandleVerifier [0x0x7ff709deeb70+79568]
+	(No symbol) [0x0x7ff709b8c0fa]
+	(No symbol) [0x0x7ff709be2a96]
+	(No symbol) [0x0x7ff709be2d4c]
+	(No symbol) [0x0x7ff709c36017]
+	(No symbol) [0x0x7ff709c0accf]
+	(No symbol) [0x0x7ff709c32e24]
+	(No symbol) [0x0x7ff709c0aa63]
+	(No symbol) [0x0x7ff709bd3c91]
+	(No symbol) [0x0x7ff709bd4a23]
+	GetHandleVerifier [0x0x7ff70a0b2ced+2979917]
+	GetHandleVerifier [0x0x7ff70a0ad0f3+2956371]
+	GetHandleVerifier [0x0x7ff70a0cacbd+3078173]
+	GetHandleVerifier [0x0x7ff709e0836e+184014]
+	GetHandleVerifier [0x0x7ff709e1024f+216495]
+	GetHandleVerifier [0x0x7ff709df70c4+113700]
+	GetHandleVerifier [0x0x7ff709df7279+114137]
+	GetHandleVerifier [0x0x7ff709dddf78+10968]
+	BaseThreadInitThunk [0x0x7ffde17ee8d7+23]
+	RtlUserThreadStart [0x0x7ffde1adc34c+44]
+
+2025-08-23 15:08:46,146 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:11:12,320 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:11:22,511 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:11:22,578 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 15:11:23,739 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:11:24,722 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:11:34,943 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:11:34,981 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 15:11:36,135 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:11:37,151 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:11:47,352 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:11:47,401 - __main__ - INFO - RAITING TEXT 4.9 • 212 отзывов
+2025-08-23 15:11:47,402 - __main__ - INFO - Найден рейтинг: 4.9
+2025-08-23 15:11:48,594 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:11:49,589 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:11:59,770 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:12:10,109 - __main__ - ERROR - Ошибка при извлечении цены с картой: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff70a0878d5+2802741]
+	GetHandleVerifier [0x0x7ff709deeb70+79568]
+	(No symbol) [0x0x7ff709b8c0fa]
+	(No symbol) [0x0x7ff709be2a96]
+	(No symbol) [0x0x7ff709be2d4c]
+	(No symbol) [0x0x7ff709c36017]
+	(No symbol) [0x0x7ff709c0accf]
+	(No symbol) [0x0x7ff709c32e24]
+	(No symbol) [0x0x7ff709c0aa63]
+	(No symbol) [0x0x7ff709bd3c91]
+	(No symbol) [0x0x7ff709bd4a23]
+	GetHandleVerifier [0x0x7ff70a0b2ced+2979917]
+	GetHandleVerifier [0x0x7ff70a0ad0f3+2956371]
+	GetHandleVerifier [0x0x7ff70a0cacbd+3078173]
+	GetHandleVerifier [0x0x7ff709e0836e+184014]
+	GetHandleVerifier [0x0x7ff709e1024f+216495]
+	GetHandleVerifier [0x0x7ff709df70c4+113700]
+	GetHandleVerifier [0x0x7ff709df7279+114137]
+	GetHandleVerifier [0x0x7ff709dddf78+10968]
+	BaseThreadInitThunk [0x0x7ffde17ee8d7+23]
+	RtlUserThreadStart [0x0x7ffde1adc34c+44]
+
+2025-08-23 15:12:11,274 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:18:33,172 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:18:43,390 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:18:43,443 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 15:18:44,589 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:18:45,056 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:18:55,231 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:18:55,268 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 15:18:56,416 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:18:57,394 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:19:07,578 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:19:07,640 - __main__ - INFO - RAITING TEXT 4.9 • 212 отзывов
+2025-08-23 15:19:07,640 - __main__ - INFO - Найден рейтинг: 4.9
+2025-08-23 15:19:08,820 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:19:09,308 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:19:19,488 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:19:29,826 - __main__ - ERROR - Ошибка при извлечении цены с картой: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff70a0878d5+2802741]
+	GetHandleVerifier [0x0x7ff709deeb70+79568]
+	(No symbol) [0x0x7ff709b8c0fa]
+	(No symbol) [0x0x7ff709be2a96]
+	(No symbol) [0x0x7ff709be2d4c]
+	(No symbol) [0x0x7ff709c36017]
+	(No symbol) [0x0x7ff709c0accf]
+	(No symbol) [0x0x7ff709c32e24]
+	(No symbol) [0x0x7ff709c0aa63]
+	(No symbol) [0x0x7ff709bd3c91]
+	(No symbol) [0x0x7ff709bd4a23]
+	GetHandleVerifier [0x0x7ff70a0b2ced+2979917]
+	GetHandleVerifier [0x0x7ff70a0ad0f3+2956371]
+	GetHandleVerifier [0x0x7ff70a0cacbd+3078173]
+	GetHandleVerifier [0x0x7ff709e0836e+184014]
+	GetHandleVerifier [0x0x7ff709e1024f+216495]
+	GetHandleVerifier [0x0x7ff709df70c4+113700]
+	GetHandleVerifier [0x0x7ff709df7279+114137]
+	GetHandleVerifier [0x0x7ff709dddf78+10968]
+	BaseThreadInitThunk [0x0x7ffde17ee8d7+23]
+	RtlUserThreadStart [0x0x7ffde1adc34c+44]
+
+2025-08-23 15:19:30,979 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:22:19,662 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:22:29,870 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:22:29,948 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 15:22:31,110 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:22:31,600 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:22:41,781 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:22:41,831 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 15:22:42,988 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:22:43,464 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:22:53,668 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:22:53,713 - __main__ - INFO - RAITING TEXT 4.9 • 212 отзывов
+2025-08-23 15:22:53,714 - __main__ - INFO - Найден рейтинг: 4.9
+2025-08-23 15:22:54,870 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:22:55,815 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:23:05,999 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:23:06,051 - __main__ - INFO - Найдена цена с картой: 1819
+2025-08-23 15:23:07,211 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:24:48,193 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:24:58,424 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:24:58,484 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 15:24:59,683 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:25:00,905 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:25:11,144 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:25:11,192 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 15:25:12,386 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:25:13,514 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:25:23,704 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:25:23,793 - __main__ - INFO - RAITING TEXT 4.9 • 212 отзывов
+2025-08-23 15:25:23,793 - __main__ - INFO - Найден рейтинг: 4.9
+2025-08-23 15:25:25,144 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:25:26,328 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:25:36,582 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:25:36,661 - __main__ - INFO - Найдена цена с картой: 1819
+2025-08-23 15:25:37,844 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:25:39,019 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:25:49,236 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:25:49,328 - __main__ - INFO - Найдена цена без карты: 1954
+2025-08-23 15:25:50,523 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:25:51,711 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:26:01,906 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:26:01,996 - __main__ - INFO - Найдена базовая цена: 5299
+2025-08-23 15:26:03,195 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:27:30,959 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:27:41,176 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:27:41,214 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 15:27:42,399 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:27:43,323 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:27:53,498 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:27:53,548 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 15:27:54,762 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:27:55,212 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:28:05,409 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:28:05,459 - __main__ - INFO - RAITING TEXT 4.9 • 212 отзывов
+2025-08-23 15:28:05,459 - __main__ - INFO - Найден рейтинг: 4.9
+2025-08-23 15:28:06,721 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:28:07,737 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:28:17,942 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:28:18,007 - __main__ - INFO - Найдена цена с картой: 1819
+2025-08-23 15:28:19,240 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:28:20,276 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:28:30,460 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:28:30,525 - __main__ - INFO - Найдена цена без карты: 1954
+2025-08-23 15:28:31,856 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:28:32,821 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:28:43,013 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:28:43,045 - __main__ - INFO - Найдена базовая цена: 5299
+2025-08-23 15:28:44,233 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:28:45,109 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:28:56,238 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:29:06,551 - __main__ - ERROR - Ошибка при извлечении URL изображения: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff70a0878d5+2802741]
+	GetHandleVerifier [0x0x7ff709deeb70+79568]
+	(No symbol) [0x0x7ff709b8c0fa]
+	(No symbol) [0x0x7ff709be2a96]
+	(No symbol) [0x0x7ff709be2d4c]
+	(No symbol) [0x0x7ff709c36017]
+	(No symbol) [0x0x7ff709c0accf]
+	(No symbol) [0x0x7ff709c32e24]
+	(No symbol) [0x0x7ff709c0aa63]
+	(No symbol) [0x0x7ff709bd3c91]
+	(No symbol) [0x0x7ff709bd4a23]
+	GetHandleVerifier [0x0x7ff70a0b2ced+2979917]
+	GetHandleVerifier [0x0x7ff70a0ad0f3+2956371]
+	GetHandleVerifier [0x0x7ff70a0cacbd+3078173]
+	GetHandleVerifier [0x0x7ff709e0836e+184014]
+	GetHandleVerifier [0x0x7ff709e1024f+216495]
+	GetHandleVerifier [0x0x7ff709df70c4+113700]
+	GetHandleVerifier [0x0x7ff709df7279+114137]
+	GetHandleVerifier [0x0x7ff709dddf78+10968]
+	BaseThreadInitThunk [0x0x7ffde17ee8d7+23]
+	RtlUserThreadStart [0x0x7ffde1adc34c+44]
+
+2025-08-23 15:29:07,745 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:29:08,186 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:29:18,375 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:29:28,730 - __main__ - ERROR - Ошибка при извлечении категорий: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff70a0878d5+2802741]
+	GetHandleVerifier [0x0x7ff709deeb70+79568]
+	(No symbol) [0x0x7ff709b8c0fa]
+	(No symbol) [0x0x7ff709be2a96]
+	(No symbol) [0x0x7ff709be2d4c]
+	(No symbol) [0x0x7ff709c36017]
+	(No symbol) [0x0x7ff709c0accf]
+	(No symbol) [0x0x7ff709c32e24]
+	(No symbol) [0x0x7ff709c0aa63]
+	(No symbol) [0x0x7ff709bd3c91]
+	(No symbol) [0x0x7ff709bd4a23]
+	GetHandleVerifier [0x0x7ff70a0b2ced+2979917]
+	GetHandleVerifier [0x0x7ff70a0ad0f3+2956371]
+	GetHandleVerifier [0x0x7ff70a0cacbd+3078173]
+	GetHandleVerifier [0x0x7ff709e0836e+184014]
+	GetHandleVerifier [0x0x7ff709e1024f+216495]
+	GetHandleVerifier [0x0x7ff709df70c4+113700]
+	GetHandleVerifier [0x0x7ff709df7279+114137]
+	GetHandleVerifier [0x0x7ff709dddf78+10968]
+	BaseThreadInitThunk [0x0x7ffde17ee8d7+23]
+	RtlUserThreadStart [0x0x7ffde1adc34c+44]
+
+2025-08-23 15:29:29,954 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:32:37,066 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:32:47,275 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:32:47,319 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 15:32:48,486 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:32:48,906 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:32:59,084 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:32:59,149 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 15:33:00,311 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:33:00,723 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:33:10,892 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:33:10,949 - __main__ - INFO - RAITING TEXT 4.9 • 212 отзывов
+2025-08-23 15:33:10,950 - __main__ - INFO - Найден рейтинг: 4.9
+2025-08-23 15:33:12,105 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:33:12,512 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:33:22,709 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:33:22,749 - __main__ - INFO - Найдена цена с картой: 1819
+2025-08-23 15:33:23,926 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:33:24,344 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:33:34,534 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:33:34,566 - __main__ - INFO - Найдена цена без карты: 1954
+2025-08-23 15:33:35,830 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:33:36,694 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:33:46,876 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:33:46,918 - __main__ - INFO - Найдена базовая цена: 5299
+2025-08-23 15:33:48,102 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:33:49,003 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:33:59,188 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:34:09,540 - __main__ - ERROR - Ошибка при извлечении URL изображения: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff70a0878d5+2802741]
+	GetHandleVerifier [0x0x7ff709deeb70+79568]
+	(No symbol) [0x0x7ff709b8c0fa]
+	(No symbol) [0x0x7ff709be2a96]
+	(No symbol) [0x0x7ff709be2d4c]
+	(No symbol) [0x0x7ff709c36017]
+	(No symbol) [0x0x7ff709c0accf]
+	(No symbol) [0x0x7ff709c32e24]
+	(No symbol) [0x0x7ff709c0aa63]
+	(No symbol) [0x0x7ff709bd3c91]
+	(No symbol) [0x0x7ff709bd4a23]
+	GetHandleVerifier [0x0x7ff70a0b2ced+2979917]
+	GetHandleVerifier [0x0x7ff70a0ad0f3+2956371]
+	GetHandleVerifier [0x0x7ff70a0cacbd+3078173]
+	GetHandleVerifier [0x0x7ff709e0836e+184014]
+	GetHandleVerifier [0x0x7ff709e1024f+216495]
+	GetHandleVerifier [0x0x7ff709df70c4+113700]
+	GetHandleVerifier [0x0x7ff709df7279+114137]
+	GetHandleVerifier [0x0x7ff709dddf78+10968]
+	BaseThreadInitThunk [0x0x7ffde17ee8d7+23]
+	RtlUserThreadStart [0x0x7ffde1adc34c+44]
+
+2025-08-23 15:34:10,728 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:34:11,625 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:34:21,796 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:34:21,871 - __main__ - INFO - Найдены категории: ['Одежда', 'Мужчинам', 'Джинсы', 'Befree']
+2025-08-23 15:34:23,088 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:36:19,608 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:36:29,809 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:36:29,838 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 15:36:31,008 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:36:31,394 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:36:41,655 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:36:41,680 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 15:36:42,855 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:36:43,724 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:36:53,896 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:36:53,940 - __main__ - INFO - RAITING TEXT 4.9 • 212 отзывов
+2025-08-23 15:36:53,940 - __main__ - INFO - Найден рейтинг: 4.9
+2025-08-23 15:36:55,131 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:36:55,562 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:37:05,740 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:37:05,774 - __main__ - INFO - Найдена цена с картой: 1819
+2025-08-23 15:37:06,970 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:37:07,849 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:37:18,041 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:37:18,090 - __main__ - INFO - Найдена цена без карты: 1954
+2025-08-23 15:37:19,258 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:37:20,119 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:37:30,292 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:37:30,323 - __main__ - INFO - Найдена базовая цена: 5299
+2025-08-23 15:37:31,491 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:37:31,965 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:37:42,156 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:37:42,177 - __main__ - ERROR - Ошибка при извлечении URL изображения: 'OzonParser' object has no attribute '_extract_image_url'
+2025-08-23 15:37:43,369 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 15:37:43,787 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 15:37:54,067 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 15:37:54,150 - __main__ - INFO - Найдены категории: ['Одежда', 'Мужчинам', 'Джинсы', 'Befree']
+2025-08-23 15:37:55,335 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
