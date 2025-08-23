@@ -1,0 +1,46 @@
+2025-08-23 16:14:27,102 - __main__ - INFO - Запуск Telegram-бота
+2025-08-23 16:14:51,293 - __main__ - ERROR - Недоступный URL: https://www.ozon.ru/product/dzhinsy-befree-883110146/, код: 403
+2025-08-23 16:15:54,013 - __main__ - WARNING - Невалидный URL: /start от пользователя 515084006
+2025-08-23 16:15:59,754 - __main__ - ERROR - Недоступный URL: https://www.ozon.ru/product/dzhinsy-befree-883110146/, код: 403
+2025-08-23 16:29:45,029 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 16:29:55,244 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 16:29:55,244 - __main__ - INFO - Загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 16:29:55,309 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 16:29:55,339 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 16:29:55,369 - __main__ - INFO - Текст рейтинга: 4.9 • 212 отзывов
+2025-08-23 16:29:55,371 - __main__ - INFO - Найден рейтинг: 4.9
+2025-08-23 16:29:55,402 - __main__ - INFO - Найдена цена с картой: 1819
+2025-08-23 16:29:55,431 - __main__ - INFO - Найдена цена без карты: 1954
+2025-08-23 16:29:55,457 - __main__ - INFO - Найдена базовая цена: 5299
+2025-08-23 16:29:55,492 - __main__ - INFO - Найден URL изображения: https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7208661467.jpg
+2025-08-23 16:29:55,573 - __main__ - INFO - Найдены категории: ['Одежда', 'Мужчинам', 'Джинсы', 'Befree']
+2025-08-23 16:29:56,801 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 16:35:23,924 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 16:35:34,133 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 16:35:34,134 - __main__ - INFO - Загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 16:35:34,189 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 16:35:34,207 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 16:35:34,225 - __main__ - INFO - Текст рейтинга: 4.9 • 212 отзывов
+2025-08-23 16:35:34,226 - __main__ - INFO - Найден рейтинг: 4.9
+2025-08-23 16:35:34,246 - __main__ - INFO - Найдена цена с картой: 1819
+2025-08-23 16:35:34,266 - __main__ - INFO - Найдена цена без карты: 1954
+2025-08-23 16:35:34,282 - __main__ - INFO - Найдена базовая цена: 5299
+2025-08-23 16:35:34,307 - __main__ - INFO - Найден URL изображения: https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7208661467.jpg
+2025-08-23 16:35:34,406 - __main__ - INFO - Найдены категории: ['Одежда', 'Мужчинам', 'Джинсы', 'Befree']
+2025-08-23 16:35:35,672 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 16:36:12,770 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 16:36:22,947 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 16:36:22,948 - __main__ - INFO - Загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 16:36:22,988 - __main__ - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 16:36:23,001 - __main__ - INFO - Найден артикул: 883110146
+2025-08-23 16:36:23,017 - __main__ - INFO - Текст рейтинга: 4.9 • 212 отзывов
+2025-08-23 16:36:23,017 - __main__ - INFO - Найден рейтинг: 4.9
+2025-08-23 16:36:23,034 - __main__ - INFO - Найдена цена с картой: 1819
+2025-08-23 16:36:23,050 - __main__ - INFO - Найдена цена без карты: 1954
+2025-08-23 16:36:23,070 - __main__ - INFO - Найдена базовая цена: 5299
+2025-08-23 16:36:23,095 - __main__ - INFO - Найден URL изображения: https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7208661467.jpg
+2025-08-23 16:36:23,157 - __main__ - INFO - Найдены категории: ['Одежда', 'Мужчинам', 'Джинсы', 'Befree']
+2025-08-23 16:36:24,433 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 16:36:24,893 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 16:36:35,074 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 16:36:36,448 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.

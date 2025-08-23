@@ -6,6 +6,8 @@ from .session_engine import SessionEngine
 from typing import Dict, List
 import logging
 import sys
+import requests
+from selenium.common.exceptions import WebDriverException, TimeoutException
 
 logging.basicConfig(
     level=logging.INFO,
@@ -31,6 +33,48 @@ class OzonParser:
         print(f"Артикул: {data['id']}")
         print(f"Рейтинг: {data['rating']}")
     """
+
+   # Способ 2: Проверка через Selenium (косвенно)
+    @session_wrapper(headless=True)
+    def get_page_status(self, session: SessionEngine, url: str) -> bool:
+        """
+        Проверка доступности страницы через Selenium.
+        
+        Args:
+            session: Экземпляр SessionEngine
+            url: URL для проверки
+            
+        Returns:
+            bool: True если страница загрузилась корректно, False иначе
+        """
+        try:
+            session.navigate(url)
+            
+            # Проверяем наличие специфичных элементов Ozon или отсутствие страниц ошибок
+            wait = WebDriverWait(session.driver, 5)
+            
+            # Проверяем на 404 страницу
+            if "404" in session.driver.title.lower() or "не найден" in session.driver.title.lower():
+                return False
+                
+            # Проверяем на блокировку/капчу
+            if "blocked" in session.driver.page_source.lower() or "captcha" in session.driver.page_source.lower():
+                return False
+                
+            # Проверяем что это действительно страница товара Ozon
+            try:
+                wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "[data-widget='webProductHeading']")))
+                return True
+            except TimeoutException:
+                # Если основной элемент не найден, проверяем другие признаки
+                if "ozon.ru" in session.driver.current_url and len(session.driver.page_source) > 1000:
+                    return True
+                return False
+                
+        except Exception as e:
+            logger.error(f"Ошибка при проверке страницы {url}: {e}")
+            return False
+
 
     @session_wrapper(headless=True)
     def parse_product(self, session: SessionEngine, url: str) -> Dict:
@@ -299,6 +343,7 @@ if __name__ == "__main__":
     parser = OzonParser()
     ozon_url = "https://www.ozon.ru/product/dzhinsy-befree-883110146/"
     product_data = parser.parse_product(ozon_url)
+    status_code = parser.get_page_status(ozon_url)
     print(f"Название товара: {product_data['name']}")
     print(f"ID товара: {product_data['id']}")
     print(f"Рейтинг товара: {product_data['rating']}")
@@ -307,3 +352,4 @@ if __name__ == "__main__":
     print(f"Цена товара дефолт: {product_data['price_default']}")
     print(f"Изображение товара: {product_data['image_url']}")
     print(f"Категории товара: {product_data['categories']}")
+    print(f'СТАТУС HTTP -> {status_code}')
