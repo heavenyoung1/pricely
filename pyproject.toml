@@ -10,7 +10,10 @@ dependencies = [
     "pydantic>=2.11.7",
     "pydantic-settings>=2.10.1",
     "pytest>=8.4.1",
+    "selenium>=4.35.0",
+    "selenium-stealth>=1.0.6",
     "sqlalchemy>=2.0.42",
+    "undetected-chromedriver>=3.5.5",
 ]
 [tool.pytest.ini_options]
 cache_dir = ""
