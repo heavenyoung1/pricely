@@ -3,8 +3,10 @@ from .session_engine import SessionEngine
 import logging
 from typing import Callable, Optional
 
+logger = logging.getLogger(__name__)
+
 def session_engine_decorator(headless: bool = False, user_agent: Optional[str] = None, proxy: Optional[str] = None, wait_time: int = 10):
-    """
+    '''
     Декоратор для управления сессией WebDriver с использованием SessionEngine.
 
     Создает и настраивает экземпляр SessionEngine, передает его в декорируемую функцию,
@@ -18,7 +20,7 @@ def session_engine_decorator(headless: bool = False, user_agent: Optional[str] =
 
     Returns:
         Callable: Обернутая функция, управляющая сессией WebDriver.
-    """
+    '''
     def decorator(func: Callable) -> Callable:
         @wraps(func)
         def wrapper(self, *args, **kwargs):
@@ -33,7 +35,7 @@ def session_engine_decorator(headless: bool = False, user_agent: Optional[str] =
                 result = func(self, session, *args, **kwargs)
                 return result
             except Exception as e:
-                #logger.error(f"Ошибка в декорируемой функции: {e}")
+                logger.error(f'Ошибка в декорируемой функции: {e}')
                 raise
             finally:
                 if session:
