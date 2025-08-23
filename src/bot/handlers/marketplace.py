@@ -1,5 +1,5 @@
 from telebot.types import Message
-from keyboards.main_menu import marketplaces, main_menu
+from src.bot.keyboards.main_menu import marketplaces, main_menu
 
 def register_handlers(bot):
 

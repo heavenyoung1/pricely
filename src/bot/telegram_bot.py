@@ -124,7 +124,8 @@ import logging
 from telebot import TeleBot
 from dotenv import load_dotenv
 import logging
-from handlers import start, marketplace, products, settings
+from .handlers import start, settings, marketplace, products
+import sys
 
 logging.basicConfig(
     level=logging.INFO,
