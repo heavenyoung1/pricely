@@ -44,3 +44,6 @@
 2025-08-23 16:36:24,893 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
 2025-08-23 16:36:35,074 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
 2025-08-23 16:36:36,448 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 19:27:44,984 - __main__ - INFO - Запуск Telegram-бота
+2025-08-23 19:34:53,238 - TeleBot - ERROR - Infinity polling: polling exited
+2025-08-23 19:34:53,239 - TeleBot - ERROR - Break infinity polling
