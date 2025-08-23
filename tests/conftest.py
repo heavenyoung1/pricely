@@ -13,7 +13,7 @@ from src.infrastructure.database.models import Base, ORMProduct, ORMUser, ORMPri
 from src.interfaces.dto import ProductDTO, PriceDTO, UserDTO
 from src.domain.entities import Product, Price, User
 from src.infrastructure.database.core import UnitOfWork
-from src.application.services import ProductService
+from src.infrastructure.services import ProductService
 # ----- # ----- # ----- Общие настройки ----- # ----- # ----- #
 
 @pytest.fixture(autouse=True)

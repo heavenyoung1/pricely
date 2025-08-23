@@ -1,5 +1,3 @@
-
-
 def test_with_uow_commit(mock_product_service, mock_uow, user):
     """Тест декоратора with_uow с commit=True."""
     # Настраиваем моки
