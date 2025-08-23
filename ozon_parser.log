@@ -262,3 +262,20 @@ Traceback (most recent call last):
     raise ReadTimeout(e, request=request)
 requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
 
+2025-08-23 22:29:27,801 - __main__ - INFO - Запуск Telegram-бота
+2025-08-23 22:29:44,267 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-23 22:29:54,511 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 22:29:54,511 - src.infrastructure.core.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-23 22:29:54,552 - src.infrastructure.core.ozon_parser - INFO - Найдено название товара: Джинсы Befree
+2025-08-23 22:29:54,566 - src.infrastructure.core.ozon_parser - INFO - Найден артикул: 883110146
+2025-08-23 22:29:54,586 - src.infrastructure.core.ozon_parser - INFO - Текст рейтинга: 4.9 • 212 отзывов
+2025-08-23 22:29:54,586 - src.infrastructure.core.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-08-23 22:29:54,609 - src.infrastructure.core.ozon_parser - INFO - Найдена цена с картой: 1819
+2025-08-23 22:29:54,634 - src.infrastructure.core.ozon_parser - INFO - Найдена цена без карты: 1954
+2025-08-23 22:29:54,659 - src.infrastructure.core.ozon_parser - INFO - Найдена базовая цена: 5299
+2025-08-23 22:29:54,691 - src.infrastructure.core.ozon_parser - INFO - Найден URL изображения: https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7208661467.jpg
+2025-08-23 22:29:54,762 - src.infrastructure.core.ozon_parser - INFO - Найдены категории: ['Одежда', 'Мужчинам', 'Джинсы', 'Befree']
+2025-08-23 22:29:55,959 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-23 22:29:55,960 - src.bot.handlers.products - INFO - Успешно спарсены данные для https://www.ozon.ru/product/dzhinsy-befree-883110146/: {'name': 'Джинсы Befree', 'id': '883110146', 'rating': 4.9, 'price_with_card': 1819, 'price_without_card': 1954, 'price_default': 5299, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7208661467.jpg', 'categories': ['Одежда', 'Мужчинам', 'Джинсы', 'Befree']}
+2025-08-23 22:30:43,491 - TeleBot - ERROR - Infinity polling: polling exited
+2025-08-23 22:30:43,493 - TeleBot - ERROR - Break infinity polling
