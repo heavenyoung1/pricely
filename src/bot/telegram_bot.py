@@ -5,7 +5,7 @@ from requests import head
 import telebot
 from dotenv import load_dotenv
 from src.infrastructure.core.ozon_parser import OzonParser
-from src.infrastructure import ProductService
+from src.infrastructure.services import ProductService
 from src.domain.entities import Product, Price, User
 from src.infrastructure.database.core import UnitOfWork, get_db_session
 
@@ -63,3 +63,56 @@ def handle_message(message):
         bot.reply_to(message, f"Ошибка при парсинге: {str(e)}")
         logger.error(f"Ошибка парсинга {url}: {str(e)}")
         return
+
+    # Создание доменных сущностей
+    try:
+        product = Product(
+            id=product_data['id'],
+            name=product_data['name'],
+            user_id=user_id,
+            categories=product_data['categories']
+        )
+        price = Price(
+            product_id=product_data['id'],
+            price_with_card=product_data['price_with_card'],
+            price_without_card=product_data['price_without_card'],
+            price_default=product_data['price_default'],
+            rating=product_data['rating'],
+            image_url=product_data['image_url']
+        )
+        user = User(id=user_id, username=message.from_user.username or "unknown")
+    except Exception as e:
+        bot.reply_to(message, f"Ошибка создания сущностей: {str(e)}")
+        logger.error(f"Ошибка создания сущностей для {url}: {str(e)}")
+        return
+
+    # Сохранение через ProductService
+    try:
+        product_service.create_user(user)
+        product_service.create_product(user_id, product, price)
+        logger.info(f"Данные для {url} сохранены в БД для пользователя {user_id}")
+    except Exception as e:
+        bot.reply_to(message, f"Данные отправлены, но ошибка сохранения в БД: {str(e)}")
+        logger.error(f"Ошибка сохранения в БД для {url}: {str(e)}")
+        return
+
+    # Формирование ответа
+    response_text = (
+        f"Название товара: {product_data['name']}\n"
+        f"ID товара: {product_data['id']}\n"
+        f"Рейтинг товара: {product_data['rating']}\n"
+        f"Цена с картой: {product_data['price_with_card']}\n"
+        f"Цена без карты: {product_data['price_without_card']}\n"
+        f"Базовая цена: {product_data['price_default']}\n"
+        f"URL изображения: {product_data['image_url']}\n"
+        f"Категории: {', '.join(product_data['categories'])}"
+    )
+    bot.reply_to(message, response_text)
+
+if __name__ == "__main__":
+    logger.info("Запуск Telegram-бота")
+    try:
+        bot.polling()
+    except Exception as e:
+        logger.error(f"Ошибка работы бота: {str(e)}")
+        raise
