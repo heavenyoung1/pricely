@@ -1,9 +1,10 @@
+# src/infrastructure/database/core.py
 import logging
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from functools import wraps
-from typing import Any, Callable
+from contextlib import contextmanager
+from typing import Generator
 
 # Настройка логгера
 logger = logging.getLogger(__name__)
@@ -28,11 +29,11 @@ class DataBaseSettings(BaseSettings):
         CONN (str): Драйвер подключения (по умолчанию 'postgresql+psycopg2').
     '''
     model_config = SettingsConfigDict(
-        env_file = '.env', 
+        env_file='.env', 
         env_prefix='DB_CONFIG_', 
-        env_file_encoding = 'utf-8',
-        extra='ignore', # Игнорировать лишние переменные
-        )
+        env_file_encoding='utf-8',
+        extra='ignore',  # Игнорировать лишние переменные
+    )
 
     HOST: str
     PORT: int
@@ -50,7 +51,7 @@ class DataBaseSettings(BaseSettings):
         '''
         return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{self.NAME}'
 
-def get_db_engine() -> Any:
+def get_db_engine():
     '''Создает и возвращает движок SQLAlchemy для работы с БД.
 
     Движок управляет пулом подключений и является точкой входа для всех операций с БД.
@@ -73,8 +74,13 @@ def get_db_engine() -> Any:
         logger.error(f"Ошибка создания движка БД: {e}")
         raise
 
-def get_db_session() -> str:
-    '''Создаёт и возвращает фабрику сессий SQLAlchemy'''
+@contextmanager
+def get_db_session() -> Generator:
+    '''Создаёт и возвращает сессию SQLAlchemy как контекстный менеджер.
+
+    Returns:
+        Session: Объект сессии SQLAlchemy.
+    '''
     try:
         engine = get_db_engine()
         SessionLocal = sessionmaker(
@@ -83,43 +89,12 @@ def get_db_session() -> str:
             bind=engine,
             expire_on_commit=False
         )
-        logger.info("Фабрика сессий успешно инициализирована")
-        return SessionLocal
-    except Exception as e:
-        logger.error(f"Ошибка создания фабрики сессий: {e}")
-        raise
-
-def with_session(func) -> Callable:
-    '''Декоратор для автоматического управления сессиями БД.
-
-    Автоматически:
-    - Создает новую сессию
-    - Передает ее в функцию как аргумент 'session'
-    - Фиксирует изменения (commit) при успешном выполнении
-    - Откатывает (rollback) при ошибках
-    - Закрывает сессию
-
-    Args:
-        func (Callable): Функция, которая будет работать с БД.
-
-    Returns:
-        Callable: Обернутая функция с управлением сессией.
-    '''
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        SessionLocal = get_db_session()
         session = SessionLocal()
-        try:
-            logger.debug(f"Сессия БД запущена {func.__name__}")
-            result = func(*args, session=session, **kwargs)
-            session.commit()
-            logger.debug("Коммит транзакции")
-            return result
-        except Exception as e:
-            session.rollback()
-            logger.error(f"ROLLBACK Транзакции с ошибкой: {e}")
-            raise
-        finally:
-            session.close()
-            logger.debug("Сессия БД закрыта")
-    return wrapper
+        logger.info("Сессия БД успешно инициализирована")
+        yield session
+    except Exception as e:
+        logger.error(f"Ошибка создания сессии: {e}")
+        raise
+    finally:
+        session.close()
+        logger.info("Сессия БД закрыта")

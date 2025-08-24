@@ -44,8 +44,8 @@ class CreateProductUseCase:
             product_id=product.id,
             with_card=product_data['price_with_card'],
             without_card=product_data['price_without_card'],
-            previous_with_card=product_data['price_default'],       # ОТКУДА ВЗЯТЬ ВОТ ЭТО?
-            previous_without_card=product_data['price_default'],    # ОТКУДА ВЗЯТЬ ВОТ ЭТО?
+            previous_with_card=None,       # ОТКУДА ВЗЯТЬ ВОТ ЭТО?
+            previous_without_card=None,    # ОТКУДА ВЗЯТЬ ВОТ ЭТО?
             default=product_data['price_default'],
             claim=datetime.now()
         )

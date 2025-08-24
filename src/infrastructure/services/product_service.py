@@ -32,6 +32,7 @@ class ProductService:
             product_repo=uow.product_repository(),
             price_repo=uow.price_repository(),
         )
+        print("DEBUG:", CreateProductUseCase.execute)
         return use_case.execute(user_id, url)
 
     @with_uow(commit=False)
