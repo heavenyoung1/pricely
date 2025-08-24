@@ -1,8 +1,59 @@
-2025-08-24 22:23:07,037 - __main__ - INFO - Запуск Telegram-бота
-2025-08-24 22:23:25,085 - src.infrastructure.database.core.database - INFO - Движок БД успешно создан
-2025-08-24 22:23:25,086 - src.infrastructure.database.core.database - INFO - Фабрика сессий успешно инициализирована
-2025-08-24 22:23:25,094 - TeleBot - ERROR - Infinity polling exception: 'sessionmaker' object does not support the context manager protocol
-2025-08-24 22:23:25,097 - TeleBot - ERROR - Exception traceback:
+2025-08-24 22:45:58,028 - __main__ - INFO - Запуск Telegram-бота
+2025-08-24 22:46:07,902 - src.infrastructure.database.core.database - INFO - Движок БД успешно создан
+2025-08-24 22:46:07,903 - src.infrastructure.database.core.database - INFO - Сессия БД успешно инициализирована
+2025-08-24 22:46:08,891 - src.infrastructure.core.session_engine - INFO - WebDriver успешно инициализирован.
+2025-08-24 22:46:19,113 - src.infrastructure.core.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-24 22:46:19,117 - src.infrastructure.core.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/dzhinsy-befree-883110146/
+2025-08-24 22:46:19,164 - src.infrastructure.core.ozon_parser - INFO - Найдено название товара: Джинсы Befree
+2025-08-24 22:46:19,180 - src.infrastructure.core.ozon_parser - INFO - Найден артикул: 883110146
+2025-08-24 22:46:19,198 - src.infrastructure.core.ozon_parser - INFO - Текст рейтинга: 4.9 • 213 отзывов
+2025-08-24 22:46:19,198 - src.infrastructure.core.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-08-24 22:46:19,219 - src.infrastructure.core.ozon_parser - INFO - Найдена цена с картой: 1842
+2025-08-24 22:46:19,237 - src.infrastructure.core.ozon_parser - INFO - Найдена цена без карты: 1979
+2025-08-24 22:46:19,253 - src.infrastructure.core.ozon_parser - INFO - Найдена базовая цена: 5299
+2025-08-24 22:46:19,277 - src.infrastructure.core.ozon_parser - INFO - Найден URL изображения: https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7208661467.jpg
+2025-08-24 22:46:19,334 - src.infrastructure.core.ozon_parser - INFO - Найдены категории: ['Одежда', 'Мужчинам', 'Джинсы', 'Befree']
+2025-08-24 22:46:20,536 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
+2025-08-24 22:46:20,537 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://www.ozon.ru/product/dzhinsy-befree-883110146/: {'name': 'Джинсы Befree', 'id': '883110146', 'rating': 4.9, 'price_with_card': 1842, 'price_without_card': 1979, 'price_default': 5299, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7208661467.jpg', 'categories': ['Одежда', 'Мужчинам', 'Джинсы', 'Befree']}
+2025-08-24 22:46:20,656 - src.infrastructure.repositories.user_repository - WARNING - Пользователь с id 515084006 не найден
+2025-08-24 22:46:20,660 - src.infrastructure.repositories.user_repository - WARNING - Пользователь с id 515084006 не найден
+2025-08-24 22:46:20,664 - src.infrastructure.repositories.product_repository - INFO - Сохранение товара: Product(id='883110146', user_id='515084006', price_id='b28660af-6fac-4ab1-94d7-384e26cdbd18', name='Джинсы Befree', link='https://www.ozon.ru/product/dzhinsy-befree-883110146/', image_url='https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7208661467.jpg', rating=4.9, categories=['Одежда', 'Мужчинам', 'Джинсы', 'Befree'])
+2025-08-24 22:46:20,669 - src.infrastructure.repositories.price_repository - INFO - Сохранение цены: Price(id='b28660af-6fac-4ab1-94d7-384e26cdbd18', product_id='883110146', with_card=1842, without_card=1979, previous_with_card=None, previous_without_card=None, default=5299, claim=datetime.datetime(2025, 8, 24, 22, 46, 20, 538125))
+2025-08-24 22:46:20,679 - src.application.use_cases.create_product - INFO - Товар Джинсы Befree сохранён для пользователя 515084006
+2025-08-24 22:46:20,685 - src.infrastructure.database.core.database - ERROR - Ошибка создания сессии: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "users_pkey"
+DETAIL:  Key (id)=(515084006) already exists.
+
+[SQL: INSERT INTO users (id, username, chat_id) VALUES (%(id__0)s, %(username__0)s, %(chat_id__0)s), (%(id__1)s, %(username__1)s, %(chat_id__1)s)]
+[parameters: {'id__0': '515084006', 'chat_id__0': '515084006', 'username__0': 'unknown', 'id__1': '515084006', 'chat_id__1': '515084006', 'username__1': 'unknown'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-08-24 22:46:20,686 - src.infrastructure.database.core.database - INFO - Сессия БД закрыта
+2025-08-24 22:46:20,695 - TeleBot - ERROR - Infinity polling exception: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "users_pkey"
+DETAIL:  Key (id)=(515084006) already exists.
+
+[SQL: INSERT INTO users (id, username, chat_id) VALUES (%(id__0)s, %(username__0)s, %(chat_id__0)s), (%(id__1)s, %(username__1)s, %(chat_id__1)s)]
+[parameters: {'id__0': '515084006', 'chat_id__0': '515084006', 'username__0': 'unknown', 'id__1': '515084006', 'chat_id__1': '515084006', 'username__1': 'unknown'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-08-24 22:46:20,698 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2112, in _exec_insertmany_context
+    dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~^
+        cursor,
+        ^^^^^^^
+    ...<2 lines>...
+        context,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "users_pkey"
+DETAIL:  Key (id)=(515084006) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
     self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
@@ -31,267 +82,118 @@ Traceback (most recent call last):
   File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\bot\handlers\products.py", line 54, in handle_product_url
     result = product_service.create_product(user_id, url)
   File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\database\core\decorators.py", line 15, in wrapper
-    with self.uow_factory() as uow:
-         ~~~~~~~~~~~~~~~~^^
-TypeError: 'sessionmaker' object does not support the context manager protocol
+    uow.commit()
+    ~~~~~~~~~~^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\database\core\unit_of_work.py", line 45, in commit
+    self.session.commit()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1048, in _emit_insert_statements
+    result = connection.execute(
+        statement, multiparams, execution_options=execution_options
+    )
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1413, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1838, in _execute_context
+    return self._exec_insertmany_context(dialect, context)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2120, in _exec_insertmany_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e,
+        ^^
+    ...<4 lines>...
+        is_sub_exec=True,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2349, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2112, in _exec_insertmany_context
+    dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~^
+        cursor,
+        ^^^^^^^
+    ...<2 lines>...
+        context,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "users_pkey"
+DETAIL:  Key (id)=(515084006) already exists.
 
-2025-08-24 22:28:09,775 - TeleBot - ERROR - Infinity polling: polling exited
-2025-08-24 22:28:09,776 - TeleBot - ERROR - Break infinity polling
-2025-08-24 22:28:43,470 - __main__ - INFO - Запуск Telegram-бота
-2025-08-24 22:29:13,280 - src.infrastructure.database.core.database - INFO - Движок БД успешно создан
-2025-08-24 22:29:13,281 - src.infrastructure.database.core.database - INFO - Сессия БД успешно инициализирована
-2025-08-24 22:29:13,282 - src.infrastructure.database.core.database - ERROR - Ошибка создания сессии: 'Session' object has no attribute 'user_repository'
-2025-08-24 22:29:13,282 - src.infrastructure.database.core.database - INFO - Сессия БД закрыта
-2025-08-24 22:29:13,288 - TeleBot - ERROR - Infinity polling exception: 'Session' object has no attribute 'user_repository'
-2025-08-24 22:29:13,290 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1198, in polling
-    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                            logger_level=logger_level, allowed_updates=allowed_updates)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
-    raise e
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
-    self.worker_pool.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 151, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 9854, in _run_middlewares_and_handler
-    result = handler['function'](message)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\bot\handlers\products.py", line 54, in handle_product_url
-    result = product_service.create_product(user_id, url)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\database\core\decorators.py", line 16, in wrapper
-    result = func(self, *args, uow=uow, **kwargs)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\services\product_service.py", line 31, in create_product
-    user_repo=uow.user_repository(),
-              ^^^^^^^^^^^^^^^^^^^
-AttributeError: 'Session' object has no attribute 'user_repository'
+[SQL: INSERT INTO users (id, username, chat_id) VALUES (%(id__0)s, %(username__0)s, %(chat_id__0)s), (%(id__1)s, %(username__1)s, %(chat_id__1)s)]
+[parameters: {'id__0': '515084006', 'chat_id__0': '515084006', 'username__0': 'unknown', 'id__1': '515084006', 'chat_id__1': '515084006', 'username__1': 'unknown'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
 
-2025-08-24 22:33:52,598 - TeleBot - ERROR - Infinity polling: polling exited
-2025-08-24 22:33:52,600 - TeleBot - ERROR - Break infinity polling
-2025-08-24 22:33:57,001 - __main__ - INFO - Запуск Telegram-бота
-2025-08-24 22:34:10,525 - src.infrastructure.database.core.database - INFO - Движок БД успешно создан
-2025-08-24 22:34:10,527 - src.infrastructure.database.core.database - INFO - Сессия БД успешно инициализирована
-2025-08-24 22:34:10,619 - src.infrastructure.database.core.database - ERROR - Ошибка создания сессии: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-2025-08-24 22:34:10,621 - src.infrastructure.database.core.database - INFO - Сессия БД закрыта
-2025-08-24 22:34:10,631 - TeleBot - ERROR - Infinity polling exception: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-2025-08-24 22:34:10,636 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1198, in polling
-    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                            logger_level=logger_level, allowed_updates=allowed_updates)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
-    raise e
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
-    self.worker_pool.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 151, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 9854, in _run_middlewares_and_handler
-    result = handler['function'](message)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\bot\handlers\products.py", line 54, in handle_product_url
-    result = product_service.create_product(user_id, url)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\database\core\decorators.py", line 13, in wrapper
-    result = func(self, *args, uow=uow, **kwargs)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\services\product_service.py", line 35, in create_product
-    return use_case.execute(user_id, url)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-TypeError: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-
-2025-08-24 22:37:17,954 - TeleBot - ERROR - Infinity polling: polling exited
-2025-08-24 22:37:17,957 - TeleBot - ERROR - Break infinity polling
-2025-08-24 22:37:21,332 - __main__ - INFO - Запуск Telegram-бота
-2025-08-24 22:37:41,674 - src.infrastructure.database.core.database - INFO - Движок БД успешно создан
-2025-08-24 22:37:41,676 - src.infrastructure.database.core.database - INFO - Сессия БД успешно инициализирована
-2025-08-24 22:37:41,724 - src.infrastructure.database.core.database - ERROR - Ошибка создания сессии: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-2025-08-24 22:37:41,725 - src.infrastructure.database.core.database - INFO - Сессия БД закрыта
-2025-08-24 22:37:41,731 - TeleBot - ERROR - Infinity polling exception: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-2025-08-24 22:37:41,734 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1198, in polling
-    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                            logger_level=logger_level, allowed_updates=allowed_updates)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
-    raise e
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
-    self.worker_pool.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 151, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 9854, in _run_middlewares_and_handler
-    result = handler['function'](message)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\bot\handlers\products.py", line 54, in handle_product_url
-    result = product_service.create_product(user_id, url)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\database\core\decorators.py", line 13, in wrapper
-    result = func(self, *args, uow=uow, **kwargs)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\services\product_service.py", line 35, in create_product
-    return use_case.execute(user_id, url)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-TypeError: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-
-2025-08-24 22:39:03,552 - TeleBot - ERROR - Infinity polling: polling exited
-2025-08-24 22:39:03,553 - TeleBot - ERROR - Break infinity polling
-2025-08-24 22:39:06,829 - __main__ - INFO - Запуск Telegram-бота
-2025-08-24 22:39:16,852 - src.infrastructure.database.core.database - INFO - Движок БД успешно создан
-2025-08-24 22:39:16,853 - src.infrastructure.database.core.database - INFO - Сессия БД успешно инициализирована
-2025-08-24 22:39:16,914 - src.infrastructure.database.core.database - ERROR - Ошибка создания сессии: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-2025-08-24 22:39:16,915 - src.infrastructure.database.core.database - INFO - Сессия БД закрыта
-2025-08-24 22:39:16,927 - TeleBot - ERROR - Infinity polling exception: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-2025-08-24 22:39:16,932 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1198, in polling
-    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                            logger_level=logger_level, allowed_updates=allowed_updates)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
-    raise e
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
-    self.worker_pool.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 151, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 9854, in _run_middlewares_and_handler
-    result = handler['function'](message)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\bot\handlers\products.py", line 54, in handle_product_url
-    result = product_service.create_product(user_id, url)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\database\core\decorators.py", line 13, in wrapper
-    result = func(self, *args, uow=uow, **kwargs)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\services\product_service.py", line 36, in create_product
-    return use_case.execute(user_id, url)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-TypeError: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-
-2025-08-24 22:40:38,916 - TeleBot - ERROR - Infinity polling: polling exited
-2025-08-24 22:40:38,918 - TeleBot - ERROR - Break infinity polling
-2025-08-24 22:40:42,124 - __main__ - INFO - Запуск Telegram-бота
-2025-08-24 22:40:50,888 - src.infrastructure.database.core.database - INFO - Движок БД успешно создан
-2025-08-24 22:40:50,889 - src.infrastructure.database.core.database - INFO - Сессия БД успешно инициализирована
-2025-08-24 22:40:50,929 - src.infrastructure.database.core.database - ERROR - Ошибка создания сессии: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-2025-08-24 22:40:50,929 - src.infrastructure.database.core.database - INFO - Сессия БД закрыта
-2025-08-24 22:40:50,937 - TeleBot - ERROR - Infinity polling exception: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-2025-08-24 22:40:50,940 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1198, in polling
-    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                            logger_level=logger_level, allowed_updates=allowed_updates)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
-    raise e
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
-    self.worker_pool.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 151, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 9854, in _run_middlewares_and_handler
-    result = handler['function'](message)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\bot\handlers\products.py", line 54, in handle_product_url
-    result = product_service.create_product(user_id, url)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\database\core\decorators.py", line 13, in wrapper
-    result = func(self, *args, uow=uow, **kwargs)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\services\product_service.py", line 36, in create_product
-    return use_case.execute(user_id, url)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-TypeError: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-
-2025-08-24 22:41:06,019 - TeleBot - ERROR - Infinity polling: polling exited
-2025-08-24 22:41:06,021 - TeleBot - ERROR - Break infinity polling
-2025-08-24 22:41:09,730 - __main__ - INFO - Запуск Telegram-бота
-2025-08-24 22:41:16,236 - src.infrastructure.database.core.database - INFO - Движок БД успешно создан
-2025-08-24 22:41:16,237 - src.infrastructure.database.core.database - INFO - Сессия БД успешно инициализирована
-2025-08-24 22:41:16,270 - src.infrastructure.database.core.database - ERROR - Ошибка создания сессии: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-2025-08-24 22:41:16,271 - src.infrastructure.database.core.database - INFO - Сессия БД закрыта
-2025-08-24 22:41:16,279 - TeleBot - ERROR - Infinity polling exception: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-2025-08-24 22:41:16,282 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1198, in polling
-    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                            logger_level=logger_level, allowed_updates=allowed_updates)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
-    raise e
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
-    self.worker_pool.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 151, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 9854, in _run_middlewares_and_handler
-    result = handler['function'](message)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\bot\handlers\products.py", line 54, in handle_product_url
-    result = product_service.create_product(user_id, url)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\database\core\decorators.py", line 13, in wrapper
-    result = func(self, *args, uow=uow, **kwargs)
-  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\services\product_service.py", line 36, in create_product
-    return use_case.execute(user_id, url)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-TypeError: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
-
-2025-08-24 22:43:12,391 - TeleBot - ERROR - Infinity polling: polling exited
-2025-08-24 22:43:12,393 - TeleBot - ERROR - Break infinity polling
+2025-08-24 22:47:47,312 - TeleBot - ERROR - Infinity polling: polling exited
+2025-08-24 22:47:47,313 - TeleBot - ERROR - Break infinity polling
