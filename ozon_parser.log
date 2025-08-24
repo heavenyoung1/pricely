@@ -207,3 +207,91 @@ Traceback (most recent call last):
            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
 TypeError: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
 
+2025-08-24 22:40:38,916 - TeleBot - ERROR - Infinity polling: polling exited
+2025-08-24 22:40:38,918 - TeleBot - ERROR - Break infinity polling
+2025-08-24 22:40:42,124 - __main__ - INFO - Запуск Telegram-бота
+2025-08-24 22:40:50,888 - src.infrastructure.database.core.database - INFO - Движок БД успешно создан
+2025-08-24 22:40:50,889 - src.infrastructure.database.core.database - INFO - Сессия БД успешно инициализирована
+2025-08-24 22:40:50,929 - src.infrastructure.database.core.database - ERROR - Ошибка создания сессии: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
+2025-08-24 22:40:50,929 - src.infrastructure.database.core.database - INFO - Сессия БД закрыта
+2025-08-24 22:40:50,937 - TeleBot - ERROR - Infinity polling exception: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
+2025-08-24 22:40:50,940 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1198, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                            logger_level=logger_level, allowed_updates=allowed_updates)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
+    raise e
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 151, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
+    task(*args, **kwargs)
+    ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 9854, in _run_middlewares_and_handler
+    result = handler['function'](message)
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\bot\handlers\products.py", line 54, in handle_product_url
+    result = product_service.create_product(user_id, url)
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\database\core\decorators.py", line 13, in wrapper
+    result = func(self, *args, uow=uow, **kwargs)
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\services\product_service.py", line 36, in create_product
+    return use_case.execute(user_id, url)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
+
+2025-08-24 22:41:06,019 - TeleBot - ERROR - Infinity polling: polling exited
+2025-08-24 22:41:06,021 - TeleBot - ERROR - Break infinity polling
+2025-08-24 22:41:09,730 - __main__ - INFO - Запуск Telegram-бота
+2025-08-24 22:41:16,236 - src.infrastructure.database.core.database - INFO - Движок БД успешно создан
+2025-08-24 22:41:16,237 - src.infrastructure.database.core.database - INFO - Сессия БД успешно инициализирована
+2025-08-24 22:41:16,270 - src.infrastructure.database.core.database - ERROR - Ошибка создания сессии: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
+2025-08-24 22:41:16,271 - src.infrastructure.database.core.database - INFO - Сессия БД закрыта
+2025-08-24 22:41:16,279 - TeleBot - ERROR - Infinity polling exception: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
+2025-08-24 22:41:16,282 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1198, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                            logger_level=logger_level, allowed_updates=allowed_updates)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
+    raise e
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 151, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
+    task(*args, **kwargs)
+    ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 9854, in _run_middlewares_and_handler
+    result = handler['function'](message)
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\bot\handlers\products.py", line 54, in handle_product_url
+    result = product_service.create_product(user_id, url)
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\database\core\decorators.py", line 13, in wrapper
+    result = func(self, *args, uow=uow, **kwargs)
+  File "C:\Users\edino\OneDrive\Documents\projects\pricely\src\infrastructure\services\product_service.py", line 36, in create_product
+    return use_case.execute(user_id, url)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: CreateProductUseCase.execute() missing 1 required positional argument: 'user_id'
+
+2025-08-24 22:43:12,391 - TeleBot - ERROR - Infinity polling: polling exited
+2025-08-24 22:43:12,393 - TeleBot - ERROR - Break infinity polling
