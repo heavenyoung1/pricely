@@ -1,12 +1,11 @@
-import logging
+from src.domain.repositories import UserRepository, ProductRepository, PriceRepository
 from src.domain.entities import Product, Price, User
-from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
+from src.infrastructure.core.ozon_parser import OzonParser
+from datetime import datetime
+import logging
+import uuid
 
 logger = logging.getLogger(__name__)
-
-class ProductCreationError(Exception):
-    '''Исключение для ошибок при создании товара.'''
-    pass
 
 class CreateProductUseCase:
     def __init__(
@@ -18,32 +17,57 @@ class CreateProductUseCase:
         self.product_repo = product_repo
         self.price_repo = price_repo
         self.user_repo = user_repo
+        self.parser = OzonParser()
 
-    def execute(self, product: Product, price: Price, user_id: str) -> None:
+    def execute(self, user_id: str, url: str) -> dict:
         try:
-            # Проверяем, существует ли пользователь
-            existing_user = self.user_repo.get(user_id)
-            if not existing_user:
-                raise ValueError(f'Пользователь {user_id} не найден')
-            
-            existing_product = self.product_repo.get(product.id)
-            if existing_product:
-                raise ValueError(f'Товар {product.id} уже существует')
-
-            # Сохраняем цену
-            self.price_repo.save(price)
-            logger.info('Цена сохранена')
-
-            # Обновляем price_id у Продукта и сохраняем его
-            product.price_id = price.id
-            self.product_repo.save(product)
-            logger.info(f'Товар сохранен: {product} с обновленным price_id - {price.id}')
-
-            # Обновляем список продуктов пользователя
-            existing_user.products.append(product.id)
-            self.user_repo.save(existing_user)
-            logger.info(f'Продукт {product.id} добавлен пользователю {existing_user.id}')
+            product_data = self.parser.parse_product(url)
+            logger.info(f'Успешный парсинг данных для {url}: {product_data}')
         except Exception as e:
-            raise ProductCreationError(f'Ошибка создания продукта: {e}')
-
+            logger.error(f'Ошибка парсинга URL {url} для пользователя {user_id}: {str(e)}')
+            return {'success': False, 'message': f'Ошибка парсинга: {str(e)}'}
         
+        # Создание доменных сущностей
+        price_id = str(uuid.uuid4())
+        product = Product(
+            id=product_data['id'],
+            user_id=user_id,
+            price_id=price_id,
+            name=product_data['name'],
+            link=url,
+            image_url=product_data['image_url'],
+            rating=product_data['rating'],
+            categories=product_data['categories']
+        )
+        price = Price(
+            id=price_id,
+            product_id=product.id,
+            with_card=product_data['price_with_card'],
+            without_card=product_data['price_without_card'],
+            previous_with_card=product_data['price_default'],       # ОТКУДА ВЗЯТЬ ВОТ ЭТО?
+            previous_without_card=product_data['price_default'],    # ОТКУДА ВЗЯТЬ ВОТ ЭТО?
+            default=product_data['price_default'],
+            claim=datetime.now()
+        )
+
+        user = self.user_repo.get(user_id) or User(
+            id=user_id, 
+            username='unknown', 
+            chat_id=user_id, 
+            products=[],
+        )
+
+        # Сохранение
+        try:
+            if not self.user_repo.get(user_id):
+                self.user_repo.save(user)
+            self.product_repo.save(product)
+            self.price_repo.save(price)
+            # Обновление списка продуктов пользователя (если нужно)
+            user.products.append(product)
+            self.user_repo.save(user)
+            logger.info(f'Товар {product.name} сохранён для пользователя {user_id}')
+            return {'success': True, 'message': f'Товар {product.name} успешно добавлен!'}
+        except Exception as e:
+            logger.error(f'Ошибка сохранения в БД для {url} от пользователя {user_id}: {str(e)}')
+            return {'success': False, 'message': f'Ошибка сохранения: {str(e)}'}

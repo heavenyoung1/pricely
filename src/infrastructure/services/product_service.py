@@ -26,13 +26,13 @@ class ProductService:
         use_case.execute(user)
 
     @with_uow(commit=True)
-    def create_product(self, user_id: str, product: Product, price: Price, uow: UnitOfWork) -> None:
+    def create_product(self, user_id: str, url: str , uow: UnitOfWork) -> None:
         use_case = CreateProductUseCase(
             user_repo=uow.user_repository(),
             product_repo=uow.product_repository(),
             price_repo=uow.price_repository(),
         )
-        use_case.execute(product, price, user_id)
+        return use_case.execute(user_id, url)
 
     @with_uow(commit=False)
     def get_product(self, product_id: str, uow: UnitOfWork) -> Optional[Product]:
