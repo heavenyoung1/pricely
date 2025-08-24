@@ -25,9 +25,6 @@ class ORMProduct(Base):
     # связи
     user: Mapped['ORMUser'] = relationship('ORMUser', back_populates='products', lazy='selectin')
 
-    # текущая (последняя) цена
-    price: Mapped['ORMPrice'] = relationship('ORMPrice', foreign_keys=[price_id], post_update=True, lazy='selectin')
-
     # история цен
     prices: Mapped[list['ORMPrice']] = relationship(
         'ORMPrice',
