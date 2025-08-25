@@ -4,6 +4,7 @@ from src.application.use_cases.create_product import CreateProductUseCase
 from src.domain.entities import Product, Price, User
 from src.infrastructure.mappers import ProductMapper
 from src.infrastructure.database.models import ORMUser
+from src.infrastructure.core.ozon_parser import OzonParser
 
 def test_create_product_use_case_success(
         mock_product_repo, 
@@ -23,6 +24,7 @@ def test_create_product_use_case_success(
         product_repo=mock_product_repo,
         price_repo=mock_price_repo,
         user_repo=mock_user_repo,
+        parser=OzonParser(),
     )
     # Выполняем создание продукта
     use_case.execute(product=product, price=price, user_id=user.id)
@@ -57,6 +59,7 @@ def test_create_product_use_case_product_exists(
         product_repo=mock_product_repo,
         price_repo=mock_price_repo,
         user_repo=mock_user_repo,
+        parser=OzonParser(),
     )
 
     # Выполняем создание товара
@@ -79,6 +82,7 @@ def test_create_product_use_case_user_not_found(mock_product_repo, mock_price_re
         product_repo=mock_product_repo,
         price_repo=mock_price_repo,
         user_repo=mock_user_repo,
+        parser=OzonParser(),
     )
 
     # Выполняем создание товара
