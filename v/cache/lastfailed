@@ -1,4 +1,6 @@
 {
-  "tests/unit/test_use_case_create_product.py": true,
-  "tests/unit/test_use_case_delete_product.py": true
+  "tests/unit/test_use_case_delete_product.py": true,
+  "tests/unit/test_use_case_create_product.py::test_create_product_use_case_success": true,
+  "tests/unit/test_use_case_create_product.py::test_create_product_use_case_product_exists": true,
+  "tests/unit/test_use_case_create_product.py::test_create_product_use_case_user_not_found": true
 }
