@@ -25,10 +25,12 @@ class CreateProductUseCase:
             logger.info(f'Успешный парсинг данных для {url}: {product_data}')
         except Exception as e:
             logger.error(f'Ошибка парсинга URL {url} для пользователя {user_id}: {str(e)}')
-            return {'success': False, 'message': f'Ошибка парсинга: {str(e)}'}
+            raise
         
+
+        price_id = str(uuid.uuid4()) # price_id нужен для нескольких таблиц, создается здесь
+
         # Создание доменных сущностей
-        price_id = str(uuid.uuid4())
         product = Product(
             id=product_data['id'],
             user_id=user_id,
@@ -67,7 +69,5 @@ class CreateProductUseCase:
             user.products.append(product)
             self.user_repo.save(user)
             logger.info(f'Товар {product.name} сохранён для пользователя {user_id}')
-            return {'success': True, 'message': f'Товар {product.name} успешно добавлен!'}
         except Exception as e:
             logger.error(f'Ошибка сохранения в БД для {url} от пользователя {user_id}: {str(e)}')
-            return {'success': False, 'message': f'Ошибка сохранения: {str(e)}'}
