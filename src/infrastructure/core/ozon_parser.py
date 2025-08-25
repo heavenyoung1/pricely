@@ -8,6 +8,7 @@ import logging
 import sys
 import requests
 from selenium.common.exceptions import WebDriverException, TimeoutException
+from src.domain.interfaces.product_parser import IProductParser
 
 logging.basicConfig(
     level=logging.INFO,
@@ -19,7 +20,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-class OzonParser:
+class OzonParser(IProductParser):
 
     @session_wrapper
     @staticmethod

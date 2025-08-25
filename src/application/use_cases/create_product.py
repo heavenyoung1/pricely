@@ -4,6 +4,7 @@ from src.infrastructure.core.ozon_parser import OzonParser
 from datetime import datetime
 import logging
 import uuid
+from src.domain.interfaces.product_parser import IProductParser
 
 logger = logging.getLogger(__name__)
 
@@ -13,11 +14,13 @@ class CreateProductUseCase:
         product_repo: ProductRepository,
         price_repo: PriceRepository,
         user_repo: UserRepository,
+        parser: IProductParser,   # <-- абстракция
     ):
         self.product_repo = product_repo
         self.price_repo = price_repo
         self.user_repo = user_repo
-        self.parser = OzonParser()
+        self.parser = parser      # <-- конкретика подставляется извне
+
 
     def execute(self, user_id: str, url: str) -> dict:
         try:
@@ -27,10 +30,9 @@ class CreateProductUseCase:
             logger.error(f'Ошибка парсинга URL {url} для пользователя {user_id}: {str(e)}')
             raise
         
-
         price_id = str(uuid.uuid4()) # price_id нужен для нескольких таблиц, создается здесь
 
-        # Создание доменных сущностей
+        # Создание доменных сущностей 
         product = Product(
             id=product_data['id'],
             user_id=user_id,
