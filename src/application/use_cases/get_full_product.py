@@ -4,6 +4,11 @@ from src.domain.entities import Product
 
 logger = logging.getLogger(__name__)
 
+
+class ProductNotFoundError(Exception):
+    '''Исключение для случаев, когда товар не найден.'''
+    pass
+
 class GetFullProductUseCase:
     def __init__(
         self, 
@@ -18,12 +23,17 @@ class GetFullProductUseCase:
     def execute(self, product_id: str):
         product = self.product_repo.get(product_id)
         if not product:
-            return None
+            logger.warning(f'Товар {product_id} не найден')
+            raise ProductNotFoundError(f'Товар {product_id} не существует')
         
         if product.price_id:
             price = self.price_repo.get(product.price_id)
 
         user = self.user_repo.get(product.user_id)
+        if not user:
+            logger.warning(f'Пользователь {product.user_id} не найден для товара {product_id}')
+
+        logger.info(f'Успешно получена информация о товаре {product_id}')
         return {
             'product': product,
             'price': price,
