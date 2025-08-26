@@ -8,7 +8,7 @@ class GetFullProductUseCase:
     def __init__(
         self, 
         product_repo: ProductRepository, 
-        price_repo: UserRepository, 
+        price_repo: PriceRepository, 
         user_repo: UserRepository
         ):
         self.product_repo = product_repo
