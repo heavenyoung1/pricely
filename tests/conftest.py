@@ -229,4 +229,4 @@ def orm_user(session, orm_product):
     session.commit()
     return user
 
-# ----- # ----- # ----- # ----- # ----- # ----- #
+# ----- # ----- # ----- МОК ДЛЯ ПАРСЕРА # ----- # ----- # ----- #

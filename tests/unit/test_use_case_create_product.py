@@ -27,7 +27,7 @@ def test_create_product_use_case_success(
         parser=OzonParser(),
     )
     # Выполняем создание продукта
-    use_case.execute(product=product, price=price, user_id=user.id)
+    use_case.execute(user_id=user.id, url=)
 
     # Проверяем, что price_id обновлён
     assert product.price_id == price.id, 'price_id товара не обновлен'
