@@ -1,5 +1,6 @@
 import logging
 from typing import Optional, Dict
+from src.application.exceptions import ProductNotFoundError, PriceUpdateError, ProductCreationError
 
 from src.application.use_cases import (
     CreateUserUseCase,
@@ -16,60 +17,75 @@ from src.infrastructure.database.core import UnitOfWork, with_uow
 logger = logging.getLogger(__name__)
 
 class ProductService:
-    '''Сервисный слой. Никаких commit здесь руками — коммитит UoW.'''
-    def __init__(
-        self,
-        uow_factory,
-        create_user_use_case: CreateUserUseCase,
-        create_product_use_case: CreateProductUseCase,
-        get_product_use_case: GetProductUseCase,
-        get_full_product_use_case: GetFullProductUseCase,
-        update_product_price_use_case: UpdateProductPriceUseCase,
-        delete_product_use_case: DeleteProductUseCase
-        ):
+    '''Сервисный слой для оркестрации UseCase с использованием UnitOfWork.'''
+    def __init__(self, uow_factory):
         self.uow_factory = uow_factory
-        self.create_user_use_case = create_user_use_case
-        self.create_product_use_case = create_product_use_case
-        self.get_product_use_case = get_product_use_case
-        self.get_full_product_use_case = get_full_product_use_case
-        self.update_product_price_use_case = update_product_price_use_case
-        self.delete_product_use_case = delete_product_use_case
 
     @with_uow(commit=True)
-    def create_user(self, user: User, uow: UnitOfWork):
-        use_case = CreateUserUseCase(user_repo=uow.user_repository())
-        use_case.execute(user)
+    def create_user(self, user: User, uow: UnitOfWork) -> None:
+        try:
+            use_case = CreateUserUseCase(user_repo=uow.user_repository())
+            use_case.execute(user)
+        except Exception as e:
+            logger.error(f'Ошибка при создании пользователя {user.id}: {str(e)}')
+            raise
 
     @with_uow(commit=True)
-    def create_product(self, user_id: str, url: str , uow: UnitOfWork) -> None:
-        use_case = CreateProductUseCase(
-            user_repo=uow.user_repository(),
-            product_repo=uow.product_repository(),
-            price_repo=uow.price_repository(),
-        )
-        return use_case.execute(user_id, url)
+    def create_product(self, user_id: str, url: str, uow: UnitOfWork) -> str:
+        try:
+            use_case = CreateProductUseCase(
+                user_repo=uow.user_repository(),
+                product_repo=uow.product_repository(),
+                price_repo=uow.price_repository(),
+            )
+            return use_case.execute(user_id, url)
+        except ProductCreationError as e:
+            logger.warning(f'Ошибка создания продукта для пользователя {user_id}: {str(e)}')
+            raise
+        except Exception as e:
+            logger.error(f'Неизвестная ошибка при создании продукта: {str(e)}')
+            raise
 
     @with_uow(commit=False)
-    def get_product(self, product_id: str, uow: UnitOfWork) -> Optional[Product]:
-        use_case = GetProductUseCase(product_repo=uow.product_repository())
-        use_case.execute(product_id)
+    def get_product(self, product_id: str, uow: UnitOfWork) -> Product:
+        try:
+            use_case = GetProductUseCase(product_repo=uow.product_repository())
+            return use_case.execute(product_id)
+        except ProductNotFoundError as e:
+            logger.warning(f'Продукт {product_id} не найден: {str(e)}')
+            raise
+        except Exception as e:
+            logger.error(f'Ошибка при получении продукта {product_id}: {str(e)}')
+            raise
 
     @with_uow(commit=False)
-    def get_full_product(self, product_id, uow: UnitOfWork) -> Optional[Dict]:
-        use_case = GetFullProductUseCase(
-            user_repo=uow.user_repository(),
-            product_repo=uow.product_repository(),
-            price_repo=uow.price_repository(),
-        )
-        use_case.execute(product_id)
+    def get_full_product(self, product_id: str, uow: UnitOfWork) -> Dict[str, Any]:
+        try:
+            use_case = GetFullProductUseCase(
+                product_repo=uow.product_repository(),
+                price_repo=uow.price_repository(),
+                user_repo=uow.user_repository(),
+                get_product_use_case=GetProductUseCase(uow.product_repository())
+            )
+            return use_case.execute(product_id)
+        except ProductNotFoundError as e:
+            logger.warning(f'Продукт {product_id} не найден: {str(e)}')
+            raise
+        except Exception as e:
+            logger.error(f'Ошибка при получении полной информации о продукте {product_id}: {str(e)}')
+            raise
 
-    @with_uow(commit=False)
-    def update_product_price(self, product_id, price: Price, uow: UnitOfWork) -> None:
-        use_case = UpdatePriceUseCase(
-            product_repo=uow.product_repository(),
-            price_repo=uow.price_repository(),
-        )
-        use_case.execute(product_id, price)
+    @with_uow(commit=True)
+    def uprate_product_price(self, product_id: str, price: Price, uow: UnitOfWork) -> None:
+        try:
+            use_case = UpdateProductPriceUseCase(
+                product_repo=uow.product_repository(),
+                price_repo=uow.price_repository(),
+            )
+            use_case.execute(product_id, price)
+            logger.de
+        except Exception as e:
+            logger.error(f'Ошибка при обновлении цены: {e}')
 
     @with_uow(commit=False)
     def delete_product(self, product_id, uow: UnitOfWork) -> None:
@@ -79,3 +95,19 @@ class ProductService:
             price_repo=uow.price_repository(),
         )
         use_case.execute(product_id)
+
+    @with_uow(commit=False)
+    def delete_product(self, product_id, uow: UnitOfWork) -> None:
+        try:
+            use_case = DeleteProductUseCase(
+                user_repo=uow.user_repository(),
+                product_repo=uow.product_repository(),
+                price_repo=uow.price_repository(),
+        )
+            use_case.execute(product_id)
+        except Exception as e:
+            logger.error(f'Ошибка при удалении продукта {product_id}: {str(e)}')
+            raise
+        
+
+
