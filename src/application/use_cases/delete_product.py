@@ -21,7 +21,7 @@ class DeleteProductUseCase:
             product = self.product_repo.get(product_id)
             if not product:
                 logger.warning(f'Товар {product_id} не существует в БД, пропускаем удаление')
-                raise ProductNotExistingDataBase(f'Товар {product.id} не существует в БД!')
+                raise ProductNotExistingDataBase(f'Товар {product_id} не существует в БД!')
 
             # Удаление цены, если она существует
             if product.price_id:

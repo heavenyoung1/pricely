@@ -2,7 +2,7 @@ import logging
 from typing import Optional, Dict
 from src.application.exceptions import ProductNotFoundError, PriceUpdateError, ProductCreationError
 from src.infrastructure.core.ozon_parser import OzonParser
-
+from src.application.exceptions import *
 from src.application.use_cases import (
     CreateUserUseCase,
     CreateProductUseCase,
@@ -61,13 +61,12 @@ class ProductService:
             raise
 
     @with_uow(commit=False)
-    def get_full_product(self, product_id: str, uow: UnitOfWork) -> Dict[str, Any]:
+    def get_full_product(self, product_id: str, uow: UnitOfWork):
         try:
             use_case = GetFullProductUseCase(
                 product_repo=uow.product_repository(),
                 price_repo=uow.price_repository(),
                 user_repo=uow.user_repository(),
-                get_product_use_case=GetProductUseCase(uow.product_repository())
             )
             return use_case.execute(product_id)
         except ProductNotFoundError as e:
@@ -89,7 +88,7 @@ class ProductService:
         except Exception as e:
             logger.error(f'Ошибка при обновлении цены: {e}')
 
-    @with_uow(commit=False)
+    @with_uow(commit=True)
     def delete_product(self, product_id, uow: UnitOfWork) -> None:
         try:
             use_case = DeleteProductUseCase(
@@ -98,9 +97,9 @@ class ProductService:
                 price_repo=uow.price_repository(),
         )
             use_case.execute(product_id)
+        except ProductNotFoundError as e:
+            logger.warning(f'Продукт {product_id} не найден: {str(e)}')
+            raise
         except Exception as e:
             logger.error(f'Ошибка при удалении продукта {product_id}: {str(e)}')
             raise
-        
-
-

@@ -50,8 +50,8 @@ class CreateProductUseCase:
             product_id=product.id,
             with_card=product_data['price_with_card'],
             without_card=product_data['price_without_card'],
-            previous_with_card=None,       # ОТКУДА ВЗЯТЬ ВОТ ЭТО?
-            previous_without_card=None,    # ОТКУДА ВЗЯТЬ ВОТ ЭТО?
+            previous_with_card=None,                        # Начальная цена, заполняется при обновлении
+            previous_without_card=None,                     # Начальная цена, заполняется при обновлении
             default=product_data['price_default'],
             claim=datetime.now()
         )
@@ -70,7 +70,7 @@ class CreateProductUseCase:
             self.product_repo.save(product)
             self.price_repo.save(price)
             # Обновление списка продуктов пользователя (если нужно)
-            user.products.append(product)
+            user.products.append(product.id)
             self.user_repo.save(user)
             logger.info(f'Товар {product.name} сохранён для пользователя {user_id}')
         except Exception as e:
