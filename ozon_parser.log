@@ -1890,3 +1890,5 @@ Stacktrace:
 2025-08-26 16:55:04,843 - src.infrastructure.core.session_engine - INFO - WebDriver успешно закрыт.
 2025-08-26 16:55:04,845 - src.application.use_cases.create_product - ERROR - Ошибка парсинга URL https://example.com/product для пользователя u1: Message: 
 
+2025-08-27 21:02:09,521 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:02:09,524 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание

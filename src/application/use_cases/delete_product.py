@@ -1,6 +1,6 @@
 import logging
 from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
-from exceptions import ProductNotExistingDataBase, ProductDeletingError
+from src.application.exceptions import ProductNotExistingDataBase, ProductDeletingError
 
 logger = logging.getLogger(__name__)
 

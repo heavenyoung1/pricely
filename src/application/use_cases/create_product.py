@@ -5,7 +5,7 @@ from datetime import datetime
 import logging
 import uuid
 from src.domain.interfaces.product_parser import IProductParser
-from exceptions import ParserProductError, ProductSavingError, ProductCreationError
+from src.application.exceptions import ParserProductError, ProductSavingError, ProductCreationError
 
 logger = logging.getLogger(__name__)
 

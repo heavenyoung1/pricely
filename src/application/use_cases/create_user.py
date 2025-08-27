@@ -1,7 +1,7 @@
 import logging
 from src.domain.entities import Product, Price, User
 from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
-from exceptions import UserCreationError
+from src.application.exceptions import UserCreationError
 
 logger = logging.getLogger(__name__)
 

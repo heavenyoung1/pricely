@@ -3,7 +3,7 @@ from typing import Optional
 
 from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
 from src.domain.entities import Product, Price
-from exceptions import ProductNotFoundError
+from src.application.exceptions import ProductNotFoundError
 
 logger = logging.getLogger(__name__)
 
