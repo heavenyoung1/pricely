@@ -20,6 +20,9 @@ def test_create_product_use_case_user_exists(mock_user_repo, user):
     mock_user_repo.get.return_value = user # Пользователь существует
     use_case = CreateUserUseCase(user_repo=mock_user_repo)
 
+    # Выполняем создание пользователя
     use_case.execute(user)
+    
+    # Asserts
     mock_user_repo.get.assert_called_once_with(user.id)
     mock_user_repo.save.assert_not_called()

@@ -1912,3 +1912,12 @@ Stacktrace:
 2025-08-27 21:11:55,162 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
 2025-08-27 21:12:26,088 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
 2025-08-27 21:12:26,090 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:13:19,320 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:13:19,322 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:13:51,792 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:13:51,794 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:13:51,797 - src.application.use_cases.create_user - INFO - Пользователь  уже существует, пропускаем создание
+2025-08-27 21:14:34,612 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:14:34,614 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:14:40,148 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:14:40,150 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
