@@ -29,7 +29,7 @@ class UpdateProductPriceUseCase:
                 raise PriceUpdateError('Идентификатор цены не указан')
 
 
-            product = self.product_repo.get(product.id)
+            product = self.product_repo.get(product_id)
             if not product:
                 logger.warning(f'Продукт с id {product_id} не найден')
                 raise ProductNotFoundError(f'Продукт с id {product_id} не найден')
