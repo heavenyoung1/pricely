@@ -89,15 +89,6 @@ class ProductService:
 
     @with_uow(commit=False)
     def delete_product(self, product_id, uow: UnitOfWork) -> None:
-        use_case = DeleteProductUseCase(
-            user_repo=uow.user_repository(),
-            product_repo=uow.product_repository(),
-            price_repo=uow.price_repository(),
-        )
-        use_case.execute(product_id)
-
-    @with_uow(commit=False)
-    def delete_product(self, product_id, uow: UnitOfWork) -> None:
         try:
             use_case = DeleteProductUseCase(
                 user_repo=uow.user_repository(),
