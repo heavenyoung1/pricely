@@ -1,6 +1,7 @@
 import logging
 from typing import Optional, Dict
 from src.application.exceptions import ProductNotFoundError, PriceUpdateError, ProductCreationError
+from src.infrastructure.core.ozon_parser import OzonParser
 
 from src.application.use_cases import (
     CreateUserUseCase,
@@ -37,6 +38,7 @@ class ProductService:
                 user_repo=uow.user_repository(),
                 product_repo=uow.product_repository(),
                 price_repo=uow.price_repository(),
+                parser=OzonParser(),
             )
             return use_case.execute(user_id, url)
         except ProductCreationError as e:
