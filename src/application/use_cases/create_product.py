@@ -5,6 +5,7 @@ from datetime import datetime
 import logging
 import uuid
 from src.domain.interfaces.product_parser import IProductParser
+from exceptions import ParserProductError, ProductSavingError, ProductCreationError
 
 logger = logging.getLogger(__name__)
 
@@ -28,7 +29,7 @@ class CreateProductUseCase:
             logger.info(f'Успешный парсинг данных для {url}: {product_data}')
         except Exception as e:
             logger.error(f'Ошибка парсинга URL {url} для пользователя {user_id}: {str(e)}')
-            raise
+            raise ParserProductError(f'Ошибка парсинга товара')
         
         price_id = str(uuid.uuid4()) # price_id нужен для нескольких таблиц, создается здесь
 
@@ -43,6 +44,7 @@ class CreateProductUseCase:
             rating=product_data['rating'],
             categories=product_data['categories']
         )
+
         price = Price(
             id=price_id,
             product_id=product.id,
@@ -73,3 +75,4 @@ class CreateProductUseCase:
             logger.info(f'Товар {product.name} сохранён для пользователя {user_id}')
         except Exception as e:
             logger.error(f'Ошибка сохранения в БД для {url} от пользователя {user_id}: {str(e)}')
+            raise ProductCreationError(f'Ошибка сохранения товара')

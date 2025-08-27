@@ -2,12 +2,18 @@ class ApplicationError(Exception):
     '''Базовое исключение уровня приложения.'''
     pass
 
+class ParserProductError(ApplicationError):
+    '''Ошибка парсинга товара'''
+    pass
+
 
 # --- User ---
 class UserCreationError(ApplicationError):
     '''Ошибка при создании пользователя.'''
     pass
 
+class ProductNotExistingDataBase(ApplicationError):
+    '''dfergerthg'''
 
 # --- Product ---
 class ProductError(ApplicationError):
@@ -17,6 +23,10 @@ class ProductError(ApplicationError):
 
 class ProductCreationError(ProductError):
     '''Ошибка при создании продукта.'''
+    pass
+
+class ProductSavingError(ProductError):
+    '''Ошибка при сохранении продукта.'''
     pass
 
 

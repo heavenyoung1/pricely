@@ -1,12 +1,10 @@
 import logging
 from src.domain.entities import Product, Price, User
 from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
+from exceptions import UserCreationError
 
 logger = logging.getLogger(__name__)
 
-class UserCreationError(Exception):
-    '''Исключение для ошибок при создании пользователя.'''
-    pass
 
 class CreateUserUseCase:
     def __init__(self, user_repo: UserRepository):

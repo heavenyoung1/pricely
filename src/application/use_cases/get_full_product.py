@@ -1,13 +1,10 @@
 import logging
 from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
 from src.domain.entities import Product
+from exceptions import ProductNotFoundError
 
 logger = logging.getLogger(__name__)
 
-
-class ProductNotFoundError(Exception):
-    '''Исключение для случаев, когда товар не найден.'''
-    pass
 
 class GetFullProductUseCase:
     def __init__(

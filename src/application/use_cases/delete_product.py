@@ -1,12 +1,9 @@
 import logging
 from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
+from exceptions import ProductNotExistingDataBase, ProductDeletingError
 
 logger = logging.getLogger(__name__)
 
-
-class ProductDeletingError(Exception):
-    '''Исключение для ошибок при удалении товара.'''
-    pass
 
 class DeleteProductUseCase:
     def __init__(
@@ -24,7 +21,7 @@ class DeleteProductUseCase:
             product = self.product_repo.get(product_id)
             if not product:
                 logger.warning(f'Товар {product_id} не существует в БД, пропускаем удаление')
-                raise ValueError(f'Товар {product.id} не существует в БД!')
+                raise ProductNotExistingDataBase(f'Товар {product.id} не существует в БД!')
 
             # Удаление цены, если она существует
             if product.price_id:

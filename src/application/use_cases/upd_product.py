@@ -1,17 +1,10 @@
 import logging
 from src.domain.repositories import ProductRepository, PriceRepository
 from src.domain.entities import Product, Price
+from exceptions import ProductNotFoundError, PriceUpdateError
 
 logger = logging.getLogger(__name__)
 
-
-class ProductNotFoundError(Exception):
-    '''Исключение для случаев, когда продукт не найден.'''
-    pass
-
-class PriceUpdateError(Exception):
-    '''Исключение для ошибок при обновлении цены.'''
-    pass
 
 class UpdateProductPriceUseCase:
     def __init__(self, product_repo: ProductRepository, price_repo: PriceRepository):

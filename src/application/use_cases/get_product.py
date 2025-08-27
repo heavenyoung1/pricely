@@ -3,13 +3,10 @@ from typing import Optional
 
 from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
 from src.domain.entities import Product, Price
+from exceptions import ProductNotFoundError
 
 logger = logging.getLogger(__name__)
 
-
-class ProductNotFoundError(Exception):
-    '''Исключение для случаев, когда товар не найден.'''
-    pass
 
 class GetProductUseCase:
     def __init__(self, product_repo: ProductRepository):
