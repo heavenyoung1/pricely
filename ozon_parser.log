@@ -1921,3 +1921,17 @@ Stacktrace:
 2025-08-27 21:14:34,614 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
 2025-08-27 21:14:40,148 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
 2025-08-27 21:14:40,150 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:21:49,644 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: <MagicMock name='mock().parse_product()' id='2100048540880'>
+2025-08-27 21:21:49,646 - src.application.use_cases.create_product - INFO - Товар <MagicMock name='mock().parse_product().__getitem__()' id='2100049383104'> сохранён для пользователя u1
+2025-08-27 21:22:14,573 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: <MagicMock name='mock().parse_product()' id='1979256845184'>
+2025-08-27 21:22:14,574 - src.application.use_cases.create_product - INFO - Товар <MagicMock name='mock().parse_product().__getitem__()' id='1979257687408'> сохранён для пользователя u1
+2025-08-27 21:24:32,740 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-08-27 21:24:32,746 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-08-27 21:24:43,689 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-08-27 21:24:43,691 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-08-27 21:24:51,893 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-08-27 21:24:51,895 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-08-27 21:25:06,023 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-08-27 21:25:06,024 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-08-27 21:28:23,991 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-08-27 21:28:23,993 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
