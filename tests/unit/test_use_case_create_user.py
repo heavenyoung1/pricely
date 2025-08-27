@@ -13,12 +13,13 @@ def test_create_user_use_case_success(mock_user_repo,  user):
     use_case.execute(user=user)
 
     # Asserts
+    mock_user_repo.get.assert_called_once_with(user.id)
     mock_user_repo.save.assert_called_once_with(user)
 
 def test_create_product_use_case_user_exists(mock_user_repo, user):
     mock_user_repo.get.return_value = user # Пользователь существует
     use_case = CreateUserUseCase(user_repo=mock_user_repo)
 
-    # Выполняем создание пользователя
-    with pytest.raises(UserCreationError, match=f'Пользователь {user.id} уже существует'):
-        use_case.execute(user=user)
+    use_case.execute(user)
+    mock_user_repo.get.assert_called_once_with(user.id)
+    mock_user_repo.save.assert_not_called()

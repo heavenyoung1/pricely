@@ -1892,3 +1892,23 @@ Stacktrace:
 
 2025-08-27 21:02:09,521 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
 2025-08-27 21:02:09,524 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:04:41,740 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:04:41,844 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:05:06,835 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:05:06,939 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:05:25,544 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:05:25,644 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:06:46,549 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:06:46,652 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:06:46,652 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:07:07,757 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:07:07,758 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:09:58,054 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:09:58,158 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:10:17,646 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:10:31,739 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:10:53,925 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:11:55,062 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:11:55,162 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-08-27 21:12:26,088 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-27 21:12:26,090 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
