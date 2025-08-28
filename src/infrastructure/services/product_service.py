@@ -77,7 +77,7 @@ class ProductService:
             raise
 
     @with_uow(commit=True)
-    def uprate_product_price(self, product_id: str, price: Price, uow: UnitOfWork) -> None:
+    def update_product_price(self, product_id: str, price: Price, uow: UnitOfWork) -> None:
         try:
             use_case = UpdateProductPriceUseCase(
                 product_repo=uow.product_repository(),
