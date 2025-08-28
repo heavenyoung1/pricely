@@ -40,6 +40,8 @@
   "tests/unit/test_use_case_get_product.py::test_get_product_use_case_success",
   "tests/unit/test_use_case_upd_price.py::test_upd_price_use_case_success",
   "tests/unit/test_use_case_upd_price.py::test_update_price_product_not_found",
+  "tests/unit/test_use_case_upd_product.py::test_upd_price_use_case_success",
+  "tests/unit/test_use_case_upd_product.py::test_update_price_product_not_found",
   "tests/unit/test_use_case_update_product.py::test_get_full_product_use_case_success",
   "tests/unit/test_use_case_update_product.py::test_update_product_price_product_not_found"
 ]
