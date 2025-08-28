@@ -1,5 +1,6 @@
 import pytest
 import json
+from datetime import datetime
 from unittest.mock import patch, MagicMock
 from src.application.use_cases.create_product import CreateProductUseCase
 from src.domain.entities import Product, Price, User
@@ -7,8 +8,11 @@ from src.infrastructure.mappers import ProductMapper
 from src.infrastructure.database.models import ORMUser
 from src.infrastructure.core.ozon_parser import OzonParser
 
+
 @patch('src.application.use_cases.create_product.uuid.uuid4')  # Патчим UUID в нужном модуле
+@patch('src.application.use_cases.create_product.datetime')  # Патчим datetime
 def test_create_product_use_case_success(
+        mock_datetime,
         mock_uuid,
         mock_parser,
         mock_product_repo, 
@@ -19,10 +23,11 @@ def test_create_product_use_case_success(
         user,
     ):
     
-    # Простая настройка мока UUID
-    mock_uuid_instance = MagicMock()
-    mock_uuid_instance.__str__ = MagicMock(return_value='pr1')
-    mock_uuid.return_value = mock_uuid_instance
+    # UUID всегда одинаковый
+    mock_uuid.return_value = "pr1"
+
+    # Настраиваем мок datetime для возврата фиксированного времени
+    mock_datetime.now.return_value = datetime(2025, 1, 1, 0, 0)
 
     # Настраиваем моки
     mock_user_repo.get.return_value = None      # Пользователь не существует

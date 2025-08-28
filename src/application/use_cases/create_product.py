@@ -67,6 +67,7 @@ class CreateProductUseCase:
         try:
             if not self.user_repo.get(user_id):
                 self.user_repo.save(user)
+                
             self.product_repo.save(product)
             self.price_repo.save(price)
             # Обновление списка продуктов пользователя (если нужно)

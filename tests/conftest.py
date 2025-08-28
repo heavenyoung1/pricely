@@ -14,7 +14,6 @@ from src.interfaces.dto import ProductDTO, PriceDTO, UserDTO
 from src.domain.entities import Product, Price, User
 from src.infrastructure.database.core import UnitOfWork
 from src.infrastructure.services import ProductService
-
 # Другие полезные методы:
 # mock_method.assert_called()          # Был ли вызван хотя бы раз
 # mock_method.assert_called_with(args) # Был ли вызван с конкретными аргументами (последний вызов)
@@ -185,8 +184,8 @@ def price():
         product_id='p1',
         with_card=100,
         without_card=120,
-        previous_with_card=90,
-        previous_without_card=110,
+        previous_with_card=None,        #90
+        previous_without_card=None,     #110,
         default=150,
         claim=datetime(2025, 1, 1)
     )
