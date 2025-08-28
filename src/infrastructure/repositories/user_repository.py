@@ -15,29 +15,9 @@ class UserRepositoryImpl(UserRepository):
         self.session = session
 
     def save(self, user):
-        '''
-        Сохраняет или обновляет пользователя в БД.
-        
-        Args:
-            user (User): Доменный объект пользователя
-            session (Session): Сессия SQLAlchemy
-            
-        Raises:
-            DatabaseError: При ошибках работы с БД
-        '''
         self.session.merge(UserMapper.domain_to_orm(user))
 
     def get(self, user_id):
-        '''
-        Получает пользователя по ID из БД.
-        
-        Args:
-            user_id (str): Идентификатор пользователя
-            session (Session): Сессия SQLAlchemy
-            
-        Returns:
-            Optional[User]: Найденный пользователь или None
-        '''
         orm_user = self.session.get(ORMUser, user_id)
         if orm_user:
             user = UserMapper.orm_to_domain(orm_user)
@@ -47,19 +27,14 @@ class UserRepositoryImpl(UserRepository):
         return None
     
     def delete(self, user_id: str) -> None:
-        '''
-        Удаляет пользователя по ID из БД.
-        
-        Args:
-            user_id (str): Идентификатор пользователя
-            session (Session): Сессия SQLAlchemy
-            
-        Raises:
-            DatabaseError: При ошибках удаления
-        '''
-        orm_user = self.session(ORMUser, user_id)
-        if orm_user:
-            self.session.delete(ORMUser, orm_user)
-            logger.info(f"Пользователь c id: {user_id} удален")
-        logger.warning(f"Пользователь с id {user_id} не найден")
-        return None
+        logger.info(f"Попытка удаления пользователя с ID: {user_id}")
+        try:
+            orm_user = self.session.get(ORMUser, user_id)
+            if not orm_user:
+                logger.warning(f"Пользователь с id {user_id} не найден")
+                return
+            self.session.delete(orm_user)
+            logger.info(f"Пользователь с id: {user_id} удален")
+        except Exception as e:
+            logger.error(f"Ошибка удаления пользователя {user_id}: {str(e)}")
+            raise
