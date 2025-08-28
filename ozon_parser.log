@@ -1971,3 +1971,17 @@ Stacktrace:
 2025-08-28 12:50:13,411 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
 2025-08-28 12:51:01,906 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
 2025-08-28 12:51:01,908 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-08-28 15:16:59,918 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-08-28 15:16:59,921 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-08-28 15:16:59,927 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-08-28 15:16:59,928 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-08-28 15:23:19,062 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-08-28 15:23:19,067 - src.application.use_cases.get_product - WARNING - Продукт ID_ID не найден
+2025-08-28 15:26:19,152 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-08-28 15:26:19,156 - src.application.use_cases.get_product - WARNING - Продукт ID_ID не найден
+2025-08-28 15:27:06,254 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-08-28 15:27:36,724 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-08-28 15:27:36,729 - src.application.use_cases.get_product - WARNING - Продукт ID_ID не найден
+2025-08-28 15:28:45,236 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-08-28 15:28:45,239 - src.application.use_cases.get_product - WARNING - Продукт ID_ID не найден
+2025-08-28 15:28:45,240 - src.application.use_cases.get_product - ERROR - Идентификатор продукта не указан
