@@ -79,9 +79,11 @@ def product_service(uow):
     return ProductService(uow_factory=lambda: uow)
 
 @pytest.fixture
-def mock_product_service(mock_uow):
+def mock_product_service(mock_uow, mocker):
     uow_factory = MagicMock() # Мок для фабрики UoW
     uow_factory.return_value = mock_uow # При вызове возвращает mock_uow
+    # Мокируем OzonParser
+    mocker.patch('src.infrastructure.core.ozon_parser.OzonParser', return_value=MagicMock(spec=OzonParser))
     return ProductService(uow_factory=uow_factory)
 
 # ----- # ----- # ----- Репозитории для интеграционного тестирования ----- # ----- # ----- #
