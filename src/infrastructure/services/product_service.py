@@ -2,7 +2,6 @@ import logging
 from typing import Optional, Dict
 from src.application.exceptions import ProductNotFoundError, PriceUpdateError, ProductCreationError
 from src.infrastructure.core.ozon_parser import OzonParser
-from src.application.exceptions import *
 from src.application.use_cases import (
     CreateUserUseCase,
     CreateProductUseCase,
@@ -10,6 +9,11 @@ from src.application.use_cases import (
     GetFullProductUseCase,
     UpdateProductPriceUseCase,
     DeleteProductUseCase,
+)
+
+from src.application.exceptions import (
+    ProductNotFoundError, PriceUpdateError, ProductCreationError,
+    UserCreationError, ParserProductError, ProductDeletingError
 )
 
 from src.domain.entities import Product, Price, User
