@@ -1985,3 +1985,42 @@ Stacktrace:
 2025-08-28 15:28:45,236 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
 2025-08-28 15:28:45,239 - src.application.use_cases.get_product - WARNING - Продукт ID_ID не найден
 2025-08-28 15:28:45,240 - src.application.use_cases.get_product - ERROR - Идентификатор продукта не указан
+2025-08-28 15:42:54,771 - src.application.use_cases.get_full_product - INFO - Успешно получена информация о товаре p1
+2025-08-28 15:42:54,775 - src.application.use_cases.get_full_product - WARNING - Товар ID_ID не найден
+2025-08-28 15:43:10,587 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-08-28 15:43:10,590 - src.application.use_cases.get_product - WARNING - Продукт ID_ID не найден
+2025-08-28 15:43:10,590 - src.application.use_cases.get_product - ERROR - Идентификатор продукта не указан
+2025-08-28 15:49:24,049 - src.application.use_cases.delete_product - DEBUG - Цена pr1 удалена для товара p1
+2025-08-28 15:49:24,051 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален
+2025-08-28 15:49:24,051 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален из списка пользователя u1
+2025-08-28 15:49:24,052 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID p1
+2025-08-28 15:52:31,254 - src.application.use_cases.delete_product - DEBUG - Цена pr1 удалена для товара p1
+2025-08-28 15:52:31,254 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален
+2025-08-28 15:52:31,254 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален из списка пользователя u1
+2025-08-28 15:52:31,255 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID p1
+2025-08-28 15:52:31,258 - src.application.use_cases.delete_product - WARNING - Товар p1 не существует в БД, пропускаем удаление
+2025-08-28 15:52:31,258 - src.application.use_cases.delete_product - ERROR - Ошибка при удалении товара p1: Товар p1 не существует в БД!
+2025-08-28 15:54:20,416 - src.application.use_cases.delete_product - DEBUG - Цена pr1 удалена для товара p1
+2025-08-28 15:54:20,418 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален
+2025-08-28 15:54:20,418 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален из списка пользователя u1
+2025-08-28 15:54:20,418 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID p1
+2025-08-28 15:54:20,422 - src.application.use_cases.delete_product - WARNING - Товар p1 не существует в БД, пропускаем удаление
+2025-08-28 15:54:20,422 - src.application.use_cases.delete_product - ERROR - Ошибка при удалении товара p1: Товар p1 не существует в БД!
+2025-08-28 15:55:57,774 - src.application.use_cases.delete_product - DEBUG - Цена pr1 удалена для товара p1
+2025-08-28 15:55:57,775 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален
+2025-08-28 15:55:57,776 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален из списка пользователя u1
+2025-08-28 15:55:57,776 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID p1
+2025-08-28 15:55:57,779 - src.application.use_cases.delete_product - WARNING - Товар p1 не существует в БД, пропускаем удаление
+2025-08-28 15:55:57,779 - src.application.use_cases.delete_product - ERROR - Ошибка при удалении товара p1: Товар p1 не существует в БД!
+2025-08-28 15:56:22,754 - src.application.use_cases.delete_product - DEBUG - Цена pr1 удалена для товара p1
+2025-08-28 15:56:22,755 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален
+2025-08-28 15:56:22,755 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален из списка пользователя u1
+2025-08-28 15:56:22,756 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID p1
+2025-08-28 15:56:22,758 - src.application.use_cases.delete_product - WARNING - Товар p1 не существует в БД, пропускаем удаление
+2025-08-28 15:56:22,759 - src.application.use_cases.delete_product - ERROR - Ошибка при удалении товара p1: Товар p1 не существует в БД!
+2025-08-28 15:56:37,088 - src.application.use_cases.delete_product - DEBUG - Цена pr1 удалена для товара p1
+2025-08-28 15:56:37,089 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален
+2025-08-28 15:56:37,090 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален из списка пользователя u1
+2025-08-28 15:56:37,090 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID p1
+2025-08-28 15:56:37,094 - src.application.use_cases.delete_product - WARNING - Товар p1 не существует в БД, пропускаем удаление
+2025-08-28 15:56:37,094 - src.application.use_cases.delete_product - ERROR - Ошибка при удалении товара p1: Товар p1 не существует в БД!

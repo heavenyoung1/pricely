@@ -4,6 +4,7 @@ from src.application.use_cases.get_full_product import GetFullProductUseCase
 from src.domain.entities import Product, Price, User
 from src.infrastructure.mappers import ProductMapper
 from src.infrastructure.database.models import ORMUser
+from src.application.exceptions import ProductNotFoundError
 
 def test_get_full_product_use_case_success(
         mock_product_repo, 
@@ -35,7 +36,6 @@ def test_get_full_product_use_case_success(
     mock_user_repo.get.assert_called_once_with(product.user_id)
     
 def test_get_full_product_not_found(mock_product_repo, mock_price_repo, mock_user_repo):
-    '''Возврат None, если продукта нет.'''
 
         # Настраиваем моки: продукт существует
     mock_product_repo.get.return_value = None
@@ -46,8 +46,7 @@ def test_get_full_product_not_found(mock_product_repo, mock_price_repo, mock_use
         price_repo=mock_price_repo,
         user_repo=mock_user_repo,
     )
-    result = use_case.execute(product_id='ID_ID')
-    assert result is None
-    mock_product_repo.get.assert_called_once_with('ID_ID')
-    mock_price_repo.get.assert_not_called()
-    mock_user_repo.get.assert_not_called()
+
+    # Выполняем получение продукта
+    with pytest.raises(ProductNotFoundError, match=f'Товар ID_ID не существует'):
+        use_case.execute(product_id='ID_ID')

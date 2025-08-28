@@ -32,10 +32,10 @@ def test_get_product_use_case_not_found(mock_product_repo):
     mock_product_repo.get.return_value = None
     use_case = GetProductUseCase(product_repo=mock_product_repo)
 
-    # Выполняем создание продукта
+    # Выполняем получение продукта
     with pytest.raises(ProductNotFoundError, match=f'Продукт ID_ID не существует'):
         use_case.execute(product_id='ID_ID')
 
-    # Выполняем создание продукта
+    # Выполняем получение продукта
     with pytest.raises(ProductNotFoundError, match=f'Идентификатор продукта не указан'):
         use_case.execute(product_id='')

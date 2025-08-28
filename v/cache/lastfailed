@@ -1,7 +1,7 @@
 {
-  "tests/unit/test_use_case_delete_product.py": true,
   "tests/unit/test_use_case_create_product.py::test_create_product_use_case_product_exists": true,
   "tests/unit/test_use_case_create_product.py::test_create_product_use_case_user_not_found": true,
   "tests/unit/test_use_case_create_user.py::test_create_user_invalid_id": true,
-  "tests/unit/test_use_case_create_product.py::test_create_exist_product_use_case": true
+  "tests/unit/test_use_case_create_product.py::test_create_exist_product_use_case": true,
+  "tests/unit/test_use_case_get_full_product.py::test_get_full_product_not_found": true
 }
