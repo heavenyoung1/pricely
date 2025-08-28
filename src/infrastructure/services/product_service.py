@@ -29,7 +29,7 @@ class ProductService:
             use_case.execute(user)
         except Exception as e:
             logger.error(f'Ошибка при создании пользователя {user.id}: {str(e)}')
-            raise
+            raise UserCreationError(f"Ошибка создания пользователя: {str(e)}")
 
     @with_uow(commit=True)
     def create_product(self, user_id: str, url: str, uow: UnitOfWork) -> str:
@@ -84,7 +84,7 @@ class ProductService:
                 price_repo=uow.price_repository(),
             )
             use_case.execute(product_id, price)
-            logger.de
+            logger.debug(f'Цена для продукта {product_id} успешно обновлена')
         except Exception as e:
             logger.error(f'Ошибка при обновлении цены: {e}')
 
