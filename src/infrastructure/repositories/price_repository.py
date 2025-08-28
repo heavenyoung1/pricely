@@ -46,10 +46,14 @@ class PriceRepositoryImpl(PriceRepository):
     
     def get_all_prices_by_product(self, product_id: str) -> List[Price]:
         logger.debug(f"Получение всех цен для продукта {product_id}")
-        orm_prices = self.session.query(ORMPrice).filter_by(product_id=product_id).all()
-        prices = [PriceMapper.orm_to_domain(p) for p in orm_prices]
-        logger.info(f"Найдено {len(prices)} цен для продукта {product_id}")
-        return prices
+        try:
+            orm_prices = self.session.query(ORMPrice).filter_by(product_id=product_id).all()
+            prices = [PriceMapper.orm_to_domain(p) for p in orm_prices]
+            logger.info(f"Найдено {len(prices)} цен для продукта {product_id}")
+            return prices
+        except Exception as e:
+            logger.error(f"Ошибка получения цен для продукта {product_id}: {str(e)}")
+            raise
     
     def delete(self, price_id: str) -> bool:
         logger.info(f"Попытка удаления цены с ID: {price_id}")
