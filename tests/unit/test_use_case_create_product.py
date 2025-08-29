@@ -4,49 +4,63 @@ from datetime import datetime
 from unittest.mock import patch, MagicMock
 from src.application.use_cases.create_product import CreateProductUseCase
 from src.domain.entities import Product, Price, User
-from src.infrastructure.mappers import ProductMapper
+from src.infrastructure.mappers import ProductMapper, PriceMapper
 from src.infrastructure.database.models import ORMUser
 from src.infrastructure.core.ozon_parser import OzonParser
 from src.application.exceptions import ProductCreationError
 
 
-@patch('src.application.use_cases.create_product.uuid.uuid4')  # Патчим UUID в нужном модуле
+@patch('src.application.use_cases.create_product.uuid.uuid4')  # Патчим UUID
 @patch('src.application.use_cases.create_product.datetime')  # Патчим datetime
 def test_create_product_use_case_success(
         mock_datetime,
         mock_uuid,
         mock_parser,
-        mock_product_repo, 
-        mock_price_repo, 
-        mock_user_repo, 
-        product, 
-        price, 
+        mock_product_repo,
+        mock_price_repo,
+        mock_user_repo,
+        product,
+        price,
         user,
-    ):
-    
-    # UUID всегда одинаковый
-    mock_uuid.return_value = "pr1"
-
-    # Настраиваем мок datetime для возврата фиксированного времени
-    mock_datetime.now.return_value = datetime(2025, 1, 1, 0, 0)
-
+        mocker,
+):
+    '''Проверяет успешное создание продукта.'''
     # Настраиваем моки
-    mock_user_repo.get.return_value = None      # Пользователь не существует
-    mock_product_repo.get.return_value = None   # Товар не существует
+    mock_uuid.return_value = "pr1"
+    mock_datetime.now.return_value = datetime(2025, 1, 1, 0, 0)
+    mocker.patch.object(mock_user_repo, 'get', return_value=None)  # Пользователь не существует
+    mocker.patch.object(mock_product_repo, 'get', return_value=None)  # Товар не существует
+    # Настраиваем mock_parser для возврата словаря
+    mock_parser.parse_product.return_value = {
+        'id': product.id,
+        'name': product.name,
+        'image_url': product.image_url,
+        'rating': product.rating,
+        'categories': product.categories,
+        'price_with_card': price.with_card,
+        'price_without_card': price.without_card,
+        'price_default': price.default,
+        'claim': price.claim,
+    }
+    mocker.patch('src.infrastructure.mappers.ProductMapper.domain_to_orm', return_value=ProductMapper.domain_to_orm(product))
+    mocker.patch('src.infrastructure.mappers.PriceMapper.domain_to_orm', return_value=PriceMapper.domain_to_orm(price))
 
-    # Создаём use case
+    # Создаем use case
     use_case = CreateProductUseCase(
         product_repo=mock_product_repo,
         price_repo=mock_price_repo,
         user_repo=mock_user_repo,
-        parser=mock_parser, #без (), возвращаем словарь а не объект!
+        parser=mock_parser,
     )
-    # Выполняем создание продукта
-    use_case.execute(user_id=user.id, url=product.link)
 
+    # Выполняем создание продукта
+    result = use_case.execute(user_id=user.id, url=product.link)
+
+    # Проверяем вызовы
     mock_parser.parse_product.assert_called_once_with(product.link)
     mock_product_repo.save.assert_called_once_with(product)
     mock_price_repo.save.assert_called_once_with(price)
+    assert result == product.id
 
 
 
