@@ -62,7 +62,7 @@ def mock_parser():
 
 # ----- # ----- # ----- Product Service ----- # ----- # ----- #
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def mock_uow(mock_product_repo, mock_price_repo, mock_user_repo):
     '''Мок для UnitOfWork.'''
     mock_uow = MagicMock()
@@ -86,6 +86,31 @@ def mock_product_service(mock_uow, mocker):
     mocker.patch('src.infrastructure.core.ozon_parser.OzonParser', return_value=MagicMock(spec=OzonParser))
     return ProductService(uow_factory=uow_factory)
 
+@pytest.fixture
+def mock_session():
+    session = MagicMock()
+    session.merge = MagicMock()  # Явно мокируем merge
+    session.get = MagicMock()    # Явно мокируем get
+    session.query = MagicMock()  # Явно мокируем query
+    session.delete = MagicMock() # Явно мокируем delete
+    print(f"Type of session.merge in mock_session: {type(session.merge)}")
+    return session
+
+@pytest.fixture(scope="function")
+def mock_product_repo(mock_session):
+    return ProductRepositoryImpl(mock_session)
+
+@pytest.fixture(scope="function")
+def mock_price_repo(mock_session):
+    print(f"Type of mock_session.merge before PriceRepositoryImpl: {type(mock_session.merge)}")
+    repo = PriceRepositoryImpl(mock_session)
+    print(f"Type of repo.session.merge after PriceRepositoryImpl: {type(repo.session.merge)}")
+    return repo
+
+@pytest.fixture(scope="function")
+def mock_user_repo(mock_session):
+    return UserRepositoryImpl(mock_session)
+
 # ----- # ----- # ----- Репозитории для интеграционного тестирования ----- # ----- # ----- #
 
 @pytest.fixture
@@ -108,20 +133,21 @@ def uow():
     return UnitOfWork(session=session)
 
 # ----- # ----- # ----- Репозитории Mock для Unit тестирования ----- # ----- # ----- #
-@pytest.fixture
-def mock_product_repo():
-    '''Мок для ProductRepository.'''
-    return MagicMock()
+# @pytest.fixture
+# def mock_product_repo():
+#     '''Мок для ProductRepository.'''
+#     return MagicMock()
 
-@pytest.fixture
-def mock_price_repo():
-    '''Мок для PriceRepository.'''
-    return MagicMock()
+# @pytest.fixture
+# def mock_price_repo():
+#     '''Мок для PriceRepository.'''
+#     return MagicMock()
 
-@pytest.fixture
-def mock_user_repo():
-    '''Мок для UserRepository.'''
-    return MagicMock()
+# @pytest.fixture
+# def mock_user_repo():
+#     '''Мок для UserRepository.'''
+#     return MagicMock()
+
 
 # ----- # ----- # ----- Фикстуры DTO слоя ----- # ----- # ----- #
 
@@ -188,6 +214,20 @@ def price():
         without_card=120,
         previous_with_card=None,        #90
         previous_without_card=None,     #110,
+        default=150,
+        claim=datetime(2025, 1, 1)
+    )
+
+@pytest.fixture
+def price_second():
+    '''Фикстура тестового доменного Price'''
+    return Price(
+        id='pr1',
+        product_id='p1',
+        with_card=100,
+        without_card=120,
+        previous_with_card=90,    
+        previous_without_card=110,
         default=150,
         claim=datetime(2025, 1, 1)
     )

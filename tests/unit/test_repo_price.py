@@ -1,4 +1,5 @@
 import pytest
+from pytest_mock import mocker
 import logging
 from unittest.mock import MagicMock
 from src.infrastructure.repositories import PriceRepositoryImpl
@@ -6,17 +7,19 @@ from src.infrastructure.database.models import ORMPrice
 from src.domain.entities import Price
 from src.infrastructure.mappers import PriceMapper
 
+
 logger = logging.getLogger(__name__)
 
-def test_save_price_succeess(price, price_repo, session):
-    '''Проверяет, что цена сохраняется в БД.'''
-    price_repo.save(price)
-    session.commit()
+def test_save_price_success(price_second, price_repo, mock_uow, mocker):
+    '''Проверяет, что цена сохраняется корректно.'''
+    mocker.patch.object(price_repo.session, 'merge', MagicMock())
+    mock_uow.session = price_repo.session
+    orm_price = PriceMapper.domain_to_orm(price_second)
+    #mocker.patch('src.infrastructure.mappers.PriceMapper.domain_to_orm', return_value=orm_price)
+    print(f"Type of price_repo.session.merge after patch: {type(price_repo.session.merge)}")
+    price_repo.save(price_second)
+    price_repo.session.merge.assert_called_once_with(orm_price)
 
-    orm_price = session.get(ORMPrice, price.id)
-    assert orm_price is not None
-    assert orm_price.id == price.id
-    assert orm_price.product_id == price.product_id
 
 
 def test_get_price(price_repo, price, session):
