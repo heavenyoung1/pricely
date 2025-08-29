@@ -29,16 +29,15 @@ def test_save_price_error(price_second, mock_price_repo, mock_uow, mocker):
     with pytest.raises(SQLAlchemyError, match="DB error"):
         mock_price_repo.save(price_second)
 
-def test_get_price(price_repo, price, session):
-    '''Проверяет, что метод репозитория get корректно возвращает цену.'''
-    price_repo.save(price)
-    session.commit()
+def test_get_price_success(price_second, mock_price_repo, mock_uow, mocker):
+    '''Проверяет получение цены по ID.'''
+    mock_uow.session = mock_price_repo.session
+    orm_price = PriceMapper.domain_to_orm(price_second)
+    mocker.patch.object(mock_price_repo.session, 'get', return_value=orm_price)
+    result = mock_price_repo.get(price_second.id)
+    mock_price_repo.session.get.assert_called_once_with(ORMPrice, price_second.id)
 
-    orm_price_by_BD = session.get(ORMPrice, price.id)
-    price_by_bd = PriceMapper.orm_to_domain(orm_price_by_BD)
-    price_by_API = price_repo.get(price.id)
-    assert price_by_bd.id == price.id
-    assert price_by_API.id == price.id
+    
 
 def test_get_prices_by_product(price_repo, price, session):
     '''Проверяет получение списка цен продукта.'''

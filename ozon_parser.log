@@ -2476,3 +2476,5 @@ Stacktrace:
 2025-08-29 11:12:06,191 - src.infrastructure.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
 2025-08-29 11:24:45,208 - src.infrastructure.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
 2025-08-29 11:24:45,210 - src.infrastructure.repositories.price_repository - ERROR - Ошибка сохранения цены Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)): DB error
+2025-08-29 11:44:19,123 - src.infrastructure.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-08-29 11:44:19,125 - src.infrastructure.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
