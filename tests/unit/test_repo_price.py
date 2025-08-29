@@ -6,11 +6,12 @@ from src.infrastructure.repositories import PriceRepositoryImpl
 from src.infrastructure.database.models import ORMPrice
 from src.domain.entities import Price
 from src.infrastructure.mappers import PriceMapper
+from sqlalchemy.exc import SQLAlchemyError
 
 
 logger = logging.getLogger(__name__)
 
-def test_save_price_success(price_second, price_repo, mock_uow, mocker):
+def test_save_price_success(price_second, mock_price_repo, mock_uow, mocker):
     '''Проверяет, что цена сохраняется корректно.'''
     mock_uow.session = mock_price_repo.session
     orm_price = PriceMapper.domain_to_orm(price_second)
@@ -18,6 +19,15 @@ def test_save_price_success(price_second, price_repo, mock_uow, mocker):
     print(f"Type of mock_price_repo.session.merge in test: {type(mock_price_repo.session.merge)}")
     mock_price_repo.save(price_second)
     mock_price_repo.session.merge.assert_called_once_with(orm_price)
+
+def test_save_price_error(price_second, mock_price_repo, mock_uow, mocker):
+    '''Проверяет обработку ошибки при сохранении цены.'''
+    mock_uow.session = mock_price_repo.session
+    orm_price = PriceMapper.domain_to_orm(price_second)
+    mocker.patch('src.infrastructure.mappers.PriceMapper.domain_to_orm', return_value=orm_price)
+    mocker.patch.object(mock_price_repo.session, 'merge', side_effect=SQLAlchemyError("DB error"))
+    with pytest.raises(SQLAlchemyError, match="DB error"):
+        mock_price_repo.save(price_second)
 
 def test_get_price(price_repo, price, session):
     '''Проверяет, что метод репозитория get корректно возвращает цену.'''

@@ -17,6 +17,7 @@
   "tests/unit/test_repo_price.py::test_delete_price",
   "tests/unit/test_repo_price.py::test_get_price",
   "tests/unit/test_repo_price.py::test_get_prices_by_product",
+  "tests/unit/test_repo_price.py::test_save_price_error",
   "tests/unit/test_repo_price.py::test_save_price_succeess",
   "tests/unit/test_repo_price.py::test_save_price_success",
   "tests/unit/test_repo_product.py::test_delete_product",
