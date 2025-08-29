@@ -12,13 +12,12 @@ logger = logging.getLogger(__name__)
 
 def test_save_price_success(price_second, price_repo, mock_uow, mocker):
     '''Проверяет, что цена сохраняется корректно.'''
-    mocker.patch.object(price_repo.session, 'merge', MagicMock())
-    mock_uow.session = price_repo.session
+    mock_uow.session = mock_price_repo.session
     orm_price = PriceMapper.domain_to_orm(price_second)
-    #mocker.patch('src.infrastructure.mappers.PriceMapper.domain_to_orm', return_value=orm_price)
-    print(f"Type of price_repo.session.merge after patch: {type(price_repo.session.merge)}")
-    price_repo.save(price_second)
-    price_repo.session.merge.assert_called_once_with(orm_price)
+    mocker.patch('src.infrastructure.mappers.PriceMapper.domain_to_orm', return_value=orm_price)
+    print(f"Type of mock_price_repo.session.merge in test: {type(mock_price_repo.session.merge)}")
+    mock_price_repo.save(price_second)
+    mock_price_repo.session.merge.assert_called_once_with(orm_price)
 
 def test_get_price(price_repo, price, session):
     '''Проверяет, что метод репозитория get корректно возвращает цену.'''
