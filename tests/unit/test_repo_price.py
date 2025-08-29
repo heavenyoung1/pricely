@@ -37,29 +37,29 @@ def test_get_price_success(price_second, mock_price_repo, mock_uow, mocker):
     result = mock_price_repo.get(price_second.id)
     mock_price_repo.session.get.assert_called_once_with(ORMPrice, price_second.id)
 
-    
+def test_get_price_not_found(mock_price_repo, mock_uow, mocker):
+    '''Проверяет, что возвращается None для несуществующей цены.'''
+    mock_uow.session = mock_price_repo.session
+    mocker.patch.object(mock_price_repo.session, 'get', return_value=None)
+    result = mock_price_repo.get("non_existent_id")
+    mock_price_repo.session.get.assert_called_once_with(ORMPrice, "non_existent_id")
+    assert result is None
+    # Не проверяем mock_uow.commit, так как commit не вызывается в get
 
-def test_get_prices_by_product(price_repo, price, session):
-    '''Проверяет получение списка цен продукта.'''
-    price_repo.save(price)
-    session.commit()
+def test_get_prices_by_product_error(price_second, mock_price_repo, mock_uow, mocker):
+    '''Проверяет обработку ошибки при получении цен.'''
+    mock_uow.session = mock_price_repo.session
+    mocker.patch.object(mock_price_repo.session, 'query', side_effect=SQLAlchemyError("DB error"))
+    with pytest.raises(SQLAlchemyError, match="DB error"):
+        mock_price_repo.get_all_prices_by_product(price_second.product_id)
+    # Не проверяем mock_uow.commit, так как commit не вызывается в get
 
-    prices_product_by_API = price_repo.get_all_prices_by_product(price.product_id)
-    assert len(prices_product_by_API) == 1
-    assert prices_product_by_API[0].id == price.id
-    assert prices_product_by_API[0].claim == price.claim
-    
-def test_delete_price(price_repo, price, session):
-    price_repo.save(price)
-    session.commit()
-
-    price_by_API = price_repo.get(price.id)
-    assert price_by_API is not None
-    assert price_by_API.id == price.id
-    assert price_by_API.claim == price.claim
-    deleted = price_repo.delete(price_id=price.id)
-    session.commit()
+def test_delete_price_success(mock_price_repo, price_second, mock_uow, mocker):
+    '''Проверяет успешное удаление цены.'''
+    mock_uow.session = mock_price_repo.session
+    orm_price = PriceMapper.domain_to_orm(price_second)
+    mocker.patch.object(mock_price_repo.session, 'get', return_value=orm_price)
+    deleted = mock_price_repo.delete(price_second.id)
+    mock_price_repo.session.get.assert_called_once_with(ORMPrice, price_second.id)
+    mock_price_repo.session.delete.assert_called_once_with(orm_price)
     assert deleted is True
-    price_by_API = price_repo.get(price.id)
-    assert price_by_API is None
-
