@@ -7,6 +7,7 @@ from pydantic import HttpUrl
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from unittest.mock import MagicMock
+from sqlalchemy.orm import Session
 
 from src.infrastructure.repositories import ProductRepositoryImpl, PriceRepositoryImpl, UserRepositoryImpl
 from src.infrastructure.database.models import Base, ORMProduct, ORMUser, ORMPrice
@@ -62,17 +63,6 @@ def mock_parser():
 
 # ----- # ----- # ----- Product Service ----- # ----- # ----- #
 
-@pytest.fixture(scope="function")
-def mock_uow(mock_product_repo, mock_price_repo, mock_user_repo):
-    '''Мок для UnitOfWork.'''
-    mock_uow = MagicMock()
-    mock_uow.product_repository.return_value = mock_product_repo
-    mock_uow.price_repository.return_value = mock_price_repo
-    mock_uow.user_repository.return_value = mock_user_repo
-    mock_uow.__enter__.return_value = mock_uow
-    mock_uow.__exit__.return_value = None
-    return mock_uow
-
 @pytest.fixture
 def product_service(uow):
     '''Фикстура для ProductService с реальным UnitOfWork.'''
@@ -86,30 +76,43 @@ def mock_product_service(mock_uow, mocker):
     mocker.patch('src.infrastructure.core.ozon_parser.OzonParser', return_value=MagicMock(spec=OzonParser))
     return ProductService(uow_factory=uow_factory)
 
-@pytest.fixture
+# ----- # ----- # ----- MOCK UOW ----- # ----- # ----- #
+
+@pytest.fixture(scope="function")
+def mock_uow(mock_product_repo, mock_price_repo, mock_user_repo):
+    '''Мок для UnitOfWork.'''
+    mock_uow = MagicMock()
+    mock_uow.product_repository.return_value = mock_product_repo
+    mock_uow.price_repository.return_value = mock_price_repo
+    mock_uow.user_repository.return_value = mock_user_repo
+    mock_uow.__enter__.return_value = mock_uow
+    mock_uow.__exit__.return_value = None
+    print(f"Type of mock_uow.session before assignment: {type(mock_uow.session)}")
+    return mock_uow
+
+@pytest.fixture(scope="function")
 def mock_session():
-    session = MagicMock()
-    session.merge = MagicMock()  # Явно мокируем merge
-    session.get = MagicMock()    # Явно мокируем get
-    session.query = MagicMock()  # Явно мокируем query
-    session.delete = MagicMock() # Явно мокируем delete
+    session = MagicMock(spec=Session)
     print(f"Type of session.merge in mock_session: {type(session.merge)}")
     return session
 
 @pytest.fixture(scope="function")
 def mock_product_repo(mock_session):
-    return ProductRepositoryImpl(mock_session)
+    repo = ProductRepositoryImpl(mock_session)
+    print(f"Type of repo.session.merge in mock_product_repo: {type(repo.session.merge)}")
+    return repo
 
 @pytest.fixture(scope="function")
 def mock_price_repo(mock_session):
-    print(f"Type of mock_session.merge before PriceRepositoryImpl: {type(mock_session.merge)}")
     repo = PriceRepositoryImpl(mock_session)
-    print(f"Type of repo.session.merge after PriceRepositoryImpl: {type(repo.session.merge)}")
+    print(f"Type of repo.session.merge in mock_price_repo: {type(repo.session.merge)}")
     return repo
 
 @pytest.fixture(scope="function")
 def mock_user_repo(mock_session):
-    return UserRepositoryImpl(mock_session)
+    repo = UserRepositoryImpl(mock_session)
+    print(f"Type of repo.session.merge in mock_user_repo: {type(repo.session.merge)}")
+    return repo
 
 # ----- # ----- # ----- Репозитории для интеграционного тестирования ----- # ----- # ----- #
 

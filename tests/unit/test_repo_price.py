@@ -20,8 +20,6 @@ def test_save_price_success(price_second, price_repo, mock_uow, mocker):
     price_repo.save(price_second)
     price_repo.session.merge.assert_called_once_with(orm_price)
 
-
-
 def test_get_price(price_repo, price, session):
     '''Проверяет, что метод репозитория get корректно возвращает цену.'''
     price_repo.save(price)
