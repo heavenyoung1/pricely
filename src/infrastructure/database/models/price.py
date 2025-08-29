@@ -17,8 +17,8 @@ class ORMPrice(Base):
 
     with_card: Mapped[int] = mapped_column(Integer, nullable=False)
     without_card: Mapped[int] = mapped_column(Integer, nullable=False)
-    previous_with_card: Mapped[int] = mapped_column(Integer, nullable=False)
-    previous_without_card: Mapped[int] = mapped_column(Integer, nullable=False)
+    previous_with_card: Mapped[int] = mapped_column(Integer, nullable=True)
+    previous_without_card: Mapped[int] = mapped_column(Integer, nullable=True)
     default: Mapped[int] = mapped_column(Integer, nullable=False)
 
     claim: Mapped[datetime] = mapped_column(DateTime, nullable=False)
