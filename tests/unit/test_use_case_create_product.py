@@ -30,7 +30,8 @@ def test_create_product_use_case_success(
     mock_datetime.now.return_value = datetime(2025, 1, 1, 0, 0)
     mocker.patch.object(mock_user_repo, 'get', return_value=None)  # Пользователь не существует
     mocker.patch.object(mock_product_repo, 'get', return_value=None)  # Товар не существует
-    # Настраиваем mock_parser для возврата словаря
+    mocker.patch.object(mock_product_repo, 'save', return_value=None)  # Мокаем save для product_repo
+    mocker.patch.object(mock_price_repo, 'save', return_value=None)  # Мокаем save для price_repo
     mock_parser.parse_product.return_value = {
         'id': product.id,
         'name': product.name,
