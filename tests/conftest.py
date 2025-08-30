@@ -1,13 +1,12 @@
 import pytest
 import logging
-import json
 import sys
+import json
 from datetime import datetime
-from pydantic import HttpUrl
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, Session
 from unittest.mock import MagicMock
-from sqlalchemy.orm import Session
+from pydantic import HttpUrl
 
 from src.infrastructure.repositories import ProductRepositoryImpl, PriceRepositoryImpl, UserRepositoryImpl
 from src.infrastructure.database.models import Base, ORMProduct, ORMUser, ORMPrice
@@ -15,6 +14,7 @@ from src.interfaces.dto import ProductDTO, PriceDTO, UserDTO
 from src.domain.entities import Product, Price, User
 from src.infrastructure.database.core import UnitOfWork
 from src.infrastructure.services import ProductService
+
 # Другие полезные методы:
 # mock_method.assert_called()          # Был ли вызван хотя бы раз
 # mock_method.assert_called_with(args) # Был ли вызван с конкретными аргументами (последний вызов)
@@ -30,19 +30,50 @@ def setup_logging():
         stream=sys.stdout
     )
 
+# @pytest.fixture
+# def session():
+#     '''Создает временную сессию SQLite в памяти для тестов.
+#     Автоматически создает таблицы и закрывает сессию после использования.'''
+#     # Нужна ли тут какая-то модификация, rollback для транзакций??
+#     engine = create_engine('sqlite:///:memory:')
+#     Base.metadata.create_all(engine)  # Создаём все таблицы
+#     SessionLocal = sessionmaker(bind=engine)
+#     session = SessionLocal()
+#     session.begin()  # Начинаем транзакцию
+#     yield session
+#     session.rollback()  # Откатываем изменения
+#     session.close()
+
+# ----- # ----- # ----- База данных + сессия ----- # ----- # ----- #
+
 @pytest.fixture
-def session():
-    '''Создает временную сессию SQLite в памяти для тестов.
-    Автоматически создает таблицы и закрывает сессию после использования.'''
-    # Нужна ли тут какая-то модификация, rollback для транзакций??
-    engine = create_engine('sqlite:///:memory:')
-    Base.metadata.create_all(engine)  # Создаём все таблицы
+def engine():
+    """Создаёт новый движок SQLite в памяти."""
+    engine = create_engine("sqlite:///:memory:")
+    Base.metadata.create_all(engine)
+    return engine
+
+
+@pytest.fixture
+def session(engine):
+    """
+    Создаёт отдельную сессию для теста.
+    Каждый тест работает в своей транзакции.
+    """
     SessionLocal = sessionmaker(bind=engine)
-    session = SessionLocal()
-    session.begin()  # Начинаем транзакцию
+    session: Session = SessionLocal()
     yield session
-    session.rollback()  # Откатываем изменения
     session.close()
+
+# ----- # ----- # ----- Unit of Work ----- # ----- # ----- #
+@pytest.fixture
+def uow(session):
+    '''
+    UnitOfWork с session_factory, корректно работающий в тестах.
+    '''
+    def session_factory():
+        return session
+    return UnitOfWork(session_factory=session_factory)
 
 # ----- # ----- # ----- МОК ДЛЯ ПАРСЕРА # ----- # ----- # ----- #
 
@@ -130,27 +161,6 @@ def price_repo(session):
 def user_repo(session):
     '''Фикстура репозитория продуктов с сессией.'''
     return UserRepositoryImpl(session=session)
-
-@pytest.fixture
-def uow():
-    return UnitOfWork(session=session)
-
-# ----- # ----- # ----- Репозитории Mock для Unit тестирования ----- # ----- # ----- #
-# @pytest.fixture
-# def mock_product_repo():
-#     '''Мок для ProductRepository.'''
-#     return MagicMock()
-
-# @pytest.fixture
-# def mock_price_repo():
-#     '''Мок для PriceRepository.'''
-#     return MagicMock()
-
-# @pytest.fixture
-# def mock_user_repo():
-#     '''Мок для UserRepository.'''
-#     return MagicMock()
-
 
 # ----- # ----- # ----- Фикстуры DTO слоя ----- # ----- # ----- #
 

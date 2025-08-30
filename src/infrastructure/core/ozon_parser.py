@@ -35,8 +35,8 @@ class OzonParser(IProductParser):
             session.navigate(url)
             logger.info(f"Загружена страница: {url}")
             return {
-                "name": self._extract_name(session),
                 "id": self._extract_id(session),
+                "name": self._extract_name(session),
                 "rating": self._extract_rating(session),
                 "price_with_card": self._extract_price_with_card(session),
                 "price_without_card": self._extract_price_without_card(session),

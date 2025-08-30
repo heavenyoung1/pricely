@@ -41,7 +41,7 @@ def test_create_product_use_case_success(
         'price_with_card': price.with_card,
         'price_without_card': price.without_card,
         'price_default': price.default,
-        'claim': price.claim,
+        #'claim': price.claim,
     }
     mocker.patch('src.infrastructure.mappers.ProductMapper.domain_to_orm', return_value=ProductMapper.domain_to_orm(product))
     mocker.patch('src.infrastructure.mappers.PriceMapper.domain_to_orm', return_value=PriceMapper.domain_to_orm(price))
