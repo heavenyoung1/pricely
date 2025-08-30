@@ -24,7 +24,7 @@ def test_create_product_use_case_success(
         user,
         mocker,
 ):
-    '''Проверяет успешное создание продукта.'''
+    '''Проверяет успешное создание товара и сохранение пользователя, если он не существует.'''
     # Настраиваем моки
     mock_uuid.return_value = "pr1"
     mock_datetime.now.return_value = datetime(2025, 1, 1, 0, 0)
@@ -32,6 +32,7 @@ def test_create_product_use_case_success(
     mocker.patch.object(mock_product_repo, 'get', return_value=None)  # Товар не существует
     mocker.patch.object(mock_product_repo, 'save', return_value=None)  # Мокаем save для product_repo
     mocker.patch.object(mock_price_repo, 'save', return_value=None)  # Мокаем save для price_repo
+    mocker.patch.object(mock_user_repo, 'save', return_value=None)
     mock_parser.parse_product.return_value = {
         'id': product.id,
         'name': product.name,
@@ -41,7 +42,7 @@ def test_create_product_use_case_success(
         'price_with_card': price.with_card,
         'price_without_card': price.without_card,
         'price_default': price.default,
-        #'claim': price.claim,
+        #'claim': price.claim, нахуа он тут нужен?
     }
     mocker.patch('src.infrastructure.mappers.ProductMapper.domain_to_orm', return_value=ProductMapper.domain_to_orm(product))
     mocker.patch('src.infrastructure.mappers.PriceMapper.domain_to_orm', return_value=PriceMapper.domain_to_orm(price))
@@ -57,50 +58,16 @@ def test_create_product_use_case_success(
     # Выполняем создание продукта
     result = use_case.execute(user_id=user.id, url=product.link)
 
-    # Проверяем вызовы
+# Проверяем вызовы
     mock_parser.parse_product.assert_called_once_with(product.link)
+    mock_user_repo.get.assert_called_once_with(user.id)
     mock_product_repo.save.assert_called_once_with(product)
     mock_price_repo.save.assert_called_once_with(price)
-    assert result == product.id
-
-
-
-# @patch('src.application.use_cases.create_product.uuid.uuid4')  # Патчим UUID в нужном модуле
-# @patch('src.application.use_cases.create_product.datetime')  # Патчим datetime
-# def test_create_exist_product_use_case(
-#         mock_datetime,
-#         mock_uuid,
-#         mock_parser,
-#         mock_product_repo, 
-#         mock_price_repo, 
-#         mock_user_repo, 
-#         product, 
-#         price, 
-#         user,
-#     ):
-    
-#     # UUID всегда одинаковый
-#     mock_uuid.return_value = "pr1"
-
-#     # Настраиваем мок datetime для возврата фиксированного времени
-#     mock_datetime.now.return_value = datetime(2025, 1, 1, 0, 0)
-
-#     # Настраиваем моки
-#     mock_user_repo.get.return_value = None      # Пользователь не существует
-#     mock_product_repo.get.return_value = product   # Товар существует
-
-#     # Создаём use case
-#     use_case = CreateProductUseCase(
-#         product_repo=mock_product_repo,
-#         price_repo=mock_price_repo,
-#         user_repo=mock_user_repo,
-#         parser=mock_parser, #без (), возвращаем словарь а не объект!
-#     )
-#     # Выполняем создание продукта
-#     with pytest.raises(ProductCreationError, match=f'Ошибка сохранения товара'):
-#         use_case.execute(user_id=user.id, url=product.link)
-
-#     mock_parser.parse_product.assert_called_once_with(product.link)
-#     mock_product_repo.save.assert_not_called()
-#     mock_price_repo.save.assert_not_called()
-    # Этот тест не получится сделать так как нужно проверять это на слое с БД??
+    mock_user_repo.save.assert_called()
+    assert mock_user_repo.save.call_count == 1  # Два вызова: для нового пользователя и для обновления списка продуктов
+    assert result == {
+        'id': product.id,
+        'name': product.name,
+        'user_id': product.user_id,
+        'price_id': product.price_id
+    }

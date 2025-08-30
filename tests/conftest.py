@@ -14,6 +14,7 @@ from src.interfaces.dto import ProductDTO, PriceDTO, UserDTO
 from src.domain.entities import Product, Price, User
 from src.infrastructure.database.core import UnitOfWork
 from src.infrastructure.services import ProductService
+from src.infrastructure.core.ozon_parser import OzonParser
 
 # Другие полезные методы:
 # mock_method.assert_called()          # Был ли вызван хотя бы раз
