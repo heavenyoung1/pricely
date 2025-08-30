@@ -2790,3 +2790,5 @@ Stacktrace:
 2025-08-30 23:20:09,205 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
 2025-08-30 23:20:09,205 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
 2025-08-30 23:20:09,205 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-08-30 23:28:23,060 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-08-30 23:28:23,063 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
