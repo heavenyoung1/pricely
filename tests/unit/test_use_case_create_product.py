@@ -10,8 +10,8 @@ from src.infrastructure.core.ozon_parser import OzonParser
 from src.application.exceptions import ProductCreationError
 
 
-@patch('src.application.use_cases.create_product.uuid.uuid4')  # Патчим UUID
-@patch('src.application.use_cases.create_product.datetime')  # Патчим datetime
+@patch('src.application.use_cases.create_product.uuid.uuid4')
+@patch('src.application.use_cases.create_product.datetime')
 def test_create_product_use_case_success(
         mock_datetime,
         mock_uuid,
@@ -30,8 +30,8 @@ def test_create_product_use_case_success(
     mock_datetime.now.return_value = datetime(2025, 1, 1, 0, 0)
     mocker.patch.object(mock_user_repo, 'get', return_value=None)  # Пользователь не существует
     mocker.patch.object(mock_product_repo, 'get', return_value=None)  # Товар не существует
-    mocker.patch.object(mock_product_repo, 'save', return_value=None)  # Мокаем save для product_repo
-    mocker.patch.object(mock_price_repo, 'save', return_value=None)  # Мокаем save для price_repo
+    mocker.patch.object(mock_product_repo, 'save', return_value=None)
+    mocker.patch.object(mock_price_repo, 'save', return_value=None)
     mocker.patch.object(mock_user_repo, 'save', return_value=None)
     mock_parser.parse_product.return_value = {
         'id': product.id,
@@ -42,7 +42,6 @@ def test_create_product_use_case_success(
         'price_with_card': price.with_card,
         'price_without_card': price.without_card,
         'price_default': price.default,
-        #'claim': price.claim, нахуа он тут нужен?
     }
     mocker.patch('src.infrastructure.mappers.ProductMapper.domain_to_orm', return_value=ProductMapper.domain_to_orm(product))
     mocker.patch('src.infrastructure.mappers.PriceMapper.domain_to_orm', return_value=PriceMapper.domain_to_orm(price))
@@ -58,13 +57,16 @@ def test_create_product_use_case_success(
     # Выполняем создание продукта
     result = use_case.execute(user_id=user.id, url=product.link)
 
-# Проверяем вызовы
+    # Проверяем вызовы
+    print(f"mock_user_repo.save call count: {mock_user_repo.save.call_count}")
+    print(f"mock_user_repo.save calls: {mock_user_repo.save.mock_calls}")
     mock_parser.parse_product.assert_called_once_with(product.link)
     mock_user_repo.get.assert_called_once_with(user.id)
+    mock_product_repo.get.assert_called_once_with(product.id)
     mock_product_repo.save.assert_called_once_with(product)
     mock_price_repo.save.assert_called_once_with(price)
     mock_user_repo.save.assert_called()
-    assert mock_user_repo.save.call_count == 1  # Два вызова: для нового пользователя и для обновления списка продуктов
+    assert mock_user_repo.save.call_count == 2  # Два вызова: для нового пользователя и для обновления списка продуктов
     assert result == {
         'id': product.id,
         'name': product.name,
