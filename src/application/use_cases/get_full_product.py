@@ -8,11 +8,11 @@ logger = logging.getLogger(__name__)
 
 class GetFullProductUseCase:
     def __init__(
-        self, 
-        product_repo: ProductRepository, 
-        price_repo: PriceRepository, 
+        self,
+        product_repo: ProductRepository,
+        price_repo: PriceRepository,
         user_repo: UserRepository
-        ):
+    ):
         self.product_repo = product_repo
         self.price_repo = price_repo
         self.user_repo = user_repo
@@ -22,7 +22,8 @@ class GetFullProductUseCase:
         if not product:
             logger.warning(f'Товар {product_id} не найден')
             raise ProductNotFoundError(f'Товар {product_id} не существует')
-        
+
+        price = None
         if product.price_id:
             price = self.price_repo.get(product.price_id)
 
