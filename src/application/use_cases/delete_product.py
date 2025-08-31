@@ -17,12 +17,12 @@ class DeleteProductUseCase:
         self.price_repo = price_repo
 
     def execute(self, product_id: str) -> None:
-        try:
-            product = self.product_repo.get(product_id)
-            if not product:
-                logger.warning(f'Товар {product_id} не существует в БД, пропускаем удаление')
-                raise ProductNotExistingDataBase(f'Товар {product_id} не существует в БД!')
+        product = self.product_repo.get(product_id)
+        if not product:
+            logger.warning(f'Товар {product_id} не существует в БД, пропускаем удаление')
+            raise ProductNotExistingDataBase(f'Товар {product_id} не существует в БД!')
 
+        try:
             # Удаление цены, если она существует
             if product.price_id:
                 self.price_repo.delete(product.price_id)
@@ -32,13 +32,13 @@ class DeleteProductUseCase:
             self.product_repo.delete(product_id)
             logger.debug(f'Товар {product_id} удален')
 
-            # удалить связь у пользователя
+            # Удалить связь у пользователя
             user = self.user_repo.get(product.user_id)
             if user and product_id in user.products:
                 user.products.remove(product_id)
                 self.user_repo.save(user)
                 logger.debug(f'Товар {product_id} удален из списка пользователя {product.user_id}')
-            
+
             logger.info(f'Операция удаления выполнена для ID {product_id}')
 
         except Exception as e:
