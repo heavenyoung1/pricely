@@ -1,5 +1,6 @@
 [
   "tests/unit/test_decorator.py::test_with_uow_commit",
+  "tests/unit/test_decorator.py::test_with_uow_commit_exception",
   "tests/unit/test_decorator.py::test_with_uow_no_commit",
   "tests/unit/test_mapper_price.py::test_domain_to_dto",
   "tests/unit/test_mapper_price.py::test_domain_to_orm",
@@ -52,6 +53,7 @@
   "tests/unit/test_use_case_get_full_product.py::test_get_full_product_not_found",
   "tests/unit/test_use_case_get_full_product.py::test_get_full_product_use_case_success",
   "tests/unit/test_use_case_get_product.py::test_create_product_use_case_success",
+  "tests/unit/test_use_case_get_product.py::test_get_product_use_case_empty_product_id",
   "tests/unit/test_use_case_get_product.py::test_get_product_use_case_not_found",
   "tests/unit/test_use_case_get_product.py::test_get_product_use_case_success",
   "tests/unit/test_use_case_upd_price.py::test_upd_price_use_case_success",
