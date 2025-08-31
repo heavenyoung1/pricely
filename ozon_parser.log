@@ -2852,3 +2852,20 @@ Stacktrace:
 2025-08-31 15:42:23,162 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
 2025-08-31 15:42:23,163 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
 2025-08-31 15:42:23,169 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-08-31 15:46:25,778 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-08-31 15:46:25,779 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-08-31 15:46:25,779 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-08-31 15:46:25,784 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-08-31 15:46:25,790 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-08-31 15:47:28,009 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-08-31 15:47:28,009 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-08-31 15:47:28,010 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-08-31 15:47:28,017 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-08-31 15:47:28,021 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-08-31 15:47:28,025 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-08-31 15:51:27,007 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-08-31 15:51:27,010 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-08-31 15:51:27,010 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-08-31 15:51:27,016 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-08-31 15:51:27,020 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-08-31 15:51:27,024 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
