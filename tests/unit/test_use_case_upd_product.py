@@ -7,25 +7,38 @@ from src.infrastructure.database.models import ORMUser
 from src.application.exceptions import ProductNotFoundError, PriceUpdateError
 
 def test_upd_price_use_case_success(
-        mock_product_repo, 
-        mock_price_repo, 
-        product, 
-        price, 
-    ):
+        mock_product_repo,
+        mock_price_repo,
+        product,
+        price,
+        price_second,
+        mocker,
+):
     '''Успешное обновление цены товара.'''
-    mock_product_repo.get.return_value = product
-    mock_price_repo.get.return_value = price
+    # Настраиваем моки
+    mocker.patch.object(mock_product_repo, 'get', return_value=product)
+    mocker.patch.object(mock_price_repo, 'get', return_value=price)
+    mocker.patch.object(mock_price_repo, 'save', return_value=None)
+    mocker.patch.object(mock_product_repo, 'save', return_value=None)
 
-    # Создаём use case
+    # Создаем use case
     use_case = UpdateProductPriceUseCase(
         product_repo=mock_product_repo,
         price_repo=mock_price_repo
     )
-    use_case.execute(product_id=product.id, price=price)
 
-    mock_price_repo.save.assert_called_once_with(price)
+    # Выполняем обновление
+    use_case.execute(product_id=product.id, price=price_second)
+
+    # Проверяем вызовы
+    print(f"mock_product_repo.get calls: {mock_product_repo.get.mock_calls}")
+    print(f"mock_price_repo.save calls: {mock_price_repo.save.mock_calls}")
+    print(f"mock_product_repo.save calls: {mock_product_repo.save.mock_calls}")
     mock_product_repo.get.assert_called_once_with(product.id)
-    assert product.price_id == price.id
+    mock_price_repo.save.assert_called_once_with(price_second)
     mock_product_repo.save.assert_called_once_with(product)
+    # Проверяем, что product.price_id обновлен
+    saved_product = mock_product_repo.save.call_args[0][0]
+    assert saved_product.price_id == price_second.id
 
 
