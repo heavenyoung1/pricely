@@ -41,4 +41,32 @@ def test_upd_price_use_case_success(
     saved_product = mock_product_repo.save.call_args[0][0]
     assert saved_product.price_id == price_second.id
 
+def test_upd_price_use_case_product_not_found(
+        mock_product_repo,
+        mock_price_repo,
+        product,
+        price_second,
+        mocker,
+):
+    '''Проверяет, что выбрасывается ProductNotFoundError, если продукт не существует.'''
+    # Настраиваем моки
+    mocker.patch.object(mock_product_repo, 'get', return_value=None)
+    mocker.patch.object(mock_price_repo, 'save', return_value=None)
+    mocker.patch.object(mock_product_repo, 'save', return_value=None)
+
+    # Создаем use case
+    use_case = UpdateProductPriceUseCase(
+        product_repo=mock_product_repo,
+        price_repo=mock_price_repo
+    )
+
+    # Проверяем, что выбрасывается ProductNotFoundError
+    with pytest.raises(ProductNotFoundError, match=f'Продукт с id {product.id} не найден'):
+        use_case.execute(product_id=product.id, price=price_second)
+
+    # Проверяем вызовы
+    print(f"mock_product_repo.get calls: {mock_product_repo.get.mock_calls}")
+    mock_product_repo.get.assert_called_once_with(product.id)
+    mock_price_repo.save.assert_not_called()
+    mock_product_repo.save.assert_not_called()
 

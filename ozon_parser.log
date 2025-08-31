@@ -2843,3 +2843,12 @@ Stacktrace:
 2025-08-31 15:35:41,090 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
 2025-08-31 15:35:41,091 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
 2025-08-31 15:35:41,091 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-08-31 15:40:31,537 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-08-31 15:40:31,538 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-08-31 15:40:31,538 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-08-31 15:40:31,545 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-08-31 15:40:31,546 - src.application.use_cases.upd_product - ERROR - Ошибка при обновлении цены для продукта p1: Продукт с id p1 не найден
+2025-08-31 15:42:23,161 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-08-31 15:42:23,162 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-08-31 15:42:23,163 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-08-31 15:42:23,169 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден

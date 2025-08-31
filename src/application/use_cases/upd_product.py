@@ -12,26 +12,26 @@ class UpdateProductPriceUseCase:
         self.price_repo = price_repo
 
     def execute(self, product_id: str, price: Price) -> None:
+        # Валидация входных данных
+        if not product_id:
+            logger.error('Идентификатор продукта не указан')
+            raise PriceUpdateError('Идентификатор продукта не указан')
+        if not price.id:
+            logger.error('Идентификатор цены не указан')
+            raise PriceUpdateError('Идентификатор цены не указан')
+
+        # Проверка существования продукта
+        product = self.product_repo.get(product_id)
+        if not product:
+            logger.warning(f'Продукт с id {product_id} не найден')
+            raise ProductNotFoundError(f'Продукт с id {product_id} не найден')
+
         try:
-            # Валидация входных данных
-            if not product_id:
-                logger.error('Идентификатор продукта не указан')
-                raise PriceUpdateError('Идентификатор продукта не указан')
-            if not price.id:
-                logger.error('Идентификатор цены не указан')
-                raise PriceUpdateError('Идентификатор цены не указан')
-
-
-            product = self.product_repo.get(product_id)
-            if not product:
-                logger.warning(f'Продукт с id {product_id} не найден')
-                raise ProductNotFoundError(f'Продукт с id {product_id} не найден')
-
-            # 1) сохраняем новую цену
+            # Сохраняем новую цену
             self.price_repo.save(price)
             logger.debug(f'Цена {price.id} сохранена для продукта {product_id}')
 
-            # 2) обновляем price_id в продукте
+            # Обновляем price_id в продукте
             product.price_id = price.id
             self.product_repo.save(product)
             logger.debug(f'Продукт {product_id} обновлен с price_id={price.id}')
