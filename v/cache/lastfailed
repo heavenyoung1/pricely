@@ -14,5 +14,11 @@
   "tests/unit/test_use_case_upd_product.py::test_update_price_product_not_found": true,
   "tests/unit/test_services.py::test_delete_price_success": true,
   "tests/unit/test_use_case_create_user.py::test_create_product_use_case_user_exists": true,
-  "tests/unit/test_decorator.py::test_with_uow_commit_exception": true
+  "tests/unit/test_decorator.py::test_with_uow_commit_exception": true,
+  "tests/unit/test_with_uow.py::test_with_uow_commit": true,
+  "tests/unit/test_with_uow.py::test_with_uow_no_commit": true,
+  "tests/unit/test_with_uow.py::test_with_uow_commit_exception": true,
+  "tests/unit/test_with_uow.py::test_with_uow_commit_true": true,
+  "tests/unit/test_with_uow.py::test_with_uow_commit_false": true,
+  "tests/unit/test_with_uow.py::test_with_uow_raises_and_rollback": true
 }

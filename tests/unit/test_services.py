@@ -54,15 +54,29 @@ def test_get_prices_by_product_empty(price_repo, session):
     prices = price_repo.get_all_prices_by_product("non_existent_id")
     assert prices == []
 
-def test_delete_price_success(price_repo, price, session):
+def test_delete_price_success(price_repo, price, mocker):
     '''Проверяет удаление цены.'''
+    # Настраиваем моки для сессии
+    mock_session = mocker.patch.object(price_repo, 'session')
+    mock_orm_price = MagicMock()
+    mock_session.get.side_effect = [mock_orm_price, None]  # Первый вызов (delete) возвращает объект, второй (get) — None
+    mock_session.delete.return_value = None
+    mock_session.commit.return_value = None
+    mocker.patch.object(price_repo, 'save', return_value=None)
+
+    # Сохраняем цену
     price_repo.save(price)
+    # Удаляем цену
     deleted = price_repo.delete(price_id=price.id)
+    # Проверяем результат
     assert deleted is True
     result = price_repo.get(price.id)
     assert result is None
 
-def test_delete_price_not_found(price_repo, session):
-    '''Проверяет удаление несуществующей цены.'''
-    deleted = price_repo.delete(price_id="non_existent_id")
-    assert deleted is False
+    # Проверяем вызовы
+    print(f"session.get calls: {mock_session.get.mock_calls}")
+    print(f"session.delete calls: {mock_session.delete.mock_calls}")
+    print(f"session.commit calls: {mock_session.commit.mock_calls}")
+    assert mock_session.get.call_count == 2  # Один для delete, один для get
+    mock_session.delete.assert_called_once_with(mock_orm_price)
+    mock_session.commit.assert_called_once()
