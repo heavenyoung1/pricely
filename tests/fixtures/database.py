@@ -20,6 +20,15 @@ def session_factory(engine):
     return sessionmaker(bind=engine, expire_on_commit=False)
 
 @pytest.fixture
+def db_session(session_factory):
+    """Открываем и закрываем сессию на каждый тест"""
+    session = session_factory()
+    try:
+        yield session
+    finally:
+        session.close()
+
+@pytest.fixture
 def uow(session_factory):
     """UoW с тестовой фабрикой"""
     return SQLAlchemyUnitOfWork(session_factory=session_factory)

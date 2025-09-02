@@ -11,10 +11,10 @@ logger = logging.getLogger(__name__)
 
 # ----- # ----- # ----- Тесты ----- # ----- # ----- #
 
-def test_save_product_success(product_repo, product: Product, session):
+def test_save_product_success(product_repo, product: Product, db_session):
     '''Проверяет, что продукт действительно сохранился в БД.'''
     product_repo.save(product)
-    saved_product = session.get(ORMProduct, product.id) # Прямой доступ к БД
+    saved_product = db_session.get(ORMProduct, product.id) # Прямой доступ к БД
     assert saved_product is not None
     assert saved_product.id == product.id
     assert saved_product.name == product.name
@@ -33,15 +33,15 @@ def test_get_product_not_found(product_repo):
     product = product_repo.get(product_id=product_id)
     assert product is None
 
-def test_delete_product(product_repo, product, session):
+def test_delete_product(product_repo, product, db_session):
     '''Проверка, что delete реально удаляет объект из БД.'''
     product_repo.save(product)
-    assert session.get(ORMProduct, product.id) is not None  # Есть до удаления
+    assert db_session.get(ORMProduct, product.id) is not None  # Есть до удаления
 
     deleted = product_repo.delete(product.id)
-    session.commit()  # Фиксируем изменения в базе
+    db_session.commit()  # Фиксируем изменения в базе
     assert deleted is True
-    assert session.get(ORMProduct, product.id) is None
+    assert db_session.get(ORMProduct, product.id) is None
 
 def test_delete_product_not_found(product_repo):
     '''Удаление несуществующего объекта должно вернуть False.'''

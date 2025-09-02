@@ -23,11 +23,5 @@
   "tests/unit/test_with_uow.py::test_with_uow_raises_and_rollback": true,
   "tests/unit/test_mapper_price.py::test_orm_to_domain": true,
   "tests/unit/test_mapper_product.py::test_orm_to_domain": true,
-  "tests/unit/test_mapper_user.py::test_orm_to_domain": true,
-  "tests/unit/test_repo_product.py::test_save_product_success": true,
-  "tests/unit/test_repo_product.py::test_get_product": true,
-  "tests/unit/test_repo_product.py::test_get_product_not_found": true,
-  "tests/unit/test_repo_product.py::test_delete_product": true,
-  "tests/unit/test_repo_product.py::test_delete_product_not_found": true,
-  "tests/unit/test_repo_product.py::test_get_all_products": true
+  "tests/unit/test_mapper_user.py::test_orm_to_domain": true
 }
