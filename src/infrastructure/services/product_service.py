@@ -17,7 +17,7 @@ from src.domain.exceptions import (
 )
 
 from src.domain.entities import Product, Price, User
-from src.core import UnitOfWork, with_uow
+from src.core import SQLAlchemyUnitOfWork, with_uow
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ class ProductService:
         self.uow_factory = uow_factory
 
     @with_uow(commit=True)
-    def create_user(self, user: User, uow: UnitOfWork) -> None:
+    def create_user(self, user: User, uow: SQLAlchemyUnitOfWork) -> None:
         try:
             use_case = CreateUserUseCase(user_repo=uow.user_repository())
             use_case.execute(user)
@@ -36,7 +36,7 @@ class ProductService:
             raise UserCreationError(f"Ошибка создания пользователя: {str(e)}")
 
     @with_uow(commit=True)
-    def create_product(self, user_id: str, url: str, uow: UnitOfWork) -> str:
+    def create_product(self, user_id: str, url: str, uow: SQLAlchemyUnitOfWork) -> str:
         try:
             use_case = CreateProductUseCase(
                 user_repo=uow.user_repository(),
@@ -53,7 +53,7 @@ class ProductService:
             raise
 
     @with_uow(commit=False)
-    def get_product(self, product_id: str, uow: UnitOfWork) -> Product:
+    def get_product(self, product_id: str, uow: SQLAlchemyUnitOfWork) -> Product:
         try:
             use_case = GetProductUseCase(product_repo=uow.product_repository())
             return use_case.execute(product_id)
@@ -65,7 +65,7 @@ class ProductService:
             raise
 
     @with_uow(commit=False)
-    def get_full_product(self, product_id: str, uow: UnitOfWork):
+    def get_full_product(self, product_id: str, uow: SQLAlchemyUnitOfWork):
         try:
             use_case = GetFullProductUseCase(
                 product_repo=uow.product_repository(),
@@ -81,7 +81,7 @@ class ProductService:
             raise
 
     @with_uow(commit=True)
-    def update_product_price(self, product_id: str, price: Price, uow: UnitOfWork) -> None:
+    def update_product_price(self, product_id: str, price: Price, uow: SQLAlchemyUnitOfWork) -> None:
         try:
             use_case = UpdateProductPriceUseCase(
                 product_repo=uow.product_repository(),
@@ -93,7 +93,7 @@ class ProductService:
             logger.error(f'Ошибка при обновлении цены: {e}')
 
     @with_uow(commit=True)
-    def delete_product(self, product_id, uow: UnitOfWork) -> None:
+    def delete_product(self, product_id, uow: SQLAlchemyUnitOfWork) -> None:
         try:
             use_case = DeleteProductUseCase(
                 user_repo=uow.user_repository(),

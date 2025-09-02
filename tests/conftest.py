@@ -12,7 +12,7 @@ from src.infrastructure.database.repositories import ProductRepositoryImpl, Pric
 from src.infrastructure.database.models import Base, ORMProduct, ORMUser, ORMPrice
 from src.application.dto import ProductDTO, PriceDTO, UserDTO
 from src.domain.entities import Product, Price, User
-from src.core import UnitOfWork
+from src.core.uow import SQLAlchemyUnitOfWork
 from src.infrastructure.parsers import OzonParser
 from src.infrastructure.services import ProductService
 
@@ -74,7 +74,7 @@ def uow(session):
     '''
     def session_factory():
         return session
-    return UnitOfWork(session_factory=session_factory)
+    return SQLAlchemyUnitOfWork(session_factory=session_factory)
 
 # ----- # ----- # ----- МОК ДЛЯ ПАРСЕРА # ----- # ----- # ----- #
 
