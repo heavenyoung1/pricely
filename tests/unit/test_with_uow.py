@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 from src.domain.entities import Product, User
 from src.infrastructure.database.core import get_db_session, with_uow
 from src.infrastructure.database.core.unit_of_work import UnitOfWork
-from src.application.exceptions import UserCreationError
+from src.domain.exceptions import UserCreationError
 
 def test_with_uow_commit_true(mocker):
     """Проверяет что при commit=True вызывается commit и закрывается сессия."""

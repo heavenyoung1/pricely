@@ -1,7 +1,7 @@
 from pydantic import HttpUrl
 import json
 from src.domain.entities import Product
-from src.interfaces.dto import ProductDTO
+from src.application.dto import ProductDTO
 from src.infrastructure.database.models import ORMProduct
 
 

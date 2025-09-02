@@ -1,10 +1,10 @@
 import pytest
 import logging
 from unittest.mock import MagicMock
-from src.infrastructure.repositories import PriceRepositoryImpl
+from src.infrastructure.database.repositories import PriceRepositoryImpl
+from src.infrastructure.database.mappers import PriceMapper
 from src.infrastructure.database.models import ORMPrice
 from src.domain.entities import Price
-from src.infrastructure.mappers import PriceMapper
 
 logger = logging.getLogger(__name__)
 

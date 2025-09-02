@@ -1,6 +1,6 @@
 import pytest
-from src.infrastructure.mappers import PriceMapper
-from src.interfaces.dto import PriceDTO
+from src.infrastructure.database.mappers import PriceMapper
+from src.application.dto import PriceDTO
 from src.domain.entities import Price
 from src.infrastructure.database.models import ORMPrice
 

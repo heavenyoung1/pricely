@@ -2,7 +2,7 @@ import pytest
 import json
 from src.application.use_cases.create_user import CreateUserUseCase, UserCreationError
 from src.domain.entities import Product, Price, User
-from src.infrastructure.mappers import ProductMapper
+from src.infrastructure.database.mappers import ProductMapper
 from src.infrastructure.database.models import ORMUser
 
 def test_create_user_use_case_success(mock_user_repo, user, mocker):

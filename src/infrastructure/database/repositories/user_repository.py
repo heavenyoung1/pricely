@@ -1,8 +1,8 @@
 import logging
 
-from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
-from src.infrastructure.mappers import ProductMapper, PriceMapper, UserMapper
-from src.infrastructure.database.models import ORMProduct, ORMPrice, ORMUser
+from src.application.interfaces.repositories import UserRepository
+from src.infrastructure.database.mappers import UserMapper
+from src.infrastructure.database.models import ORMUser
 
 from sqlalchemy.orm import Session
 

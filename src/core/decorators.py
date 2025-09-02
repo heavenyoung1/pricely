@@ -1,5 +1,6 @@
 from functools import wraps
-from src.infrastructure.database.core import get_db_session, UnitOfWork
+from src.core import get_db_session, UnitOfWork
+
 
 def with_uow(commit: bool = False):
     def decorator(func):

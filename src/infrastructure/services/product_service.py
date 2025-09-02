@@ -1,7 +1,7 @@
 import logging
 from typing import Optional, Dict
-from src.application.exceptions import ProductNotFoundError, PriceUpdateError, ProductCreationError
-from src.infrastructure.core.ozon_parser import OzonParser
+from src.domain.exceptions import ProductNotFoundError, PriceUpdateError, ProductCreationError
+from src.infrastructure.parsers import OzonParser
 from src.application.use_cases import (
     CreateUserUseCase,
     CreateProductUseCase,
@@ -11,13 +11,13 @@ from src.application.use_cases import (
     DeleteProductUseCase,
 )
 
-from src.application.exceptions import (
+from src.domain.exceptions import (
     ProductNotFoundError, PriceUpdateError, ProductCreationError,
     UserCreationError, ParserProductError, ProductDeletingError
 )
 
 from src.domain.entities import Product, Price, User
-from src.infrastructure.database.core import UnitOfWork, with_uow
+from src.core import UnitOfWork, with_uow
 
 logger = logging.getLogger(__name__)
 

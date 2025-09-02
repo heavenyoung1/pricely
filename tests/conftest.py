@@ -8,13 +8,13 @@ from sqlalchemy.orm import sessionmaker, Session
 from unittest.mock import MagicMock
 from pydantic import HttpUrl
 
-from src.infrastructure.repositories import ProductRepositoryImpl, PriceRepositoryImpl, UserRepositoryImpl
+from src.infrastructure.database.repositories import ProductRepositoryImpl, PriceRepositoryImpl, UserRepositoryImpl
 from src.infrastructure.database.models import Base, ORMProduct, ORMUser, ORMPrice
-from src.interfaces.dto import ProductDTO, PriceDTO, UserDTO
+from src.application.dto import ProductDTO, PriceDTO, UserDTO
 from src.domain.entities import Product, Price, User
-from src.infrastructure.database.core import UnitOfWork
+from src.core import UnitOfWork
+from src.infrastructure.parsers import OzonParser
 from src.infrastructure.services import ProductService
-from src.infrastructure.core.ozon_parser import OzonParser
 
 # Другие полезные методы:
 # mock_method.assert_called()          # Был ли вызван хотя бы раз

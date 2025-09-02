@@ -2,9 +2,9 @@ import pytest
 import json
 from src.application.use_cases.get_full_product import GetFullProductUseCase
 from src.domain.entities import Product, Price, User
-from src.infrastructure.mappers import ProductMapper
+from src.infrastructure.database.mappers import ProductMapper
 from src.infrastructure.database.models import ORMUser
-from src.application.exceptions import ProductNotFoundError
+from src.domain.exceptions import ProductNotFoundError
 
 def test_get_full_product_use_case_success(
         mock_product_repo,

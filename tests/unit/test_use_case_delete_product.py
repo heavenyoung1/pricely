@@ -3,9 +3,9 @@ import json
 from src.application.use_cases.delete_product import DeleteProductUseCase, ProductDeletingError
 from src.application.use_cases.create_product import CreateProductUseCase
 from src.domain.entities import Product, Price, User
-from src.infrastructure.mappers import ProductMapper
+from src.infrastructure.database.mappers import ProductMapper
 from src.infrastructure.database.models import ORMUser
-from src.application.exceptions import ProductNotExistingDataBase, ProductDeletingError
+from src.domain.exceptions import ProductNotExistingDataBase, ProductDeletingError
 
 def test_delete_product_use_case_success(
         mock_product_repo,

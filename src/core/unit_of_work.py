@@ -1,7 +1,7 @@
 from typing import Callable, Type, Optional
 from sqlalchemy.orm import Session
 
-from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
+from src.application.interfaces.repositories import ProductRepository, PriceRepository, UserRepository
 
 
 class UnitOfWork:

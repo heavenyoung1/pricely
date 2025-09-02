@@ -2,8 +2,8 @@ import logging
 from typing import Optional, List
 from sqlalchemy.orm import Session
 
-from src.domain.repositories import PriceRepository
-from src.infrastructure.mappers import PriceMapper
+from src.application.interfaces.repositories import PriceRepository
+from src.infrastructure.database.mappers import PriceMapper
 from src.domain.entities import Price
 from src.infrastructure.database.models import ORMPrice, ORMProduct
 

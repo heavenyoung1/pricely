@@ -1,5 +1,5 @@
 from src.domain.entities import Price
-from src.interfaces.dto import PriceDTO
+from src.application.dto import PriceDTO
 from src.infrastructure.database.models import ORMPrice
 
 

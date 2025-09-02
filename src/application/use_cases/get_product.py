@@ -1,9 +1,9 @@
 import logging
 from typing import Optional
 
-from src.domain.repositories import ProductRepository, PriceRepository, UserRepository
+from src.application.interfaces.repositories import ProductRepository, PriceRepository, UserRepository
 from src.domain.entities import Product, Price
-from src.application.exceptions import ProductNotFoundError
+from src.domain.exceptions import ProductNotFoundError
 
 logger = logging.getLogger(__name__)
 

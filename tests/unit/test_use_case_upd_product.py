@@ -3,9 +3,9 @@ import json
 from datetime import datetime
 from src.application.use_cases.upd_product import UpdateProductPriceUseCase
 from src.domain.entities import Product, Price, User
-from src.infrastructure.mappers import ProductMapper
+from src.infrastructure.database.mappers import ProductMapper
 from src.infrastructure.database.models import ORMUser
-from src.application.exceptions import ProductNotFoundError, PriceUpdateError
+from src.domain.exceptions import ProductNotFoundError, PriceUpdateError
 
 def test_upd_price_use_case_success(
         mock_product_repo,

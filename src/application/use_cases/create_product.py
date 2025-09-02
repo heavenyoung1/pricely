@@ -1,11 +1,13 @@
-from src.domain.repositories import UserRepository, ProductRepository, PriceRepository
+from src.application.interfaces.repositories import ProductRepository, PriceRepository, UserRepository
 from src.domain.entities import Product, Price, User
-from src.infrastructure.core.ozon_parser import OzonParser
+
+from src.infrastructure.parsers import OzonParser
 from datetime import datetime
 import logging
 import uuid
-from src.domain.interfaces.product_parser import IProductParser
-from src.application.exceptions import ParserProductError, ProductSavingError, ProductCreationError
+from src.infrastructure.parsers.interfaces import Parser
+from src.application.interfaces import ProductParser
+from src.domain.exceptions import ParserProductError, ProductCreationError
 
 logger = logging.getLogger(__name__)
 
@@ -15,7 +17,7 @@ class CreateProductUseCase:
         product_repo: ProductRepository,
         price_repo: PriceRepository,
         user_repo: UserRepository,
-        parser: IProductParser,
+        parser: ProductParser,
     ):
         self.product_repo = product_repo
         self.price_repo = price_repo

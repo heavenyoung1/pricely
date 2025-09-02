@@ -4,7 +4,8 @@ from sqlalchemy.exc import SQLAlchemyError
 #from src.infrastructure.repositories import ProductRepositoryImpl
 from src.infrastructure.database.models import ORMProduct
 from src.domain.entities import Product
-from src.infrastructure.mappers import ProductMapper
+from src.infrastructure.database.repositories import PriceRepositoryImpl
+from src.infrastructure.database.mappers import ProductMapper
 
 import logging
 logger = logging.getLogger(__name__)

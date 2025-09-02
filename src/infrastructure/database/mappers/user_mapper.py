@@ -1,5 +1,5 @@
 from src.domain.entities import User
-from src.interfaces.dto import UserDTO
+from src.application.dto import UserDTO
 from src.infrastructure.database.models import ORMUser
 
 

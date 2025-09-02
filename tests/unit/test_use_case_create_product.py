@@ -4,10 +4,11 @@ from datetime import datetime
 from unittest.mock import patch, MagicMock
 from src.application.use_cases.create_product import CreateProductUseCase
 from src.domain.entities import Product, Price, User
-from src.infrastructure.mappers import ProductMapper, PriceMapper
 from src.infrastructure.database.models import ORMUser
-from src.infrastructure.core.ozon_parser import OzonParser
-from src.application.exceptions import ProductCreationError
+from src.domain.exceptions import ProductCreationError
+from src.infrastructure.database.repositories import PriceRepositoryImpl
+from src.infrastructure.database.mappers import ProductMapper ,PriceMapper
+from src.infrastructure.parsers import OzonParser
 
 
 @patch('src.application.use_cases.create_product.uuid.uuid4')
