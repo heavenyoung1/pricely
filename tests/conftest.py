@@ -16,6 +16,14 @@ from src.core.uow import SQLAlchemyUnitOfWork
 from src.infrastructure.parsers import OzonParser
 from src.infrastructure.services import ProductService
 
+pytest_plugins = [
+    'fixtures.database',
+    'fixtures.product',
+    'fixtures.price', 
+    'fixtures.user',
+    'fixtures.service',
+]
+
 # Другие полезные методы:
 # mock_method.assert_called()          # Был ли вызван хотя бы раз
 # mock_method.assert_called_with(args) # Был ли вызван с конкретными аргументами (последний вызов)
@@ -30,51 +38,6 @@ def setup_logging():
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         stream=sys.stdout
     )
-
-# @pytest.fixture
-# def session():
-#     '''Создает временную сессию SQLite в памяти для тестов.
-#     Автоматически создает таблицы и закрывает сессию после использования.'''
-#     # Нужна ли тут какая-то модификация, rollback для транзакций??
-#     engine = create_engine('sqlite:///:memory:')
-#     Base.metadata.create_all(engine)  # Создаём все таблицы
-#     SessionLocal = sessionmaker(bind=engine)
-#     session = SessionLocal()
-#     session.begin()  # Начинаем транзакцию
-#     yield session
-#     session.rollback()  # Откатываем изменения
-#     session.close()
-
-# ----- # ----- # ----- База данных + сессия ----- # ----- # ----- #
-
-@pytest.fixture
-def engine():
-    """Создаёт новый движок SQLite в памяти."""
-    engine = create_engine("sqlite:///:memory:")
-    Base.metadata.create_all(engine)
-    return engine
-
-
-@pytest.fixture
-def session(engine):
-    """
-    Создаёт отдельную сессию для теста.
-    Каждый тест работает в своей транзакции.
-    """
-    SessionLocal = sessionmaker(bind=engine)
-    session: Session = SessionLocal()
-    yield session
-    session.close()
-
-# ----- # ----- # ----- Unit of Work ----- # ----- # ----- #
-@pytest.fixture
-def uow(session):
-    '''
-    UnitOfWork с session_factory, корректно работающий в тестах.
-    '''
-    def session_factory():
-        return session
-    return SQLAlchemyUnitOfWork(session_factory=session_factory)
 
 # ----- # ----- # ----- МОК ДЛЯ ПАРСЕРА # ----- # ----- # ----- #
 
@@ -159,147 +122,7 @@ def user_repo(session):
     '''Фикстура репозитория продуктов с сессией.'''
     return UserRepositoryImpl(session=session)
 
-# ----- # ----- # ----- Фикстуры DTO слоя ----- # ----- # ----- #
 
-@pytest.fixture
-def product_dto():
-    '''Фикстура тестового Product DTO'''
-    return ProductDTO(
-        id='p1',
-        user_id='u1',
-        name='Test Product',
-        link=HttpUrl('https://example.com/product'),
-        image_url=HttpUrl('https://example.com/image.jpg'),
-        rating=4.5,
-        categories=['cat1', 'cat2']
-    )
 
-@pytest.fixture
-def price_dto():
-    '''Фикстура тестового Price DTO'''
-    return PriceDTO(
-        id='pr1',
-        product_id='p1',
-        with_card=100,
-        without_card=120,
-        previous_with_card=90,
-        previous_without_card=110,
-        default=150,
-        claim=datetime(2025, 1, 1)
-    )
 
-@pytest.fixture
-def user_dto():
-    '''Фикстура тестового User DTO'''
-    return UserDTO(
-        id='u1',
-        username='test_user',
-        chat_id='12345',
-        products=['p1', 'p2']
-    )
-
-# ----- # ----- # ----- Фикстуры DOMAIN слоя ----- # ----- # ----- #
-
-@pytest.fixture
-def product():
-    '''Фикстура тестового доменного Product'''
-    return Product(
-        id='p1',
-        user_id='u1',
-        price_id='pr1',
-        name='Test Product',
-        link='https://example.com/product',
-        image_url='https://example.com/image.jpg',
-        rating=4.5,
-        categories=['cat1', 'cat2']
-    )
-
-@pytest.fixture
-def price():
-    '''Фикстура тестового доменного Price'''
-    return Price(
-        id='pr1',
-        product_id='p1',
-        with_card=100,
-        without_card=120,
-        previous_with_card=None,        #90
-        previous_without_card=None,     #110,
-        default=150,
-        claim=datetime(2025, 1, 1)
-    )
-
-@pytest.fixture
-def price_second():
-    '''Фикстура тестового доменного Price'''
-    return Price(
-        id='pr1',
-        product_id='p1',
-        with_card=100,
-        without_card=120,
-        previous_with_card=90,    
-        previous_without_card=110,
-        default=150,
-        claim=datetime(2025, 1, 1)
-    )
-
-@pytest.fixture
-def user():
-    '''Фикстура тестового доменного User'''
-    return User(
-        id='u1',
-        username='test_user',
-        chat_id='12345',
-        products=['p1', 'p2']
-    )
-
-# ----- # ----- # ----- Фикстуры ORM слоя ----- # ----- # ----- #
-
-@pytest.fixture
-def orm_product(session):
-    '''Фикстура тестового ORM Product с JSON-сериализованными категориями'''
-    product = ORMProduct(
-        id='p1',
-        user_id='u1',
-        price_id='pr1',
-        name='Test Product',
-        link='https://example.com/product',
-        image_url='https://example.com/image.jpg',
-        rating=4.5,
-        categories=json.dumps(['cat1', 'cat2'])  # Явная сериализация в JSON
-    )
-    session.add(product)
-    session.commit()
-    return product
-
-@pytest.fixture
-def orm_price(session):
-    '''Фикстура тестового ORM Price'''
-    price = ORMPrice(
-        id='pr1',
-        product_id='p1',
-        with_card=100,
-        without_card=120,
-        previous_with_card=90,
-        previous_without_card=110,
-        default=150,
-        claim=datetime(2025, 1, 1)
-    )
-    session.add(price)
-    session.commit()
-    return price
-
-@pytest.fixture
-def orm_user(session, orm_product):
-    '''Фикстура тестового ORM User'''
-    user = ORMUser(
-        id='u1',
-        username='test_user',
-        chat_id='12345',
-        #products=['p1', 'p2'] # НЕ передаем products в конструктор!
-    )
-    session.add(user)
-    session.flush()
-    user.products = [orm_product]
-    session.commit()
-    return user
 
