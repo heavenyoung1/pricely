@@ -13,7 +13,7 @@ class UnitOfWork(ABC):
         '''Вход в контекстный менеджер.'''
         return self  # Возвращает сам объект UoW при входе в контекст
     
-    def __exit__(self, exc_type, exc_val, exc_tab):
+    def __exit__(self, exc_type, exc_val, exc_tb):
         '''Выход из контекстного менеджера.'''
         # exc_type - тип исключения (None если нет ошибки)
         # exc_val - значение исключения (объект исключения)
