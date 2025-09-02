@@ -1,6 +1,6 @@
 import pytest
-from src.infrastructure.mappers import ProductMapper
-from src.interfaces.dto import ProductDTO
+from src.infrastructure.database.mappers import ProductMapper
+from src.application.dto import ProductDTO
 from src.domain.entities import Product
 from src.infrastructure.database.models import ORMProduct
 

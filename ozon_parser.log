@@ -3490,3 +3490,31 @@ Stacktrace:
 2025-09-01 15:42:13,332 - src.infrastructure.database.core.database - INFO - Сессия БД успешно инициализирована
 2025-09-01 15:42:13,334 - src.infrastructure.database.core.database - ERROR - Ошибка создания сессии: Ошибка создания пользователя: DB error
 2025-09-01 15:42:13,335 - src.infrastructure.database.core.database - INFO - Сессия БД закрыта
+2025-09-02 10:29:06,620 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-02 10:29:06,622 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-02 10:29:06,623 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-02 10:29:06,624 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-02 10:29:06,625 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-02 10:29:21,538 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-09-02 10:29:21,544 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-09-02 10:29:38,329 - src.application.use_cases.delete_product - DEBUG - Цена pr1 удалена для товара p1
+2025-09-02 10:29:38,330 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален
+2025-09-02 10:29:38,330 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален из списка пользователя u1
+2025-09-02 10:29:38,331 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID p1
+2025-09-02 10:29:38,344 - src.application.use_cases.delete_product - WARNING - Товар p1 не существует в БД, пропускаем удаление
+2025-09-02 10:29:51,898 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-09-02 10:29:51,911 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-09-02 10:30:02,004 - src.application.use_cases.get_full_product - INFO - Успешно получена информация о товаре p1
+2025-09-02 10:30:02,012 - src.application.use_cases.get_full_product - WARNING - Товар ID_ID не найден
+2025-09-02 10:30:02,020 - src.application.use_cases.get_full_product - INFO - Успешно получена информация о товаре p1
+2025-09-02 10:30:02,027 - src.application.use_cases.get_full_product - WARNING - Пользователь u1 не найден для товара p1
+2025-09-02 10:30:02,028 - src.application.use_cases.get_full_product - INFO - Успешно получена информация о товаре p1
+2025-09-02 10:30:09,809 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-02 10:30:09,817 - src.application.use_cases.get_product - WARNING - Продукт ID_ID не найден
+2025-09-02 10:30:09,827 - src.application.use_cases.get_product - ERROR - Идентификатор продукта не указан
+2025-09-02 10:30:27,366 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-02 10:30:27,367 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-02 10:30:27,367 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-09-02 10:30:27,376 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-09-02 10:30:27,384 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-09-02 10:30:27,391 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан

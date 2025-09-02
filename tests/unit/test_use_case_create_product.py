@@ -7,7 +7,7 @@ from src.domain.entities import Product, Price, User
 from src.infrastructure.database.models import ORMUser
 from src.domain.exceptions import ProductCreationError
 from src.infrastructure.database.repositories import PriceRepositoryImpl
-from src.infrastructure.database.mappers import ProductMapper ,PriceMapper
+from src.infrastructure.database.mappers import ProductMapper, PriceMapper
 from src.infrastructure.parsers import OzonParser
 
 
@@ -44,8 +44,8 @@ def test_create_product_use_case_success(
         'price_without_card': price.without_card,
         'price_default': price.default,
     }
-    mocker.patch('src.infrastructure.mappers.ProductMapper.domain_to_orm', return_value=ProductMapper.domain_to_orm(product))
-    mocker.patch('src.infrastructure.mappers.PriceMapper.domain_to_orm', return_value=PriceMapper.domain_to_orm(price))
+    mocker.patch('src.infrastructure.database.mappers.ProductMapper.domain_to_orm', return_value=ProductMapper.domain_to_orm(product))
+    mocker.patch('src.infrastructure.database.mappers.PriceMapper.domain_to_orm', return_value=PriceMapper.domain_to_orm(price))
 
     # Создаем use case
     use_case = CreateProductUseCase(
