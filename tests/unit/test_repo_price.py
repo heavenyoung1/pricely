@@ -62,10 +62,35 @@ def test_save_price_success(price_second, mock_session):
 
 
 def test_get_price_success(price_second, mock_session, orm_price):
+    # Arrange (Подготовка)
+    # Создаем экземпляр репозитория с мокированной сессией
     repo = PriceRepositoryImpl(session=mock_session)
-    mock_session.get.return_value = price_second
+
+    # Настраиваем мок сессии: при вызове get() возвращаем ORM объект
+    mock_session.get.return_value = orm_price
+
+    # Act (Действие)
+    # Вызываем метод get репозитория для получения цены по ID
     result = repo.get(price_second.id)
-    logger.info(f'THIS RESULT.ID {result.id}')
-    logger.info(f'THIS price_second.id {price_second.id}')
+
+    # Debug: Логируем для отладки
+    logger.info(f'RESULT OBJECT ID: {result.id}')
+    logger.info(f'EXPECTED PRICE ID: {price_second.id}')
+
+    # Assert (Проверки)
+    # 1. Проверяем, что возвращенный объект имеет правильные данные
     assert result.id == price_second.id
+    assert result.product_id == price_second.product_id
+    assert result.with_card == price_second.with_card
+    assert result.without_card == price_second.without_card
+    assert result.previous_with_card == price_second.previous_with_card
+    assert result.previous_without_card == price_second.previous_without_card
+    assert result.default == price_second.default
+    assert result.claim == price_second.claim
+
+    # 2. Проверяем, что session.get был вызван с ПРАВИЛЬНЫМИ аргументами:
+    #    Первый аргумент: ORM класс (ORMPrice), второй аргумент: ID цены
+    mock_session.get.assert_called_once_with(ORMPrice, price_second.id)
+    
+    assert result is not None, 'Метод get() вернул None'
     
