@@ -35,6 +35,6 @@ def uow(session_factory):
     return SQLAlchemyUnitOfWork(session_factory=session_factory)
 
 @pytest.fixture
-def mock_session(self):
+def mock_session():
     '''Мокированная сессия SQLAlchemy'''
     return Mock()

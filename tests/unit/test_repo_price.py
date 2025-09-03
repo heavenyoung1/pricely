@@ -21,7 +21,9 @@ logger = logging.getLogger(__name__)
 #     mock_price_repo.session.merge.assert_called_once_with(orm_price)
 
 def test_save_price_success(price_second, mock_price_repo, mock_session):
-    mock_price_repo.save(price=price_second)
+    repo = PriceRepositoryImpl(session=mock_session)
+    repo.save(price=price_second)
+    assert mock_session.merge.called
 
 
 def test_save_price_error(price_second, mock_price_repo, mock_uow, mocker):
