@@ -54,14 +54,6 @@ def test_save_price_success(price_second, mock_session):
         f"Product ID ORM объекта ({orm_obj.product_id}) "
         f"не совпадает с Product ID доменного объекта ({price_second.product_id})"
     )
-    
-    # Дополнительные проверки можно добавить здесь:
-    # - Проверка других полей (with_card, without_card и т.д.)
-    # - Проверка, что commit НЕ вызывался (управляется в UOW)
-    # - Проверка, что другие методы сессии (add, delete) не вызывались
-
-
-
 
 def test_get_price_success(price_second, mock_session, orm_price):
     # Arrange (Подготовка)
