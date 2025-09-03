@@ -36,7 +36,7 @@ def product():
     )
 
 @pytest.fixture
-def orm_product(session):
+def orm_product(db_session):
     '''Фикстура тестового ORM Product с JSON-сериализованными категориями'''
     product = ORMProduct(
         id='p1',
@@ -48,6 +48,6 @@ def orm_product(session):
         rating=4.5,
         categories=json.dumps(['cat1', 'cat2'])  # Явная сериализация в JSON
     )
-    session.add(product)
-    session.commit()
+    db_session.add(product)
+    db_session.commit()
     return product

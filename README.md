@@ -1,4 +1,6 @@
 # 📉 Pricely
 
-Реализовать три тесты для use_case GetFullProductUseCase UpdatePriceUseCase UpdateProductPriceUseCase
-`python -m pytest tests/unit/test_use_case_create_product.py -v --log-cli-level=DEBUG`
+Другие полезные методы:
+mock_method.assert_called()          # Был ли вызван хотя бы раз
+mock_method.assert_called_with(args) # Был ли вызван с конкретными аргументами (последний вызов)
+mock_method.assert_not_called()      # НЕ был вызван
