@@ -36,6 +36,15 @@ class ProductRepositoryImpl(ProductRepository):
         logger.info(f'Найден Товар: {product} (ID: {orm_model.id})')
         return product
 
+    def get_relevant_price_id(self, product_id: str) -> Optional[str]:
+        logger.debug(f"Получение актуальной цены для продукта {product_id}")
+        orm_product = self.session.get(ORMProduct, product_id)
+        if orm_product:
+            logger.info(f"Актуальный price_id для продукта {product_id}: {orm_product.price_id}")
+            return orm_product.price_id
+        logger.warning(f"Продукт с ID {product_id} не найден")
+        return None
+
     def delete(self, product_id: str) -> bool:
         '''Удаляет товар по ID.'''
         logger.info(f'Попытка удаления товара с ID: {product_id}')

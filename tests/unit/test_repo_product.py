@@ -54,3 +54,15 @@ def test_get_all_products(product_repo, product, user):
     result = product_repo.get_all(user.id)
     assert len(result) == 1
     assert result[0].id == product.id
+
+
+    #АХАХАХ, тут воолбщзе не тот репо
+    # ИСПОЛЬЗУЙ PRODUCT REPO!!! 
+@pytest.mark.unit
+def test_get_relevant_price_id_found(mock_session, price, orm_product):
+    repo = PriceRepositoryImpl(session=mock_session)
+    mock_session.get.return_value = orm_product
+
+    result = repo.get_relevant_price_id(product_id=price.product_id)
+    logger.info(f'RESULT: {result}')
+    assert result == price.id

@@ -24,15 +24,6 @@ class PriceRepositoryImpl(PriceRepository):
         except Exception as e:
             logger.error(f"Ошибка сохранения цены {price}: {str(e)}")
             raise
-
-    def get_relevant_price_id(self, product_id: str) -> Optional[str]:
-        logger.debug(f"Получение актуальной цены для продукта {product_id}")
-        orm_product = self.session.get(ORMProduct, product_id)
-        if orm_product:
-            logger.info(f"Актуальный price_id для продукта {product_id}: {orm_product.price_id}")
-            return orm_product.price_id
-        logger.warning(f"Продукт с ID {product_id} не найден")
-        return None
     
     def get(self, price_id: str) -> Optional[Price]:
         logger.debug(f"Поиск цены по ID: {price_id}")
