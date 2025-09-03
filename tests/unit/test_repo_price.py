@@ -11,19 +11,17 @@ from sqlalchemy.exc import SQLAlchemyError
 
 logger = logging.getLogger(__name__)
 
-# def test_save_price_success(price_second, mock_price_repo, mock_uow, mocker):
-#     '''Проверяет, что цена сохраняется корректно.'''
-#     mock_uow.session = mock_price_repo.session
-#     orm_price = PriceMapper.domain_to_orm(price_second)
-#     mocker.patch('src.infrastructure.database.mappers.PriceMapper.domain_to_orm', return_value=orm_price)
-#     print(f"Type of mock_price_repo.session.merge in test: {type(mock_price_repo.session.merge)}")
-#     mock_price_repo.save(price_second)
-#     mock_price_repo.session.merge.assert_called_once_with(orm_price)
 
-def test_save_price_success(price_second, mock_price_repo, mock_session):
+def test_save_price_success(price_second, mock_session):
     repo = PriceRepositoryImpl(session=mock_session)
     repo.save(price=price_second)
+
+    # Проверяем, что вызвали merge с объектом ORM
     assert mock_session.merge.called
+    orm_obj = mock_session.merge.call_args[0][0]
+    logger.info(orm_obj)
+    assert orm_obj.id == price_second.id
+    assert orm_obj.product_id == price_second.product_id
 
 
 def test_save_price_error(price_second, mock_price_repo, mock_uow, mocker):
