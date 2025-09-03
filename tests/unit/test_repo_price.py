@@ -13,15 +13,50 @@ logger = logging.getLogger(__name__)
 
 
 def test_save_price_success(price_second, mock_session):
+    """
+    Тестирование успешного сохранения цены через репозиторий.
+    
+    Args:
+        price_second: Фикстура с доменным объектом Price для тестирования
+        mock_session: Фикстура с мокированной сессией SQLAlchemy
+    """
+    # Arrange (Подготовка)
+    # Создаем экземпляр репозитория, передавая мокированную сессию
     repo = PriceRepositoryImpl(session=mock_session)
+    
+    # Act (Действие)
+    # Вызываем метод save репозитория, передавая доменный объект цены
     repo.save(price=price_second)
 
-    # Проверяем, что вызвали merge с объектом ORM
-    assert mock_session.merge.called
+    # Assert (Проверки)
+    # 1. Проверяем, что метод merge сессии был вызван
+    #    Это основной метод, который должен вызываться для сохранения/обновления
+    assert mock_session.merge.called, "Метод merge сессии не был вызван"
+    
+    # 2. Извлекаем аргументы вызова метода merge
+    # call_args[0] - кортеж позиционных аргументов
+    # call_args[0][0] - первый позиционный аргумент (ORM объект)
     orm_obj = mock_session.merge.call_args[0][0]
-    logger.info(orm_obj)
-    assert orm_obj.id == price_second.id
-    assert orm_obj.product_id == price_second.product_id
+    
+    # Логируем полученный ORM объект для отладки
+    logger.info(f"ORM объект, переданный в merge: {orm_obj}")
+    
+    # 3. Проверяем, что данные правильно смаппились из доменного объекта в ORM
+    #    Сравниваем ID ORM объекта с ID доменного объекта
+    assert orm_obj.id == price_second.id, (
+        f"ID ORM объекта ({orm_obj.id}) не совпадает с ID доменного объекта ({price_second.id})"
+    )
+    
+    # 4. Проверяем маппинг product_id
+    assert orm_obj.product_id == price_second.product_id, (
+        f"Product ID ORM объекта ({orm_obj.product_id}) "
+        f"не совпадает с Product ID доменного объекта ({price_second.product_id})"
+    )
+    
+    # Дополнительные проверки можно добавить здесь:
+    # - Проверка других полей (with_card, without_card и т.д.)
+    # - Проверка, что commit НЕ вызывался (управляется в UOW)
+    # - Проверка, что другие методы сессии (add, delete) не вызывались
 
 
 def test_save_price_error(price_second, mock_price_repo, mock_uow, mocker):
