@@ -42,5 +42,6 @@
   "tests/unit/test_use_case_upd_product.py::test_upd_price_use_case_product_not_found": true,
   "tests/unit/test_use_case_upd_product.py::test_upd_price_use_case_invalid_product_id": true,
   "tests/unit/test_use_case_upd_product.py::test_upd_price_use_case_invalid_price_id": true,
-  "tests/unit/test_repo_price.py": true
+  "tests/unit/test_repo_price.py": true,
+  "tests/unit/test_repo_price.py::test_get_relevant_price_id_found": true
 }

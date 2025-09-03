@@ -61,6 +61,15 @@ def test_save_price_success(price_second, mock_session):
     # - Проверка, что другие методы сессии (add, delete) не вызывались
 
 
+@pytest.mark.unit
+def test_get_relevant_price_id_found(mock_session, price, orm_price):
+    repo = PriceRepositoryImpl(session=mock_session)
+    mock_session.get.return_value = orm_price
+
+    result = repo.get_relevant_price_id(product_id=price.product_id)
+    logger.info(f'RESULT: {result}')
+
+
 def test_get_price_success(price_second, mock_session, orm_price):
     # Arrange (Подготовка)
     # Создаем экземпляр репозитория с мокированной сессией
