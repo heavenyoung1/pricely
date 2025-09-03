@@ -20,3 +20,18 @@ def price_repo(db_session):
 def user_repo(db_session):
     '''Фикстура репозитория продуктов с сессией.'''
     return UserRepositoryImpl(session=db_session)
+
+@pytest.fixture
+def mock_product_repo(mock_session):
+    '''Фикстура репозитория товаров с замоканной сессией.'''
+    return ProductRepositoryImpl(session=mock_session)
+
+@pytest.fixture
+def mock_price_repo(mock_session):
+    '''Фикстура репозитория товаров с замоканной сессией.'''
+    return PriceRepositoryImpl(session=mock_session)
+
+@pytest.fixture
+def mock_user_repo(mock_session):
+    '''Фикстура репозитория товаров с замоканной сессией.'''
+    return UserRepositoryImpl(session=mock_session)

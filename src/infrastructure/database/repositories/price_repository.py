@@ -69,7 +69,3 @@ class PriceRepositoryImpl(PriceRepository):
         except Exception as e:
             logger.error(f"Ошибка удаления цены {price_id}: {str(e)}")
             raise
-
-
-
-
