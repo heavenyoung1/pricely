@@ -17,6 +17,7 @@
   "tests/unit/test_one.py::test_patch_vs_instance",
   "tests/unit/test_repo_price.py::test_delete_price",
   "tests/unit/test_repo_price.py::test_delete_price_success",
+  "tests/unit/test_repo_price.py::test_get_all_prices_by_product",
   "tests/unit/test_repo_price.py::test_get_price",
   "tests/unit/test_repo_price.py::test_get_price_not_found",
   "tests/unit/test_repo_price.py::test_get_price_success",

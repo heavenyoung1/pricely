@@ -116,3 +116,67 @@
 2025-09-03 16:28:35,492 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение актуальной цены для продукта p1
 2025-09-03 16:30:06,910 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение актуальной цены для продукта p1
 2025-09-03 16:36:19,167 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение актуальной цены для продукта p1
+2025-09-03 16:50:36,666 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-03 16:50:36,676 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-03 16:50:36,677 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x0000016AA3693CB0>
+2025-09-03 16:50:36,710 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-03 16:50:36,711 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-03 16:50:36,711 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-03 16:50:36,712 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-03 16:54:10,027 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-03 16:54:10,032 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-03 16:54:10,033 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x00000211462D3CB0>
+2025-09-03 16:54:10,064 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-03 16:54:10,065 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-03 16:54:10,065 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-03 16:54:10,066 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-03 16:59:16,192 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-03 16:59:16,207 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-03 16:59:16,209 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000002318A403CB0>
+2025-09-03 16:59:16,243 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-03 16:59:16,244 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-03 16:59:16,244 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-03 16:59:16,244 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-03 17:00:22,863 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-03 17:00:22,874 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-03 17:00:22,875 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x00000233594C3CB0>
+2025-09-03 17:00:22,922 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-03 17:00:22,923 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-03 17:00:22,923 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-03 17:00:22,924 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-03 17:02:44,528 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-03 17:02:44,534 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-03 17:02:44,535 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000001C89D5FFE00>
+2025-09-03 17:02:44,560 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-03 17:02:44,561 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-03 17:02:44,561 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-03 17:02:44,562 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-03 17:02:44,564 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение всех цен для продукта p1
+2025-09-03 17:02:44,565 - src.infrastructure.database.repositories.price_repository - INFO - Найдено 1 цен для продукта p1
+2025-09-03 17:04:28,774 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-03 17:04:28,783 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-03 17:04:28,783 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000002D3B570FE00>
+2025-09-03 17:04:28,808 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-03 17:04:28,809 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-03 17:04:28,810 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-03 17:04:28,810 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-03 17:04:28,813 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение всех цен для продукта p1
+2025-09-03 17:04:28,813 - src.infrastructure.database.repositories.price_repository - INFO - Найдено 1 цен для продукта p1
+2025-09-03 17:05:34,869 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-03 17:05:34,874 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-03 17:05:34,875 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000001C05E10FE00>
+2025-09-03 17:05:34,903 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-03 17:05:34,904 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-03 17:05:34,904 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-03 17:05:34,904 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-03 17:05:34,906 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение всех цен для продукта p1
+2025-09-03 17:05:34,907 - src.infrastructure.database.repositories.price_repository - INFO - Найдено 1 цен для продукта p1
+2025-09-03 17:08:17,981 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-03 17:08:17,988 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-03 17:08:17,989 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x00000241DAD93CB0>
+2025-09-03 17:08:18,012 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-03 17:08:18,013 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-03 17:08:18,013 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-03 17:08:18,014 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-03 17:08:18,016 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение всех цен для продукта p1
+2025-09-03 17:08:18,017 - src.infrastructure.database.repositories.price_repository - INFO - Найдено 1 цен для продукта p1

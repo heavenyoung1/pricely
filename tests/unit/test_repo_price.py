@@ -55,6 +55,7 @@ def test_save_price_success(price_second, mock_session):
         f"не совпадает с Product ID доменного объекта ({price_second.product_id})"
     )
 
+@pytest.mark.unit
 def test_get_price_success(price_second, mock_session, orm_price):
     # Arrange (Подготовка)
     # Создаем экземпляр репозитория с мокированной сессией
@@ -87,4 +88,21 @@ def test_get_price_success(price_second, mock_session, orm_price):
     mock_session.get.assert_called_once_with(ORMPrice, price_second.id)
     
     assert result is not None, 'Метод get() вернул None'
+    
+@pytest.mark.unit
+def test_get_all_prices_by_product(mock_session, price_second, mocked_orm_price):
+    repo = PriceRepositoryImpl(session=mock_session)
+
+    # подсовываем ORM объект как результат запроса
+    mock_session.query.return_value.filter_by.return_value.all.return_value = [mocked_orm_price]
+
+    result = repo.get_all_prices_by_product(product_id=price_second.product_id)
+
+    # проверки
+    assert len(result) == 1
+    assert result[0].id == price_second.id
+
+    # проверяем, что репозиторий ходил именно в таблицу prices
+    mock_session.query.assert_called_once_with(ORMPrice)
+    
     
