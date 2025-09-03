@@ -19,6 +19,14 @@ pytest_plugins = [
     'fixtures.parser',
 ]
 
+def pytest_configure(config):
+    config.addinivalue_line('markers', 'integration: интеграционные тесты с БД')
+    config.addinivalue_line('markers', 'unit: unit-тесты с моками')
+
+# Запуск отдельно
+# pytest -m 'integration'  # только интеграционные
+# pytest -m 'unit'         # только unit-тесты
+
 @pytest.fixture(autouse=True)
 def setup_logging():
     logging.basicConfig(
