@@ -180,3 +180,114 @@
 2025-09-03 17:08:18,014 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
 2025-09-03 17:08:18,016 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение всех цен для продукта p1
 2025-09-03 17:08:18,017 - src.infrastructure.database.repositories.price_repository - INFO - Найдено 1 цен для продукта p1
+2025-09-04 08:51:19,699 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-04 08:51:19,709 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-04 08:51:19,709 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000001F150003CB0>
+2025-09-04 08:51:19,882 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-04 08:51:19,883 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-04 08:51:19,883 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-04 08:51:19,884 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-04 08:51:19,886 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение всех цен для продукта p1
+2025-09-04 08:51:19,887 - src.infrastructure.database.repositories.price_repository - INFO - Найдено 1 цен для продукта p1
+2025-09-04 09:05:19,579 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:05:19,595 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:05:19,609 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:05:19,610 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:05:19,611 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:05:19,620 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 09:05:19,626 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: 666
+2025-09-04 09:05:19,629 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID 666 не найден
+2025-09-04 09:05:19,636 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:05:19,640 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:05:19,643 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 09:05:19,646 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 09:05:19,658 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: ID_ID
+2025-09-04 09:05:19,659 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID ID_ID не найден для удаления
+2025-09-04 09:05:19,662 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:05:19,664 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:05:19,666 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 09:05:19,675 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 09:08:23,445 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:08:23,470 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:08:23,486 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:08:23,488 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:08:23,488 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:08:23,490 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 09:08:23,492 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: 666
+2025-09-04 09:08:23,494 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID 666 не найден
+2025-09-04 09:08:23,499 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:08:23,501 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:08:23,506 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 09:08:23,509 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 09:08:23,518 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: ID_ID
+2025-09-04 09:08:23,520 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID ID_ID не найден для удаления
+2025-09-04 09:08:23,524 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:08:23,527 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:08:23,527 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 09:08:23,535 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 09:14:54,213 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-04 09:14:54,221 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-04 09:14:54,222 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000001F817703CB0>
+2025-09-04 09:16:52,344 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:16:52,510 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:16:52,525 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:16:52,525 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:16:52,535 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 09:16:52,540 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: 666
+2025-09-04 09:16:52,542 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID 666 не найден
+2025-09-04 09:16:52,544 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:16:52,547 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:16:52,549 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 09:16:52,552 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 09:16:52,559 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: ID_ID
+2025-09-04 09:16:52,560 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID ID_ID не найден для удаления
+2025-09-04 09:16:52,563 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:16:52,565 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:16:52,565 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 09:16:52,571 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 09:16:58,890 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-04 09:16:58,900 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-04 09:16:58,901 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000001ADF8543CB0>
+2025-09-04 09:17:40,084 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-04 09:17:40,092 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-04 09:17:40,092 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000001C89D313CB0>
+2025-09-04 09:18:26,109 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-04 09:18:26,119 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-04 09:18:26,120 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000001F8BF343CB0>
+2025-09-04 09:22:52,619 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-04 09:22:52,627 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-04 09:22:52,627 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x0000024997283CB0>
+2025-09-04 09:23:06,865 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-04 09:23:06,875 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-04 09:23:06,876 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x0000022CF9D03CB0>
+2025-09-04 09:23:58,515 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:24:21,542 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:25:24,940 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:25:24,956 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:30:01,860 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:34:14,426 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:34:14,427 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID p1 не найден
+2025-09-04 09:34:35,820 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:34:35,820 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID p1 не найден
+2025-09-04 09:34:35,821 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:34:35,829 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:34:35,829 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:34:35,829 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID p1 не найден
+2025-09-04 09:42:41,667 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:42:41,668 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID p1 не найден
+2025-09-04 09:42:41,669 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:42:41,670 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:42:41,670 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:42:41,671 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 09:42:55,584 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:42:55,584 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID p1 не найден
+2025-09-04 09:42:55,585 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:42:55,585 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:42:55,585 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:42:55,586 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 09:43:19,118 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:43:19,118 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID p1 не найден
+2025-09-04 09:43:19,119 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 09:43:19,119 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 09:43:19,120 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 09:43:19,120 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
