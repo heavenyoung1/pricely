@@ -1,9 +1,12 @@
 import pytest
+from unittest.mock import Mock
 from src.infrastructure.database.mappers import UserMapper
 from src.application.dto import UserDTO
 from src.domain.entities import User
 from src.infrastructure.database.models import ORMUser
 
+import logging
+logger = logging.getLogger(__name__)
 
 def test_dto_to_domain(user_dto):
     domain = UserMapper.dto_to_domain(user_dto)
@@ -24,7 +27,12 @@ def test_domain_to_orm(user):
     assert orm.chat_id == user.chat_id
 
 def test_orm_to_domain(orm_user):
+    mock_product = Mock()
+    mock_product.id = 'p1'
+    orm_user.__dict__['products'] = [mock_product]  # ← Добавляем мок продукта
+    
     domain = UserMapper.orm_to_domain(orm_user)
+    logger.debug(f'USER ORM - {orm_user}')
     assert isinstance(domain, User)
     assert domain.id == orm_user.id
     assert len(domain.products) == 1
