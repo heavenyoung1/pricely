@@ -27,6 +27,5 @@
   "tests/unit/test_repo_price.py::test_delete_price_success": true,
   "tests/unit/test_repo_price.py::test_get_relevant_price_id_found": true,
   "tests/unit/test_repo_product.py::test_get_relevant_price_id_found": true,
-  "tests/unit/test_repo_product.py::test_save_price_success": true,
-  "tests/unit/test_repo_price.py::test_get_price_success": true
+  "tests/unit/test_repo_product.py::test_save_price_success": true
 }

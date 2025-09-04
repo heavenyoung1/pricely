@@ -48,7 +48,7 @@ def price_second():
     )
 
 @pytest.fixture
-def orm_price(db_session):
+def orm_price():
     '''Фикстура тестового ORM Price'''
     price = ORMPrice(
         id='pr1',
@@ -60,8 +60,6 @@ def orm_price(db_session):
         default=150,
         claim=datetime(2025, 1, 1)
     )
-    db_session.add(price)
-    db_session.commit()
     return price
 
 @pytest.fixture
