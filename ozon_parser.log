@@ -625,3 +625,23 @@
 2025-09-04 15:37:47,785 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
 2025-09-04 15:37:47,791 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
 2025-09-04 15:55:17,581 - test_mapper_user - DEBUG - USER ORM - <src.infrastructure.database.models.user.ORMUser object at 0x000001CEF14AF770>
+2025-09-04 16:02:32,152 - test_mapper_user - DEBUG - USER ORM - <src.infrastructure.database.models.user.ORMUser object at 0x000001B8DD40F770>
+2025-09-04 16:08:00,426 - test_mapper_user - DEBUG - USER ORM - <src.infrastructure.database.models.user.ORMUser object at 0x0000016842BDF770>
+2025-09-04 16:08:19,120 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='u1', username='test_user', chat_id='12345', products=[]) получен по id: u1
+2025-09-04 16:08:33,405 - test_mapper_user - DEBUG - USER ORM - <src.infrastructure.database.models.user.ORMUser object at 0x000001CB8E94F770>
+2025-09-04 16:08:39,131 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='u1', username='test_user', chat_id='12345', products=[]) получен по id: u1
+2025-09-04 16:08:39,133 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-04 16:10:19,906 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='u1', username='test_user', chat_id='12345', products=[]) получен по id: u1
+2025-09-04 16:10:19,909 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-04 16:10:19,914 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: u1
+2025-09-04 16:10:19,915 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь с id: u1 удален
+2025-09-04 16:11:02,697 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='u1', username='test_user', chat_id='12345', products=[]) получен по id: u1
+2025-09-04 16:11:02,700 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-04 16:11:02,702 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: u1
+2025-09-04 16:11:02,703 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь с id: u1 удален
+2025-09-04 16:11:32,775 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='u1', username='test_user', chat_id='12345', products=[]) получен по id: u1
+2025-09-04 16:11:32,776 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-04 16:11:32,779 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: u1
+2025-09-04 16:11:32,780 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь с id: u1 удален
+2025-09-04 16:11:32,783 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: NOTEXIST_ID
+2025-09-04 16:11:32,784 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
