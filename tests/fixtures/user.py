@@ -26,7 +26,7 @@ def user():
     )
 
 @pytest.fixture
-def orm_user(db_session, orm_product):
+def orm_user():
     '''Фикстура тестового ORM User'''
     user = ORMUser(
         id='u1',
@@ -34,8 +34,5 @@ def orm_user(db_session, orm_product):
         chat_id='12345',
         #products=['p1', 'p2'] # НЕ передаем products в конструктор!
     )
-    db_session.add(user)
-    db_session.flush()
-    user.products = [orm_product]
-    db_session.commit()
+    #user.products = [orm_product]
     return user

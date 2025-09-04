@@ -35,15 +35,27 @@ class ProductRepositoryImpl(ProductRepository):
         product = ProductMapper.orm_to_domain(orm_model)
         logger.info(f'Найден Товар: {product} (ID: {orm_model.id})')
         return product
+    
+    def get_all(self, user_id: str) -> List['Product']:
+        '''Получает все товары пользователя.'''
+        logger.debug(f'Поиск всех товаров пользователя {user_id}')
+        try:
+            orm_models = self.session.query(ORMProduct).filter_by(user_id=user_id).all()
+            products = [ProductMapper.orm_to_domain(m) for m in orm_models]
+            logger.info(f'Найдено {len(products)} товаров для пользователя {user_id}')
+            return products
+        except Exception as e:
+            logger.error(f'Ошибка получения товаров пользователя {user_id}: {str(e)}')
+            raise
 
-    def get_relevant_price_id(self, product_id: str) -> Optional[str]:
-        logger.debug(f"Получение актуальной цены для продукта {product_id}")
-        orm_product = self.session.get(ORMProduct, product_id)
-        if orm_product:
-            logger.info(f"Актуальный price_id для продукта {product_id}: {orm_product.price_id}")
-            return orm_product.price_id
-        logger.warning(f"Продукт с ID {product_id} не найден")
-        return None
+    # def get_relevant_price_id(self, product_id: str) -> Optional[str]:
+    #     logger.debug(f"Получение актуальной цены для продукта {product_id}")
+    #     orm_product = self.session.get(ORMProduct, product_id)
+    #     if orm_product:
+    #         logger.info(f"Актуальный price_id для продукта {product_id}: {orm_product.price_id}")
+    #         return orm_product.price_id
+    #     logger.warning(f"Продукт с ID {product_id} не найден")
+    #     return None
 
     def delete(self, product_id: str) -> bool:
         '''Удаляет товар по ID.'''
@@ -60,14 +72,3 @@ class ProductRepositoryImpl(ProductRepository):
             logger.error(f'Ошибка удаления товара {product_id}: {str(e)}')
             raise
 
-    def get_all(self, user_id: str) -> List['Product']:
-        '''Получает все товары пользователя.'''
-        logger.debug(f'Поиск всех товаров пользователя {user_id}')
-        try:
-            orm_models = self.session.query(ORMProduct).filter_by(user_id=user_id).all()
-            products = [ProductMapper.orm_to_domain(m) for m in orm_models]
-            logger.info(f'Найдено {len(products)} товаров для пользователя {user_id}')
-            return products
-        except Exception as e:
-            logger.error(f'Ошибка получения товаров пользователя {user_id}: {str(e)}')
-            raise

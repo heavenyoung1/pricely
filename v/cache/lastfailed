@@ -44,5 +44,6 @@
   "tests/unit/test_use_case_upd_product.py::test_upd_price_use_case_invalid_price_id": true,
   "tests/unit/test_repo_price.py::test_get_relevant_price_id_found": true,
   "tests/unit/test_repo_product.py::test_get_relevant_price_id_found": true,
-  "tests/unit/test_repo_product.py::test_save_price_success": true
+  "tests/unit/test_repo_product.py::test_save_price_success": true,
+  "tests/unit/test_repo_product.py::test_delete_product": true
 }

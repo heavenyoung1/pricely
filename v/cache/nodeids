@@ -31,6 +31,7 @@
   "tests/unit/test_repo_product.py::test_delete_product_not_found",
   "tests/unit/test_repo_product.py::test_get_all_products",
   "tests/unit/test_repo_product.py::test_get_product",
+  "tests/unit/test_repo_product.py::test_get_product_found",
   "tests/unit/test_repo_product.py::test_get_product_not_found",
   "tests/unit/test_repo_product.py::test_get_relevant_price_id_found",
   "tests/unit/test_repo_product.py::test_save_price_success",
