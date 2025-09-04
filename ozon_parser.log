@@ -375,3 +375,211 @@
 2025-09-04 11:13:16,593 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
 2025-09-04 11:13:16,593 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
 2025-09-04 11:13:16,594 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 11:25:01,805 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 11:25:01,805 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 11:25:01,808 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 11:25:01,808 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 11:25:01,810 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 11:25:01,811 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 11:25:01,812 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 11:25:01,813 - src.infrastructure.database.repositories.product_repository - ERROR - Ошибка получения товаров пользователя u1: 'Mock' object is not iterable
+2025-09-04 11:25:01,972 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 11:25:01,973 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 11:25:01,973 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 11:25:01,973 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:20:40,022 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:20:40,023 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:20:40,025 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:20:40,025 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:20:40,028 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:20:40,029 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:20:40,032 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:20:40,033 - src.infrastructure.database.repositories.product_repository - ERROR - Ошибка получения товаров пользователя u1: 'Mock' object is not iterable
+2025-09-04 15:20:40,191 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:20:40,191 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:20:40,192 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:20:40,192 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:21:04,611 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:21:04,612 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:21:04,615 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:21:04,616 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:21:04,618 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:21:04,619 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:21:04,623 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:21:04,624 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:21:04,626 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:21:04,626 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:21:04,626 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:21:04,627 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:21:19,592 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:21:19,593 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:21:19,595 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:21:19,595 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:21:19,598 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:21:19,599 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:21:19,602 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:21:19,603 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:21:45,209 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:21:45,210 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:21:45,212 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:21:45,212 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:21:45,214 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:21:45,215 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:21:45,218 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:21:45,220 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:22:39,348 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:22:39,348 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:22:39,351 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:22:39,351 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:22:39,353 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:22:39,354 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:22:39,356 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:22:39,357 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:22:39,359 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:22:39,359 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:22:39,359 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:22:39,360 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:23:33,374 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:23:33,375 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:23:33,377 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:23:33,377 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:23:33,381 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:23:33,381 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:23:33,383 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:23:33,384 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:23:33,385 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:23:33,386 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:23:33,386 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:23:33,386 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:27:49,384 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:27:49,395 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:27:49,436 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:27:49,448 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:27:49,480 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:27:49,481 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:27:49,487 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:27:49,490 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:28:02,594 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:28:02,595 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:28:02,597 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:28:02,598 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:28:02,600 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:28:02,601 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:28:02,605 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:28:02,605 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:28:43,726 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:28:43,727 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:28:43,730 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:28:43,730 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:28:43,732 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:28:43,733 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:28:43,736 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:28:43,737 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:28:43,740 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:28:43,741 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:28:43,742 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:28:43,743 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:29:10,582 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:29:10,583 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:29:10,587 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:29:10,588 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:29:10,591 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:29:10,592 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:29:10,595 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:29:10,596 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:29:10,597 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:29:10,598 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:29:10,598 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:29:10,599 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:29:16,539 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:29:16,540 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:29:16,543 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:29:16,543 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:29:16,545 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:29:16,545 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:29:16,547 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:29:16,547 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:29:16,549 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:29:16,550 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:29:16,550 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:29:16,551 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:30:01,690 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:30:01,692 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:30:01,693 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:30:01,693 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:30:01,696 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:30:01,696 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:30:01,700 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:30:01,701 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:30:01,704 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:30:01,704 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:30:01,705 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:30:01,705 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:30:36,735 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:30:36,736 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:30:36,737 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:30:36,737 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:30:36,739 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:30:36,740 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:30:36,742 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:30:36,742 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:30:36,744 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:30:36,744 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:30:36,745 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:30:36,746 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:31:00,348 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:31:00,349 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:31:00,351 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:31:00,352 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:31:00,355 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:31:00,355 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:31:00,357 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:31:00,357 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:31:00,360 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:31:00,360 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:31:00,360 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:31:00,361 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:31:17,721 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:31:17,722 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:31:17,724 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:31:17,724 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:31:17,728 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:31:17,729 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:31:17,733 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:31:17,735 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:31:17,738 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:31:17,739 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:32:14,038 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:32:14,039 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:32:14,041 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:32:14,041 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:32:14,044 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:32:14,044 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:32:14,048 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:32:14,049 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:32:14,052 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:32:14,054 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:32:14,054 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:32:14,055 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:32:22,210 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:32:22,211 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:32:22,213 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:32:22,214 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:32:22,221 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:32:22,222 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:32:22,225 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:32:22,226 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:32:22,229 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:32:22,229 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:32:22,230 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:32:22,231 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-04 15:32:35,289 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-04 15:32:35,289 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-04 15:32:35,291 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-04 15:32:35,291 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-04 15:32:35,295 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-04 15:32:35,295 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-04 15:32:35,298 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-04 15:32:35,299 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-04 15:32:35,302 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-04 15:32:35,304 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален

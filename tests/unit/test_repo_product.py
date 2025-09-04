@@ -33,17 +33,24 @@ def test_get_product_not_found(mock_session):
     mock_session.get.assert_called_once_with(ORMProduct, 'NOTEXIST_ID')
 
 @pytest.mark.unit  
-def test_get_all_product(mock_session, orm_product, product):
+def test_get_all_product(mock_session, orm_product, product, user):
     repo = ProductRepositoryImpl(session=mock_session)
-    
+    #
+    mock_session.query.return_value.filter_by.return_value.all.return_value = [orm_product]
+
+    result = repo.get_all(user_id=user.id)
+    assert len(result) == 1
+    assert result[0].id == product.id
+    mock_session.query.assert_called_once_with(ORMProduct)
 
 @pytest.mark.unit  
 def test_delete_product(mock_session, orm_product, product):
     repo = ProductRepositoryImpl(session=mock_session)
+
     mock_session.get.return_value = orm_product
-    result = repo.get(product_id=product.id)
-    assert result.id == product.id
-    repo.delete(product.id)
-    # Ну тут понятно, это функция а не объект Mock
-    # AttributeError: 'function' object has no attribute 'assert_called_once_with'
-    assert repo.delete.assert_called_once_with(product.id)
+
+    result = repo.delete(product.id)
+
+    assert result is True
+    mock_session.get.assert_called_once_with(ORMProduct, product.id)
+    mock_session.delete.assert_called_once_with(orm_product)

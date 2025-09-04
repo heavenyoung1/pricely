@@ -29,6 +29,7 @@
   "tests/unit/test_repo_price.py::test_save_price_success",
   "tests/unit/test_repo_product.py::test_delete_product",
   "tests/unit/test_repo_product.py::test_delete_product_not_found",
+  "tests/unit/test_repo_product.py::test_get_all_product",
   "tests/unit/test_repo_product.py::test_get_all_products",
   "tests/unit/test_repo_product.py::test_get_product",
   "tests/unit/test_repo_product.py::test_get_product_found",
