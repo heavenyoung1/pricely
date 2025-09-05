@@ -933,3 +933,8 @@
 2025-09-05 08:22:04,391 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: <Mock name='mock.parse_product()' id='1771672636448'>
 2025-09-05 09:23:49,799 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
 2025-09-05 09:23:49,801 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 09:37:13,663 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 09:37:13,664 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 09:37:13,664 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 09:37:13,664 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 09:37:13,665 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1

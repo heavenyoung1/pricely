@@ -57,7 +57,7 @@ def pure_mock_product_repo():
     mock = Mock(spec=ProductRepository) # Используем интерфейс
     mock.get.return_value = None # По умолчанию товар не найден
     mock.save.return_value = None
-    return Mock
+    return mock
 
 @pytest.fixture  
 def pure_mock_price_repo():
