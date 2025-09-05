@@ -1010,3 +1010,74 @@
 2025-09-05 09:49:33,892 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
 2025-09-05 09:49:33,892 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
 2025-09-05 09:49:33,892 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': '4b639fa8-0825-4e03-b23e-35d4df90cf59'}
+2025-09-05 10:00:39,186 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:00:39,187 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 10:00:39,187 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 10:00:39,187 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:00:39,188 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:00:39,188 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': '562be2bc-ef6e-4708-964d-ba6fb5c7dc93'}
+2025-09-05 10:00:39,193 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:00:39,194 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:00:39,194 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:00:39,194 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': '887a53ed-773f-4cb6-9b42-78e182a0776a'}
+2025-09-05 10:01:01,252 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:01:01,253 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 10:01:01,254 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 10:01:01,254 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:01:01,254 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:01:01,255 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': '55301239-be35-46a0-97f8-b7a856efd705'}
+2025-09-05 10:01:01,261 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:01:01,262 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 10:01:01,263 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 10:01:01,264 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:01:01,264 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:01:01,264 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': '109b0175-8cd9-4579-85db-35c86af601ef'}
+2025-09-05 10:01:37,853 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:01:37,854 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 10:01:37,854 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 10:01:37,855 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:01:37,855 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:01:37,856 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': 'ae44b7a6-7714-4d39-9597-029c40e26cfb'}
+2025-09-05 10:01:37,862 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:01:37,864 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:01:37,865 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:01:37,866 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': 'b45aea27-7b29-4978-8faf-89e99dd2366c'}
+2025-09-05 10:02:04,400 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:02:04,401 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 10:02:04,401 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 10:02:04,401 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:02:04,402 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:02:04,402 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': '5078406c-ccbc-44bf-bd88-eeaf2602c50e'}
+2025-09-05 10:02:04,409 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:02:04,411 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:02:04,412 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:02:23,216 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:02:23,218 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 10:02:23,219 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 10:02:23,219 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:02:23,220 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:02:23,220 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': '6067529b-ced5-41ee-a9ad-bcbae967bb52'}
+2025-09-05 10:02:23,224 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:02:23,224 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:02:23,225 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:05:06,435 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:05:06,437 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 10:05:06,438 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 10:05:06,438 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:05:06,438 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:05:06,439 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': 'e5ca99c1-f946-412e-864a-d535a1f3ad42'}
+2025-09-05 10:05:06,446 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:05:06,448 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:05:06,448 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:30:28,741 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:30:28,743 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 10:30:28,743 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 10:30:28,743 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:30:28,743 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:30:28,744 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': '60a0b901-70c6-40a4-b12f-8e4deaddfedf'}
+2025-09-05 10:30:28,747 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:30:28,748 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 10:30:28,748 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 10:30:28,754 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 10:30:28,755 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 10:30:28,756 - src.application.use_cases.create_product - ERROR - Товар с ID p1 уже существует
