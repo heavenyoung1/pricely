@@ -23,8 +23,9 @@ logger = logging.getLogger(__name__)
 
 class ProductService:
     '''Сервисный слой для оркестрации UseCase с использованием UnitOfWork.'''
-    def __init__(self, uow_factory):
+    def __init__(self, uow_factory, parser: Optional[OzonParser] = None):
         self.uow_factory = uow_factory
+        self.parser = parser or OzonParser()  # дефолт = OzonParser
 
     @with_uow(commit=True)
     def create_user(self, user: User, uow: SQLAlchemyUnitOfWork) -> None:
@@ -42,7 +43,7 @@ class ProductService:
                 user_repo=uow.user_repository(),
                 product_repo=uow.product_repository(),
                 price_repo=uow.price_repository(),
-                parser=OzonParser(),
+                parser=self.parser,
             )
             return use_case.execute(user_id, url)
         except ProductCreationError as e:

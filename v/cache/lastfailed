@@ -27,5 +27,20 @@
   "tests/unit/test_repo_price.py::test_delete_price_success": true,
   "tests/unit/test_repo_price.py::test_get_relevant_price_id_found": true,
   "tests/unit/test_repo_product.py::test_get_relevant_price_id_found": true,
-  "tests/unit/test_repo_product.py::test_save_price_success": true
+  "tests/unit/test_repo_product.py::test_save_price_success": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_create_user_success": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_create_user_failure": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_create_product_success_new_user": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_create_product_success_existing_user": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_create_product_parser_error": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_create_product_duplicate_error": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_get_product_success": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_get_product_not_found": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_get_full_product_success": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_get_full_product_not_found": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_update_product_price_success": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_delete_product_success": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_delete_product_not_found": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_service_workflow_integration": true,
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_uow_rollback_on_error": true
 }
