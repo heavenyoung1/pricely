@@ -93,3 +93,18 @@ def test_create_product_use_case_success(
     )
     result = use_case.execute(user_id=user.id, url='https://example.com/product')
     logger.debug(f'RESULT USE CASE -> {result}')
+
+    assert result['product_id'] == 'p1'
+    assert result['product_name'] == 'Test Product'
+    assert result['user_id'] == 'u1'
+
+   # Проверяем вызовы парсера
+    pure_mock_parser.parse_product.assert_called_once_with('https://example.com/product')
+    pure_mock_user_repo.get.assert_called_once_with('u1')
+    pure_mock_product_repo.get.assert_called_once_with('p1')
+    # Проверяем сохранение (2 раза для user - создание и обновление списка продуктов)
+    assert pure_mock_user_repo.save.call_count == 2
+    pure_mock_product_repo.save.assert_called_once()
+    pure_mock_price_repo.save.assert_called_once()
+
+
