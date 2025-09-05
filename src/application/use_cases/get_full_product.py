@@ -23,7 +23,7 @@ class GetFullProductUseCase:
             logger.warning(f'Товар {product_id} не найден')
             raise ProductNotFoundError(f'Товар {product_id} не существует')
 
-        price = None
+        #price = None Я забыл зачем это здесь, позже удалить
         if product.price_id:
             price = self.price_repo.get(product.price_id)
 

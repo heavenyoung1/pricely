@@ -65,6 +65,7 @@
   "tests/unit/test_use_case_get_full_product.py::test_get_full_product_no_price",
   "tests/unit/test_use_case_get_full_product.py::test_get_full_product_no_user",
   "tests/unit/test_use_case_get_full_product.py::test_get_full_product_not_found",
+  "tests/unit/test_use_case_get_full_product.py::test_get_full_product_product_not_found",
   "tests/unit/test_use_case_get_full_product.py::test_get_full_product_use_case_success",
   "tests/unit/test_use_case_get_product.py::test_create_product_use_case_success",
   "tests/unit/test_use_case_get_product.py::test_get_product_use_case_empty_product_id",
