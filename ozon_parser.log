@@ -787,3 +787,24 @@
 2025-09-05 14:24:26,646 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
 2025-09-05 14:24:26,650 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
 2025-09-05 14:24:26,652 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-09-05 14:25:13,092 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-05 14:25:13,094 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-05 14:25:13,094 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-09-05 14:25:13,096 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:25:13,098 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-09-05 14:25:13,101 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:25:13,104 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-09-05 14:25:13,106 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:25:13,108 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-09-05 14:36:59,199 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-05 14:36:59,201 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-05 14:36:59,201 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-09-05 14:37:06,445 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-05 14:37:06,445 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-05 14:37:06,446 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-09-05 14:38:25,858 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-05 14:38:25,858 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-05 14:38:25,859 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-09-05 14:39:02,667 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-05 14:39:02,668 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-05 14:39:02,668 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
