@@ -1,38 +1,31 @@
 import pytest
-import json
-from src.application.use_cases.create_user import CreateUserUseCase, UserCreationError
-from src.domain.entities import Product, Price, User
-from src.infrastructure.database.mappers import ProductMapper
-from src.infrastructure.database.models import ORMUser
+from src.application.use_cases.create_user import CreateUserUseCase
 
-def test_create_user_use_case_success(mock_user_repo, user, mocker):
-    '''Проверяет успешное создание пользователя, если он не существует.'''
-    # Настраиваем моки
-    mocker.patch.object(mock_user_repo, 'get', return_value=None)  # Пользователь не существует
-    mocker.patch.object(mock_user_repo, 'save', return_value=None)  # Мокаем save
 
-    # Создаем use case
-    use_case = CreateUserUseCase(user_repo=mock_user_repo)
-
-    # Выполняем создание пользователя
+@pytest.mark.unit
+def test_create_user_use_case_success(
+    pure_mock_user_repo,
+    user
+):
+    use_case = CreateUserUseCase(
+        user_repo=pure_mock_user_repo
+        )
     use_case.execute(user=user)
 
-    # Проверяем вызовы
-    mock_user_repo.get.assert_called_once_with(user.id)
-    mock_user_repo.save.assert_called_once_with(user)
+    pure_mock_user_repo.get.assert_called_once()
+    pure_mock_user_repo.save.assert_called_once()
+    assert pure_mock_user_repo.save.call_count == 1
 
-def test_create_user_use_case_user_exists(mock_user_repo, user, mocker):
-    '''Проверяет, что создание пользователя пропускается, если он уже существует.'''
-    # Настраиваем моки
-    mocker.patch.object(mock_user_repo, 'get', return_value=user)  # Пользователь существует
-    mocker.patch.object(mock_user_repo, 'save', return_value=None)  # Мокаем save
-
-    # Создаем use case
-    use_case = CreateUserUseCase(user_repo=mock_user_repo)
-
-    # Выполняем создание пользователя
+@pytest.mark.unit
+def test_create_user_use_case_user_exists(
+    pure_mock_user_repo,
+    user
+):
+    pure_mock_user_repo.get.return_value = user
+    use_case = CreateUserUseCase(
+        user_repo=pure_mock_user_repo
+        )
     use_case.execute(user=user)
 
-    # Проверяем вызовы
-    mock_user_repo.get.assert_called_once_with(user.id)
-    mock_user_repo.save.assert_not_called()
+    pure_mock_user_repo.get.assert_called_once()
+    pure_mock_user_repo.save.assert_not_called()

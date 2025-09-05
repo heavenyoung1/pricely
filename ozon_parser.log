@@ -1093,3 +1093,11 @@
 2025-09-05 10:32:19,324 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
 2025-09-05 10:32:19,324 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
 2025-09-05 10:32:19,324 - src.application.use_cases.create_product - ERROR - Товар с ID p1 уже существует
+2025-09-05 10:41:02,289 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-09-05 10:41:51,125 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-09-05 10:42:59,034 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-09-05 10:42:59,037 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-09-05 10:43:28,586 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-09-05 10:43:28,589 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-09-05 10:44:43,564 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-09-05 10:44:43,568 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание

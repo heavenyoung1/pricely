@@ -12,6 +12,7 @@ from src.infrastructure.parsers import OzonParser
 import logging
 logger = logging.getLogger(__name__)
 
+@pytest.mark.unit
 def test_create_product_success_new_user(
     pure_mock_product_repo,
     pure_mock_price_repo,
@@ -45,6 +46,7 @@ def test_create_product_success_new_user(
     pure_mock_product_repo.save.assert_called_once()
     pure_mock_price_repo.save.assert_called_once()
 
+@pytest.mark.unit
 def test_create_product_success_existing_user(
     pure_mock_product_repo,
     pure_mock_price_repo,
@@ -67,6 +69,7 @@ def test_create_product_success_existing_user(
     # Пользователь сохраняется только 1 раз (обновление списка продуктов)
     pure_mock_user_repo.save.assert_called_once()
 
+@pytest.mark.unit
 def test_create_product_fails_product_exists(
     pure_mock_product_repo,
     pure_mock_price_repo, 
