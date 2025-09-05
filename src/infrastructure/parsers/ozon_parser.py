@@ -35,17 +35,17 @@ class OzonParser(Parser):
             session.navigate(url)
             logger.info(f"Загружена страница: {url}")
             return {
-                "id": self._extract_id(session),
-                "name": self._extract_name(session),
-                "rating": self._extract_rating(session),
-                "price_with_card": self._extract_price_with_card(session),
-                "price_without_card": self._extract_price_without_card(session),
-                "price_default": self._extract_price_default(session),
-                "image_url": self._extract_image_url(session),
-                "categories": self._extract_category_product(session)
+                'id': self._extract_id(session),
+                'name': self._extract_name(session),
+                'rating': self._extract_rating(session),
+                'price_with_card': self._extract_price_with_card(session),
+                'price_without_card': self._extract_price_without_card(session),
+                'price_default': self._extract_price_default(session),
+                'image_url': self._extract_image_url(session),
+                'categories': self._extract_category_product(session)
             }
         except Exception as e:
-            logger.error(f"Ошибка при парсинге страницы {url}: {e}")
+            logger.error(f'Ошибка при парсинге страницы {url}: {e}')
             raise
     def _extract_name(self, session: SessionEngine) -> str:
         try:

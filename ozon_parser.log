@@ -928,3 +928,6 @@
 2025-09-04 17:00:17,772 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
 2025-09-04 17:00:17,773 - test_use_case_create_product - DEBUG - TYPE OF MOCK PRODUCT REPO <class 'src.infrastructure.database.repositories.product_repository.ProductRepositoryImpl'>
 2025-09-04 17:00:17,774 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: <Mock name='mock.parse_product()' id='2099088673824'>
+2025-09-05 08:22:04,385 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 08:22:04,390 - test_use_case_create_product - DEBUG - TYPE OF MOCK PRODUCT REPO <class 'src.infrastructure.database.repositories.product_repository.ProductRepositoryImpl'>
+2025-09-05 08:22:04,391 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: <Mock name='mock.parse_product()' id='1771672636448'>
