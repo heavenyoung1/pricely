@@ -1,12 +1,10 @@
 import pytest
-import json
-from src.application.use_cases.delete_product import DeleteProductUseCase, ProductDeletingError
-from src.application.use_cases.create_product import CreateProductUseCase
-from src.domain.entities import Product, Price, User
-from src.infrastructure.database.mappers import ProductMapper
-from src.infrastructure.database.models import ORMUser
-from src.domain.exceptions import ProductNotExistingDataBase, ProductDeletingError
 
+from src.application.use_cases.delete_product import DeleteProductUseCase
+from src.domain.exceptions import ProductNotExistingDataBase
+
+
+@pytest.mark.unit
 def test_delete_product_use_case_success(
     pure_mock_product_repo,
     pure_mock_price_repo,
@@ -32,13 +30,12 @@ def test_delete_product_use_case_success(
     pure_mock_user_repo.get.assert_called_with(product.user_id)
     pure_mock_user_repo.save.assert_called() == 1
 
+@pytest.mark.unit
 def test_delete_product_use_case_unsuccess_notexist_in_db(
     pure_mock_product_repo,
     pure_mock_price_repo,
     pure_mock_user_repo,
     product,
-    price,
-    user,
 ):
 
     use_case = DeleteProductUseCase(

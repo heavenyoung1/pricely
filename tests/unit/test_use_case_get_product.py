@@ -1,11 +1,9 @@
 import pytest
-import json
+
 from src.application.use_cases.get_product import GetProductUseCase
-from src.domain.entities import Product, Price, User
-from src.infrastructure.database.mappers import ProductMapper
-from src.infrastructure.database.models import ORMUser
 from src.domain.exceptions import ProductNotFoundError
 
+@pytest.mark.unit
 def test_get_product_use_case_success(
     pure_mock_product_repo,
     product,
@@ -16,10 +14,11 @@ def test_get_product_use_case_success(
     use_case = GetProductUseCase(
         product_repo=pure_mock_product_repo,
     )
-    result = use_case.execute(product_id=product.id)
+    use_case.execute(product_id=product.id)
 
     pure_mock_product_repo.get.assert_called_once_with(product.id)
 
+@pytest.mark.unit
 def test_get_product_use_case_unsuccess_not_found(
     pure_mock_product_repo,
     product,

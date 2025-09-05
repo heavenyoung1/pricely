@@ -1,15 +1,10 @@
 import pytest
-import json
-from datetime import datetime
-from unittest.mock import patch, MagicMock
-from src.application.use_cases.create_product import CreateProductUseCase
-from src.domain.entities import Product, Price, User
-from src.infrastructure.database.models import ORMUser
-from src.domain.exceptions import ProductCreationError
-from src.infrastructure.database.repositories import PriceRepositoryImpl, ProductRepositoryImpl, UserRepositoryImpl
-from src.infrastructure.database.mappers import ProductMapper, PriceMapper
-from src.infrastructure.parsers import OzonParser
 import logging
+
+from src.application.use_cases.create_product import CreateProductUseCase
+from src.domain.exceptions import ProductCreationError
+
+
 logger = logging.getLogger(__name__)
 
 @pytest.mark.unit

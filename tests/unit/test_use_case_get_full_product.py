@@ -2,6 +2,7 @@ import pytest
 from src.application.use_cases.get_full_product import GetFullProductUseCase
 from src.domain.exceptions import ProductNotFoundError
 
+@pytest.mark.unit
 def test_get_full_product_use_case_success(
     pure_mock_product_repo,
     pure_mock_price_repo,
@@ -30,6 +31,7 @@ def test_get_full_product_use_case_success(
     pure_mock_price_repo.get.assert_called_once_with(product.price_id)
     pure_mock_user_repo.get.assert_called_once_with(product.user_id)
 
+@pytest.mark.unit
 def test_get_full_product_product_not_found(
     pure_mock_product_repo,
     pure_mock_price_repo,
