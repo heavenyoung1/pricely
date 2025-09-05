@@ -452,3 +452,338 @@
 2025-09-05 14:08:30,837 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
 2025-09-05 14:08:30,840 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
 2025-09-05 14:08:30,841 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-09-05 14:16:29,435 - test_mapper_user - DEBUG - USER ORM - <src.infrastructure.database.models.user.ORMUser object at 0x000001F676BDC550>
+2025-09-05 14:16:29,441 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-05 14:16:29,442 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-05 14:16:29,442 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000001F676BDC550>
+2025-09-05 14:16:29,445 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-05 14:16:29,445 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-05 14:16:29,446 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-05 14:16:29,446 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-05 14:16:29,449 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение всех цен для продукта p1
+2025-09-05 14:16:29,450 - src.infrastructure.database.repositories.price_repository - INFO - Найдено 1 цен для продукта p1
+2025-09-05 14:16:29,454 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-05 14:16:29,456 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-05 14:16:29,460 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-05 14:16:29,461 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-05 14:16:29,463 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-05 14:16:29,464 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-05 14:16:29,467 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-05 14:16:29,467 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-05 14:16:29,472 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-05 14:16:29,474 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-05 14:16:29,480 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='u1', username='test_user', chat_id='12345', products=[]) получен по id: u1
+2025-09-05 14:16:29,484 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-05 14:16:29,486 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: u1
+2025-09-05 14:16:29,487 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь с id: u1 удален
+2025-09-05 14:16:29,490 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: NOTEXIST_ID
+2025-09-05 14:16:29,491 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-05 14:16:29,496 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:16:29,497 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 14:16:29,497 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 14:16:29,498 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 14:16:29,498 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 14:16:29,498 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': 'b6c9ea25-ef88-44a8-a262-ef21b9960d79'}
+2025-09-05 14:16:29,503 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:16:29,505 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 14:16:29,506 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 14:16:29,510 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:16:29,510 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 14:16:29,511 - src.application.use_cases.create_product - ERROR - Товар с ID p1 уже существует
+2025-09-05 14:16:29,514 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-09-05 14:16:29,518 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-09-05 14:16:29,526 - src.application.use_cases.delete_product - DEBUG - Цена pr1 удалена для товара p1
+2025-09-05 14:16:29,526 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален
+2025-09-05 14:16:29,527 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален из списка пользователя u1
+2025-09-05 14:16:29,527 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID p1
+2025-09-05 14:16:29,532 - src.application.use_cases.delete_product - WARNING - Товар p1 не существует в БД, пропускаем удаление
+2025-09-05 14:16:29,536 - src.application.use_cases.get_full_product - INFO - Успешно получена информация о товаре p1
+2025-09-05 14:16:29,541 - src.application.use_cases.get_full_product - WARNING - Товар NOT_EXIST_ID не найден
+2025-09-05 14:16:29,544 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 14:16:29,547 - src.application.use_cases.get_product - WARNING - Продукт p1 не найден
+2025-09-05 14:16:29,551 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-05 14:16:29,551 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-05 14:16:29,551 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-09-05 14:16:29,554 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:16:29,557 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-09-05 14:16:29,559 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:16:29,561 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-09-05 14:16:29,564 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:16:29,567 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-09-05 14:16:48,172 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-05 14:16:48,173 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-05 14:16:48,174 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-09-05 14:16:48,178 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:16:48,184 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-09-05 14:16:48,188 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:16:48,190 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-09-05 14:16:48,196 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:16:48,204 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-09-05 14:17:57,188 - test_mapper_user - DEBUG - USER ORM - <src.infrastructure.database.models.user.ORMUser object at 0x000002478C650550>
+2025-09-05 14:17:57,191 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-05 14:17:57,192 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-05 14:17:57,193 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000002478C650550>
+2025-09-05 14:17:57,196 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-05 14:17:57,197 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-05 14:17:57,197 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-05 14:17:57,198 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-05 14:17:57,201 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение всех цен для продукта p1
+2025-09-05 14:17:57,202 - src.infrastructure.database.repositories.price_repository - INFO - Найдено 1 цен для продукта p1
+2025-09-05 14:17:57,205 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-05 14:17:57,205 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-05 14:17:57,207 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-05 14:17:57,208 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-05 14:17:57,210 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-05 14:17:57,211 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-05 14:17:57,215 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-05 14:17:57,216 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-05 14:17:57,220 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-05 14:17:57,221 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-05 14:17:57,228 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='u1', username='test_user', chat_id='12345', products=[]) получен по id: u1
+2025-09-05 14:17:57,232 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-05 14:17:57,236 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: u1
+2025-09-05 14:17:57,237 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь с id: u1 удален
+2025-09-05 14:17:57,241 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: NOTEXIST_ID
+2025-09-05 14:17:57,241 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-05 14:17:57,247 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:17:57,247 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 14:17:57,248 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 14:17:57,248 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 14:17:57,249 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 14:17:57,250 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': '6a027e71-3cf3-41e7-a9b9-b666f5091e0c'}
+2025-09-05 14:17:57,256 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:17:57,257 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 14:17:57,257 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 14:17:57,263 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:17:57,263 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 14:17:57,264 - src.application.use_cases.create_product - ERROR - Товар с ID p1 уже существует
+2025-09-05 14:17:57,267 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-09-05 14:17:57,271 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-09-05 14:17:57,275 - src.application.use_cases.delete_product - DEBUG - Цена pr1 удалена для товара p1
+2025-09-05 14:17:57,276 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален
+2025-09-05 14:17:57,276 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален из списка пользователя u1
+2025-09-05 14:17:57,277 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID p1
+2025-09-05 14:17:57,280 - src.application.use_cases.delete_product - WARNING - Товар p1 не существует в БД, пропускаем удаление
+2025-09-05 14:17:57,287 - src.application.use_cases.get_full_product - INFO - Успешно получена информация о товаре p1
+2025-09-05 14:17:57,291 - src.application.use_cases.get_full_product - WARNING - Товар NOT_EXIST_ID не найден
+2025-09-05 14:17:57,294 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 14:17:57,298 - src.application.use_cases.get_product - WARNING - Продукт p1 не найден
+2025-09-05 14:17:57,303 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-05 14:17:57,304 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-05 14:17:57,305 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-09-05 14:17:57,307 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:17:57,309 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-09-05 14:17:57,312 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:17:57,315 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-09-05 14:17:57,320 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:17:57,322 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-09-05 14:18:22,181 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-05 14:18:22,182 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-05 14:18:22,182 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-09-05 14:18:22,385 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:18:22,387 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-09-05 14:18:22,388 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:18:22,389 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-09-05 14:18:22,392 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:18:22,393 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-09-05 14:18:42,203 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-05 14:18:42,203 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-05 14:18:42,203 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-09-05 14:18:42,378 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:18:42,379 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-09-05 14:18:42,381 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:18:42,382 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-09-05 14:18:42,385 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:18:42,387 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-09-05 14:20:26,846 - src.application.use_cases.upd_product - DEBUG - Цена pr2 сохранена для продукта p1
+2025-09-05 14:20:26,847 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr2
+2025-09-05 14:20:26,847 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr2
+2025-09-05 14:20:27,025 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:20:27,026 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-09-05 14:20:27,029 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:20:27,032 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-09-05 14:20:27,038 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:20:27,040 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-09-05 14:20:39,401 - src.application.use_cases.upd_product - DEBUG - Цена pr2 сохранена для продукта p1
+2025-09-05 14:20:39,401 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr2
+2025-09-05 14:20:39,402 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr2
+2025-09-05 14:20:39,403 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:20:39,406 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-09-05 14:20:39,409 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:20:39,411 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-09-05 14:20:39,413 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:20:39,415 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-09-05 14:20:44,219 - test_mapper_user - DEBUG - USER ORM - <src.infrastructure.database.models.user.ORMUser object at 0x000002BB0857C550>
+2025-09-05 14:20:44,226 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr2', product_id='p1', with_card=120, without_card=140, previous_with_card=100, previous_without_card=120, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-05 14:20:44,227 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr2)
+2025-09-05 14:20:44,228 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000002BB0857C550>
+2025-09-05 14:20:44,232 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr2
+2025-09-05 14:20:44,233 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-05 14:20:44,233 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-05 14:20:44,234 - test_repo_price - INFO - EXPECTED PRICE ID: pr2
+2025-09-05 14:20:44,335 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение всех цен для продукта p1
+2025-09-05 14:20:44,336 - src.infrastructure.database.repositories.price_repository - INFO - Найдено 1 цен для продукта p1
+2025-09-05 14:20:44,341 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-05 14:20:44,342 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-05 14:20:44,343 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-05 14:20:44,344 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-05 14:20:44,345 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-05 14:20:44,346 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-05 14:20:44,349 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-05 14:20:44,349 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-05 14:20:44,351 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-05 14:20:44,351 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-05 14:20:44,356 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='u1', username='test_user', chat_id='12345', products=[]) получен по id: u1
+2025-09-05 14:20:44,358 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-05 14:20:44,360 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: u1
+2025-09-05 14:20:44,361 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь с id: u1 удален
+2025-09-05 14:20:44,364 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: NOTEXIST_ID
+2025-09-05 14:20:44,365 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-05 14:20:44,369 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:20:44,369 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 14:20:44,370 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 14:20:44,370 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 14:20:44,371 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 14:20:44,372 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': '33662219-1460-4d9b-9d0c-656081633b83'}
+2025-09-05 14:20:44,376 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:20:44,377 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 14:20:44,378 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 14:20:44,383 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:20:44,384 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 14:20:44,384 - src.application.use_cases.create_product - ERROR - Товар с ID p1 уже существует
+2025-09-05 14:20:44,387 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-09-05 14:20:44,389 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-09-05 14:20:44,393 - src.application.use_cases.delete_product - DEBUG - Цена pr1 удалена для товара p1
+2025-09-05 14:20:44,394 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален
+2025-09-05 14:20:44,395 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален из списка пользователя u1
+2025-09-05 14:20:44,396 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID p1
+2025-09-05 14:20:44,400 - src.application.use_cases.delete_product - WARNING - Товар p1 не существует в БД, пропускаем удаление
+2025-09-05 14:20:44,404 - src.application.use_cases.get_full_product - INFO - Успешно получена информация о товаре p1
+2025-09-05 14:20:44,407 - src.application.use_cases.get_full_product - WARNING - Товар NOT_EXIST_ID не найден
+2025-09-05 14:20:44,410 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 14:20:44,415 - src.application.use_cases.get_product - WARNING - Продукт p1 не найден
+2025-09-05 14:20:44,417 - src.application.use_cases.upd_product - DEBUG - Цена pr2 сохранена для продукта p1
+2025-09-05 14:20:44,418 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr2
+2025-09-05 14:20:44,418 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr2
+2025-09-05 14:20:44,419 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:20:44,421 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-09-05 14:20:44,424 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:20:44,428 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-09-05 14:20:44,432 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:20:44,434 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-09-05 14:21:38,049 - test_mapper_user - DEBUG - USER ORM - <src.infrastructure.database.models.user.ORMUser object at 0x0000029889F5C550>
+2025-09-05 14:21:38,051 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=120, without_card=140, previous_with_card=100, previous_without_card=120, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-05 14:21:38,052 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-05 14:21:38,053 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x0000029889F5C550>
+2025-09-05 14:21:38,055 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-05 14:21:38,056 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-05 14:21:38,057 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-05 14:21:38,057 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-05 14:21:38,164 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение всех цен для продукта p1
+2025-09-05 14:21:38,164 - src.infrastructure.database.repositories.price_repository - INFO - Найдено 1 цен для продукта p1
+2025-09-05 14:21:38,166 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-05 14:21:38,167 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-05 14:21:38,169 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-05 14:21:38,169 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-05 14:21:38,171 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-05 14:21:38,172 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-05 14:21:38,174 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-05 14:21:38,175 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-05 14:21:38,179 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-05 14:21:38,180 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-05 14:21:38,183 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='u1', username='test_user', chat_id='12345', products=[]) получен по id: u1
+2025-09-05 14:21:38,186 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-05 14:21:38,188 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: u1
+2025-09-05 14:21:38,189 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь с id: u1 удален
+2025-09-05 14:21:38,191 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: NOTEXIST_ID
+2025-09-05 14:21:38,191 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-05 14:21:38,198 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:21:38,199 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 14:21:38,199 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 14:21:38,200 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 14:21:38,200 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 14:21:38,201 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': '7f724fac-c2d9-431e-862b-ccc206b5faa4'}
+2025-09-05 14:21:38,206 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:21:38,207 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 14:21:38,208 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 14:21:38,214 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:21:38,215 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 14:21:38,216 - src.application.use_cases.create_product - ERROR - Товар с ID p1 уже существует
+2025-09-05 14:21:38,220 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-09-05 14:21:38,226 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-09-05 14:21:38,236 - src.application.use_cases.delete_product - DEBUG - Цена pr1 удалена для товара p1
+2025-09-05 14:21:38,237 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален
+2025-09-05 14:21:38,237 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален из списка пользователя u1
+2025-09-05 14:21:38,238 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID p1
+2025-09-05 14:21:38,242 - src.application.use_cases.delete_product - WARNING - Товар p1 не существует в БД, пропускаем удаление
+2025-09-05 14:21:38,251 - src.application.use_cases.get_full_product - INFO - Успешно получена информация о товаре p1
+2025-09-05 14:21:38,255 - src.application.use_cases.get_full_product - WARNING - Товар NOT_EXIST_ID не найден
+2025-09-05 14:21:38,258 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 14:21:38,264 - src.application.use_cases.get_product - WARNING - Продукт p1 не найден
+2025-09-05 14:21:38,270 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-05 14:21:38,271 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-05 14:21:38,271 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-09-05 14:21:38,273 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:21:38,277 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-09-05 14:21:38,280 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:21:38,283 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-09-05 14:21:38,286 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:21:38,287 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан
+2025-09-05 14:24:26,511 - test_mapper_user - DEBUG - USER ORM - <src.infrastructure.database.models.user.ORMUser object at 0x000001E3AE094550>
+2025-09-05 14:24:26,513 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id='pr1', product_id='p1', with_card=120, without_card=140, previous_with_card=100, previous_without_card=120, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0))
+2025-09-05 14:24:26,515 - src.infrastructure.database.repositories.price_repository - DEBUG - Цена успешно сохранена (ID: pr1)
+2025-09-05 14:24:26,515 - test_repo_price - INFO - ORM объект, переданный в merge: <src.infrastructure.database.models.price.ORMPrice object at 0x000001E3AE094550>
+2025-09-05 14:24:26,519 - src.infrastructure.database.repositories.price_repository - DEBUG - Поиск цены по ID: pr1
+2025-09-05 14:24:26,519 - src.infrastructure.database.repositories.price_repository - INFO - Найдена цена: Price(id='pr1', product_id='p1', with_card=100, without_card=120, previous_with_card=90, previous_without_card=110, default=150, claim=datetime.datetime(2025, 1, 1, 0, 0)) (ID: pr1)
+2025-09-05 14:24:26,520 - test_repo_price - INFO - RESULT OBJECT ID: pr1
+2025-09-05 14:24:26,520 - test_repo_price - INFO - EXPECTED PRICE ID: pr1
+2025-09-05 14:24:26,528 - src.infrastructure.database.repositories.price_repository - DEBUG - Получение всех цен для продукта p1
+2025-09-05 14:24:26,529 - src.infrastructure.database.repositories.price_repository - INFO - Найдено 1 цен для продукта p1
+2025-09-05 14:24:26,533 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2'])
+2025-09-05 14:24:26,534 - src.infrastructure.database.repositories.product_repository - DEBUG - Товар успешно сохранен (ID: p1)
+2025-09-05 14:24:26,537 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: p1
+2025-09-05 14:24:26,538 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='p1', user_id='u1', price_id='pr1', name='Test Product', link='https://example.com/product', image_url='https://example.com/image.jpg', rating=4.5, categories=['cat1', 'cat2']) (ID: p1)
+2025-09-05 14:24:26,544 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск товар по ID: NOTEXIST_ID
+2025-09-05 14:24:26,544 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID NOTEXIST_ID не найден
+2025-09-05 14:24:26,548 - src.infrastructure.database.repositories.product_repository - DEBUG - Поиск всех товаров пользователя u1
+2025-09-05 14:24:26,549 - src.infrastructure.database.repositories.product_repository - INFO - Найдено 1 товаров для пользователя u1
+2025-09-05 14:24:26,551 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: p1
+2025-09-05 14:24:26,552 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID p1 успешно удален
+2025-09-05 14:24:26,559 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='u1', username='test_user', chat_id='12345', products=[]) получен по id: u1
+2025-09-05 14:24:26,561 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-05 14:24:26,564 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: u1
+2025-09-05 14:24:26,565 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь с id: u1 удален
+2025-09-05 14:24:26,567 - src.infrastructure.database.repositories.user_repository - INFO - Попытка удаления пользователя с ID: NOTEXIST_ID
+2025-09-05 14:24:26,568 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id NOTEXIST_ID не найден
+2025-09-05 14:24:26,577 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:24:26,577 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 14:24:26,578 - src.application.use_cases.create_product - DEBUG - Сохранение нового пользователя u1
+2025-09-05 14:24:26,578 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 14:24:26,579 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 14:24:26,579 - test_use_case_create_product - DEBUG - RESULT USE CASE -> {'product_id': 'p1', 'product_name': 'Test Product', 'user_id': 'u1', 'price_id': '044fa3c4-d9da-49c1-bb0b-0243fb0ca219'}
+2025-09-05 14:24:26,584 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:24:26,584 - src.application.use_cases.create_product - DEBUG - Обновление списка продуктов для пользователя u1
+2025-09-05 14:24:26,585 - src.application.use_cases.create_product - INFO - Товар Test Product сохранён для пользователя u1
+2025-09-05 14:24:26,592 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://example.com/product: {'id': 'p1', 'name': 'Test Product', 'image_url': 'https://example.com/image.jpg', 'rating': 4.5, 'categories': ['cat1', 'cat2'], 'price_with_card': 100, 'price_without_card': 120, 'price_default': 150}
+2025-09-05 14:24:26,593 - src.application.use_cases.create_product - DEBUG - Создание нового пользователя u1
+2025-09-05 14:24:26,593 - src.application.use_cases.create_product - ERROR - Товар с ID p1 уже существует
+2025-09-05 14:24:26,596 - src.application.use_cases.create_user - INFO - Пользователь u1 успешно создан
+2025-09-05 14:24:26,599 - src.application.use_cases.create_user - INFO - Пользователь u1 уже существует, пропускаем создание
+2025-09-05 14:24:26,602 - src.application.use_cases.delete_product - DEBUG - Цена pr1 удалена для товара p1
+2025-09-05 14:24:26,603 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален
+2025-09-05 14:24:26,604 - src.application.use_cases.delete_product - DEBUG - Товар p1 удален из списка пользователя u1
+2025-09-05 14:24:26,604 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID p1
+2025-09-05 14:24:26,611 - src.application.use_cases.delete_product - WARNING - Товар p1 не существует в БД, пропускаем удаление
+2025-09-05 14:24:26,616 - src.application.use_cases.get_full_product - INFO - Успешно получена информация о товаре p1
+2025-09-05 14:24:26,620 - src.application.use_cases.get_full_product - WARNING - Товар NOT_EXIST_ID не найден
+2025-09-05 14:24:26,625 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 14:24:26,628 - src.application.use_cases.get_product - WARNING - Продукт p1 не найден
+2025-09-05 14:24:26,632 - src.application.use_cases.upd_product - DEBUG - Цена pr1 сохранена для продукта p1
+2025-09-05 14:24:26,633 - src.application.use_cases.upd_product - DEBUG - Продукт p1 обновлен с price_id=pr1
+2025-09-05 14:24:26,633 - src.application.use_cases.upd_product - INFO - Цена успешно обновлена для продукта p1, price_id=pr1
+2025-09-05 14:24:26,635 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:24:26,641 - src.application.use_cases.upd_product - WARNING - Продукт с id p1 не найден
+2025-09-05 14:24:26,644 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:24:26,646 - src.application.use_cases.upd_product - ERROR - Идентификатор продукта не указан
+2025-09-05 14:24:26,650 - fixtures.repositories - DEBUG - TYPE OF MOCK PRODUCT REPO <class '_pytest.fixtures.FixtureFunctionDefinition'>
+2025-09-05 14:24:26,652 - src.application.use_cases.upd_product - ERROR - Идентификатор цены не указан

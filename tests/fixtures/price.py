@@ -39,10 +39,10 @@ def price_second():
     return Price(
         id='pr1',
         product_id='p1',
-        with_card=100,
-        without_card=120,
-        previous_with_card=90,    
-        previous_without_card=110,
+        with_card=120,
+        without_card=140,
+        previous_with_card=100,    
+        previous_without_card=120,
         default=150,
         claim=datetime(2025, 1, 1)
     )
