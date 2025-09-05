@@ -1,2 +1,19 @@
 2025-09-05 11:21:04,800 - src.application.use_cases.get_full_product - INFO - Успешно получена информация о товаре p1
 2025-09-05 11:21:04,806 - src.application.use_cases.get_full_product - WARNING - Товар NOT_EXIST_ID не найден
+2025-09-05 11:26:39,663 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 11:28:23,388 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 11:28:23,391 - src.application.use_cases.get_product - WARNING - Продукт NOT_EXIST_ID не найден
+2025-09-05 11:28:41,688 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 11:28:41,692 - src.application.use_cases.get_product - WARNING - Продукт product.id не найден
+2025-09-05 11:29:47,937 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 11:29:47,939 - src.application.use_cases.get_product - WARNING - Продукт product.id не найден
+2025-09-05 11:30:06,776 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 11:30:06,780 - src.application.use_cases.get_product - WARNING - Продукт product.id не найден
+2025-09-05 11:30:29,617 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 11:30:29,620 - src.application.use_cases.get_product - WARNING - Продукт product.id не найден
+2025-09-05 11:31:18,439 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 11:31:18,444 - src.application.use_cases.get_product - WARNING - Продукт product.id не найден
+2025-09-05 11:31:36,382 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 11:31:36,384 - src.application.use_cases.get_product - WARNING - Продукт product.id не найден
+2025-09-05 11:32:01,387 - src.application.use_cases.get_product - INFO - Продукт p1 успешно получен
+2025-09-05 11:32:01,389 - src.application.use_cases.get_product - WARNING - Продукт p1 не найден

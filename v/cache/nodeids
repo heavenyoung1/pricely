@@ -71,6 +71,7 @@
   "tests/unit/test_use_case_get_product.py::test_get_product_use_case_empty_product_id",
   "tests/unit/test_use_case_get_product.py::test_get_product_use_case_not_found",
   "tests/unit/test_use_case_get_product.py::test_get_product_use_case_success",
+  "tests/unit/test_use_case_get_product.py::test_get_product_use_case_unsuccess_not_found",
   "tests/unit/test_use_case_upd_price.py::test_upd_price_use_case_success",
   "tests/unit/test_use_case_upd_price.py::test_update_price_product_not_found",
   "tests/unit/test_use_case_upd_product.py::test_upd_price_use_case_invalid_price_id",
