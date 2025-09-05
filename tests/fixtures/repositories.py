@@ -1,4 +1,10 @@
 import pytest
+from unittest.mock import Mock, MagicMock
+from src.application.interfaces.repositories import (
+    ProductRepository,
+    PriceRepository,
+    UserRepository
+)
 
 from src.infrastructure.database.repositories import (
     ProductRepositoryImpl,
@@ -42,3 +48,28 @@ def mock_price_repo(mock_session): # ← Использует мокирован
 def mock_user_repo(mock_session): # ← Использует мокированную сессию
     '''Фикстура репозитория товаров с замоканной сессией.'''
     return UserRepositoryImpl(session=mock_session)
+
+# ----- PURE MOCK РЕПОЗИТОРИИ ДЛЯ UNIT - ТЕСТОВ ЗАВЯЗАННЫЕ НА ИНТЕРФЕЙС -----  #
+
+@pytest.fixture
+def pure_mock_product_repo():
+    '''Чистый мок ProductRepository для unit-тестов UseCase.'''
+    mock = Mock(spec=ProductRepository) # Используем интерфейс
+    mock.get.return_value = None # По умолчанию товар не найден
+    mock.save.return_value = None
+    return Mock
+
+@pytest.fixture  
+def pure_mock_price_repo():
+    '''Чистый мок PriceRepository для unit-тестов UseCase.'''
+    mock = Mock(spec=PriceRepository)  # Используйте интерфейс
+    mock.save.return_value = None
+    return mock
+
+@pytest.fixture
+def pure_mock_user_repo():
+    '''Чистый мок UserRepository для unit-тестов UseCase.'''
+    mock = Mock(spec=UserRepository)  # Используйте интерфейс
+    mock.get.return_value = None  # По умолчанию пользователь не найден
+    mock.save.return_value = None
+    return mock

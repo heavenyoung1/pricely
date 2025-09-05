@@ -77,30 +77,18 @@ logger = logging.getLogger(__name__)
 #     }
 
 def test_create_product_use_case_success(
-        product,
-        price, 
-        user,
-        mock_product_repo,
-        mock_price_repo,
-        mock_user_repo,
-        mock_session,
-        mock_parser,
-        mocker,
+    pure_mock_product_repo,
+    pure_mock_price_repo,
+    pure_mock_user_repo,
+    pure_mock_parser,
+    user,
+    product
         ):
-    product_repo = ProductRepositoryImpl(session=mock_session)
-    price_repo = PriceRepositoryImpl(session=mock_session)
-    user_repo = UserRepositoryImpl(session=mock_session)
-    logger.debug(f'TYPE OF MOCK PRODUCT REPO {type(mock_product_repo)}')
     
-    mock_product_repo = mocker.Mock()
-    mock_price_repo = mocker.Mock()
-    mock_user_repo = mocker.Mock()
-
     use_case = CreateProductUseCase(
-        product_repo=mock_product_repo,
-        price_repo=mock_price_repo,
-        user_repo=mock_user_repo,
-        parser=mock_parser,
+        product_repo=pure_mock_product_repo,
+        price_repo=pure_mock_price_repo,
+        user_repo=pure_mock_user_repo,
+        parser=pure_mock_parser,
     )
-    use_case.execute(user_id=user.id, url=product.link)
-    
+    result = use_case.execute(user_id=user.id, url='https://example.com/product')
