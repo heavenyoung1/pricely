@@ -91,8 +91,8 @@ class CreateProductUseCase:
             raise ProductCreationError(f'Ошибка сохранения товара')
 
         return {
-            'id': product.id,
-            'name': product.name,
+            'product_id': product.id,
+            'product_name': product.name,
             'user_id': product.user_id,
             'price_id': product.price_id
         }

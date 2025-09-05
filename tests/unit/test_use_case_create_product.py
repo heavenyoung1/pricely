@@ -92,3 +92,4 @@ def test_create_product_use_case_success(
         parser=pure_mock_parser,
     )
     result = use_case.execute(user_id=user.id, url='https://example.com/product')
+    logger.debug(f'RESULT USE CASE -> {result}')
