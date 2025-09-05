@@ -1,13 +1,9 @@
 import pytest
-import json
-from datetime import datetime
+
 from src.application.use_cases.upd_product import UpdateProductPriceUseCase
-from src.domain.entities import Product, Price, User
-from src.infrastructure.database.mappers import ProductMapper
-from src.infrastructure.database.models import ORMUser
-from src.domain.exceptions import ProductNotFoundError, PriceUpdateError
 
 
+@pytest.mark.unit
 def test_upd_price_use_case_success(
     pure_mock_product_repo,
     pure_mock_price_repo,   

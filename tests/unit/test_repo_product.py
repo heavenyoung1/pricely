@@ -1,10 +1,7 @@
 import pytest
-from sqlalchemy.exc import SQLAlchemyError
 
 from src.infrastructure.database.models import ORMProduct
-from src.domain.entities import Product
 from src.infrastructure.database.repositories import ProductRepositoryImpl
-from src.infrastructure.database.mappers import ProductMapper
 
 import logging
 logger = logging.getLogger(__name__)

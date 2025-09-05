@@ -1,10 +1,8 @@
 import pytest
-from sqlalchemy.exc import SQLAlchemyError
 
 from src.infrastructure.database.models import ORMUser
 from src.domain.entities import User
 from src.infrastructure.database.repositories import UserRepositoryImpl
-from src.infrastructure.database.mappers import UserMapper
 
 import logging
 logger = logging.getLogger(__name__)

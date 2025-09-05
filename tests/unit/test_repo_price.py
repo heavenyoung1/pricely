@@ -1,14 +1,8 @@
 import pytest
 import logging
-#from pytest_mock import mocker
-#from unittest.mock import MagicMock
-from sqlalchemy.exc import SQLAlchemyError
 
-from src.infrastructure.database.repositories import PriceRepositoryImpl, ProductRepositoryImpl
-from src.infrastructure.database.mappers import PriceMapper
+from src.infrastructure.database.repositories import PriceRepositoryImpl
 from src.infrastructure.database.models import ORMPrice
-from src.domain.entities import Price
-
 
 
 logger = logging.getLogger(__name__)
