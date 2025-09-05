@@ -86,3 +86,7 @@ def test_create_product_fails_product_exists(
     
     with pytest.raises(ProductCreationError, match='уже существует'):
         use_case.execute(user_id='u1', url='https://example.com/product')
+    
+    # Проверяем, что сохранение не происходило
+    pure_mock_product_repo.save.assert_not_called()
+    pure_mock_price_repo.save.assert_not_called()
