@@ -1,12 +1,13 @@
 from .db_config import get_session
-#from .unit_of_work import UnitOfWork
+from .db_connection import DatabaseConnection
 from .decorators import with_uow
 from .uow import SQLAlchemyUnitOfWork
 from .uow_interface import UnitOfWork
 
 __all__ = [
-    'get_db_session', 
+    'get_session', 
     'UnitOfWork', 
     'with_uow',
     'SQLAlchemyUnitOfWork',
+    'DatabaseConnection',
     ]
