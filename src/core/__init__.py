@@ -1,4 +1,4 @@
-from .database import get_db_session
+from .db_config import get_session
 #from .unit_of_work import UnitOfWork
 from .decorators import with_uow
 from .uow import SQLAlchemyUnitOfWork

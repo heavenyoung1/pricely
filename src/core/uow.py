@@ -1,5 +1,5 @@
 from .uow_interface import UnitOfWork
-from src.core.database import get_db_session
+from src.core.db_config import get_session
 from typing import Optional
 from sqlalchemy.orm import Session
 import logging
@@ -19,7 +19,7 @@ class SQLAlchemyUnitOfWork(UnitOfWork):
         # Выбираем фабрику сессий: если передали свою - используем её,
         # если нет - используем стандартную функцию get_db_session
         # Это нужно для гибкости: в тестах можем передать другую фабрику
-        self._session_factory = session_factory or get_db_session
+        self._session_factory = session_factory or get_session
         
         # Сессия БД. Пока None - создадим позже, когда войдем в контекст (with)
         # Optional[Session] означает "может быть Session, а может быть None"

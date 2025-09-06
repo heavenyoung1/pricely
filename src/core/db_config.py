@@ -28,6 +28,13 @@ class DataBaseSettings(BaseSettings):
         NAME (str): Название базы данных.
         CONN (str): Драйвер подключения (по умолчанию 'postgresql+psycopg2').
     '''
+    HOST: str
+    PORT: int = 5432
+    USER: str
+    PASS: str
+    NAME: str
+    CONN: str = 'postgresql+psycopg2'
+
     model_config = SettingsConfigDict(
         env_file='.env', 
         env_prefix='DB_CONFIG_', 
@@ -35,23 +42,11 @@ class DataBaseSettings(BaseSettings):
         extra='ignore',  # Игнорировать лишние переменные
     )
 
-    HOST: str
-    PORT: int
-    USER: str
-    PASS: str
-    NAME: str
-    CONN: str = 'postgresql+psycopg2'
-
-    def get_connection_db(self):
-        '''Формирует строку подключения к PostgreSQL.
-
-        Returns:
-            str: Строка подключения в формате: 
-            'postgresql+psycopg2://user:password@host:port/dbname'
-        '''
+    def get_db_url(self) -> str:
+        '''Возвращает URL для подключения к базе данных.'''
         return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{self.NAME}'
 
-def get_db_engine():
+def get_engine():
     '''Создает и возвращает движок SQLAlchemy для работы с БД.
 
     Движок управляет пулом подключений и является точкой входа для всех операций с БД.
@@ -68,21 +63,21 @@ def get_db_engine():
             pool_pre_ping=True,
             echo=False  # Логирование SQL-запросов (True для отладки)
         )
-        logger.info("Движок БД успешно создан")
+        logger.info('Движок БД успешно создан')
         return engine
     except Exception as e:
-        logger.error(f"Ошибка создания движка БД: {e}")
+        logger.error(f'Ошибка создания движка БД: {e}')
         raise
 
 @contextmanager
-def get_db_session() -> Generator:
+def get_session() -> Generator:
     '''Создаёт и возвращает сессию SQLAlchemy как контекстный менеджер.
 
     Returns:
         Session: Объект сессии SQLAlchemy.
     '''
     try:
-        engine = get_db_engine()
+        engine = get_engine()
         SessionLocal = sessionmaker(
             autocommit=False,
             autoflush=False,
@@ -90,11 +85,11 @@ def get_db_session() -> Generator:
             expire_on_commit=False
         )
         session = SessionLocal()
-        logger.info("Сессия БД успешно инициализирована")
+        logger.info('Сессия БД успешно инициализирована')
         yield session
     except Exception as e:
-        logger.error(f"Ошибка создания сессии: {e}")
+        logger.error(f'Ошибка создания сессии: {e}')
         raise
     finally:
         session.close()
-        logger.info("Сессия БД закрыта")
+        logger.info('Сессия БД закрыта')
