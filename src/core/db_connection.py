@@ -30,10 +30,10 @@ class DatabaseConnection:
         self._engine = None
         self._session_factory = None
 
-    def init_engine(self):
+    def init_engine(self, db_url: str = None):
         '''Инициализирует движок SQLAlchemy и фабрику сессий (ленивая инициализация).'''
         if self._engine is None:
-            db_url = self._settings.get_db_url()
+            db_url = db_url or self._settings.get_db_url()
             logger.info(f'Инициализация подключения к БД: {db_url}')
 
             # создаём Engine
@@ -54,13 +54,13 @@ class DatabaseConnection:
             )
 
     @contextmanager
-    def get_session(self):
+    def get_session(self, db_url: str = None) -> Generator[Session, None, None]:
         '''
         Фабрика для получения контекстного менеджера сессии.
         Используется в UnitOfWork.
         '''
         if self._session_factory is None:
-            self.init_engine()
+            self.init_engine(db_url)
 
         session = self._session_factory()
         try:
@@ -76,9 +76,13 @@ class DatabaseConnection:
             self._engine = None
             self._session_factory = None
 
-    def test_connection(self) -> bool:
-        '''Проверка доступности БД (выполняется SELECT 1).'''
-        self.init_engine()
+    def test_connection(self, db_url: str = None) -> bool:
+        '''Проверка доступности БД (выполняется SELECT 1).
+
+        Args:
+            db_url (str, optional): URL для подключения к БД. Если None, используется get_db_url.
+        '''
+        self.init_engine(db_url)
         try:
             with self._engine.connect() as conn:
                 conn.execute(text("SELECT 1"))
