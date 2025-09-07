@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  postgres_dev:
+    image: postgres:16
+    container_name: postgres_dev
+    environment:
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: pricely_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - dev_data:/var/lib/postgresql/data
+
+  postgres_test:
+    image: postgres:16
+    container_name: postgres_test
+    environment:
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: test_pricely_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - test_data:/var/lib/postgresql/data
+
+volumes:
+  dev_data:
+  test_data:
