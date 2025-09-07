@@ -1,4 +1,5 @@
 import logging
+from typing import Optional
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # Настройка логгера
@@ -30,6 +31,9 @@ class DataBaseSettings(BaseSettings):
     NAME: str
     CONN: str = 'postgresql+psycopg2'
 
+    # Опциональные настройки для тестовой БД
+    TEST_NAME: Optional[str] = None
+
     model_config = SettingsConfigDict(
         env_file='.env', 
         env_prefix='DB_CONFIG_', 
@@ -40,3 +44,12 @@ class DataBaseSettings(BaseSettings):
     def get_db_url(self) -> str:
         '''Возвращает URL для подключения к базе данных.'''
         return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{self.NAME}'
+    
+    def get_test_db_url(self) -> str:
+        '''Возвращает URL для подключения к тестовой базе данных.'''
+        return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{self.TEST_NAME}'
+    
+    @property
+    def is_test_db_configured(self) -> bool:
+        '''Проверяет, настроена ли тестовая БД.'''
+        return self.TEST_NAME is not None

@@ -2,18 +2,19 @@ from logging.config import fileConfig
 from dotenv import load_dotenv
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-from src.infrastructure.database.core.database import DataBaseSettings
+from src.core.db_connection import DataBaseSettings
 from src.infrastructure.database.models import Base
-#from src.infrastructure.database.models.base import Base
+from src.core.db_connection import db_settings
 from alembic import context
-
+import os
 load_dotenv()
 
 config = context.config
 fileConfig(config.config_file_name)
 
+
 # Установка URL из конфига
-db_settings = DataBaseSettings()
+#db_settings = DataBaseSettings()
 config.set_main_option('sqlalchemy.url', db_settings.get_connection_db())
 
 target_metadata = Base.metadata
