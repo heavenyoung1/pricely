@@ -1,10 +1,5 @@
-# src/infrastructure/database/core.py
 import logging
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
-from contextlib import contextmanager
-from typing import Generator
 
 # Настройка логгера
 logger = logging.getLogger(__name__)

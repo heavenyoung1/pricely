@@ -42,5 +42,6 @@
   "tests/integration/test_product_service.py::TestProductServiceIntegration::test_delete_product_success": true,
   "tests/integration/test_product_service.py::TestProductServiceIntegration::test_delete_product_not_found": true,
   "tests/integration/test_product_service.py::TestProductServiceIntegration::test_service_workflow_integration": true,
-  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_uow_rollback_on_error": true
+  "tests/integration/test_product_service.py::TestProductServiceIntegration::test_uow_rollback_on_error": true,
+  "tests/integration/test_conn_db.py::test_database_connection": true
 }

@@ -1,5 +1,5 @@
 from .uow_interface import UnitOfWork
-from src.core.db_config import get_session
+from src.core.db_connection import get_session
 from typing import Optional
 from sqlalchemy.orm import Session
 import logging

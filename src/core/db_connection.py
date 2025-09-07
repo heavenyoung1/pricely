@@ -6,7 +6,6 @@ from contextlib import contextmanager
 from typing import Generator
 
 from src.core.db_config import DataBaseSettings
-from src.core.db_config import db_settings
 
 # Настройка логгера
 logger = logging.getLogger(__name__)
@@ -77,8 +76,9 @@ class DatabaseConnection:
             self._engine = None
             self._session_factory = None
 
-db = DatabaseConnection(db_settings)
 db_settings = DataBaseSettings()
+db = DatabaseConnection(db_settings)
+
 
 # Это фабрика, которую будет использовать UnitOfWork
 get_session = db.get_session

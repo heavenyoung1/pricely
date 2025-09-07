@@ -3,7 +3,7 @@ from unittest.mock import Mock, patch, MagicMock
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, clear_mappers
 from src.core.uow import SQLAlchemyUnitOfWork
-from src.infrastructure.database.models import Base  # твои SQLAlchemy модели
+from src.infrastructure.database.models import Base  # SQLAlchemy модели
 from src.domain.entities import User, Product, Price
 
 @pytest.fixture(scope='session')
