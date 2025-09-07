@@ -26,7 +26,7 @@ class DatabaseConnection:
         Args:
             settings: Настройки БД. Если не указаны, будут загружены автоматически.
         '''
-        self.settings = settings or DataBaseSettings()
+        self._settings = settings or DataBaseSettings()
         self._engine = None
         self._session_factory = None
 
@@ -47,10 +47,10 @@ class DatabaseConnection:
             # создаём sessionmaker
             self._session_factory = sessionmaker(
                 bind=self._engine,
+                class_=Session,
                 autoflush=False,
                 autocommit=False,
                 expire_on_commit=False,
-                class_=None,  # по умолчанию orm.Session
             )
 
     @contextmanager
@@ -75,6 +75,18 @@ class DatabaseConnection:
             self._engine.dispose()
             self._engine = None
             self._session_factory = None
+
+    def test_connection(self) -> bool:
+        '''Проверка доступности БД (выполняется SELECT 1).'''
+        self.init_engine()
+        try:
+            with self._engine.connect() as conn:
+                conn.execute(text("SELECT 1"))
+            logger.info("Подключение к БД успешно установлено")
+            return True
+        except Exception as e:
+            logger.error(f"Ошибка подключения к БД: {e}")
+            return False
 
 db_settings = DataBaseSettings()
 db = DatabaseConnection(db_settings)
