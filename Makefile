@@ -7,10 +7,10 @@ down:
 	docker-compose down -v
 
 migrate-dev:
-	alembic upgrade head --sqlalchemy-url=$$(python scripts/db_url.py)
+	alembic upgrade head --sqlalchemy-url=$$(python3 scripts/db_url.py)
 
 migrate-test:
-	alembic upgrade head --sqlalchemy-url=$$(python scripts/db_url.py test)
+	alembic upgrade head --sqlalchemy-url=$$(python3 scripts/db_url.py test)
 
 migrate-all: migrate-dev migrate-test
 	@echo "Миграции успешно применены к обеим БД"
