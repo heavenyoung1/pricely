@@ -36,7 +36,7 @@ class DataBaseSettings(BaseSettings):
 
     model_config = SettingsConfigDict(
         env_file='.env', 
-        env_prefix='DB_CONFIG_', 
+        env_prefix='DB_', 
         env_file_encoding='utf-8',
         extra='ignore',  # Игнорировать лишние переменные
     )
@@ -49,6 +49,17 @@ class DataBaseSettings(BaseSettings):
         '''Возвращает URL для подключения к тестовой базе данных.'''
         return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{self.TEST_NAME}'
     
+    def get_alembic_url(self, use_test: bool = False) -> str:
+        '''
+        Возвращает строку подключения для Alembic.
+        (Alembic работает с драйвером postgresql, без +psycopg2)
+        '''
+        conn = 'postgresql'  # Alembic ожидает именно это
+        name = self.TEST_NAME if use_test else self.NAME
+        if not name:
+            raise ValueError('Имя базы данных не указано')
+        return f'{conn}://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{name}'
+
     @property
     def is_test_db_configured(self) -> bool:
         '''Проверяет, настроена ли тестовая БД.'''
