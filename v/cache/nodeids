@@ -24,6 +24,7 @@
   "tests/integration/test_product_service.py::TestProductServiceIntegration::test_service_workflow_integration",
   "tests/integration/test_product_service.py::TestProductServiceIntegration::test_uow_rollback_on_error",
   "tests/integration/test_product_service.py::TestProductServiceIntegration::test_update_product_price_success",
+  "tests/integration/test_product_service.py::test_create_and_get_user",
   "tests/integration/test_uow.py::test_uow_commit_creates_data",
   "tests/integration/test_uow.py::test_uow_initialization",
   "tests/integration/test_uow.py::test_uow_rollback_discards_data",

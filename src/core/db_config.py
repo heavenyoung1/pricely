@@ -48,7 +48,7 @@ class DataBaseSettings(BaseSettings):
     
     def get_test_db_url(self) -> str:
         '''Возвращает URL для подключения к тестовой базе данных.'''
-        port = self.TEST_PORT if self.TEST_PORT else self.PORT
+        port = self.TEST_PORT if self.TEST_PORT is not None else 5433  # Явно указываем 5433 по умолчанию
         return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{port}/{self.TEST_NAME}'
     
     def get_alembic_url(self, use_test: bool = False) -> str:

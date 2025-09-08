@@ -13,7 +13,7 @@ class ORMPrice(Base):
     __tablename__ = 'prices'
 
     id: Mapped[str] = mapped_column(primary_key=True)
-    product_id: Mapped[str] = mapped_column(ForeignKey('products.id'), nullable=False)
+    product_id: Mapped[str] = mapped_column(ForeignKey('products.id', ondelete="CASCADE"), nullable=False)
 
     with_card: Mapped[int] = mapped_column(Integer, nullable=False)
     without_card: Mapped[int] = mapped_column(Integer, nullable=False)
@@ -23,7 +23,6 @@ class ORMPrice(Base):
 
     claim: Mapped[datetime] = mapped_column(DateTime, nullable=False)
 
-    # связь с товаром
     product: Mapped['ORMProduct'] = relationship(
         'ORMProduct',
         back_populates='prices',
