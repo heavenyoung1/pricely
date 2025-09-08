@@ -11,14 +11,16 @@ load_dotenv()
 
 # Настройка логгера Alembic
 config = context.config
-fileConfig(config.config_file_name)
+if config.config_file_name is not None:
+    fileConfig(config.config_file_name)
 
-# Загружаем настройки
-#db_settings = DataBaseSettings()
-config.set_main_option('sqlalchemy.url', db_settings.get_connection_db())
-test_db_url = os.getenv("TEST_DATABASE_URL", db_settings.get_test_db_url())
-config.set_main_option("sqlalchemy.url", test_db_url)
-
+# Проверяем, передан ли URL через переменную окружения
+custom_url = os.getenv("ALEMBIC_DATABASE_URL")
+if custom_url:
+    config.set_main_option('sqlalchemy.url', custom_url)
+else:
+    # Используем URL по умолчанию из настроек
+    config.set_main_option('sqlalchemy.url', db_settings.get_connection_db())
 
 target_metadata = Base.metadata
 
