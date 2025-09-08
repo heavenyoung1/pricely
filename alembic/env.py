@@ -20,7 +20,7 @@ if custom_url:
     config.set_main_option('sqlalchemy.url', custom_url)
 else:
     # Используем URL по умолчанию из настроек
-    config.set_main_option('sqlalchemy.url', db_settings.get_connection_db())
+    config.set_main_option('sqlalchemy.url', db_settings.get_db_url())
 
 target_metadata = Base.metadata
 
