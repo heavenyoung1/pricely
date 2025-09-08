@@ -50,15 +50,9 @@ class DataBaseSettings(BaseSettings):
         return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{self.TEST_NAME}'
     
     def get_alembic_url(self, use_test: bool = False) -> str:
-        '''
-        Возвращает строку подключения для Alembic.
-        (Alembic работает с драйвером postgresql, без +psycopg2)
-        '''
-        conn = 'postgresql'  # Alembic ожидает именно это
+        '''Для Alembic (без +psycopg2).'''
         name = self.TEST_NAME if use_test else self.NAME
-        if not name:
-            raise ValueError('Имя базы данных не указано')
-        return f'{conn}://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{name}'
+        return f'postgresql://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{name}'
 
     @property
     def is_test_db_configured(self) -> bool:
