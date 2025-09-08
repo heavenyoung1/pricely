@@ -8,7 +8,6 @@ dependencies = [
     "aiogram>=3.21.0",
     "alembic>=1.16.4",
     "bs4>=0.0.2",
-    "psycopg2>=2.9.10",
     "psycopg2-binary>=2.9.10",
     "pydantic>=2.11.7",
     "pydantic-settings>=2.10.1",
