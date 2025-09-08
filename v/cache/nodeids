@@ -1,4 +1,12 @@
 [
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connection_pool_stress",
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connection_to_both_databases",
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_configuration_consistency",
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_operations_main_db",
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_operations_test_db",
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_permissions",
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_version_and_features",
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_transaction_rollback",
   "tests/integration/test_conn_db.py::test_connection_to_both_databases",
   "tests/integration/test_conn_db.py::test_database_connection",
   "tests/integration/test_product_service.py::TestProductServiceIntegration::test_create_product_duplicate_error",

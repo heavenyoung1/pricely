@@ -45,5 +45,11 @@
   "tests/integration/test_product_service.py::TestProductServiceIntegration::test_uow_rollback_on_error": true,
   "tests/unit/test_uow.py": true,
   "tests/integration/test_uow.py::test_uow_rollback_discards_data": true,
-  "tests/integration/test_conn_db.py::test_connection_to_both_databases": true
+  "tests/integration/test_conn_db.py::test_connection_to_both_databases": true,
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_operations_main_db": true,
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_operations_test_db": true,
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_permissions": true,
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connection_pool_stress": true,
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_version_and_features": true,
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_transaction_rollback": true
 }

@@ -33,6 +33,7 @@ class DataBaseSettings(BaseSettings):
 
     # Опциональные настройки для тестовой БД
     TEST_NAME: Optional[str] = None
+    TEST_PORT: Optional[int] = None
 
     model_config = SettingsConfigDict(
         env_file='.env', 
@@ -47,7 +48,8 @@ class DataBaseSettings(BaseSettings):
     
     def get_test_db_url(self) -> str:
         '''Возвращает URL для подключения к тестовой базе данных.'''
-        return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{self.TEST_NAME}'
+        port = self.TEST_PORT if self.TEST_PORT else self.PORT
+        return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{port}/{self.TEST_NAME}'
     
     def get_alembic_url(self, use_test: bool = False) -> str:
         '''Для Alembic (без +psycopg2).'''
