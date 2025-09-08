@@ -10,7 +10,7 @@ services:
     ports:
       - "5432:5432" # Порт на хосте Linux: порт в контейнере
     volumes:
-      - dev_data:/var/lib/postgresql/data
+      - postgres_data_dev:/var/lib/postgresql/data  # Исправлено на postgres_data_dev
     networks:
       - pricely_network
 
@@ -24,7 +24,7 @@ services:
     ports:
       - "5433:5432" # Тестовая БД на другом порту
     volumes:
-      - test_data:/var/lib/postgresql/data
+      - postgres_data_test:/var/lib/postgresql/data  # Исправлено на postgres_data_test
     networks:
       - pricely_network
 
