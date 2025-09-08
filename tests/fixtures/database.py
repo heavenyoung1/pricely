@@ -1,47 +1,80 @@
 import pytest
 import subprocess
+from alembic.config import Config
+from alembic import command
 from unittest.mock import Mock, patch, MagicMock
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, clear_mappers
+from sqlalchemy.orm import sessionmaker, Session ,clear_mappers
 from src.core.uow import SQLAlchemyUnitOfWork
-from src.core import DataBaseSettings
+from src.core import DataBaseSettings, DatabaseConnection
 from src.infrastructure.database.models import Base  # SQLAlchemy модели
 from src.domain.entities import User, Product, Price
 
+import logging
+
+# Настройка логгера
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+handler = logging.StreamHandler()
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
 @pytest.fixture(scope="session")
-def engine():
+def test_db_settings():
+    """Фикстура для настроек тестовой БД."""
+    settings = DataBaseSettings()
+    if not settings.is_test_db_configured:
+        raise RuntimeError("Тестовая БД не настроена в .env (отсутствует DB_TEST_NAME)")
+    return settings
+
+@pytest.fixture(scope="session")
+def engine(test_db_settings):
     """
     Реальный движок PostgreSQL для интеграционных тестов.
-    Использует тестовую БД из docker-compose.
+    Применяет миграции Alembic к тестовой БД.
     """
-    settings = DataBaseSettings()
-    url = settings.get_test_db_url()  # Берём строку подключения из .env
+    test_db_url = test_db_settings.get_test_db_url()
+    logger.info(f"Создание движка для тестовой БД: {test_db_url}")
+    
+    engine = create_engine(
+        test_db_url,
+        echo=False,  # Можно установить True для отладки SQL
+        future=True,
+        pool_pre_ping=True,
+    )
 
-    engine = create_engine(url, echo=False, future=True)
+    # Проверяем подключение
+    db = DatabaseConnection(test_db_settings)
+    if not db.test_connection(db_url=test_db_url):
+        raise RuntimeError(f"Не удалось подключиться к тестовой БД: {test_db_url}")
 
-    # создаём схему (если нужно — как alembic миграции)
-    Base.metadata.create_all(engine)
+    # Настраиваем Alembic для тестовой БД
+    alembic_cfg = Config("alembic.ini")
+    alembic_cfg.set_main_option("sqlalchemy.url", test_db_settings.get_alembic_url(use_test=True))
+    
+    # Применяем миграции
+    logger.info(f"Применение миграций к тестовой БД: {test_db_settings.TEST_NAME}")
+    command.upgrade(alembic_cfg, "head")
 
     yield engine
 
-    # после тестов можно подчистить
-    Base.metadata.drop_all(engine)
+    # Очищаем БД после тестов
+    logger.info(f"Очистка тестовой БД: {test_db_settings.TEST_NAME}")
+    command.downgrade(alembic_cfg, "base")
+    engine.dispose()
     clear_mappers()
-
-# Вот эта фикстура ломает все тесты, она нужна чтобы для тестов так же использовать Alembic
-# @pytest.fixture(scope="session", autouse=True)
-# def apply_migrations():
-#     """Перед всеми тестами прогоняем миграции в тестовой БД"""
-#     subprocess.run(
-#         ["uv", "run", "alembic", "upgrade", "head", "-x", f"url={DataBaseSettings().get_test_db_url()}"],
-#         check=True
-#     )
-#     yield
 
 @pytest.fixture
 def session_factory(engine):
-    '''Фабрика сессий для тестов'''
-    return sessionmaker(bind=engine, expire_on_commit=False)
+    """Фабрика сессий для тестов."""
+    return sessionmaker(
+        bind=engine,
+        class_=Session,
+        autoflush=False,
+        autocommit=False,
+        expire_on_commit=False,
+    )
 
 
 @pytest.fixture

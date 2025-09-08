@@ -14,14 +14,20 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# Проверяем, передан ли URL через переменную окружения
-custom_url = os.getenv("ALEMBIC_DATABASE_URL")
-if custom_url:
-    config.set_main_option('sqlalchemy.url', custom_url)
-else:
-    # Используем URL по умолчанию из настроек
-    config.set_main_option('sqlalchemy.url', db_settings.get_db_url())
+# Загружаем настройки
+db_settings = DataBaseSettings()
+# Используем TEST_DATABASE_URL, если задана, иначе get_alembic_url
+use_test_db = os.getenv("TEST_DATABASE_URL") or db_settings.is_test_db_configured
+db_url = os.getenv("TEST_DATABASE_URL", db_settings.get_alembic_url(use_test=use_test_db))
 
+config.set_main_option("sqlalchemy.url", db_url)
+
+# Логируем используемый URL
+import logging
+logger = logging.getLogger("alembic.runtime.migration")
+logger.info(f"Using database URL: {db_url}")
+
+# Импортируем модели
 target_metadata = Base.metadata
 
 # Interpret the config file for Python logging.
