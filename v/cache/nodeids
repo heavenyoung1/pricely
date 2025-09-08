@@ -1,4 +1,5 @@
 [
+  "tests/integration/test_conn_db.py::test_connection_to_both_databases",
   "tests/integration/test_conn_db.py::test_database_connection",
   "tests/integration/test_product_service.py::TestProductServiceIntegration::test_create_product_duplicate_error",
   "tests/integration/test_product_service.py::TestProductServiceIntegration::test_create_product_parser_error",

@@ -2,28 +2,36 @@ version: "3.9"
 services:
   postgres_dev:
     image: postgres:16
-    container_name: postgres_dev
+    container_name: pricely_postgres_dev
     environment:
-      POSTGRES_USER: test_user
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: your_password
       POSTGRES_DB: pricely_db
     ports:
-      - "5432:5432"
+      - "5432:5432" # Порт на хосте Linux: порт в контейнере
     volumes:
       - dev_data:/var/lib/postgresql/data
+    networks:
+      - pricely_network
 
   postgres_test:
     image: postgres:16
-    container_name: postgres_test
+    container_name: pricely_postgres_test
     environment:
-      POSTGRES_USER: test_user
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: your_password
-      POSTGRES_DB: test_pricely_db
+      POSTGRES_DB: pricely_test_db
     ports:
-      - "5433:5432"
+      - "5433:5432" # Тестовая БД на другом порту
     volumes:
       - test_data:/var/lib/postgresql/data
+    networks:
+      - pricely_network
 
 volumes:
-  dev_data:
-  test_data:
+  postgres_data_dev:
+  postgres_data_test:
+
+networks:
+  pricely_network:
+    driver: bridge

@@ -44,5 +44,6 @@
   "tests/integration/test_product_service.py::TestProductServiceIntegration::test_service_workflow_integration": true,
   "tests/integration/test_product_service.py::TestProductServiceIntegration::test_uow_rollback_on_error": true,
   "tests/unit/test_uow.py": true,
-  "tests/integration/test_uow.py::test_uow_rollback_discards_data": true
+  "tests/integration/test_uow.py::test_uow_rollback_discards_data": true,
+  "tests/integration/test_conn_db.py::test_connection_to_both_databases": true
 }
