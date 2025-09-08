@@ -1,5 +1,5 @@
 import sys
-from src.core import DataBaseSettings
+from src.core.db_config import DataBaseSettings
 
 if __name__ == "__main__":
     db = DataBaseSettings()
