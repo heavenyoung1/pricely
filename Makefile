@@ -1,4 +1,4 @@
-.PHONY: up down migrate-dev migrate-test test
+.PHONY: up down migrate-dev migrate-test test migrate-all
 
 up:
 	docker-compose up -d
@@ -11,6 +11,9 @@ migrate-dev:
 
 migrate-test:
 	alembic upgrade head --sqlalchemy-url=$$(python scripts/db_url.py test)
+
+migrate-all: migrate-dev migrate-test
+	@echo "Миграции успешно применены к обеим БД"
 
 test: migrate-test
 	pytest -v
