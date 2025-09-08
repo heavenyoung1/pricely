@@ -7,10 +7,10 @@ down:
 	docker-compose down -v
 
 migrate-dev:
-	alembic upgrade head --sqlalchemy-url=postgresql://myuser:mypassword@localhost:5432/mydb
+	alembic upgrade head --sqlalchemy-url=$$(python scripts/db_url.py)
 
 migrate-test:
-	alembic upgrade head --sqlalchemy-url=postgresql://myuser:mypassword@localhost:5433/mydb_test
+	alembic upgrade head --sqlalchemy-url=$$(python scripts/db_url.py test)
 
 test: migrate-test
 	pytest -v
