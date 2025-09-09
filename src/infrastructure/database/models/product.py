@@ -1,7 +1,7 @@
 from __future__ import annotations
 from sqlalchemy import String, Float, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
 from .price import ORMPrice
 
 from .base import Base
@@ -14,7 +14,10 @@ class ORMProduct(Base):
     
     id: Mapped[str] = mapped_column(primary_key=True)
     user_id: Mapped[str] = mapped_column(ForeignKey('users.id', ondelete="CASCADE"), nullable=True)
-    price_id: Mapped[str] = mapped_column(ForeignKey('prices.id'), nullable=True)
+    # 👇 ключевой момент: nullable + SET NULL, чтобы разорвать цикл при дропе и вставке
+    price_id: Mapped[Optional[str]] = mapped_column(
+        ForeignKey("prices.id", ondelete="SET NULL"), nullable=True, index=True
+    )
     name: Mapped[str] = mapped_column(String, nullable=False)
     link: Mapped[str] = mapped_column(String, nullable=False)
     image_url: Mapped[str] = mapped_column(String, nullable=False)
