@@ -76,15 +76,22 @@ class CreateProductUseCase:
 
         try:
             if is_new_user:
-                self.user_repo.save(user)  # Первый: создание
+                self.user_repo.save(user)
 
-            self.price_repo.save(price)
-            self.product_repo.save(product)  # Один раз
+            # Save product с None сначала
+            product.price_id = None  # Временно (nullable)
+            self.product_repo.save(product)  # Первый save: insert with None
+
+            self.price_repo.save(price)  # Second: price
+
+            # Update price_id and save again
+            product.price_id = price.id
+            self.product_repo.save(product)  # ⚡ Второй save: update price_id
 
             user.products.append(product.id)
 
             if is_new_user:
-                self.user_repo.save(user)  # Второй: update products для new
+                self.user_repo.save(user)
 
             logger.info(f'Товар {product.name} сохранён для пользователя {user_id}')
         except Exception as e:

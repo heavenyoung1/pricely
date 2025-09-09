@@ -9,6 +9,7 @@ from src.core.uow import SQLAlchemyUnitOfWork
 from src.core import DataBaseSettings, DatabaseConnection
 from src.infrastructure.database.models import Base  # SQLAlchemy модели
 from src.domain.entities import User, Product, Price
+from sqlalchemy import text
 
 import logging
 
@@ -81,13 +82,26 @@ def session_factory(engine):
     )
 
 
+# @pytest.fixture
+# def db_session(session_factory):
+#     '''Открываем и закрываем сессию на каждый тест'''
+#     session = session_factory()
+#     try:
+#         yield session
+#     finally:
+#         session.close()
+
 @pytest.fixture
 def db_session(session_factory):
     '''Открываем и закрываем сессию на каждый тест'''
     session = session_factory()
+    # ⚡ Cleanup перед тестом (CASCADE удалит prices/products/users)
+    session.execute(text("TRUNCATE TABLE users, products, prices CASCADE;"))
+    session.flush()  # Применить truncate без commit
     try:
         yield session
     finally:
+        session.rollback()  # Откат изменений теста
         session.close()
 
 @pytest.fixture
