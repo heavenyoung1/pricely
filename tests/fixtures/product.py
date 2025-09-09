@@ -41,7 +41,7 @@ def orm_product():
     product = ORMProduct(
         id='p1',
         user_id='u1',
-        price_id='pr1',
+        #price_id='pr1',
         name='Test Product',
         link='https://example.com/product',
         image_url='https://example.com/image.jpg',
