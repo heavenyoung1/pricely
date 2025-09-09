@@ -53,8 +53,14 @@ class DataBaseSettings(BaseSettings):
     
     def get_alembic_url(self, use_test: bool = False) -> str:
         '''Для Alembic (без +psycopg2).'''
-        name = self.TEST_NAME if use_test else self.NAME
-        return f'postgresql://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{name}'
+        if use_test:
+            name = self.TEST_NAME
+            port = self.TEST_PORT if self.TEST_PORT is not None else 5433
+        else:
+            name = self.NAME
+            port = self.PORT
+        
+        return f'postgresql://{self.USER}:{self.PASS}@{self.HOST}:{port}/{name}'
 
     @property
     def is_test_db_configured(self) -> bool:
