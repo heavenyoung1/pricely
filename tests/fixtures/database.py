@@ -60,10 +60,14 @@ def engine(test_db_settings):
     yield engine
 
     # Очищаем БД после тестов
-    logger.info(f"Очистка тестовой БД: {test_db_settings.TEST_NAME}")
-    command.downgrade(alembic_cfg, "base")
+    # logger.info(f"Очистка тестовой БД: {test_db_settings.TEST_NAME}")
+    # command.downgrade(alembic_cfg, "base")
+    # engine.dispose()
+    # clear_mappers()
+
+    # Вместо downgrade просто закрываем соединения
+    logger.info(f"Завершение работы с тестовой БД: {test_db_settings.TEST_NAME}")
     engine.dispose()
-    clear_mappers()
 
 @pytest.fixture
 def session_factory(engine):
