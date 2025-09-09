@@ -35,7 +35,7 @@ def with_uow(commit: bool = False, uow_class: type = SQLAlchemyUnitOfWork):
         Returns:
             Callable: Обернутая функция с UoW контекстом.
         """
-        def wrapper(*args, **kwargs) -> Any:
+        def wrapper(self, *args, **kwargs) -> Any:
             """
             Обертка функции, которая управляет жизненным циклом UoW.
             
@@ -46,7 +46,11 @@ def with_uow(commit: bool = False, uow_class: type = SQLAlchemyUnitOfWork):
                 Exception: Любое исключение, возникшее в декорируемой функции.
             """
             # Создаем экземпляр Unit of Work
-            uow = uow_class()
+            # uow = uow_class()
+            # ------------- выше старое решение, потом удалить!!! --------- #
+            # Используем фабрику UOW из объекта self
+            # Это позволяет тестам передавать свой UOW через фабрику
+            uow = self.uow_factory()
             
             try:
                 # Входим в контекстный менеджер UoW
@@ -54,13 +58,14 @@ def with_uow(commit: bool = False, uow_class: type = SQLAlchemyUnitOfWork):
                 with uow:
                     # Вызываем оригинальную функцию, передавая uow первым аргументом
                     # uow будет автоматически передан в функцию как первый позиционный аргумент
-                    result = func(uow, *args, **kwargs)
+                    result = func(self, uow, *args, **kwargs)
                     
                     # Логика управления транзакцией в зависимости от флага commit
                     if commit:
                         # Если commit=True - логируем и позволяем контекстному менеджеру
                         # выполнить commit при успешном завершении
                         logger.info(f"Функция {func.__name__}: выполняется commit транзакции")
+                        uow.commit()  # Явный commit
                         # Примечание: commit обычно выполняется в методе __exit__ 
                         # контекстного менеджера при успешном завершении блока with
                     else:

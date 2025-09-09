@@ -51,7 +51,5 @@
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_permissions": true,
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connection_pool_stress": true,
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_version_and_features": true,
-  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_transaction_rollback": true,
-  "tests/integration/test_product_service.py::test_create_and_get_user": true,
-  "tests/unit/test_use_case_update_product.py::test_upd_price_use_case_success": true
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_transaction_rollback": true
 }

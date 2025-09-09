@@ -54,9 +54,9 @@ class SQLAlchemyUnitOfWork(UnitOfWork):
         # 4. ИНИЦИАЛИЗИРУЕМ РЕПОЗИТОРИИ
         # Каждый репозиторий получает одну и ту же сессию БД
         # Это важно чтобы все операции были в одной транзакции
-        self.products = ProductRepositoryImpl(self._session)    # Репозиторий продуктов
-        self.prices = PriceRepositoryImpl(self._session)        # Репозиторий цен
-        self.users = UserRepositoryImpl(self._session)          # Репозиторий пользователей
+        self.product_repository = ProductRepositoryImpl(self._session)    # Репозиторий продуктов
+        self.price_repository = PriceRepositoryImpl(self._session)        # Репозиторий цен
+        self.user_repository = UserRepositoryImpl(self._session)          # Репозиторий пользователей
         
         # 5. ЛОГГИРУЕМ успешную инициализацию
         logger.info('Unit of Work инициализирован с сессией и репозиториями')

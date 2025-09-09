@@ -28,9 +28,9 @@ class ProductService:
         self.parser = parser or OzonParser()  # дефолт = OzonParser
 
     @with_uow(commit=True)
-    def create_user(self, user: User, uow: SQLAlchemyUnitOfWork) -> None:
+    def create_user(self, uow: SQLAlchemyUnitOfWork, user: User) -> None:
         try:
-            use_case = CreateUserUseCase(user_repo=uow.user_repository())
+            use_case = CreateUserUseCase(user_repo=uow.user_repository) # Обращаемся к фабрике
             use_case.execute(user)
         except Exception as e:
             logger.error(f'Ошибка при создании пользователя {user.id}: {str(e)}')
