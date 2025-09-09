@@ -33,6 +33,7 @@ class ProductService:
             use_case = CreateUserUseCase(user_repo=uow.user_repository) # Обращаемся к фабрике
             use_case.execute(user)
         except Exception as e:
+            # Дублирование пользователя
             logger.error(f'Ошибка при создании пользователя {user.id}: {str(e)}')
             raise UserCreationError(f"Ошибка создания пользователя: {str(e)}")
 
