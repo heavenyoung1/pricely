@@ -13,7 +13,11 @@ class ORMPrice(Base):
     __tablename__ = 'prices'
 
     id: Mapped[str] = mapped_column(primary_key=True)
-    product_id: Mapped[str] = mapped_column(ForeignKey('products.id', ondelete="CASCADE"), nullable=False, index=True)
+    product_id: Mapped[str] = mapped_column(
+        ForeignKey('products.id', ondelete='CASCADE'),
+        nullable=False,
+        index=True
+    )
 
     with_card: Mapped[int] = mapped_column(Integer, nullable=False)
     without_card: Mapped[int] = mapped_column(Integer, nullable=False)
