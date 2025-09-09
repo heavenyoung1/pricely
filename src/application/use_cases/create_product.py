@@ -69,23 +69,22 @@ class CreateProductUseCase:
                 products=[],
             )
 
-        # Проверяем продукт
+        # ⚡ Проверяем продукт (после создания user, но перед try)
         if self.product_repo.get(product.id):
             logger.error(f'Товар с ID {product.id} уже существует')
             raise ProductCreationError(f'Товар с ID {product.id} уже существует')
 
         try:
             if is_new_user:
-                self.user_repo.save(user)
+                self.user_repo.save(user)  # Первый: создание
 
             self.price_repo.save(price)
-            self.product_repo.save(product)
+            self.product_repo.save(product)  # Один раз
 
             user.products.append(product.id)
 
             if is_new_user:
-                # повторно сохраняем только нового пользователя
-                self.user_repo.save(user)
+                self.user_repo.save(user)  # Второй: update products для new
 
             logger.info(f'Товар {product.name} сохранён для пользователя {user_id}')
         except Exception as e:

@@ -1,4 +1,6 @@
 [
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connect_to_prod_db",
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connect_to_test_db",
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connection_pool_stress",
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connection_to_both_databases",
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_configuration_consistency",
