@@ -43,4 +43,4 @@ def test_create_product_success(uow, user, mock_parser):
 
     # Создаем продукт
     url = 'https://ozon.ru/product/123'
-    result = service.create_product(user.id, url, uow)
+    result = service.create_product(user.id, url)

@@ -30,20 +30,19 @@ class ProductService:
     @with_uow(commit=True)
     def create_user(self, uow: SQLAlchemyUnitOfWork, user: User) -> None:
         try:
-            use_case = CreateUserUseCase(user_repo=uow.user_repository) # Обращаемся к фабрике
+            use_case = CreateUserUseCase(user_repo=uow.user_repository)
             use_case.execute(user)
         except Exception as e:
-            # Дублирование пользователя
             logger.error(f'Ошибка при создании пользователя {user.id}: {str(e)}')
             raise UserCreationError(f"Ошибка создания пользователя: {str(e)}")
 
     @with_uow(commit=True)
-    def create_product(self, user_id: str, url: str, uow: SQLAlchemyUnitOfWork) -> str:
+    def create_product(self, uow: SQLAlchemyUnitOfWork, user_id: str, url: str) -> dict:
         try:
             use_case = CreateProductUseCase(
-                user_repo=uow.user_repository(),
-                product_repo=uow.product_repository(),
-                price_repo=uow.price_repository(),
+                user_repo=uow.user_repository,
+                product_repo=uow.product_repository,
+                price_repo=uow.price_repository,
                 parser=self.parser,
             )
             return use_case.execute(user_id, url)
