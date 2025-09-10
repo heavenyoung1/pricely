@@ -25,79 +25,67 @@ class CreateProductUseCase:
         self.parser = parser
 
     def execute(self, user_id: str, url: str) -> dict:
+        # 1. Парсим данные о продукте
         try:
             product_data = self.parser.parse_product(url)
-            logger.info(f'Успешный парсинг данных для {url}: {product_data}')
+            logger.info(f"Успешный парсинг данных для {url}: {product_data}")
         except Exception as e:
-            logger.error(f'Ошибка парсинга URL {url} для пользователя {user_id}: {str(e)}')
+            logger.error(f"Ошибка парсинга URL {url} для пользователя {user_id}: {str(e)}")
             raise ParserProductError("Ошибка парсинга товара")
 
-        #price_id = str(uuid.uuid4())[:9]
+        # 2. Проверяем, есть ли продукт в базе
+        if self.product_repo.get(product_data["id"]):
+            logger.error(f"Товар с ID {product_data['id']} уже существует")
+            raise ProductCreationError(f"Товар с ID {product_data['id']} уже существует")
+
+        # 3. Создаём сущности
         price_id = str(uuid.uuid4())
 
-        # Создаём цену сразу
+        product = Product(
+            id=product_data["id"],
+            user_id=user_id,
+            price_id=price_id,
+            name=product_data["name"],
+            link=url,
+            image_url=product_data["image_url"],
+            rating=product_data["rating"],
+            categories=product_data["categories"],
+        )
+
         price = Price(
             id=price_id,
-            product_id=product_data['id'],
-            with_card=product_data['price_with_card'],
-            without_card=product_data['price_without_card'],
+            product_id=product.id,
+            with_card=product_data["price_with_card"],
+            without_card=product_data["price_without_card"],
             previous_with_card=None,
             previous_without_card=None,
-            default=product_data['price_default'],
-            claim=datetime.now()
+            default=product_data["price_default"],
+            claim=datetime.now(),
         )
 
-        # Создаём продукт с уже готовым price_id
-        product = Product(
-            id=product_data['id'],
-            user_id=user_id,
-            price_id=price.id,   # ⚡ сразу указываем price_id
-            name=product_data['name'],
-            link=url,
-            image_url=product_data['image_url'],
-            rating=product_data['rating'],
-            categories=product_data['categories'],
-        )
-
-        # Проверяем пользователя
+        # 4. Работаем с пользователем
         user = self.user_repo.get(user_id)
         is_new_user = not user
+
         if is_new_user:
             user = User(
                 id=user_id,
                 username="unknown",
                 chat_id=user_id,
-                products=[],
+                products=[product.id],
             )
-
-        # ⚡ Проверяем продукт (после создания user, но перед try)
-        if self.product_repo.get(product.id):
-            logger.error(f'Товар с ID {product.id} уже существует')
-            raise ProductCreationError(f'Товар с ID {product.id} уже существует')
-
-        try:
-            if is_new_user:
-                self.user_repo.save(user)
-            elif not is_new_user:
-                # не сохраняем user, только обновляем список продуктов в объекте
-                user.products.append(product.id)
-
-            # 1. Сохраняем продукт (без price_id)
-            self.product_repo.save(product)
-
-            # 2. Сохраняем цену
-            self.price_repo.save(price)
-
-            # 3. Обновляем price_id у продукта
-            product.price_id = price.id
-            self.product_repo.save(product)
-
-            # 4. Добавляем продукт в список пользователя
-            #user.products.append(product.id)
             self.user_repo.save(user)
+        else:
+            if product.id not in user.products:
+                user.products.append(product.id)
+                self.user_repo.save(user)
 
+        # 5. Сохраняем продукт и цену
+        try:
+            self.product_repo.save(product)
+            self.price_repo.save(price)
         except Exception as e:
-            logger.error(f"Ошибка сохранения товара: {e}")
+            logger.error(f"Ошибка сохранения товара {product.id}: {e}")
             raise ProductCreationError("Ошибка сохранения товара")
 
         return {

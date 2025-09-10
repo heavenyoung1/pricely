@@ -35,8 +35,8 @@ def test_create_product_success_new_user(
     pure_mock_user_repo.get.assert_called_once_with(user.id)
     pure_mock_product_repo.get.assert_called_once_with("p1")
 
-    assert pure_mock_user_repo.save.call_count == 2  # create + update
-    assert pure_mock_product_repo.save.call_count == 2  # insert + update
+    assert pure_mock_user_repo.save.call_count == 1
+    assert pure_mock_product_repo.save.call_count == 1 
     pure_mock_price_repo.save.assert_called_once()
 
 @pytest.mark.unit
@@ -62,8 +62,13 @@ def test_create_product_success_existing_user(
     assert result["product_name"] == "Test Product"
     assert result["user_id"] == user.id
 
-    assert pure_mock_user_repo.save.call_count == 1  # Нет save для existing (если не добавили)
-    assert pure_mock_product_repo.save.call_count == 2
+    # ИЗМЕНЕНИЕ: save вызывается только если добавляем новый продукт пользователю
+    if "p1" not in user.products:
+        pure_mock_user_repo.save.assert_called_once()
+    else:
+        pure_mock_user_repo.save.assert_not_called()
+    
+    assert pure_mock_product_repo.save.call_count == 1  # был 2, теперь 1
     pure_mock_price_repo.save.assert_called_once()
 
 @pytest.mark.unit

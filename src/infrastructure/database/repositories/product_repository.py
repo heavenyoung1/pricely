@@ -22,15 +22,15 @@ class ProductRepositoryImpl(ProductRepository):
 
             if existing:
                 # обновляем поля
-                for key, value in ProductMapper.domain_to_orm(product).__dict__.items():
-                    if key.startswith("_"):  # служебные поля SQLAlchemy
-                        continue
-                    setattr(existing, key, value)
-                logger.debug(f'Товар обновлён (ID: {existing.id})')
+                existing.name = product.name
+                existing.link = product.link
+                existing.image_url = product.image_url
+                existing.rating = product.rating
+                existing.categories = product.categories
+                existing.price_id = product.price_id
             else:
                 orm_product = ProductMapper.domain_to_orm(product)
                 self.session.add(orm_product)
-                logger.debug(f'Товар добавлен (ID: {orm_product.id})')
 
         except Exception as e:
             logger.error(f'Ошибка сохранения продукта {product}: {str(e)}')
