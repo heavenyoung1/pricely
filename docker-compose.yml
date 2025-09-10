@@ -33,9 +33,25 @@ services:
       timeout: 10s
       retries: 5
 
+  # НОВЫЙ сервер для упражнений в SQL
+  postgres_sql_practice:
+    image: postgres:16
+    container_name: pricely_postgres_sql_practice
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: sql_practice_db
+    ports:
+      - "5434:5432"  # Новый порт для практики
+    volumes:
+      - postgres_data_practice:/var/lib/postgresql/data
+    networks:
+      - pricely_network
+
 volumes:
   postgres_data_dev:
   postgres_data_test:
+  postgres_data_practice:  # Новый volume для практики
 
 networks:
   pricely_network:
