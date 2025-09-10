@@ -81,27 +81,19 @@ def session_factory(engine):
         expire_on_commit=False,
     )
 
-
-# @pytest.fixture
-# def db_session(session_factory):
-#     '''Открываем и закрываем сессию на каждый тест'''
-#     session = session_factory()
-#     try:
-#         yield session
-#     finally:
-#         session.close()
-
 @pytest.fixture
 def db_session(session_factory):
-    '''Открываем и закрываем сессию на каждый тест'''
+    """Открываем и закрываем сессию на каждый тест и чистим БД"""
     session = session_factory()
-    # ⚡ Cleanup перед тестом (CASCADE удалит prices/products/users)
-    session.execute(text("TRUNCATE TABLE users, products, prices CASCADE;"))
-    session.flush()  # Применить truncate без commit
+
+    # Чистим все таблицы через TRUNCATE CASCADE
+    session.execute(text("TRUNCATE TABLE users, products, prices RESTART IDENTITY CASCADE;"))
+    session.commit()  # ⚡ обязательно, иначе truncate не фиксируется
+
     try:
         yield session
     finally:
-        session.rollback()  # Откат изменений теста
+        session.rollback()
         session.close()
 
 @pytest.fixture

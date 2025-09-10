@@ -18,9 +18,20 @@ class ProductRepositoryImpl(ProductRepository):
     def save(self, product: Product) -> None:
         try:
             logger.info(f'Сохранение товара: {product}')
-            orm_product = ProductMapper.domain_to_orm(product)
-            self.session.merge(orm_product)
-            logger.debug(f'Товар успешно сохранен (ID: {orm_product.id})')
+            existing = self.session.get(ORMProduct, product.id)
+
+            if existing:
+                # обновляем поля
+                for key, value in ProductMapper.domain_to_orm(product).__dict__.items():
+                    if key.startswith("_"):  # служебные поля SQLAlchemy
+                        continue
+                    setattr(existing, key, value)
+                logger.debug(f'Товар обновлён (ID: {existing.id})')
+            else:
+                orm_product = ProductMapper.domain_to_orm(product)
+                self.session.add(orm_product)
+                logger.debug(f'Товар добавлен (ID: {orm_product.id})')
+
         except Exception as e:
             logger.error(f'Ошибка сохранения продукта {product}: {str(e)}')
             raise

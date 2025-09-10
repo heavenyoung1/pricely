@@ -62,7 +62,7 @@ def test_create_product_success_existing_user(
     assert result["product_name"] == "Test Product"
     assert result["user_id"] == user.id
 
-    assert pure_mock_user_repo.save.call_count == 0  # Нет save для existing (если не добавили)
+    assert pure_mock_user_repo.save.call_count == 1  # Нет save для existing (если не добавили)
     assert pure_mock_product_repo.save.call_count == 2
     pure_mock_price_repo.save.assert_called_once()
 

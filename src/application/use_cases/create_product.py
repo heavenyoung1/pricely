@@ -32,6 +32,7 @@ class CreateProductUseCase:
             logger.error(f'Ошибка парсинга URL {url} для пользователя {user_id}: {str(e)}')
             raise ParserProductError("Ошибка парсинга товара")
 
+        #price_id = str(uuid.uuid4())[:9]
         price_id = str(uuid.uuid4())
 
         # Создаём цену сразу
@@ -77,25 +78,26 @@ class CreateProductUseCase:
         try:
             if is_new_user:
                 self.user_repo.save(user)
+            elif not is_new_user:
+                # не сохраняем user, только обновляем список продуктов в объекте
+                user.products.append(product.id)
 
-            # Save product с None сначала
-            product.price_id = None  # Временно (nullable)
-            self.product_repo.save(product)  # Первый save: insert with None
+            # 1. Сохраняем продукт (без price_id)
+            self.product_repo.save(product)
 
-            self.price_repo.save(price)  # Second: price
+            # 2. Сохраняем цену
+            self.price_repo.save(price)
 
-            # Update price_id and save again
+            # 3. Обновляем price_id у продукта
             product.price_id = price.id
-            self.product_repo.save(product)  # ⚡ Второй save: update price_id
+            self.product_repo.save(product)
 
-            user.products.append(product.id)
+            # 4. Добавляем продукт в список пользователя
+            #user.products.append(product.id)
+            self.user_repo.save(user)
 
-            if is_new_user:
-                self.user_repo.save(user)
-
-            logger.info(f'Товар {product.name} сохранён для пользователя {user_id}')
         except Exception as e:
-            logger.error(f'Ошибка сохранения в БД для {url} от пользователя {user_id}: {str(e)}')
+            logger.error(f"Ошибка сохранения товара: {e}")
             raise ProductCreationError("Ошибка сохранения товара")
 
         return {

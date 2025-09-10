@@ -36,22 +36,32 @@ class ProductService:
             logger.error(f'Ошибка при создании пользователя {user.id}: {str(e)}')
             raise UserCreationError(f"Ошибка создания пользователя: {str(e)}")
 
+    # @with_uow(commit=True)
+    # def create_product(self, uow: SQLAlchemyUnitOfWork, user_id: str, url: str) -> dict:
+    #     try:
+    #         use_case = CreateProductUseCase(
+    #             user_repo=uow.user_repository,
+    #             product_repo=uow.product_repository,
+    #             price_repo=uow.price_repository,
+    #             parser=self.parser,
+    #         )
+    #         return use_case.execute(user_id, url)
+    #     except ProductCreationError as e:
+    #         logger.warning(f'Ошибка создания продукта для пользователя {user_id}: {str(e)}')
+    #         raise
+    #     except Exception as e:
+    #         logger.error(f'Неизвестная ошибка при создании продукта: {str(e)}')
+    #         raise
+
     @with_uow(commit=True)
     def create_product(self, uow: SQLAlchemyUnitOfWork, user_id: str, url: str) -> dict:
-        try:
-            use_case = CreateProductUseCase(
-                user_repo=uow.user_repository,
-                product_repo=uow.product_repository,
-                price_repo=uow.price_repository,
-                parser=self.parser,
-            )
-            return use_case.execute(user_id, url)
-        except ProductCreationError as e:
-            logger.warning(f'Ошибка создания продукта для пользователя {user_id}: {str(e)}')
-            raise
-        except Exception as e:
-            logger.error(f'Неизвестная ошибка при создании продукта: {str(e)}')
-            raise
+        use_case = CreateProductUseCase(
+            user_repo=uow.user_repository,
+            product_repo=uow.product_repository,
+            price_repo=uow.price_repository,
+            parser=self.parser,
+        )
+        return use_case.execute(user_id, url)
 
     @with_uow(commit=False)
     def get_product(self, product_id: str, uow: SQLAlchemyUnitOfWork) -> Product:
