@@ -7,7 +7,7 @@ class PriceMapper:
     @staticmethod
     def dto_to_domain(dto: PriceDTO) -> Price:
         return Price(
-            id=int(dto.id),
+            id=int(dto.id) if dto.id is not None else None, # протестировать этот момент
             product_id=dto.product_id,
             with_card=dto.with_card,
             without_card=dto.without_card,
