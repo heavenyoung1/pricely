@@ -32,11 +32,9 @@ def test_domain_to_orm(user):
     assert orm.chat_id == user.chat_id
 
 @pytest.mark.unit
-def test_orm_to_domain(orm_user):
-    # Мокаем user_products
-    mock_product = Mock()
-    mock_product.product_id = 'p1'
-    orm_user.user_products = [mock_product]
+def test_orm_to_domain(orm_user, orm_user_products):
+    # Присваиваем user_products из фикстуры
+    orm_user.user_products = orm_user_products
     
     domain = UserMapper.orm_to_domain(orm_user)
     logger.debug(f'USER ORM - {orm_user}')

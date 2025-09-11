@@ -17,6 +17,7 @@ pytest_plugins = [
     'fixtures.repositories',
     'fixtures.service',
     'fixtures.parser',
+    'fixtures.user_products',
 ]
 
 def pytest_configure(config):
