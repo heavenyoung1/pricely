@@ -30,7 +30,6 @@ class UserMapper:
             id=domain.id,
             username=domain.username,
             chat_id=domain.chat_id,
-            created_at=datetime.now(),  # Устанавливаем текущее время
         )
 
     @staticmethod

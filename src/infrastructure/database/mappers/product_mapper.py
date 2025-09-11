@@ -40,16 +40,15 @@ class ProductMapper:
             link=domain.link,
             image_url=domain.image_url,
             rating=domain.rating,
-            categories=json.dumps(domain.categories),  # Сериализуем список в JSON
-            created_at=datetime.now(),  # Устанавливаем текущее время
+            categories=json.dumps(domain.categories),
         )
 
     @staticmethod
     def orm_to_domain(orm: ORMProduct) -> Product:
         return Product(
             id=orm.id,
-            user_id='',  # Должно заполняться в UseCase или репозитории
-            price_id='',  # Должно заполняться в UseCase или репозитории
+            user_id='',  # Убрано, так как нет в ORM
+            price_id='',  # Убрано, так как нет в ORM
             name=orm.name,
             link=orm.link,
             image_url=orm.image_url,
