@@ -53,5 +53,22 @@
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_version_and_features": true,
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_transaction_rollback": true,
   "tests/integration/test_product_service.py::test_create_user_duplicate_error": true,
-  "tests/integration/test_product_service.py::test_create_product_success": true
+  "tests/integration/test_product_service.py::test_create_product_success": true,
+  "tests/integration/test_product_service.py::test_create_and_get_user": true,
+  "tests/unit/test_mapper_price.py::test_domain_to_orm": true,
+  "tests/unit/test_mapper_price.py::test_orm_to_domain": true,
+  "tests/unit/test_mapper_product.py::test_domain_to_orm": true,
+  "tests/unit/test_mapper_product.py::test_orm_to_domain": true,
+  "tests/unit/test_mapper_user.py::test_domain_to_orm": true,
+  "tests/unit/test_mapper_user.py::test_orm_to_domain": true,
+  "tests/unit/test_repo_price.py::test_save_price_success": true,
+  "tests/unit/test_repo_price.py::test_get_price_success": true,
+  "tests/unit/test_repo_price.py::test_get_all_prices_by_product": true,
+  "tests/unit/test_repo_product.py::test_save_product_success": true,
+  "tests/unit/test_repo_product.py::test_get_product_found": true,
+  "tests/unit/test_repo_product.py::test_get_all_product": true,
+  "tests/unit/test_repo_product.py::test_delete_product": true,
+  "tests/unit/test_repo_user.py::test_save_user_success": true,
+  "tests/unit/test_repo_user.py::test_get_user_found": true,
+  "tests/unit/test_repo_user.py::test_delete_user_found": true
 }

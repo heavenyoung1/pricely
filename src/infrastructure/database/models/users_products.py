@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING, Optional
 from .price import ORMPrice
 from datetime import datetime
 
-
+# ТУт нужно доделать свящи с другими таблицами
 from .base import Base
 
 class ORMUserProducts(Base):

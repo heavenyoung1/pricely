@@ -15,10 +15,3 @@ class ORMUser(Base):
     id: Mapped[str] = mapped_column(String, primary_key=True)
     username: Mapped[str] = mapped_column(String, nullable=False)
     chat_id: Mapped[str] = mapped_column(String, nullable=False)
-
-    products: Mapped[list['ORMProduct']] = relationship(
-        'ORMProduct',
-        back_populates='user',
-        cascade='all, delete-orphan',
-        lazy='selectin'
-    )

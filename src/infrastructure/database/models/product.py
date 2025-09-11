@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 class ORMProduct(Base):
     __tablename__ = 'products'
     
-    id: Mapped[str] = mapped_column(String,primary_key=True)
+    id: Mapped[str] = mapped_column(String,primary_key=True) # Это артикул из 10 цифр - если это будет строка, нормально?
     name: Mapped[str] = mapped_column(String, nullable=False)
     link: Mapped[str] = mapped_column(String, nullable=False)
     image_url: Mapped[str] = mapped_column(String, nullable=False)
