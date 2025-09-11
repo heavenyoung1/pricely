@@ -4,7 +4,6 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import TYPE_CHECKING, Optional
 from .price import ORMPrice
 from datetime import datetime
-f
 
 from . import Base
 
