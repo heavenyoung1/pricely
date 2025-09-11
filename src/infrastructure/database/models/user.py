@@ -3,12 +3,9 @@ from sqlalchemy import String, DateTime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import TYPE_CHECKING
 from datetime import datetime
-
+from . import ORMUserProducts
 
 from .base import Base
-
-if TYPE_CHECKING:
-    from .product import ORMProduct
 
 
 class ORMUser(Base):

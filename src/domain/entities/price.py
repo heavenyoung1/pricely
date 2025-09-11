@@ -3,11 +3,11 @@ from datetime import datetime
 
 @dataclass
 class Price:
-    id: str
-    product_id: str
+    id: int  # Автоинкрементный ID
+    product_id: str  # Связь с продуктом
     with_card: int
     without_card: int
-    previous_with_card: int
-    previous_without_card: int
+    previous_with_card: int | None
+    previous_without_card: int | None
     default: int
-    claim: datetime
+    created_at: datetime  # Дата клейма цены

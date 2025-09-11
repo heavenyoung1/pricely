@@ -11,4 +11,4 @@ class PriceDTO(BaseModel):
     previous_with_card: Optional[int] = None  # Разрешаем None
     previous_without_card: Optional[int] = None  # Разрешаем None
     default: int
-    claim: datetime
+    created_at: datetime

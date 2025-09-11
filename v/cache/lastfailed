@@ -59,8 +59,6 @@
   "tests/unit/test_mapper_price.py::test_orm_to_domain": true,
   "tests/unit/test_mapper_product.py::test_domain_to_orm": true,
   "tests/unit/test_mapper_product.py::test_orm_to_domain": true,
-  "tests/unit/test_mapper_user.py::test_domain_to_orm": true,
-  "tests/unit/test_mapper_user.py::test_orm_to_domain": true,
   "tests/unit/test_repo_price.py::test_save_price_success": true,
   "tests/unit/test_repo_price.py::test_get_price_success": true,
   "tests/unit/test_repo_price.py::test_get_all_prices_by_product": true,
@@ -68,7 +66,5 @@
   "tests/unit/test_repo_product.py::test_get_product_found": true,
   "tests/unit/test_repo_product.py::test_get_all_product": true,
   "tests/unit/test_repo_product.py::test_delete_product": true,
-  "tests/unit/test_repo_user.py::test_save_user_success": true,
-  "tests/unit/test_repo_user.py::test_get_user_found": true,
-  "tests/unit/test_repo_user.py::test_delete_user_found": true
+  "tests/unit/test_repo_user.py::test_get_user_found": true
 }
