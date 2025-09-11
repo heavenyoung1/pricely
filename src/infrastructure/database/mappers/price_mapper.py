@@ -7,7 +7,7 @@ class PriceMapper:
     @staticmethod
     def dto_to_domain(dto: PriceDTO) -> Price:
         return Price(
-            id=int(dto.id),  # Преобразуем str в int
+            id=int(dto.id),
             product_id=dto.product_id,
             with_card=dto.with_card,
             without_card=dto.without_card,
@@ -20,7 +20,7 @@ class PriceMapper:
     @staticmethod
     def domain_to_dto(domain: Price) -> PriceDTO:
         return PriceDTO(
-            id=str(domain.id),  # Преобразуем int в str
+            id=domain.id,
             product_id=domain.product_id,
             with_card=domain.with_card,
             without_card=domain.without_card,

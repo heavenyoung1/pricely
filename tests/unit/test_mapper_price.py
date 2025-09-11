@@ -15,7 +15,7 @@ def test_dto_to_domain(price_dto):
 def test_domain_to_dto(price):
     dto = PriceMapper.domain_to_dto(price)
     assert isinstance(dto, PriceDTO)
-    assert dto.id == str(price.id)
+    assert dto.id == price.id
     assert dto.created_at == price.created_at
 
 @pytest.mark.unit

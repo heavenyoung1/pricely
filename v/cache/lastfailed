@@ -55,7 +55,5 @@
   "tests/integration/test_product_service.py::test_create_user_duplicate_error": true,
   "tests/integration/test_product_service.py::test_create_product_success": true,
   "tests/integration/test_product_service.py::test_create_and_get_user": true,
-  "tests/unit/test_repo_price.py::test_get_price_success": true,
-  "tests/unit/test_mapper_user.py::test_orm_to_domain": true,
-  "tests/unit/test_mapper_price.py::test_domain_to_dto": true
+  "tests/unit/test_mapper_user.py::test_orm_to_domain": true
 }
