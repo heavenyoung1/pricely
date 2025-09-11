@@ -14,7 +14,7 @@ class PriceMapper:
             previous_with_card=dto.previous_with_card,
             previous_without_card=dto.previous_without_card,
             default=dto.default,
-            created_at=dto.created_at,  # Заменили claim на created_at
+            created_at=dto.created_at,
         )
 
     @staticmethod
@@ -27,7 +27,7 @@ class PriceMapper:
             previous_with_card=domain.previous_with_card,
             previous_without_card=domain.previous_without_card,
             default=domain.default,
-            created_at=domain.created_at,  # Заменили claim на created_at
+            created_at=domain.created_at,
         )
 
     @staticmethod

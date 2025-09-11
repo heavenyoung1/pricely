@@ -60,7 +60,7 @@ class CreateProductUseCase:
             previous_with_card=None,
             previous_without_card=None,
             default=product_data["price_default"],
-            claim=datetime.now(),
+            created_at=datetime.now(),
         )
 
         # 4. Работаем с пользователем

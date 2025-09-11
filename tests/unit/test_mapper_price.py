@@ -8,15 +8,15 @@ from src.infrastructure.database.models import ORMPrice
 def test_dto_to_domain(price_dto):
     domain = PriceMapper.dto_to_domain(price_dto)
     assert isinstance(domain, Price)
-    assert domain.id == price_dto.id
+    assert domain.id == int(price_dto.id)
     assert domain.default == price_dto.default
 
 @pytest.mark.unit
 def test_domain_to_dto(price):
     dto = PriceMapper.domain_to_dto(price)
     assert isinstance(dto, PriceDTO)
-    assert dto.id == price.id
-    assert dto.claim == price.claim
+    assert dto.id == str(price.id)
+    assert dto.created_at == price.created_at
 
 @pytest.mark.unit
 def test_domain_to_orm(price):

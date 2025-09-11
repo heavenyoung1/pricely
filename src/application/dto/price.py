@@ -4,7 +4,7 @@ from typing import Optional
 
 
 class PriceDTO(BaseModel):
-    id: str
+    id: int
     product_id: str
     with_card: int
     without_card: int

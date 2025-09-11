@@ -75,7 +75,7 @@ def test_get_price_success(price_second, mock_session, orm_price):
     #assert result.previous_with_card == price_second.previous_with_card
     #assert result.previous_without_card == price_second.previous_without_card
     assert result.default == price_second.default
-    assert result.claim == price_second.claim
+    assert result.created_at == price_second.created_at
 
     # 2. Проверяем, что session.get был вызван с ПРАВИЛЬНЫМИ аргументами:
     #    Первый аргумент: ORM класс (ORMPrice), второй аргумент: ID цены

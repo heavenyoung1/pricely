@@ -16,7 +16,7 @@ def price_dto():
         previous_with_card=90,
         previous_without_card=110,
         default=150,
-        created_at=datetime(2025, 1, 1),  # Заменили claim на created_at
+        created_at=datetime(2025, 1, 1),  #
     )
 
 @pytest.fixture
@@ -30,7 +30,7 @@ def price():
         previous_with_card=90,
         previous_without_card=110,
         default=150,
-        created_at=datetime(2025, 1, 1),  # Заменили claim на created_at
+        created_at=datetime(2025, 1, 1),  
     )
 
 @pytest.fixture
@@ -44,7 +44,7 @@ def price_second():
         previous_with_card=100,    
         previous_without_card=120,
         default=150,
-        claim=datetime(2025, 1, 1)
+        created_at=datetime(2025, 1, 1)
     )
 
 @pytest.fixture
@@ -72,6 +72,6 @@ def mocked_orm_price():
         previous_with_card=90,
         previous_without_card=110,
         default=150,
-        claim=datetime(2025, 1, 1)
+        created_at=datetime(2025, 1, 1)
     )
     return price

@@ -33,9 +33,10 @@ def test_domain_to_orm(user):
 
 @pytest.mark.unit
 def test_orm_to_domain(orm_user):
+    # Мокаем user_products
     mock_product = Mock()
-    mock_product.id = 'p1'
-    orm_user.__dict__['products'] = [mock_product]  # ← Добавляем мок продукта
+    mock_product.product_id = 'p1'
+    orm_user.user_products = [mock_product]
     
     domain = UserMapper.orm_to_domain(orm_user)
     logger.debug(f'USER ORM - {orm_user}')
