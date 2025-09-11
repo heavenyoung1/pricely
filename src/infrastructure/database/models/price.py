@@ -12,16 +12,19 @@ if TYPE_CHECKING:
 class ORMPrice(Base):
     __tablename__ = 'prices'
 
-    id: Mapped[str] = mapped_column(primary_key=True) # Как в Python сделать автоинкрементирование 
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)  # Автоинкремент для id
     product_id: Mapped[str] = mapped_column(
         ForeignKey('products.id', ondelete='CASCADE'),
         nullable=False,
         index=True
-    ) # Тут все ли ок?
+    )  # Всё ок, связь правильная
 
     with_card: Mapped[int] = mapped_column(Integer, nullable=False)
     without_card: Mapped[int] = mapped_column(Integer, nullable=False)
     previous_with_card: Mapped[int] = mapped_column(Integer, nullable=True)
     previous_without_card: Mapped[int] = mapped_column(Integer, nullable=True)
     default: Mapped[int] = mapped_column(Integer, nullable=False)
-    created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.now)
+
+    # Обратная связь: цены принадлежат одному продукту
+    product: Mapped["ORMProduct"] = relationship("ORMProduct", back_populates="prices")
