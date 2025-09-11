@@ -33,7 +33,7 @@ class PriceMapper:
     @staticmethod
     def domain_to_orm(domain: Price) -> ORMPrice:
         return ORMPrice(
-            id=domain.id,
+            id=None, # Из за автоинкрементирования -> None!!!
             product_id=domain.product_id,
             with_card=domain.with_card,
             without_card=domain.without_card,
