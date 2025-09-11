@@ -28,11 +28,8 @@ def user():
 @pytest.fixture
 def orm_user():
     '''Фикстура тестового ORM User'''
-    user = ORMUser(
+    return ORMUser(
         id='u1',
         username='test_user',
         chat_id='12345',
-        #products=['p1', 'p2'] # НЕ передаем products в конструктор!
     )
-    #user.products = [orm_product]
-    return user
