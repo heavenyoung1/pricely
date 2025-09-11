@@ -8,7 +8,7 @@ from datetime import datetime
 from . import Base
 
 if TYPE_CHECKING:
-    from .user import ORMUser, ORMUserProducts
+    from .user import ORMUserProducts
 
 class ORMProduct(Base):
     __tablename__ = 'products'
