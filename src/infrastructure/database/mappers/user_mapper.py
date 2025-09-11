@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from src.domain.entities import User
 from src.application.dto import UserDTO
 from src.infrastructure.database.models import ORMUser
@@ -10,7 +12,7 @@ class UserMapper:
             id=dto.id,
             username=dto.username,
             chat_id=dto.chat_id,
-            products=dto.products
+            products=dto.products,
         )
 
     @staticmethod
@@ -19,17 +21,16 @@ class UserMapper:
             id=domain.id,
             username=domain.username,
             chat_id=domain.chat_id,
-            products=domain.products
+            products=domain.products,
         )
 
     @staticmethod
     def domain_to_orm(domain: User) -> ORMUser:
-        # Создаем ORM объект без products - они будут добавлены отдельно в репозитории
         return ORMUser(
             id=domain.id,
             username=domain.username,
             chat_id=domain.chat_id,
-            # products не устанавливаем здесь - это должно делаться в репозитории
+            created_at=datetime.now(),  # Устанавливаем текущее время
         )
 
     @staticmethod
@@ -38,5 +39,5 @@ class UserMapper:
             id=orm.id,
             username=orm.username,
             chat_id=orm.chat_id,
-            products=[product.id for product in orm.products] if orm.products else []
+            products=[up.product_id for up in orm.user_products] if orm.user_products else [],
         )

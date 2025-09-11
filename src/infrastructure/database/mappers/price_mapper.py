@@ -7,27 +7,27 @@ class PriceMapper:
     @staticmethod
     def dto_to_domain(dto: PriceDTO) -> Price:
         return Price(
-            id=dto.id,
+            id=int(dto.id),  # Преобразуем str в int
             product_id=dto.product_id,
             with_card=dto.with_card,
             without_card=dto.without_card,
             previous_with_card=dto.previous_with_card,
             previous_without_card=dto.previous_without_card,
             default=dto.default,
-            claim=dto.claim
+            created_at=dto.created_at,
         )
-
+    
     @staticmethod
     def domain_to_dto(domain: Price) -> PriceDTO:
         return PriceDTO(
-            id=domain.id,
+            id=str(domain.id),  # Преобразуем int в str
             product_id=domain.product_id,
             with_card=domain.with_card,
             without_card=domain.without_card,
             previous_with_card=domain.previous_with_card,
             previous_without_card=domain.previous_without_card,
             default=domain.default,
-            claim=domain.claim
+            created_at=domain.created_at,
         )
 
     @staticmethod
@@ -40,7 +40,7 @@ class PriceMapper:
             previous_with_card=domain.previous_with_card,
             previous_without_card=domain.previous_without_card,
             default=domain.default,
-            claim=domain.claim
+            created_at=domain.created_at,
         )
 
     @staticmethod
@@ -53,5 +53,5 @@ class PriceMapper:
             previous_with_card=orm.previous_with_card,
             previous_without_card=orm.previous_without_card,
             default=orm.default,
-            claim=orm.claim
+            created_at=orm.created_at,
         )
