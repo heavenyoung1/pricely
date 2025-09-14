@@ -1,4 +1,5 @@
 from logging.config import fileConfig
+import logging
 from dotenv import load_dotenv
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
@@ -7,6 +8,7 @@ from src.infrastructure.database.models import Base
 from src.core.db_connection import db_settings
 from alembic import context
 import os
+
 load_dotenv()
 
 # Настройка логгера Alembic
@@ -14,16 +16,12 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# Загружаем настройки
+# Настройки БД
 db_settings = DataBaseSettings()
-# Используем TEST_DATABASE_URL, если задана, иначе get_alembic_url
 use_test_db = os.getenv("TEST_DATABASE_URL") or db_settings.is_test_db_configured
 db_url = os.getenv("TEST_DATABASE_URL", db_settings.get_alembic_url(use_test=use_test_db))
 
 config.set_main_option("sqlalchemy.url", db_url)
-
-# Логируем используемый URL
-import logging
 logger = logging.getLogger("alembic.runtime.migration")
 logger.info(f"Using database URL: {db_url}")
 
