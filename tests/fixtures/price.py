@@ -57,7 +57,7 @@ def orm_price():
         without_card=120,
         previous_with_card=90,
         previous_without_card=110,
-        default=150,
+        default_price=150,
         created_at=datetime(2025, 1, 1),
     )
 
@@ -71,7 +71,7 @@ def mocked_orm_price():
         without_card=120,
         previous_with_card=90,
         previous_without_card=110,
-        default=150,
+        default_price=150,
         created_at=datetime(2025, 1, 1)
     )
     return price

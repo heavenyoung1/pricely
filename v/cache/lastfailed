@@ -59,5 +59,6 @@
   "tests/unit/test_mapper_price.py::test_orm_to_domain": true,
   "tests/unit/test_repo_price.py::test_save_price_success": true,
   "tests/unit/test_repo_price.py::test_get_price_success": true,
-  "tests/unit/test_repo_price.py::test_get_all_prices_by_product": true
+  "tests/unit/test_repo_price.py::test_get_all_prices_by_product": true,
+  "tests/unit/test_mapper_price.py::test_domain_to_dto": true
 }
