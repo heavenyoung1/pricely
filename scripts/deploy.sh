@@ -5,8 +5,8 @@ echo "🚀 Начинаем деплой..."
 
 # 1. Обновляем код
 echo "📥 Обновляем репозиторий..."
-git fetch --all
-git reset --hard origin/master   # если у тебя ветка называется master — поменяй на master
+#git fetch --all
+#git reset --hard origin/master   # если у тебя ветка называется master — поменяй на master
 
 # 2. Останавливаем и удаляем контейнеры
 echo "🛑 Останавливаем и удаляем старые контейнеры..."
