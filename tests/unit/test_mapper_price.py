@@ -22,8 +22,9 @@ def test_domain_to_dto(price):
 def test_domain_to_orm(price):
     orm = PriceMapper.domain_to_orm(price)
     assert isinstance(orm, ORMPrice)
-    assert orm.id == price.id
-    assert orm.default == price.default
+    # id ещё не назначен, так как БД его сгенерирует
+    assert orm.id is None
+    assert orm.default_price == price.default
 
 @pytest.mark.unit
 def test_orm_to_domain(orm_price):

@@ -21,9 +21,9 @@ def price_dto():
 
 @pytest.fixture
 def price():
-    '''Фикстура тестового доменного Price'''
+    '''Price для юнит-тестов (ещё не сохранён в БД).'''
     return Price(
-        id=1,
+        id=None, # ещё не сгенерирован
         product_id='p1',
         with_card=100,
         without_card=120,
