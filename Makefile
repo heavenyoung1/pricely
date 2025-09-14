@@ -3,7 +3,7 @@
 up:
 	docker-compose up -d
 
-down:
+make -n down:
 	docker-compose down -v
 
 migrate-dev:
