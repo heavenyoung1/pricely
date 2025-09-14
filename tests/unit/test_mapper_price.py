@@ -32,3 +32,4 @@ def test_orm_to_domain(orm_price):
     assert isinstance(domain, Price)
     assert domain.id == orm_price.id
     assert domain.previous_with_card == orm_price.previous_with_card
+    assert domain.default == orm_price.default_price  # ✅ исправлено

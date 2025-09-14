@@ -4,7 +4,7 @@ from typing import Optional
 
 
 class PriceDTO(BaseModel):
-    id: int
+    id: Optional[int]  # 🔥 id теперь может быть None (автоинкремент в БД)
     product_id: str
     with_card: int
     without_card: int

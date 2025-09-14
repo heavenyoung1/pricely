@@ -9,7 +9,7 @@ from src.infrastructure.database.models import ORMPrice
 def price_dto():
     '''Фикстура тестового Price DTO'''
     return PriceDTO(
-        id=1,
+        id=None,  # 🔥 None
         product_id='p1',
         with_card=100,
         without_card=120,
@@ -23,7 +23,7 @@ def price_dto():
 def price():
     '''Price для юнит-тестов (ещё не сохранён в БД).'''
     return Price(
-        id=None, # ещё не сгенерирован
+        id=None,  # 🔥 None до вставки в БД
         product_id='p1',
         with_card=100,
         without_card=120,
@@ -37,7 +37,7 @@ def price():
 def price_second():
     '''Фикстура тестового доменного Price'''
     return Price(
-        id=1,
+        id=None,  # 🔥 тоже None
         product_id='p1',
         with_card=120,
         without_card=140,
@@ -51,7 +51,7 @@ def price_second():
 def orm_price():
     '''Фикстура тестового ORM Price'''
     return ORMPrice(
-        id=1,
+        id=1,  # в БД уже сохранён → id есть
         product_id='p1',
         with_card=100,
         without_card=120,

@@ -7,7 +7,7 @@ class PriceMapper:
     @staticmethod
     def dto_to_domain(dto: PriceDTO) -> Price:
         return Price(
-            id=int(dto.id) if dto.id is not None else None, # протестировать этот момент
+            id=dto.id,  # теперь может быть None
             product_id=dto.product_id,
             with_card=dto.with_card,
             without_card=dto.without_card,
@@ -20,7 +20,7 @@ class PriceMapper:
     @staticmethod
     def domain_to_dto(domain: Price) -> PriceDTO:
         return PriceDTO(
-            id=domain.id,
+            id=domain.id, # None до сохранения в БД → норм
             product_id=domain.product_id,
             with_card=domain.with_card,
             without_card=domain.without_card,
@@ -33,7 +33,7 @@ class PriceMapper:
     @staticmethod
     def domain_to_orm(domain: Price) -> ORMPrice:
         return ORMPrice(
-            #id=None, # Из за автоинкрементирования -> None!!!
+            # id не задаём руками, автоинкремент!!!
             product_id=domain.product_id,
             with_card=domain.with_card,
             without_card=domain.without_card,
