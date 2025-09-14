@@ -55,6 +55,5 @@
   "tests/integration/test_product_service.py::test_create_user_duplicate_error": true,
   "tests/integration/test_product_service.py::test_create_product_success": true,
   "tests/integration/test_product_service.py::test_create_and_get_user": true,
-  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connection_to_both_databases": true,
-  "tests/unit/test_use_case_update_product.py::test_upd_price_use_case_success": true
+  "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connection_to_both_databases": true
 }

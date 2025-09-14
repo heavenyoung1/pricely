@@ -16,9 +16,6 @@ class UpdateProductPriceUseCase:
         if not product_id:
             logger.error('Идентификатор продукта не указан')
             raise PriceUpdateError('Идентификатор продукта не указан')
-        if not price.id:
-            logger.error('Идентификатор цены не указан')
-            raise PriceUpdateError('Идентификатор цены не указан')
 
         # Проверка существования продукта
         product = self.product_repo.get(product_id)
