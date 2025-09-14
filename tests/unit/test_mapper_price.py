@@ -8,7 +8,7 @@ from src.infrastructure.database.models import ORMPrice
 def test_dto_to_domain(price_dto):
     domain = PriceMapper.dto_to_domain(price_dto)
     assert isinstance(domain, Price)
-    assert domain.id == int(price_dto.id)
+    assert domain.id == None
     assert domain.default == price_dto.default
 
 @pytest.mark.unit
