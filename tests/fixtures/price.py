@@ -60,18 +60,3 @@ def orm_price():
         default_price=150,
         created_at=datetime(2025, 1, 1),
     )
-
-# @pytest.fixture
-# def mocked_orm_price():
-#     '''Фикстура ORMPrice без взаимодействия с БД (для unit-тестов).'''
-#     price = ORMPrice(
-#         id=1,
-#         product_id='p1',
-#         with_card=100,
-#         without_card=120,
-#         previous_with_card=90,
-#         previous_without_card=110,
-#         default_price=150,
-#         created_at=datetime(2025, 1, 1)
-#     )
-#     return price

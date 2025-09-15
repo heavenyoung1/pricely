@@ -87,7 +87,7 @@ def db_session(session_factory):
     session = session_factory()
 
     # Чистим все таблицы через TRUNCATE CASCADE
-    session.execute(text("TRUNCATE TABLE users, products, prices RESTART IDENTITY CASCADE;"))
+    #session.execute(text("TRUNCATE TABLE users, products, prices RESTART IDENTITY CASCADE;"))
     session.commit()  # ⚡ обязательно, иначе truncate не фиксируется
 
     try:
@@ -97,8 +97,11 @@ def db_session(session_factory):
         session.close()
 
 @pytest.fixture
-def uow(session_factory):
-    '''UoW с тестовой фабрикой'''
+def uow(session_factory, engine):
+    """UoW с чисткой БД перед каждым тестом."""
+    with engine.connect() as conn:
+        conn.execute(text("TRUNCATE TABLE users, products, prices RESTART IDENTITY CASCADE;"))
+        conn.commit()
     return SQLAlchemyUnitOfWork(session_factory=session_factory)
 
 @pytest.fixture
