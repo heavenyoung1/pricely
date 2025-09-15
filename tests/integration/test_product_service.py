@@ -31,7 +31,7 @@ def test_create_product_success(uow, user, pure_mock_parser):
     url = "https://ozon.ru/product/123"
     result = service.create_product(user.id, url)
 
-    assert result["id"] == "p1"
+    assert result["product_id"] == "p1"
 
     with uow:
         product = uow.product_repository.get("p1")
