@@ -48,7 +48,6 @@ class ProductMapper:
         return Product(
             id=orm.id,
             user_id='',  # Убрано, так как нет в ORM
-            price_id='',  # Убрано, так как нет в ORM
             name=orm.name,
             link=orm.link,
             image_url=orm.image_url,

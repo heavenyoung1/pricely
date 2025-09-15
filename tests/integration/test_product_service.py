@@ -36,4 +36,4 @@ def test_create_product_success(uow, user, pure_mock_parser):
     with uow:
         product = uow.product_repository.get("p1")
         assert product is not None
-        assert product.latest_price.with_card == 100
+        assert result["with_card"] == 100

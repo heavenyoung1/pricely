@@ -60,6 +60,9 @@ class CreateProductUseCase:
             created_at=datetime.now(),
         )
 
+        # ✅ Привязываем цену к продукту
+        product.prices.append(price)
+
         # 4. Работаем с пользователем
         user = self.user_repo.get(user_id)
         is_new_user = not user
@@ -89,4 +92,5 @@ class CreateProductUseCase:
             "product_id": product.id,
             "product_name": product.name,
             "user_id": product.user_id,
+            "with_card": price.with_card,
         }
