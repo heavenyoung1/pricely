@@ -39,12 +39,9 @@ class CreateProductUseCase:
             raise ProductCreationError(f"Товар с ID {product_data['id']} уже существует")
 
         # 3. Создаём сущности
-        price_id = str(uuid.uuid4())
-
         product = Product(
             id=product_data["id"],
             user_id=user_id,
-            price_id=price_id,
             name=product_data["name"],
             link=url,
             image_url=product_data["image_url"],
@@ -53,7 +50,7 @@ class CreateProductUseCase:
         )
 
         price = Price(
-            id=price_id,
+            id=None,  # БД сама создаст автоинкрементный id
             product_id=product.id,
             with_card=product_data["price_with_card"],
             without_card=product_data["price_without_card"],
@@ -92,5 +89,4 @@ class CreateProductUseCase:
             "product_id": product.id,
             "product_name": product.name,
             "user_id": product.user_id,
-            "price_id": product.price_id,
         }

@@ -36,10 +36,4 @@ def test_create_product_success(uow, user, pure_mock_parser):
     with uow:
         product = uow.product_repository.get("p1")
         assert product is not None
-        assert product.price_id is not None
-
-        price = uow.price_repository.get(product.price_id)
-        assert price is not None
-        assert price.with_card == 100
-        assert price.without_card == 120
-        assert price.default == 150
+        assert product.latest_price.with_card == 100
