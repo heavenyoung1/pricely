@@ -12,7 +12,6 @@ class ProductMapper:
         return Product(
             id=dto.id,
             user_id=dto.user_id,
-            price_id='',  # Заполняется в UseCase
             name=dto.name,
             link=str(dto.link),
             image_url=str(dto.image_url),

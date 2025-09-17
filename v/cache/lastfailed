@@ -52,5 +52,16 @@
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connection_pool_stress": true,
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_version_and_features": true,
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_transaction_rollback": true,
-  "tests/integration/test_product_service.py::test_create_user_duplicate_error": true
+  "tests/integration/test_product_service.py::test_create_user_duplicate_error": true,
+  "tests/unit/test_repo_product.py::test_save_product_success": true,
+  "tests/unit/test_repo_product.py::test_get_product_found": true,
+  "tests/unit/test_repo_product.py::test_get_all_product": true,
+  "tests/unit/test_repo_product.py::test_delete_product": true,
+  "tests/unit/test_use_case_create_product.py::test_create_product_fails_product_exists": true,
+  "tests/unit/test_use_case_delete_product.py::test_delete_product_use_case_success": true,
+  "tests/unit/test_use_case_delete_product.py::test_delete_product_use_case_unsuccess_notexist_in_db": true,
+  "tests/unit/test_use_case_get_full_product.py::test_get_full_product_use_case_success": true,
+  "tests/unit/test_use_case_get_product.py::test_get_product_use_case_success": true,
+  "tests/unit/test_use_case_get_product.py::test_get_product_use_case_unsuccess_not_found": true,
+  "tests/unit/test_use_case_update_product.py::test_upd_price_use_case_success": true
 }
