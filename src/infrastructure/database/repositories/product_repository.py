@@ -27,7 +27,7 @@ class ProductRepositoryImpl(ProductRepository):
                 existing.image_url = product.image_url
                 existing.rating = product.rating
                 existing.categories = product.categories
-                existing.price_id = product.price_id
+                #existing.price_id = product.price_id
             else:
                 orm_product = ProductMapper.domain_to_orm(product)
                 self.session.add(orm_product)
