@@ -20,21 +20,22 @@ class GetFullProductUseCase:
     def execute(self, product_id: str):
         product = self.product_repo.get(product_id)
         if not product:
-            logger.warning(f'Товар {product_id} не найден')
-            raise ProductNotFoundError(f'Товар {product_id} не существует')
+            logger.warning(f'Продукт {product_id} не найден')
+            raise ProductNotFoundError(f'Продукт {product_id} не найден')
 
-        #price = None Я забыл зачем это здесь, позже удалить
-        if product.price_id:
-            price = self.price_repo.get(product.price_id)
-
+        # Все цены этого продукта
+        prices = self.price_repo.get_all_by_product(product_id)
+        # Пользователь
         user = self.user_repo.get(product.user_id)
-        if not user:
-            logger.warning(f'Пользователь {product.user_id} не найден для товара {product_id}')
 
-        logger.info(f'Успешно получена информация о товаре {product_id}')
         return {
-            'product': product,
-            'price': price,
-            'user': user,
+            "id": product.id,
+            "name": product.name,
+            "link": product.link,
+            "image_url": product.image_url,
+            "rating": product.rating,
+            "categories": product.categories,
+            "prices": [vars(p) for p in prices],
+            "user": vars(user) if user else None,
         }
 

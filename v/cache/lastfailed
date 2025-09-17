@@ -54,5 +54,6 @@
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_transaction_rollback": true,
   "tests/integration/test_product_service.py::test_create_user_duplicate_error": true,
   "tests/unit/test_use_case_delete_product.py::test_delete_product_use_case_success": true,
-  "tests/unit/test_use_case_get_full_product.py::test_get_full_product_use_case_success": true
+  "tests/unit/test_use_case_get_full_product.py::test_get_full_product_use_case_success": true,
+  "tests/unit/test_use_case_get_full_product.py::test_get_full_product_product_not_found": true
 }

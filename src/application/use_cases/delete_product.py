@@ -23,10 +23,11 @@ class DeleteProductUseCase:
             raise ProductNotExistingDataBase(f'Товар {product_id} не существует в БД!')
 
         try:
-            # Удаление цены, если она существует
-            if product.price_id:
-                self.price_repo.delete(product.price_id)
-                logger.debug(f'Цена {product.price_id} удалена для товара {product_id}')
+             # Удаляем все цены по product_id
+            prices = self.price_repo.get_all_by_product(product_id)
+            for price in prices:
+                self.price_repo.delete(price.id)
+                logger.debug(f'Цена {price.id} удалена для товара {product_id}')
 
             # Удаление товара
             self.product_repo.delete(product_id)
