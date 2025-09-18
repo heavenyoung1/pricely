@@ -51,6 +51,7 @@ def test_get_full_product_not_found(uow, pure_mock_parser):
 
     with pytest.raises(ProductNotFoundError):
         service.get_full_product(product_id="NOT_EXIST")
+
 # ==================== CREATE USER TESTS ====================
 
 @pytest.mark.integration
@@ -81,4 +82,19 @@ def test_create_product_success(uow, user, pure_mock_parser):
     with uow:
         product = uow.product_repository.get("p1")
         assert product is not None
-        #assert result["with_card"] == 100
+        assert result["with_card"] == 100
+
+# ==================== DELETE PRODUCT ====================
+
+@pytest.mark.integration
+def test_delete_product_success(uow, product , user, pure_mock_parser):
+    service = ProductService(uow_factory=lambda: uow, parser=pure_mock_parser)
+
+    service.create_user(user)
+    service.create_product(user.id, "https://ozon.ru/product/123")
+
+    service.delete_product(product_id=product.id)
+
+    with uow:
+        product_uow = uow.product_repository.get(product_id=product.id)
+        assert product_uow is None
