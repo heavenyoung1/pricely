@@ -1,4 +1,4 @@
-.PHONY: up down migrate-dev migrate-test migrate-all test
+.PHONY: up down migrate-dev migrate-test migrate-all test bot tests
 
 up:
 	docker-compose up -d
@@ -17,23 +17,11 @@ migrate-all: migrate-dev migrate-test
 
 test: migrate-test
 	uv run pytest -v
+	
+# Запуск бота
+bot:
+	python -m src.presentation.bot.telegram_bot
 
-# .PHONY: up down migrate-dev migrate-test migrate-all test
-
-# up:
-#     docker-compose up -d
-
-# down:
-#     docker-compose down -v
-
-# migrate-dev:
-#     . ./../.venv/bin/activate && ALEMBIC_DATABASE_URL=$$(python scripts/db_url.py) python -m alembic upgrade head
-
-# migrate-test:
-#     . ./../.venv/bin/activate && ALEMBIC_DATABASE_URL=$$(python scripts/db_url.py test) python -m alembic upgrade head
-
-# migrate-all: migrate-dev migrate-test
-#     @echo "Миграции успешно применены к обеим БД"
-
-# test: migrate-test
-#     . ./../.venv/bin/activate && python -m pytest -v
+# Запуск тестов
+tests:
+	pytest -v -s --log-level=DEBUG
