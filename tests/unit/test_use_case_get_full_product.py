@@ -13,7 +13,7 @@ def test_get_full_product_use_case_success(
 ):
     '''Тест успешного получения полной информации о товаре (продукт, цены, пользователь).'''
     pure_mock_product_repo.get.return_value = product
-    pure_mock_price_repo.get_all_by_product.return_value = [price]
+    pure_mock_price_repo.get_all_prices_by_product.return_value = [price]
     pure_mock_user_repo.get.return_value = user
 
     use_case = GetFullProductUseCase(
@@ -50,5 +50,5 @@ def test_get_full_product_product_not_found(
         use_case.execute(product_id='NOT_EXIST_ID')
 
     pure_mock_product_repo.get.assert_called_once_with('NOT_EXIST_ID')
-    pure_mock_price_repo.get_all_by_product.assert_not_called()
+    pure_mock_price_repo.get_all_prices_by_product.assert_not_called()
     pure_mock_user_repo.get.assert_not_called()

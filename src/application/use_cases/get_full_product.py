@@ -24,7 +24,7 @@ class GetFullProductUseCase:
             raise ProductNotFoundError(f'Продукт {product_id} не найден')
 
         # Все цены этого продукта
-        prices = self.price_repo.get_all_by_product(product_id)
+        prices = self.price_repo.get_all_prices_by_product(product_id)
         # Пользователь
         user = self.user_repo.get(product.user_id)
 

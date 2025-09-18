@@ -15,7 +15,7 @@ def test_delete_product_use_case_success(
 ):
     # Настраиваем моки
     pure_mock_product_repo.get.return_value = product
-    pure_mock_price_repo.get_all_by_product.return_value = [price]
+    pure_mock_price_repo.get_all_prices_by_product.return_value = [price]
     pure_mock_user_repo.get.return_value = user
 
     use_case = DeleteProductUseCase(
