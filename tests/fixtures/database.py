@@ -96,12 +96,19 @@ def db_session(session_factory):
         session.rollback()
         session.close()
 
+@pytest.fixture(autouse=True)
+def clean_db(uow):
+    with uow:
+        uow.session.execute(text("TRUNCATE TABLE prices, products, users RESTART IDENTITY CASCADE"))
+        uow.commit()
+    yield
+
 @pytest.fixture
 def uow(session_factory, engine):
     """UoW с чисткой БД перед каждым тестом."""
-    with engine.connect() as conn:
-        conn.execute(text("TRUNCATE TABLE users, products, prices RESTART IDENTITY CASCADE;"))
-        conn.commit()
+    # with engine.connect() as conn:
+    #     conn.execute(text("TRUNCATE TABLE users, products, prices RESTART IDENTITY CASCADE;"))
+    #     conn.commit()
     return SQLAlchemyUnitOfWork(session_factory=session_factory)
 
 @pytest.fixture

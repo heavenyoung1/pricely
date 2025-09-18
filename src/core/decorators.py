@@ -35,6 +35,7 @@ def with_uow(commit: bool = False, uow_class: type = SQLAlchemyUnitOfWork):
         Returns:
             Callable: Обернутая функция с UoW контекстом.
         """
+        @functools.wraps(func)
         def wrapper(self, *args, **kwargs) -> Any:
             """
             Обертка функции, которая управляет жизненным циклом UoW.
@@ -56,9 +57,11 @@ def with_uow(commit: bool = False, uow_class: type = SQLAlchemyUnitOfWork):
                 # Входим в контекстный менеджер UoW
                 # Контекстный менеджер автоматически управляет сессией/транзакцией
                 with uow:
+                    # Устанавливаем self.uow для доступа внутри функции
+                    self.uow = uow
                     # Вызываем оригинальную функцию, передавая uow первым аргументом
                     # uow будет автоматически передан в функцию как первый позиционный аргумент
-                    result = func(self, uow, *args, **kwargs)
+                    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow 
                     
                     # Логика управления транзакцией в зависимости от флага commit
                     if commit:
@@ -89,6 +92,9 @@ def with_uow(commit: bool = False, uow_class: type = SQLAlchemyUnitOfWork):
                 
                 # Пробрасываем исключение дальше для обработки вызывающей стороной
                 raise
+            finally:
+                # Очищаем self.uow после завершения
+                self.uow = None
                 
         return wrapper  # Возвращаем обернутую функцию
         

@@ -28,45 +28,28 @@ class ProductService:
         self.parser = parser or OzonParser()  # дефолт = OzonParser
 
     @with_uow(commit=True)
-    def create_user(self, uow: SQLAlchemyUnitOfWork, user: User) -> None:
+    def create_user(self, user: User) -> None:
         try:
-            use_case = CreateUserUseCase(user_repo=uow.user_repository)
+            use_case = CreateUserUseCase(user_repo=self.uow.user_repository)
             use_case.execute(user)
         except Exception as e:
             logger.error(f'Ошибка при создании пользователя {user.id}: {str(e)}')
             raise UserCreationError(f"Ошибка создания пользователя: {str(e)}")
 
-    # @with_uow(commit=True)
-    # def create_product(self, uow: SQLAlchemyUnitOfWork, user_id: str, url: str) -> dict:
-    #     try:
-    #         use_case = CreateProductUseCase(
-    #             user_repo=uow.user_repository,
-    #             product_repo=uow.product_repository,
-    #             price_repo=uow.price_repository,
-    #             parser=self.parser,
-    #         )
-    #         return use_case.execute(user_id, url)
-    #     except ProductCreationError as e:
-    #         logger.warning(f'Ошибка создания продукта для пользователя {user_id}: {str(e)}')
-    #         raise
-    #     except Exception as e:
-    #         logger.error(f'Неизвестная ошибка при создании продукта: {str(e)}')
-    #         raise
-
     @with_uow(commit=True)
-    def create_product(self, uow: SQLAlchemyUnitOfWork, user_id: str, url: str) -> dict:
+    def create_product(self, user_id: str, url: str) -> dict:
         use_case = CreateProductUseCase(
-            user_repo=uow.user_repository,
-            product_repo=uow.product_repository,
-            price_repo=uow.price_repository,
+            user_repo=self.uow.user_repository,
+            product_repo=self.uow.product_repository,
+            price_repo=self.uow.price_repository,
             parser=self.parser,
         )
         return use_case.execute(user_id, url)
 
     @with_uow(commit=False)
-    def get_product(self, product_id: str, uow: SQLAlchemyUnitOfWork) -> Product:
+    def get_product(self, product_id: str) -> Product:
         try:
-            use_case = GetProductUseCase(product_repo=uow.product_repository())
+            use_case = GetProductUseCase(product_repo=self.uow.product_repository)
             return use_case.execute(product_id)
         except ProductNotFoundError as e:
             logger.warning(f'Продукт {product_id} не найден: {str(e)}')
@@ -76,12 +59,12 @@ class ProductService:
             raise
 
     @with_uow(commit=False)
-    def get_full_product(self, product_id: str, uow: SQLAlchemyUnitOfWork):
+    def get_full_product(self, product_id: str):
         try:
             use_case = GetFullProductUseCase(
-                product_repo=uow.product_repository(),
-                price_repo=uow.price_repository(),
-                user_repo=uow.user_repository(),
+                product_repo=self.uow.product_repository,
+                price_repo=self.uow.price_repository,
+                user_repo=self.uow.user_repository,
             )
             return use_case.execute(product_id)
         except ProductNotFoundError as e:
@@ -92,11 +75,11 @@ class ProductService:
             raise
 
     @with_uow(commit=True)
-    def update_product_price(self, product_id: str, price: Price, uow: SQLAlchemyUnitOfWork) -> None:
+    def update_product_price(self, product_id: str, price: Price) -> None:
         try:
             use_case = UpdateProductPriceUseCase(
-                product_repo=uow.product_repository(),
-                price_repo=uow.price_repository(),
+                product_repo=self.uow.product_repository,
+                price_repo=self.uow.price_repository,
             )
             use_case.execute(product_id, price)
             logger.debug(f'Цена для продукта {product_id} успешно обновлена')
@@ -104,12 +87,12 @@ class ProductService:
             logger.error(f'Ошибка при обновлении цены: {e}')
 
     @with_uow(commit=True)
-    def delete_product(self, product_id, uow: SQLAlchemyUnitOfWork) -> None:
+    def delete_product(self, product_id) -> None:
         try:
             use_case = DeleteProductUseCase(
-                user_repo=uow.user_repository(),
-                product_repo=uow.product_repository(),
-                price_repo=uow.price_repository(),
+                user_repo=self.uow.user_repository,
+                product_repo=self.uow.product_repository,
+                price_repo=self.uow.price_repository,
         )
             use_case.execute(product_id)
         except ProductNotFoundError as e:

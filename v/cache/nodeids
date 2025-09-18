@@ -30,6 +30,7 @@
   "tests/integration/test_product_service.py::test_create_product",
   "tests/integration/test_product_service.py::test_create_product_success",
   "tests/integration/test_product_service.py::test_create_user_duplicate_error",
+  "tests/integration/test_product_service.py::test_get_product_success",
   "tests/integration/test_uow.py::test_uow_commit_creates_data",
   "tests/integration/test_uow.py::test_uow_initialization",
   "tests/integration/test_uow.py::test_uow_rollback_discards_data",

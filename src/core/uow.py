@@ -25,6 +25,12 @@ class SQLAlchemyUnitOfWork(UnitOfWork):
         # Optional[Session] означает "может быть Session, а может быть None"
         # Изначально None потому что сессия еще не создана
         self._session: Optional[Session] = None
+        self._session_context = None
+
+    @property
+    def session(self) -> Optional[Session]:
+        '''Публичный доступ к сессии SQLAlchemy.'''
+        return self._session
 
     def __enter__(self):
         '''
