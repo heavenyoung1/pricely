@@ -3,8 +3,6 @@ from src.presentation.bot.bot_instance import bot
 from src.presentation.bot.service_connector import service
 from src.presentation.bot.keyboards.main_menu import main_menu
 
-from src.presentation.bot
-
 @bot.message_handler(func=lambda m: m.text == "➕ Добавить товар")
 def add_product_request(message: Message):
     bot.send_message(message.chat.id, "📦 Отправь ссылку на товар с Ozon")
