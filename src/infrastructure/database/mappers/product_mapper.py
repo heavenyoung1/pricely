@@ -4,6 +4,7 @@ import json
 from src.domain.entities import Product
 from src.application.dto import ProductDTO
 from src.infrastructure.database.models import ORMProduct
+from src.infrastructure.database.mappers.price_mapper import PriceMapper
 
 
 class ProductMapper:
@@ -53,4 +54,5 @@ class ProductMapper:
             image_url=orm.image_url,
             rating=orm.rating,
             categories=orm.categories,
+            prices=[PriceMapper.orm_to_domain(p) for p in orm.prices] if orm.prices else [],
         )

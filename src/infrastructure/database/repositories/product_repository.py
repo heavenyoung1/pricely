@@ -3,9 +3,9 @@ from typing import Optional, List
 from sqlalchemy.orm import Session
 
 from src.application.interfaces.repositories import ProductRepository
-from src.infrastructure.database.mappers import ProductMapper
+from src.infrastructure.database.mappers import ProductMapper, PriceMapper
 from src.domain.entities import Product 
-from src.infrastructure.database.models import ORMProduct
+from src.infrastructure.database.models import ORMProduct, ORMPrice
 
 
 logger = logging.getLogger(__name__)
@@ -43,7 +43,14 @@ class ProductRepositoryImpl(ProductRepository):
         if not orm_model:
             logger.warning(f'Товар с ID {product_id} не найден')
             return None
+        
+        # Загружаем связанные цены
+        orm_prices = self.session.query(ORMPrice).filter_by(product_id=product_id).all()
+        prices = [PriceMapper.orm_to_domain(orm_price) for orm_price in orm_prices]
+        logger.debug(f"Loaded prices for product {product_id}: {prices}")
+
         product = ProductMapper.orm_to_domain(orm_model)
+        product.prices = prices
         logger.info(f'Найден Товар: {product} (ID: {orm_model.id})')
         return product
     

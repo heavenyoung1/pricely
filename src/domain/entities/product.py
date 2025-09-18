@@ -18,7 +18,8 @@ class Product:
     prices: List['Price'] = field(default_factory=list)
 
     @property
-    def latest_price(self):
+    def latest_price(self) -> Optional['Price']:
         if not self.prices:
             return None
-        return max(self.prices, key=lambda p: p.created_at)
+        # Сортируем по created_at (убывание) и id (убывание) для выбора последней цены
+        return max(self.prices, key=lambda p: (p.created_at or datetime.min, p.id or '0'))

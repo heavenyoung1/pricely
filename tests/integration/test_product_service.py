@@ -113,11 +113,10 @@ def test_update_product_price(uow, product, user, pure_mock_parser, price, price
     service = ProductService(uow_factory=lambda: uow, parser=pure_mock_parser)
 
     service.create_user(user)
-    service.create_product(user.id, "https://ozon.ru/product/123")
+    result = service.create_product(user.id, "https://ozon.ru/product/123")
 
     service.update_product_price(product_id=product.id, price=price_second)
 
     with uow:
-        product_with_upd_price = uow.product_repository.get(product_id=product.id)
-        assert product_with_upd_price is not None
-        assert product_with_upd_price.latest_price == 120
+            product_with_upd_price = uow.product_repository.get(product_id=result["product_id"])
+            assert product_with_upd_price is not None

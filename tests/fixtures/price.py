@@ -44,7 +44,7 @@ def price_second():
         previous_with_card=100,    
         previous_without_card=120,
         default=150,
-        created_at=datetime(2025, 1, 1)
+        created_at=datetime(2025, 1, 2)
     )
 
 @pytest.fixture
