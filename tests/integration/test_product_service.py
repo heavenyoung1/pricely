@@ -27,6 +27,30 @@ def test_get_product_not_found(uow, pure_mock_parser):
     with pytest.raises(ProductNotFoundError):
         service.get_product(product_id="NOT_EXIST")
 
+# ==================== GET FULL PRODUCT ====================
+
+@pytest.mark.integration
+def test_get_full_product_success(uow, product, user, pure_mock_parser):
+    service = ProductService(uow_factory=lambda: uow, parser=pure_mock_parser)
+
+    # создаём данные
+    service.create_user(user)
+    service.create_product(user.id, "https://ozon.ru/product/123")
+
+    with uow:
+        full_product = service.get_full_product(product_id=product.id)
+        assert full_product['id'] == product.id
+        assert 'prices' in full_product
+        # Вот тут нужно переделать, у меня ведь другая архитектура (есть таблица user_products)
+        #assert full_product['user']['id'] == user.id
+
+
+@pytest.mark.integration
+def test_get_full_product_not_found(uow, pure_mock_parser):
+    service = ProductService(uow_factory=lambda: uow, parser=pure_mock_parser)
+
+    with pytest.raises(ProductNotFoundError):
+        service.get_full_product(product_id="NOT_EXIST")
 # ==================== CREATE USER TESTS ====================
 
 @pytest.mark.integration
