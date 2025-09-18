@@ -18,7 +18,7 @@ def product_dto():
         link=HttpUrl('https://example.com/product'),
         image_url=HttpUrl('https://example.com/image.jpg'),
         rating=4.5,
-        categories=['cat1', 'cat2']
+        categories='cat1, cat2'
     )
 
 @pytest.fixture
@@ -32,7 +32,7 @@ def product():
         link='https://example.com/product',
         image_url='https://example.com/image.jpg',
         rating=4.5,
-        categories=['cat1', 'cat2']
+        categories='cat1, cat2'
     )
 
 @pytest.fixture
@@ -44,7 +44,7 @@ def orm_product():
         link='https://example.com/product',
         image_url='https://example.com/image.jpg',
         rating=4.5,
-        categories=json.dumps(['cat1', 'cat2']),
+        categories='cat1, cat2'
     )
 
 @pytest.fixture
@@ -58,7 +58,7 @@ def product_integration():
         link='https://example.com/product',
         image_url='https://example.com/image.jpg',
         rating=4.5,
-        categories=['cat1', 'cat2']
+        categories='cat1, cat2'
     )
 
 @pytest.fixture
@@ -72,6 +72,6 @@ def orm_product_integration():
         link='https://example.com/product',
         image_url='https://example.com/image.jpg',
         rating=4.5,
-        categories=json.dumps(['cat1', 'cat2'])  # Явная сериализация в JSON
+        categories='cat1, cat2'
     )
     return product
