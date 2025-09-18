@@ -3,7 +3,13 @@ import logging
 from telebot import TeleBot
 from dotenv import load_dotenv
 import logging
-from .handlers import start, settings, marketplace, products
+from .handlers import (
+    start,
+    add_product_request,
+    list_products,
+    delete_product_request,
+    clear_products,
+)
 import sys
 
 logging.basicConfig(
@@ -27,9 +33,10 @@ bot = TeleBot(BOT_TOKEN, parse_mode="HTML")
 
 # Подключаем хендлеры
 start.register_handlers(bot)
-marketplace.register_handlers(bot)
-products.register_handlers(bot)
-settings.register_handlers(bot)
+add_product_request.register_handlers(bot)
+list_products.register_handlers(bot)
+delete_product_request.register_handlers(bot)
+clear_products.register_handlers(bot)
 
 if __name__ == "__main__":
     logger.info("Запуск Telegram-бота")
