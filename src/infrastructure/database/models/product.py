@@ -18,7 +18,7 @@ class ORMProduct(Base):
     link: Mapped[str] = mapped_column(String(255), nullable=False)
     image_url: Mapped[str] = mapped_column(String(255), nullable=False)
     rating: Mapped[float] = mapped_column(Float, nullable=False)
-    categories: Mapped[str] = mapped_column(JSON, nullable=False)  
+    categories: Mapped[str] = mapped_column(String, nullable=False)  
     created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.now)  # Добавлен timestamp
 
     # Прямая связь: один продукт имеет много цен

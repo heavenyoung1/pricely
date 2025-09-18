@@ -52,7 +52,7 @@ def test_get_full_product_not_found(uow, pure_mock_parser):
     with pytest.raises(ProductNotFoundError):
         service.get_full_product(product_id="NOT_EXIST")
 
-# ==================== CREATE USER TESTS ====================
+# ==================== CREATE USER ====================
 
 @pytest.mark.integration
 def test_create_and_get_user(uow, user, mock_parser):
@@ -66,7 +66,7 @@ def test_create_and_get_user(uow, user, mock_parser):
         assert saved_user.username == user.username
         assert saved_user.chat_id == user.chat_id
 
-# ==================== CREATE PRODUCT TESTS ====================
+# ==================== CREATE PRODUCT ====================
 
 @pytest.mark.integration
 def test_create_product_success(uow, user, pure_mock_parser):
@@ -105,3 +105,19 @@ def test_delete_product_not_found(uow, pure_mock_parser):
 
     with pytest.raises(ProductNotExistingDataBase):
         service.delete_product(product_id="NOT_EXIST")
+
+# ==================== UPDATE PRICE ====================
+
+@pytest.mark.integration
+def test_update_product_price(uow, product, user, pure_mock_parser, price, price_second):
+    service = ProductService(uow_factory=lambda: uow, parser=pure_mock_parser)
+
+    service.create_user(user)
+    service.create_product(user.id, "https://ozon.ru/product/123")
+
+    service.update_product_price(product_id=product.id, price=price_second)
+
+    with uow:
+        product_with_upd_price = uow.product_repository.get(product_id=product.id)
+        assert product_with_upd_price is not None
+        assert product_with_upd_price.latest_price == 120

@@ -36,6 +36,7 @@
   "tests/integration/test_product_service.py::test_get_full_product_success",
   "tests/integration/test_product_service.py::test_get_product_not_found",
   "tests/integration/test_product_service.py::test_get_product_success",
+  "tests/integration/test_product_service.py::test_update_product_price",
   "tests/integration/test_uow.py::test_uow_commit_creates_data",
   "tests/integration/test_uow.py::test_uow_initialization",
   "tests/integration/test_uow.py::test_uow_rollback_discards_data",

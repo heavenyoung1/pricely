@@ -39,8 +39,9 @@ class ProductMapper:
             link=domain.link,
             image_url=domain.image_url,
             rating=domain.rating,
-            categories=json.dumps(domain.categories),
+            categories=domain.categories,
         )
+
 
     @staticmethod
     def orm_to_domain(orm: ORMProduct) -> Product:
@@ -51,5 +52,5 @@ class ProductMapper:
             link=orm.link,
             image_url=orm.image_url,
             rating=orm.rating,
-            categories=json.loads(orm.categories) if orm.categories else [],
+            categories=orm.categories,
         )

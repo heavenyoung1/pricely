@@ -9,4 +9,4 @@ class ProductDTO(BaseModel):
     link: HttpUrl
     image_url: HttpUrl
     rating: float
-    categories: List[str]
+    categories: str

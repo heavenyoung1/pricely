@@ -14,7 +14,7 @@ class Product:
     link: str
     image_url: str
     rating: float
-    categories: List[str]
+    categories: str
     prices: List['Price'] = field(default_factory=list)
 
     @property
