@@ -9,7 +9,7 @@ from src.domain.exceptions import (
 # ==================== GET PRODUCT ====================
 
 @pytest.mark.integration
-def test_get_product_success(uow, product, price, user, pure_mock_parser):
+def test_get_product_success(uow, product, user, pure_mock_parser):
     service = ProductService(uow_factory=lambda: uow, parser=pure_mock_parser)
 
     # Создаём данные
@@ -20,6 +20,12 @@ def test_get_product_success(uow, product, price, user, pure_mock_parser):
         assert product is not None
         assert product.id == 'p1'
         assert product.name == product.name
+
+def test_get_product_not_found(uow, pure_mock_parser):
+    service = ProductService(uow_factory=lambda: uow, parser=pure_mock_parser)
+
+    with pytest.raises(ProductNotFoundError):
+        service.get_product(product_id="NOT_EXIST")
 
 # ==================== CREATE USER TESTS ====================
 
