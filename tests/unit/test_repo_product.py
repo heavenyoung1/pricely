@@ -1,6 +1,6 @@
 import pytest
 
-from src.infrastructure.database.models import ORMProduct
+from src.infrastructure.database.models import ORMProduct, ORMPrice
 from src.infrastructure.database.repositories import ProductRepositoryImpl
 
 import logging
@@ -13,13 +13,18 @@ def test_save_product_success(product, mock_session, orm_product):
     repo.save(product)
     #mock_session.merge.assert_called_once()
 
-@pytest.mark.unit  
-def test_get_product_found(mock_session, orm_product, product):
+@pytest.mark.unit
+def test_get_product_found(mock_session, orm_product, product, orm_price):
     repo = ProductRepositoryImpl(session=mock_session)
     mock_session.get.return_value = orm_product
+    # Настраиваем мок для загрузки цен
+    mock_session.query.return_value.filter_by.return_value.all.return_value = [orm_price]
     result = repo.get(product_id=product.id)
     assert result.id == product.id
+    assert len(result.prices) == 1  # Проверяем, что цена загрузилась
+    assert result.prices[0].with_card == orm_price.with_card
     mock_session.get.assert_called_once_with(ORMProduct, product.id)
+    mock_session.query.assert_called_once_with(ORMPrice)
 
 @pytest.mark.unit  
 def test_get_product_not_found(mock_session):
