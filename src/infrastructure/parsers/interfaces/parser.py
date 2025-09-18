@@ -9,7 +9,7 @@ class Parser(ABC):
     '''Интерфейс для парсера товаров с маркетплейсов.'''
     
     @abstractmethod
-    def parse(self, url: str) -> Dict:
+    def parse_product(self, url: str) -> Dict:
         '''Парсит страницу товара по URL и возвращает данные.
         
         Args:
