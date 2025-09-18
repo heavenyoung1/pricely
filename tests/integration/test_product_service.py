@@ -3,7 +3,7 @@ from src.infrastructure.services import ProductService
 from src.domain.entities import User, Product, Price
 from src.domain.exceptions import (
     ProductNotFoundError, PriceUpdateError, ProductCreationError,
-    UserCreationError, ParserProductError, ProductDeletingError
+    UserCreationError, ParserProductError, ProductDeletingError, ProductNotExistingDataBase
 )
 
 # ==================== GET PRODUCT ====================
@@ -98,3 +98,10 @@ def test_delete_product_success(uow, product , user, pure_mock_parser):
     with uow:
         product_uow = uow.product_repository.get(product_id=product.id)
         assert product_uow is None
+
+@pytest.mark.integration
+def test_delete_product_not_found(uow, pure_mock_parser):
+    service = ProductService(uow_factory=lambda: uow, parser=pure_mock_parser)
+
+    with pytest.raises(ProductNotExistingDataBase):
+        service.delete_product(product_id="NOT_EXIST")
