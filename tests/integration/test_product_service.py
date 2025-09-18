@@ -17,6 +17,9 @@ def test_get_product_success(uow, product, price, user, pure_mock_parser):
     service.create_product(user.id, "https://ozon.ru/product/123")
     with uow:
         product = service.get_product(product_id=product.id)
+        assert product is not None
+        assert product.id == 'p1'
+        assert product.name == product.name
 
 # ==================== CREATE USER TESTS ====================
 

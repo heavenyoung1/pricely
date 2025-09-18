@@ -52,6 +52,5 @@
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connection_pool_stress": true,
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_version_and_features": true,
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_transaction_rollback": true,
-  "tests/integration/test_product_service.py::test_create_user_duplicate_error": true,
-  "tests/integration/test_product_service.py::test_get_product_success": true
+  "tests/integration/test_product_service.py::test_create_user_duplicate_error": true
 }
