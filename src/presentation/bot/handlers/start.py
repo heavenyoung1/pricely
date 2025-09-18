@@ -1,7 +1,7 @@
 from telebot.types import Message
 from src.presentation.bot.bot_instance import bot
 from src.presentation.bot.keyboards.main_menu import main_menu
-from src.presentation.bot.services_connector import service
+from src.presentation.bot.service_connector import service
 from src.domain.entities import User
 
 @bot.message_handler(commands=["start"])
