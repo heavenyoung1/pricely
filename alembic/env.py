@@ -9,6 +9,7 @@ from src.core.db_connection import db_settings
 from alembic import context
 import os
 
+db_settings = DataBaseSettings()
 load_dotenv()
 
 # Настройка логгера Alembic
@@ -19,9 +20,9 @@ if config.config_file_name is not None:
 logger = logging.getLogger("alembic.runtime.migration")
 
 # Настройки БД
-db_settings = DataBaseSettings()
+
 use_test_db = os.getenv("TEST_DATABASE_URL") or db_settings.is_test_db_configured
-db_url = os.getenv("DATABASE_URL", db_settings.get_alembic_url(use_test=use_test_db))
+db_url = os.getenv("DATABASE_URL", db_settings.get_alembic_url(use_test=False))
 
 config.set_main_option("sqlalchemy.url", db_url)
 

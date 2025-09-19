@@ -42,20 +42,22 @@ class DataBaseSettings(BaseSettings):
         extra='ignore',  # Игнорировать лишние переменные
     )
 
-    def get_db_url(self) -> str:
-        '''Возвращает URL для подключения к базе данных.'''
-        return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{self.PORT}/{self.NAME}'
-    
-    def get_test_db_url(self) -> str:
-        '''Возвращает URL для подключения к тестовой базе данных.'''
-        port = self.TEST_PORT if self.TEST_PORT is not None else 5433  # Явно указываем 5433 по умолчанию
-        return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{port}/{self.TEST_NAME}'
+    def get_database_url(self, use_test: bool = False) -> str:
+        '''Для SQLAlchemy (с +psycopg2).'''
+        if use_test:
+            name = self.TEST_NAME
+            port = self.TEST_PORT or self.PORT
+        else:
+            name = self.NAME
+            port = self.PORT
+        
+        return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{port}/{name}'
     
     def get_alembic_url(self, use_test: bool = False) -> str:
         '''Для Alembic (без +psycopg2).'''
         if use_test:
             name = self.TEST_NAME
-            port = self.TEST_PORT
+            port = self.TEST_PORT or self.PORT
         else:
             name = self.NAME
             port = self.PORT

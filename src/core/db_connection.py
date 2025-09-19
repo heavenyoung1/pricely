@@ -33,7 +33,7 @@ class DatabaseConnection:
     def init_engine(self, db_url: str = None):
         '''Инициализирует движок SQLAlchemy и фабрику сессий (ленивая инициализация).'''
         if self._engine is None:
-            db_url = db_url or self._settings.get_db_url()
+            db_url = db_url or self._settings.get_database_url(use_test=False)
             logger.info(f'Инициализация подключения к БД: {db_url}')
 
             # создаём Engine

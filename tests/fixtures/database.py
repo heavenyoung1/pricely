@@ -25,7 +25,7 @@ logger.addHandler(handler)
 def test_db_settings():
     """Фикстура для настроек тестовой БД."""
     settings = DataBaseSettings()
-    if not settings.is_test_db_configured:
+    if not settings.TEST_NAME:
         raise RuntimeError("Тестовая БД не настроена в .env (отсутствует DB_TEST_NAME)")
     return settings
 
@@ -35,7 +35,8 @@ def engine(test_db_settings):
     Реальный движок PostgreSQL для интеграционных тестов.
     Применяет миграции Alembic к тестовой БД.
     """
-    test_db_url = test_db_settings.get_test_db_url()
+    # ЯВНО указываем что хотим тестовую БД
+    test_db_url = test_db_settings.get_database_url(use_test=True)
     logger.info(f"Создание движка для тестовой БД: {test_db_url}")
     
     engine = create_engine(
@@ -52,6 +53,7 @@ def engine(test_db_settings):
 
     # Настраиваем Alembic для тестовой БД
     alembic_cfg = Config("alembic.ini")
+    # ЯВНО указываем что хотим тестовую БД для Alembic
     alembic_cfg.set_main_option("sqlalchemy.url", test_db_settings.get_alembic_url(use_test=True))
     
     # Применяем миграции
