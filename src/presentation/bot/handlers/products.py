@@ -23,7 +23,7 @@ def add_product_process(message: Message):
     except Exception as e:
         bot.send_message(message.chat.id, f"❌ Ошибка: {e}")
 
-@bot.message_handler(func=lambda m: m.text == "📋 Мои товары")
+@bot.message_handler(func=lambda m: m.text == "📋 Мои товары" in m.text)
 def list_products(message: Message):
     try:
         products = service.get_full_product_list(str(message.from_user.id))
@@ -58,3 +58,7 @@ def clear_products(message: Message):
         bot.send_message(message.chat.id, "🗑️ Все товары удалены")
     except Exception as e:
         bot.send_message(message.chat.id, f"❌ Ошибка: {e}")
+
+@bot.message_handler(func=lambda m: True)  # временно ловим все сообщения
+def debug_all(message: Message):
+    print(f"DEBUG: {repr(message.text)}")
