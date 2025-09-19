@@ -9,7 +9,8 @@ from src.core.db_connection import db_settings
 from alembic import context
 import os
 
-db_settings = DataBaseSettings()
+
+# Загружаем переменные окружения из .env
 load_dotenv()
 
 # Настройка логгера Alembic
@@ -19,23 +20,25 @@ if config.config_file_name is not None:
 
 logger = logging.getLogger("alembic.runtime.migration")
 
-# Настройки БД
+# Получаем настройки базы данных
+db_settings = DataBaseSettings()
 
-use_test_db = os.getenv("TEST_DATABASE_URL") or db_settings.is_test_db_configured
-db_url = os.getenv("DATABASE_URL", db_settings.get_alembic_url(use_test=False))
+# Определяем URL базы данных
+# Приоритет: ALEMBIC_DATABASE_URL из командной строки > автоматическое определение
+db_url = os.getenv("ALEMBIC_DATABASE_URL")
+if not db_url:
+    # Если ALEMBIC_DATABASE_URL не задан, определяем URL через DataBaseSettings
+    use_test = os.getenv("TEST_DATABASE_URL") is not None or db_settings.is_test_db_configured
+    db_url = db_settings.get_alembic_url(use_test=use_test)
+    logger.info(f"ALEMBIC_DATABASE_URL не задан, используем: {db_url}")
+else:
+    logger.info(f"Используем заданный ALEMBIC_DATABASE_URL: {db_url}")
 
+# Устанавливаем URL в конфигурацию Alembic
 config.set_main_option("sqlalchemy.url", db_url)
-
-logger.info(f"Используем БД - {db_url}")
 
 # Импортируем модели
 target_metadata = Base.metadata
-
-# Interpret the config file for Python logging.
-# This line sets up loggers basically.
-if config.config_file_name is not None:
-    fileConfig(config.config_file_name)
-
 
 def run_migrations_offline() -> None:
     url = config.get_main_option("sqlalchemy.url")

@@ -46,7 +46,7 @@ class DataBaseSettings(BaseSettings):
         '''Для SQLAlchemy (с +psycopg2).'''
         if use_test:
             name = self.TEST_NAME
-            port = self.TEST_PORT or self.PORT
+            port = self.TEST_PORT
         else:
             name = self.NAME
             port = self.PORT
@@ -57,7 +57,7 @@ class DataBaseSettings(BaseSettings):
         '''Для Alembic (без +psycopg2).'''
         if use_test:
             name = self.TEST_NAME
-            port = self.TEST_PORT or self.PORT
+            port = self.TEST_PORT
         else:
             name = self.NAME
             port = self.PORT
