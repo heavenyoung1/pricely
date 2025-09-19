@@ -1,4 +1,4 @@
-from handlers import start, products, statistics, errors
+from src.presentation.bot.handlers import start, products, statistics, errors
 
 __all__ = [
     'start',
