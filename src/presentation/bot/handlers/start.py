@@ -23,7 +23,7 @@ def start_handler(message: Message):
     try:
         service.create_user(user)
         logger.info(f"User {user.id} создан или уже существует")
-    except Exception:
+    except Exception as e:
         logger.warning(f"Ошибка создания пользователя {user.id}: {e}")
                 # Продолжаем, так как пользователь может уже существовать
 
