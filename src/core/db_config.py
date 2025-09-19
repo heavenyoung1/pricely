@@ -55,7 +55,7 @@ class DataBaseSettings(BaseSettings):
         '''Для Alembic (без +psycopg2).'''
         if use_test:
             name = self.TEST_NAME
-            port = self.TEST_PORT if self.TEST_PORT is not None else 5433
+            port = self.TEST_PORT
         else:
             name = self.NAME
             port = self.PORT

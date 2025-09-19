@@ -25,7 +25,7 @@ db_url = os.getenv("DATABASE_URL", db_settings.get_alembic_url(use_test=use_test
 
 config.set_main_option("sqlalchemy.url", db_url)
 
-logger.info(f"Using database URL: {db_url}")
+logger.info(f"Используем БД - {db_url}")
 
 # Импортируем модели
 target_metadata = Base.metadata
