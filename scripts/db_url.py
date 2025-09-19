@@ -9,3 +9,4 @@ if __name__ == "__main__":
         print(db.get_alembic_url(use_test=True))
     else:
         print(db.get_alembic_url(use_test=False))
+

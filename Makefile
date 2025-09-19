@@ -7,7 +7,7 @@ make -n down:
 	docker-compose down -v
 
 migrate-dev:
-	ALEMBIC_DATABASE_URL=$$(uv run python scripts/db_url.py) uv run alembic upgrade head
+	ALEMBIC_DATABASE_URL=$$(uv run python scripts/db_url.py dev) uv run alembic upgrade head
 
 migrate-test:
 	ALEMBIC_DATABASE_URL=$$(uv run python scripts/db_url.py test) uv run alembic upgrade head
