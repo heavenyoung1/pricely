@@ -1,15 +1,18 @@
-import logging
 
-from src.application.interfaces.repositories import UserRepository
-from src.infrastructure.database.mappers import UserMapper
-from src.infrastructure.database.models import ORMUser
-
-from sqlalchemy.orm import Session
+from abc import ABC, abstractmethod
+from typing import Optional, List
+from src.domain.entities import Product
 
 
-logger = logging.getLogger(__name__)
+class UserProductsRepository(ABC):
 
-class ProductUserRepositoryImpl(UserRepository):
-    '''Реализация репозитория для работы с пользователями в базе данных.'''
-    def __init__(self, session: Session):
-        self.session = session
+    @abstractmethod
+    def get_products_for_user(self, user_id: str) -> None:
+        '''
+        Получить все товары пользователя
+        
+        Raises:
+            DatabaseError: При ошибках работы с БД
+            ValueError: При невалидных данных товара
+        '''
+        pass
