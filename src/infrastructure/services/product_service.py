@@ -74,6 +74,20 @@ class ProductService:
             logger.error(f'Ошибка при получении полной информации о продукте {product_id}: {str(e)}')
             raise
 
+    def get_all_product(self, user_id: str) -> list:
+        try:
+            self.uow.user_repository.get(user_id)
+            if not user_id:
+                logger.warning(f'Пользователь {user_id} не найден')
+                return None
+            else:
+                # достаём все продукты пользователя
+                products_id = [for product in self.user_]
+
+        except Exception as e:
+            logger.error(f'Ошибка при получении пользователя {user_id}: {str(e)}')
+            raise
+
     @with_uow(commit=True)
     def update_product_price(self, product_id: str, price: Price) -> None:
         try:
