@@ -26,7 +26,7 @@ def add_product_process(message: Message):
 @bot.message_handler(func=lambda m: m.text == "📋 Мои товары" in m.text)
 def list_products(message: Message):
     try:
-        products = service.get_full_product_list(str(message.from_user.id))
+        products = service.get_all_products(str(message.from_user.id))
         if not products:
             bot.send_message(message.chat.id, "📭 У вас пока нет отслеживаемых товаров")
             return
