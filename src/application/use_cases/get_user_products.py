@@ -21,6 +21,7 @@ class GetUserProductsUseCase:
 
     def execute(self, user_id: str) -> List[str]:
         logger.info(f'Запрос списка товар для пользователя ID: {user_id}')
-        
+        self.user_products_repo.get_products_for_user(user_id=user_id)
+
 
     
