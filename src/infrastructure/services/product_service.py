@@ -74,15 +74,9 @@ class ProductService:
             logger.error(f'Ошибка при получении полной информации о продукте {product_id}: {str(e)}')
             raise
 
-    def get_all_product(self, user_id: str) -> list:
-        try:
-            self.uow.user_repository.get(user_id)
-            if not user_id:
-                logger.warning(f'Пользователь {user_id} не найден')
-                return None
-            else:
-                # достаём все продукты пользователя
-                products_id = [for product in self.user_]
+    def get_all_products(self, user_id: str) -> list:
+        '''Возвращает список словарей с полной информацией обо всех продуктах пользователя.'''
+        pass
 
         except Exception as e:
             logger.error(f'Ошибка при получении пользователя {user_id}: {str(e)}')
