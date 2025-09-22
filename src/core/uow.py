@@ -55,6 +55,7 @@ class SQLAlchemyUnitOfWork(UnitOfWork):
             ProductRepositoryImpl,
             PriceRepositoryImpl,
             UserRepositoryImpl,
+            UserProductsRepositoryImpl,
         )
         
         # 4. ИНИЦИАЛИЗИРУЕМ РЕПОЗИТОРИИ
@@ -63,6 +64,7 @@ class SQLAlchemyUnitOfWork(UnitOfWork):
         self.product_repository = ProductRepositoryImpl(self._session)    # Репозиторий продуктов
         self.price_repository = PriceRepositoryImpl(self._session)        # Репозиторий цен
         self.user_repository = UserRepositoryImpl(self._session)          # Репозиторий пользователей
+        self.user_products_repository = UserProductsRepositoryImpl(self._session)
         
         # 5. ЛОГГИРУЕМ успешную инициализацию
         logger.info('Unit of Work инициализирован с сессией и репозиториями')
