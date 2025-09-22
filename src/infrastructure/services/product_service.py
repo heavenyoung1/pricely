@@ -9,6 +9,7 @@ from src.application.use_cases import (
     GetFullProductUseCase,
     UpdateProductPriceUseCase,
     DeleteProductUseCase,
+    GetUserProductsUseCase
 )
 
 from src.domain.exceptions import (
@@ -74,13 +75,24 @@ class ProductService:
             logger.error(f'Ошибка при получении полной информации о продукте {product_id}: {str(e)}')
             raise
 
+    @with_uow(commit=False)
     def get_all_products(self, user_id: str) -> list:
         '''Возвращает список словарей с полной информацией обо всех продуктах пользователя.'''
-        pass
+        use_case_get_products = GetUserProductsUseCase (
+            user_products_repo=self.uow.user_products_repository
+        )
+        product_ids = use_case_get_products.execute(user_id=user_id)
+        if not product_ids:
+            return []
+        
+        # для каждого product_id достаем полную инфу
+        use_case_for_products = GetFullProductUseCase(
+            product_repo=self.uow.product_repository,
+            price_repo=self.uow.price_repository,
+            user_repo=self.uow.user_repository,
+        )
+        return [use_case_for_products.execute(product_id) for product_id in product_ids]
 
-        except Exception as e:
-            logger.error(f'Ошибка при получении пользователя {user_id}: {str(e)}')
-            raise
 
     @with_uow(commit=True)
     def update_product_price(self, product_id: str, price: Price) -> None:
