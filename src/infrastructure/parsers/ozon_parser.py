@@ -22,13 +22,6 @@ logger = logging.getLogger(__name__)
 
 class OzonParser(Parser):
 
-    @session_wrapper
-    @staticmethod
-    def get_http(self, session: SessionEngine, url: str):
-        session.navigate(url)
-        r = requests.get(url)
-        print(r.status_code)
-
     @session_wrapper(headless=True)
     def parse_product(self, session: SessionEngine, url: str) -> Dict:
         try:
@@ -179,5 +172,3 @@ class OzonParser(Parser):
         except (ValueError, AttributeError):
             logger.error(f"Не удалось преобразовать текст цены: {text}")
             raise
-
-OzonParser.get_http('https://www.ozon.ru/product/dzhinsy-befree-883110146/')
