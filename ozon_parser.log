@@ -886,3 +886,52 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-09-23 13:55:36,267 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
 2025-09-23 13:55:36,368 - __main__ - INFO - Найдена информация о товаре: Обувь
 2025-09-23 13:55:38,928 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-23 14:06:00,297 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-23 14:06:10,714 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
+2025-09-23 14:06:11,389 - __main__ - INFO - Найдена информация о товаре: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
+2025-09-23 14:06:14,060 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-23 14:06:15,368 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-23 14:06:25,725 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
+2025-09-23 14:06:25,810 - __main__ - INFO - Найдена информация о товаре: 208 ₽
+2025-09-23 14:06:28,615 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-23 14:06:29,906 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-23 14:06:40,588 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
+2025-09-23 14:06:40,650 - __main__ - INFO - Найдена информация о товаре: 228 ₽
+2025-09-23 14:06:43,189 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-23 14:06:44,426 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-23 14:06:54,750 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
+2025-09-23 14:06:54,809 - __main__ - INFO - Найдена информация о товаре: Артикул: 1723889987
+2025-09-23 14:06:57,373 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-23 14:06:58,558 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-23 14:07:08,874 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
+2025-09-23 14:07:08,942 - __main__ - INFO - Найдена информация о товаре: Обувь
+2025-09-23 14:07:13,083 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-23 14:07:14,265 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-23 14:07:24,591 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
+2025-09-23 14:07:24,697 - __main__ - INFO - Найдена информация о товаре: 4.8 • 14 005 отзывов
+2025-09-23 14:07:27,437 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-23 14:37:13,092 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-23 14:37:24,000 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
+2025-09-23 14:37:32,215 - __main__ - INFO - Найдена информация о товаре: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
+2025-09-23 14:37:33,965 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-23 14:37:35,321 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-23 14:37:46,968 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
+2025-09-23 14:37:47,095 - __main__ - INFO - Найдена информация о товаре: 208 ₽
+2025-09-23 14:37:48,855 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-23 14:37:50,302 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-23 14:38:01,486 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
+2025-09-23 14:38:01,595 - __main__ - INFO - Найдена информация о товаре: 228 ₽
+2025-09-23 14:38:03,331 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-23 14:38:04,730 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-23 14:38:15,625 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
+2025-09-23 14:38:16,078 - __main__ - INFO - Найдена информация о товаре: Артикул: 1723889987
+2025-09-23 14:38:17,900 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-23 14:38:19,296 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-23 14:38:30,250 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
+2025-09-23 14:38:30,311 - __main__ - INFO - Найдена информация о товаре: Обувь
+2025-09-23 14:38:30,311 - __main__ - ERROR - Ошибка при извлечении названия товара: 'str' object has no attribute 'text'
+2025-09-23 14:38:31,899 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-23 14:38:33,084 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-23 14:38:44,005 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
+2025-09-23 14:38:44,064 - __main__ - INFO - Найдена информация о товаре: 4.8 • 14 012 отзывов
+2025-09-23 14:38:45,577 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.

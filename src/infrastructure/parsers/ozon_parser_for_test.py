@@ -27,6 +27,11 @@ class OzonParser(Parser):
     def parse_product(self, url):
         pass
 
+    @staticmethod
+    def _extract_digits(text: str) -> int:
+        """Возвращает только цифры из строки"""
+        return int("".join(ch for ch in text if ch.isdigit()))
+
     @session_wrapper(headless=True)
     def extract_articule(self, session: SessionEngine, url: str) -> str:
         try:
@@ -37,7 +42,7 @@ class OzonParser(Parser):
             element_text = session._extract_text(element_obj)
             logger.info(f"Найдена информация о товаре: {element_text}")
             # Разбить данные и убрать знак рубля
-            return element_text
+            return self._extract_digits(element_text)
         except Exception as e:
             logger.error(f'Ошибка при извлечении названия товара: {e}')
             return None
@@ -66,7 +71,7 @@ class OzonParser(Parser):
             element_text = session._extract_text(element_obj)
             logger.info(f"Найдена информация о товаре: {element_text}")
             # Разбить данные и убрать знак рубля
-            return element_text
+            return self._extract_digits(element_text)
         except Exception as e:
             logger.error(f'Ошибка при извлечении названия товара: {e}')
             return None
@@ -81,7 +86,7 @@ class OzonParser(Parser):
             element_text = session._extract_text(element_obj)
             logger.info(f"Найдена информация о товаре: {element_text}")
             # Разбить данные и убрать знак рубля
-            return element_text
+            return self._extract_digits(element_text)
         except Exception as e:
             logger.error(f'Ошибка при извлечении названия товара: {e}')
             return None
@@ -98,11 +103,30 @@ class OzonParser(Parser):
             element_text = session._extract_text(element_obj)
             logger.info(f"Найдена информация о товаре: {element_text}")
             # Разбить данные и убрать знак рубля
-            return element_text
+            categories = [session._extract_text(e).strip() for e in element_text if e.text]
+            logger.info(f"Категории: {categories}")
+            return categories
         except Exception as e:
             logger.error(f'Ошибка при извлечении названия товара: {e}')
             return None
     
+    @session_wrapper(headless=True)
+    def extract_raiting(self, session: SessionEngine, url: str) -> str:
+        try:
+            session.navigate(url)
+            #Здесь берется только первый обект, остальные не берутся в результат , нужно поправить
+            element_obj = WebDriverWait(session.driver, session.wait_time).until(
+                EC.visibility_of_element_located((By.XPATH, "//div[contains(text(),'отзыв')]"))
+            )
+            element_text = session._extract_text(element_obj) # например: "4.8 • 233 отзыва"
+            rating_part, reviews_part = element_text.split("•")
+            rating = float(rating_part.strip().replace(",", "."))
+            logger.info(f"Найдена информация о товаре: {element_text}")
+            # Разбить данные и убрать знак рубля
+            return rating
+        except Exception as e:
+            logger.error(f'Ошибка при извлечении названия товара: {e}')
+            return None
 
 if __name__ == "__main__":
     parser = OzonParser()
@@ -111,8 +135,10 @@ if __name__ == "__main__":
     result_2 = parser.extract_price_without_card('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
     result_3 = parser.extract_articule('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
     result_4 = parser.extract_categories('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
+    result_5 = parser.extract_raiting('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
     print(result)
     print(result_1)
     print(result_2)
     print(result_3)
     print(result_4)
+    print(result_5)
