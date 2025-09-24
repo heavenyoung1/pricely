@@ -127,6 +127,21 @@ class OzonParser(Parser):
         except Exception as e:
             logger.error(f'Ошибка при извлечении названия товара: {e}')
             return None
+        
+    @session_wrapper(headless=True)
+    def extract_image(self, session: SessionEngine, url: str) -> str:
+        try:
+            session.navigate(url)
+            element_obj = WebDriverWait(session.driver, session.wait_time).until(
+                EC.visibility_of_element_located((By.XPATH, "//div[@data-widget='webGallery']//img"))
+            )
+            element_img = element_obj.get_attribute('src')
+            logger.info(f"Найдена информация о товаре: {element_img}")
+            # Разбить данные и убрать знак рубля
+            return self._extract_digits(element_img)
+        except Exception as e:
+            logger.error(f'Ошибка при извлечении названия товара: {e}')
+            return None
 
 if __name__ == "__main__":
     parser = OzonParser()
@@ -136,9 +151,11 @@ if __name__ == "__main__":
     result_3 = parser.extract_articule('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
     result_4 = parser.extract_categories('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
     result_5 = parser.extract_raiting('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
+    result_6 = parser.extract_raiting('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
     print(result)
     print(result_1)
     print(result_2)
     print(result_3)
     print(result_4)
     print(result_5)
+    print(result_6)
