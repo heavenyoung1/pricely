@@ -28,39 +28,39 @@ class CreateProductUseCase:
         # 1. Парсим данные о продукте
         try:
             product_data = self.parser.parse_product(url)
-            logger.info(f"Успешный парсинг данных для {url}: {product_data}")
+            logger.info(f'Успешный парсинг данных для {url}: {product_data}')
         except Exception as e:
-            logger.error(f"Ошибка парсинга URL {url} для пользователя {user_id}: {str(e)}")
-            raise ParserProductError("Ошибка парсинга товара")
+            logger.error(f'Ошибка парсинга URL {url} для пользователя {user_id}: {str(e)}')
+            raise ParserProductError('Ошибка парсинга товара')
 
         # 2. Проверяем, есть ли продукт в базе
-        if self.product_repo.get(product_data["id"]):
-            logger.error(f"Товар с ID {product_data['id']} уже существует")
-            raise ProductCreationError(f"Товар с ID {product_data['id']} уже существует")
+        if self.product_repo.get(product_data['id']):
+            logger.error(f'Товар с ID {product_data['id']} уже существует')
+            raise ProductCreationError(f'Товар с ID {product_data['id']} уже существует')
 
         # 3. Создаём сущности
         product = Product(
-            id=product_data["id"],
+            id=product_data['id'],
             user_id=user_id,
-            name=product_data["name"],
+            name=product_data['name'],
             link=url,
-            image_url=product_data["image_url"],
-            rating=product_data["rating"],
-            categories=product_data["categories"],
+            image_url=product_data['image_url'],
+            rating=product_data['rating'],
+            categories=product_data['categories'],
         )
 
         price = Price(
             id=None,  # БД сама создаст автоинкрементный id
             product_id=product.id,
-            with_card=product_data["price_with_card"],
-            without_card=product_data["price_without_card"],
+            with_card=product_data['price_with_card'],
+            without_card=product_data['price_without_card'],
             previous_with_card=None,
             previous_without_card=None,
-            default=product_data["price_default"],
+            default=product_data['price_default'],
             created_at=datetime.now(),
         )
 
-        # ✅ Привязываем цену к продукту
+        # Добавляем цену к продукту
         product.prices.append(price)
 
         # 4. Работаем с пользователем
@@ -70,7 +70,7 @@ class CreateProductUseCase:
         if is_new_user:
             user = User(
                 id=user_id,
-                username="unknown",
+                username='unknown',
                 chat_id=user_id,
                 products=[product.id],
             )
@@ -78,6 +78,7 @@ class CreateProductUseCase:
         else:
             if product.id not in user.products:
                 user.products.append(product.id)
+                # Не логичнее ли вынести сохранение в репозиторий ниже, чтобы сохранение было в одном месте? 
                 self.user_repo.save(user)
 
         # 5. Сохраняем продукт и цену
@@ -85,12 +86,12 @@ class CreateProductUseCase:
             self.product_repo.save(product)
             self.price_repo.save(price)
         except Exception as e:
-            logger.error(f"Ошибка сохранения товара {product.id}: {e}")
-            raise ProductCreationError("Ошибка сохранения товара")
+            logger.error(f'Ошибка сохранения товара {product.id}: {e}')
+            raise ProductCreationError('Ошибка сохранения товара')
 
         return {
-            "product_id": product.id,
-            "product_name": product.name,
-            "user_id": product.user_id,
-            "with_card": price.with_card,
+            'product_id': product.id,
+            'product_name': product.name,
+            'user_id': product.user_id,
+            'with_card': price.with_card,
         }

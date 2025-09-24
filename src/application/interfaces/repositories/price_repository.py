@@ -9,12 +9,6 @@ class PriceRepository(ABC):
         '''Сохранить или обновить цену.'''
         pass
 
-        # ПО МОЕМУ ЭТО ЗДЕСЬ ЛИШНЕЕ, ЕГО НУЖНО В ДРУГОЙ РЕПОЗИТОРИЙ ПЕРЕНЕСТИ!
-    # @abstractmethod
-    # def get_relevant_price_id(self, product_id: str) -> Optional[str]:
-    #     '''Получить ID актуальной цены по ID продукта.'''
-    #     pass
-
     @abstractmethod
     def get(self, price_id: str) -> Optional[Price]:
         '''Получить цену по ID.'''

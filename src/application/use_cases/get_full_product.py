@@ -29,13 +29,13 @@ class GetFullProductUseCase:
         user = self.user_repo.get(product.user_id)
 
         return {
-            "id": product.id,
-            "name": product.name,
-            "link": product.link,
-            "image_url": product.image_url,
-            "rating": product.rating,
-            "categories": product.categories,
-            "prices": [vars(p) for p in prices],
-            "user": vars(user) if user else None,
+            'id': product.id,
+            'name': product.name,
+            'link': product.link,
+            'image_url': product.image_url,
+            'rating': product.rating,
+            'categories': product.categories,
+            'prices': [vars(p) for p in prices],
+            'user': vars(user) if user else None,
         }
 
