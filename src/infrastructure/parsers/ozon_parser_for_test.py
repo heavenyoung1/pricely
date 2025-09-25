@@ -93,22 +93,18 @@ class OzonParser(Parser):
         
             
     @session_wrapper(headless=True)
-    def extract_categories(self, session: SessionEngine, url: str) -> str:
+    def extract_categories(self, session: SessionEngine, url: str) -> List[str]:
         try:
             session.navigate(url)
-            #Здесь берется только первый обект, остальные не берутся в результат , нужно поправить
-            element_obj = WebDriverWait(session.driver, session.wait_time).until(
-                EC.visibility_of_element_located((By.XPATH, "//ol//li//span"))
+            elements = WebDriverWait(session.driver, session.wait_time).until(
+                EC.presence_of_all_elements_located((By.XPATH, "//ol//li//span"))
             )
-            element_text = session._extract_text(element_obj)
-            logger.info(f"Найдена информация о товаре: {element_text}")
-            # Разбить данные и убрать знак рубля
-            categories = [session._extract_text(e).strip() for e in element_text if e.text]
+            categories = [session._extract_text(e).strip() for e in elements if session._extract_text(e)]
             logger.info(f"Категории: {categories}")
             return categories
         except Exception as e:
-            logger.error(f'Ошибка при извлечении названия товара: {e}')
-            return None
+            logger.error(f'Ошибка при извлечении категорий: {e}')
+            return []
     
     @session_wrapper(headless=True)
     def extract_raiting(self, session: SessionEngine, url: str) -> str:
@@ -133,13 +129,16 @@ class OzonParser(Parser):
         try:
             session.navigate(url)
             element_obj = WebDriverWait(session.driver, session.wait_time).until(
-                EC.visibility_of_element_located((By.XPATH, "//div[@data-widget='webGallery']//img"))
+                EC.presence_of_element_located((By.XPATH, "//div[@data-widget='webGallery']//img"))
             )
-            element_img = element_obj.get_attribute('src')
-            logger.info(f"Найдена информация о товаре: {element_img}")
-            return element_img
+            image_url = element_obj.get_attribute("src")
+            if image_url:
+                # увеличиваем качество до 1000px
+                image_url = image_url.replace("/wc38/", "/wc1000/").replace("/wc50/", "/wc1000/")
+            logger.info(f"Найдено изображение: {image_url}")
+            return image_url
         except Exception as e:
-            logger.error(f'Ошибка при извлечении названия товара: {e}')
+            logger.error(f'Ошибка при извлечении изображения: {e}')
             return None
 
 if __name__ == "__main__":
@@ -148,13 +147,13 @@ if __name__ == "__main__":
     # result_1 = parser.extract_price_with_card('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
     # result_2 = parser.extract_price_without_card('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
     # result_3 = parser.extract_articule('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
-    # result_4 = parser.extract_categories('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
+    result_4 = parser.extract_categories('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
     # result_5 = parser.extract_raiting('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
     result_6 = parser.extract_image('https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32')
     # print(result)
     # print(result_1)
     # print(result_2)
     # print(result_3)
-    # print(result_4)
+    print(result_4)
     # print(result_5)
     print(result_6)
