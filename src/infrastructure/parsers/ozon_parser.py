@@ -33,142 +33,108 @@ class OzonParser(Parser):
                 'rating': self._extract_rating(session),
                 'price_with_card': self._extract_price_with_card(session),
                 'price_without_card': self._extract_price_without_card(session),
-                'price_default': self._extract_price_default(session),
+                'price_default': 0, #ЗАГЛУШКА, ИЗБАВЛЮСЬ ОТ ЭТОГО ПОЛЯ В БД!!!
                 'image_url': self._extract_image_url(session),
-                'categories': self._extract_category_product(session)
+                'categories': self._extract_categories(session)
             }
         except Exception as e:
             logger.error(f'Ошибка при парсинге страницы {url}: {e}')
             raise
+
+    # ----------------- Вспомогательные методы -----------------
+
+    def _extract_digits(self, text: str) -> int:
+        """Возвращает только цифры из строки"""
+        return int("".join(ch for ch in text if ch.isdigit()))
+
+    def _extract_id(self, session: SessionEngine) -> str:
+        try:
+            element_obj = WebDriverWait(session.driver, session.wait_time).until(
+                EC.visibility_of_element_located((By.XPATH, "//div[contains(text(),'Артикул')]"))
+            )
+            text = session._extract_text(element_obj)
+            articule = self._extract_digits(text)
+            logger.info(f"Найден артикул: {articule}")
+            return str(articule)
+        except Exception as e:
+            logger.error(f"Ошибка при извлечении артикула: {e}")
+            return None
+
     def _extract_name(self, session: SessionEngine) -> str:
         try:
-            name_element = WebDriverWait(session.driver, session.wait_time).until(
+            element_obj = WebDriverWait(session.driver, session.wait_time).until(
                 EC.visibility_of_element_located((By.XPATH, "//div[@data-widget='webProductHeading']//h1"))
             )
-            name = session._extract_text(name_element)
+            name = session._extract_text(element_obj)
             logger.info(f"Найдено название товара: {name}")
             return name
         except Exception as e:
             logger.error(f"Ошибка при извлечении названия товара: {e}")
             return None
 
-    def _extract_id(self, session: SessionEngine) -> str:
-        try:
-            elements = WebDriverWait(session.driver, session.wait_time).until(
-                EC.presence_of_all_elements_located((By.XPATH, "//div[contains(@class, 'ga5_3_1-a2') and contains(@class, 'tsBodyControl400Small')]"))
-            )
-            for element in elements:
-                text = session._extract_text(element)
-                if "Артикул:" in text:
-                    articule = text.replace("Артикул:", "").strip()
-                    logger.info(f"Найден артикул: {articule}")
-                    return articule
-            logger.warning("Элемент с 'Артикул:' не найден")
-            return None
-        except Exception as e:
-            logger.error(f"Ошибка при извлечении артикула: {e}")
-            raise
-
-    def _extract_rating(self, session: SessionEngine) -> float:
-        try:
-            rating_element = WebDriverWait(session.driver, session.wait_time).until(
-                EC.visibility_of_element_located((By.XPATH, "//div[contains(@class, 'gaP12835-a2') and contains(@class, 'tsBodyControl500Medium')]"))
-            )
-            rating_text = session._extract_text(rating_element)
-            logger.info(f"Текст рейтинга: {rating_text}")
-            rating = self._parse_rating(rating_text)
-            logger.info(f"Найден рейтинг: {rating}")
-            return rating
-        except Exception as e:
-            logger.error(f"Ошибка при извлечении рейтинга: {e}")
-            raise
-
     def _extract_price_with_card(self, session: SessionEngine) -> int:
         try:
-            price_element = WebDriverWait(session.driver, session.wait_time).until(
-                EC.visibility_of_element_located((By.XPATH, "//span[contains(@class, 'tsHeadline600Large')]"))
+            element_obj = WebDriverWait(session.driver, session.wait_time).until(
+                EC.visibility_of_element_located((By.XPATH, "//span[@class='tsHeadline600Large']"))
             )
-            price_text = session._extract_text(price_element)
-            price = self._parse_number(price_text)
+            text = session._extract_text(element_obj)
+            price = self._extract_digits(text)
             logger.info(f"Найдена цена с картой: {price}")
             return price
         except Exception as e:
             logger.error(f"Ошибка при извлечении цены с картой: {e}")
-            raise
+            return None
 
     def _extract_price_without_card(self, session: SessionEngine) -> int:
         try:
-            price_element = WebDriverWait(session.driver, session.wait_time).until(
-                EC.visibility_of_element_located((By.XPATH, "//span[contains(@class, 'pdp_bf1')]"))
+            element_obj = WebDriverWait(session.driver, session.wait_time).until(
+                EC.visibility_of_element_located((By.XPATH, "//span[contains(text(),'₽') and contains(@class,'tsHeadline500Medium')]"))
             )
-            price_text = session._extract_text(price_element)
-            price = self._parse_number(price_text)
+            text = session._extract_text(element_obj)
+            price = self._extract_digits(text)
             logger.info(f"Найдена цена без карты: {price}")
             return price
         except Exception as e:
             logger.error(f"Ошибка при извлечении цены без карты: {e}")
-            raise
+            return None
 
-    def _extract_price_default(self, session: SessionEngine) -> int:
+    def _extract_categories(self, session: SessionEngine) -> List[str]:
         try:
-            price_element = WebDriverWait(session.driver, session.wait_time).until(
-                EC.visibility_of_element_located((By.XPATH, "//span[contains(@class, 'pdp_f0b') and contains(@class, 'pdp_b1f') and contains(@class, 'pdp_bf0')]"))
+            elements = WebDriverWait(session.driver, session.wait_time).until(
+                EC.presence_of_all_elements_located((By.XPATH, "//ol//li//span"))
             )
-            price_text = session._extract_text(price_element)
-            price = self._parse_number(price_text)
-            logger.info(f"Найдена базовая цена: {price}")
-            return price
+            categories = [session._extract_text(e).strip() for e in elements if session._extract_text(e)]
+            logger.info(f"Найдены категории: {categories}")
+            return categories
         except Exception as e:
-            logger.error(f"Ошибка при извлечении базовой цены: {e}")
-            raise
+            logger.error(f"Ошибка при извлечении категорий: {e}")
+            return []
+
+    def _extract_rating(self, session: SessionEngine) -> float:
+        try:
+            element_obj = WebDriverWait(session.driver, session.wait_time).until(
+                EC.visibility_of_element_located((By.XPATH, "//div[contains(text(),'отзыв')]"))
+            )
+            text = session._extract_text(element_obj)  # например: "4.8 • 233 отзыва"
+            rating_part, _ = text.split("•")
+            rating = float(rating_part.strip().replace(",", "."))
+            logger.info(f"Найден рейтинг: {rating}")
+            return rating
+        except Exception as e:
+            logger.error(f"Ошибка при извлечении рейтинга: {e}")
+            return None
 
     def _extract_image_url(self, session: SessionEngine) -> str:
         try:
-            image_container = WebDriverWait(session.driver, session.wait_time).until(
-                EC.visibility_of_element_located((By.XPATH, "//div[contains(@class, 'pdp_v3 pdp_v4')]"))
+            element_obj = WebDriverWait(session.driver, session.wait_time).until(
+                EC.presence_of_element_located((By.XPATH, "//div[@data-widget='webGallery']//img"))
             )
-            img_element = image_container.find_element(By.XPATH, ".//img")
-            image_url = img_element.get_attribute("src")
-            logger.info(f"Найден URL изображения: {image_url}")
-            return image_url if image_url else "N/A"
+            image_url = element_obj.get_attribute("src")
+            if image_url:
+                # увеличиваем качество до 1000px
+                image_url = image_url.replace("/wc38/", "/wc1000/").replace("/wc50/", "/wc1000/")
+            logger.info(f"Найдено изображение: {image_url}")
+            return image_url
         except Exception as e:
-            logger.error(f"Ошибка при извлечении URL изображения: {e}")
-            raise
-
-    def _extract_category_product(self, session: SessionEngine) -> List[str]:
-        try:
-            ol_element = WebDriverWait(session.driver, session.wait_time).until(
-                EC.visibility_of_element_located((By.XPATH, "//ol[contains(@class, 'df9_11') and contains(@class, 'tsBodyControl400Small')]"))
-            )
-            category_elements = ol_element.find_elements(By.XPATH, ".//li")
-            categories = []
-            for elem in category_elements:
-                span_element = elem.find_element(By.XPATH, ".//span")
-                category_text = session._extract_text(span_element)
-                if category_text:
-                    categories.append(category_text)
-            logger.info(f"Найдены категории: {categories}")
-            return categories if categories else []
-        except Exception as e:
-            logger.error(f"Ошибка при извлечении категорий: {e}")
-            raise
-
-    def _parse_rating(self, text: str) -> float:
-        if not text or text == "N/A":
-            return 0.0
-        try:
-            # Извлекаем число до "•" (например, "4.9" из "4.9 • 5 058 отзывов")
-            return float(text.split("•")[0].replace(",", ".").strip())
-        except (ValueError, AttributeError, IndexError):
-            logger.error(f"Не удалось преобразовать текст рейтинга: {text}")
-            raise
-
-    def _parse_number(self, text: str) -> int:
-        if not text or text == "N/A":
-            return 0
-        try:
-            cleaned_text = "".join(filter(str.isdigit, text))
-            return int(cleaned_text) if cleaned_text else 0
-        except (ValueError, AttributeError):
-            logger.error(f"Не удалось преобразовать текст цены: {text}")
-            raise
+            logger.error(f"Ошибка при извлечении изображения: {e}")
+            return None
