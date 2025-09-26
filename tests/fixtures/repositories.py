@@ -54,8 +54,13 @@ def mock_price_repo(mock_session): # ← Использует мокирован
 
 @pytest.fixture
 def mock_user_repo(mock_session): # ← Использует мокированную сессию
-    '''Фикстура репозитория товаров с замоканной сессией.'''
+    '''Фикстура репозитория свзяи пользователей и товаров (M2M) с замоканной сессией.'''
     return UserRepositoryImpl(session=mock_session)
+
+@pytest.fixture
+def mock_user_products_repo(mock_session): # ← Использует мокированную сессию
+    '''Фикстура репозитория товаров с замоканной сессией.'''
+    return UserProductsRepositoryImpl(session=mock_session)
 
 # ----- PURE MOCK РЕПОЗИТОРИИ ДЛЯ UNIT - ТЕСТОВ ЗАВЯЗАННЫЕ НА ИНТЕРФЕЙС -----  #
 
@@ -80,4 +85,12 @@ def pure_mock_user_repo():
     mock = Mock(spec=UserRepository)  # Используйте интерфейс
     mock.get.return_value = None  # По умолчанию пользователь не найден
     mock.save.return_value = None
+    return mock
+
+@pytest.fixture
+def pure_mock_user_products_repo():
+    '''Чистый мок UserProductsRepositoryImpl для unit-тестов UseCase.'''
+    mock = Mock(spec=UserProductsRepositoryImpl)  # Используйте интерфейс
+    #mock.get.return_value = None  # По умолчанию пользователь не найден
+    #mock.save.return_value = None
     return mock

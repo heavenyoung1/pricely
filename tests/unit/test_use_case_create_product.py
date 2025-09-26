@@ -13,6 +13,7 @@ def test_create_product_success_new_user(
     pure_mock_price_repo,
     pure_mock_user_repo,
     pure_mock_parser,
+    pure_mock_user_products_repo,
     user,
 ):
     # Setup
@@ -23,6 +24,7 @@ def test_create_product_success_new_user(
         product_repo=pure_mock_product_repo,
         price_repo=pure_mock_price_repo,
         user_repo=pure_mock_user_repo,
+        user_products_repo=pure_mock_user_products_repo,
         parser=pure_mock_parser,
     )
     result = use_case.execute(user_id=user.id, url='https://example.com/product')
@@ -44,6 +46,7 @@ def test_create_product_success_existing_user(
     pure_mock_product_repo,
     pure_mock_price_repo,
     pure_mock_user_repo,
+    pure_mock_user_products_repo,
     pure_mock_parser,
     user,
 ):
@@ -55,6 +58,7 @@ def test_create_product_success_existing_user(
         price_repo=pure_mock_price_repo,
         user_repo=pure_mock_user_repo,
         parser=pure_mock_parser,
+        user_products_repo=pure_mock_user_products_repo,
     )
     result = use_case.execute(user_id=user.id, url='https://example.com/product')
 
@@ -76,6 +80,7 @@ def test_create_product_fails_product_exists(
     pure_mock_product_repo,
     pure_mock_price_repo,
     pure_mock_user_repo,
+    pure_mock_user_products_repo,
     pure_mock_parser,
     product,
 ):
@@ -96,6 +101,7 @@ def test_create_product_fails_product_exists(
         price_repo=pure_mock_price_repo,
         user_repo=pure_mock_user_repo,
         parser=pure_mock_parser,
+        user_products_repo=pure_mock_user_products_repo,
     )
 
     with pytest.raises(ProductCreationError, match="уже существует"):

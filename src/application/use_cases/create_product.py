@@ -1,4 +1,4 @@
-from src.application.interfaces.repositories import ProductRepository, PriceRepository, UserRepository
+from src.application.interfaces.repositories import ProductRepository, PriceRepository, UserRepository, UserProductsRepository
 from src.domain.entities import Product, Price, User
 
 from src.infrastructure.parsers import OzonParser
@@ -17,11 +17,13 @@ class CreateProductUseCase:
         product_repo: ProductRepository,
         price_repo: PriceRepository,
         user_repo: UserRepository,
+        user_products_repo: UserProductsRepository,
         parser: ProductParser,
     ):
         self.product_repo = product_repo
         self.price_repo = price_repo
         self.user_repo = user_repo
+        self.user_product_repo = user_products_repo
         self.parser = parser
 
     def execute(self, user_id: str, url: str) -> dict:
