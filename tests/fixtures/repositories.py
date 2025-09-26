@@ -3,33 +3,41 @@ from unittest.mock import Mock, MagicMock
 from src.application.interfaces.repositories import (
     ProductRepository,
     PriceRepository,
-    UserRepository
+    UserRepository,
+    UserProductsRepository,
 )
 
 from src.infrastructure.database.repositories import (
     ProductRepositoryImpl,
     PriceRepositoryImpl,
-    UserRepositoryImpl
+    UserRepositoryImpl,
+    UserProductsRepositoryImpl,
 )
+
 import logging
 logger = logging.getLogger(__name__)
 
 # ----- РЕПОЗИТОРИИ ДЛЯ ИНТЕГРАЦИОННЫХ - ТЕСТОВ С DB-SESSION -----  #
 
 @pytest.fixture
-def product_repo(db_session): # ← Использует реальную сессию с SQLite
+def product_repo(db_session): # ← Использует реальную сессию PostgreSQL
     '''Фикстура репозитория продуктов с сессией.'''
     return ProductRepositoryImpl(session=db_session)
 
 @pytest.fixture
-def price_repo(db_session): # ← Использует реальную сессию с SQLite
+def price_repo(db_session): # ← Использует реальную сессию с PostgreSQL
     '''Фикстура репозитория продуктов с сессией.'''
     return PriceRepositoryImpl(session=db_session)
 
 @pytest.fixture
-def user_repo(db_session): # ← Использует реальную сессию с SQLite
+def user_repo(db_session): # ← Использует реальную сессию с PostgreSQL
     '''Фикстура репозитория продуктов с сессией.'''
     return UserRepositoryImpl(session=db_session)
+
+@pytest.fixture
+def user_product_repo(db_session): # ← Использует реальную сессию с PostgreSQL
+    '''Фикстура репозитория свзяи пользователей и товаров (M2M) с сессией.'''
+    return UserProductsRepositoryImpl(session=db_session)
 
 # ----- ЗАМОКАНЫЕ РЕПОЗИТОРИИ ДЛЯ UNIT - ТЕСТОВ -----  #
 
