@@ -24,3 +24,9 @@ class UserProductsRepositoryImpl(UserProductsRepository):
         )
         logger.debug([row for row in rows])
         return [row for row in rows]
+    
+    def add_product_for_user(self, user_id: str, product_id: str) -> None:
+        '''Создаёт запись в user_products (связка user_id и product_id).'''
+        logger.info(f'Привязка товара ID {product_id} пользователю ID {user_id}')
+        reccord = ORMUserProducts(user_id=user_id, product_id=product_id)
+        self.session.add(reccord)
