@@ -43,6 +43,7 @@ class ProductService:
             user_repo=self.uow.user_repository,
             product_repo=self.uow.product_repository,
             price_repo=self.uow.price_repository,
+            user_products_repo = self.uow.user_products_repository,
             parser=self.parser,
         )
         return use_case.execute(user_id, url)
