@@ -12,10 +12,11 @@ def add_product_process(message: Message):
     url = message.text.strip()
     try:
         result = service.create_product(str(message.from_user.id), url)
+        bot.send_message(message.chat.id, f'Парсинг начался, ожидайте..')
         bot.send_message(
             message.chat.id,
             f"✅ Товар добавлен!\n\n"
-            f"Название: {result['name']}\n"
+            f"Название: {result['product_name']}\n"
             f"Цена с картой: {result['with_card']} ₽\n"
             f"Цена без карты: {result['without_card']} ₽",
             reply_markup=main_menu()
