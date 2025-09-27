@@ -22,6 +22,14 @@ class ORMProduct(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.now)  # Добавлен timestamp
 
     # Прямая связь: один продукт имеет много цен
-    prices: Mapped[list['ORMPrice']] = relationship("ORMPrice", back_populates="product", cascade="all, delete-orphan")
+    prices: Mapped[list['ORMPrice']] = relationship(
+        'ORMPrice', 
+        back_populates='product', 
+        cascade='all, delete-orphan',
+        )
     # Прямая связь: один продукт связан со многими пользователями через user_products
-    user_products: Mapped[list['ORMUserProducts']] = relationship("ORMUserProducts", back_populates="product")
+    user_products: Mapped[list['ORMUserProducts']] = relationship(
+        'ORMUserProducts', 
+        back_populates='product',
+        cascade='all, delete-orphan',
+        )

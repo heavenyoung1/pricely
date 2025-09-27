@@ -48,7 +48,6 @@ class GetUserProductsUseCase:
                 "latest_price": {
                     "with_card": latest_price.with_card if latest_price else None,
                     "without_card": latest_price.without_card if latest_price else None,
-                    #"default_price": latest_price.default_price if latest_price else None,
                 }
             })
 

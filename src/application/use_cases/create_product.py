@@ -58,7 +58,6 @@ class CreateProductUseCase:
             without_card=product_data['price_without_card'],
             previous_with_card=None,
             previous_without_card=None,
-            #default_price=product_data['default_price'],
             created_at=datetime.now(),
         )
 
@@ -105,5 +104,4 @@ class CreateProductUseCase:
             'categories': product.categories,
             'with_card': price.with_card,
             'without_card': price.without_card,
-            #'default_price': price.default_price,
         }

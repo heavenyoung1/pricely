@@ -15,7 +15,6 @@ def price_dto():
         without_card=120,
         previous_with_card=90,
         previous_without_card=110,
-        #default=150,
         created_at=datetime(2025, 1, 1),  #
     )
 
@@ -29,7 +28,6 @@ def price():
         without_card=120,
         previous_with_card=90,
         previous_without_card=110,
-        #default=150,
         created_at=datetime(2025, 1, 1),  
     )
 
@@ -43,7 +41,6 @@ def price_second():
         without_card=140,
         previous_with_card=100,    
         previous_without_card=120,
-        #default=150,
         created_at=datetime(2025, 1, 2)
     )
 
@@ -57,6 +54,5 @@ def orm_price():
         without_card=120,
         previous_with_card=90,
         previous_without_card=110,
-        default_price=150,
         created_at=datetime(2025, 1, 1),
     )

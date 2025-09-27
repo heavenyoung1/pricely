@@ -9,5 +9,4 @@ class Price:
     without_card: int
     previous_with_card: int | None
     previous_without_card: int | None
-    #default: int
     created_at: datetime  # Дата клейма цены

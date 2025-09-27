@@ -79,6 +79,5 @@ class PriceRepositoryImpl(PriceRepository):
             without_card=orm_price.without_card,
             previous_with_card=orm_price.previous_with_card,
             previous_without_card=orm_price.previous_without_card,
-            #default_price=orm_price.default_price,
             created_at=orm_price.created_at,
         )

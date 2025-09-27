@@ -33,7 +33,6 @@ class OzonParser(Parser):
                 'rating': self._extract_rating(session),
                 'price_with_card': self._extract_price_with_card(session),
                 'price_without_card': self._extract_price_without_card(session),
-                #'price_default': 0, #ЗАГЛУШКА, ИЗБАВЛЮСЬ ОТ ЭТОГО ПОЛЯ В БД!!!
                 'image_url': self._extract_image_url(session),
                 'categories': self._extract_categories(session)
             }
