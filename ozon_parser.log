@@ -1455,3 +1455,24 @@ Traceback (most recent call last):
         [InlineKeyboardButton("⬅️ Назад", callback_data="back_to_products")]
     ])
 TypeError: InlineKeyboardMarkup.__init__() got an unexpected keyword argument 'inline_keyboard'
+2025-09-27 19:23:20,604 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
+2025-09-27 19:23:20,605 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
+2025-09-27 19:23:21,174 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
+2025-09-27 19:23:21,175 - __main__ - INFO - No active webhook found
+2025-09-27 19:23:21,175 - __main__ - INFO - Checking for updates manually
+2025-09-27 19:23:30,588 - __main__ - INFO - Starting bot polling
+2025-09-27 19:23:31,355 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
+2025-09-27 19:23:31,465 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:23:31,465 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-09-27 19:23:31,649 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
+2025-09-27 19:23:31,674 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
+2025-09-27 19:23:31,684 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-09-27 19:23:31,693 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 19:23:31,694 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:23:31,694 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:23:34,021 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:23:34,041 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
+2025-09-27 19:23:34,052 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-09-27 19:23:34,056 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 19:23:34,057 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:23:34,057 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
