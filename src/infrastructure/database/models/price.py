@@ -23,7 +23,7 @@ class ORMPrice(Base):
     without_card: Mapped[int] = mapped_column(Integer, nullable=False)
     previous_with_card: Mapped[int] = mapped_column(Integer, nullable=True)
     previous_without_card: Mapped[int] = mapped_column(Integer, nullable=True)
-    default_price: Mapped[int] = mapped_column(Integer, nullable=False)
+    #default_price: Mapped[int] = mapped_column(Integer, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.now)
 
     # Обратная связь: цены принадлежат одному продукту

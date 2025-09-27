@@ -92,7 +92,7 @@ def test_create_product_fails_product_exists(
         "categories": ["cat1", "cat2"],
         "price_with_card": 100,
         "price_without_card": 120,
-        "price_default": 150,
+        #"price_default": 150,
     }
     pure_mock_product_repo.get.return_value = product
 

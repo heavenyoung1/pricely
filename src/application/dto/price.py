@@ -10,5 +10,5 @@ class PriceDTO(BaseModel):
     without_card: int
     previous_with_card: Optional[int] = None  # Разрешаем None
     previous_without_card: Optional[int] = None  # Разрешаем None
-    default: int
+    #default: int
     created_at: datetime

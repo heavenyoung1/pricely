@@ -52,5 +52,14 @@
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_connection_pool_stress": true,
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_database_version_and_features": true,
   "tests/integration/test_conn_db.py::TestDatabaseConnections::test_transaction_rollback": true,
-  "tests/integration/test_product_service.py::test_create_user_duplicate_error": true
+  "tests/integration/test_product_service.py::test_create_user_duplicate_error": true,
+  "tests/integration/test_product_service.py::test_get_product_success": true,
+  "tests/integration/test_product_service.py::test_get_full_product_success": true,
+  "tests/integration/test_product_service.py::test_create_product_success": true,
+  "tests/integration/test_product_service.py::test_delete_product_success": true,
+  "tests/integration/test_product_service.py::test_update_product_price": true,
+  "tests/unit/test_mapper_price.py::test_orm_to_domain": true,
+  "tests/unit/test_repo_price.py::test_get_price_success": true,
+  "tests/unit/test_repo_price.py::test_get_all_prices_by_product": true,
+  "tests/unit/test_repo_product.py::test_get_product_found": true
 }

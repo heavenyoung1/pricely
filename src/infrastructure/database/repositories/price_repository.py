@@ -1,6 +1,7 @@
 import logging
 from typing import Optional, List
 from sqlalchemy.orm import Session
+from sqlalchemy import desc
 
 from src.application.interfaces.repositories import PriceRepository
 from src.infrastructure.database.mappers import PriceMapper
@@ -60,3 +61,24 @@ class PriceRepositoryImpl(PriceRepository):
         except Exception as e:
             logger.error(f"Ошибка удаления цены {price_id}: {str(e)}")
             raise
+
+    def get_latest_for_product(self, product_id: str) -> Price | None:
+        ''''''
+        logger.debug(f'Получение последней цены для продукта {product_id}')
+        orm_price = (
+            self.session.query(ORMPrice).filter(ORMPrice.product_id == product_id).order_by(desc(ORMPrice.created_at)).first()
+        )
+        if not orm_price:
+            logger.info(f'Для продукта {product_id} нет данных о цене')
+            return None
+        
+        return Price(
+            id=orm_price.id,
+            product_id=orm_price.product_id,
+            with_card=orm_price.with_card,
+            without_card=orm_price.without_card,
+            previous_with_card=orm_price.previous_with_card,
+            previous_without_card=orm_price.previous_without_card,
+            #default_price=orm_price.default_price,
+            created_at=orm_price.created_at,
+        )

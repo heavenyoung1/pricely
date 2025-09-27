@@ -13,7 +13,7 @@ class PriceMapper:
             without_card=dto.without_card,
             previous_with_card=dto.previous_with_card,
             previous_without_card=dto.previous_without_card,
-            default=dto.default,
+            #default_price=dto.default_price,
             created_at=dto.created_at,
         )
 
@@ -26,7 +26,7 @@ class PriceMapper:
             without_card=domain.without_card,
             previous_with_card=domain.previous_with_card,
             previous_without_card=domain.previous_without_card,
-            default=domain.default,
+            #default_price=domain.default_price,
             created_at=domain.created_at,
         )
 
@@ -39,7 +39,7 @@ class PriceMapper:
             without_card=domain.without_card,
             previous_with_card=domain.previous_with_card,
             previous_without_card=domain.previous_without_card,
-            default_price=domain.default,
+            #default_price=domain.default_price,
             created_at=domain.created_at,
         )
 
@@ -52,6 +52,6 @@ class PriceMapper:
             without_card=orm.without_card,
             previous_with_card=orm.previous_with_card,
             previous_without_card=orm.previous_without_card,
-            default=orm.default_price,
+            #default_price=orm.default_price,
             created_at=orm.created_at,
         )

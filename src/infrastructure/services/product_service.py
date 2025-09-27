@@ -80,6 +80,8 @@ class ProductService:
     def get_all_products(self, user_id: str) -> list:
         '''Возвращает список словарей с полной информацией обо всех продуктах пользователя.'''
         use_case_get_products = GetUserProductsUseCase (
+            product_repo=self.uow.product_repository,
+            price_repo=self.uow.price_repository,
             user_products_repo=self.uow.user_products_repository
         )
         product_ids = use_case_get_products.execute(user_id=user_id)

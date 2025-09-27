@@ -23,7 +23,7 @@ class CreateProductUseCase:
         self.product_repo = product_repo
         self.price_repo = price_repo
         self.user_repo = user_repo
-        self.user_product_repo = user_products_repo
+        self.user_products_repo = user_products_repo
         self.parser = parser
 
     def execute(self, user_id: str, url: str) -> dict:
@@ -58,7 +58,7 @@ class CreateProductUseCase:
             without_card=product_data['price_without_card'],
             previous_with_card=None,
             previous_without_card=None,
-            default=product_data['price_default'],
+            #default_price=product_data['default_price'],
             created_at=datetime.now(),
         )
 
@@ -87,6 +87,9 @@ class CreateProductUseCase:
         try:
             self.product_repo.save(product)
             self.price_repo.save(price)
+
+            # Создаём связь user <-> product в таблице user_products
+            self.user_products_repo.add_product_for_user(user_id, product.id)
         except Exception as e:
             logger.error(f'Ошибка сохранения товара {product.id}: {e}')
             raise ProductCreationError('Ошибка сохранения товара')
@@ -102,5 +105,5 @@ class CreateProductUseCase:
             'categories': product.categories,
             'with_card': price.with_card,
             'without_card': price.without_card,
-            'default': price.default,
+            #'default_price': price.default_price,
         }

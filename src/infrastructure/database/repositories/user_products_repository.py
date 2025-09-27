@@ -15,15 +15,14 @@ class UserProductsRepositoryImpl(UserProductsRepository):
         self.session = session
 
     def get_products_for_user(self, user_id):
-        '''
-        Возвращает список product_id, связанных с пользователем.
-        '''
         logger.debug(f"Получение списка продуктов для пользователя {user_id}")
         rows = (
-        self.session.query(ORMUserProducts).filter(ORMUserProducts.user_id == user_id).all()
+            self.session.query(ORMUserProducts)
+            .filter(ORMUserProducts.user_id == user_id)
+            .all()
         )
-        logger.debug([row for row in rows])
-        return [row for row in rows]
+        logger.debug([row.product_id for row in rows])
+        return [row.product_id for row in rows]
     
     def add_product_for_user(self, user_id: str, product_id: str) -> None:
         '''Создаёт запись в user_products (связка user_id и product_id).'''
