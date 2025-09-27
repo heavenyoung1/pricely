@@ -11,10 +11,11 @@ def add_product_request(message: Message):
     bot.register_next_step_handler(message, add_product_process)
 
 def add_product_process(message: Message):
+    bot.send_message(message.chat.id, "⏳ Парсинг начался, ожидайте...")
     url = message.text.strip()
     try:
         result = service.create_product(str(message.from_user.id), url)
-        bot.send_message(message.chat.id, "⏳ Парсинг начался, ожидайте...")
+
         bot.send_message(
             message.chat.id,
             f"✅ Товар добавлен!\n\n"
@@ -23,6 +24,7 @@ def add_product_process(message: Message):
             f"Цена без карты: {result['without_card']} ₽",
             reply_markup=main_menu()
         )
+
     except Exception as e:
         logger.exception("Ошибка при добавлении товара")
         bot.send_message(message.chat.id, f"❌ Ошибка: {e}")

@@ -31,6 +31,27 @@ def build_product_actions_keyboard(product_id: str, product_link: str) -> Inline
     kb.add(InlineKeyboardButton("Открыть на Ozon", url=product_link))
     return kb
 
+def format_categories(categories) -> str:
+    """Форматирует категории для красивого отображения"""
+    if not categories:
+        return "—"
+    
+    # Если это строка в формате {cat1,cat2,"cat3"}
+    if isinstance(categories, str):
+        if categories.startswith('{') and categories.endswith('}'):
+            # Убираем фигурные скобки и разделяем по запятым
+            categories_list = [cat.strip().strip('"') for cat in categories.strip('{}').split(',')]
+            return ' → '.join(categories_list)
+        else:
+            return categories
+    
+    # Если это список или кортеж
+    elif isinstance(categories, (list, tuple)):
+        return " → ".join(str(cat) for cat in categories)
+    
+    # В остальных случаях просто возвращаем как строку
+    return str(categories)
+
 def format_product_message(product: dict) -> str:
     latest = product.get("latest_price") or {}
     with_card = latest.get("with_card")
@@ -39,11 +60,8 @@ def format_product_message(product: dict) -> str:
     with_card_text = f"{with_card} ₽" if with_card is not None else "—"
     without_card_text = f"{without_card} ₽" if without_card is not None else "—"
 
-    categories = product.get("categories")
-    if isinstance(categories, (list, tuple)):
-        categories_text = " > ".join(categories)
-    else:
-        categories_text = str(categories or "—")
+    # Используем новую функцию форматирования категорий
+    categories_text = format_categories(product.get("categories"))
 
     return (
         f"🏷️ <b>{product.get('name','(без названия)')}</b>\n"
