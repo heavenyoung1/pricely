@@ -18,7 +18,7 @@ class ProductRepositoryImpl(ProductRepository):
     def save(self, product: Product) -> None:
         try:
             logger.info(f'Сохранение товара: {product}')
-            existing = self.session.get(ORMProduct, product.id)
+            existing = self.session.get(ORMProduct, str(product.id))
 
             if existing:
                 # обновляем поля
@@ -39,13 +39,15 @@ class ProductRepositoryImpl(ProductRepository):
     def get(self, product_id: str) -> Optional['Product']:
         '''Получает товар по ID.'''
         logger.debug(f'Поиск товар по ID: {product_id}')
+        product_id = str(product_id)  # защита
         orm_model = self.session.get(ORMProduct, product_id)
         if not orm_model:
             logger.warning(f'Товар с ID {product_id} не найден')
             return None
         
         # Загружаем связанные цены
-        orm_prices = self.session.query(ORMPrice).filter_by(product_id=product_id).all()
+        orm_prices = (
+            self.session.query(ORMPrice).filter_by(product_id=product_id).all())
         prices = [PriceMapper.orm_to_domain(orm_price) for orm_price in orm_prices]
         logger.debug(f"Loaded prices for product {product_id}: {prices}")
 
@@ -55,17 +57,16 @@ class ProductRepositoryImpl(ProductRepository):
         return product
     
     def get_all(self, user_id: str) -> List['Product']:
-        '''Получает все товары пользователя.
-        ВОТ ЭТОТ МЕТОД РЕПОЗИТОРИЯ УЖЕ ТАК НЕ РАБОТАТ!!! У него больше нет user_id!!!
-        '''
+        '''Получает все товары пользователя.'''
         logger.debug(f'Поиск всех товаров пользователя {user_id}')
         try:
-            orm_models = self.session.query(ORMProduct).filter_by(user_id=user_id).all()
+            orm_models = self.session.query(ORMProduct).all()
+            logger.debug(f'GET_ALL -> НАЙДЕНЫ ORM_MODELS {orm_models}')
             products = [ProductMapper.orm_to_domain(m) for m in orm_models]
             logger.info(f'Найдено {len(products)} товаров для пользователя {user_id}')
             return products
         except Exception as e:
-            logger.error(f'Ошибка получения товаров пользователя {user_id}: {str(e)}')
+            logger.error(f'Ошибка получения всех товаров пользователя {user_id}: {str(e)}')
             raise
 
     def delete(self, product_id: str) -> bool:

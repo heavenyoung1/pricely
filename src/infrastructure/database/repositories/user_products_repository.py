@@ -21,7 +21,8 @@ class UserProductsRepositoryImpl(UserProductsRepository):
             .filter(ORMUserProducts.user_id == user_id)
             .all()
         )
-        logger.debug([row.product_id for row in rows])
+        logger.debug(f'ПРОДУКТЫ ПОЛЬЗОВАТЕЛЯ В СПИСКЕ!!! - {[row.product_id for row in rows]}')
+        logger.debug(f"Продукты пользователя {user_id}: {[row.product_id for row in rows]}")
         return [row.product_id for row in rows]
     
     def add_product_for_user(self, user_id: str, product_id: str) -> None:
