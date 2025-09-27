@@ -2,6 +2,7 @@ from telebot.types import Message
 from src.presentation.bot.bot_instance import bot
 from src.presentation.bot.service_connector import service
 from src.presentation.bot.keyboards.main_menu import main_menu
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 @bot.message_handler(func=lambda m: m.text == "➕ Добавить товар")
 def add_product_request(message: Message):
@@ -24,19 +25,24 @@ def add_product_process(message: Message):
     except Exception as e:
         bot.send_message(message.chat.id, f"❌ Ошибка: {e}")
 
-@bot.message_handler(func=lambda m: m.text == "📋 Мои товары" in m.text)
+@bot.message_handler(func=lambda m: "📋 Мои товары" in m.text)
 def list_products(message: Message):
     try:
         products = service.get_all_products(str(message.from_user.id))
         if not products:
             bot.send_message(message.chat.id, "📭 У вас пока нет отслеживаемых товаров")
             return
-        text = "📋 Ваши товары:\n\n"
+
+        kb = InlineKeyboardMarkup(row_width=1)
         for p in products:
-            latest = p["latest_price"]
-            text += f"{p['name']} — {latest['with_card']} ₽ (с картой)\n"
-        bot.send_message(message.chat.id, text)
+            # Подстраховка по именам/ключам
+            name = p.get('name') or p.get('product_name') or p.get('title') or p.get('id')
+            display = name if len(name) <= 60 else name[:57] + "..."
+            kb.add(InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}"))
+
+        bot.send_message(message.chat.id, "📋 Ваши товары — выберите:", reply_markup=kb)
     except Exception as e:
+        logger.exception("Ошибка в list_products")
         bot.send_message(message.chat.id, f"❌ Ошибка: {e}")
 
 @bot.message_handler(func=lambda m: m.text == "➖ Удалить товар")

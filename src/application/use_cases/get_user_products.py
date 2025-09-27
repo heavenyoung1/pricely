@@ -23,34 +23,13 @@ class GetUserProductsUseCase:
         self.product_repo = product_repo
         self.price_repo = price_repo
 
-    def execute(self, user_id: str) -> List[str]:
-        logger.info(f'Запрос списка товар для пользователя ID: {user_id}')
-        
-        product_ids = self.user_products_repo.get_products_for_user(user_id)
-        if not product_ids:
+    def execute(self, user_id: str) -> list:
+        logger.info(f"Запрос списка товаров для пользователя ID: {user_id}")
+        raw_ids = self.user_products_repo.get_products_for_user(user_id)
+        if not raw_ids:
             return []
-        
-        products = []
-        for product_id in product_ids:
-            product = self.product_repo.get(product_id=product_id)
-            if not product:
-                continue
-
-            latest_price = self.price_repo.get_latest_for_product(product_id)
-
-            products.append({
-                "id": product.id,
-                "name": product.name,
-                "link": product.link,
-                "image_url": product.image_url,
-                "rating": product.rating,
-                "categories": product.categories,
-                "latest_price": {
-                    "with_card": latest_price.with_card if latest_price else None,
-                    "without_card": latest_price.without_card if latest_price else None,
-                }
-            })
-
-        return products
+        ids = [str(x) for x in raw_ids]
+        logger.debug(f"User {user_id} product ids: {ids}")
+        return ids
 
     

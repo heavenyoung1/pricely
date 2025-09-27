@@ -84,18 +84,34 @@ class ProductService:
             price_repo=self.uow.price_repository,
             user_products_repo=self.uow.user_products_repository
         )
-        product_ids = use_case_get_products.execute(user_id=user_id)
-        if not product_ids:
+        product_refs = use_case_get_products.execute(user_id=user_id)
+        if not product_refs:
             return []
         
-        # для каждого product_id достаем полную инфу
+        # Если use_case вернул уже готовые dict'ы с данными — просто вернём их
+        if isinstance(product_refs, list) and product_refs and isinstance(product_refs[0], dict):
+            return product_refs
+
+        # Иначе ожидаем список идентификаторов (str) и подгружаем полные карточки
         use_case_for_products = GetFullProductUseCase(
             product_repo=self.uow.product_repository,
             price_repo=self.uow.price_repository,
             user_repo=self.uow.user_repository,
         )
-        return [use_case_for_products.execute(product_id) for product_id in product_ids]
 
+        products = []
+        for pid in product_refs:
+            try:
+                # защита: приведение к строке
+                pid_str = str(pid)
+                product_full = use_case_for_products.execute(pid_str)
+                products.append(product_full)
+            except ProductNotFoundError:
+                logger.warning(f"Product {pid} is referenced for user {user_id} but not found in products table")
+            except Exception as e:
+                logger.error(f"Ошибка получения полной карточки для {pid}: {e}")
+                
+        return products
 
     @with_uow(commit=True)
     def update_product_price(self, product_id: str, price: Price) -> None:

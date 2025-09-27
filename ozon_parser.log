@@ -993,3 +993,465 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2025-09-25 21:22:11,207 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
 2025-09-25 21:22:11,232 - __main__ - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-1/wc1000/7182410941.jpg
 2025-09-25 21:22:12,881 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-27 18:41:15,328 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
+2025-09-27 18:41:15,329 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
+2025-09-27 18:41:59,684 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
+2025-09-27 18:41:59,685 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
+2025-09-27 18:42:31,590 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
+2025-09-27 18:42:31,591 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
+2025-09-27 18:42:32,165 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
+2025-09-27 18:42:32,165 - __main__ - INFO - No active webhook found
+2025-09-27 18:42:32,165 - __main__ - INFO - Checking for updates manually
+2025-09-27 18:42:52,241 - __main__ - INFO - Starting bot polling
+2025-09-27 18:42:55,472 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
+2025-09-27 18:42:55,598 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 18:42:55,598 - src.application.use_cases.get_user_products - INFO - Запрос списка товар для пользователя ID: 515084006
+2025-09-27 18:42:55,776 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
+2025-09-27 18:42:55,795 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
+2025-09-27 18:42:55,803 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
+2025-09-27 18:42:55,805 - src.application.use_cases.get_full_product - WARNING - Продукт {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
+2025-09-27 18:42:55,807 - src.core.uow - WARNING - Исключение в Unit of Work: ProductNotFoundError: Продукт {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
+2025-09-27 18:42:55,820 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 18:42:55,821 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 18:42:55,821 - src.core.decorators - ERROR - Ошибка в функции get_all_products: Продукт {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
+2025-09-27 18:43:15,687 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 18:43:15,688 - src.application.use_cases.get_user_products - INFO - Запрос списка товар для пользователя ID: 515084006
+2025-09-27 18:43:15,716 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
+2025-09-27 18:43:15,733 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
+2025-09-27 18:43:15,743 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
+2025-09-27 18:43:15,744 - src.application.use_cases.get_full_product - WARNING - Продукт {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
+2025-09-27 18:43:15,745 - src.core.uow - WARNING - Исключение в Unit of Work: ProductNotFoundError: Продукт {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
+2025-09-27 18:43:15,748 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 18:43:15,749 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 18:43:15,749 - src.core.decorators - ERROR - Ошибка в функции get_all_products: Продукт {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
+2025-09-27 18:54:12,488 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
+2025-09-27 18:54:12,489 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
+2025-09-27 18:54:13,065 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
+2025-09-27 18:54:13,065 - __main__ - INFO - No active webhook found
+2025-09-27 18:54:13,065 - __main__ - INFO - Checking for updates manually
+2025-09-27 18:54:33,147 - __main__ - INFO - Starting bot polling
+2025-09-27 18:56:04,448 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
+2025-09-27 18:56:04,564 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 18:56:04,565 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-09-27 18:56:04,786 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
+2025-09-27 18:56:04,818 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
+2025-09-27 18:56:04,823 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-09-27 18:56:04,828 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 18:56:04,829 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 18:56:04,830 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 18:56:08,149 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 18:56:08,169 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
+2025-09-27 18:56:08,178 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-09-27 18:56:08,181 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 18:56:08,182 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 18:56:08,182 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 18:56:48,769 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 18:56:48,790 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='1053613711', username='MefedAnna', chat_id='1053613711', products=[]) получен по id: 1053613711
+2025-09-27 18:56:48,790 - src.application.use_cases.create_user - INFO - Пользователь 1053613711 уже существует, пропускаем создание
+2025-09-27 18:56:48,791 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-09-27 18:56:48,796 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 18:56:48,796 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 18:56:48,797 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 18:56:48,798 - src.presentation.bot.handlers.start - INFO - User 1053613711 создан или уже существует
+2025-09-27 18:57:10,849 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 18:57:13,029 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-27 18:57:13,041 - src.infrastructure.parsers.session_engine - ERROR - Ошибка при загрузке страницы Легинсы одежда
+https://ozon.ru/t/sYJhMXd: Message: invalid argument
+  (Session info: chrome=140.0.7339.185)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
+	GetHandleVerifier [0x0x7ff78dd61f10+80288]
+	(No symbol) [0x0x7ff78dae011c]
+	(No symbol) [0x0x7ff78dacce39]
+	(No symbol) [0x0x7ff78dacb19d]
+	(No symbol) [0x0x7ff78dacb87c]
+	(No symbol) [0x0x7ff78dae43ca]
+	(No symbol) [0x0x7ff78db895de]
+	(No symbol) [0x0x7ff78db6037a]
+	(No symbol) [0x0x7ff78db887fb]
+	(No symbol) [0x0x7ff78db60153]
+	(No symbol) [0x0x7ff78db28b02]
+	(No symbol) [0x0x7ff78db298d3]
+	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
+	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
+	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
+	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
+	GetHandleVerifier [0x0x7ff78dd850af+224063]
+	GetHandleVerifier [0x0x7ff78dd6af64+117236]
+	GetHandleVerifier [0x0x7ff78dd6b119+117673]
+	GetHandleVerifier [0x0x7ff78dd510a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-09-27 18:57:13,043 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при парсинге страницы Легинсы одежда
+https://ozon.ru/t/sYJhMXd: Message: invalid argument
+  (Session info: chrome=140.0.7339.185)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
+	GetHandleVerifier [0x0x7ff78dd61f10+80288]
+	(No symbol) [0x0x7ff78dae011c]
+	(No symbol) [0x0x7ff78dacce39]
+	(No symbol) [0x0x7ff78dacb19d]
+	(No symbol) [0x0x7ff78dacb87c]
+	(No symbol) [0x0x7ff78dae43ca]
+	(No symbol) [0x0x7ff78db895de]
+	(No symbol) [0x0x7ff78db6037a]
+	(No symbol) [0x0x7ff78db887fb]
+	(No symbol) [0x0x7ff78db60153]
+	(No symbol) [0x0x7ff78db28b02]
+	(No symbol) [0x0x7ff78db298d3]
+	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
+	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
+	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
+	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
+	GetHandleVerifier [0x0x7ff78dd850af+224063]
+	GetHandleVerifier [0x0x7ff78dd6af64+117236]
+	GetHandleVerifier [0x0x7ff78dd6b119+117673]
+	GetHandleVerifier [0x0x7ff78dd510a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-09-27 18:57:13,045 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: Message: invalid argument
+  (Session info: chrome=140.0.7339.185)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
+	GetHandleVerifier [0x0x7ff78dd61f10+80288]
+	(No symbol) [0x0x7ff78dae011c]
+	(No symbol) [0x0x7ff78dacce39]
+	(No symbol) [0x0x7ff78dacb19d]
+	(No symbol) [0x0x7ff78dacb87c]
+	(No symbol) [0x0x7ff78dae43ca]
+	(No symbol) [0x0x7ff78db895de]
+	(No symbol) [0x0x7ff78db6037a]
+	(No symbol) [0x0x7ff78db887fb]
+	(No symbol) [0x0x7ff78db60153]
+	(No symbol) [0x0x7ff78db28b02]
+	(No symbol) [0x0x7ff78db298d3]
+	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
+	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
+	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
+	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
+	GetHandleVerifier [0x0x7ff78dd850af+224063]
+	GetHandleVerifier [0x0x7ff78dd6af64+117236]
+	GetHandleVerifier [0x0x7ff78dd6b119+117673]
+	GetHandleVerifier [0x0x7ff78dd510a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-09-27 18:57:15,658 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-27 18:57:15,659 - src.application.use_cases.create_product - ERROR - Ошибка парсинга URL Легинсы одежда
+https://ozon.ru/t/sYJhMXd для пользователя 1053613711: Message: invalid argument
+  (Session info: chrome=140.0.7339.185)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
+	GetHandleVerifier [0x0x7ff78dd61f10+80288]
+	(No symbol) [0x0x7ff78dae011c]
+	(No symbol) [0x0x7ff78dacce39]
+	(No symbol) [0x0x7ff78dacb19d]
+	(No symbol) [0x0x7ff78dacb87c]
+	(No symbol) [0x0x7ff78dae43ca]
+	(No symbol) [0x0x7ff78db895de]
+	(No symbol) [0x0x7ff78db6037a]
+	(No symbol) [0x0x7ff78db887fb]
+	(No symbol) [0x0x7ff78db60153]
+	(No symbol) [0x0x7ff78db28b02]
+	(No symbol) [0x0x7ff78db298d3]
+	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
+	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
+	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
+	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
+	GetHandleVerifier [0x0x7ff78dd850af+224063]
+	GetHandleVerifier [0x0x7ff78dd6af64+117236]
+	GetHandleVerifier [0x0x7ff78dd6b119+117673]
+	GetHandleVerifier [0x0x7ff78dd510a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-09-27 18:57:15,660 - src.core.uow - WARNING - Исключение в Unit of Work: ParserProductError: Ошибка парсинга товара
+2025-09-27 18:57:15,661 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 18:57:15,661 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 18:57:15,662 - src.core.decorators - ERROR - Ошибка в функции create_product: Ошибка парсинга товара
+2025-09-27 18:58:33,269 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 18:58:33,270 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-09-27 18:58:33,301 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
+2025-09-27 18:58:33,326 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
+2025-09-27 18:58:33,342 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-09-27 18:58:33,345 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 18:58:33,346 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 18:58:33,346 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:02:56,683 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
+2025-09-27 19:02:56,684 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
+2025-09-27 19:02:57,243 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
+2025-09-27 19:02:57,243 - __main__ - INFO - No active webhook found
+2025-09-27 19:02:57,244 - __main__ - INFO - Checking for updates manually
+2025-09-27 19:03:17,321 - __main__ - INFO - Starting bot polling
+2025-09-27 19:03:20,329 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
+2025-09-27 19:03:20,392 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:03:20,472 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='1053613711', username='MefedAnna', chat_id='1053613711', products=[]) получен по id: 1053613711
+2025-09-27 19:03:20,472 - src.application.use_cases.create_user - INFO - Пользователь 1053613711 уже существует, пропускаем создание
+2025-09-27 19:03:20,473 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-09-27 19:03:20,475 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:03:20,475 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:03:20,476 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:03:20,476 - src.presentation.bot.handlers.start - INFO - User 1053613711 создан или уже существует
+2025-09-27 19:03:27,210 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:03:28,953 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-27 19:03:28,956 - src.infrastructure.parsers.session_engine - ERROR - Ошибка при загрузке страницы Легинсы одежда
+https://ozon.ru/t/sYJhMXd: Message: invalid argument
+  (Session info: chrome=140.0.7339.185)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
+	GetHandleVerifier [0x0x7ff78dd61f10+80288]
+	(No symbol) [0x0x7ff78dae011c]
+	(No symbol) [0x0x7ff78dacce39]
+	(No symbol) [0x0x7ff78dacb19d]
+	(No symbol) [0x0x7ff78dacb87c]
+	(No symbol) [0x0x7ff78dae43ca]
+	(No symbol) [0x0x7ff78db895de]
+	(No symbol) [0x0x7ff78db6037a]
+	(No symbol) [0x0x7ff78db887fb]
+	(No symbol) [0x0x7ff78db60153]
+	(No symbol) [0x0x7ff78db28b02]
+	(No symbol) [0x0x7ff78db298d3]
+	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
+	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
+	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
+	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
+	GetHandleVerifier [0x0x7ff78dd850af+224063]
+	GetHandleVerifier [0x0x7ff78dd6af64+117236]
+	GetHandleVerifier [0x0x7ff78dd6b119+117673]
+	GetHandleVerifier [0x0x7ff78dd510a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-09-27 19:03:28,956 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при парсинге страницы Легинсы одежда
+https://ozon.ru/t/sYJhMXd: Message: invalid argument
+  (Session info: chrome=140.0.7339.185)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
+	GetHandleVerifier [0x0x7ff78dd61f10+80288]
+	(No symbol) [0x0x7ff78dae011c]
+	(No symbol) [0x0x7ff78dacce39]
+	(No symbol) [0x0x7ff78dacb19d]
+	(No symbol) [0x0x7ff78dacb87c]
+	(No symbol) [0x0x7ff78dae43ca]
+	(No symbol) [0x0x7ff78db895de]
+	(No symbol) [0x0x7ff78db6037a]
+	(No symbol) [0x0x7ff78db887fb]
+	(No symbol) [0x0x7ff78db60153]
+	(No symbol) [0x0x7ff78db28b02]
+	(No symbol) [0x0x7ff78db298d3]
+	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
+	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
+	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
+	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
+	GetHandleVerifier [0x0x7ff78dd850af+224063]
+	GetHandleVerifier [0x0x7ff78dd6af64+117236]
+	GetHandleVerifier [0x0x7ff78dd6b119+117673]
+	GetHandleVerifier [0x0x7ff78dd510a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-09-27 19:03:28,957 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: Message: invalid argument
+  (Session info: chrome=140.0.7339.185)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
+	GetHandleVerifier [0x0x7ff78dd61f10+80288]
+	(No symbol) [0x0x7ff78dae011c]
+	(No symbol) [0x0x7ff78dacce39]
+	(No symbol) [0x0x7ff78dacb19d]
+	(No symbol) [0x0x7ff78dacb87c]
+	(No symbol) [0x0x7ff78dae43ca]
+	(No symbol) [0x0x7ff78db895de]
+	(No symbol) [0x0x7ff78db6037a]
+	(No symbol) [0x0x7ff78db887fb]
+	(No symbol) [0x0x7ff78db60153]
+	(No symbol) [0x0x7ff78db28b02]
+	(No symbol) [0x0x7ff78db298d3]
+	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
+	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
+	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
+	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
+	GetHandleVerifier [0x0x7ff78dd850af+224063]
+	GetHandleVerifier [0x0x7ff78dd6af64+117236]
+	GetHandleVerifier [0x0x7ff78dd6b119+117673]
+	GetHandleVerifier [0x0x7ff78dd510a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-09-27 19:03:30,436 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-27 19:03:30,436 - src.application.use_cases.create_product - ERROR - Ошибка парсинга URL Легинсы одежда
+https://ozon.ru/t/sYJhMXd для пользователя 1053613711: Message: invalid argument
+  (Session info: chrome=140.0.7339.185)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
+	GetHandleVerifier [0x0x7ff78dd61f10+80288]
+	(No symbol) [0x0x7ff78dae011c]
+	(No symbol) [0x0x7ff78dacce39]
+	(No symbol) [0x0x7ff78dacb19d]
+	(No symbol) [0x0x7ff78dacb87c]
+	(No symbol) [0x0x7ff78dae43ca]
+	(No symbol) [0x0x7ff78db895de]
+	(No symbol) [0x0x7ff78db6037a]
+	(No symbol) [0x0x7ff78db887fb]
+	(No symbol) [0x0x7ff78db60153]
+	(No symbol) [0x0x7ff78db28b02]
+	(No symbol) [0x0x7ff78db298d3]
+	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
+	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
+	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
+	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
+	GetHandleVerifier [0x0x7ff78dd850af+224063]
+	GetHandleVerifier [0x0x7ff78dd6af64+117236]
+	GetHandleVerifier [0x0x7ff78dd6b119+117673]
+	GetHandleVerifier [0x0x7ff78dd510a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-09-27 19:03:30,437 - src.core.uow - WARNING - Исключение в Unit of Work: ParserProductError: Ошибка парсинга товара
+2025-09-27 19:03:30,438 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 19:03:30,438 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:03:30,438 - src.core.decorators - ERROR - Ошибка в функции create_product: Ошибка парсинга товара
+2025-09-27 19:03:48,211 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:03:49,385 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-27 19:04:00,417 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-09-27 19:04:00,418 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-09-27 19:04:00,493 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-09-27 19:04:00,536 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-09-27 19:04:00,589 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 5.0
+2025-09-27 19:04:00,637 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2128
+2025-09-27 19:04:00,677 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 2823
+2025-09-27 19:04:00,706 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-09-27 19:04:00,802 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-09-27 19:04:02,578 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-27 19:04:02,579 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://ozon.ru/t/sYJhMXd: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 5.0, 'price_with_card': 2128, 'price_without_card': 2823, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-09-27 19:04:02,593 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID 2060239186 не найден
+2025-09-27 19:04:02,599 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='1053613711', username='MefedAnna', chat_id='1053613711', products=[]) получен по id: 1053613711
+2025-09-27 19:04:02,605 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='2060239186', user_id='1053613711', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories=['Одежда', 'Женщинам', 'Брюки, бриджи и капри'], prices=[Price(id=None, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587))])
+2025-09-27 19:04:02,610 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587))
+2025-09-27 19:04:02,610 - src.infrastructure.database.repositories.user_products_repository - INFO - Привязка товара ID 2060239186 пользователю ID 1053613711
+2025-09-27 19:04:02,611 - src.core.decorators - INFO - Функция create_product: выполняется commit транзакции
+2025-09-27 19:04:02,640 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:04:02,641 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:04:02,642 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:04:11,521 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:04:11,522 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 1053613711
+2025-09-27 19:04:11,546 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587))]) (ID: 2060239186)
+2025-09-27 19:04:11,558 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-09-27 19:04:11,560 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 19:04:11,561 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:04:11,562 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:04:13,842 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:04:13,853 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587))]) (ID: 2060239186)
+2025-09-27 19:04:13,855 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-09-27 19:04:13,856 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 19:04:13,857 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:04:13,858 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:05:56,316 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:05:56,323 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID https://ozon.ru/t/JTUNIC1 не найден
+2025-09-27 19:05:56,324 - src.application.use_cases.delete_product - WARNING - Товар https://ozon.ru/t/JTUNIC1 не существует в БД, пропускаем удаление
+2025-09-27 19:05:56,324 - src.infrastructure.services.product_service - ERROR - Ошибка при удалении продукта https://ozon.ru/t/JTUNIC1: Товар https://ozon.ru/t/JTUNIC1 не существует в БД!
+2025-09-27 19:05:56,325 - src.core.uow - WARNING - Исключение в Unit of Work: ProductNotExistingDataBase: Товар https://ozon.ru/t/JTUNIC1 не существует в БД!
+2025-09-27 19:05:56,327 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 19:05:56,328 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:05:56,328 - src.core.decorators - ERROR - Ошибка в функции delete_product: Товар https://ozon.ru/t/JTUNIC1 не существует в БД!
+2025-09-27 19:06:13,883 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:06:15,049 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-09-27 19:06:26,082 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/JTUNIC1
+2025-09-27 19:06:26,083 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/JTUNIC1
+2025-09-27 19:06:26,127 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2782629476
+2025-09-27 19:06:26,162 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Косметичка
+2025-09-27 19:06:26,192 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.8
+2025-09-27 19:06:26,223 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 297
+2025-09-27 19:06:26,255 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 325
+2025-09-27 19:06:26,271 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-r/wc1000/7942698351.jpg
+2025-09-27 19:06:26,386 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Аксессуары', 'Женщинам', 'Сумки и рюкзаки', 'Косметички и несессеры']
+2025-09-27 19:06:27,937 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-09-27 19:06:27,937 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://ozon.ru/t/JTUNIC1: {'id': '2782629476', 'name': 'Косметичка', 'rating': 4.8, 'price_with_card': 297, 'price_without_card': 325, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-r/wc1000/7942698351.jpg', 'categories': ['Аксессуары', 'Женщинам', 'Сумки и рюкзаки', 'Косметички и несессеры']}
+2025-09-27 19:06:27,944 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID 2782629476 не найден
+2025-09-27 19:06:27,948 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='1053613711', username='MefedAnna', chat_id='1053613711', products=['2060239186']) получен по id: 1053613711
+2025-09-27 19:06:27,952 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='2782629476', user_id='1053613711', name='Косметичка', link='https://ozon.ru/t/JTUNIC1', image_url='https://ir.ozone.ru/s3/multimedia-1-r/wc1000/7942698351.jpg', rating=4.8, categories=['Аксессуары', 'Женщинам', 'Сумки и рюкзаки', 'Косметички и несессеры'], prices=[Price(id=None, product_id='2782629476', with_card=297, without_card=325, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 6, 27, 944911))])
+2025-09-27 19:06:27,956 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='2782629476', with_card=297, without_card=325, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 6, 27, 944911))
+2025-09-27 19:06:27,956 - src.infrastructure.database.repositories.user_products_repository - INFO - Привязка товара ID 2782629476 пользователю ID 1053613711
+2025-09-27 19:06:27,957 - src.core.decorators - INFO - Функция create_product: выполняется commit транзакции
+2025-09-27 19:06:27,979 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:06:27,980 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:06:27,981 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:06:49,651 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:06:49,672 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID 📋 Мои товары не найден
+2025-09-27 19:06:49,673 - src.application.use_cases.delete_product - WARNING - Товар 📋 Мои товары не существует в БД, пропускаем удаление
+2025-09-27 19:06:49,673 - src.infrastructure.services.product_service - ERROR - Ошибка при удалении продукта 📋 Мои товары: Товар 📋 Мои товары не существует в БД!
+2025-09-27 19:06:49,674 - src.core.uow - WARNING - Исключение в Unit of Work: ProductNotExistingDataBase: Товар 📋 Мои товары не существует в БД!
+2025-09-27 19:06:49,678 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 19:06:49,679 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:06:49,680 - src.core.decorators - ERROR - Ошибка в функции delete_product: Товар 📋 Мои товары не существует в БД!
+2025-09-27 19:10:35,842 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
+2025-09-27 19:10:35,843 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
+2025-09-27 19:10:36,446 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
+2025-09-27 19:10:36,446 - __main__ - INFO - No active webhook found
+2025-09-27 19:10:36,446 - __main__ - INFO - Checking for updates manually
+2025-09-27 19:10:56,525 - __main__ - INFO - Starting bot polling
+2025-09-27 19:10:59,550 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
+2025-09-27 19:10:59,621 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:10:59,622 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-09-27 19:10:59,726 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
+2025-09-27 19:10:59,743 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
+2025-09-27 19:10:59,746 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-09-27 19:10:59,750 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 19:10:59,751 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:10:59,752 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:11:02,652 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:11:02,666 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
+2025-09-27 19:11:02,668 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-09-27 19:11:02,671 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 19:11:02,672 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:11:02,672 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:11:02,673 - src.presentation.bot.bot_instance - ERROR - Ошибка в handle_product_button
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\bot_instance.py", line 78, in handle_product_button
+    kb = build_product_actions_keyboard(product_id=product["id"], product_link=product["link"])
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\bot_instance.py", line 27, in build_product_actions_keyboard
+    keyboard = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton("🔄 Обновить цену", callback_data=f"update_price:{product_id}")],
+        [InlineKeyboardButton("🗑 Удалить", callback_data=f"delete_product:{product_id}")],
+        [InlineKeyboardButton("⬅️ Назад", callback_data="back_to_products")]
+    ])
+TypeError: InlineKeyboardMarkup.__init__() got an unexpected keyword argument 'inline_keyboard'
+2025-09-27 19:12:15,359 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
+2025-09-27 19:12:15,360 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
+2025-09-27 19:12:15,969 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
+2025-09-27 19:12:15,969 - __main__ - INFO - No active webhook found
+2025-09-27 19:12:15,969 - __main__ - INFO - Checking for updates manually
+2025-09-27 19:12:36,050 - __main__ - INFO - Starting bot polling
+2025-09-27 19:13:04,972 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
+2025-09-27 19:13:04,973 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
+2025-09-27 19:13:05,526 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
+2025-09-27 19:13:05,527 - __main__ - INFO - No active webhook found
+2025-09-27 19:13:05,527 - __main__ - INFO - Checking for updates manually
+2025-09-27 19:13:25,600 - __main__ - INFO - Starting bot polling
+2025-09-27 19:13:46,686 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
+2025-09-27 19:13:46,795 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:13:46,796 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-09-27 19:13:46,955 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
+2025-09-27 19:13:46,977 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
+2025-09-27 19:13:46,983 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-09-27 19:13:46,985 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 19:13:46,986 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:13:46,986 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:13:49,493 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-27 19:13:49,515 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
+2025-09-27 19:13:49,526 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-09-27 19:13:49,531 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-27 19:13:49,532 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-27 19:13:49,533 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-27 19:13:49,533 - src.presentation.bot.bot_instance - ERROR - Ошибка в handle_product_button
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\bot_instance.py", line 101, in handle_product_button
+    kb = build_product_actions_keyboard(product_id=product["id"], product_link=product["link"])
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\bot_instance.py", line 49, in build_product_actions_keyboard
+    keyboard = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton("🔄 Обновить цену", callback_data=f"update_price:{product_id}")],
+        [InlineKeyboardButton("🗑 Удалить", callback_data=f"delete_product:{product_id}")],
+        [InlineKeyboardButton("⬅️ Назад", callback_data="back_to_products")]
+    ])
+TypeError: InlineKeyboardMarkup.__init__() got an unexpected keyword argument 'inline_keyboard'

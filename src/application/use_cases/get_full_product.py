@@ -23,19 +23,19 @@ class GetFullProductUseCase:
             logger.warning(f'Продукт {product_id} не найден')
             raise ProductNotFoundError(f'Продукт {product_id} не найден')
 
-        # Все цены этого продукта
-        prices = self.price_repo.get_all_prices_by_product(product_id)
-        # Пользователь
-        user = self.user_repo.get(product.user_id)
+        latest_price = self.price_repo.get_latest_for_product(product_id)
+        latest = {
+            "with_card": latest_price.with_card if latest_price else None,
+            "without_card": latest_price.without_card if latest_price else None,
+        }
 
         return {
-            'id': product.id,
-            'name': product.name,
-            'link': product.link,
-            'image_url': product.image_url,
-            'rating': product.rating,
-            'categories': product.categories,
-            'prices': [vars(p) for p in prices],
-            'user': vars(user) if user else None,
+            "id": product.id,
+            "name": product.name,
+            "link": product.link,
+            "image_url": product.image_url,
+            "rating": product.rating,
+            "categories": product.categories,
+            "latest_price": latest,
         }
 
