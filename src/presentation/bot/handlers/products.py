@@ -1,8 +1,9 @@
-from telebot.types import Message
-from src.presentation.bot.bot_instance import bot
+from telebot.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
+from src.presentation.bot.bot_instance import bot, logger, format_product_message, build_product_actions_keyboard
 from src.presentation.bot.service_connector import service
 from src.presentation.bot.keyboards.main_menu import main_menu
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+
+# ================= МЕНЮ =================
 
 @bot.message_handler(func=lambda m: m.text == "➕ Добавить товар")
 def add_product_request(message: Message):
@@ -13,7 +14,7 @@ def add_product_process(message: Message):
     url = message.text.strip()
     try:
         result = service.create_product(str(message.from_user.id), url)
-        bot.send_message(message.chat.id, f'Парсинг начался, ожидайте..')
+        bot.send_message(message.chat.id, "⏳ Парсинг начался, ожидайте...")
         bot.send_message(
             message.chat.id,
             f"✅ Товар добавлен!\n\n"
@@ -23,6 +24,7 @@ def add_product_process(message: Message):
             reply_markup=main_menu()
         )
     except Exception as e:
+        logger.exception("Ошибка при добавлении товара")
         bot.send_message(message.chat.id, f"❌ Ошибка: {e}")
 
 @bot.message_handler(func=lambda m: "📋 Мои товары" in m.text)
@@ -35,27 +37,13 @@ def list_products(message: Message):
 
         kb = InlineKeyboardMarkup(row_width=1)
         for p in products:
-            # Подстраховка по именам/ключам
-            name = p.get('name') or p.get('product_name') or p.get('title') or p.get('id')
+            name = p.get("name") or p.get("product_name") or p.get("id")
             display = name if len(name) <= 60 else name[:57] + "..."
             kb.add(InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}"))
 
-        bot.send_message(message.chat.id, "📋 Ваши товары — выберите:", reply_markup=kb)
+        bot.send_message(message.chat.id, "📋 Ваши товары:", reply_markup=kb)
     except Exception as e:
-        logger.exception("Ошибка в list_products")
-        bot.send_message(message.chat.id, f"❌ Ошибка: {e}")
-
-@bot.message_handler(func=lambda m: m.text == "➖ Удалить товар")
-def delete_product_request(message: Message):
-    bot.send_message(message.chat.id, "❌ Введи артикул товара для удаления")
-    bot.register_next_step_handler(message, delete_product_process)
-
-def delete_product_process(message: Message):
-    product_id = message.text.strip()
-    try:
-        service.delete_product(product_id)
-        bot.send_message(message.chat.id, f"✅ Товар {product_id} удалён")
-    except Exception as e:
+        logger.exception("Ошибка при получении списка товаров")
         bot.send_message(message.chat.id, f"❌ Ошибка: {e}")
 
 @bot.message_handler(func=lambda m: m.text == "🗑️ Очистить все")
@@ -64,8 +52,126 @@ def clear_products(message: Message):
         service.delete_all_products(str(message.from_user.id))
         bot.send_message(message.chat.id, "🗑️ Все товары удалены")
     except Exception as e:
+        logger.exception("Ошибка при очистке товаров")
         bot.send_message(message.chat.id, f"❌ Ошибка: {e}")
 
-@bot.message_handler(func=lambda m: True)  # временно ловим все сообщения
-def debug_all(message: Message):
-    print(f"DEBUG: {repr(message.text)}")
+# ================= CALLBACKS =================
+
+# 📦 Открыть карточку
+@bot.callback_query_handler(func=lambda call: call.data and call.data.startswith("product:"))
+def handle_product_button(call: CallbackQuery):
+    bot.answer_callback_query(call.id)
+    product_id = call.data.split(":", 1)[1]
+
+    try:
+        product = service.get_full_product(product_id)
+        if not product:
+            bot.edit_message_text(
+                chat_id=call.message.chat.id,
+                message_id=call.message.message_id,
+                text="❌ Товар не найден."
+            )
+            return
+
+        text = format_product_message(product)
+        kb = build_product_actions_keyboard(product_id=product["id"], product_link=product["link"])
+
+        bot.edit_message_text(
+            chat_id=call.message.chat.id,
+            message_id=call.message.message_id,
+            text=text,
+            parse_mode="HTML",
+            reply_markup=kb,
+            disable_web_page_preview=False
+        )
+    except Exception as e:
+        logger.exception("Ошибка в handle_product_button")
+        bot.answer_callback_query(call.id, f"Ошибка: {e}")
+
+# 🔄 Обновить цену
+@bot.callback_query_handler(func=lambda call: call.data and call.data.startswith("update_price:"))
+def handle_update_price(call: CallbackQuery):
+    bot.answer_callback_query(call.id)
+    product_id = call.data.split(":", 1)[1]
+
+    try:
+        updated_product = service.update_product_price(product_id)  # твой UseCase
+        text = format_product_message(updated_product)
+        kb = build_product_actions_keyboard(product_id=updated_product["id"], product_link=updated_product["link"])
+
+        bot.edit_message_text(
+            chat_id=call.message.chat.id,
+            message_id=call.message.message_id,
+            text=f"✅ Цена обновлена!\n\n{text}",
+            parse_mode="HTML",
+            reply_markup=kb,
+            disable_web_page_preview=False
+        )
+    except Exception as e:
+        logger.exception("Ошибка при обновлении цены")
+        bot.answer_callback_query(call.id, f"❌ Ошибка: {e}")
+
+# 🗑 Удалить товар
+@bot.callback_query_handler(func=lambda call: call.data and call.data.startswith("delete_product:"))
+def handle_delete_product(call: CallbackQuery):
+    bot.answer_callback_query(call.id)
+    product_id = call.data.split(":", 1)[1]
+
+    try:
+        service.delete_product(product_id)
+
+        products = service.get_all_products(str(call.from_user.id))
+        if not products:
+            bot.edit_message_text(
+                chat_id=call.message.chat.id,
+                message_id=call.message.message_id,
+                text="📭 У вас больше нет отслеживаемых товаров"
+            )
+            return
+
+        kb = InlineKeyboardMarkup(row_width=1)
+        for p in products:
+            name = p.get("name") or p.get("product_name") or p.get("id")
+            display = name if len(name) <= 60 else name[:57] + "..."
+            kb.add(InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}"))
+
+        bot.edit_message_text(
+            chat_id=call.message.chat.id,
+            message_id=call.message.message_id,
+            text="📋 Ваши товары (после удаления):",
+            reply_markup=kb
+        )
+    except Exception as e:
+        logger.exception("Ошибка при удалении товара")
+        bot.answer_callback_query(call.id, f"❌ Ошибка: {e}")
+
+# ⬅️ Назад
+@bot.callback_query_handler(func=lambda call: call.data == "back_to_products")
+def handle_back_to_products(call: CallbackQuery):
+    bot.answer_callback_query(call.id)
+
+    try:
+        products = service.get_all_products(str(call.from_user.id))
+        if not products:
+            bot.edit_message_text(
+                chat_id=call.message.chat.id,
+                message_id=call.message.message_id,
+                text="📭 У вас пока нет отслеживаемых товаров"
+            )
+            return
+
+        kb = InlineKeyboardMarkup(row_width=1)
+        for p in products:
+            name = p.get("name") or p.get("product_name") or p.get("id")
+            display = name if len(name) <= 60 else name[:57] + "..."
+            kb.add(InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}"))
+
+        bot.edit_message_text(
+            chat_id=call.message.chat.id,
+            message_id=call.message.message_id,
+            text="📋 Ваши товары:",
+            reply_markup=kb
+        )
+    except Exception as e:
+        logger.exception("Ошибка при возврате к списку товаров")
+        bot.answer_callback_query(call.id, f"❌ Ошибка: {e}")
