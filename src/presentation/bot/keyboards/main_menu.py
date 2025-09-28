@@ -7,7 +7,7 @@ def main_menu():
         KeyboardButton("📋 Мои товары")
     )
     kb.row(
-        KeyboardButton("➖ Удалить товар"),
+        KeyboardButton("➖ Удалить товар"),   # 👉 вернуть сюда
         KeyboardButton("🗑️ Очистить все")
     )
     kb.row(
