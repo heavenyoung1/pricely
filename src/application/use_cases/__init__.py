@@ -5,4 +5,5 @@ from .upd_product import UpdateProductPriceUseCase
 from .create_user import CreateUserUseCase
 from .get_full_product import GetFullProductUseCase
 from .get_user_products import GetUserProductsUseCase
+from .compare_price import CompareProductPriceUseCase
 

@@ -1,6 +1,6 @@
 import logging
-from typing import Optional, Dict
-from src.domain.exceptions import ProductNotFoundError, PriceUpdateError, ProductCreationError
+from typing import Optional
+from src.domain.exceptions import ProductNotFoundError, UserCreationError
 from src.infrastructure.parsers import OzonParser
 from src.application.use_cases import (
     CreateUserUseCase,
@@ -9,12 +9,8 @@ from src.application.use_cases import (
     GetFullProductUseCase,
     UpdateProductPriceUseCase,
     DeleteProductUseCase,
-    GetUserProductsUseCase
-)
-
-from src.domain.exceptions import (
-    ProductNotFoundError, PriceUpdateError, ProductCreationError,
-    UserCreationError, ParserProductError, ProductDeletingError
+    GetUserProductsUseCase,
+    CompareProductPriceUseCase,
 )
 
 from src.domain.entities import Product, Price, User
@@ -140,3 +136,12 @@ class ProductService:
         except Exception as e:
             logger.error(f'Ошибка при удалении продукта {product_id}: {str(e)}')
             raise
+
+    def compare_product_price(self, product_id: str):
+        """Сравнивает цену товара и уведомляет пользователя."""
+        use_case = CompareProductPriceUseCase(
+            product_repo=self.uow.product_repository,
+            price_repo=self.uow.price_repository,
+            parser=self.parser
+        )
+        use_case.execute(product_id)

@@ -270,3 +270,4 @@ def handle_back_to_products(call: CallbackQuery):
 def catch_all(call: CallbackQuery):
     print("CATCHED CALLBACK:", call.json)
     bot.answer_callback_query(call.id, "catch!")
+
