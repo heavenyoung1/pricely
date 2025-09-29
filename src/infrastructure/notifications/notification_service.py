@@ -5,13 +5,14 @@ class NotificationService:
     def __init__(self, bot):
         self.bot = bot
 
-    def send_price_update_notification(self, user_id: str, product_name: str, new_price: float):
+    def send_price_update_notification(self, user_id: str, product_name: str, old_price: float, new_price: float):
         try:
             self.bot.send_message(
                 user_id,
-                f"📢 Внимание! Цена на товар *{product_name}* изменилась! Теперь он стоит *{new_price} ₽*.",
-                parse_mode="Markdown"
+                f"📢 Цена изменилась!\n\n"
+                f"<b>{product_name}</b>\n"
+                f"{old_price} ₽ → {new_price} ₽",
+                parse_mode="HTML"
             )
-            logger.info(f"Уведомление отправлено пользователю {user_id} о изменении цены на товар {product_name}.")
         except Exception as e:
-            logger.error(f"Ошибка при отправке уведомления пользователю {user_id}: {e}")
+            logger.error(f"Ошибка при отправке уведомления {user_id}: {e}")

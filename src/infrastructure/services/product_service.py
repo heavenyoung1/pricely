@@ -15,14 +15,16 @@ from src.application.use_cases import (
 
 from src.domain.entities import Product, Price, User
 from src.core import SQLAlchemyUnitOfWork, with_uow
+from src.infrastructure.notifications.notification_service import NotificationService
 
 logger = logging.getLogger(__name__)
 
 class ProductService:
     '''Сервисный слой для оркестрации UseCase с использованием UnitOfWork.'''
-    def __init__(self, uow_factory, parser: Optional[OzonParser] = None):
+    def __init__(self, uow_factory, parser: Optional[OzonParser] = None, bot=None):
         self.uow_factory = uow_factory
         self.parser = parser or OzonParser()  # дефолт = OzonParser
+        self.notification_service = NotificationService(bot)
 
     @with_uow(commit=True)
     def create_user(self, user: User) -> None:
@@ -110,16 +112,34 @@ class ProductService:
         return products
 
     @with_uow(commit=True)
-    def update_product_price(self, product_id: str, price: Price) -> None:
-        try:
-            use_case = UpdateProductPriceUseCase(
-                product_repo=self.uow.product_repository,
-                price_repo=self.uow.price_repository,
-            )
-            use_case.execute(product_id, price)
-            logger.debug(f'Цена для продукта {product_id} успешно обновлена')
-        except Exception as e:
-            logger.error(f'Ошибка при обновлении цены: {e}')
+    def update_product_price(self, product_id: str) -> dict:
+        """
+        Парсит цену, сохраняет в БД и возвращает полную карточку товара (dict).
+        """
+        product = self.uow.product_repository.get(product_id)
+        if not product:
+            raise ValueError(f"Товар {product_id} не найден")
+
+        parsed = self.parser.parse_product(product.link)
+
+        use_case = UpdateProductPriceUseCase(
+            product_repo=self.uow.product_repository,
+            price_repo=self.uow.price_repository,
+        )
+
+        use_case.execute(
+            product_id=product_id,
+            with_card=parsed["price_with_card"],
+            without_card=parsed["price_without_card"]
+        )
+
+        # Вернём полную карточку в dict-формате (как get_full_product)
+        use_case_full = GetFullProductUseCase(
+            product_repo=self.uow.product_repository,
+            price_repo=self.uow.price_repository,
+            user_repo=self.uow.user_repository,
+        )
+        return use_case_full.execute(product_id)
 
     @with_uow(commit=True)
     def delete_product(self, product_id) -> None:
@@ -142,6 +162,7 @@ class ProductService:
         use_case = CompareProductPriceUseCase(
             product_repo=self.uow.product_repository,
             price_repo=self.uow.price_repository,
-            parser=self.parser
+            parser=self.parser,
+            notification_service=self.notification_service
         )
         use_case.execute(product_id)

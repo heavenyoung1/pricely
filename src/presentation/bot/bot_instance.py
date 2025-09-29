@@ -4,6 +4,8 @@ from telebot import TeleBot
 from dotenv import load_dotenv
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+from src.domain.entities import Product, Price
+
 # Логирование
 logging.basicConfig(
     level=logging.INFO,
@@ -53,22 +55,14 @@ def format_categories(categories) -> str:
     return str(categories)
 
 def format_product_message(product: dict) -> str:
+    """
+    Форматирует сообщение о товаре для Telegram (ожидает dict).
+    """
     latest = product.get("latest_price") or {}
-    with_card = latest.get("with_card")
-    without_card = latest.get("without_card")
-
-    with_card_text = f"{with_card} ₽" if with_card is not None else "—"
-    without_card_text = f"{without_card} ₽" if without_card is not None else "—"
-
-    # Используем новую функцию форматирования категорий
-    categories_text = format_categories(product.get("categories"))
-
-    return (
-        f"🏷️ <b>{product.get('name','(без названия)')}</b>\n"
-        f"🔢 ID: <code>{product.get('id')}</code>\n"
-        f"💳 Цена (с картой): {with_card_text}\n"
-        f"💸 Цена (без карты): {without_card_text}\n"
-        f"⭐ Рейтинг: {product.get('rating', '—')}\n"
-        f"🗂 Категории: {categories_text}\n\n"
-        f"🔗 <a href=\"{product.get('link')}\">Открыть на Ozon</a>"
+    text = (
+        f"📦 {product.get('name')}\n"
+        f"💳 Цена с картой: {latest.get('with_card', '—')}\n"
+        f"💵 Цена без карты: {latest.get('without_card', '—')}\n"
+        f"🔗 {product.get('link')}"
     )
+    return text

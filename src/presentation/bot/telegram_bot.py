@@ -1,8 +1,10 @@
 import logging
+import threading
 from src.presentation.bot.bot_instance import bot
 from src.presentation.bot.handlers import start # Импортируем start.py для регистрации обработчиков
-from telebot.handler_backends import StatesGroup, State
-from telebot.storage import StateMemoryStorage
+from src.infrastructure.parsers import OzonParser
+from src.infrastructure.notifications.notification_service import NotificationService
+from src.infrastructure.scheduler import start_scheduler
 
 # Настройка логирования
 logging.basicConfig(
@@ -10,6 +12,8 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+
 
 if __name__ == "__main__":
     try:
@@ -33,6 +37,8 @@ if __name__ == "__main__":
         # Запускаем polling
         logger.info("Starting bot polling")
         bot.infinity_polling(none_stop=True, interval=0, timeout=20, logger_level=logging.DEBUG)
+        # Запускаем планировщик цен в фоновом режиме
+        start_scheduler()
     except Exception as e:
         logger.error(f"Error starting bot: {e}", exc_info=True)
         raise

@@ -2,7 +2,6 @@ from telebot.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKe
 from src.presentation.bot.bot_instance import bot, logger, format_product_message, build_product_actions_keyboard
 from src.presentation.bot.service_connector import service
 from src.presentation.bot.keyboards.main_menu import main_menu
-
 # ================= МЕНЮ =================
 
 @bot.message_handler(func=lambda m: m.text == "➕ Добавить товар")
@@ -91,23 +90,18 @@ def handle_product_button(call: CallbackQuery):
         bot.answer_callback_query(call.id, f"Ошибка: {e}")
 
 # 🔄 Обновить цену
-@bot.callback_query_handler(func=lambda call: call.data and call.data.startswith("update_price:"))
+@bot.callback_query_handler(func=lambda call: call.data.startswith("update_price:"))
 def handle_update_price(call: CallbackQuery):
-    bot.answer_callback_query(call.id)
     product_id = call.data.split(":", 1)[1]
 
     try:
-        updated_product = service.update_product_price(product_id)  # твой UseCase
-        text = format_product_message(updated_product)
-        kb = build_product_actions_keyboard(product_id=updated_product["id"], product_link=updated_product["link"])
+        updated_product = service.update_product_price(product_id)
 
         bot.edit_message_text(
             chat_id=call.message.chat.id,
             message_id=call.message.message_id,
-            text=f"✅ Цена обновлена!\n\n{text}",
-            parse_mode="HTML",
-            reply_markup=kb,
-            disable_web_page_preview=False
+            text=format_product_message(updated_product),
+            reply_markup=build_product_actions_keyboard(product_id, updated_product["link"])
         )
     except Exception as e:
         logger.exception("Ошибка при обновлении цены")
@@ -270,4 +264,3 @@ def handle_back_to_products(call: CallbackQuery):
 def catch_all(call: CallbackQuery):
     print("CATCHED CALLBACK:", call.json)
     bot.answer_callback_query(call.id, "catch!")
-
