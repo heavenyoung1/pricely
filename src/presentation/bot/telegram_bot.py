@@ -1,7 +1,7 @@
 import logging
 import threading
 from src.presentation.bot.bot_instance import bot
-from src.presentation.bot.handlers import start # Импортируем start.py для регистрации обработчиков
+from src.presentation.bot.handlers import start, products, menu, delete, navigation, statistics, errors
 from src.infrastructure.parsers import OzonParser
 from src.infrastructure.notifications.notification_service import NotificationService
 from src.infrastructure.scheduler import start_scheduler
@@ -14,31 +14,34 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+# Регистрация всех хендлеров
+def register_handlers():
+    start.register_handlers(bot)
+    statistics.register_handlers(bot)
+    errors.register_handlers(bot)
+    navigation.register_handlers(bot)
+    products.register_handlers(bot)
+    menu.register_handlers(bot)
+    delete.register_handlers(bot)
 
-if __name__ == "__main__":
+def main():
+    logger.info("Запуск Telegram-бота...")
+
+    # Проверка и отключение вебхука (на всякий случай, если раньше использовался)
     try:
-        # Проверяем текущий вебхук
         webhook_info = bot.get_webhook_info()
-        logger.info(f"Webhook info before polling: {webhook_info}")
-        
-        # Удаляем вебхук, если он существует
+        logger.info(f"Webhook info before polling: {webhook_info.to_dict()}")
         if webhook_info.url:
-            logger.warning(f"Found active webhook: {webhook_info.url}. Deleting...")
-            bot.delete_webhook()
-            logger.info("Webhook successfully deleted")
-        else:
-            logger.info("No active webhook found")
-        
-        # Проверяем получение обновлений
-        logger.info("Checking for updates manually")
-        updates = bot.get_updates(timeout=5)
-        logger.debug(f"Received updates: {updates}")
-        
-        # Запускаем polling
-        logger.info("Starting bot polling")
-        bot.infinity_polling(none_stop=True, interval=0, timeout=20, logger_level=logging.DEBUG)
+            bot.remove_webhook()
+            logger.info("Удалён старый webhook")
+    except Exception as e:
+        logger.warning(f"Ошибка при проверке webhook: {e}")
+
         # Запускаем планировщик цен в фоновом режиме
         start_scheduler()
-    except Exception as e:
-        logger.error(f"Error starting bot: {e}", exc_info=True)
-        raise
+
+        # Запускаем polling
+        bot.infinity_polling(none_stop=True, interval=0, timeout=20, logger_level=logging.DEBUG)
+
+if __name__ == "__main__":
+    main()

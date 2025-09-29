@@ -13,3 +13,6 @@ def show_statistics(message: Message):
         f"🕒 Последнее обновление: никогда"
     )
     bot.send_message(message.chat.id, text, reply_markup=main_menu())
+
+def register_handlers():
+    bot.message_handler(func=lambda m: m.text == "📊 Статистика")(show_statistics)

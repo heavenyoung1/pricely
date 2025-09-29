@@ -50,11 +50,6 @@ def help_handler(message: Message):
     except Exception as e:
         logger.error(f"Failed to send help message to chat {message.chat.id}: {e}", exc_info=True)
 
-# @bot.message_handler(content_types=['text'])
-# def echo_handler(message: Message):
-#     logger.debug(f"Received text message from user {message.from_user.id}: {message.text}")
-#     try:
-#         bot.reply_to(message, f"You said: {message.text}")
-#         logger.debug(f"Replied to message in chat {message.chat.id}")
-#     except Exception as e:
-#         logger.error(f"Failed to reply to message in chat {message.chat.id}: {e}", exc_info=True)
+def register_handlers():
+    bot.message_handler(commands=["start"])(start_handler)
+    bot.message_handler(commands=["help"])(help_handler)
