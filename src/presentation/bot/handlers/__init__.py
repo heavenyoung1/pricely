@@ -14,7 +14,7 @@ from src.presentation.bot.handlers.menu import (
 
 from src.presentation.bot.handlers.navigation import (
     handle_back_to_products,
-    catch_all,
+    # catch_all,
 )
 
 from src.presentation.bot.handlers.products import (

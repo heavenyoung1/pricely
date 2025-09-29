@@ -35,11 +35,11 @@ def handle_back_to_products(call: CallbackQuery):
         bot.answer_callback_query(call.id, f"❌ Ошибка: {e}")
 
 
-@bot.callback_query_handler(func=lambda call: True)
-def catch_all(call: CallbackQuery):
-    print("CATCHED CALLBACK:", call.json)
-    bot.answer_callback_query(call.id, "catch!")
+# @bot.callback_query_handler(func=lambda call: True)
+# def catch_all(call: CallbackQuery):
+#     print("CATCHED CALLBACK:", call.json)
+#     bot.answer_callback_query(call.id, "catch!")
 
 def register_handlers():
     bot.callback_query_handler(func=lambda call: call.data == "back_to_products")(handle_back_to_products)
-    bot.callback_query_handler(func=lambda call: True)(catch_all)
+    # bot.callback_query_handler(func=lambda call: True)(catch_all)
