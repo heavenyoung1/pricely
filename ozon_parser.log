@@ -1568,3 +1568,48 @@ Traceback (most recent call last):
     raise ProxyError(e, request=request)
 requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5702092394:***********************************/getUpdates?offset=557184747&timeout=20 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
 
+2025-09-30 13:38:50,994 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-09-30 13:38:51,347 - aiogram.dispatcher - INFO - Start polling
+2025-09-30 13:38:51,570 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 13:38:54,623 - src.infrastructure.services.logger - INFO - Пользователь  Евгений запустил бота.
+2025-09-30 13:38:54,950 - aiogram.event - INFO - Update id=557184930 is handled. Duration 327 ms by bot id=5702092394
+2025-09-30 13:39:41,463 - aiogram.dispatcher - INFO - Polling stopped
+2025-09-30 13:39:41,466 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-09-30 13:39:41,466 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-09-30 13:39:41,629 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 13:39:45,843 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-09-30 13:39:46,139 - aiogram.dispatcher - INFO - Start polling
+2025-09-30 13:39:46,444 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 13:39:51,042 - aiogram.event - INFO - Update id=557184931 is handled. Duration 264 ms by bot id=5702092394
+2025-09-30 13:47:15,777 - aiogram.dispatcher - INFO - Polling stopped
+2025-09-30 13:47:15,779 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-09-30 13:47:15,780 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-09-30 13:47:15,935 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 13:47:21,766 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-09-30 13:47:22,035 - aiogram.dispatcher - INFO - Start polling
+2025-09-30 13:47:22,339 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 13:47:33,505 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
+2025-09-30 13:47:33,949 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-30 13:47:55,003 - src.infrastructure.services.product_service - ERROR - Ошибка при создании пользователя 515084006: (psycopg2.OperationalError) connection to server at "192.168.31.122", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-30 13:47:55,006 - src.core.uow - WARNING - Исключение в Unit of Work: UserCreationError: Ошибка создания пользователя: (psycopg2.OperationalError) connection to server at "192.168.31.122", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-30 13:47:55,009 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-09-30 13:47:55,010 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-30 13:47:55,011 - src.core.decorators - ERROR - Ошибка в функции create_user: Ошибка создания пользователя: (psycopg2.OperationalError) connection to server at "192.168.31.122", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-30 13:47:55,013 - src.infrastructure.services.logger - WARNING - Ошибка создания пользователя 515084006: Ошибка создания пользователя: (psycopg2.OperationalError) connection to server at "192.168.31.122", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-30 13:47:55,317 - aiogram.event - INFO - Update id=557184932 is handled. Duration 21811 ms by bot id=5702092394
+2025-09-30 13:49:08,860 - aiogram.dispatcher - INFO - Polling stopped
+2025-09-30 13:49:08,864 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-09-30 13:49:08,865 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-09-30 13:49:09,020 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'

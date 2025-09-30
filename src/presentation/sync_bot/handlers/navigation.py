@@ -1,7 +1,7 @@
 from telebot.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 
-from src.presentation.bot.bot_instance import bot, logger
-from src.presentation.bot.service_connector import service
+from src.presentation.sync_bot.bot_instance import bot, logger
+from src.presentation.sync_bot.service_connector import service
 
 # ⬅️ Назад
 @bot.callback_query_handler(func=lambda call: call.data == "back_to_products")
@@ -40,6 +40,6 @@ def handle_back_to_products(call: CallbackQuery):
 #     print("CATCHED CALLBACK:", call.json)
 #     bot.answer_callback_query(call.id, "catch!")
 
-def register_handlers():
+def register_handlers(bot):
     bot.callback_query_handler(func=lambda call: call.data == "back_to_products")(handle_back_to_products)
     # bot.callback_query_handler(func=lambda call: True)(catch_all)

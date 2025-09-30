@@ -1,6 +1,6 @@
 import logging
 from apscheduler.schedulers.background import BackgroundScheduler
-from src.presentation.bot.service_connector import service
+from src.presentation.sync_bot.service_connector import service
 
 logger = logging.getLogger(__name__)
 

@@ -1,6 +1,6 @@
 from telebot.types import Message
-from src.presentation.bot.bot_instance import bot
-from src.presentation.bot.keyboards.main_menu import main_menu
+from src.presentation.sync_bot.bot_instance import bot
+from src.presentation.sync_bot.keyboards.main_menu import main_menu
 
 @bot.message_handler(func=lambda m: m.text == "📊 Статистика")
 def show_statistics(message: Message):
@@ -14,5 +14,5 @@ def show_statistics(message: Message):
     )
     bot.send_message(message.chat.id, text, reply_markup=main_menu())
 
-def register_handlers():
+def register_handlers(bot):
     bot.message_handler(func=lambda m: m.text == "📊 Статистика")(show_statistics)

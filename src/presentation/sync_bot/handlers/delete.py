@@ -1,9 +1,9 @@
 from telebot.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 
-from src.presentation.bot.bot_instance import bot, logger
-from src.presentation.bot.service_connector import service
-from src.presentation.bot.utils.formatters import format_product_message
-from src.presentation.bot.utils.keyboards import build_product_actions_keyboard
+from src.presentation.sync_bot.bot_instance import bot, logger
+from src.presentation.sync_bot.service_connector import service
+from src.presentation.sync_bot.utils.formatters import format_product_message
+from src.presentation.sync_bot.utils.keyboards import build_product_actions_keyboard
 
 # 1️⃣ Из главного меню показываем список товаров для удаления
 @bot.message_handler(func=lambda m: m.text == "➖ Удалить товар")

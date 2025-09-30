@@ -166,3 +166,7 @@ class ProductService:
             notification_service=self.notification_service
         )
         use_case.execute(product_id)
+
+# Инициализация сервиса
+# Правильно ли так делать и объявлять его здесь?
+product_service = ProductService(uow_factory=SQLAlchemyUnitOfWork)

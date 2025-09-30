@@ -1,7 +1,7 @@
 from telebot.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from src.presentation.bot.bot_instance import bot, logger
-from src.presentation.bot.service_connector import service
-from src.presentation.bot.keyboards.main_menu import main_menu
+from src.presentation.sync_bot.bot_instance import bot, logger
+from src.presentation.sync_bot.service_connector import service
+from src.presentation.sync_bot.keyboards.main_menu import main_menu
 
 @bot.message_handler(func=lambda m: m.text == "➕ Добавить товар")
 def add_product_request(message: Message):

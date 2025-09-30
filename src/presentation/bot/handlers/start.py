@@ -1,55 +1,19 @@
-from telebot.types import Message
-from src.presentation.bot.bot_instance import bot
-from src.presentation.bot.keyboards.main_menu import main_menu
-from src.presentation.bot.service_connector import service
+from aiogram.types import Message
+
 from src.domain.entities import User
+from src.infrastructure.services import product_service
+from src.infrastructure.services import logger
 
-import logging
-
-# Настройка логирования
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
-
-@bot.message_handler(commands=["start"])
-def start_handler(message: Message):
+async def command_start_handler(message: Message) -> None:
     user = User(
         id=str(message.from_user.id),
-        username=message.from_user.username or "unknown",
-        chat_id=str(message.chat.id),
+        username=message.from_user.username,
+        chat_id=str(message.chat.id), #От этого поля нужно будет избавиться!!!
     )
     try:
-        service.create_user(user)
-        logger.info(f"User {user.id} создан или уже существует")
+        product_service.create_user(user)
+        logger.info(f'Пользователь {user.id} создан или уже существует')
     except Exception as e:
-        logger.warning(f"Ошибка создания пользователя {user.id}: {e}")
-                # Продолжаем, так как пользователь может уже существовать
+        logger.warning(f'Ошибка создания пользователя {user.id}: {e}')
 
-    bot.send_message(
-        message.chat.id,
-        "👋 Добро пожаловать! Я бот для отслеживания цен Ozon.",
-        reply_markup=main_menu()
-    )
-
-@bot.message_handler(commands=["help"])
-def help_handler(message: Message):
-    logger.debug(f"Received /help command from user {message.from_user.id}")
-    text = (
-        "📖 Справка:\n\n"
-        "➕ Добавить товар\n"
-        "📋 Мои товары\n"
-        "➖ Удалить товар\n"
-        "🗑 Очистить все\n"
-        "📊 Статистика"
-    )
-    try:
-        bot.send_message(message.chat.id, text, reply_markup=main_menu())
-        logger.debug(f"Sent help message to chat {message.chat.id}")
-    except Exception as e:
-        logger.error(f"Failed to send help message to chat {message.chat.id}: {e}", exc_info=True)
-
-def register_handlers():
-    bot.message_handler(commands=["start"])(start_handler)
-    bot.message_handler(commands=["help"])(help_handler)
+    await message.answer(f'👋 Добро пожаловать, {message.from_user.full_name}! Я бот для отслеживания цен Ozon.')

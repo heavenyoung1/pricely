@@ -1,6 +1,6 @@
 import logging
-from src.presentation.bot.bot_instance import bot
-from src.presentation.bot.handlers import start, products, menu, delete, navigation, statistics, errors
+from src.presentation.sync_bot.bot_instance import bot
+from src.presentation.sync_bot.handlers import start, products, menu, delete, navigation, statistics, errors
 from src.infrastructure.scheduler import start_scheduler
 
 # Настройка логирования
