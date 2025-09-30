@@ -1613,3 +1613,29 @@ requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', por
 2025-09-30 13:49:08,864 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-09-30 13:49:08,865 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-09-30 13:49:09,020 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 13:49:16,965 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-09-30 13:49:17,300 - aiogram.dispatcher - INFO - Start polling
+2025-09-30 13:49:17,545 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 13:49:22,009 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-09-30 13:49:22,137 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-30 13:49:22,356 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-09-30 13:49:22,356 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-09-30 13:49:22,357 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-09-30 13:49:22,358 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 13:49:22,358 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 13:49:22,358 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-30 13:49:22,359 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-09-30 13:49:22,623 - aiogram.event - INFO - Update id=557184933 is handled. Duration 615 ms by bot id=5702092394
+2025-09-30 13:49:32,245 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-30 13:49:32,254 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-09-30 13:49:32,254 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-09-30 13:49:32,255 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-09-30 13:49:32,256 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 13:49:32,257 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 13:49:32,258 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-30 13:49:32,259 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-09-30 13:49:32,370 - aiogram.event - INFO - Update id=557184934 is handled. Duration 125 ms by bot id=5702092394
+2025-09-30 13:50:32,782 - aiogram.dispatcher - INFO - Polling stopped
+2025-09-30 13:50:32,785 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-09-30 13:50:32,786 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-09-30 13:50:32,932 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
