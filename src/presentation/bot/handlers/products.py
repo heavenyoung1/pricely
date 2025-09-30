@@ -6,6 +6,35 @@ from src.infrastructure.services import logger
 from src.presentation.bot.utils.formatters import format_product_message, format_categories
 from src.presentation.bot.utils.keyboard import build_product_actions_keyboard
 
+# 1️⃣ Обработчик команды "➕ Добавить товар"
+async def add_product_request(message: Message):
+    await message.answer("📦 Отправь ссылку на товар с Ozon")
+
+    # Устанавливаем состояние ожидания URL товара (если используем FSM, можно это добавить в следующий шаг)
+
+    # Переход в следующее состояние, где пользователь отправит URL товара
+    await message.answer("⏳ Парсинг начался, ожидайте...")
+
+# 2️⃣ Обработчик для получения URL товара и добавления товара
+async def add_product_process(message: Message):
+    url = message.text.strip()
+    try:
+        # Предполагаем, что create_product — асинхронная функция
+        result = await product_service.create_product(str(message.from_user.id), url)
+
+        # Отправляем пользователю информацию о добавленном товаре
+        await message.answer(
+            f"✅ Товар добавлен!\n\n"
+            f"Название: {result['product_name']}\n"
+            f"Цена с картой: {result['with_card']} ₽\n"
+            f"Цена без карты: {result['without_card']} ₽",
+            reply_markup=build_product_actions_keyboard(result['id'], result['link'])
+        )
+    except Exception as e:
+        logger.exception("Ошибка при добавлении товара")
+        await message.answer(f"❌ Ошибка: {e}")
+
+# 1️⃣ Список товаров
 async def get_my_product_list(message: Message):
     try:
         # Получаем список товаров пользователя
@@ -26,6 +55,7 @@ async def get_my_product_list(message: Message):
         logger.exception('Ошибка при получении списка товаров')
         await message.answer(f'❌ Ошибка: {e}')
         
+# 2️⃣ Обработка кнопки с товаром
 async def handle_product_button(call: CallbackQuery):
     await call.answer() # Отправляем ответ на callback, чтобы избежать 'залипания' кнопки
     
@@ -55,7 +85,7 @@ async def handle_product_button(call: CallbackQuery):
         logger.exception('Ошибка в handle_product_button')
         await call.answer(f'Ошибка: {e}')
 
-# 🔄 Обновить цену
+# 3️⃣ Обновить цену
 async def handle_update_price(call: CallbackQuery):
     product_id = call.data.split(':', 1)[1]
     logger.info(f'Начинаем обновление цены для товара {product_id}')
