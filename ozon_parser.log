@@ -1,1641 +1,232 @@
-2025-09-18 16:41:21,434 - __main__ - INFO - Запуск Telegram-бота
-2025-09-18 16:41:22,812 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:41:22,814 - TeleBot - ERROR - Exception traceback:
+2025-09-30 14:03:52,213 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-09-30 14:03:52,476 - aiogram.dispatcher - INFO - Start polling
+2025-09-30 14:03:52,697 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 14:04:01,296 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-09-30 14:04:01,642 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-30 14:04:02,446 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-09-30 14:04:02,446 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-09-30 14:04:02,447 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-09-30 14:04:02,453 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 14:04:02,454 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 14:04:02,455 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-30 14:04:02,456 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-09-30 14:04:02,482 - src.infrastructure.services.logger - WARNING - Ошибка создания пользователя 515084006: 1 validation error for ReplyKeyboardMarkup
+keyboard
+  Field required [type=missing, input_value={'resize_keyboard': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+2025-09-30 14:04:02,502 - aiogram.event - INFO - Update id=557184935 is not handled. Duration 1207 ms by bot id=5702092394
+2025-09-30 14:04:02,503 - aiogram.event - ERROR - Cause exception while process update id=557184935 by bot id=5702092394
+UnboundLocalError: cannot access local variable 'keyboard' where it is not associated with a value
 Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:41:26,166 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:41:26,168 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:41:26,762 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:41:26,764 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:41:30,860 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:41:30,865 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:41:32,962 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:41:32,964 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:41:37,081 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:41:37,083 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:41:45,178 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:41:45,180 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:41:56,570 - __main__ - INFO - Запуск Telegram-бота
-2025-09-18 16:41:57,852 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:41:57,853 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:42:01,194 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:42:01,196 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:42:01,789 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:42:01,791 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:42:05,895 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:42:05,900 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:42:07,993 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:42:07,996 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:42:12,089 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:42:12,093 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:42:20,188 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:42:20,191 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:42:36,294 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:42:36,297 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:43:08,392 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:43:08,395 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:44:08,490 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:44:08,491 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:45:08,583 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:45:08,586 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:46:08,678 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:46:08,681 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:47:08,773 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:47:08,776 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:48:08,867 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:48:08,869 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:49:08,963 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:49:08,967 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:50:09,063 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:50:09,066 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:51:09,186 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:51:09,191 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:52:09,934 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:52:09,936 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:53:10,027 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:53:10,030 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:54:10,153 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:54:10,156 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:55:10,249 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:55:10,252 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-18 16:56:10,347 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-2025-09-18 16:56:10,349 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
-    json_result = _check_result(method_name, result)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 195, in _check_result
-    raise ApiTelegramException(method_name, result, result_json)
-telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-
-2025-09-23 09:04:17,930 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 09:04:17,931 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: OzonParser.extract_name() takes 2 positional arguments but 3 were given
-2025-09-23 09:04:20,310 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 09:17:01,532 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 09:17:03,841 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 09:18:48,778 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 09:18:48,779 - __main__ - INFO - ССЫЛКА: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 09:18:51,102 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 09:22:33,051 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 09:22:43,464 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 09:22:43,606 - __main__ - INFO - Найдено название товара: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 09:22:43,612 - __main__ - INFO - Найдено название товара: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 09:22:46,156 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 09:30:23,110 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 09:30:33,506 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 09:30:33,556 - __main__ - INFO - Найдено DEFAULT товара: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 09:30:33,557 - __main__ - INFO - Найдено название товара: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 09:30:36,016 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 09:31:30,747 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 09:31:41,095 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 09:31:41,140 - __main__ - INFO - Найдено DEFAULT товара: <selenium.webdriver.remote.webelement.WebElement (session="c90416a975c4b0c09df0260a23720cf6", element="f.E5B59E04CB9FD307C328C66CC8F83197.d.B135CFB83412C3C67F5EA30D8C44AED4.e.17")>
-2025-09-23 09:31:41,141 - __main__ - INFO - Найдено название товара: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 09:31:43,631 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 09:49:52,365 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 09:50:02,732 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 09:50:02,787 - __main__ - INFO - Найдено название товара: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 09:50:05,346 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 09:57:24,944 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 09:57:35,371 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 09:57:35,429 - __main__ - INFO - Найдено название товара: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 09:57:37,939 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 12:43:05,473 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 12:43:15,879 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 12:43:15,938 - __main__ - INFO - Найдена информация о товаре: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 12:43:18,407 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 12:45:14,539 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 12:45:24,979 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 12:45:25,037 - __main__ - INFO - Найдена информация о товаре: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 12:45:27,532 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 12:45:28,719 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 12:45:39,045 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 12:45:39,083 - __main__ - INFO - Найдена информация о товаре: 208 ₽
-2025-09-23 12:45:41,596 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 12:48:25,958 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 12:48:36,403 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 12:48:36,446 - __main__ - INFO - Найдена информация о товаре: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 12:48:38,961 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 12:48:40,169 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 12:48:50,496 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 12:48:50,833 - __main__ - INFO - Найдена информация о товаре: 208 ₽
-2025-09-23 12:48:53,518 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 12:48:54,846 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 12:49:12,369 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 12:49:12,486 - __main__ - INFO - Найдена информация о товаре: 208 ₽
-2025-09-23 12:49:14,916 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 13:18:09,554 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 13:18:19,991 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 13:18:20,065 - __main__ - INFO - Найдена информация о товаре: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 13:18:22,835 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 13:18:24,148 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 13:18:34,482 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 13:18:35,290 - __main__ - INFO - Найдена информация о товаре: 208 ₽
-2025-09-23 13:18:38,247 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 13:18:39,485 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 13:18:50,151 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 13:18:50,224 - __main__ - INFO - Найдена информация о товаре: 228 ₽
-2025-09-23 13:18:54,500 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 13:47:42,300 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 13:47:52,727 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 13:47:52,784 - __main__ - INFO - Найдена информация о товаре: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 13:47:55,273 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 13:47:56,523 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 13:48:06,866 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 13:48:06,935 - __main__ - INFO - Найдена информация о товаре: 208 ₽
-2025-09-23 13:48:09,484 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 13:48:10,680 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 13:48:21,016 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 13:48:21,630 - __main__ - INFO - Найдена информация о товаре: 228 ₽
-2025-09-23 13:48:24,337 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 13:48:25,526 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 13:48:35,847 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 13:48:35,909 - __main__ - INFO - Найдена информация о товаре: Артикул: 1723889987
-2025-09-23 13:48:38,602 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 13:54:26,117 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 13:54:36,560 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 13:54:36,943 - __main__ - INFO - Найдена информация о товаре: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 13:54:39,473 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 13:54:40,728 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 13:54:51,048 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 13:54:51,097 - __main__ - INFO - Найдена информация о товаре: 208 ₽
-2025-09-23 13:54:53,696 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 13:54:54,887 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 13:55:05,212 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 13:55:05,807 - __main__ - INFO - Найдена информация о товаре: 228 ₽
-2025-09-23 13:55:08,411 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 13:55:09,664 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 13:55:19,989 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 13:55:20,349 - __main__ - INFO - Найдена информация о товаре: Артикул: 1723889987
-2025-09-23 13:55:24,654 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 13:55:25,893 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 13:55:36,267 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 13:55:36,368 - __main__ - INFO - Найдена информация о товаре: Обувь
-2025-09-23 13:55:38,928 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 14:06:00,297 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 14:06:10,714 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 14:06:11,389 - __main__ - INFO - Найдена информация о товаре: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 14:06:14,060 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 14:06:15,368 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 14:06:25,725 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 14:06:25,810 - __main__ - INFO - Найдена информация о товаре: 208 ₽
-2025-09-23 14:06:28,615 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 14:06:29,906 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 14:06:40,588 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 14:06:40,650 - __main__ - INFO - Найдена информация о товаре: 228 ₽
-2025-09-23 14:06:43,189 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 14:06:44,426 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 14:06:54,750 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 14:06:54,809 - __main__ - INFO - Найдена информация о товаре: Артикул: 1723889987
-2025-09-23 14:06:57,373 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 14:06:58,558 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 14:07:08,874 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 14:07:08,942 - __main__ - INFO - Найдена информация о товаре: Обувь
-2025-09-23 14:07:13,083 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 14:07:14,265 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 14:07:24,591 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 14:07:24,697 - __main__ - INFO - Найдена информация о товаре: 4.8 • 14 005 отзывов
-2025-09-23 14:07:27,437 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 14:37:13,092 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 14:37:24,000 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 14:37:32,215 - __main__ - INFO - Найдена информация о товаре: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-23 14:37:33,965 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 14:37:35,321 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 14:37:46,968 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 14:37:47,095 - __main__ - INFO - Найдена информация о товаре: 208 ₽
-2025-09-23 14:37:48,855 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 14:37:50,302 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 14:38:01,486 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 14:38:01,595 - __main__ - INFO - Найдена информация о товаре: 228 ₽
-2025-09-23 14:38:03,331 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 14:38:04,730 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 14:38:15,625 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 14:38:16,078 - __main__ - INFO - Найдена информация о товаре: Артикул: 1723889987
-2025-09-23 14:38:17,900 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 14:38:19,296 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 14:38:30,250 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 14:38:30,311 - __main__ - INFO - Найдена информация о товаре: Обувь
-2025-09-23 14:38:30,311 - __main__ - ERROR - Ошибка при извлечении названия товара: 'str' object has no attribute 'text'
-2025-09-23 14:38:31,899 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-23 14:38:33,084 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-23 14:38:44,005 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-23 14:38:44,064 - __main__ - INFO - Найдена информация о товаре: 4.8 • 14 012 отзывов
-2025-09-23 14:38:45,577 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:12:40,848 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:12:52,369 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:13:01,617 - __main__ - INFO - Найдена информация о товаре: Арома стикеры для обуви 30 шт. Дезодорант для обуви антибактериальный
-2025-09-25 21:13:03,414 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:13:04,734 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:13:17,044 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:13:17,095 - __main__ - INFO - Найдена информация о товаре: 208 ₽
-2025-09-25 21:13:18,722 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:13:19,944 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:13:31,726 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:13:31,818 - __main__ - INFO - Найдена информация о товаре: 228 ₽
-2025-09-25 21:13:33,498 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:13:34,739 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:13:46,654 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:13:46,848 - __main__ - INFO - Найдена информация о товаре: Артикул: 1723889987
-2025-09-25 21:13:48,908 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:13:50,902 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:14:03,397 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:14:03,530 - __main__ - INFO - Найдена информация о товаре: Обувь
-2025-09-25 21:14:03,531 - __main__ - ERROR - Ошибка при извлечении названия товара: 'str' object has no attribute 'text'
-2025-09-25 21:14:05,353 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:14:06,854 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:14:18,904 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:14:18,988 - __main__ - INFO - Найдена информация о товаре: 4.8 • 14 215 отзывов
-2025-09-25 21:14:20,719 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:14:22,146 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:14:33,691 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:14:33,793 - __main__ - INFO - Найдена информация о товаре: 4.8 • 14 215 отзывов
-2025-09-25 21:14:35,505 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:17:21,040 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:17:32,747 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:17:32,793 - __main__ - INFO - Найдена информация о товаре: https://ir.ozone.ru/s3/multimedia-1-1/wc50/7182410941.jpg
-2025-09-25 21:17:34,525 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:18:07,407 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:18:18,883 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:18:18,942 - __main__ - INFO - Найдена информация о товаре: https://ir.ozone.ru/s3/multimedia-1-1/wc50/7182410941.jpg
-2025-09-25 21:18:18,942 - __main__ - ERROR - Ошибка при извлечении названия товара: 'OzonParser' object has no attribute '_extract_text'
-2025-09-25 21:18:20,564 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:18:38,372 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:18:49,855 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:18:49,904 - __main__ - INFO - Найдена информация о товаре: https://ir.ozone.ru/s3/multimedia-1-1/wc50/7182410941.jpg
-2025-09-25 21:18:51,659 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:20:32,153 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:20:43,623 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:20:43,724 - __main__ - INFO - Категории: ['Обувь', 'Уход и аксессуары', 'Косметика и чистящие средства']
-2025-09-25 21:20:45,345 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:20:46,529 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:20:57,950 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:20:58,086 - __main__ - INFO - Найдена информация о товаре: https://ir.ozone.ru/s3/multimedia-1-1/wc50/7182410941.jpg
-2025-09-25 21:21:00,679 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:21:45,264 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:21:56,915 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:21:56,985 - __main__ - INFO - Категории: ['Обувь', 'Уход и аксессуары', 'Косметика и чистящие средства']
-2025-09-25 21:21:58,655 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-25 21:21:59,832 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-25 21:22:11,207 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/aroma-stikery-dlya-obuvi-30-sht-dezodorant-dlya-obuvi-antibakterialnyy-1723889987/?at=DqtDqnm7Nup54QYmswEpQYXFpp2VXvSM0rqokI66QJ32
-2025-09-25 21:22:11,232 - __main__ - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-1/wc1000/7182410941.jpg
-2025-09-25 21:22:12,881 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-27 18:41:15,328 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
-2025-09-27 18:41:15,329 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
-2025-09-27 18:41:59,684 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
-2025-09-27 18:41:59,685 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
-2025-09-27 18:42:31,590 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
-2025-09-27 18:42:31,591 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
-2025-09-27 18:42:32,165 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
-2025-09-27 18:42:32,165 - __main__ - INFO - No active webhook found
-2025-09-27 18:42:32,165 - __main__ - INFO - Checking for updates manually
-2025-09-27 18:42:52,241 - __main__ - INFO - Starting bot polling
-2025-09-27 18:42:55,472 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
-2025-09-27 18:42:55,598 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 18:42:55,598 - src.application.use_cases.get_user_products - INFO - Запрос списка товар для пользователя ID: 515084006
-2025-09-27 18:42:55,776 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
-2025-09-27 18:42:55,795 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
-2025-09-27 18:42:55,803 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
-2025-09-27 18:42:55,805 - src.application.use_cases.get_full_product - WARNING - Продукт {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
-2025-09-27 18:42:55,807 - src.core.uow - WARNING - Исключение в Unit of Work: ProductNotFoundError: Продукт {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
-2025-09-27 18:42:55,820 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 18:42:55,821 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 18:42:55,821 - src.core.decorators - ERROR - Ошибка в функции get_all_products: Продукт {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
-2025-09-27 18:43:15,687 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 18:43:15,688 - src.application.use_cases.get_user_products - INFO - Запрос списка товар для пользователя ID: 515084006
-2025-09-27 18:43:15,716 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
-2025-09-27 18:43:15,733 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
-2025-09-27 18:43:15,743 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
-2025-09-27 18:43:15,744 - src.application.use_cases.get_full_product - WARNING - Продукт {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
-2025-09-27 18:43:15,745 - src.core.uow - WARNING - Исключение в Unit of Work: ProductNotFoundError: Продукт {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
-2025-09-27 18:43:15,748 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 18:43:15,749 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 18:43:15,749 - src.core.decorators - ERROR - Ошибка в функции get_all_products: Продукт {'id': '2401106364', 'name': 'Гайковерт аккумуляторный ударный', 'link': 'https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', 'rating': 4.7, 'categories': '{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', 'latest_price': {'with_card': 3791, 'without_card': 4200}} не найден
-2025-09-27 18:54:12,488 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
-2025-09-27 18:54:12,489 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
-2025-09-27 18:54:13,065 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
-2025-09-27 18:54:13,065 - __main__ - INFO - No active webhook found
-2025-09-27 18:54:13,065 - __main__ - INFO - Checking for updates manually
-2025-09-27 18:54:33,147 - __main__ - INFO - Starting bot polling
-2025-09-27 18:56:04,448 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
-2025-09-27 18:56:04,564 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 18:56:04,565 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
-2025-09-27 18:56:04,786 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
-2025-09-27 18:56:04,818 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
-2025-09-27 18:56:04,823 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
-2025-09-27 18:56:04,828 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 18:56:04,829 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 18:56:04,830 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 18:56:08,149 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 18:56:08,169 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
-2025-09-27 18:56:08,178 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
-2025-09-27 18:56:08,181 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 18:56:08,182 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 18:56:08,182 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 18:56:48,769 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 18:56:48,790 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='1053613711', username='MefedAnna', chat_id='1053613711', products=[]) получен по id: 1053613711
-2025-09-27 18:56:48,790 - src.application.use_cases.create_user - INFO - Пользователь 1053613711 уже существует, пропускаем создание
-2025-09-27 18:56:48,791 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
-2025-09-27 18:56:48,796 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 18:56:48,796 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 18:56:48,797 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 18:56:48,798 - src.presentation.bot.handlers.start - INFO - User 1053613711 создан или уже существует
-2025-09-27 18:57:10,849 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 18:57:13,029 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-27 18:57:13,041 - src.infrastructure.parsers.session_engine - ERROR - Ошибка при загрузке страницы Легинсы одежда
-https://ozon.ru/t/sYJhMXd: Message: invalid argument
-  (Session info: chrome=140.0.7339.185)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
-	GetHandleVerifier [0x0x7ff78dd61f10+80288]
-	(No symbol) [0x0x7ff78dae011c]
-	(No symbol) [0x0x7ff78dacce39]
-	(No symbol) [0x0x7ff78dacb19d]
-	(No symbol) [0x0x7ff78dacb87c]
-	(No symbol) [0x0x7ff78dae43ca]
-	(No symbol) [0x0x7ff78db895de]
-	(No symbol) [0x0x7ff78db6037a]
-	(No symbol) [0x0x7ff78db887fb]
-	(No symbol) [0x0x7ff78db60153]
-	(No symbol) [0x0x7ff78db28b02]
-	(No symbol) [0x0x7ff78db298d3]
-	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
-	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
-	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
-	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
-	GetHandleVerifier [0x0x7ff78dd850af+224063]
-	GetHandleVerifier [0x0x7ff78dd6af64+117236]
-	GetHandleVerifier [0x0x7ff78dd6b119+117673]
-	GetHandleVerifier [0x0x7ff78dd510a8+11064]
-	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
-	RtlUserThreadStart [0x0x7ff91a548d9c+44]
-
-2025-09-27 18:57:13,043 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при парсинге страницы Легинсы одежда
-https://ozon.ru/t/sYJhMXd: Message: invalid argument
-  (Session info: chrome=140.0.7339.185)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
-	GetHandleVerifier [0x0x7ff78dd61f10+80288]
-	(No symbol) [0x0x7ff78dae011c]
-	(No symbol) [0x0x7ff78dacce39]
-	(No symbol) [0x0x7ff78dacb19d]
-	(No symbol) [0x0x7ff78dacb87c]
-	(No symbol) [0x0x7ff78dae43ca]
-	(No symbol) [0x0x7ff78db895de]
-	(No symbol) [0x0x7ff78db6037a]
-	(No symbol) [0x0x7ff78db887fb]
-	(No symbol) [0x0x7ff78db60153]
-	(No symbol) [0x0x7ff78db28b02]
-	(No symbol) [0x0x7ff78db298d3]
-	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
-	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
-	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
-	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
-	GetHandleVerifier [0x0x7ff78dd850af+224063]
-	GetHandleVerifier [0x0x7ff78dd6af64+117236]
-	GetHandleVerifier [0x0x7ff78dd6b119+117673]
-	GetHandleVerifier [0x0x7ff78dd510a8+11064]
-	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
-	RtlUserThreadStart [0x0x7ff91a548d9c+44]
-
-2025-09-27 18:57:13,045 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: Message: invalid argument
-  (Session info: chrome=140.0.7339.185)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
-	GetHandleVerifier [0x0x7ff78dd61f10+80288]
-	(No symbol) [0x0x7ff78dae011c]
-	(No symbol) [0x0x7ff78dacce39]
-	(No symbol) [0x0x7ff78dacb19d]
-	(No symbol) [0x0x7ff78dacb87c]
-	(No symbol) [0x0x7ff78dae43ca]
-	(No symbol) [0x0x7ff78db895de]
-	(No symbol) [0x0x7ff78db6037a]
-	(No symbol) [0x0x7ff78db887fb]
-	(No symbol) [0x0x7ff78db60153]
-	(No symbol) [0x0x7ff78db28b02]
-	(No symbol) [0x0x7ff78db298d3]
-	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
-	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
-	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
-	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
-	GetHandleVerifier [0x0x7ff78dd850af+224063]
-	GetHandleVerifier [0x0x7ff78dd6af64+117236]
-	GetHandleVerifier [0x0x7ff78dd6b119+117673]
-	GetHandleVerifier [0x0x7ff78dd510a8+11064]
-	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
-	RtlUserThreadStart [0x0x7ff91a548d9c+44]
-
-2025-09-27 18:57:15,658 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-27 18:57:15,659 - src.application.use_cases.create_product - ERROR - Ошибка парсинга URL Легинсы одежда
-https://ozon.ru/t/sYJhMXd для пользователя 1053613711: Message: invalid argument
-  (Session info: chrome=140.0.7339.185)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
-	GetHandleVerifier [0x0x7ff78dd61f10+80288]
-	(No symbol) [0x0x7ff78dae011c]
-	(No symbol) [0x0x7ff78dacce39]
-	(No symbol) [0x0x7ff78dacb19d]
-	(No symbol) [0x0x7ff78dacb87c]
-	(No symbol) [0x0x7ff78dae43ca]
-	(No symbol) [0x0x7ff78db895de]
-	(No symbol) [0x0x7ff78db6037a]
-	(No symbol) [0x0x7ff78db887fb]
-	(No symbol) [0x0x7ff78db60153]
-	(No symbol) [0x0x7ff78db28b02]
-	(No symbol) [0x0x7ff78db298d3]
-	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
-	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
-	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
-	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
-	GetHandleVerifier [0x0x7ff78dd850af+224063]
-	GetHandleVerifier [0x0x7ff78dd6af64+117236]
-	GetHandleVerifier [0x0x7ff78dd6b119+117673]
-	GetHandleVerifier [0x0x7ff78dd510a8+11064]
-	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
-	RtlUserThreadStart [0x0x7ff91a548d9c+44]
-
-2025-09-27 18:57:15,660 - src.core.uow - WARNING - Исключение в Unit of Work: ParserProductError: Ошибка парсинга товара
-2025-09-27 18:57:15,661 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 18:57:15,661 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 18:57:15,662 - src.core.decorators - ERROR - Ошибка в функции create_product: Ошибка парсинга товара
-2025-09-27 18:58:33,269 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 18:58:33,270 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
-2025-09-27 18:58:33,301 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
-2025-09-27 18:58:33,326 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
-2025-09-27 18:58:33,342 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
-2025-09-27 18:58:33,345 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 18:58:33,346 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 18:58:33,346 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:02:56,683 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
-2025-09-27 19:02:56,684 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
-2025-09-27 19:02:57,243 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
-2025-09-27 19:02:57,243 - __main__ - INFO - No active webhook found
-2025-09-27 19:02:57,244 - __main__ - INFO - Checking for updates manually
-2025-09-27 19:03:17,321 - __main__ - INFO - Starting bot polling
-2025-09-27 19:03:20,329 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
-2025-09-27 19:03:20,392 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:03:20,472 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='1053613711', username='MefedAnna', chat_id='1053613711', products=[]) получен по id: 1053613711
-2025-09-27 19:03:20,472 - src.application.use_cases.create_user - INFO - Пользователь 1053613711 уже существует, пропускаем создание
-2025-09-27 19:03:20,473 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
-2025-09-27 19:03:20,475 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:03:20,475 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:03:20,476 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:03:20,476 - src.presentation.bot.handlers.start - INFO - User 1053613711 создан или уже существует
-2025-09-27 19:03:27,210 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:03:28,953 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-27 19:03:28,956 - src.infrastructure.parsers.session_engine - ERROR - Ошибка при загрузке страницы Легинсы одежда
-https://ozon.ru/t/sYJhMXd: Message: invalid argument
-  (Session info: chrome=140.0.7339.185)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
-	GetHandleVerifier [0x0x7ff78dd61f10+80288]
-	(No symbol) [0x0x7ff78dae011c]
-	(No symbol) [0x0x7ff78dacce39]
-	(No symbol) [0x0x7ff78dacb19d]
-	(No symbol) [0x0x7ff78dacb87c]
-	(No symbol) [0x0x7ff78dae43ca]
-	(No symbol) [0x0x7ff78db895de]
-	(No symbol) [0x0x7ff78db6037a]
-	(No symbol) [0x0x7ff78db887fb]
-	(No symbol) [0x0x7ff78db60153]
-	(No symbol) [0x0x7ff78db28b02]
-	(No symbol) [0x0x7ff78db298d3]
-	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
-	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
-	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
-	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
-	GetHandleVerifier [0x0x7ff78dd850af+224063]
-	GetHandleVerifier [0x0x7ff78dd6af64+117236]
-	GetHandleVerifier [0x0x7ff78dd6b119+117673]
-	GetHandleVerifier [0x0x7ff78dd510a8+11064]
-	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
-	RtlUserThreadStart [0x0x7ff91a548d9c+44]
-
-2025-09-27 19:03:28,956 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при парсинге страницы Легинсы одежда
-https://ozon.ru/t/sYJhMXd: Message: invalid argument
-  (Session info: chrome=140.0.7339.185)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
-	GetHandleVerifier [0x0x7ff78dd61f10+80288]
-	(No symbol) [0x0x7ff78dae011c]
-	(No symbol) [0x0x7ff78dacce39]
-	(No symbol) [0x0x7ff78dacb19d]
-	(No symbol) [0x0x7ff78dacb87c]
-	(No symbol) [0x0x7ff78dae43ca]
-	(No symbol) [0x0x7ff78db895de]
-	(No symbol) [0x0x7ff78db6037a]
-	(No symbol) [0x0x7ff78db887fb]
-	(No symbol) [0x0x7ff78db60153]
-	(No symbol) [0x0x7ff78db28b02]
-	(No symbol) [0x0x7ff78db298d3]
-	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
-	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
-	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
-	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
-	GetHandleVerifier [0x0x7ff78dd850af+224063]
-	GetHandleVerifier [0x0x7ff78dd6af64+117236]
-	GetHandleVerifier [0x0x7ff78dd6b119+117673]
-	GetHandleVerifier [0x0x7ff78dd510a8+11064]
-	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
-	RtlUserThreadStart [0x0x7ff91a548d9c+44]
-
-2025-09-27 19:03:28,957 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: Message: invalid argument
-  (Session info: chrome=140.0.7339.185)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
-	GetHandleVerifier [0x0x7ff78dd61f10+80288]
-	(No symbol) [0x0x7ff78dae011c]
-	(No symbol) [0x0x7ff78dacce39]
-	(No symbol) [0x0x7ff78dacb19d]
-	(No symbol) [0x0x7ff78dacb87c]
-	(No symbol) [0x0x7ff78dae43ca]
-	(No symbol) [0x0x7ff78db895de]
-	(No symbol) [0x0x7ff78db6037a]
-	(No symbol) [0x0x7ff78db887fb]
-	(No symbol) [0x0x7ff78db60153]
-	(No symbol) [0x0x7ff78db28b02]
-	(No symbol) [0x0x7ff78db298d3]
-	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
-	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
-	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
-	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
-	GetHandleVerifier [0x0x7ff78dd850af+224063]
-	GetHandleVerifier [0x0x7ff78dd6af64+117236]
-	GetHandleVerifier [0x0x7ff78dd6b119+117673]
-	GetHandleVerifier [0x0x7ff78dd510a8+11064]
-	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
-	RtlUserThreadStart [0x0x7ff91a548d9c+44]
-
-2025-09-27 19:03:30,436 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-27 19:03:30,436 - src.application.use_cases.create_product - ERROR - Ошибка парсинга URL Легинсы одежда
-https://ozon.ru/t/sYJhMXd для пользователя 1053613711: Message: invalid argument
-  (Session info: chrome=140.0.7339.185)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff78dd61eb5+80197]
-	GetHandleVerifier [0x0x7ff78dd61f10+80288]
-	(No symbol) [0x0x7ff78dae011c]
-	(No symbol) [0x0x7ff78dacce39]
-	(No symbol) [0x0x7ff78dacb19d]
-	(No symbol) [0x0x7ff78dacb87c]
-	(No symbol) [0x0x7ff78dae43ca]
-	(No symbol) [0x0x7ff78db895de]
-	(No symbol) [0x0x7ff78db6037a]
-	(No symbol) [0x0x7ff78db887fb]
-	(No symbol) [0x0x7ff78db60153]
-	(No symbol) [0x0x7ff78db28b02]
-	(No symbol) [0x0x7ff78db298d3]
-	GetHandleVerifier [0x0x7ff78e01e83d+2949837]
-	GetHandleVerifier [0x0x7ff78e018c6a+2926330]
-	GetHandleVerifier [0x0x7ff78e0386c7+3055959]
-	GetHandleVerifier [0x0x7ff78dd7cfee+191102]
-	GetHandleVerifier [0x0x7ff78dd850af+224063]
-	GetHandleVerifier [0x0x7ff78dd6af64+117236]
-	GetHandleVerifier [0x0x7ff78dd6b119+117673]
-	GetHandleVerifier [0x0x7ff78dd510a8+11064]
-	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
-	RtlUserThreadStart [0x0x7ff91a548d9c+44]
-
-2025-09-27 19:03:30,437 - src.core.uow - WARNING - Исключение в Unit of Work: ParserProductError: Ошибка парсинга товара
-2025-09-27 19:03:30,438 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 19:03:30,438 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:03:30,438 - src.core.decorators - ERROR - Ошибка в функции create_product: Ошибка парсинга товара
-2025-09-27 19:03:48,211 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:03:49,385 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-27 19:04:00,417 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
-2025-09-27 19:04:00,418 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
-2025-09-27 19:04:00,493 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
-2025-09-27 19:04:00,536 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
-2025-09-27 19:04:00,589 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 5.0
-2025-09-27 19:04:00,637 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2128
-2025-09-27 19:04:00,677 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 2823
-2025-09-27 19:04:00,706 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
-2025-09-27 19:04:00,802 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
-2025-09-27 19:04:02,578 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-27 19:04:02,579 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://ozon.ru/t/sYJhMXd: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 5.0, 'price_with_card': 2128, 'price_without_card': 2823, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
-2025-09-27 19:04:02,593 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID 2060239186 не найден
-2025-09-27 19:04:02,599 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='1053613711', username='MefedAnna', chat_id='1053613711', products=[]) получен по id: 1053613711
-2025-09-27 19:04:02,605 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='2060239186', user_id='1053613711', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories=['Одежда', 'Женщинам', 'Брюки, бриджи и капри'], prices=[Price(id=None, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587))])
-2025-09-27 19:04:02,610 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587))
-2025-09-27 19:04:02,610 - src.infrastructure.database.repositories.user_products_repository - INFO - Привязка товара ID 2060239186 пользователю ID 1053613711
-2025-09-27 19:04:02,611 - src.core.decorators - INFO - Функция create_product: выполняется commit транзакции
-2025-09-27 19:04:02,640 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:04:02,641 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:04:02,642 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:04:11,521 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:04:11,522 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 1053613711
-2025-09-27 19:04:11,546 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587))]) (ID: 2060239186)
-2025-09-27 19:04:11,558 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
-2025-09-27 19:04:11,560 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 19:04:11,561 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:04:11,562 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:04:13,842 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:04:13,853 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587))]) (ID: 2060239186)
-2025-09-27 19:04:13,855 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
-2025-09-27 19:04:13,856 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 19:04:13,857 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:04:13,858 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:05:56,316 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:05:56,323 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID https://ozon.ru/t/JTUNIC1 не найден
-2025-09-27 19:05:56,324 - src.application.use_cases.delete_product - WARNING - Товар https://ozon.ru/t/JTUNIC1 не существует в БД, пропускаем удаление
-2025-09-27 19:05:56,324 - src.infrastructure.services.product_service - ERROR - Ошибка при удалении продукта https://ozon.ru/t/JTUNIC1: Товар https://ozon.ru/t/JTUNIC1 не существует в БД!
-2025-09-27 19:05:56,325 - src.core.uow - WARNING - Исключение в Unit of Work: ProductNotExistingDataBase: Товар https://ozon.ru/t/JTUNIC1 не существует в БД!
-2025-09-27 19:05:56,327 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 19:05:56,328 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:05:56,328 - src.core.decorators - ERROR - Ошибка в функции delete_product: Товар https://ozon.ru/t/JTUNIC1 не существует в БД!
-2025-09-27 19:06:13,883 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:06:15,049 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-09-27 19:06:26,082 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/JTUNIC1
-2025-09-27 19:06:26,083 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/JTUNIC1
-2025-09-27 19:06:26,127 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2782629476
-2025-09-27 19:06:26,162 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Косметичка
-2025-09-27 19:06:26,192 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.8
-2025-09-27 19:06:26,223 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 297
-2025-09-27 19:06:26,255 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 325
-2025-09-27 19:06:26,271 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-r/wc1000/7942698351.jpg
-2025-09-27 19:06:26,386 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Аксессуары', 'Женщинам', 'Сумки и рюкзаки', 'Косметички и несессеры']
-2025-09-27 19:06:27,937 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-09-27 19:06:27,937 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://ozon.ru/t/JTUNIC1: {'id': '2782629476', 'name': 'Косметичка', 'rating': 4.8, 'price_with_card': 297, 'price_without_card': 325, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-r/wc1000/7942698351.jpg', 'categories': ['Аксессуары', 'Женщинам', 'Сумки и рюкзаки', 'Косметички и несессеры']}
-2025-09-27 19:06:27,944 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID 2782629476 не найден
-2025-09-27 19:06:27,948 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='1053613711', username='MefedAnna', chat_id='1053613711', products=['2060239186']) получен по id: 1053613711
-2025-09-27 19:06:27,952 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='2782629476', user_id='1053613711', name='Косметичка', link='https://ozon.ru/t/JTUNIC1', image_url='https://ir.ozone.ru/s3/multimedia-1-r/wc1000/7942698351.jpg', rating=4.8, categories=['Аксессуары', 'Женщинам', 'Сумки и рюкзаки', 'Косметички и несессеры'], prices=[Price(id=None, product_id='2782629476', with_card=297, without_card=325, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 6, 27, 944911))])
-2025-09-27 19:06:27,956 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='2782629476', with_card=297, without_card=325, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 6, 27, 944911))
-2025-09-27 19:06:27,956 - src.infrastructure.database.repositories.user_products_repository - INFO - Привязка товара ID 2782629476 пользователю ID 1053613711
-2025-09-27 19:06:27,957 - src.core.decorators - INFO - Функция create_product: выполняется commit транзакции
-2025-09-27 19:06:27,979 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:06:27,980 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:06:27,981 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:06:49,651 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:06:49,672 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID 📋 Мои товары не найден
-2025-09-27 19:06:49,673 - src.application.use_cases.delete_product - WARNING - Товар 📋 Мои товары не существует в БД, пропускаем удаление
-2025-09-27 19:06:49,673 - src.infrastructure.services.product_service - ERROR - Ошибка при удалении продукта 📋 Мои товары: Товар 📋 Мои товары не существует в БД!
-2025-09-27 19:06:49,674 - src.core.uow - WARNING - Исключение в Unit of Work: ProductNotExistingDataBase: Товар 📋 Мои товары не существует в БД!
-2025-09-27 19:06:49,678 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 19:06:49,679 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:06:49,680 - src.core.decorators - ERROR - Ошибка в функции delete_product: Товар 📋 Мои товары не существует в БД!
-2025-09-27 19:10:35,842 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
-2025-09-27 19:10:35,843 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
-2025-09-27 19:10:36,446 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
-2025-09-27 19:10:36,446 - __main__ - INFO - No active webhook found
-2025-09-27 19:10:36,446 - __main__ - INFO - Checking for updates manually
-2025-09-27 19:10:56,525 - __main__ - INFO - Starting bot polling
-2025-09-27 19:10:59,550 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
-2025-09-27 19:10:59,621 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:10:59,622 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
-2025-09-27 19:10:59,726 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
-2025-09-27 19:10:59,743 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
-2025-09-27 19:10:59,746 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
-2025-09-27 19:10:59,750 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 19:10:59,751 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:10:59,752 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:11:02,652 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:11:02,666 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
-2025-09-27 19:11:02,668 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
-2025-09-27 19:11:02,671 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 19:11:02,672 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:11:02,672 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:11:02,673 - src.presentation.bot.bot_instance - ERROR - Ошибка в handle_product_button
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\bot_instance.py", line 78, in handle_product_button
-    kb = build_product_actions_keyboard(product_id=product["id"], product_link=product["link"])
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\bot_instance.py", line 27, in build_product_actions_keyboard
-    keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("🔄 Обновить цену", callback_data=f"update_price:{product_id}")],
-        [InlineKeyboardButton("🗑 Удалить", callback_data=f"delete_product:{product_id}")],
-        [InlineKeyboardButton("⬅️ Назад", callback_data="back_to_products")]
-    ])
-TypeError: InlineKeyboardMarkup.__init__() got an unexpected keyword argument 'inline_keyboard'
-2025-09-27 19:12:15,359 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
-2025-09-27 19:12:15,360 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
-2025-09-27 19:12:15,969 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
-2025-09-27 19:12:15,969 - __main__ - INFO - No active webhook found
-2025-09-27 19:12:15,969 - __main__ - INFO - Checking for updates manually
-2025-09-27 19:12:36,050 - __main__ - INFO - Starting bot polling
-2025-09-27 19:13:04,972 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
-2025-09-27 19:13:04,973 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
-2025-09-27 19:13:05,526 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
-2025-09-27 19:13:05,527 - __main__ - INFO - No active webhook found
-2025-09-27 19:13:05,527 - __main__ - INFO - Checking for updates manually
-2025-09-27 19:13:25,600 - __main__ - INFO - Starting bot polling
-2025-09-27 19:13:46,686 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
-2025-09-27 19:13:46,795 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:13:46,796 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
-2025-09-27 19:13:46,955 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
-2025-09-27 19:13:46,977 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
-2025-09-27 19:13:46,983 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
-2025-09-27 19:13:46,985 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 19:13:46,986 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:13:46,986 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:13:49,493 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:13:49,515 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
-2025-09-27 19:13:49,526 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
-2025-09-27 19:13:49,531 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 19:13:49,532 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:13:49,533 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:13:49,533 - src.presentation.bot.bot_instance - ERROR - Ошибка в handle_product_button
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\bot_instance.py", line 101, in handle_product_button
-    kb = build_product_actions_keyboard(product_id=product["id"], product_link=product["link"])
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\bot_instance.py", line 49, in build_product_actions_keyboard
-    keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("🔄 Обновить цену", callback_data=f"update_price:{product_id}")],
-        [InlineKeyboardButton("🗑 Удалить", callback_data=f"delete_product:{product_id}")],
-        [InlineKeyboardButton("⬅️ Назад", callback_data="back_to_products")]
-    ])
-TypeError: InlineKeyboardMarkup.__init__() got an unexpected keyword argument 'inline_keyboard'
-2025-09-27 19:23:20,604 - src.presentation.bot.bot_instance - INFO - Loaded BOT_TOKEN: 5702092394...
-2025-09-27 19:23:20,605 - src.presentation.bot.bot_instance - INFO - Bot initialized successfully
-2025-09-27 19:23:21,174 - __main__ - INFO - Webhook info before polling: {'url': '', 'has_custom_certificate': False, 'pending_update_count': 0, 'ip_address': None, 'last_error_date': None, 'last_error_message': None, 'last_synchronization_error_date': None, 'max_connections': None, 'allowed_updates': None}
-2025-09-27 19:23:21,175 - __main__ - INFO - No active webhook found
-2025-09-27 19:23:21,175 - __main__ - INFO - Checking for updates manually
-2025-09-27 19:23:30,588 - __main__ - INFO - Starting bot polling
-2025-09-27 19:23:31,355 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
-2025-09-27 19:23:31,465 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:23:31,465 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
-2025-09-27 19:23:31,649 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
-2025-09-27 19:23:31,674 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1210875683', user_id='', name='Кальсоны LE&LO Хлопок', link='https://www.ozon.ru/product/kalsony-le-lo-hlopok-1210875683/?at=lRt6xLYRyuWAD4lJiwq9x1T1E4OxQFRjlMARfkzwpBA', image_url='https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7365316344.jpg', rating=4.9, categories='{Одежда,Мужчинам,"Нижнее белье","Кальсоны и колготки",LE&LO}', prices=[Price(id=8, product_id='1210875683', with_card=411, without_card=449, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 18, 7, 50, 606556))]) (ID: 1210875683)
-2025-09-27 19:23:31,684 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
-2025-09-27 19:23:31,693 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 19:23:31,694 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:23:31,694 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 19:23:34,021 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-27 19:23:34,041 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2401106364', user_id='', name='Гайковерт аккумуляторный ударный', link='https://www.ozon.ru/product/gaykovert-akkumulyatornyy-udarnyy-2401106364/?at=z6tO6KjW3cXVW0MxSErvrGYTgZAPyltPyK5E1Sk6K9XZ', image_url='https://ir.ozone.ru/s3/multimedia-1-n/wc1000/7707792443.jpg', rating=4.7, categories='{"Строительство и ремонт",Инструменты,Электроинструменты,"Гайковерты и винтоверты"}', prices=[Price(id=7, product_id='2401106364', with_card=3791, without_card=4200, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 12, 39, 25, 487554))]) (ID: 2401106364)
-2025-09-27 19:23:34,052 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
-2025-09-27 19:23:34,056 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-27 19:23:34,057 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-27 19:23:34,057 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-27 20:05:18,962 - TeleBot - ERROR - Exception traceback:
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
     )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1430, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 331, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 300, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-                             " response")
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-The above exception was the direct cause of the following exception:
-
-urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\requests\adapters.py", line 644, in send
-    resp = conn.urlopen(
-        method=request.method,
-    ...<9 lines>...
-        chunked=chunked,
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
-    retries = retries.increment(
-        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
-    )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5702092394:***********************************/getUpdates?offset=557184747&timeout=20 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-During handling of the above exception, another exception occurred:
-
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\start.py", line 23, in command_start_handler
+    reply_markup=keyboard
+                 ^^^^^^^^
+UnboundLocalError: cannot access local variable 'keyboard' where it is not associated with a value
+2025-09-30 14:05:05,198 - aiogram.dispatcher - INFO - Polling stopped
+2025-09-30 14:05:05,202 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-09-30 14:05:05,202 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-09-30 14:05:05,368 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 14:05:11,335 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-09-30 14:05:11,742 - aiogram.dispatcher - INFO - Start polling
+2025-09-30 14:05:11,978 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 14:05:15,001 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-09-30 14:05:15,104 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-30 14:05:15,230 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-09-30 14:05:15,230 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-09-30 14:05:15,230 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-09-30 14:05:15,233 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 14:05:15,234 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 14:05:15,234 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-30 14:05:15,235 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-09-30 14:05:15,235 - aiogram.event - INFO - Update id=557184936 is not handled. Duration 234 ms by bot id=5702092394
+2025-09-30 14:05:15,236 - aiogram.event - ERROR - Cause exception while process update id=557184936 by bot id=5702092394
+ValidationError: 1 validation error for ReplyKeyboardMarkup
+keyboard
+  Field required [type=missing, input_value={'resize_keyboard': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
 Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
-    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 logger_level=logger_level, allowed_updates=allowed_updates, restart_on_change=False,
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 *args, **kwargs)
-                 ^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1198, in polling
-    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                            logger_level=logger_level, allowed_updates=allowed_updates)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
-    raise e
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
-    polling_thread.raise_exceptions()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 112, in raise_exceptions
-    raise self.exception_info
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\util.py", line 94, in run
-    task(*args, **kwargs)
-    ~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
-    updates = self.get_updates(offset=(self.last_update_id + 1),
-                               allowed_updates=allowed_updates,
-                               timeout=timeout, long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
-    json_updates = apihelper.get_updates(
-        self.token, offset=offset, limit=limit, timeout=timeout, allowed_updates=allowed_updates,
-        long_polling_timeout=long_polling_timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 332, in get_updates
-    return _make_request(token, method_url, params=payload)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\telebot\apihelper.py", line 162, in _make_request
-    result = _get_req_session().request(
-        method, request_url, params=params, files=files,
-        timeout=(connect_timeout, read_timeout), proxies=proxy)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\requests\adapters.py", line 671, in send
-    raise ProxyError(e, request=request)
-requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5702092394:***********************************/getUpdates?offset=557184747&timeout=20 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
-
-2025-09-30 13:38:50,994 - src.infrastructure.services.logger - INFO - Бот запущен
-2025-09-30 13:38:51,347 - aiogram.dispatcher - INFO - Start polling
-2025-09-30 13:38:51,570 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-09-30 13:38:54,623 - src.infrastructure.services.logger - INFO - Пользователь  Евгений запустил бота.
-2025-09-30 13:38:54,950 - aiogram.event - INFO - Update id=557184930 is handled. Duration 327 ms by bot id=5702092394
-2025-09-30 13:39:41,463 - aiogram.dispatcher - INFO - Polling stopped
-2025-09-30 13:39:41,466 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
-2025-09-30 13:39:41,466 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
-2025-09-30 13:39:41,629 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-09-30 13:39:45,843 - src.infrastructure.services.logger - INFO - Бот запущен
-2025-09-30 13:39:46,139 - aiogram.dispatcher - INFO - Start polling
-2025-09-30 13:39:46,444 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-09-30 13:39:51,042 - aiogram.event - INFO - Update id=557184931 is handled. Duration 264 ms by bot id=5702092394
-2025-09-30 13:47:15,777 - aiogram.dispatcher - INFO - Polling stopped
-2025-09-30 13:47:15,779 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
-2025-09-30 13:47:15,780 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
-2025-09-30 13:47:15,935 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-09-30 13:47:21,766 - src.infrastructure.services.logger - INFO - Бот запущен
-2025-09-30 13:47:22,035 - aiogram.dispatcher - INFO - Start polling
-2025-09-30 13:47:22,339 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-09-30 13:47:33,505 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.31.122:5432/pricely_db
-2025-09-30 13:47:33,949 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-30 13:47:55,003 - src.infrastructure.services.product_service - ERROR - Ошибка при создании пользователя 515084006: (psycopg2.OperationalError) connection to server at "192.168.31.122", port 5432 failed: Connection timed out (0x0000274C/10060)
-	Is the server running on that host and accepting TCP/IP connections?
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2025-09-30 13:47:55,006 - src.core.uow - WARNING - Исключение в Unit of Work: UserCreationError: Ошибка создания пользователя: (psycopg2.OperationalError) connection to server at "192.168.31.122", port 5432 failed: Connection timed out (0x0000274C/10060)
-	Is the server running on that host and accepting TCP/IP connections?
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2025-09-30 13:47:55,009 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-09-30 13:47:55,010 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-30 13:47:55,011 - src.core.decorators - ERROR - Ошибка в функции create_user: Ошибка создания пользователя: (psycopg2.OperationalError) connection to server at "192.168.31.122", port 5432 failed: Connection timed out (0x0000274C/10060)
-	Is the server running on that host and accepting TCP/IP connections?
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2025-09-30 13:47:55,013 - src.infrastructure.services.logger - WARNING - Ошибка создания пользователя 515084006: Ошибка создания пользователя: (psycopg2.OperationalError) connection to server at "192.168.31.122", port 5432 failed: Connection timed out (0x0000274C/10060)
-	Is the server running on that host and accepting TCP/IP connections?
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2025-09-30 13:47:55,317 - aiogram.event - INFO - Update id=557184932 is handled. Duration 21811 ms by bot id=5702092394
-2025-09-30 13:49:08,860 - aiogram.dispatcher - INFO - Polling stopped
-2025-09-30 13:49:08,864 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
-2025-09-30 13:49:08,865 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
-2025-09-30 13:49:09,020 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-09-30 13:49:16,965 - src.infrastructure.services.logger - INFO - Бот запущен
-2025-09-30 13:49:17,300 - aiogram.dispatcher - INFO - Start polling
-2025-09-30 13:49:17,545 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-09-30 13:49:22,009 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
-2025-09-30 13:49:22,137 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-30 13:49:22,356 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
-2025-09-30 13:49:22,356 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
-2025-09-30 13:49:22,357 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
-2025-09-30 13:49:22,358 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-30 13:49:22,358 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-30 13:49:22,358 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-30 13:49:22,359 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
-2025-09-30 13:49:22,623 - aiogram.event - INFO - Update id=557184933 is handled. Duration 615 ms by bot id=5702092394
-2025-09-30 13:49:32,245 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-09-30 13:49:32,254 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
-2025-09-30 13:49:32,254 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
-2025-09-30 13:49:32,255 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
-2025-09-30 13:49:32,256 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-30 13:49:32,257 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-09-30 13:49:32,258 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-09-30 13:49:32,259 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
-2025-09-30 13:49:32,370 - aiogram.event - INFO - Update id=557184934 is handled. Duration 125 ms by bot id=5702092394
-2025-09-30 13:50:32,782 - aiogram.dispatcher - INFO - Polling stopped
-2025-09-30 13:50:32,785 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
-2025-09-30 13:50:32,786 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
-2025-09-30 13:50:32,932 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\start.py", line 21, in command_start_handler
+    keyboard = main_manu()
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\keyboard\main_menu.py", line 8, in main_manu
+    kb = ReplyKeyboardMarkup(resize_keyboard=True)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ReplyKeyboardMarkup
+keyboard
+  Field required [type=missing, input_value={'resize_keyboard': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+2025-09-30 14:06:12,561 - aiogram.dispatcher - INFO - Polling stopped
+2025-09-30 14:06:12,563 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-09-30 14:06:12,563 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-09-30 14:06:12,736 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 14:06:17,719 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-09-30 14:06:18,068 - aiogram.dispatcher - INFO - Start polling
+2025-09-30 14:06:18,248 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 14:06:20,512 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-09-30 14:06:20,598 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-30 14:06:20,788 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-09-30 14:06:20,789 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-09-30 14:06:20,789 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-09-30 14:06:20,791 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 14:06:20,793 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 14:06:20,794 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-30 14:06:20,794 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-09-30 14:06:20,795 - aiogram.event - INFO - Update id=557184937 is not handled. Duration 283 ms by bot id=5702092394
+2025-09-30 14:06:20,796 - aiogram.event - ERROR - Cause exception while process update id=557184937 by bot id=5702092394
+ValidationError: 1 validation error for ReplyKeyboardMarkup
+keyboard
+  Field required [type=missing, input_value={'resize_keyboard': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\start.py", line 21, in command_start_handler
+    keyboard = main_menu()
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\keyboard\main_menu.py", line 8, in main_menu
+    kb = ReplyKeyboardMarkup(resize_keyboard=True)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ReplyKeyboardMarkup
+keyboard
+  Field required [type=missing, input_value={'resize_keyboard': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+2025-09-30 14:09:01,569 - aiogram.dispatcher - INFO - Polling stopped
+2025-09-30 14:09:01,572 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-09-30 14:09:01,572 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-09-30 14:09:01,732 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
