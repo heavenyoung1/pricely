@@ -8,8 +8,10 @@ dp = Dispatcher()
 
 # Подключаем обработчики
 from .handlers.start import command_start_handler
+from .handlers.help import command_help_handler
 
 dp.message.register(command_start_handler, CommandStart())
+dp.message.register(command_help_handler, Command('help'))
 
 async def main() -> None:
     bot = Bot(token=BOT_TOKEN)

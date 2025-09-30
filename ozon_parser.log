@@ -230,3 +230,39 @@ keyboard
 2025-09-30 14:09:01,572 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-09-30 14:09:01,572 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-09-30 14:09:01,732 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 14:19:16,514 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-09-30 14:19:16,923 - aiogram.dispatcher - INFO - Start polling
+2025-09-30 14:19:17,208 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 14:19:26,038 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-09-30 14:19:26,198 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-30 14:19:26,716 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-09-30 14:19:26,717 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-09-30 14:19:26,717 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-09-30 14:19:26,721 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 14:19:26,722 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 14:19:26,722 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-30 14:19:26,723 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-09-30 14:19:26,919 - aiogram.event - INFO - Update id=557184940 is handled. Duration 883 ms by bot id=5702092394
+2025-09-30 14:19:29,054 - aiogram.event - INFO - Update id=557184941 is not handled. Duration 0 ms by bot id=5702092394
+2025-09-30 14:19:31,198 - aiogram.event - INFO - Update id=557184942 is not handled. Duration 0 ms by bot id=5702092394
+2025-09-30 14:19:33,288 - aiogram.event - INFO - Update id=557184943 is not handled. Duration 0 ms by bot id=5702092394
+2025-09-30 14:20:03,611 - aiogram.dispatcher - INFO - Polling stopped
+2025-09-30 14:20:03,613 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-09-30 14:20:03,614 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-09-30 14:20:03,774 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 14:20:09,056 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-09-30 14:20:09,433 - aiogram.dispatcher - INFO - Start polling
+2025-09-30 14:20:09,614 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-09-30 14:20:13,957 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-09-30 14:20:14,106 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-09-30 14:20:14,312 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-09-30 14:20:14,312 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-09-30 14:20:14,313 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-09-30 14:20:14,316 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 14:20:14,317 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-09-30 14:20:14,318 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-09-30 14:20:14,320 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-09-30 14:20:14,557 - aiogram.event - INFO - Update id=557184944 is handled. Duration 600 ms by bot id=5702092394
+2025-09-30 14:20:15,963 - aiogram.event - INFO - Update id=557184945 is handled. Duration 84 ms by bot id=5702092394
+2025-09-30 14:20:18,480 - aiogram.event - INFO - Update id=557184946 is handled. Duration 82 ms by bot id=5702092394
+2025-09-30 14:20:20,185 - aiogram.event - INFO - Update id=557184947 is handled. Duration 78 ms by bot id=5702092394
