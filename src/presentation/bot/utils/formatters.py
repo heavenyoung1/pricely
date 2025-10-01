@@ -56,7 +56,7 @@ def format_product_message(product: dict) -> str:
         f"📦 {product.get('name', 'Неизвестный товар')}\n"
         f"💳 Цена с картой: {with_card}\n"
         f"💵 Цена без карты: {without_card}\n"
-        f"🔗 {product.get('link', '#')}"
+        f"🔗 <a href='{product.get('link', '#')}'>Ссылка на товар</a>"
     )
     
     return text
