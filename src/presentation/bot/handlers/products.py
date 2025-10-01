@@ -1,28 +1,32 @@
 from aiogram.types import Message, CallbackQuery
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.fsm.context import FSMContext
 
+from src.presentation.bot.utils.fsm import ProductAddState
 from src.infrastructure.services import product_service
 from src.infrastructure.services import logger
 from src.presentation.bot.utils.formatters import format_product_message, format_categories
 from src.presentation.bot.utils.keyboard import build_product_actions_keyboard
 
 # 1️⃣ Обработчик команды "➕ Добавить товар"
-async def add_product_request(message: Message):
+async def add_product_request(message: Message, state: FSMContext):
+    logger.info("Обработчик /add_product сработал")
     await message.answer("📦 Отправь ссылку на товар с Ozon")
 
     # Устанавливаем состояние ожидания URL товара (если используем FSM, можно это добавить в следующий шаг)
-
+    await state.set_state(ProductAddState.waiting_for_url)
     # Переход в следующее состояние, где пользователь отправит URL товара
     await message.answer("⏳ Парсинг начался, ожидайте...")
 
 # 2️⃣ Обработчик для получения URL товара и добавления товара
-async def add_product_process(message: Message):
+async def add_product_process(message: Message, state: FSMContext):
+    if not await state.get_state() == ProductAddState.waiting_for_url:
+        return  # Игнорируем, если пользователь не в этом состоянии
+    
+    logger.info(f"Обработчик add_product_process с URL: {message.text}")
     url = message.text.strip()
     try:
-        # Предполагаем, что create_product — асинхронная функция
-        result = await product_service.create_product(str(message.from_user.id), url)
-
-        # Отправляем пользователю информацию о добавленном товаре
+        result = product_service.create_product(str(message.from_user.id), url)
         await message.answer(
             f"✅ Товар добавлен!\n\n"
             f"Название: {result['product_name']}\n"
@@ -33,6 +37,9 @@ async def add_product_process(message: Message):
     except Exception as e:
         logger.exception("Ошибка при добавлении товара")
         await message.answer(f"❌ Ошибка: {e}")
+
+    # Сбрасываем состояние
+    await state.clear()
 
 # 1️⃣ Список товаров
 async def get_my_product_list(message: Message):
@@ -50,7 +57,9 @@ async def get_my_product_list(message: Message):
         for p in products: 
             name = p.get('name') or p.get('product_name') or p.get('id')
             display = name if len(name) <= 60 else name[:57] + '...'
-            kb.add(InlineKeyboardButton(text=display, callback_data=f'product:{p['id']}'))
+            kb.add(InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}"))
+            # Вот здесь нужно было добавить?
+            await message.answer("📋 Ваши товары:", reply_markup=kb)
     except Exception as e:
         logger.exception('Ошибка при получении списка товаров')
         await message.answer(f'❌ Ошибка: {e}')
@@ -105,7 +114,8 @@ async def handle_update_price(call: CallbackQuery):
 
         # Формируем новое сообщение
         logger.info('Формируем новое сообщение')
-        new_text = await format_product_message(updated_product)
+        # УБРАЛИ AWAIT так как фукнция синхронная
+        new_text = format_product_message(updated_product)
         logger.info(f'Сформированный текст: {new_text}')
 
         new_markup = build_product_actions_keyboard(product_id, updated_product['link'])

@@ -2,7 +2,8 @@ from aiogram import types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram import Bot, Dispatcher
 from aiogram.types import CallbackQuery
-from src.presentation.sync_bot.utils import service, format_product_message, build_product_actions_keyboard
+from src.presentation.bot.utils.formatters import format_product_message
+from src.presentation.bot.utils.keyboard import build_product_actions_keyboard
 from src.infrastructure.services import logger, product_service
 
 async def choose_product_to_delete(message: types.Message):
@@ -17,7 +18,8 @@ async def choose_product_to_delete(message: types.Message):
             name = p.get("name") or p.get("product_name") or p.get("id")
             display = name if len(name) <= 60 else name[:57] + "..."
             kb.add(InlineKeyboardButton(text=f"🗑 {display}", callback_data=f"delete_product:{p['id']}"))
-
+            # Вот здесь нужно было добавить?
+            await message.answer("Выберите товар для удаления:", reply_markup=kb)
 
     except Exception as e:
         logger.exception("Ошибка при показе списка для удаления")

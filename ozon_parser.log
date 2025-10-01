@@ -272,3 +272,1224 @@ keyboard
 2025-09-30 16:19:41,388 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-09-30 16:19:41,390 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-09-30 16:19:41,492 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 09:49:32,994 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 09:49:33,703 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 09:49:33,964 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 09:49:56,048 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 09:49:56,282 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 09:49:56,791 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 09:49:56,792 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 09:49:56,792 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 09:49:56,799 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 09:49:56,800 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 09:49:56,801 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 09:49:56,802 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 09:49:57,040 - aiogram.event - INFO - Update id=557184950 is handled. Duration 992 ms by bot id=5702092394
+2025-10-01 09:49:59,615 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 09:50:03,897 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-01 09:50:03,907 - src.infrastructure.parsers.session_engine - ERROR - Ошибка при загрузке страницы 📋 Мои товары: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7ae3a1eb5+80197]
+	GetHandleVerifier [0x0x7ff7ae3a1f10+80288]
+	(No symbol) [0x0x7ff7ae12011c]
+	(No symbol) [0x0x7ff7ae10ce39]
+	(No symbol) [0x0x7ff7ae10b19d]
+	(No symbol) [0x0x7ff7ae10b87c]
+	(No symbol) [0x0x7ff7ae1243ca]
+	(No symbol) [0x0x7ff7ae1c95de]
+	(No symbol) [0x0x7ff7ae1a037a]
+	(No symbol) [0x0x7ff7ae1c87fb]
+	(No symbol) [0x0x7ff7ae1a0153]
+	(No symbol) [0x0x7ff7ae168b02]
+	(No symbol) [0x0x7ff7ae1698d3]
+	GetHandleVerifier [0x0x7ff7ae65e83d+2949837]
+	GetHandleVerifier [0x0x7ff7ae658c6a+2926330]
+	GetHandleVerifier [0x0x7ff7ae6786c7+3055959]
+	GetHandleVerifier [0x0x7ff7ae3bcfee+191102]
+	GetHandleVerifier [0x0x7ff7ae3c50af+224063]
+	GetHandleVerifier [0x0x7ff7ae3aaf64+117236]
+	GetHandleVerifier [0x0x7ff7ae3ab119+117673]
+	GetHandleVerifier [0x0x7ff7ae3910a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:50:03,908 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при парсинге страницы 📋 Мои товары: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7ae3a1eb5+80197]
+	GetHandleVerifier [0x0x7ff7ae3a1f10+80288]
+	(No symbol) [0x0x7ff7ae12011c]
+	(No symbol) [0x0x7ff7ae10ce39]
+	(No symbol) [0x0x7ff7ae10b19d]
+	(No symbol) [0x0x7ff7ae10b87c]
+	(No symbol) [0x0x7ff7ae1243ca]
+	(No symbol) [0x0x7ff7ae1c95de]
+	(No symbol) [0x0x7ff7ae1a037a]
+	(No symbol) [0x0x7ff7ae1c87fb]
+	(No symbol) [0x0x7ff7ae1a0153]
+	(No symbol) [0x0x7ff7ae168b02]
+	(No symbol) [0x0x7ff7ae1698d3]
+	GetHandleVerifier [0x0x7ff7ae65e83d+2949837]
+	GetHandleVerifier [0x0x7ff7ae658c6a+2926330]
+	GetHandleVerifier [0x0x7ff7ae6786c7+3055959]
+	GetHandleVerifier [0x0x7ff7ae3bcfee+191102]
+	GetHandleVerifier [0x0x7ff7ae3c50af+224063]
+	GetHandleVerifier [0x0x7ff7ae3aaf64+117236]
+	GetHandleVerifier [0x0x7ff7ae3ab119+117673]
+	GetHandleVerifier [0x0x7ff7ae3910a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:50:03,909 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7ae3a1eb5+80197]
+	GetHandleVerifier [0x0x7ff7ae3a1f10+80288]
+	(No symbol) [0x0x7ff7ae12011c]
+	(No symbol) [0x0x7ff7ae10ce39]
+	(No symbol) [0x0x7ff7ae10b19d]
+	(No symbol) [0x0x7ff7ae10b87c]
+	(No symbol) [0x0x7ff7ae1243ca]
+	(No symbol) [0x0x7ff7ae1c95de]
+	(No symbol) [0x0x7ff7ae1a037a]
+	(No symbol) [0x0x7ff7ae1c87fb]
+	(No symbol) [0x0x7ff7ae1a0153]
+	(No symbol) [0x0x7ff7ae168b02]
+	(No symbol) [0x0x7ff7ae1698d3]
+	GetHandleVerifier [0x0x7ff7ae65e83d+2949837]
+	GetHandleVerifier [0x0x7ff7ae658c6a+2926330]
+	GetHandleVerifier [0x0x7ff7ae6786c7+3055959]
+	GetHandleVerifier [0x0x7ff7ae3bcfee+191102]
+	GetHandleVerifier [0x0x7ff7ae3c50af+224063]
+	GetHandleVerifier [0x0x7ff7ae3aaf64+117236]
+	GetHandleVerifier [0x0x7ff7ae3ab119+117673]
+	GetHandleVerifier [0x0x7ff7ae3910a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:50:06,037 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-01 09:50:06,037 - src.application.use_cases.create_product - ERROR - Ошибка парсинга URL 📋 Мои товары для пользователя 515084006: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7ae3a1eb5+80197]
+	GetHandleVerifier [0x0x7ff7ae3a1f10+80288]
+	(No symbol) [0x0x7ff7ae12011c]
+	(No symbol) [0x0x7ff7ae10ce39]
+	(No symbol) [0x0x7ff7ae10b19d]
+	(No symbol) [0x0x7ff7ae10b87c]
+	(No symbol) [0x0x7ff7ae1243ca]
+	(No symbol) [0x0x7ff7ae1c95de]
+	(No symbol) [0x0x7ff7ae1a037a]
+	(No symbol) [0x0x7ff7ae1c87fb]
+	(No symbol) [0x0x7ff7ae1a0153]
+	(No symbol) [0x0x7ff7ae168b02]
+	(No symbol) [0x0x7ff7ae1698d3]
+	GetHandleVerifier [0x0x7ff7ae65e83d+2949837]
+	GetHandleVerifier [0x0x7ff7ae658c6a+2926330]
+	GetHandleVerifier [0x0x7ff7ae6786c7+3055959]
+	GetHandleVerifier [0x0x7ff7ae3bcfee+191102]
+	GetHandleVerifier [0x0x7ff7ae3c50af+224063]
+	GetHandleVerifier [0x0x7ff7ae3aaf64+117236]
+	GetHandleVerifier [0x0x7ff7ae3ab119+117673]
+	GetHandleVerifier [0x0x7ff7ae3910a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:50:06,038 - src.core.uow - WARNING - Исключение в Unit of Work: ParserProductError: Ошибка парсинга товара
+2025-10-01 09:50:06,039 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-01 09:50:06,039 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 09:50:06,040 - src.core.decorators - ERROR - Ошибка в функции create_product: Ошибка парсинга товара
+2025-10-01 09:50:06,040 - src.infrastructure.services.logger - ERROR - Ошибка при добавлении товара
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\create_product.py", line 32, in execute
+    product_data = self.parser.parse_product(url)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    result = func(self, session, *args, **kwargs)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 28, in parse_product
+    session.navigate(url)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 84, in navigate
+    self.driver.get(url)
+    ~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 483, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7ae3a1eb5+80197]
+	GetHandleVerifier [0x0x7ff7ae3a1f10+80288]
+	(No symbol) [0x0x7ff7ae12011c]
+	(No symbol) [0x0x7ff7ae10ce39]
+	(No symbol) [0x0x7ff7ae10b19d]
+	(No symbol) [0x0x7ff7ae10b87c]
+	(No symbol) [0x0x7ff7ae1243ca]
+	(No symbol) [0x0x7ff7ae1c95de]
+	(No symbol) [0x0x7ff7ae1a037a]
+	(No symbol) [0x0x7ff7ae1c87fb]
+	(No symbol) [0x0x7ff7ae1a0153]
+	(No symbol) [0x0x7ff7ae168b02]
+	(No symbol) [0x0x7ff7ae1698d3]
+	GetHandleVerifier [0x0x7ff7ae65e83d+2949837]
+	GetHandleVerifier [0x0x7ff7ae658c6a+2926330]
+	GetHandleVerifier [0x0x7ff7ae6786c7+3055959]
+	GetHandleVerifier [0x0x7ff7ae3bcfee+191102]
+	GetHandleVerifier [0x0x7ff7ae3c50af+224063]
+	GetHandleVerifier [0x0x7ff7ae3aaf64+117236]
+	GetHandleVerifier [0x0x7ff7ae3ab119+117673]
+	GetHandleVerifier [0x0x7ff7ae3910a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 23, in add_product_process
+    result = await product_service.create_product(str(message.from_user.id), url)
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 47, in create_product
+    return use_case.execute(user_id, url)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\create_product.py", line 36, in execute
+    raise ParserProductError('Ошибка парсинга товара')
+src.domain.exceptions.ParserProductError: Ошибка парсинга товара
+2025-10-01 09:50:06,373 - aiogram.event - INFO - Update id=557184951 is handled. Duration 6759 ms by bot id=5702092394
+2025-10-01 09:50:09,137 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 09:50:10,745 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-01 09:50:10,753 - src.infrastructure.parsers.session_engine - ERROR - Ошибка при загрузке страницы ➕ Добавить товар: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7ae3a1eb5+80197]
+	GetHandleVerifier [0x0x7ff7ae3a1f10+80288]
+	(No symbol) [0x0x7ff7ae12011c]
+	(No symbol) [0x0x7ff7ae10ce39]
+	(No symbol) [0x0x7ff7ae10b19d]
+	(No symbol) [0x0x7ff7ae10b87c]
+	(No symbol) [0x0x7ff7ae1243ca]
+	(No symbol) [0x0x7ff7ae1c95de]
+	(No symbol) [0x0x7ff7ae1a037a]
+	(No symbol) [0x0x7ff7ae1c87fb]
+	(No symbol) [0x0x7ff7ae1a0153]
+	(No symbol) [0x0x7ff7ae168b02]
+	(No symbol) [0x0x7ff7ae1698d3]
+	GetHandleVerifier [0x0x7ff7ae65e83d+2949837]
+	GetHandleVerifier [0x0x7ff7ae658c6a+2926330]
+	GetHandleVerifier [0x0x7ff7ae6786c7+3055959]
+	GetHandleVerifier [0x0x7ff7ae3bcfee+191102]
+	GetHandleVerifier [0x0x7ff7ae3c50af+224063]
+	GetHandleVerifier [0x0x7ff7ae3aaf64+117236]
+	GetHandleVerifier [0x0x7ff7ae3ab119+117673]
+	GetHandleVerifier [0x0x7ff7ae3910a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:50:10,755 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при парсинге страницы ➕ Добавить товар: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7ae3a1eb5+80197]
+	GetHandleVerifier [0x0x7ff7ae3a1f10+80288]
+	(No symbol) [0x0x7ff7ae12011c]
+	(No symbol) [0x0x7ff7ae10ce39]
+	(No symbol) [0x0x7ff7ae10b19d]
+	(No symbol) [0x0x7ff7ae10b87c]
+	(No symbol) [0x0x7ff7ae1243ca]
+	(No symbol) [0x0x7ff7ae1c95de]
+	(No symbol) [0x0x7ff7ae1a037a]
+	(No symbol) [0x0x7ff7ae1c87fb]
+	(No symbol) [0x0x7ff7ae1a0153]
+	(No symbol) [0x0x7ff7ae168b02]
+	(No symbol) [0x0x7ff7ae1698d3]
+	GetHandleVerifier [0x0x7ff7ae65e83d+2949837]
+	GetHandleVerifier [0x0x7ff7ae658c6a+2926330]
+	GetHandleVerifier [0x0x7ff7ae6786c7+3055959]
+	GetHandleVerifier [0x0x7ff7ae3bcfee+191102]
+	GetHandleVerifier [0x0x7ff7ae3c50af+224063]
+	GetHandleVerifier [0x0x7ff7ae3aaf64+117236]
+	GetHandleVerifier [0x0x7ff7ae3ab119+117673]
+	GetHandleVerifier [0x0x7ff7ae3910a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:50:10,757 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7ae3a1eb5+80197]
+	GetHandleVerifier [0x0x7ff7ae3a1f10+80288]
+	(No symbol) [0x0x7ff7ae12011c]
+	(No symbol) [0x0x7ff7ae10ce39]
+	(No symbol) [0x0x7ff7ae10b19d]
+	(No symbol) [0x0x7ff7ae10b87c]
+	(No symbol) [0x0x7ff7ae1243ca]
+	(No symbol) [0x0x7ff7ae1c95de]
+	(No symbol) [0x0x7ff7ae1a037a]
+	(No symbol) [0x0x7ff7ae1c87fb]
+	(No symbol) [0x0x7ff7ae1a0153]
+	(No symbol) [0x0x7ff7ae168b02]
+	(No symbol) [0x0x7ff7ae1698d3]
+	GetHandleVerifier [0x0x7ff7ae65e83d+2949837]
+	GetHandleVerifier [0x0x7ff7ae658c6a+2926330]
+	GetHandleVerifier [0x0x7ff7ae6786c7+3055959]
+	GetHandleVerifier [0x0x7ff7ae3bcfee+191102]
+	GetHandleVerifier [0x0x7ff7ae3c50af+224063]
+	GetHandleVerifier [0x0x7ff7ae3aaf64+117236]
+	GetHandleVerifier [0x0x7ff7ae3ab119+117673]
+	GetHandleVerifier [0x0x7ff7ae3910a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:50:12,523 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-01 09:50:12,523 - src.application.use_cases.create_product - ERROR - Ошибка парсинга URL ➕ Добавить товар для пользователя 515084006: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7ae3a1eb5+80197]
+	GetHandleVerifier [0x0x7ff7ae3a1f10+80288]
+	(No symbol) [0x0x7ff7ae12011c]
+	(No symbol) [0x0x7ff7ae10ce39]
+	(No symbol) [0x0x7ff7ae10b19d]
+	(No symbol) [0x0x7ff7ae10b87c]
+	(No symbol) [0x0x7ff7ae1243ca]
+	(No symbol) [0x0x7ff7ae1c95de]
+	(No symbol) [0x0x7ff7ae1a037a]
+	(No symbol) [0x0x7ff7ae1c87fb]
+	(No symbol) [0x0x7ff7ae1a0153]
+	(No symbol) [0x0x7ff7ae168b02]
+	(No symbol) [0x0x7ff7ae1698d3]
+	GetHandleVerifier [0x0x7ff7ae65e83d+2949837]
+	GetHandleVerifier [0x0x7ff7ae658c6a+2926330]
+	GetHandleVerifier [0x0x7ff7ae6786c7+3055959]
+	GetHandleVerifier [0x0x7ff7ae3bcfee+191102]
+	GetHandleVerifier [0x0x7ff7ae3c50af+224063]
+	GetHandleVerifier [0x0x7ff7ae3aaf64+117236]
+	GetHandleVerifier [0x0x7ff7ae3ab119+117673]
+	GetHandleVerifier [0x0x7ff7ae3910a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:50:12,524 - src.core.uow - WARNING - Исключение в Unit of Work: ParserProductError: Ошибка парсинга товара
+2025-10-01 09:50:12,525 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-01 09:50:12,525 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 09:50:12,526 - src.core.decorators - ERROR - Ошибка в функции create_product: Ошибка парсинга товара
+2025-10-01 09:50:12,526 - src.infrastructure.services.logger - ERROR - Ошибка при добавлении товара
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\create_product.py", line 32, in execute
+    product_data = self.parser.parse_product(url)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    result = func(self, session, *args, **kwargs)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 28, in parse_product
+    session.navigate(url)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 84, in navigate
+    self.driver.get(url)
+    ~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 483, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7ae3a1eb5+80197]
+	GetHandleVerifier [0x0x7ff7ae3a1f10+80288]
+	(No symbol) [0x0x7ff7ae12011c]
+	(No symbol) [0x0x7ff7ae10ce39]
+	(No symbol) [0x0x7ff7ae10b19d]
+	(No symbol) [0x0x7ff7ae10b87c]
+	(No symbol) [0x0x7ff7ae1243ca]
+	(No symbol) [0x0x7ff7ae1c95de]
+	(No symbol) [0x0x7ff7ae1a037a]
+	(No symbol) [0x0x7ff7ae1c87fb]
+	(No symbol) [0x0x7ff7ae1a0153]
+	(No symbol) [0x0x7ff7ae168b02]
+	(No symbol) [0x0x7ff7ae1698d3]
+	GetHandleVerifier [0x0x7ff7ae65e83d+2949837]
+	GetHandleVerifier [0x0x7ff7ae658c6a+2926330]
+	GetHandleVerifier [0x0x7ff7ae6786c7+3055959]
+	GetHandleVerifier [0x0x7ff7ae3bcfee+191102]
+	GetHandleVerifier [0x0x7ff7ae3c50af+224063]
+	GetHandleVerifier [0x0x7ff7ae3aaf64+117236]
+	GetHandleVerifier [0x0x7ff7ae3ab119+117673]
+	GetHandleVerifier [0x0x7ff7ae3910a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 23, in add_product_process
+    result = await product_service.create_product(str(message.from_user.id), url)
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 47, in create_product
+    return use_case.execute(user_id, url)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\create_product.py", line 36, in execute
+    raise ParserProductError('Ошибка парсинга товара')
+src.domain.exceptions.ParserProductError: Ошибка парсинга товара
+2025-10-01 09:50:12,717 - aiogram.event - INFO - Update id=557184952 is handled. Duration 3580 ms by bot id=5702092394
+2025-10-01 09:51:32,221 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 09:51:32,224 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 09:51:32,225 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 09:51:32,384 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 09:51:49,927 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 09:51:50,553 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 09:51:50,815 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 09:53:52,318 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 09:53:52,320 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 09:53:52,320 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 09:53:52,493 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 09:54:01,419 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 09:54:01,854 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 09:54:02,050 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 09:54:04,608 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 09:54:04,745 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 09:54:05,594 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 09:54:05,594 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 09:54:05,595 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 09:54:05,602 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 09:54:05,603 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 09:54:05,603 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 09:54:05,604 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 09:54:05,822 - aiogram.event - INFO - Update id=557184953 is handled. Duration 1213 ms by bot id=5702092394
+2025-10-01 09:54:09,284 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 09:54:10,958 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-01 09:54:10,966 - src.infrastructure.parsers.session_engine - ERROR - Ошибка при загрузке страницы 📋 Мои товары: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff76e9d1eb5+80197]
+	GetHandleVerifier [0x0x7ff76e9d1f10+80288]
+	(No symbol) [0x0x7ff76e75011c]
+	(No symbol) [0x0x7ff76e73ce39]
+	(No symbol) [0x0x7ff76e73b19d]
+	(No symbol) [0x0x7ff76e73b87c]
+	(No symbol) [0x0x7ff76e7543ca]
+	(No symbol) [0x0x7ff76e7f95de]
+	(No symbol) [0x0x7ff76e7d037a]
+	(No symbol) [0x0x7ff76e7f87fb]
+	(No symbol) [0x0x7ff76e7d0153]
+	(No symbol) [0x0x7ff76e798b02]
+	(No symbol) [0x0x7ff76e7998d3]
+	GetHandleVerifier [0x0x7ff76ec8e83d+2949837]
+	GetHandleVerifier [0x0x7ff76ec88c6a+2926330]
+	GetHandleVerifier [0x0x7ff76eca86c7+3055959]
+	GetHandleVerifier [0x0x7ff76e9ecfee+191102]
+	GetHandleVerifier [0x0x7ff76e9f50af+224063]
+	GetHandleVerifier [0x0x7ff76e9daf64+117236]
+	GetHandleVerifier [0x0x7ff76e9db119+117673]
+	GetHandleVerifier [0x0x7ff76e9c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:54:10,967 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при парсинге страницы 📋 Мои товары: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff76e9d1eb5+80197]
+	GetHandleVerifier [0x0x7ff76e9d1f10+80288]
+	(No symbol) [0x0x7ff76e75011c]
+	(No symbol) [0x0x7ff76e73ce39]
+	(No symbol) [0x0x7ff76e73b19d]
+	(No symbol) [0x0x7ff76e73b87c]
+	(No symbol) [0x0x7ff76e7543ca]
+	(No symbol) [0x0x7ff76e7f95de]
+	(No symbol) [0x0x7ff76e7d037a]
+	(No symbol) [0x0x7ff76e7f87fb]
+	(No symbol) [0x0x7ff76e7d0153]
+	(No symbol) [0x0x7ff76e798b02]
+	(No symbol) [0x0x7ff76e7998d3]
+	GetHandleVerifier [0x0x7ff76ec8e83d+2949837]
+	GetHandleVerifier [0x0x7ff76ec88c6a+2926330]
+	GetHandleVerifier [0x0x7ff76eca86c7+3055959]
+	GetHandleVerifier [0x0x7ff76e9ecfee+191102]
+	GetHandleVerifier [0x0x7ff76e9f50af+224063]
+	GetHandleVerifier [0x0x7ff76e9daf64+117236]
+	GetHandleVerifier [0x0x7ff76e9db119+117673]
+	GetHandleVerifier [0x0x7ff76e9c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:54:10,968 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff76e9d1eb5+80197]
+	GetHandleVerifier [0x0x7ff76e9d1f10+80288]
+	(No symbol) [0x0x7ff76e75011c]
+	(No symbol) [0x0x7ff76e73ce39]
+	(No symbol) [0x0x7ff76e73b19d]
+	(No symbol) [0x0x7ff76e73b87c]
+	(No symbol) [0x0x7ff76e7543ca]
+	(No symbol) [0x0x7ff76e7f95de]
+	(No symbol) [0x0x7ff76e7d037a]
+	(No symbol) [0x0x7ff76e7f87fb]
+	(No symbol) [0x0x7ff76e7d0153]
+	(No symbol) [0x0x7ff76e798b02]
+	(No symbol) [0x0x7ff76e7998d3]
+	GetHandleVerifier [0x0x7ff76ec8e83d+2949837]
+	GetHandleVerifier [0x0x7ff76ec88c6a+2926330]
+	GetHandleVerifier [0x0x7ff76eca86c7+3055959]
+	GetHandleVerifier [0x0x7ff76e9ecfee+191102]
+	GetHandleVerifier [0x0x7ff76e9f50af+224063]
+	GetHandleVerifier [0x0x7ff76e9daf64+117236]
+	GetHandleVerifier [0x0x7ff76e9db119+117673]
+	GetHandleVerifier [0x0x7ff76e9c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:54:12,879 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-01 09:54:12,880 - src.application.use_cases.create_product - ERROR - Ошибка парсинга URL 📋 Мои товары для пользователя 515084006: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff76e9d1eb5+80197]
+	GetHandleVerifier [0x0x7ff76e9d1f10+80288]
+	(No symbol) [0x0x7ff76e75011c]
+	(No symbol) [0x0x7ff76e73ce39]
+	(No symbol) [0x0x7ff76e73b19d]
+	(No symbol) [0x0x7ff76e73b87c]
+	(No symbol) [0x0x7ff76e7543ca]
+	(No symbol) [0x0x7ff76e7f95de]
+	(No symbol) [0x0x7ff76e7d037a]
+	(No symbol) [0x0x7ff76e7f87fb]
+	(No symbol) [0x0x7ff76e7d0153]
+	(No symbol) [0x0x7ff76e798b02]
+	(No symbol) [0x0x7ff76e7998d3]
+	GetHandleVerifier [0x0x7ff76ec8e83d+2949837]
+	GetHandleVerifier [0x0x7ff76ec88c6a+2926330]
+	GetHandleVerifier [0x0x7ff76eca86c7+3055959]
+	GetHandleVerifier [0x0x7ff76e9ecfee+191102]
+	GetHandleVerifier [0x0x7ff76e9f50af+224063]
+	GetHandleVerifier [0x0x7ff76e9daf64+117236]
+	GetHandleVerifier [0x0x7ff76e9db119+117673]
+	GetHandleVerifier [0x0x7ff76e9c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:54:12,882 - src.core.uow - WARNING - Исключение в Unit of Work: ParserProductError: Ошибка парсинга товара
+2025-10-01 09:54:12,883 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-01 09:54:12,883 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 09:54:12,884 - src.core.decorators - ERROR - Ошибка в функции create_product: Ошибка парсинга товара
+2025-10-01 09:54:12,884 - src.infrastructure.services.logger - ERROR - Ошибка при добавлении товара
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\create_product.py", line 32, in execute
+    product_data = self.parser.parse_product(url)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    result = func(self, session, *args, **kwargs)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 28, in parse_product
+    session.navigate(url)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 84, in navigate
+    self.driver.get(url)
+    ~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 483, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff76e9d1eb5+80197]
+	GetHandleVerifier [0x0x7ff76e9d1f10+80288]
+	(No symbol) [0x0x7ff76e75011c]
+	(No symbol) [0x0x7ff76e73ce39]
+	(No symbol) [0x0x7ff76e73b19d]
+	(No symbol) [0x0x7ff76e73b87c]
+	(No symbol) [0x0x7ff76e7543ca]
+	(No symbol) [0x0x7ff76e7f95de]
+	(No symbol) [0x0x7ff76e7d037a]
+	(No symbol) [0x0x7ff76e7f87fb]
+	(No symbol) [0x0x7ff76e7d0153]
+	(No symbol) [0x0x7ff76e798b02]
+	(No symbol) [0x0x7ff76e7998d3]
+	GetHandleVerifier [0x0x7ff76ec8e83d+2949837]
+	GetHandleVerifier [0x0x7ff76ec88c6a+2926330]
+	GetHandleVerifier [0x0x7ff76eca86c7+3055959]
+	GetHandleVerifier [0x0x7ff76e9ecfee+191102]
+	GetHandleVerifier [0x0x7ff76e9f50af+224063]
+	GetHandleVerifier [0x0x7ff76e9daf64+117236]
+	GetHandleVerifier [0x0x7ff76e9db119+117673]
+	GetHandleVerifier [0x0x7ff76e9c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 23, in add_product_process
+    result = await product_service.create_product(str(message.from_user.id), url)
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 47, in create_product
+    return use_case.execute(user_id, url)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\create_product.py", line 36, in execute
+    raise ParserProductError('Ошибка парсинга товара')
+src.domain.exceptions.ParserProductError: Ошибка парсинга товара
+2025-10-01 09:54:12,989 - aiogram.event - INFO - Update id=557184954 is handled. Duration 3706 ms by bot id=5702092394
+2025-10-01 09:56:02,082 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 09:56:02,087 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 09:56:02,089 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 09:56:02,244 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 09:56:11,020 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 09:56:11,402 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 09:56:11,626 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 09:56:14,929 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 09:56:15,026 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 09:56:15,306 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 09:56:15,307 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 09:56:15,307 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 09:56:15,310 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 09:56:15,311 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 09:56:15,311 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 09:56:15,312 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 09:56:15,557 - aiogram.event - INFO - Update id=557184955 is handled. Duration 627 ms by bot id=5702092394
+2025-10-01 09:56:18,995 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 09:56:20,700 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-01 09:56:20,705 - src.infrastructure.parsers.session_engine - ERROR - Ошибка при загрузке страницы 📋 Мои товары: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff76e9d1eb5+80197]
+	GetHandleVerifier [0x0x7ff76e9d1f10+80288]
+	(No symbol) [0x0x7ff76e75011c]
+	(No symbol) [0x0x7ff76e73ce39]
+	(No symbol) [0x0x7ff76e73b19d]
+	(No symbol) [0x0x7ff76e73b87c]
+	(No symbol) [0x0x7ff76e7543ca]
+	(No symbol) [0x0x7ff76e7f95de]
+	(No symbol) [0x0x7ff76e7d037a]
+	(No symbol) [0x0x7ff76e7f87fb]
+	(No symbol) [0x0x7ff76e7d0153]
+	(No symbol) [0x0x7ff76e798b02]
+	(No symbol) [0x0x7ff76e7998d3]
+	GetHandleVerifier [0x0x7ff76ec8e83d+2949837]
+	GetHandleVerifier [0x0x7ff76ec88c6a+2926330]
+	GetHandleVerifier [0x0x7ff76eca86c7+3055959]
+	GetHandleVerifier [0x0x7ff76e9ecfee+191102]
+	GetHandleVerifier [0x0x7ff76e9f50af+224063]
+	GetHandleVerifier [0x0x7ff76e9daf64+117236]
+	GetHandleVerifier [0x0x7ff76e9db119+117673]
+	GetHandleVerifier [0x0x7ff76e9c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:56:20,705 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при парсинге страницы 📋 Мои товары: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff76e9d1eb5+80197]
+	GetHandleVerifier [0x0x7ff76e9d1f10+80288]
+	(No symbol) [0x0x7ff76e75011c]
+	(No symbol) [0x0x7ff76e73ce39]
+	(No symbol) [0x0x7ff76e73b19d]
+	(No symbol) [0x0x7ff76e73b87c]
+	(No symbol) [0x0x7ff76e7543ca]
+	(No symbol) [0x0x7ff76e7f95de]
+	(No symbol) [0x0x7ff76e7d037a]
+	(No symbol) [0x0x7ff76e7f87fb]
+	(No symbol) [0x0x7ff76e7d0153]
+	(No symbol) [0x0x7ff76e798b02]
+	(No symbol) [0x0x7ff76e7998d3]
+	GetHandleVerifier [0x0x7ff76ec8e83d+2949837]
+	GetHandleVerifier [0x0x7ff76ec88c6a+2926330]
+	GetHandleVerifier [0x0x7ff76eca86c7+3055959]
+	GetHandleVerifier [0x0x7ff76e9ecfee+191102]
+	GetHandleVerifier [0x0x7ff76e9f50af+224063]
+	GetHandleVerifier [0x0x7ff76e9daf64+117236]
+	GetHandleVerifier [0x0x7ff76e9db119+117673]
+	GetHandleVerifier [0x0x7ff76e9c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:56:20,706 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff76e9d1eb5+80197]
+	GetHandleVerifier [0x0x7ff76e9d1f10+80288]
+	(No symbol) [0x0x7ff76e75011c]
+	(No symbol) [0x0x7ff76e73ce39]
+	(No symbol) [0x0x7ff76e73b19d]
+	(No symbol) [0x0x7ff76e73b87c]
+	(No symbol) [0x0x7ff76e7543ca]
+	(No symbol) [0x0x7ff76e7f95de]
+	(No symbol) [0x0x7ff76e7d037a]
+	(No symbol) [0x0x7ff76e7f87fb]
+	(No symbol) [0x0x7ff76e7d0153]
+	(No symbol) [0x0x7ff76e798b02]
+	(No symbol) [0x0x7ff76e7998d3]
+	GetHandleVerifier [0x0x7ff76ec8e83d+2949837]
+	GetHandleVerifier [0x0x7ff76ec88c6a+2926330]
+	GetHandleVerifier [0x0x7ff76eca86c7+3055959]
+	GetHandleVerifier [0x0x7ff76e9ecfee+191102]
+	GetHandleVerifier [0x0x7ff76e9f50af+224063]
+	GetHandleVerifier [0x0x7ff76e9daf64+117236]
+	GetHandleVerifier [0x0x7ff76e9db119+117673]
+	GetHandleVerifier [0x0x7ff76e9c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:56:22,305 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-01 09:56:22,316 - src.application.use_cases.create_product - ERROR - Ошибка парсинга URL 📋 Мои товары для пользователя 515084006: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff76e9d1eb5+80197]
+	GetHandleVerifier [0x0x7ff76e9d1f10+80288]
+	(No symbol) [0x0x7ff76e75011c]
+	(No symbol) [0x0x7ff76e73ce39]
+	(No symbol) [0x0x7ff76e73b19d]
+	(No symbol) [0x0x7ff76e73b87c]
+	(No symbol) [0x0x7ff76e7543ca]
+	(No symbol) [0x0x7ff76e7f95de]
+	(No symbol) [0x0x7ff76e7d037a]
+	(No symbol) [0x0x7ff76e7f87fb]
+	(No symbol) [0x0x7ff76e7d0153]
+	(No symbol) [0x0x7ff76e798b02]
+	(No symbol) [0x0x7ff76e7998d3]
+	GetHandleVerifier [0x0x7ff76ec8e83d+2949837]
+	GetHandleVerifier [0x0x7ff76ec88c6a+2926330]
+	GetHandleVerifier [0x0x7ff76eca86c7+3055959]
+	GetHandleVerifier [0x0x7ff76e9ecfee+191102]
+	GetHandleVerifier [0x0x7ff76e9f50af+224063]
+	GetHandleVerifier [0x0x7ff76e9daf64+117236]
+	GetHandleVerifier [0x0x7ff76e9db119+117673]
+	GetHandleVerifier [0x0x7ff76e9c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 09:56:22,317 - src.core.uow - WARNING - Исключение в Unit of Work: ParserProductError: Ошибка парсинга товара
+2025-10-01 09:56:22,317 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-01 09:56:22,318 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 09:56:22,318 - src.core.decorators - ERROR - Ошибка в функции create_product: Ошибка парсинга товара
+2025-10-01 09:56:22,319 - src.infrastructure.services.logger - ERROR - Ошибка при добавлении товара
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\create_product.py", line 32, in execute
+    product_data = self.parser.parse_product(url)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    result = func(self, session, *args, **kwargs)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 28, in parse_product
+    session.navigate(url)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 84, in navigate
+    self.driver.get(url)
+    ~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 483, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff76e9d1eb5+80197]
+	GetHandleVerifier [0x0x7ff76e9d1f10+80288]
+	(No symbol) [0x0x7ff76e75011c]
+	(No symbol) [0x0x7ff76e73ce39]
+	(No symbol) [0x0x7ff76e73b19d]
+	(No symbol) [0x0x7ff76e73b87c]
+	(No symbol) [0x0x7ff76e7543ca]
+	(No symbol) [0x0x7ff76e7f95de]
+	(No symbol) [0x0x7ff76e7d037a]
+	(No symbol) [0x0x7ff76e7f87fb]
+	(No symbol) [0x0x7ff76e7d0153]
+	(No symbol) [0x0x7ff76e798b02]
+	(No symbol) [0x0x7ff76e7998d3]
+	GetHandleVerifier [0x0x7ff76ec8e83d+2949837]
+	GetHandleVerifier [0x0x7ff76ec88c6a+2926330]
+	GetHandleVerifier [0x0x7ff76eca86c7+3055959]
+	GetHandleVerifier [0x0x7ff76e9ecfee+191102]
+	GetHandleVerifier [0x0x7ff76e9f50af+224063]
+	GetHandleVerifier [0x0x7ff76e9daf64+117236]
+	GetHandleVerifier [0x0x7ff76e9db119+117673]
+	GetHandleVerifier [0x0x7ff76e9c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 23, in add_product_process
+    result = await product_service.create_product(str(message.from_user.id), url)
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 47, in create_product
+    return use_case.execute(user_id, url)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\create_product.py", line 36, in execute
+    raise ParserProductError('Ошибка парсинга товара')
+src.domain.exceptions.ParserProductError: Ошибка парсинга товара
+2025-10-01 09:56:22,411 - aiogram.event - INFO - Update id=557184956 is handled. Duration 3415 ms by bot id=5702092394
+2025-10-01 10:47:32,422 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 10:47:32,466 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 10:47:32,470 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 10:47:32,564 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 10:52:41,488 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 10:52:41,915 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 10:52:42,232 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 10:52:47,762 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 10:52:48,062 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 10:52:48,762 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 10:52:48,764 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 10:52:48,765 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 10:52:48,772 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 10:52:48,775 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 10:52:48,777 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 10:52:48,778 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 10:52:49,052 - aiogram.event - INFO - Update id=557184957 is handled. Duration 1291 ms by bot id=5702092394
+2025-10-01 10:52:51,483 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 10:52:57,891 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-01 10:52:57,917 - src.infrastructure.parsers.session_engine - ERROR - Ошибка при загрузке страницы 📋 Мои товары: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71a1d1eb5+80197]
+	GetHandleVerifier [0x0x7ff71a1d1f10+80288]
+	(No symbol) [0x0x7ff719f5011c]
+	(No symbol) [0x0x7ff719f3ce39]
+	(No symbol) [0x0x7ff719f3b19d]
+	(No symbol) [0x0x7ff719f3b87c]
+	(No symbol) [0x0x7ff719f543ca]
+	(No symbol) [0x0x7ff719ff95de]
+	(No symbol) [0x0x7ff719fd037a]
+	(No symbol) [0x0x7ff719ff87fb]
+	(No symbol) [0x0x7ff719fd0153]
+	(No symbol) [0x0x7ff719f98b02]
+	(No symbol) [0x0x7ff719f998d3]
+	GetHandleVerifier [0x0x7ff71a48e83d+2949837]
+	GetHandleVerifier [0x0x7ff71a488c6a+2926330]
+	GetHandleVerifier [0x0x7ff71a4a86c7+3055959]
+	GetHandleVerifier [0x0x7ff71a1ecfee+191102]
+	GetHandleVerifier [0x0x7ff71a1f50af+224063]
+	GetHandleVerifier [0x0x7ff71a1daf64+117236]
+	GetHandleVerifier [0x0x7ff71a1db119+117673]
+	GetHandleVerifier [0x0x7ff71a1c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 10:52:57,922 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при парсинге страницы 📋 Мои товары: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71a1d1eb5+80197]
+	GetHandleVerifier [0x0x7ff71a1d1f10+80288]
+	(No symbol) [0x0x7ff719f5011c]
+	(No symbol) [0x0x7ff719f3ce39]
+	(No symbol) [0x0x7ff719f3b19d]
+	(No symbol) [0x0x7ff719f3b87c]
+	(No symbol) [0x0x7ff719f543ca]
+	(No symbol) [0x0x7ff719ff95de]
+	(No symbol) [0x0x7ff719fd037a]
+	(No symbol) [0x0x7ff719ff87fb]
+	(No symbol) [0x0x7ff719fd0153]
+	(No symbol) [0x0x7ff719f98b02]
+	(No symbol) [0x0x7ff719f998d3]
+	GetHandleVerifier [0x0x7ff71a48e83d+2949837]
+	GetHandleVerifier [0x0x7ff71a488c6a+2926330]
+	GetHandleVerifier [0x0x7ff71a4a86c7+3055959]
+	GetHandleVerifier [0x0x7ff71a1ecfee+191102]
+	GetHandleVerifier [0x0x7ff71a1f50af+224063]
+	GetHandleVerifier [0x0x7ff71a1daf64+117236]
+	GetHandleVerifier [0x0x7ff71a1db119+117673]
+	GetHandleVerifier [0x0x7ff71a1c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 10:52:57,924 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71a1d1eb5+80197]
+	GetHandleVerifier [0x0x7ff71a1d1f10+80288]
+	(No symbol) [0x0x7ff719f5011c]
+	(No symbol) [0x0x7ff719f3ce39]
+	(No symbol) [0x0x7ff719f3b19d]
+	(No symbol) [0x0x7ff719f3b87c]
+	(No symbol) [0x0x7ff719f543ca]
+	(No symbol) [0x0x7ff719ff95de]
+	(No symbol) [0x0x7ff719fd037a]
+	(No symbol) [0x0x7ff719ff87fb]
+	(No symbol) [0x0x7ff719fd0153]
+	(No symbol) [0x0x7ff719f98b02]
+	(No symbol) [0x0x7ff719f998d3]
+	GetHandleVerifier [0x0x7ff71a48e83d+2949837]
+	GetHandleVerifier [0x0x7ff71a488c6a+2926330]
+	GetHandleVerifier [0x0x7ff71a4a86c7+3055959]
+	GetHandleVerifier [0x0x7ff71a1ecfee+191102]
+	GetHandleVerifier [0x0x7ff71a1f50af+224063]
+	GetHandleVerifier [0x0x7ff71a1daf64+117236]
+	GetHandleVerifier [0x0x7ff71a1db119+117673]
+	GetHandleVerifier [0x0x7ff71a1c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 10:53:00,799 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-01 10:53:00,801 - src.application.use_cases.create_product - ERROR - Ошибка парсинга URL 📋 Мои товары для пользователя 515084006: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71a1d1eb5+80197]
+	GetHandleVerifier [0x0x7ff71a1d1f10+80288]
+	(No symbol) [0x0x7ff719f5011c]
+	(No symbol) [0x0x7ff719f3ce39]
+	(No symbol) [0x0x7ff719f3b19d]
+	(No symbol) [0x0x7ff719f3b87c]
+	(No symbol) [0x0x7ff719f543ca]
+	(No symbol) [0x0x7ff719ff95de]
+	(No symbol) [0x0x7ff719fd037a]
+	(No symbol) [0x0x7ff719ff87fb]
+	(No symbol) [0x0x7ff719fd0153]
+	(No symbol) [0x0x7ff719f98b02]
+	(No symbol) [0x0x7ff719f998d3]
+	GetHandleVerifier [0x0x7ff71a48e83d+2949837]
+	GetHandleVerifier [0x0x7ff71a488c6a+2926330]
+	GetHandleVerifier [0x0x7ff71a4a86c7+3055959]
+	GetHandleVerifier [0x0x7ff71a1ecfee+191102]
+	GetHandleVerifier [0x0x7ff71a1f50af+224063]
+	GetHandleVerifier [0x0x7ff71a1daf64+117236]
+	GetHandleVerifier [0x0x7ff71a1db119+117673]
+	GetHandleVerifier [0x0x7ff71a1c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+2025-10-01 10:53:00,803 - src.core.uow - WARNING - Исключение в Unit of Work: ParserProductError: Ошибка парсинга товара
+2025-10-01 10:53:00,804 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-01 10:53:00,805 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 10:53:00,806 - src.core.decorators - ERROR - Ошибка в функции create_product: Ошибка парсинга товара
+2025-10-01 10:53:00,807 - src.infrastructure.services.logger - ERROR - Ошибка при добавлении товара
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\create_product.py", line 32, in execute
+    product_data = self.parser.parse_product(url)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    result = func(self, session, *args, **kwargs)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 28, in parse_product
+    session.navigate(url)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 84, in navigate
+    self.driver.get(url)
+    ~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 483, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument
+  (Session info: chrome=140.0.7339.208)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff71a1d1eb5+80197]
+	GetHandleVerifier [0x0x7ff71a1d1f10+80288]
+	(No symbol) [0x0x7ff719f5011c]
+	(No symbol) [0x0x7ff719f3ce39]
+	(No symbol) [0x0x7ff719f3b19d]
+	(No symbol) [0x0x7ff719f3b87c]
+	(No symbol) [0x0x7ff719f543ca]
+	(No symbol) [0x0x7ff719ff95de]
+	(No symbol) [0x0x7ff719fd037a]
+	(No symbol) [0x0x7ff719ff87fb]
+	(No symbol) [0x0x7ff719fd0153]
+	(No symbol) [0x0x7ff719f98b02]
+	(No symbol) [0x0x7ff719f998d3]
+	GetHandleVerifier [0x0x7ff71a48e83d+2949837]
+	GetHandleVerifier [0x0x7ff71a488c6a+2926330]
+	GetHandleVerifier [0x0x7ff71a4a86c7+3055959]
+	GetHandleVerifier [0x0x7ff71a1ecfee+191102]
+	GetHandleVerifier [0x0x7ff71a1f50af+224063]
+	GetHandleVerifier [0x0x7ff71a1daf64+117236]
+	GetHandleVerifier [0x0x7ff71a1db119+117673]
+	GetHandleVerifier [0x0x7ff71a1c10a8+11064]
+	BaseThreadInitThunk [0x0x7ff918dce8d7+23]
+	RtlUserThreadStart [0x0x7ff91a548d9c+44]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 23, in add_product_process
+    result = product_service.create_product(str(message.from_user.id), url)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 47, in create_product
+    return use_case.execute(user_id, url)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\create_product.py", line 36, in execute
+    raise ParserProductError('Ошибка парсинга товара')
+src.domain.exceptions.ParserProductError: Ошибка парсинга товара
+2025-10-01 10:53:01,347 - aiogram.event - INFO - Update id=557184958 is handled. Duration 9864 ms by bot id=5702092394
+2025-10-01 13:45:06,169 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 13:45:06,197 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 13:45:06,198 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 13:45:06,305 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 13:56:20,420 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 13:56:20,421 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 13:56:20,694 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 13:56:30,349 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 13:56:30,526 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 13:56:30,929 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 13:56:30,930 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 13:56:30,930 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 13:56:30,933 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 13:56:30,934 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 13:56:30,935 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 13:56:30,935 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 13:56:31,138 - aiogram.event - INFO - Update id=557184959 is handled. Duration 789 ms by bot id=5702092394
+2025-10-01 13:56:32,825 - aiogram.event - INFO - Update id=557184960 is handled. Duration 86 ms by bot id=5702092394
+2025-10-01 13:56:38,169 - aiogram.event - INFO - Update id=557184961 is handled. Duration 88 ms by bot id=5702092394
+2025-10-01 13:56:39,793 - aiogram.event - INFO - Update id=557184962 is handled. Duration 96 ms by bot id=5702092394
+2025-10-01 13:59:51,434 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 13:59:51,436 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 13:59:51,436 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 13:59:51,603 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 13:59:57,202 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 13:59:57,204 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 13:59:57,515 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:00:01,254 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 14:00:01,389 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 14:00:01,649 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 14:00:01,651 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 14:00:01,651 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 14:00:01,654 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:00:01,655 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:00:01,656 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 14:00:01,657 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 14:00:02,053 - aiogram.event - INFO - Update id=557184963 is handled. Duration 799 ms by bot id=5702092394
+2025-10-01 14:00:03,802 - aiogram.event - INFO - Update id=557184964 is handled. Duration 186 ms by bot id=5702092394
+2025-10-01 14:00:05,703 - aiogram.event - INFO - Update id=557184965 is handled. Duration 208 ms by bot id=5702092394
+2025-10-01 14:00:06,248 - aiogram.event - INFO - Update id=557184966 is handled. Duration 143 ms by bot id=5702092394
+2025-10-01 14:00:11,309 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 14:00:11,324 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 14:00:11,326 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 14:00:11,326 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 14:00:11,333 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:00:11,333 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:00:11,334 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 14:00:11,335 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 14:00:11,511 - aiogram.event - INFO - Update id=557184967 is handled. Duration 202 ms by bot id=5702092394
+2025-10-01 14:00:12,900 - aiogram.event - INFO - Update id=557184968 is handled. Duration 192 ms by bot id=5702092394
+2025-10-01 14:06:41,635 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 14:06:41,637 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 14:06:41,637 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 14:06:41,804 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:06:46,823 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 14:06:46,825 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 14:06:47,042 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:06:57,346 - aiogram.event - INFO - Update id=557184969 is handled. Duration 633 ms by bot id=5702092394
+2025-10-01 14:06:59,347 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 14:06:59,486 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 14:06:59,598 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 14:06:59,599 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 14:06:59,599 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 14:06:59,601 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:06:59,602 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:06:59,603 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 14:06:59,603 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 14:06:59,720 - aiogram.event - INFO - Update id=557184970 is handled. Duration 373 ms by bot id=5702092394
+2025-10-01 14:07:01,064 - aiogram.event - INFO - Update id=557184971 is handled. Duration 219 ms by bot id=5702092394
+2025-10-01 14:07:09,060 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 14:07:09,062 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 14:07:09,063 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 14:07:09,230 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:07:18,718 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 14:07:18,719 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 14:07:19,001 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:07:19,077 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 14:07:19,148 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 14:07:19,244 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 14:07:19,245 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 14:07:19,245 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 14:07:19,247 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:07:19,248 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:07:19,248 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 14:07:19,248 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 14:07:19,452 - aiogram.event - INFO - Update id=557184972 is handled. Duration 374 ms by bot id=5702092394
+2025-10-01 14:07:21,991 - aiogram.event - INFO - Update id=557184973 is handled. Duration 100 ms by bot id=5702092394
+2025-10-01 14:07:24,507 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 14:07:24,508 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 14:07:24,509 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 14:07:24,678 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:07:36,022 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 14:07:36,023 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 14:07:37,680 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:07:42,368 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 14:07:42,464 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 14:07:42,568 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 14:07:42,568 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 14:07:42,569 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 14:07:42,571 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:07:42,572 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:07:42,572 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 14:07:42,573 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 14:07:42,839 - aiogram.event - INFO - Update id=557184974 is handled. Duration 470 ms by bot id=5702092394
+2025-10-01 14:07:44,646 - aiogram.event - INFO - Update id=557184975 is handled. Duration 114 ms by bot id=5702092394
+2025-10-01 14:08:00,490 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 14:08:00,491 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 14:08:00,492 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 14:08:00,648 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:08:06,226 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 14:08:06,227 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 14:08:06,527 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:08:08,283 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 14:08:08,370 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 14:08:08,497 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 14:08:08,497 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 14:08:08,498 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 14:08:08,499 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:08:08,500 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:08:08,501 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 14:08:08,501 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 14:08:08,841 - aiogram.event - INFO - Update id=557184976 is handled. Duration 558 ms by bot id=5702092394
+2025-10-01 14:08:10,487 - aiogram.event - INFO - Update id=557184977 is handled. Duration 115 ms by bot id=5702092394
+2025-10-01 14:08:12,047 - aiogram.event - INFO - Update id=557184978 is handled. Duration 90 ms by bot id=5702092394
+2025-10-01 14:08:37,875 - aiogram.event - INFO - Update id=557184979 is handled. Duration 484 ms by bot id=5702092394
+2025-10-01 14:10:04,501 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 14:10:04,504 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 14:10:04,504 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 14:10:04,659 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:10:09,753 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 14:10:09,754 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 14:10:09,996 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:10:13,064 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 14:10:13,183 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 14:10:13,342 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 14:10:13,343 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 14:10:13,343 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 14:10:13,344 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:10:13,345 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:10:13,345 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 14:10:13,346 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 14:10:13,591 - aiogram.event - INFO - Update id=557184980 is handled. Duration 528 ms by bot id=5702092394
+2025-10-01 14:10:15,448 - aiogram.event - INFO - Update id=557184981 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:10:23,196 - aiogram.event - INFO - Update id=557184982 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:10:24,174 - aiogram.event - INFO - Update id=557184983 is not handled. Duration 0 ms by bot id=5702092394
+2025-10-01 14:10:24,643 - aiogram.event - INFO - Update id=557184984 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:10:26,039 - aiogram.event - INFO - Update id=557184985 is not handled. Duration 0 ms by bot id=5702092394
+2025-10-01 14:10:26,569 - aiogram.event - INFO - Update id=557184986 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:10:27,021 - aiogram.event - INFO - Update id=557184987 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:10:27,173 - aiogram.event - INFO - Update id=557184988 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:10:27,326 - aiogram.event - INFO - Update id=557184989 is not handled. Duration 0 ms by bot id=5702092394
+2025-10-01 14:10:27,475 - aiogram.event - INFO - Update id=557184990 is not handled. Duration 0 ms by bot id=5702092394
+2025-10-01 14:10:27,621 - aiogram.event - INFO - Update id=557184991 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:10:27,754 - aiogram.event - INFO - Update id=557184992 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:11:04,449 - aiogram.event - INFO - Update id=557184993 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:11:06,166 - aiogram.event - INFO - Update id=557184994 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:11:07,247 - aiogram.event - INFO - Update id=557184995 is not handled. Duration 11 ms by bot id=5702092394
+2025-10-01 14:11:08,460 - aiogram.event - INFO - Update id=557184996 is not handled. Duration 0 ms by bot id=5702092394
+2025-10-01 14:11:09,588 - aiogram.event - INFO - Update id=557184997 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:11:59,623 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 14:11:59,624 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 14:11:59,624 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 14:11:59,799 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:12:04,722 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 14:12:04,724 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-01 14:12:04,724 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 14:12:05,028 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:12:12,782 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 14:12:12,873 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 14:12:12,979 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 14:12:12,979 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 14:12:12,979 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 14:12:12,981 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:12:12,982 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:12:12,983 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 14:12:12,984 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 14:12:13,921 - aiogram.event - INFO - Update id=557184998 is handled. Duration 1139 ms by bot id=5702092394
+2025-10-01 14:12:17,531 - aiogram.event - INFO - Update id=557184999 is not handled. Duration 2 ms by bot id=5702092394
+2025-10-01 14:15:51,305 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 14:15:51,308 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 14:15:51,308 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 14:15:51,452 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:15:56,526 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 14:15:56,528 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-01 14:15:56,529 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 14:15:56,745 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:16:00,019 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 14:16:00,127 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 14:16:00,244 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 14:16:00,245 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 14:16:00,245 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 14:16:00,247 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:16:00,248 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:16:00,248 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 14:16:00,249 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 14:16:01,845 - aiogram.event - INFO - Update id=557185001 is not handled. Duration 12 ms by bot id=5702092394
+2025-10-01 14:16:01,895 - aiogram.event - INFO - Update id=557185000 is handled. Duration 1876 ms by bot id=5702092394
+2025-10-01 14:16:04,336 - aiogram.event - INFO - Update id=557185002 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:16:05,382 - aiogram.event - INFO - Update id=557185003 is not handled. Duration 0 ms by bot id=5702092394
+2025-10-01 14:16:07,990 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 14:16:07,992 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 14:16:07,993 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 14:16:08,150 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:16:16,420 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 14:16:16,422 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-01 14:16:16,423 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 14:16:16,605 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:16:23,009 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 14:16:23,092 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 14:16:23,193 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 14:16:23,194 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 14:16:23,194 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 14:16:23,196 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:16:23,197 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:16:23,198 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 14:16:23,198 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 14:16:23,466 - aiogram.event - INFO - Update id=557185004 is handled. Duration 456 ms by bot id=5702092394
+2025-10-01 14:16:25,675 - aiogram.event - INFO - Update id=557185005 is not handled. Duration 1 ms by bot id=5702092394
+2025-10-01 14:31:36,200 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 14:31:36,212 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 14:31:36,213 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 14:31:36,381 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:31:42,036 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 14:31:42,038 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 14:31:42,327 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:31:48,754 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 14:31:48,875 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 14:31:49,002 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604']) получен по id: 515084006
+2025-10-01 14:31:49,002 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 14:31:49,003 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 14:31:49,005 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:31:49,005 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 14:31:49,006 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 14:31:49,007 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 14:31:49,394 - aiogram.event - INFO - Update id=557185006 is handled. Duration 640 ms by bot id=5702092394
+2025-10-01 14:31:51,107 - aiogram.event - INFO - Update id=557185007 is handled. Duration 113 ms by bot id=5702092394
+2025-10-01 14:31:53,743 - aiogram.event - INFO - Update id=557185008 is handled. Duration 248 ms by bot id=5702092394
+2025-10-01 14:31:54,371 - aiogram.event - INFO - Update id=557185009 is handled. Duration 257 ms by bot id=5702092394
+2025-10-01 14:31:55,767 - aiogram.event - INFO - Update id=557185010 is handled. Duration 90 ms by bot id=5702092394
+2025-10-01 14:31:56,518 - aiogram.event - INFO - Update id=557185011 is handled. Duration 121 ms by bot id=5702092394
+2025-10-01 14:31:57,634 - aiogram.event - INFO - Update id=557185012 is handled. Duration 92 ms by bot id=5702092394
+2025-10-01 14:31:58,465 - aiogram.event - INFO - Update id=557185013 is handled. Duration 162 ms by bot id=5702092394
+2025-10-01 14:31:59,538 - aiogram.event - INFO - Update id=557185014 is handled. Duration 95 ms by bot id=5702092394
+2025-10-01 14:40:41,605 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 14:40:41,607 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 14:40:41,608 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 14:40:41,751 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:40:47,477 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 14:40:47,479 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 14:40:47,709 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 14:40:55,327 - aiogram.event - INFO - Update id=557185015 is handled. Duration 268 ms by bot id=5702092394
+2025-10-01 14:40:58,013 - aiogram.event - INFO - Update id=557185016 is handled. Duration 102 ms by bot id=5702092394
+2025-10-01 14:40:58,357 - aiogram.event - INFO - Update id=557185017 is handled. Duration 85 ms by bot id=5702092394
+2025-10-01 14:40:58,768 - aiogram.event - INFO - Update id=557185018 is handled. Duration 106 ms by bot id=5702092394
+2025-10-01 14:40:59,700 - aiogram.event - INFO - Update id=557185019 is handled. Duration 111 ms by bot id=5702092394
+2025-10-01 14:41:00,238 - aiogram.event - INFO - Update id=557185020 is handled. Duration 145 ms by bot id=5702092394
+2025-10-01 14:41:00,565 - aiogram.event - INFO - Update id=557185021 is handled. Duration 169 ms by bot id=5702092394
+2025-10-01 14:42:58,885 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 14:42:58,887 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 14:42:58,887 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 14:42:59,068 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
