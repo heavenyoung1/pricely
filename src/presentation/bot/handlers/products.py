@@ -8,22 +8,47 @@ from src.infrastructure.services import logger
 from src.presentation.bot.utils.formatters import format_product_message, format_categories
 from src.presentation.bot.utils.keyboard import build_product_actions_keyboard
 
+# ================= ДОБАВИТЬ ТОВАР ================= #
+
 # 1️⃣ Обработчик команды "➕ Добавить товар"
 async def add_product_request(message: Message, state: FSMContext):
-    logger.info("Обработчик /add_product сработал")
-    await message.answer("📦 Отправь ссылку на товар с Ozon")
+    '''
+    Обработчик команды "/add_product".
 
+    Этот метод срабатывает при получении команды "/add_product" от пользователя и выполняет следующие действия:
+    - Отправляет пользователю сообщение с просьбой отправить ссылку на товар.
+    - Устанавливает состояние FSM в "waiting_for_url", чтобы ожидать от пользователя URL товара.
+    - Информирует пользователя о начале процесса парсинга товара.
+
+    Аргументы:
+    - message (Message): Сообщение от пользователя, содержащее команду "/add_product".
+    - state (FSMContext): Контекст состояния FSM, используемый для управления состоянием бота в диалоге с пользователем.
+    '''
+    await message.answer("📦 Отправь ссылку на товар с Ozon")
     # Устанавливаем состояние ожидания URL товара (если используем FSM, можно это добавить в следующий шаг)
     await state.set_state(ProductAddState.waiting_for_url)
     # Переход в следующее состояние, где пользователь отправит URL товара
     await message.answer("⏳ Парсинг начался, ожидайте...")
 
-# 2️⃣ Обработчик для получения URL товара и добавления товара
 async def add_product_process(message: Message, state: FSMContext):
+    '''
+    Обработчик получения URL товара и добавления товара в систему.
+
+    Этот метод срабатывает, когда пользователь отправляет URL товара в ответ на запрос бота (после команды "/add_product").
+    Он выполняет следующие действия:
+    - Проверяет, находится ли пользователь в нужном состоянии (ожидание URL товара).
+    - Парсит URL и пытается добавить товар в систему через вызов метода create_product.
+    - Отправляет пользователю сообщение с результатом добавления товара: название товара, цена с картой и без.
+    - В случае ошибки отправляется сообщение с описанием проблемы.
+    - Очищает состояние FSM после завершения добавления товара.
+
+    Аргументы:
+    - message (Message): Сообщение от пользователя, содержащее URL товара.
+    - state (FSMContext): Контекст состояния FSM, который используется для проверки текущего состояния и управления состоянием бота.
+    '''
     if not await state.get_state() == ProductAddState.waiting_for_url:
         return  # Игнорируем, если пользователь не в этом состоянии
     
-    logger.info(f"Обработчик add_product_process с URL: {message.text}")
     url = message.text.strip()
     try:
         result = product_service.create_product(str(message.from_user.id), url)
@@ -32,7 +57,7 @@ async def add_product_process(message: Message, state: FSMContext):
             f"Название: {result['product_name']}\n"
             f"Цена с картой: {result['with_card']} ₽\n"
             f"Цена без карты: {result['without_card']} ₽",
-            reply_markup=build_product_actions_keyboard(result['id'], result['link'])
+            reply_markup=build_product_actions_keyboard(result['product_id'], result['link'])
         )
     except Exception as e:
         logger.exception("Ошибка при добавлении товара")
@@ -41,8 +66,25 @@ async def add_product_process(message: Message, state: FSMContext):
     # Сбрасываем состояние
     await state.clear()
 
-# 1️⃣ Список товаров
+# ================= ПОЛУЧИТЬ СПИСОК ТОВАРОВ ================= #
+
 async def get_my_product_list(message: Message):
+    '''
+    Обработчик команды для получения списка товаров пользователя.
+
+    Этот метод срабатывает, когда пользователь вызывает команду для получения списка своих товаров.
+    Он выполняет следующие действия:
+    - Получает все товары пользователя через `product_service.get_all_products()`.
+    - Если товаров нет, отправляет сообщение, что у пользователя нет отслеживаемых товаров.
+    - Если товары есть, формирует клавиатуру с кнопками для каждого товара и отправляет её пользователю.
+
+    Аргументы:
+    - message (Message): Сообщение от пользователя, содержащее запрос на получение списка товаров.
+
+    Исключения:
+    - В случае ошибки при получении списка товаров или других непредвиденных ошибок, ошибка будет залогирована,
+      и пользователю отправится сообщение с описанием ошибки.    
+    '''
     try:
         # Получаем список товаров пользователя
         products = product_service.get_all_products(str(message.from_user.id))
@@ -52,20 +94,42 @@ async def get_my_product_list(message: Message):
             await message.answer('📭 У вас пока нет отслеживаемых товаров')
             return
         
-        kb = InlineKeyboardMarkup(row_width=1)
+        #kb = InlineKeyboardMarkup(row_width=1)  # Инициализация клавиатуры с правильным параметром row_width
+        inline_buttons = []  # Список для хранения кнопок
+
         # Добавляем кнопки для каждого товара (перебираем список словарей)
         for p in products: 
             name = p.get('name') or p.get('product_name') or p.get('id')
             display = name if len(name) <= 60 else name[:57] + '...'
-            kb.add(InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}"))
-            # Вот здесь нужно было добавить?
-            await message.answer("📋 Ваши товары:", reply_markup=kb)
+            inline_buttons.append(InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}"))
+
+        # Создаем клавиатуру с кнопками
+        kb = InlineKeyboardMarkup(row_width=1, inline_keyboard=[inline_buttons])
+            # Отправляем сообщение с клавиатурой
+        await message.answer("📋 Ваши товары:", reply_markup=kb)
+
     except Exception as e:
         logger.exception('Ошибка при получении списка товаров')
         await message.answer(f'❌ Ошибка: {e}')
         
-# 2️⃣ Обработка кнопки с товаром
 async def handle_product_button(call: CallbackQuery):
+    '''
+    Обработчик нажатия на кнопку товара.
+
+    Этот метод срабатывает при нажатии на кнопку с товаром в списке.
+    Он выполняет следующие действия:
+    - Отправляет ответ на callback, чтобы избежать "залипания" кнопки.
+    - Извлекает ID товара из callback_data и получает полную информацию о товаре через `product_service.get_full_product()`.
+    - Если товар найден, формирует сообщение с подробной информацией о товаре и отправляет его пользователю.
+    - Если товар не найден, отправляется сообщение об ошибке.
+    
+    Аргументы:
+    - call (CallbackQuery): Данные callback-запроса, содержащие информацию о нажатой кнопке и ID товара.
+
+    Исключения:
+    - В случае ошибки при извлечении данных товара или других непредвиденных ошибок, ошибка будет залогирована,
+      и пользователю отправится сообщение с описанием ошибки.
+    '''
     await call.answer() # Отправляем ответ на callback, чтобы избежать 'залипания' кнопки
     
     # Извлекаем ID продукта из callback_data
@@ -96,13 +160,31 @@ async def handle_product_button(call: CallbackQuery):
 
 # 3️⃣ Обновить цену
 async def handle_update_price(call: CallbackQuery):
+    '''
+    Обработчик обновления цены товара.
+
+    Этот метод срабатывает при нажатии на кнопку "Обновить цену" для товара.
+    Он выполняет следующие действия:
+    - Отправляет ответ на callback-запрос, чтобы избежать задержек или "залипания" кнопки.
+    - Извлекает ID товара из callback_data и вызывает сервис для обновления цены товара.
+    - Если обновление прошло успешно, формирует новое сообщение с актуальной информацией о товаре и обновленной клавиатурой.
+    - Если данные не изменились, обновление сообщения не требуется.
+    - В случае ошибки при обновлении цены или при обработке сообщения, ошибка логируется, и пользователю отправляется сообщение с описанием ошибки.
+
+    Аргументы:
+    - call (CallbackQuery): Данные callback-запроса, содержащие информацию о нажатой кнопке и ID товара.
+
+    Исключения:
+    - В случае ошибки при обновлении цены или редактировании сообщения, ошибка будет залогирована,
+      и пользователю будет отправлено сообщение об ошибке с кнопкой "Назад", чтобы вернуться к товару.
+    '''
     product_id = call.data.split(':', 1)[1]
+    logger.debug(f'В кнопке получен {product_id}')
     logger.info(f'Начинаем обновление цены для товара {product_id}')
 
     # Сразу отвечаем на callback, чтобы избежать timeout
     try:
         await call.answer('🔄 Обновляем цену...')
-        logger.info('Ответили на callback query')
     except Exception as e:
         logger.warning(f'Не удалось ответить на callback query: {e}')
 
