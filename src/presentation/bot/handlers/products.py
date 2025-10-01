@@ -88,24 +88,24 @@ async def get_my_product_list(message: Message):
     try:
         # Получаем список товаров пользователя
         products = product_service.get_all_products(str(message.from_user.id))
-
         # Если товаров нет
         if not products:
             await message.answer('📭 У вас пока нет отслеживаемых товаров')
             return
         
-        #kb = InlineKeyboardMarkup(row_width=1)  # Инициализация клавиатуры с правильным параметром row_width
-        inline_buttons = []  # Список для хранения кнопок
+        inline_keyboard = []  # Список для хранения рядов кнопок
 
-        # Добавляем кнопки для каждого товара (перебираем список словарей)
+        # Создаем отдельный ряд для каждой кнопки
         for p in products: 
             name = p.get('name') or p.get('product_name') or p.get('id')
             display = name if len(name) <= 60 else name[:57] + '...'
-            inline_buttons.append(InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}"))
+            # Каждая кнопка в отдельном списке = отдельный ряд
+            inline_keyboard.append([InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}")])
 
-        # Создаем клавиатуру с кнопками
-        kb = InlineKeyboardMarkup(row_width=1, inline_keyboard=[inline_buttons])
-            # Отправляем сообщение с клавиатурой
+        # Создаем клавиатуру с кнопками (каждая в отдельном ряду)
+        kb = InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
+        
+        # Отправляем сообщение с клавиатурой
         await message.answer("📋 Ваши товары:", reply_markup=kb)
 
     except Exception as e:

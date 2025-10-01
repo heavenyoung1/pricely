@@ -1891,3 +1891,1166 @@ AttributeError: 'list' object has no attribute 'add'
 2025-10-01 16:19:49,732 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-10-01 16:19:49,732 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-10-01 16:19:49,860 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 16:19:54,479 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 16:19:54,481 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 16:19:54,724 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 16:20:00,600 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 16:20:00,719 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 16:20:00,719 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-01 16:20:00,796 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2000108942', user_id='', name='Кардиган SALPAGARINI', link='https://www.ozon.ru/product/kardigan-salpagarini-2000108942/?from=share_android&perehod=smm_share_button_productpage_link', image_url='https://ir.ozone.ru/s3/multimedia-1-4/wc1000/7441839580.jpg', rating=4.9, categories='{Одежда,Женщинам,"Джемперы, свитеры и кардиганы",SALPAGARINI}', prices=[Price(id=12, product_id='2000108942', with_card=1553, without_card=1689, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 28, 17, 25, 0, 518096))]) (ID: 2000108942)
+2025-10-01 16:20:00,806 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339))]) (ID: 1818184981)
+2025-10-01 16:20:00,817 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1728110604', user_id='', name='Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', link='https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', image_url='https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', rating=4.8, categories='{"Бытовая техника","Техника для дома",Пылесосы,Роботы-пылесосы,Xiaomi}', prices=[Price(id=17, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 16, 39, 30, 705555)), Price(id=18, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 40, 5, 451004)), Price(id=19, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 42, 17, 196145)), Price(id=20, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 44, 4, 901044)), Price(id=21, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 46, 57, 87346)), Price(id=22, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 50, 48, 653461)), Price(id=23, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 17, 1, 20, 444851)), Price(id=24, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 34, 42, 580920)), Price(id=25, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 36, 0, 48055)), Price(id=26, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 38, 8, 854926)), Price(id=27, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 39, 5, 241925)), Price(id=28, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 40, 12, 932794)), Price(id=29, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 32, 537599)), Price(id=30, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 55, 559731)), Price(id=31, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 14, 13, 910458))]) (ID: 1728110604)
+2025-10-01 16:20:00,828 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1668950019', user_id='', name='Легинсы FITFOX Спорт Фитнес', link='https://www.ozon.ru/product/leginsy-fitfox-sport-fitnes-1668950019/', image_url='https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7185334021.jpg', rating=4.9, categories='{Одежда,Женщинам,"Брюки, бриджи и капри",FITFOX}', prices=[Price(id=32, product_id='1668950019', with_card=1568, without_card=1705, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 49, 1, 5209))]) (ID: 1668950019)
+2025-10-01 16:20:00,839 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1565602444', user_id='', name='Ray-Ban Очки солнцезащитные', link='https://www.ozon.ru/product/ray-ban-ochki-solntsezashchitnye-1565602444/', image_url='https://ir.ozone.ru/s3/multimedia-1-a/wc1000/7364741986.jpg', rating=4.7, categories='{Аксессуары,Женщинам,Очки,"Солнцезащитные очки",Ray-Ban}', prices=[Price(id=33, product_id='1565602444', with_card=737, without_card=805, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 52, 24, 119143))]) (ID: 1565602444)
+2025-10-01 16:20:00,843 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-01 16:20:00,846 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-01 16:20:00,846 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:20:00,847 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 16:20:01,049 - aiogram.event - INFO - Update id=557185044 is handled. Duration 451 ms by bot id=5702092394
+2025-10-01 16:20:04,623 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 16:20:04,633 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2000108942', user_id='', name='Кардиган SALPAGARINI', link='https://www.ozon.ru/product/kardigan-salpagarini-2000108942/?from=share_android&perehod=smm_share_button_productpage_link', image_url='https://ir.ozone.ru/s3/multimedia-1-4/wc1000/7441839580.jpg', rating=4.9, categories='{Одежда,Женщинам,"Джемперы, свитеры и кардиганы",SALPAGARINI}', prices=[Price(id=12, product_id='2000108942', with_card=1553, without_card=1689, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 28, 17, 25, 0, 518096))]) (ID: 2000108942)
+2025-10-01 16:20:04,636 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-01 16:20:04,638 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-01 16:20:04,638 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:20:04,639 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 16:20:04,639 - src.infrastructure.services.logger - ERROR - Ошибка в handle_product_button
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 147, in handle_product_button
+    kb = build_product_actions_keyboard(product_id=product['id'], product_link=product['link'])
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\utils\keyboard.py", line 5, in build_product_actions_keyboard
+    kb = InlineKeyboardMarkup(row_width=2)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+2025-10-01 16:20:04,719 - aiogram.event - INFO - Update id=557185045 is not handled. Duration 170 ms by bot id=5702092394
+2025-10-01 16:20:04,720 - aiogram.event - ERROR - Cause exception while process update id=557185045 by bot id=5702092394
+TelegramBadRequest: Telegram server says - Bad Request: MESSAGE_TOO_LONG
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 147, in handle_product_button
+    kb = build_product_actions_keyboard(product_id=product['id'], product_link=product['link'])
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\utils\keyboard.py", line 5, in build_product_actions_keyboard
+    kb = InlineKeyboardMarkup(row_width=2)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 159, in handle_product_button
+    await call.answer(f'Ошибка: {e}')
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\bot.py", line 482, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+        bot=bot, method=method, status_code=resp.status, content=raw_result
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: MESSAGE_TOO_LONG
+2025-10-01 16:21:57,755 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 16:21:57,757 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 16:21:57,757 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 16:21:57,921 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 16:22:03,557 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 16:22:03,560 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 16:22:04,436 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 16:22:07,117 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 16:22:07,198 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 16:22:07,276 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604', '1668950019', '1565602444']) получен по id: 515084006
+2025-10-01 16:22:07,277 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 16:22:07,277 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 16:22:07,279 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:22:07,280 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:22:07,281 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 16:22:07,281 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 16:22:07,542 - aiogram.event - INFO - Update id=557185046 is handled. Duration 424 ms by bot id=5702092394
+2025-10-01 16:22:08,717 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 16:22:08,718 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-01 16:22:08,742 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2000108942', user_id='', name='Кардиган SALPAGARINI', link='https://www.ozon.ru/product/kardigan-salpagarini-2000108942/?from=share_android&perehod=smm_share_button_productpage_link', image_url='https://ir.ozone.ru/s3/multimedia-1-4/wc1000/7441839580.jpg', rating=4.9, categories='{Одежда,Женщинам,"Джемперы, свитеры и кардиганы",SALPAGARINI}', prices=[Price(id=12, product_id='2000108942', with_card=1553, without_card=1689, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 28, 17, 25, 0, 518096))]) (ID: 2000108942)
+2025-10-01 16:22:08,756 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339))]) (ID: 1818184981)
+2025-10-01 16:22:08,769 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1728110604', user_id='', name='Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', link='https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', image_url='https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', rating=4.8, categories='{"Бытовая техника","Техника для дома",Пылесосы,Роботы-пылесосы,Xiaomi}', prices=[Price(id=17, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 16, 39, 30, 705555)), Price(id=18, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 40, 5, 451004)), Price(id=19, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 42, 17, 196145)), Price(id=20, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 44, 4, 901044)), Price(id=21, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 46, 57, 87346)), Price(id=22, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 50, 48, 653461)), Price(id=23, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 17, 1, 20, 444851)), Price(id=24, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 34, 42, 580920)), Price(id=25, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 36, 0, 48055)), Price(id=26, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 38, 8, 854926)), Price(id=27, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 39, 5, 241925)), Price(id=28, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 40, 12, 932794)), Price(id=29, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 32, 537599)), Price(id=30, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 55, 559731)), Price(id=31, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 14, 13, 910458))]) (ID: 1728110604)
+2025-10-01 16:22:08,783 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1668950019', user_id='', name='Легинсы FITFOX Спорт Фитнес', link='https://www.ozon.ru/product/leginsy-fitfox-sport-fitnes-1668950019/', image_url='https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7185334021.jpg', rating=4.9, categories='{Одежда,Женщинам,"Брюки, бриджи и капри",FITFOX}', prices=[Price(id=32, product_id='1668950019', with_card=1568, without_card=1705, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 49, 1, 5209))]) (ID: 1668950019)
+2025-10-01 16:22:08,799 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1565602444', user_id='', name='Ray-Ban Очки солнцезащитные', link='https://www.ozon.ru/product/ray-ban-ochki-solntsezashchitnye-1565602444/', image_url='https://ir.ozone.ru/s3/multimedia-1-a/wc1000/7364741986.jpg', rating=4.7, categories='{Аксессуары,Женщинам,Очки,"Солнцезащитные очки",Ray-Ban}', prices=[Price(id=33, product_id='1565602444', with_card=737, without_card=805, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 52, 24, 119143))]) (ID: 1565602444)
+2025-10-01 16:22:08,804 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-01 16:22:08,806 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-01 16:22:08,806 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:22:08,807 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 16:22:08,809 - src.infrastructure.services.logger - ERROR - Ошибка при получении списка товаров
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 107, in get_my_product_list
+    kb = InlineKeyboardMarkup(row_width=1, inline_keyboard=inline_buttons)  # Убираем лишний список вокруг кнопок
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 55 validation errors for InlineKeyboardMarkup
+inline_keyboard.0.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Кардиган SALPAGARINI'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:2000108942'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Наклейк...арту крекер'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1818184981'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Xiaomi S20 EU (... и влажная ...'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1728110604'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Легинсы ...порт Фитнес'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1668950019'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Ray-Ban Очк...нцезащитные'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1565602444'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+2025-10-01 16:22:08,970 - aiogram.event - INFO - Update id=557185047 is not handled. Duration 254 ms by bot id=5702092394
+2025-10-01 16:22:08,971 - aiogram.event - ERROR - Cause exception while process update id=557185047 by bot id=5702092394
+TelegramBadRequest: Telegram server says - Bad Request: message is too long
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 107, in get_my_product_list
+    kb = InlineKeyboardMarkup(row_width=1, inline_keyboard=inline_buttons)  # Убираем лишний список вокруг кнопок
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 55 validation errors for InlineKeyboardMarkup
+inline_keyboard.0.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Кардиган SALPAGARINI'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:2000108942'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Наклейк...арту крекер'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1818184981'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Xiaomi S20 EU (... и влажная ...'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1728110604'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Легинсы ...порт Фитнес'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1668950019'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Ray-Ban Очк...нцезащитные'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1565602444'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 114, in get_my_product_list
+    await message.answer(f'❌ Ошибка: {e}')
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\bot.py", line 482, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+        bot=bot, method=method, status_code=resp.status, content=raw_result
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: message is too long
+2025-10-01 16:22:18,863 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 16:22:18,865 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 16:22:18,866 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 16:22:19,034 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 16:22:25,320 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 16:22:25,323 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 16:22:25,565 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 16:22:28,671 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 16:22:28,749 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 16:22:28,810 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604', '1668950019', '1565602444']) получен по id: 515084006
+2025-10-01 16:22:28,810 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 16:22:28,811 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 16:22:28,812 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:22:28,813 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:22:28,813 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 16:22:28,814 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 16:22:29,069 - aiogram.event - INFO - Update id=557185048 is handled. Duration 398 ms by bot id=5702092394
+2025-10-01 16:22:30,420 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 16:22:30,421 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-01 16:22:30,453 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2000108942', user_id='', name='Кардиган SALPAGARINI', link='https://www.ozon.ru/product/kardigan-salpagarini-2000108942/?from=share_android&perehod=smm_share_button_productpage_link', image_url='https://ir.ozone.ru/s3/multimedia-1-4/wc1000/7441839580.jpg', rating=4.9, categories='{Одежда,Женщинам,"Джемперы, свитеры и кардиганы",SALPAGARINI}', prices=[Price(id=12, product_id='2000108942', with_card=1553, without_card=1689, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 28, 17, 25, 0, 518096))]) (ID: 2000108942)
+2025-10-01 16:22:30,474 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339))]) (ID: 1818184981)
+2025-10-01 16:22:30,490 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1728110604', user_id='', name='Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', link='https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', image_url='https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', rating=4.8, categories='{"Бытовая техника","Техника для дома",Пылесосы,Роботы-пылесосы,Xiaomi}', prices=[Price(id=17, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 16, 39, 30, 705555)), Price(id=18, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 40, 5, 451004)), Price(id=19, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 42, 17, 196145)), Price(id=20, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 44, 4, 901044)), Price(id=21, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 46, 57, 87346)), Price(id=22, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 50, 48, 653461)), Price(id=23, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 17, 1, 20, 444851)), Price(id=24, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 34, 42, 580920)), Price(id=25, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 36, 0, 48055)), Price(id=26, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 38, 8, 854926)), Price(id=27, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 39, 5, 241925)), Price(id=28, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 40, 12, 932794)), Price(id=29, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 32, 537599)), Price(id=30, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 55, 559731)), Price(id=31, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 14, 13, 910458))]) (ID: 1728110604)
+2025-10-01 16:22:30,506 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1668950019', user_id='', name='Легинсы FITFOX Спорт Фитнес', link='https://www.ozon.ru/product/leginsy-fitfox-sport-fitnes-1668950019/', image_url='https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7185334021.jpg', rating=4.9, categories='{Одежда,Женщинам,"Брюки, бриджи и капри",FITFOX}', prices=[Price(id=32, product_id='1668950019', with_card=1568, without_card=1705, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 49, 1, 5209))]) (ID: 1668950019)
+2025-10-01 16:22:30,521 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1565602444', user_id='', name='Ray-Ban Очки солнцезащитные', link='https://www.ozon.ru/product/ray-ban-ochki-solntsezashchitnye-1565602444/', image_url='https://ir.ozone.ru/s3/multimedia-1-a/wc1000/7364741986.jpg', rating=4.7, categories='{Аксессуары,Женщинам,Очки,"Солнцезащитные очки",Ray-Ban}', prices=[Price(id=33, product_id='1565602444', with_card=737, without_card=805, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 52, 24, 119143))]) (ID: 1565602444)
+2025-10-01 16:22:30,525 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-01 16:22:30,528 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-01 16:22:30,529 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:22:30,530 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 16:22:30,531 - src.infrastructure.services.logger - ERROR - Ошибка при получении списка товаров
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 107, in get_my_product_list
+    kb = InlineKeyboardMarkup(row_width=1, inline_keyboard=inline_buttons)  # Убираем лишний список вокруг кнопок
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 55 validation errors for InlineKeyboardMarkup
+inline_keyboard.0.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Кардиган SALPAGARINI'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:2000108942'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Наклейк...арту крекер'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1818184981'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Xiaomi S20 EU (... и влажная ...'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1728110604'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Легинсы ...порт Фитнес'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1668950019'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Ray-Ban Очк...нцезащитные'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1565602444'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+2025-10-01 16:22:30,660 - aiogram.event - INFO - Update id=557185049 is not handled. Duration 241 ms by bot id=5702092394
+2025-10-01 16:22:30,660 - aiogram.event - ERROR - Cause exception while process update id=557185049 by bot id=5702092394
+TelegramBadRequest: Telegram server says - Bad Request: message is too long
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 107, in get_my_product_list
+    kb = InlineKeyboardMarkup(row_width=1, inline_keyboard=inline_buttons)  # Убираем лишний список вокруг кнопок
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 55 validation errors for InlineKeyboardMarkup
+inline_keyboard.0.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Кардиган SALPAGARINI'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:2000108942'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.0.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Наклейк...арту крекер'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1818184981'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.1.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Xiaomi S20 EU (... и влажная ...'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1728110604'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.2.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Легинсы ...порт Фитнес'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1668950019'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.3.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('text', 'Ray-Ban Очк...нцезащитные'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.1
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.2
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_data', 'product:1565602444'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.3
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('web_app', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.4
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('login_url', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.5
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.6
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_current_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.7
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('switch_inline_query_chosen_chat', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.8
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('copy_text', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.9
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('callback_game', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+inline_keyboard.4.10
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=('pay', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 114, in get_my_product_list
+    await message.answer(f'❌ Ошибка: {e}')
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\bot.py", line 482, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+        bot=bot, method=method, status_code=resp.status, content=raw_result
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: message is too long
+2025-10-01 16:22:54,971 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 16:22:54,972 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 16:22:54,972 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 16:22:55,147 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 16:23:01,808 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 16:23:01,810 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 16:23:02,033 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 16:23:04,798 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 16:23:04,934 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 16:23:04,935 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-01 16:23:05,025 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2000108942', user_id='', name='Кардиган SALPAGARINI', link='https://www.ozon.ru/product/kardigan-salpagarini-2000108942/?from=share_android&perehod=smm_share_button_productpage_link', image_url='https://ir.ozone.ru/s3/multimedia-1-4/wc1000/7441839580.jpg', rating=4.9, categories='{Одежда,Женщинам,"Джемперы, свитеры и кардиганы",SALPAGARINI}', prices=[Price(id=12, product_id='2000108942', with_card=1553, without_card=1689, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 28, 17, 25, 0, 518096))]) (ID: 2000108942)
+2025-10-01 16:23:05,038 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339))]) (ID: 1818184981)
+2025-10-01 16:23:05,051 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1728110604', user_id='', name='Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', link='https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', image_url='https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', rating=4.8, categories='{"Бытовая техника","Техника для дома",Пылесосы,Роботы-пылесосы,Xiaomi}', prices=[Price(id=17, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 16, 39, 30, 705555)), Price(id=18, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 40, 5, 451004)), Price(id=19, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 42, 17, 196145)), Price(id=20, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 44, 4, 901044)), Price(id=21, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 46, 57, 87346)), Price(id=22, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 50, 48, 653461)), Price(id=23, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 17, 1, 20, 444851)), Price(id=24, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 34, 42, 580920)), Price(id=25, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 36, 0, 48055)), Price(id=26, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 38, 8, 854926)), Price(id=27, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 39, 5, 241925)), Price(id=28, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 40, 12, 932794)), Price(id=29, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 32, 537599)), Price(id=30, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 55, 559731)), Price(id=31, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 14, 13, 910458))]) (ID: 1728110604)
+2025-10-01 16:23:05,068 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1668950019', user_id='', name='Легинсы FITFOX Спорт Фитнес', link='https://www.ozon.ru/product/leginsy-fitfox-sport-fitnes-1668950019/', image_url='https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7185334021.jpg', rating=4.9, categories='{Одежда,Женщинам,"Брюки, бриджи и капри",FITFOX}', prices=[Price(id=32, product_id='1668950019', with_card=1568, without_card=1705, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 49, 1, 5209))]) (ID: 1668950019)
+2025-10-01 16:23:05,083 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1565602444', user_id='', name='Ray-Ban Очки солнцезащитные', link='https://www.ozon.ru/product/ray-ban-ochki-solntsezashchitnye-1565602444/', image_url='https://ir.ozone.ru/s3/multimedia-1-a/wc1000/7364741986.jpg', rating=4.7, categories='{Аксессуары,Женщинам,Очки,"Солнцезащитные очки",Ray-Ban}', prices=[Price(id=33, product_id='1565602444', with_card=737, without_card=805, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 52, 24, 119143))]) (ID: 1565602444)
+2025-10-01 16:23:05,089 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-01 16:23:05,091 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-01 16:23:05,092 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:23:05,092 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 16:23:05,618 - aiogram.event - INFO - Update id=557185050 is handled. Duration 826 ms by bot id=5702092394
+2025-10-01 16:24:04,757 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 16:24:04,770 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1728110604', user_id='', name='Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', link='https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', image_url='https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', rating=4.8, categories='{"Бытовая техника","Техника для дома",Пылесосы,Роботы-пылесосы,Xiaomi}', prices=[Price(id=17, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 16, 39, 30, 705555)), Price(id=18, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 40, 5, 451004)), Price(id=19, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 42, 17, 196145)), Price(id=20, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 44, 4, 901044)), Price(id=21, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 46, 57, 87346)), Price(id=22, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 50, 48, 653461)), Price(id=23, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 17, 1, 20, 444851)), Price(id=24, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 34, 42, 580920)), Price(id=25, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 36, 0, 48055)), Price(id=26, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 38, 8, 854926)), Price(id=27, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 39, 5, 241925)), Price(id=28, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 40, 12, 932794)), Price(id=29, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 32, 537599)), Price(id=30, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 55, 559731)), Price(id=31, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 14, 13, 910458))]) (ID: 1728110604)
+2025-10-01 16:24:04,774 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-01 16:24:04,776 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-01 16:24:04,777 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:24:04,777 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 16:24:04,778 - src.infrastructure.services.logger - ERROR - Ошибка в handle_product_button
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 147, in handle_product_button
+    kb = build_product_actions_keyboard(product_id=product['id'], product_link=product['link'])
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\utils\keyboard.py", line 5, in build_product_actions_keyboard
+    kb = InlineKeyboardMarkup(row_width=2)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+2025-10-01 16:24:04,866 - aiogram.event - INFO - Update id=557185051 is not handled. Duration 193 ms by bot id=5702092394
+2025-10-01 16:24:04,866 - aiogram.event - ERROR - Cause exception while process update id=557185051 by bot id=5702092394
+TelegramBadRequest: Telegram server says - Bad Request: MESSAGE_TOO_LONG
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 147, in handle_product_button
+    kb = build_product_actions_keyboard(product_id=product['id'], product_link=product['link'])
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\utils\keyboard.py", line 5, in build_product_actions_keyboard
+    kb = InlineKeyboardMarkup(row_width=2)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 159, in handle_product_button
+    await call.answer(f'Ошибка: {e}')
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\bot.py", line 482, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 185, in make_request
+    response = self.check_response(
+        bot=bot, method=method, status_code=resp.status, content=raw_result
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: MESSAGE_TOO_LONG
+2025-10-01 16:25:51,011 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 16:25:51,015 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 16:25:51,015 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 16:25:51,276 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 16:25:57,951 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-01 16:25:57,953 - aiogram.dispatcher - INFO - Start polling
+2025-10-01 16:26:00,461 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-01 16:26:02,250 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.165.1.93:5432/pricely_db
+2025-10-01 16:26:02,336 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 16:26:02,394 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['2000108942', '1818184981', '1728110604', '1668950019', '1565602444']) получен по id: 515084006
+2025-10-01 16:26:02,394 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-01 16:26:02,394 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-01 16:26:02,396 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:26:02,396 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:26:02,397 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 16:26:02,397 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-01 16:26:02,648 - aiogram.event - INFO - Update id=557185052 is handled. Duration 398 ms by bot id=5702092394
+2025-10-01 16:26:04,286 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-01 16:26:04,286 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-01 16:26:04,305 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2000108942', user_id='', name='Кардиган SALPAGARINI', link='https://www.ozon.ru/product/kardigan-salpagarini-2000108942/?from=share_android&perehod=smm_share_button_productpage_link', image_url='https://ir.ozone.ru/s3/multimedia-1-4/wc1000/7441839580.jpg', rating=4.9, categories='{Одежда,Женщинам,"Джемперы, свитеры и кардиганы",SALPAGARINI}', prices=[Price(id=12, product_id='2000108942', with_card=1553, without_card=1689, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 28, 17, 25, 0, 518096))]) (ID: 2000108942)
+2025-10-01 16:26:04,331 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339))]) (ID: 1818184981)
+2025-10-01 16:26:04,351 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1728110604', user_id='', name='Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', link='https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', image_url='https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', rating=4.8, categories='{"Бытовая техника","Техника для дома",Пылесосы,Роботы-пылесосы,Xiaomi}', prices=[Price(id=17, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 16, 39, 30, 705555)), Price(id=18, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 40, 5, 451004)), Price(id=19, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 42, 17, 196145)), Price(id=20, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 44, 4, 901044)), Price(id=21, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 46, 57, 87346)), Price(id=22, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 50, 48, 653461)), Price(id=23, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 17, 1, 20, 444851)), Price(id=24, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 34, 42, 580920)), Price(id=25, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 36, 0, 48055)), Price(id=26, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 38, 8, 854926)), Price(id=27, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 39, 5, 241925)), Price(id=28, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 40, 12, 932794)), Price(id=29, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 32, 537599)), Price(id=30, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 55, 559731)), Price(id=31, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 14, 13, 910458))]) (ID: 1728110604)
+2025-10-01 16:26:04,364 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1668950019', user_id='', name='Легинсы FITFOX Спорт Фитнес', link='https://www.ozon.ru/product/leginsy-fitfox-sport-fitnes-1668950019/', image_url='https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7185334021.jpg', rating=4.9, categories='{Одежда,Женщинам,"Брюки, бриджи и капри",FITFOX}', prices=[Price(id=32, product_id='1668950019', with_card=1568, without_card=1705, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 49, 1, 5209))]) (ID: 1668950019)
+2025-10-01 16:26:04,372 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1565602444', user_id='', name='Ray-Ban Очки солнцезащитные', link='https://www.ozon.ru/product/ray-ban-ochki-solntsezashchitnye-1565602444/', image_url='https://ir.ozone.ru/s3/multimedia-1-a/wc1000/7364741986.jpg', rating=4.7, categories='{Аксессуары,Женщинам,Очки,"Солнцезащитные очки",Ray-Ban}', prices=[Price(id=33, product_id='1565602444', with_card=737, without_card=805, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 52, 24, 119143))]) (ID: 1565602444)
+2025-10-01 16:26:04,376 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-01 16:26:04,378 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-01 16:26:04,379 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-01 16:26:04,379 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-01 16:26:04,380 - src.infrastructure.services.logger - ERROR - Ошибка при получении списка товаров
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 105, in get_my_product_list
+    kb = InlineKeyboardMarkup(row_width=1, inline_keyboard=[[inline_buttons]])
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard.0.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=[InlineKeyboardButton(tex...ck_game=None, pay=None)], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+2025-10-01 16:26:04,544 - aiogram.event - INFO - Update id=557185053 is handled. Duration 258 ms by bot id=5702092394
+2025-10-01 16:27:47,151 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-01 16:27:47,153 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-01 16:27:47,154 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-01 16:27:47,322 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
