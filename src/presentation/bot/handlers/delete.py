@@ -13,12 +13,13 @@ async def choose_product_to_delete(message: types.Message):
             await message.answer("📭 У вас пока нет отслеживаемых товаров")
             return
         
-        kb = InlineKeyboardMarkup(row_width=1)
+        buttons  = []  # Список для хранения рядов кнопок
         for p in products:
             name = p.get("name") or p.get("product_name") or p.get("id")
             display = name if len(name) <= 60 else name[:57] + "..."
-            kb.add(InlineKeyboardButton(text=f"🗑 {display}", callback_data=f"delete_product:{p['id']}"))
-            # Вот здесь нужно было добавить?
+            buttons.append(InlineKeyboardButton(text=f"🗑 {display}", callback_data=f"delete_product:{p['id']}"))
+            
+            kb = InlineKeyboardMarkup(inline_keyboard=buttons)
             await message.answer("Выберите товар для удаления:", reply_markup=kb)
 
     except Exception as e:
@@ -35,11 +36,11 @@ async def handle_delete_product_request(call: CallbackQuery):
             await call.answer("❌ Товар не найден")
             return
 
-        kb = InlineKeyboardMarkup(row_width=2)
-        kb.add(
+        keyboard = [
             InlineKeyboardButton("✅ Да, удалить", callback_data=f"confirm_delete:{product_id}"),
             InlineKeyboardButton("❌ Отмена", callback_data=f"cancel_delete:{product_id}")
-        )
+        ]
+        kb = InlineKeyboardMarkup(inline_keyboard=keyboard)
 
         await call.message.edit_text(
             f"⚠️ Удалить товар <b>{product['name']}</b>?",
@@ -65,11 +66,13 @@ async def handle_confirm_delete(call: CallbackQuery):
             )
             return
 
-        kb = InlineKeyboardMarkup(row_width=1)
+        buttons = []
         for p in products:
             name = p.get("name") or p.get("product_name") or p.get("id")
             display = name if len(name) <= 60 else name[:57] + "..."
-            kb.add(InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}"))
+            buttons.append(InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}"))
+
+        kb = InlineKeyboardMarkup(inline_keyboard=buttons)
 
         await call.message.edit_text(
             "🗑️ Товар удалён.\n📋 Ваши товары:",

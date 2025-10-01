@@ -1,13 +1,21 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-# Функция для создания клавиатуры с действиями над товаром
 def build_product_actions_keyboard(product_id: str, product_link: str) -> InlineKeyboardMarkup:
-    kb = InlineKeyboardMarkup(row_width=2)
-    kb.add(
-        InlineKeyboardButton("🔄 Обновить цену", callback_data=f"update_price:{product_id}"),
-        InlineKeyboardButton("🗑 Удалить", callback_data=f"delete_product:{product_id}")
-    )
-    kb.add(InlineKeyboardButton("⬅️ Назад", callback_data="back_to_products"))
-    kb.add(InlineKeyboardButton("Открыть на Ozon", url=product_link))
+    """
+    Создает клавиатуру с действиями над товаром.
+    В aiogram 3.x клавиатура создается через список списков кнопок.
+    """
+    keyboard = [
+        [
+            InlineKeyboardButton(text="🔄 Обновить цену", callback_data=f"update_price:{product_id}"),
+            InlineKeyboardButton(text="🗑 Удалить", callback_data=f"delete_product:{product_id}")
+        ],
+        [
+            InlineKeyboardButton(text="⬅️ Назад", callback_data="back_to_products")
+        ],
+        [
+            InlineKeyboardButton(text="Открыть на Ozon", url=product_link)
+        ]
+    ]
     
-    return kb
+    return InlineKeyboardMarkup(inline_keyboard=keyboard)
