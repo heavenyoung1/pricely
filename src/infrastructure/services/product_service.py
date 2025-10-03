@@ -10,7 +10,6 @@ from src.application.use_cases import (
     UpdateProductPriceUseCase,
     DeleteProductUseCase,
     GetUserProductsUseCase,
-    CompareProductPriceUseCase,
 )
 
 from src.domain.entities import Product, Price, User
@@ -156,16 +155,6 @@ class ProductService:
         except Exception as e:
             logger.error(f'Ошибка при удалении продукта {product_id}: {str(e)}')
             raise
-
-    def compare_product_price(self, product_id: str):
-        """Сравнивает цену товара и уведомляет пользователя."""
-        use_case = CompareProductPriceUseCase(
-            product_repo=self.uow.product_repository,
-            price_repo=self.uow.price_repository,
-            parser=self.parser,
-            notification_service=self.notification_service
-        )
-        use_case.execute(product_id)
 
 # Инициализация сервиса
 # Правильно ли так делать и объявлять его здесь?

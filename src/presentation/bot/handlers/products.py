@@ -182,16 +182,16 @@ async def handle_update_price(call: CallbackQuery):
     logger.debug(f'В кнопке получен {product_id}')
     logger.info(f'Начинаем обновление цены для товара {product_id}')
 
-    # Сразу отвечаем на callback, чтобы избежать timeout
-    try:
-        await call.answer('🔄 Обновляем цену...')
-    except Exception as e:
-        logger.warning(f'Не удалось ответить на callback query: {e}')
+    # # Сразу отвечаем на callback, чтобы избежать timeout
+    # try:
+    #     await call.answer('🔄 Обновляем цену...')
+    # except Exception as e:
+    #     logger.warning(f'Не удалось ответить на callback query: {e}')
 
     try:
         # Обновляем цену
         logger.info('Вызываем service.update_product_price')
-        updated_product = await product_service.update_product_price(product_id)
+        updated_product = product_service.update_product_price(product_id)
         logger.info(f'Получили обновленный товар: {type(updated_product)} - {updated_product}')
 
         # Формируем новое сообщение
@@ -224,14 +224,18 @@ async def handle_update_price(call: CallbackQuery):
         logger.exception('❌ Ошибка при обновлении цены')
         
         # В случае ошибки показываем сообщение об ошибке
-        try:
-            await call.message.edit_text(
-                f'❌ Ошибка при обновлении цены: {e}',
-                reply_markup=InlineKeyboardMarkup().add(
-                    InlineKeyboardButton('🔙 Назад', callback_data=f'product:{product_id}')
-                )
-            )
-        except Exception as edit_error:
+    try:
+        kb = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [InlineKeyboardButton(text='🔙 Назад', callback_data=f'product:{product_id}')]
+            ]
+        )
+
+        await call.message.edit_text(
+            f'❌ Ошибка при обновлении цены: {e}',
+            reply_markup=kb
+        )
+    except Exception as edit_error:
             logger.exception('Не удалось обновить сообщение с ошибкой')   
 
     
