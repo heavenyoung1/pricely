@@ -30,27 +30,13 @@ from src.presentation.bot.handlers.delete import (
 from src.presentation.bot.handlers.navigation import handle_back_to_products
 from src.presentation.bot.handlers.error import fallback
 
-# Dispatcher с хранилищем FSM
-
-
-def register_handlers():
-    """
-    Все хендлеры собираем в одном месте
-    """
-
-
-    logger.info("Все хендлеры зарегистрированы.")
-
-async def main() -> None:
-    bot = Bot(token=BOT_TOKEN)
-    dp = Dispatcher(storage=MemoryStorage())
-    logger.info('Бот запущен')
-
-    # Общие команды
+# Функция для регистрации всех обработчиков
+def register_message_handlers(dp):
+    """Регистрация обработчиков для сообщений"""
     dp.message.register(command_start_handler, CommandStart())
     dp.message.register(command_help_handler, Command("help"))
 
-    # Обработка ТЕКСТОВЫХ кнопок из меню
+    # Обработка текстовых кнопок
     dp.message.register(add_product_request, F.text == "➕ Добавить товар")
     dp.message.register(get_my_product_list, F.text == "📋 Мои товары")
     dp.message.register(choose_product_to_delete, F.text == "➖ Удалить товар")
@@ -60,11 +46,14 @@ async def main() -> None:
     dp.message.register(add_product_request, Command("add_product"))
     dp.message.register(add_product_process, ProductAddState.waiting_for_url)
 
-    # Список товаров (только из БД, без парсинга!)
+    # Список товаров
     dp.message.register(get_my_product_list, Command("my_products"))
 
     # Удаление товара
     dp.message.register(choose_product_to_delete, Command("delete"))
+
+def register_callback_handlers(dp):
+    """Регистрация обработчиков для callback-запросов"""
     dp.callback_query.register(handle_delete_product_request, lambda call: call.data.startswith("delete_product:"))
     dp.callback_query.register(handle_confirm_delete, lambda call: call.data.startswith("confirm_delete:"))
     dp.callback_query.register(handle_cancel_delete, lambda call: call.data.startswith("cancel_delete:"))
@@ -76,8 +65,25 @@ async def main() -> None:
     dp.callback_query.register(handle_product_button, lambda call: call.data.startswith("product:"))
     dp.callback_query.register(handle_update_price, lambda call: call.data.startswith("update_price:"))
 
-    # Фолбек — всегда в самом конце, чтобы перехватывал только незарегистрированные команды
+def register_fallback_handler(dp):
+    """Регистрация фолбек обработчика"""
     dp.message.register(fallback)
+
+
+    logger.info("Все хендлеры зарегистрированы.")
+
+async def main() -> None:
+    bot = Bot(token=BOT_TOKEN)
+    dp = Dispatcher(storage=MemoryStorage())
+    logger.info('Бот запущен')
+
+    # Регистрация всех обработчиков
+    register_message_handlers(dp)
+    register_callback_handlers(dp)
+    register_fallback_handler(dp)
+
+    await dp.start_polling(bot)
+
 
     await dp.start_polling(bot)
 
