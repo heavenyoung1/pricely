@@ -111,7 +111,7 @@ class ProductService:
         return products
 
     @with_uow(commit=True)
-    def update_product_price(self, product_id: str) -> dict:
+    def update_product_price(self, product_id: str, parser: OzonParser) -> dict:
         """
         Парсит цену, сохраняет в БД и возвращает полную карточку товара (dict).
         """
@@ -124,12 +124,13 @@ class ProductService:
         use_case = UpdateProductPriceUseCase(
             product_repo=self.uow.product_repository,
             price_repo=self.uow.price_repository,
+            parser=OzonParser(),
         )
 
         use_case.execute(
             product_id=product_id,
             with_card=parsed["price_with_card"],
-            without_card=parsed["price_without_card"]
+            without_card=parsed["price_without_card"],
         )
 
         # Вернём полную карточку в dict-формате (как get_full_product)

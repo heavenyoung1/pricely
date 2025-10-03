@@ -33,27 +33,33 @@ class UpdateProductPriceUseCase:
             last_price = self.price_repo.get_latest_for_product(product_id)
 
             # 3. Парсим новые данные
-            new_data = self.parser.parse_product(product['link'])
+            parsed = self.parser.parse_product(product.link)
+            new_with_card = parsed["with_card"]
+            new_without_card = parsed["without_card"]
 
-            # 3. Сравниваем ценывара {product_id} обновлена: {new_price}")
             changed = (
-                product['with_card'] != new_data['with_card'] or
-                product['without_card'] != new_data['without_card'] 
+                not last_price or
+                last_price.with_card != new_with_card or
+                last_price.without_card != new_without_card
             )
+
 
             # 4. Если цены изменились → сохраняем новую запись Price
             if changed == True:
                 new_price = Price(
                     id=None,
                     product_id=product.id,
-                    with_card=new_data['with_card'],
-                    without_card=new_data['without_card'],
-                    previous_with_card=product['with_card'],
-                    previous_without_card=product['with_card'],
+                    with_card=new_with_card,
+                    without_card=new_without_card,
+                    previous_with_card=last_price.with_card,
+                    previous_without_card=last_price.without_card,
                     created_at= datetime.now(),
             )
-            self.price_repo.save(price=new_price)
+                self.price_repo.save(price=new_price)
 
+            else:
+                logger.info(f"Цена товара {product_id} не изменилась")
+            
             logger.info(f"Цена для товара {product_id} успешно обновлена: {new_price}")
 
             # 5. Возвращаем словарь для UI
