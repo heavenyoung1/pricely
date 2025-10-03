@@ -29,7 +29,7 @@ class UpdateProductPriceUseCase:
         latest = self.price_repo.get_latest_for_product(product_id)
 
         new_price = Price(
-            id=str(uuid.uuid4()),  # генерим id для ORM (если не автогенерируется)
+            id=None,  # БД сама создаст автоинкрементный id
             product_id=product_id,
             with_card=with_card,
             without_card=without_card,
