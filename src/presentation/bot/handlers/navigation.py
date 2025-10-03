@@ -22,9 +22,9 @@ async def handle_back_to_products(call: CallbackQuery):
         for p in products:
             name = p.get("name") or p.get("product_name") or p.get("id")
             display = name if len(name) <= 60 else name[:57] + "..."
-            buttons = [].append(InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}"))
+            buttons.append(InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}"))
 
-            kb = InlineKeyboardMarkup(inline_keyboard=buttons)
+        kb = InlineKeyboardMarkup(inline_keyboard=buttons)
 
         # Обновляем сообщение с клавиатурой и списком товаров
         await call.message.edit_text(

@@ -70,7 +70,7 @@ async def main() -> None:
     dp.callback_query.register(handle_cancel_delete, lambda call: call.data.startswith("cancel_delete:"))
 
     # Навигация
-    dp.callback_query.register(handle_back_to_products, F.text == "back_to_products")
+    dp.callback_query.register(handle_back_to_products, lambda call: call.data == "back_to_products")
 
     # Действия с товарами
     dp.callback_query.register(handle_product_button, lambda call: call.data.startswith("product:"))
