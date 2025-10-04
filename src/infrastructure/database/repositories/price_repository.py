@@ -63,7 +63,7 @@ class PriceRepositoryImpl(PriceRepository):
             raise
 
     def get_latest_for_product(self, product_id: str) -> Price | None:
-        ''''''
+        '''Достает последние данные по времени'''
         logger.debug(f'Получение последней цены для продукта {product_id}')
         orm_price = (
             self.session.query(ORMPrice).filter(ORMPrice.product_id == product_id).order_by(desc(ORMPrice.created_at)).first()

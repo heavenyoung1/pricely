@@ -34,8 +34,8 @@ class UpdateProductPriceUseCase:
 
             # 3. Парсим новые данные
             parsed = self.parser.parse_product(product.link)
-            new_with_card = parsed["with_card"]
-            new_without_card = parsed["without_card"]
+            new_with_card = parsed["price_with_card"]
+            new_without_card = parsed["price_without_card"]
 
             if new_with_card is None or new_without_card is None:
                 logger.error(f"Не удалось извлечь цену для товара {product_id}")
@@ -47,6 +47,8 @@ class UpdateProductPriceUseCase:
                 last_price.without_card != new_without_card
             )
 
+            # Инициализация new_price перед проверкой изменения цены
+            new_price = None
 
             # 4. Если цены изменились → сохраняем новую запись Price
             if changed == True:
@@ -55,24 +57,23 @@ class UpdateProductPriceUseCase:
                     product_id=product.id,
                     with_card=new_with_card,
                     without_card=new_without_card,
-                    previous_with_card=last_price.with_card,
-                    previous_without_card=last_price.without_card,
-                    created_at= datetime.now(),
-            )
+                    previous_with_card=last_price.with_card if last_price else None,
+                    previous_without_card=last_price.without_card if last_price else None,
+                    created_at=datetime.now(),
+            )            
+                logger.info(f"Цена для товара ИЗМЕНИЛАСЬ и {product_id} успешно обновлена: {new_price.with_card}")
                 self.price_repo.save(price=new_price)
 
             else:
                 logger.info(f"Цена товара {product_id} не изменилась")
-            
-            logger.info(f"Цена для товара {product_id} успешно обновлена: {new_price}")
 
             # 5. Возвращаем словарь для UI
             return {
                 "id": product.id,
                 "name": product.name,
                 "link": product.link,
-                "with_card": new_price.with_card,
-                "without_card": new_price.without_card,
+                "with_card": new_price.with_card if new_price else last_price.with_card,
+                "without_card": new_price.without_card if new_price else last_price.without_card,
                 "last_price": last_price.with_card if last_price else None,
             }
 

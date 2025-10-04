@@ -179,37 +179,33 @@ async def handle_update_price(call: CallbackQuery):
       и пользователю будет отправлено сообщение об ошибке с кнопкой "Назад", чтобы вернуться к товару.
     '''
     product_id = call.data.split(':', 1)[1]
-    logger.debug(f'В кнопке получен {product_id}')
     logger.info(f'Начинаем обновление цены для товара {product_id}')
 
-    # # Сразу отвечаем на callback, чтобы избежать timeout
-    # try:
-    #     await call.answer('🔄 Обновляем цену...')
-    # except Exception as e:
-    #     logger.warning(f'Не удалось ответить на callback query: {e}')
+    # Уведомляем пользователя, что идет обновление
+    await call.answer('🔄 Обновляем цену...', show_alert=False)
 
     try:
         # Обновляем цену
-        logger.info('Вызываем service.update_product_price')
         updated_product = product_service.update_product_price(product_id)
-        logger.info(f'Получили обновленный товар: {type(updated_product)} - {updated_product}')
+        logger.info('Получили обновленный товар')
 
         # Формируем новое сообщение
-        logger.info('Формируем новое сообщение')
-        # УБРАЛИ AWAIT так как фукнция синхронная
         new_text = format_product_message(updated_product)
-        logger.info(f'Сформированный текст: {new_text}')
-
         new_markup = build_product_actions_keyboard(product_id, updated_product['link'])
-        logger.info('Клавиатура сформирована')
 
-        # Проверка на изменения, чтобы избежать отправки одинаковых данных
-        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        current_text = call.message.text
-        current_markup = call.message.reply_markup
+        # Получаем текущее сообщение (HTML версия)
+        # call.message.html_text содержит текст с HTML-тегами
+        current_text = call.message.html_text or call.message.text
 
-        if new_text != current_text or new_markup != current_markup:
-            logger.info('Обновляем сообщение с новыми данными')
+        logger.info(f'Current text: {current_text}')
+        logger.info(f'New text: {new_text}')
+
+        # Нормализуем тексты для сравнения (убираем лишние пробелы/переносы)
+        current_normalized = ' '.join(current_text.split())
+        new_normalized = ' '.join(new_text.split())
+
+        if new_normalized != current_normalized:
+            logger.info('Текст изменился, обновляем сообщение')
             await call.message.edit_text(
                 text=new_text,
                 parse_mode='HTML',
@@ -218,12 +214,12 @@ async def handle_update_price(call: CallbackQuery):
             )
             logger.info('✅ Сообщение успешно обновлено!')
         else:
-            logger.info('Данные не изменились, обновление не требуется.')
-        
+            logger.info('Текст не изменился')
+            await call.answer('✅ Цена актуальна', show_alert=True)
+
     except Exception as e:
         logger.exception('❌ Ошибка при обновлении цены')
-        
-        # В случае ошибки показываем сообщение об ошибке
+
         try:
             kb = InlineKeyboardMarkup(
                 inline_keyboard=[
@@ -232,10 +228,12 @@ async def handle_update_price(call: CallbackQuery):
             )
 
             await call.message.edit_text(
-                f'❌ Ошибка при обновлении цены: {e}',
+                '❌ Не удалось обновить цену. Попробуйте позже.',
                 reply_markup=kb
             )
         except Exception as edit_error:
-                logger.exception('Не удалось обновить сообщение с ошибкой')   
+            logger.exception('Не удалось обновить сообщение с ошибкой')
+            # Если не удалось изменить сообщение, отправляем popup
+            await call.answer('❌ Произошла ошибка', show_alert=True)
 
     
