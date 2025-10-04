@@ -23,60 +23,63 @@ class UpdateProductPriceUseCase:
         - сохраняет в БД,
         - возвращает обновлённый продукт.
         """
+        # Формируем флаг для отслеживания изменения цены
+        is_changed: bool = False
+
         try:
             # 1. Берем текущий продукт
             product = self.product_repo.get(product_id)
             if not product:
                 raise ProductNotFoundError(f"Товар {product_id} не найден")
 
-            # 2. Достаём последнюю цену
+            # 2. Достаём последние цены из БД (with_card, without_card), именно они нужны для дальнейшей бизнес-логики
             last_price = self.price_repo.get_latest_for_product(product_id)
 
+            previous_price_with_card = last_price.with_card if last_price else None
+            previous_price_without_card = last_price.without_card if last_price else None
+
             # 3. Парсим новые данные
-            parsed = self.parser.parse_product(product.link)
-            new_with_card = parsed["price_with_card"]
-            new_without_card = parsed["price_without_card"]
+            product_data = self.parser.parse_product(product.link)
 
-            if new_with_card is None or new_without_card is None:
-                logger.error(f"Не удалось извлечь цену для товара {product_id}")
-                raise PriceUpdateError(f"Ошибка при обновлении цены для товара {product_id}")
-
-            changed = (
-                not last_price or
-                last_price.with_card != new_with_card or
-                last_price.without_card != new_without_card
+            price = Price(
+                id=None,  # БД сама создаст автоинкрементный id
+                product_id=product.id,
+                with_card=product_data['price_with_card'],
+                without_card=product_data['price_without_card'],
+                previous_with_card=previous_price_with_card,
+                previous_without_card=previous_price_without_card,
+                created_at=datetime.now(),
             )
+            # потом удалить ,хочу посмотреть что там лежит!!!
+            logger.info(f'DEBUG!!! PRICE -> {price}')
+            logger.info(f'DEBUG!!! PRICE.WITH_CARD -> {price.previous_with_card}')
 
-            # Инициализация new_price перед проверкой изменения цены
-            new_price = None
+            try:
+                self.price_repo.save(price)
+            except Exception as e:
+                logger.error(f'Ошибка обновления цены: {e}')
+                raise PriceUpdateError(f'Ошибка обновления цены')
 
-            # 4. Если цены изменились → сохраняем новую запись Price
-            if changed == True:
-                new_price = Price(
-                    id=None,
-                    product_id=product.id,
-                    with_card=new_with_card,
-                    without_card=new_without_card,
-                    previous_with_card=last_price.with_card if last_price else None,
-                    previous_without_card=last_price.without_card if last_price else None,
-                    created_at=datetime.now(),
-            )            
-                logger.info(f"Цена для товара ИЗМЕНИЛАСЬ и {product_id} успешно обновлена: {new_price.with_card}")
-                self.price_repo.save(price=new_price)
+            # Заводим переменные для удобного взаимодействия
+            actual_price_with_card = price.with_card
+            actual_price_without_card = price.without_card
 
-            else:
-                logger.info(f"Цена товара {product_id} не изменилась")
+            # Проверяем, изменились ли цены
+            if (actual_price_with_card != previous_price_with_card) or (actual_price_without_card != previous_price_without_card):
+                is_changed = True
 
-            # 5. Возвращаем словарь для UI
+            # Возвращаем данные для UI и флаг is_changed
             return {
                 "id": product.id,
                 "name": product.name,
                 "link": product.link,
-                "with_card": new_price.with_card if new_price else last_price.with_card,
-                "without_card": new_price.without_card if new_price else last_price.without_card,
-                "last_price": last_price.with_card if last_price else None,
-            }
-
+                "with_card": actual_price_with_card,
+                "without_card": actual_price_without_card,
+                "previous_price_with_card": previous_price_with_card,
+                "previous_price_without_card": previous_price_without_card,
+                "is_changed": is_changed  # Флаг, сообщить ли боту о изменении
+            }    
+            
         except ProductNotFoundError as e:
             logger.error(f"Ошибка при обновлении цены: {str(e)}")
             raise
