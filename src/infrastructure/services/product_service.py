@@ -127,7 +127,7 @@ class ProductService:
             parser=OzonParser(),
         )
 
-        use_case.execute(
+        result = use_case.execute(
             product_id=product_id,
             with_card=parsed["price_with_card"],
             without_card=parsed["price_without_card"],
@@ -139,7 +139,13 @@ class ProductService:
             price_repo=self.uow.price_repository,
             user_repo=self.uow.user_repository,
         )
-        return use_case_full.execute(product_id)
+        full_product = use_case_full.execute(product_id)
+
+        # Объединяем данные о товаре с флагом is_changed
+        full_product["is_changed"] = result["is_changed"]
+
+        logger.info(f'IF DEBUG IS_CHANGED {full_product}')
+        return full_product
 
     @with_uow(commit=True)
     def delete_product(self, product_id) -> None:
