@@ -39,8 +39,13 @@ class UpdateProductPriceUseCase:
             previous_price_without_card = last_price.without_card if last_price else None
 
             # 3. Парсим новые данные
-            product_data = self.parser.parse_product(product.link)
+            try:
+                product_data = self.parser.parse_product(product.link)
+            except Exception as e:
+                logger.error(f"Ошибка при парсинге данных для товара {product_id}: {e}")
+                raise PriceUpdateError(f"Ошибка при парсинге данных для товара {product_id}")
 
+            # Создаем новую доменную сущность - цену
             price = Price(
                 id=None,  # БД сама создаст автоинкрементный id
                 product_id=product.id,
@@ -54,6 +59,7 @@ class UpdateProductPriceUseCase:
             logger.info(f'DEBUG!!! PRICE -> {price}')
             logger.info(f'DEBUG!!! PRICE.WITH_CARD -> {price.previous_with_card}')
 
+            # Сохраняем цену в БД
             try:
                 self.price_repo.save(price)
             except Exception as e:
