@@ -8917,3 +8917,302 @@ UnboundLocalError: cannot access local variable 'e' where it is not associated w
 2025-10-03 22:52:43,377 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-10-03 22:52:43,378 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-10-03 22:52:43,507 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-04 09:05:53,717 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-04 09:05:53,720 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-04 09:05:53,720 - aiogram.dispatcher - INFO - Start polling
+2025-10-04 09:05:53,965 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-04 09:06:04,381 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-04 09:06:04,879 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:06:05,003 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1818184981', '1728110604', '1668950019', '1565602444']) получен по id: 515084006
+2025-10-04 09:06:05,003 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-04 09:06:05,004 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-04 09:06:05,006 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-04 09:06:05,007 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-04 09:06:05,008 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-04 09:06:05,008 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-04 09:06:05,274 - aiogram.event - INFO - Update id=557185194 is handled. Duration 895 ms by bot id=5702092394
+2025-10-04 09:06:06,371 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:06:06,372 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-04 09:06:06,409 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339)), Price(id=34, product_id='1818184981', with_card=145, without_card=161, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 10, 3, 18, 6, 17, 889458)), Price(id=35, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 18, 32, 50, 660873)), Price(id=36, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 21, 38, 680092)), Price(id=37, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 22, 45, 891365))]) (ID: 1818184981)
+2025-10-04 09:06:06,439 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1728110604', user_id='', name='Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', link='https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', image_url='https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', rating=4.8, categories='{"Бытовая техника","Техника для дома",Пылесосы,Роботы-пылесосы,Xiaomi}', prices=[Price(id=17, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 16, 39, 30, 705555)), Price(id=18, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 40, 5, 451004)), Price(id=19, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 42, 17, 196145)), Price(id=20, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 44, 4, 901044)), Price(id=21, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 46, 57, 87346)), Price(id=22, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 50, 48, 653461)), Price(id=23, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 17, 1, 20, 444851)), Price(id=24, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 34, 42, 580920)), Price(id=25, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 36, 0, 48055)), Price(id=26, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 38, 8, 854926)), Price(id=27, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 39, 5, 241925)), Price(id=28, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 40, 12, 932794)), Price(id=29, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 32, 537599)), Price(id=30, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 55, 559731)), Price(id=31, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 14, 13, 910458))]) (ID: 1728110604)
+2025-10-04 09:06:06,461 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1668950019', user_id='', name='Легинсы FITFOX Спорт Фитнес', link='https://www.ozon.ru/product/leginsy-fitfox-sport-fitnes-1668950019/', image_url='https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7185334021.jpg', rating=4.9, categories='{Одежда,Женщинам,"Брюки, бриджи и капри",FITFOX}', prices=[Price(id=32, product_id='1668950019', with_card=1568, without_card=1705, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 49, 1, 5209)), Price(id=38, product_id='1668950019', with_card=1575, without_card=1713, previous_with_card=1568, previous_without_card=1705, created_at=datetime.datetime(2025, 10, 3, 22, 10, 27, 666681))]) (ID: 1668950019)
+2025-10-04 09:06:06,477 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1565602444', user_id='', name='Ray-Ban Очки солнцезащитные', link='https://www.ozon.ru/product/ray-ban-ochki-solntsezashchitnye-1565602444/', image_url='https://ir.ozone.ru/s3/multimedia-1-a/wc1000/7364741986.jpg', rating=4.7, categories='{Аксессуары,Женщинам,Очки,"Солнцезащитные очки",Ray-Ban}', prices=[Price(id=33, product_id='1565602444', with_card=737, without_card=805, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 52, 24, 119143))]) (ID: 1565602444)
+2025-10-04 09:06:06,486 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-04 09:06:06,493 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-04 09:06:06,494 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-04 09:06:06,494 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-04 09:06:06,589 - aiogram.event - INFO - Update id=557185195 is handled. Duration 219 ms by bot id=5702092394
+2025-10-04 09:06:07,823 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:06:07,838 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339)), Price(id=34, product_id='1818184981', with_card=145, without_card=161, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 10, 3, 18, 6, 17, 889458)), Price(id=35, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 18, 32, 50, 660873)), Price(id=36, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 21, 38, 680092)), Price(id=37, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 22, 45, 891365))]) (ID: 1818184981)
+2025-10-04 09:06:07,845 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-04 09:06:07,848 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-04 09:06:07,851 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-04 09:06:07,853 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-04 09:06:07,975 - aiogram.event - INFO - Update id=557185196 is handled. Duration 252 ms by bot id=5702092394
+2025-10-04 09:06:10,181 - src.infrastructure.services.logger - INFO - Начинаем обновление цены для товара 1818184981
+2025-10-04 09:06:10,182 - src.infrastructure.services.logger - INFO - Вызываем service.update_product_price
+2025-10-04 09:06:10,183 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:06:10,184 - src.core.uow - WARNING - Исключение в Unit of Work: TypeError: ProductService.update_product_price() missing 1 required positional argument: 'parser'
+2025-10-04 09:06:10,185 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-04 09:06:10,185 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-04 09:06:10,186 - src.core.decorators - ERROR - Ошибка в функции update_product_price: ProductService.update_product_price() missing 1 required positional argument: 'parser'
+2025-10-04 09:06:10,186 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обновлении цены
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 194, in handle_update_price
+    updated_product = product_service.update_product_price(product_id)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+TypeError: ProductService.update_product_price() missing 1 required positional argument: 'parser'
+2025-10-04 09:06:10,254 - src.infrastructure.services.logger - ERROR - Не удалось обновить сообщение с ошибкой
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 235, in handle_update_price
+    f'❌ Ошибка при обновлении цены: {e}',
+                                      ^
+UnboundLocalError: cannot access local variable 'e' where it is not associated with a value
+2025-10-04 09:06:10,256 - aiogram.event - INFO - Update id=557185197 is handled. Duration 77 ms by bot id=5702092394
+2025-10-04 09:07:43,549 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-04 09:07:43,550 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-04 09:07:43,551 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-04 09:07:43,689 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-04 09:07:48,164 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-04 09:07:48,165 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-04 09:07:48,166 - aiogram.dispatcher - INFO - Start polling
+2025-10-04 09:07:48,406 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-04 09:07:52,534 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-04 09:07:52,632 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:07:52,633 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-04 09:07:52,719 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339)), Price(id=34, product_id='1818184981', with_card=145, without_card=161, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 10, 3, 18, 6, 17, 889458)), Price(id=35, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 18, 32, 50, 660873)), Price(id=36, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 21, 38, 680092)), Price(id=37, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 22, 45, 891365))]) (ID: 1818184981)
+2025-10-04 09:07:52,731 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1728110604', user_id='', name='Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', link='https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', image_url='https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', rating=4.8, categories='{"Бытовая техника","Техника для дома",Пылесосы,Роботы-пылесосы,Xiaomi}', prices=[Price(id=17, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 16, 39, 30, 705555)), Price(id=18, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 40, 5, 451004)), Price(id=19, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 42, 17, 196145)), Price(id=20, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 44, 4, 901044)), Price(id=21, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 46, 57, 87346)), Price(id=22, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 50, 48, 653461)), Price(id=23, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 17, 1, 20, 444851)), Price(id=24, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 34, 42, 580920)), Price(id=25, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 36, 0, 48055)), Price(id=26, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 38, 8, 854926)), Price(id=27, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 39, 5, 241925)), Price(id=28, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 40, 12, 932794)), Price(id=29, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 32, 537599)), Price(id=30, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 55, 559731)), Price(id=31, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 14, 13, 910458))]) (ID: 1728110604)
+2025-10-04 09:07:52,741 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1668950019', user_id='', name='Легинсы FITFOX Спорт Фитнес', link='https://www.ozon.ru/product/leginsy-fitfox-sport-fitnes-1668950019/', image_url='https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7185334021.jpg', rating=4.9, categories='{Одежда,Женщинам,"Брюки, бриджи и капри",FITFOX}', prices=[Price(id=32, product_id='1668950019', with_card=1568, without_card=1705, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 49, 1, 5209)), Price(id=38, product_id='1668950019', with_card=1575, without_card=1713, previous_with_card=1568, previous_without_card=1705, created_at=datetime.datetime(2025, 10, 3, 22, 10, 27, 666681))]) (ID: 1668950019)
+2025-10-04 09:07:52,756 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1565602444', user_id='', name='Ray-Ban Очки солнцезащитные', link='https://www.ozon.ru/product/ray-ban-ochki-solntsezashchitnye-1565602444/', image_url='https://ir.ozone.ru/s3/multimedia-1-a/wc1000/7364741986.jpg', rating=4.7, categories='{Аксессуары,Женщинам,Очки,"Солнцезащитные очки",Ray-Ban}', prices=[Price(id=33, product_id='1565602444', with_card=737, without_card=805, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 52, 24, 119143))]) (ID: 1565602444)
+2025-10-04 09:07:52,760 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-04 09:07:52,765 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-04 09:07:52,766 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-04 09:07:52,767 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-04 09:07:53,014 - aiogram.event - INFO - Update id=557185198 is handled. Duration 481 ms by bot id=5702092394
+2025-10-04 09:07:54,433 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:07:54,444 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339)), Price(id=34, product_id='1818184981', with_card=145, without_card=161, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 10, 3, 18, 6, 17, 889458)), Price(id=35, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 18, 32, 50, 660873)), Price(id=36, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 21, 38, 680092)), Price(id=37, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 22, 45, 891365))]) (ID: 1818184981)
+2025-10-04 09:07:54,448 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-04 09:07:54,451 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-04 09:07:54,452 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-04 09:07:54,452 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-04 09:07:54,545 - aiogram.event - INFO - Update id=557185199 is handled. Duration 207 ms by bot id=5702092394
+2025-10-04 09:07:55,725 - src.infrastructure.services.logger - INFO - Начинаем обновление цены для товара 1818184981
+2025-10-04 09:07:55,726 - src.infrastructure.services.logger - INFO - Вызываем service.update_product_price
+2025-10-04 09:07:55,727 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:07:55,739 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339)), Price(id=34, product_id='1818184981', with_card=145, without_card=161, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 10, 3, 18, 6, 17, 889458)), Price(id=35, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 18, 32, 50, 660873)), Price(id=36, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 21, 38, 680092)), Price(id=37, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 22, 45, 891365))]) (ID: 1818184981)
+2025-10-04 09:07:58,662 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-04 09:08:10,015 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-04 09:08:10,016 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-04 09:08:10,161 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-04 09:08:10,182 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-04 09:08:10,207 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-04 09:08:10,236 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 145
+2025-10-04 09:08:10,257 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 161
+2025-10-04 09:08:10,274 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-04 09:08:10,328 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-04 09:08:12,121 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-04 09:08:12,126 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339)), Price(id=34, product_id='1818184981', with_card=145, without_card=161, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 10, 3, 18, 6, 17, 889458)), Price(id=35, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 18, 32, 50, 660873)), Price(id=36, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 21, 38, 680092)), Price(id=37, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 22, 45, 891365))]) (ID: 1818184981)
+2025-10-04 09:08:13,352 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-04 09:08:24,699 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-04 09:08:24,699 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-04 09:08:24,746 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-04 09:08:24,780 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-04 09:08:24,808 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-04 09:08:24,837 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 145
+2025-10-04 09:08:24,864 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 161
+2025-10-04 09:08:24,882 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-04 09:08:24,936 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-04 09:08:26,572 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-04 09:08:26,573 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены: 'with_card'
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 37, in execute
+    new_with_card = parsed["with_card"]
+                    ~~~~~~^^^^^^^^^^^^^
+KeyError: 'with_card'
+2025-10-04 09:08:26,587 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1818184981
+2025-10-04 09:08:26,589 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-04 09:08:26,590 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-04 09:08:26,591 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1818184981
+2025-10-04 09:08:26,591 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обновлении цены
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 37, in execute
+    new_with_card = parsed["with_card"]
+                    ~~~~~~^^^^^^^^^^^^^
+KeyError: 'with_card'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 194, in handle_update_price
+    updated_product = product_service.update_product_price(product_id)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 130, in update_product_price
+    use_case.execute(
+    ~~~~~~~~~~~~~~~~^
+        product_id=product_id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+        with_card=parsed["price_with_card"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        without_card=parsed["price_without_card"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 80, in execute
+    raise PriceUpdateError(f"Ошибка при обновлении цены товара {product_id}")
+src.domain.exceptions.PriceUpdateError: Ошибка при обновлении цены товара 1818184981
+2025-10-04 09:08:26,595 - src.infrastructure.services.logger - ERROR - Не удалось обновить сообщение с ошибкой
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 235, in handle_update_price
+    f'❌ Ошибка при обновлении цены: {e}',
+                                      ^
+UnboundLocalError: cannot access local variable 'e' where it is not associated with a value
+2025-10-04 09:08:26,597 - aiogram.event - INFO - Update id=557185200 is handled. Duration 30874 ms by bot id=5702092394
+2025-10-04 09:12:16,940 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-04 09:12:16,942 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-04 09:12:16,943 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-04 09:12:17,105 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-04 09:12:21,198 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-04 09:12:21,201 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-04 09:12:21,201 - aiogram.dispatcher - INFO - Start polling
+2025-10-04 09:12:21,445 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-04 09:12:28,201 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-04 09:12:28,273 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:12:28,273 - src.application.use_cases.get_user_products - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-04 09:12:28,351 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339)), Price(id=34, product_id='1818184981', with_card=145, without_card=161, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 10, 3, 18, 6, 17, 889458)), Price(id=35, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 18, 32, 50, 660873)), Price(id=36, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 21, 38, 680092)), Price(id=37, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 22, 45, 891365))]) (ID: 1818184981)
+2025-10-04 09:12:28,359 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1728110604', user_id='', name='Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', link='https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', image_url='https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', rating=4.8, categories='{"Бытовая техника","Техника для дома",Пылесосы,Роботы-пылесосы,Xiaomi}', prices=[Price(id=17, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 16, 39, 30, 705555)), Price(id=18, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 40, 5, 451004)), Price(id=19, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 42, 17, 196145)), Price(id=20, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 44, 4, 901044)), Price(id=21, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 46, 57, 87346)), Price(id=22, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 16, 50, 48, 653461)), Price(id=23, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 17, 1, 20, 444851)), Price(id=24, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 34, 42, 580920)), Price(id=25, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 36, 0, 48055)), Price(id=26, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 38, 8, 854926)), Price(id=27, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 39, 5, 241925)), Price(id=28, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 18, 40, 12, 932794)), Price(id=29, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 32, 537599)), Price(id=30, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 13, 55, 559731)), Price(id=31, product_id='1728110604', with_card=14452, without_card=14598, previous_with_card=14452, previous_without_card=14598, created_at=datetime.datetime(2025, 9, 29, 21, 14, 13, 910458))]) (ID: 1728110604)
+2025-10-04 09:12:28,370 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1668950019', user_id='', name='Легинсы FITFOX Спорт Фитнес', link='https://www.ozon.ru/product/leginsy-fitfox-sport-fitnes-1668950019/', image_url='https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7185334021.jpg', rating=4.9, categories='{Одежда,Женщинам,"Брюки, бриджи и капри",FITFOX}', prices=[Price(id=32, product_id='1668950019', with_card=1568, without_card=1705, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 49, 1, 5209)), Price(id=38, product_id='1668950019', with_card=1575, without_card=1713, previous_with_card=1568, previous_without_card=1705, created_at=datetime.datetime(2025, 10, 3, 22, 10, 27, 666681))]) (ID: 1668950019)
+2025-10-04 09:12:28,379 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1565602444', user_id='', name='Ray-Ban Очки солнцезащитные', link='https://www.ozon.ru/product/ray-ban-ochki-solntsezashchitnye-1565602444/', image_url='https://ir.ozone.ru/s3/multimedia-1-a/wc1000/7364741986.jpg', rating=4.7, categories='{Аксессуары,Женщинам,Очки,"Солнцезащитные очки",Ray-Ban}', prices=[Price(id=33, product_id='1565602444', with_card=737, without_card=805, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 1, 14, 52, 24, 119143))]) (ID: 1565602444)
+2025-10-04 09:12:28,381 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-04 09:12:28,385 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-04 09:12:28,386 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-04 09:12:28,386 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-04 09:12:28,660 - aiogram.event - INFO - Update id=557185201 is handled. Duration 459 ms by bot id=5702092394
+2025-10-04 09:12:30,153 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:12:30,160 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339)), Price(id=34, product_id='1818184981', with_card=145, without_card=161, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 10, 3, 18, 6, 17, 889458)), Price(id=35, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 18, 32, 50, 660873)), Price(id=36, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 21, 38, 680092)), Price(id=37, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 22, 45, 891365))]) (ID: 1818184981)
+2025-10-04 09:12:30,163 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-04 09:12:30,166 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-04 09:12:30,167 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-04 09:12:30,167 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-04 09:12:30,270 - aiogram.event - INFO - Update id=557185202 is handled. Duration 214 ms by bot id=5702092394
+2025-10-04 09:12:31,263 - src.infrastructure.services.logger - INFO - Начинаем обновление цены для товара 1818184981
+2025-10-04 09:12:31,264 - src.infrastructure.services.logger - INFO - Вызываем service.update_product_price
+2025-10-04 09:12:31,265 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:12:31,273 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339)), Price(id=34, product_id='1818184981', with_card=145, without_card=161, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 10, 3, 18, 6, 17, 889458)), Price(id=35, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 18, 32, 50, 660873)), Price(id=36, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 21, 38, 680092)), Price(id=37, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 22, 45, 891365))]) (ID: 1818184981)
+2025-10-04 09:12:32,635 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-04 09:12:44,410 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-04 09:12:44,410 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-04 09:12:44,481 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-04 09:12:44,526 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-04 09:12:44,558 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-04 09:12:44,588 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 145
+2025-10-04 09:12:44,624 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 161
+2025-10-04 09:12:44,656 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-04 09:12:44,749 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-04 09:12:46,547 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-04 09:12:46,552 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='1818184981', user_id='', name='Наклейка на банковскую карту крекер', link='https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/', image_url='https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', rating=4.9, categories='{"Канцелярские товары","Бумажная продукция",Наклейки}', prices=[Price(id=13, product_id='1818184981', with_card=156, without_card=173, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 29, 15, 21, 37, 8287)), Price(id=14, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 12, 30, 49, 202120)), Price(id=15, product_id='1818184981', with_card=156, without_card=173, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 9, 29, 15, 37, 32, 25339)), Price(id=34, product_id='1818184981', with_card=145, without_card=161, previous_with_card=156, previous_without_card=173, created_at=datetime.datetime(2025, 10, 3, 18, 6, 17, 889458)), Price(id=35, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 18, 32, 50, 660873)), Price(id=36, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 21, 38, 680092)), Price(id=37, product_id='1818184981', with_card=145, without_card=161, previous_with_card=145, previous_without_card=161, created_at=datetime.datetime(2025, 10, 3, 19, 22, 45, 891365))]) (ID: 1818184981)
+2025-10-04 09:12:47,856 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-04 09:12:59,211 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-04 09:12:59,212 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-04 09:12:59,282 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-04 09:12:59,336 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-04 09:12:59,375 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-04 09:12:59,410 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 145
+2025-10-04 09:12:59,443 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 161
+2025-10-04 09:12:59,472 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-04 09:12:59,537 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-04 09:13:01,189 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-04 09:13:01,189 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены: 'with_card'
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 37, in execute
+    new_with_card = parsed["with_card"]
+                    ~~~~~~^^^^^^^^^^^^^
+KeyError: 'with_card'
+2025-10-04 09:13:01,192 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1818184981
+2025-10-04 09:13:01,193 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-04 09:13:01,193 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-04 09:13:01,193 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1818184981
+2025-10-04 09:13:01,193 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обновлении цены
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 37, in execute
+    new_with_card = parsed["with_card"]
+                    ~~~~~~^^^^^^^^^^^^^
+KeyError: 'with_card'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 194, in handle_update_price
+    updated_product = product_service.update_product_price(product_id)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 130, in update_product_price
+    use_case.execute(
+    ~~~~~~~~~~~~~~~~^
+        product_id=product_id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+        with_card=parsed["price_with_card"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        without_card=parsed["price_without_card"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 80, in execute
+    raise PriceUpdateError(f"Ошибка при обновлении цены товара {product_id}")
+src.domain.exceptions.PriceUpdateError: Ошибка при обновлении цены товара 1818184981
+2025-10-04 09:13:01,427 - aiogram.event - INFO - Update id=557185203 is handled. Duration 30167 ms by bot id=5702092394
+2025-10-04 09:15:12,043 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-04 09:15:12,044 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-04 09:15:12,045 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-04 09:15:12,210 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-04 09:33:15,680 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-04 09:33:15,681 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-04 09:33:15,682 - aiogram.dispatcher - INFO - Start polling
+2025-10-04 09:33:16,001 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-04 09:33:23,597 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-04 09:33:23,712 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:33:44,766 - src.infrastructure.services.product_service - ERROR - Ошибка при создании пользователя 515084006: (psycopg2.OperationalError) connection to server at "192.168.1.50", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-04 09:33:44,767 - src.core.uow - WARNING - Исключение в Unit of Work: UserCreationError: Ошибка создания пользователя: (psycopg2.OperationalError) connection to server at "192.168.1.50", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-04 09:33:44,768 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-04 09:33:44,768 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-04 09:33:44,769 - src.core.decorators - ERROR - Ошибка в функции create_user: Ошибка создания пользователя: (psycopg2.OperationalError) connection to server at "192.168.1.50", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-04 09:33:44,769 - src.infrastructure.services.logger - WARNING - Ошибка создания пользователя 515084006: Ошибка создания пользователя: (psycopg2.OperationalError) connection to server at "192.168.1.50", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-04 09:33:44,776 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:34:15,178 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-04 09:34:15,180 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-04 09:34:15,180 - aiogram.dispatcher - INFO - Start polling
+2025-10-04 09:34:15,390 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-04 09:34:15,464 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-04 09:34:15,530 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-04 09:34:36,586 - src.infrastructure.services.product_service - ERROR - Ошибка при создании пользователя 515084006: (psycopg2.OperationalError) connection to server at "192.168.1.50", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-04 09:34:36,587 - src.core.uow - WARNING - Исключение в Unit of Work: UserCreationError: Ошибка создания пользователя: (psycopg2.OperationalError) connection to server at "192.168.1.50", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-04 09:34:36,588 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-04 09:34:36,588 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-04 09:34:36,589 - src.core.decorators - ERROR - Ошибка в функции create_user: Ошибка создания пользователя: (psycopg2.OperationalError) connection to server at "192.168.1.50", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-04 09:34:36,589 - src.infrastructure.services.logger - WARNING - Ошибка создания пользователя 515084006: Ошибка создания пользователя: (psycopg2.OperationalError) connection to server at "192.168.1.50", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-04 09:34:36,665 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями

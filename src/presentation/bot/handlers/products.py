@@ -224,18 +224,18 @@ async def handle_update_price(call: CallbackQuery):
         logger.exception('❌ Ошибка при обновлении цены')
         
         # В случае ошибки показываем сообщение об ошибке
-    try:
-        kb = InlineKeyboardMarkup(
-            inline_keyboard=[
-                [InlineKeyboardButton(text='🔙 Назад', callback_data=f'product:{product_id}')]
-            ]
-        )
+        try:
+            kb = InlineKeyboardMarkup(
+                inline_keyboard=[
+                    [InlineKeyboardButton(text='🔙 Назад', callback_data=f'product:{product_id}')]
+                ]
+            )
 
-        await call.message.edit_text(
-            f'❌ Ошибка при обновлении цены: {e}',
-            reply_markup=kb
-        )
-    except Exception as edit_error:
-            logger.exception('Не удалось обновить сообщение с ошибкой')   
+            await call.message.edit_text(
+                f'❌ Ошибка при обновлении цены: {e}',
+                reply_markup=kb
+            )
+        except Exception as edit_error:
+                logger.exception('Не удалось обновить сообщение с ошибкой')   
 
     

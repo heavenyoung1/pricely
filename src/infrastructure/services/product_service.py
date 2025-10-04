@@ -111,7 +111,7 @@ class ProductService:
         return products
 
     @with_uow(commit=True)
-    def update_product_price(self, product_id: str, parser: OzonParser) -> dict:
+    def update_product_price(self, product_id: str) -> dict:
         """
         Парсит цену, сохраняет в БД и возвращает полную карточку товара (dict).
         """

@@ -27,7 +27,7 @@ class OzonParser(Parser):
         try:
             session.navigate(url)
             logger.info(f"Загружена страница: {url}")
-            return {
+            parsed_data = {
                 'id': self._extract_id(session),
                 'name': self._extract_name(session),
                 'rating': self._extract_rating(session),
@@ -36,6 +36,8 @@ class OzonParser(Parser):
                 'image_url': self._extract_image_url(session),
                 'categories': self._extract_categories(session)
             }
+            logger.info(f"РЕЗУЛЬТАТ ПАРСИНГА!!!: {parsed_data}")
+            return parsed_data
         except Exception as e:
             logger.error(f'Ошибка при парсинге страницы {url}: {e}')
             raise

@@ -37,6 +37,10 @@ class UpdateProductPriceUseCase:
             new_with_card = parsed["with_card"]
             new_without_card = parsed["without_card"]
 
+            if new_with_card is None or new_without_card is None:
+                logger.error(f"Не удалось извлечь цену для товара {product_id}")
+                raise PriceUpdateError(f"Ошибка при обновлении цены для товара {product_id}")
+
             changed = (
                 not last_price or
                 last_price.with_card != new_with_card or
