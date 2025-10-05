@@ -186,13 +186,31 @@ async def handle_update_price(call: CallbackQuery):
         # Сразу начинаем работу без answer()
         updated_product = product_service.update_product_price(product_id)
         
-        # Формируем новый текст сообщения
-        price_with_card = updated_product['with_card']
-        price_without_card = updated_product['without_card']
+        actual_prices_for_product = product_service.get_full_product(product_id)
+        price_with_card = actual_prices_for_product['with_card']
+        price_without_card = actual_prices_for_product['without_card']
+        price_previous_with_card = actual_prices_for_product['previous_with_card']
+        price_previous_without_card = actual_prices_for_product['previous_without_card']
+        created_at = actual_prices_for_product['created_at']
         
-        new_text = format_product_message(updated_product)
+        # Эмодзи для изменения цены
+        price_change_emoji = "🔺" if price_with_card > price_previous_with_card else "🔻"
+
+        # Формируем текст с информацией
+        new_text = (
+            f"📦 {updated_product['name']}\n"
+            f"💳 Цена с картой: {price_with_card} ₽ {price_change_emoji}\n"
+            f"💵 Цена без карты: {price_without_card} ₽ {price_change_emoji}\n"
+            f"🔗 Ссылка на товар: {updated_product['link']}\n\n"
+            f"📊 Предыдущие цены:\n"
+            f"  💳 С картой: {price_previous_with_card} ₽\n"
+            f"  💵 Без карты: {price_previous_without_card} ₽\n\n"
+            f"⏰ Обновлено: {created_at}"
+        )
+        
+        #new_text = format_product_message(updated_product)
         # Добавляем время обновления, чтобы текст всегда был разным
-        new_text += f"\n\n<i>Обновлено: {datetime.now().strftime('%H:%M:%S')}</i>"
+        #new_text += f"\n\n<i>Обновлено: {datetime.now().strftime('%H:%M:%S')}</i>"
         new_markup = build_product_actions_keyboard(product_id, updated_product['link'])
 
         if updated_product.get('is_changed', False):
