@@ -39,5 +39,6 @@ class GetFullProductUseCase:
             "rating": product.rating,
             "categories": product.categories,
             "latest_price": latest,
+            "created_at": latest_price.created_at,
         }
 

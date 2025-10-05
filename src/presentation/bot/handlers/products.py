@@ -1,54 +1,29 @@
 from aiogram.types import Message, CallbackQuery
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.fsm.context import FSMContext
+from aiogram.exceptions import TelegramBadRequest
 from datetime import datetime
 
 from src.presentation.bot.utils.fsm import ProductAddState
 from src.infrastructure.services import product_service
 from src.infrastructure.services import logger
-from src.presentation.bot.utils.formatters import format_product_message, format_categories
+from src.presentation.bot.utils.formatters import format_product_message
 from src.presentation.bot.utils.keyboard import build_product_actions_keyboard
+
 
 # ================= ДОБАВИТЬ ТОВАР ================= #
 
-# 1️⃣ Обработчик команды "➕ Добавить товар"
 async def add_product_request(message: Message, state: FSMContext):
-    '''
-    Обработчик команды "/add_product".
-
-    Этот метод срабатывает при получении команды "/add_product" от пользователя и выполняет следующие действия:
-    - Отправляет пользователю сообщение с просьбой отправить ссылку на товар.
-    - Устанавливает состояние FSM в "waiting_for_url", чтобы ожидать от пользователя URL товара.
-    - Информирует пользователя о начале процесса парсинга товара.
-
-    Аргументы:
-    - message (Message): Сообщение от пользователя, содержащее команду "/add_product".
-    - state (FSMContext): Контекст состояния FSM, используемый для управления состоянием бота в диалоге с пользователем.
-    '''
+    """Инициирует процесс добавления товара."""
     await message.answer("📦 Отправь ссылку на товар с Ozon")
-    # Устанавливаем состояние ожидания URL товара (если используем FSM, можно это добавить в следующий шаг)
     await state.set_state(ProductAddState.waiting_for_url)
-    # Переход в следующее состояние, где пользователь отправит URL товара
     await message.answer("⏳ Парсинг начался, ожидайте...")
 
+
 async def add_product_process(message: Message, state: FSMContext):
-    '''
-    Обработчик получения URL товара и добавления товара в систему.
-
-    Этот метод срабатывает, когда пользователь отправляет URL товара в ответ на запрос бота (после команды "/add_product").
-    Он выполняет следующие действия:
-    - Проверяет, находится ли пользователь в нужном состоянии (ожидание URL товара).
-    - Парсит URL и пытается добавить товар в систему через вызов метода create_product.
-    - Отправляет пользователю сообщение с результатом добавления товара: название товара, цена с картой и без.
-    - В случае ошибки отправляется сообщение с описанием проблемы.
-    - Очищает состояние FSM после завершения добавления товара.
-
-    Аргументы:
-    - message (Message): Сообщение от пользователя, содержащее URL товара.
-    - state (FSMContext): Контекст состояния FSM, который используется для проверки текущего состояния и управления состоянием бота.
-    '''
+    """Обрабатывает URL товара и добавляет товар в систему."""
     if not await state.get_state() == ProductAddState.waiting_for_url:
-        return  # Игнорируем, если пользователь не в этом состоянии
+        return
     
     url = message.text.strip()
     try:
@@ -63,91 +38,52 @@ async def add_product_process(message: Message, state: FSMContext):
     except Exception as e:
         logger.exception("Ошибка при добавлении товара")
         await message.answer(f"❌ Ошибка: {e}")
+    finally:
+        await state.clear()
 
-    # Сбрасываем состояние
-    await state.clear()
 
 # ================= ПОЛУЧИТЬ СПИСОК ТОВАРОВ ================= #
 
 async def get_my_product_list(message: Message):
-    '''
-    Обработчик команды для получения списка товаров пользователя.
-
-    Этот метод срабатывает, когда пользователь вызывает команду для получения списка своих товаров.
-    Он выполняет следующие действия:
-    - Получает все товары пользователя через `product_service.get_all_products()`.
-    - Если товаров нет, отправляет сообщение, что у пользователя нет отслеживаемых товаров.
-    - Если товары есть, формирует клавиатуру с кнопками для каждого товара и отправляет её пользователю.
-
-    Аргументы:
-    - message (Message): Сообщение от пользователя, содержащее запрос на получение списка товаров.
-
-    Исключения:
-    - В случае ошибки при получении списка товаров или других непредвиденных ошибок, ошибка будет залогирована,
-      и пользователю отправится сообщение с описанием ошибки.    
-    '''
+    """Отображает список товаров пользователя."""
     try:
-        # Получаем список товаров пользователя
         products = product_service.get_all_products(str(message.from_user.id))
-        # Если товаров нет
+        
         if not products:
             await message.answer('📭 У вас пока нет отслеживаемых товаров')
             return
         
-        inline_keyboard = []  # Список для хранения рядов кнопок
-
-        # Создаем отдельный ряд для каждой кнопки
-        for p in products: 
-            name = p.get('name') or p.get('product_name') or p.get('id')
-            display = name if len(name) <= 60 else name[:57] + '...'
-            # Каждая кнопка в отдельном списке = отдельный ряд
-            inline_keyboard.append([InlineKeyboardButton(text=display, callback_data=f"product:{p['id']}")])
-
-        # Создаем клавиатуру с кнопками (каждая в отдельном ряду)
-        kb = InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
+        inline_keyboard = [
+            [InlineKeyboardButton(
+                text=_truncate_name(p.get('name') or p.get('product_name') or p.get('id')),
+                callback_data=f"product:{p['id']}"
+            )]
+            for p in products
+        ]
         
-        # Отправляем сообщение с клавиатурой
+        kb = InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
         await message.answer("📋 Ваши товары:", reply_markup=kb)
 
     except Exception as e:
         logger.exception('Ошибка при получении списка товаров')
         await message.answer(f'❌ Ошибка: {e}')
-        
+
+
 async def handle_product_button(call: CallbackQuery):
-    '''
-    Обработчик нажатия на кнопку товара.
-
-    Этот метод срабатывает при нажатии на кнопку с товаром в списке.
-    Он выполняет следующие действия:
-    - Отправляет ответ на callback, чтобы избежать "залипания" кнопки.
-    - Извлекает ID товара из callback_data и получает полную информацию о товаре через `product_service.get_full_product()`.
-    - Если товар найден, формирует сообщение с подробной информацией о товаре и отправляет его пользователю.
-    - Если товар не найден, отправляется сообщение об ошибке.
+    """Отображает детальную информацию о товаре."""
+    await call.answer()
     
-    Аргументы:
-    - call (CallbackQuery): Данные callback-запроса, содержащие информацию о нажатой кнопке и ID товара.
-
-    Исключения:
-    - В случае ошибки при извлечении данных товара или других непредвиденных ошибок, ошибка будет залогирована,
-      и пользователю отправится сообщение с описанием ошибки.
-    '''
-    await call.answer() # Отправляем ответ на callback, чтобы избежать 'залипания' кнопки
-    
-    # Извлекаем ID продукта из callback_data
     product_id = call.data.split(':', 1)[1]
 
     try:
-        # Получаем полный продукт
         product = product_service.get_full_product(product_id)
         if not product:
             await call.message.edit_text('❌ Товар не найден.')
             return
         
         text = format_product_message(product)
-         # Создаем клавиатуру для действия с продуктом
         kb = build_product_actions_keyboard(product_id=product['id'], product_link=product['link'])
 
-        # Редактируем сообщение с информацией о товаре
         await call.message.edit_text(
             text=text,
             parse_mode='HTML',
@@ -157,94 +93,113 @@ async def handle_product_button(call: CallbackQuery):
 
     except Exception as e:
         logger.exception('Ошибка в handle_product_button')
-        await call.answer(f'Ошибка: {e}')
+        await call.answer(f'Ошибка: {e}', show_alert=True)
 
-# 3️⃣ Обновить цену
+
+# ================= ОБНОВИТЬ ЦЕНУ ================= #
+
 async def handle_update_price(call: CallbackQuery):
-    '''
-    Обработчик обновления цены товара.
-
-    Этот метод срабатывает при нажатии на кнопку "Обновить цену" для товара.
-    Он выполняет следующие действия:
-    - Отправляет ответ на callback-запрос, чтобы избежать задержек или "залипания" кнопки.
-    - Извлекает ID товара из callback_data и вызывает сервис для обновления цены товара.
-    - Если обновление прошло успешно, формирует новое сообщение с актуальной информацией о товаре и обновленной клавиатурой.
-    - Если данные не изменились, обновление сообщения не требуется.
-    - В случае ошибки при обновлении цены или при обработке сообщения, ошибка логируется, и пользователю отправляется сообщение с описанием ошибки.
-
-    Аргументы:
-    - call (CallbackQuery): Данные callback-запроса, содержащие информацию о нажатой кнопке и ID товара.
-
-    Исключения:
-    - В случае ошибки при обновлении цены или редактировании сообщения, ошибка будет залогирована,
-      и пользователю будет отправлено сообщение об ошибке с кнопкой "Назад", чтобы вернуться к товару.
-    '''
+    """Обновляет цену товара и отображает результат."""
     product_id = call.data.split(':', 1)[1]
     logger.info(f'Начинаем обновление цены для товара {product_id}')
 
     try:
-        # Сразу начинаем работу без answer()
+        await call.answer("⏳ Обновляем цену...")
+        
         updated_product = product_service.update_product_price(product_id)
-        
-        actual_prices_for_product = product_service.get_full_product(product_id)
-        price_with_card = actual_prices_for_product['with_card']
-        price_without_card = actual_prices_for_product['without_card']
-        price_previous_with_card = actual_prices_for_product['previous_with_card']
-        price_previous_without_card = actual_prices_for_product['previous_without_card']
-        created_at = actual_prices_for_product['created_at']
-        
-        # Эмодзи для изменения цены
-        price_change_emoji = "🔺" if price_with_card > price_previous_with_card else "🔻"
+        full_product_info = product_service.get_full_product(product_id)
 
-        # Формируем текст с информацией
-        new_text = (
-            f"📦 {updated_product['name']}\n"
-            f"💳 Цена с картой: {price_with_card} ₽ {price_change_emoji}\n"
-            f"💵 Цена без карты: {price_without_card} ₽ {price_change_emoji}\n"
-            f"🔗 Ссылка на товар: {updated_product['link']}\n\n"
-            f"📊 Предыдущие цены:\n"
-            f"  💳 С картой: {price_previous_with_card} ₽\n"
-            f"  💵 Без карты: {price_previous_without_card} ₽\n\n"
-            f"⏰ Обновлено: {created_at}"
-        )
-        
-        #new_text = format_product_message(updated_product)
-        # Добавляем время обновления, чтобы текст всегда был разным
-        #new_text += f"\n\n<i>Обновлено: {datetime.now().strftime('%H:%M:%S')}</i>"
+        new_text = _build_price_update_message(updated_product, full_product_info)
         new_markup = build_product_actions_keyboard(product_id, updated_product['link'])
 
-        if updated_product.get('is_changed', False):
-            # Цена изменилась — обновляем сообщение
-            await call.message.edit_text(
-                text=new_text,
-                parse_mode='HTML',
-                reply_markup=new_markup,
-                disable_web_page_preview=False
-            )
-            logger.info('✅ Цена обновлена!')
-        else:
-            # Цена не изменилась — показываем уведомление в тексте
-            await call.message.edit_text(
-                text=f"✅ Цена актуальна\n\n{new_text}",
-                parse_mode='HTML',
-                reply_markup=new_markup,
-                disable_web_page_preview=False
-            )
-            logger.info('✅ Цена актуальна')
+        await _safe_edit_message(
+            call.message, 
+            new_text, 
+            new_markup,
+            updated_product.get('is_changed', False)
+        )
 
     except Exception as e:
         logger.exception('❌ Ошибка при обновлении цены')
+        await _show_error_message(call, product_id)
+
+
+# ================= ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ================= #
+
+def _truncate_name(name: str, max_length: int = 60) -> str:
+    """Обрезает имя товара до заданной длины."""
+    return name if len(name) <= max_length else name[:max_length - 3] + '...'
+
+
+def _get_price_change_emoji(current: float, previous: float) -> str:
+    """Возвращает эмодзи в зависимости от изменения цены."""
+    if current > previous:
+        return "🔺"  # Увеличилась
+    elif current < previous:
+        return "🔻"  # Уменьшилась
+    else:
+        return "🔄"  # Не изменилась
+
+
+def _build_price_update_message(updated_product: dict, full_info: dict) -> str:
+    """Формирует сообщение об обновлении цены."""
+    price_with_card = full_info['latest_price']['with_card']
+    price_without_card = full_info['latest_price']['without_card']
+    prev_with_card = full_info['latest_price']['previous_price_with_card']
+    prev_without_card = full_info['latest_price']['previous_price_without_card']
+    
+    emoji = _get_price_change_emoji(price_with_card, prev_with_card)
+    updated_at = full_info['created_at'].strftime('%Y-%m-%d %H:%M:%S')
+    
+    # Базовая информация
+    message = (
+        f"📦 {updated_product['name']}\n"
+        f"💳 Цена с картой: {price_with_card} ₽ {emoji}\n"
+        f"💵 Цена без карты: {price_without_card} ₽ {emoji}\n"
+        f"🔗 Ссылка на товар: {updated_product['link']}\n\n"
+        f"📊 Предыдущие цены:\n"
+        f"  💳 С картой: {prev_with_card} ₽\n"
+        f"  💵 Без карты: {prev_without_card} ₽\n\n"
+        f"⏰ Обновлено: {updated_at}"
+    )
+    
+    # Добавляем префикс если цена не изменилась
+    if emoji == "🔄":
+        message = f"✅ Цена не изменилась\n\n{message}"
+    
+    return message
+
+
+async def _safe_edit_message(message, text: str, markup, is_changed: bool):
+    """Безопасно редактирует сообщение с обработкой исключений."""
+    try:
+        await message.edit_text(
+            text=text,
+            parse_mode='HTML',
+            reply_markup=markup,
+            disable_web_page_preview=False
+        )
+        logger.info('✅ Цена обновлена!' if is_changed else '✅ Цена актуальна')
         
-        try:
-            kb = InlineKeyboardMarkup(
-                inline_keyboard=[[
-                    InlineKeyboardButton(text='🔙 Назад', callback_data=f'product:{product_id}')
-                ]]
-            )
-            await call.message.edit_text(
-                '❌ Не удалось обновить цену. Попробуйте позже.',
-                reply_markup=kb
-            )
-        except Exception:
-            logger.exception('Не удалось обновить сообщение с ошибкой')
+    except TelegramBadRequest as e:
+        if "message is not modified" in str(e):
+            logger.info('Сообщение не изменилось, пропускаем обновление')
+        else:
+            raise
+
+
+async def _show_error_message(call: CallbackQuery, product_id: str):
+    """Отображает сообщение об ошибке с кнопкой возврата."""
+    try:
+        kb = InlineKeyboardMarkup(
+            inline_keyboard=[[
+                InlineKeyboardButton(text='🔙 Назад', callback_data=f'product:{product_id}')
+            ]]
+        )
+        await call.message.edit_text(
+            '❌ Не удалось обновить цену. Попробуйте позже.',
+            reply_markup=kb
+        )
+    except Exception:
+        logger.exception('Не удалось обновить сообщение с ошибкой')
     
