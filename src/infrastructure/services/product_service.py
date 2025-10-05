@@ -111,7 +111,7 @@ class ProductService:
         return products
 
     @with_uow(commit=True)
-    def update_product_price(self, product_id: str) -> dict:
+    async def update_product_price(self, product_id: str) -> dict:
         """
         Парсит цену, сохраняет в БД и возвращает полную карточку товара (dict).
         """
@@ -144,8 +144,33 @@ class ProductService:
         # Объединяем данные о товаре с флагом is_changed
         full_product["is_changed"] = result["is_changed"]
 
+        # -------- ТУТ ТЕСТОВАЯ ЛОГИКА ДЛЯ ОТПРАВКИ СОООБЩЕНИЯ ПОЛЬЗОВАТЕЛЮ ОБ ИЗМЕНЕНИИ ЦЕНЫ
+        # Если цена изменилась — отправляем уведомление
+        if result["is_changed"]:
+            # Нужно знать chat_id владельца — получим его из user_products
+            user_links = self.uow.user_products_repository.get_users_by_product(product_id)
+            for user_id in user_links:
+                full_user = self.uow.user_repository.get(user_id)
+                chat_id = getattr(full_user, "chat_id", None)
+                if chat_id:
+                    await self.notification_service.notify_price_change(chat_id, result, full_product)
+
+        # --------
         logger.info(f'IF DEBUG IS_CHANGED {full_product}')
         return full_product
+
+    @with_uow(commit=False)
+    def get_all_products_for_update(self):
+        """
+        Возвращает список всех товаров, которые нужно обновлять.
+        Можно потом добавить фильтры (например, активные пользователи).
+        """
+        use_case = GetUserProductsUseCase(
+            product_repo=self.uow.product_repository,
+            price_repo=self.uow.price_repository,
+            user_products_repo=self.uow.user_products_repository
+        )
+        return use_case.get_all_products()
 
     @with_uow(commit=True)
     def delete_product(self, product_id) -> None:

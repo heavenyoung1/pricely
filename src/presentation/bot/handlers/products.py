@@ -6,7 +6,7 @@ from datetime import datetime
 
 from src.presentation.bot.utils.fsm import ProductAddState
 from src.infrastructure.services import product_service
-from src.infrastructure.services import logger
+from src.infrastructure.services.logger import logger
 from src.presentation.bot.utils.formatters import format_product_message
 from src.presentation.bot.utils.keyboard import build_product_actions_keyboard
 
