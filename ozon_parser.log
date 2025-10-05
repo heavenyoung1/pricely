@@ -11118,3 +11118,11 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: messa
 2025-10-04 15:55:06,139 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-10-04 15:55:06,139 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-10-04 15:55:06,288 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-05 09:11:39,258 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-05 09:11:39,261 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-05 09:11:39,261 - aiogram.dispatcher - INFO - Start polling
+2025-10-05 09:11:39,557 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-05 09:15:37,687 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-05 09:15:37,691 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-05 09:15:37,691 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-05 09:15:37,878 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'

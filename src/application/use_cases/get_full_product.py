@@ -27,6 +27,8 @@ class GetFullProductUseCase:
         latest = {
             "with_card": latest_price.with_card if latest_price else None,
             "without_card": latest_price.without_card if latest_price else None,
+            "previous_price_with_card": latest_price.previous_with_card  if latest_price else None,
+            "previous_price_without_card": latest_price.previous_without_card if latest_price else None,
         }
 
         return {

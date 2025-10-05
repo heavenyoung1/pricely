@@ -1,6 +1,7 @@
 from aiogram.types import Message, CallbackQuery
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.fsm.context import FSMContext
+from datetime import datetime
 
 from src.presentation.bot.utils.fsm import ProductAddState
 from src.infrastructure.services import product_service
@@ -185,7 +186,13 @@ async def handle_update_price(call: CallbackQuery):
         # Сразу начинаем работу без answer()
         updated_product = product_service.update_product_price(product_id)
         
+        # Формируем новый текст сообщения
+        price_with_card = updated_product['with_card']
+        price_without_card = updated_product['without_card']
+        
         new_text = format_product_message(updated_product)
+        # Добавляем время обновления, чтобы текст всегда был разным
+        new_text += f"\n\n<i>Обновлено: {datetime.now().strftime('%H:%M:%S')}</i>"
         new_markup = build_product_actions_keyboard(product_id, updated_product['link'])
 
         if updated_product.get('is_changed', False):
