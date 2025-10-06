@@ -27,7 +27,13 @@ async def add_product_process(message: Message, state: FSMContext):
     
     url = message.text.strip()
     try:
-        result = product_service.create_product(str(message.from_user.id), url)
+        # Сначала отправляем сообщение о начале парсинга
+        await message.answer("⏳ Парсинг начался, ожидайте...")
+        
+        # Теперь выполняем логику добавления товара
+        result = await product_service.create_product(str(message.from_user.id), url)
+
+        # Когда товар добавлен, отправляем сообщение с результатом
         await message.answer(
             f"✅ Товар добавлен!\n\n"
             f"Название: {result['product_name']}\n"

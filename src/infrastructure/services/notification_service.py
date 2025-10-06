@@ -23,5 +23,6 @@ class NotificationService:
                 reply_markup=markup
             )
             logger.info(f"✅ Уведомление отправлено пользователю {chat_id} о товаре {updated_product['id']}")
+
         except Exception as e:
             logger.error(f"Ошибка при отправке уведомления пользователю {chat_id}: {e}")
