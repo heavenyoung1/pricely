@@ -141,23 +141,12 @@ class ProductService:
         )
         full_product = use_case_full.execute(product_id)
 
-        # Объединяем данные о товаре с флагом is_changed
-        full_product["is_changed"] = result["is_changed"]
+        # Возвращаем данные вверх (но не трогаем Telegram)
+        return {
+            "full_product": full_product,
+            "is_changed": result["is_changed"],
+        }
 
-        # -------- ТУТ ТЕСТОВАЯ ЛОГИКА ДЛЯ ОТПРАВКИ СОООБЩЕНИЯ ПОЛЬЗОВАТЕЛЮ ОБ ИЗМЕНЕНИИ ЦЕНЫ
-        # Если цена изменилась — отправляем уведомление
-        if result["is_changed"]:
-            # Нужно знать chat_id владельца — получим его из user_products
-            user_links = self.uow.user_products_repository.get_users_by_product(product_id)
-            for user_id in user_links:
-                full_user = self.uow.user_repository.get(user_id)
-                chat_id = getattr(full_user, "chat_id", None)
-                if chat_id:
-                    await self.notification_service.notify_price_change(chat_id, result, full_product)
-
-        # --------
-        logger.info(f'IF DEBUG IS_CHANGED {full_product}')
-        return full_product
 
     @with_uow(commit=False)
     def get_all_products_for_update(self):
