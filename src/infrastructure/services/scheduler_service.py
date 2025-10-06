@@ -1,4 +1,4 @@
-from src.infrastructure.services import logger, product_service
+from src.infrastructure.services import logger, product_service, NotificationService
 from src.presentation.bot.utils.keyboard import build_product_actions_keyboard
 from src.presentation.bot.handlers.products import _build_price_update_message
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -17,6 +17,7 @@ class APSchedulerService:
         self.scheduler = BackgroundScheduler()
         self.bot = bot
         self.interval_minutes = interval_minutes
+        self.notification_service = NotificationService(bot)
 
         self.scheduler.add_listener(self.listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
 
