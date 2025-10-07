@@ -112,17 +112,23 @@ async def handle_update_price(call: CallbackQuery):
     try:
         await call.answer("⏳ Обновляем цену...")
         
-        updated_product = product_service.update_product_price(product_id)
-        full_product_info = product_service.get_full_product(product_id)
+        # update_product_price возвращает {"full_product": {...}, "is_changed": bool}
+        result = product_service.update_product_price(product_id)
+        
+        # Извлекаем полные данные о товаре
+        full_product_info = result['full_product']
+        is_changed = result.get('is_changed', False)
+        
+        logger.info(f"Получены данные товара: {full_product_info}")
 
-        new_text = _build_price_update_message(updated_product, full_product_info)
-        new_markup = build_product_actions_keyboard(product_id, updated_product['link'])
+        new_text = _build_price_update_message(full_product_info, full_product_info)
+        new_markup = build_product_actions_keyboard(product_id, full_product_info['link'])
 
         await _safe_edit_message(
             call.message, 
             new_text, 
             new_markup,
-            updated_product.get('is_changed', False)
+            is_changed,
         )
 
     except Exception as e:
@@ -149,6 +155,8 @@ def _get_price_change_emoji(current: float, previous: float) -> str:
 
 def _build_price_update_message(updated_product: dict, full_info: dict) -> str:
     """Формирует сообщение об обновлении цены."""
+    logger.info(f'FULL INFO DEBUG!!!! {full_info}')
+    name = updated_product['name']
     price_with_card = full_info['latest_price']['with_card']
     price_without_card = full_info['latest_price']['without_card']
     prev_with_card = full_info['latest_price']['previous_price_with_card']
@@ -159,7 +167,7 @@ def _build_price_update_message(updated_product: dict, full_info: dict) -> str:
     
     # Базовая информация
     message = (
-        f"📦 {updated_product['name']}\n"
+        f"📦 {name}\n"
         f"💳 Цена с картой: {price_with_card} ₽ {emoji}\n"
         f"💵 Цена без карты: {price_without_card} ₽ {emoji}\n"
         f"🔗 Ссылка на товар: {updated_product['link']}\n\n"
