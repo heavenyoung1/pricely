@@ -59,32 +59,71 @@ class APSchedulerService:
             logger.info("✅ Автоматическое обновление цен завершено.")
 
         except Exception as e:
-            logger.error(f"Ошибка при выполнении планового обновления: {e}")
+            logger.error(f"Ошибка при выполнении планового обновления: {e}", exc_info=True)
 
     async def _async_price_update(self):
         """Асинхронная часть обновления цен."""
-        user_products = self.product_service.get_all_products_for_update()
+        users_products = self.product_service.get_all_products_for_update()
 
-        if not user_products:
+        if not users_products:
             logger.info("Нет товаров для обновления.")
             return
-    
 
-        for product in user_products:
-            product_id = product['product_id']
-            logger.info(f'Извлечен user:product -> {product}')
-            logger.info(f'Получен товар для обновления ')
-            # result = await self.product_service.update_product_price(product_id)
-            result = self.product_service.update_product_price(product_id) #Сделал синхронную функцию
+        for user_product in users_products:
+            try:
+                product_id = user_product['product_id']
+                user_id = user_product['user_id']
+                
+                logger.info(f'Извлечен user:product -> {user_product}')
+                logger.info(f'Получен товар для обновления: ID={product_id}')
+                
+                # Обновляем цену товара
+                result = self.product_service.update_product_price(product_id)
+                
+                logger.info(f"Результат обновления для товара {product_id}: is_changed={result.get('is_changed')}")
 
-            # Если цена изменилась — уведомляем пользователей
-            if result["is_changed"]:
-                users = self.product_service.get_users_by_product(product["full_product"]["id"])
-                for user in users:
-                    chat_id = getattr(user, "chat_id", None)
-                    if chat_id:
-                        await self.notification_service.notify_price_change(
-                            chat_id=chat_id,
-                            updated_product=result["full_product"],
-                            full_product=result["full_product"]
-                        )
+                # Проверяем, что результат содержит нужные данные
+                if not result or 'full_product' not in result:
+                    logger.warning(f"Некорректный результат для товара {product_id}: {result}")
+                    continue
+                
+                full_product = result["full_product"]
+                
+                # ========================================
+                # ТЕСТОВЫЙ РЕЖИМ: отправляем всегда
+                # ========================================
+                logger.info(f"🧪 ТЕСТ: Принудительная отправка уведомления пользователю {user_id}")
+                await self._send_notification(user_id, full_product)
+                
+                # ========================================
+                # ПРОДАКШЕН КОД (раскомментировать когда тест пройдёт):!!!!!
+                # ========================================
+                # if result.get("is_changed", False):
+                #     logger.info(f"🔔 Цена изменилась для товара {product_id}, отправка уведомления пользователю {user_id}")
+                #     await self._send_notification(user_id, full_product)
+                # else:
+                #     logger.info(f"Цена не изменилась для товара {product_id}")
+                
+                # Обрабатываем только первый товар для теста
+                logger.info("🧪 ТЕСТ: Остановка после первого товара")
+                break
+                    
+            except Exception as e:
+                logger.error(f"Ошибка при обработке товара {user_product.get('product_id', 'unknown')}: {e}", exc_info=True)
+                continue
+
+    async def _send_notification(self, chat_id: str, full_product: dict):
+        """Отправка уведомления в отдельной задаче."""
+        try:
+            logger.info(f"📤 Попытка отправки уведомления пользователю {chat_id}")
+            logger.info(f"📦 Данные товара: {full_product}")
+            
+            await self.notification_service.notify_price_change(
+                chat_id=chat_id,
+                updated_product=full_product,
+                full_product=full_product
+            )
+            logger.info(f"✅ Уведомление успешно отправлено пользователю {chat_id}")
+        except Exception as e:
+            logger.error(f"❌ Ошибка при отправке уведомления пользователю {chat_id}: {e}", exc_info=True)
+
