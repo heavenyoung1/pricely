@@ -15836,3 +15836,373 @@ KeyError: 'full_product'
 2025-10-08 20:34:47,426 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-10-08 20:34:47,426 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-10-08 20:34:47,579 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:36:44,549 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 20:36:44,550 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 20:36:44,553 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 20:36:44,553 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 20:36:44,553 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 20:36:44,554 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 0.1 мин).
+2025-10-08 20:36:44,554 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 20:36:44,554 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 20:36:44,767 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:36:50,565 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:36:50 MSK)" (scheduled at 2025-10-08 20:36:50.552983+03:00)
+2025-10-08 20:36:50,565 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:36:50,566 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 20:36:50,631 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:36:50,632 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:36:50,632 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:36:50,703 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список(словарей) получен и готов для парсинга.
+2025-10-08 20:36:50,704 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:36:50,706 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:36:50,707 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:36:50,707 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:36:50,708 - src.infrastructure.services.logger - INFO - Извлечен user:product -> {'product_id': '2060239186', 'user_id': '1053613711'}
+2025-10-08 20:36:50,708 - src.infrastructure.services.logger - INFO - Получен товар для обновления 
+2025-10-08 20:36:50,709 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:36:50,728 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587))]) (ID: 2060239186)
+2025-10-08 20:36:56,490 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:36:56,557 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:36:56 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:37:02,555 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:37:02 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:37:07,198 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:37:07,199 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:37:07,336 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-10-08 20:37:07,361 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-10-08 20:37:07,391 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-08 20:37:07,422 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2276
+2025-10-08 20:37:07,453 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3019
+2025-10-08 20:37:07,472 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-10-08 20:37:07,562 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-10-08 20:37:07,563 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 4.9, 'price_with_card': 2276, 'price_without_card': 3019, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-10-08 20:37:08,558 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:37:08 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:37:09,284 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:37:09,291 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587))]) (ID: 2060239186)
+2025-10-08 20:37:10,519 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:37:14,558 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:37:14 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:37:20,556 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:37:20 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:37:21,199 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:37:21,200 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:37:21,243 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-10-08 20:37:21,294 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-10-08 20:37:21,328 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-08 20:37:21,366 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2276
+2025-10-08 20:37:21,440 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3019
+2025-10-08 20:37:21,465 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-10-08 20:37:21,573 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-10-08 20:37:21,573 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 4.9, 'price_with_card': 2276, 'price_without_card': 3019, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-10-08 20:37:23,170 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:37:23,170 - src.application.use_cases.upd_product - INFO - DEBUG!!! PRICE -> Price(id=None, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492))
+2025-10-08 20:37:23,171 - src.application.use_cases.upd_product - INFO - DEBUG!!! PRICE.WITH_CARD -> 2128
+2025-10-08 20:37:23,171 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492))
+2025-10-08 20:37:23,177 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587))]) (ID: 2060239186)
+2025-10-08 20:37:23,180 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-08 20:37:23,213 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:37:23,213 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:37:23,214 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:37:23,215 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: object dict can't be used in 'await' expression
+2025-10-08 20:37:23,215 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:37:26 MSK)" executed successfully
+2025-10-08 20:37:23,217 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:37:26,568 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:37:32 MSK)" (scheduled at 2025-10-08 20:37:26.552983+03:00)
+2025-10-08 20:37:26,569 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:37:26,570 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:37:26,571 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:37:26,571 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:37:26,576 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список(словарей) получен и готов для парсинга.
+2025-10-08 20:37:26,577 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:37:26,579 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:37:26,579 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:37:26,580 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:37:26,580 - src.infrastructure.services.logger - INFO - Извлечен user:product -> {'product_id': '2060239186', 'user_id': '1053613711'}
+2025-10-08 20:37:26,580 - src.infrastructure.services.logger - INFO - Получен товар для обновления 
+2025-10-08 20:37:26,580 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:37:26,587 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492))]) (ID: 2060239186)
+2025-10-08 20:37:27,768 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:37:32,558 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:37:32 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:37:38,515 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:37:38,516 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:37:38,556 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-10-08 20:37:38,556 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:37:38 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:37:38,594 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-10-08 20:37:38,627 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-08 20:37:38,654 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2276
+2025-10-08 20:37:38,680 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3019
+2025-10-08 20:37:38,697 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-10-08 20:37:38,752 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-10-08 20:37:38,752 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 4.9, 'price_with_card': 2276, 'price_without_card': 3019, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-10-08 20:37:40,445 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:37:40,451 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492))]) (ID: 2060239186)
+2025-10-08 20:37:41,624 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:37:44,562 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:37:44 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:37:50,556 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:37:50 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:37:52,465 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:37:52,466 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:37:52,533 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-10-08 20:37:52,559 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-10-08 20:37:52,608 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-08 20:37:52,638 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2276
+2025-10-08 20:37:52,665 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3019
+2025-10-08 20:37:52,685 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-10-08 20:37:52,743 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-10-08 20:37:52,744 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 4.9, 'price_with_card': 2276, 'price_without_card': 3019, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-10-08 20:37:54,298 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:37:54,299 - src.application.use_cases.upd_product - INFO - DEBUG!!! PRICE -> Price(id=None, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331))
+2025-10-08 20:37:54,299 - src.application.use_cases.upd_product - INFO - DEBUG!!! PRICE.WITH_CARD -> 2276
+2025-10-08 20:37:54,300 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331))
+2025-10-08 20:37:54,303 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492))]) (ID: 2060239186)
+2025-10-08 20:37:54,306 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-08 20:37:54,310 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:37:54,310 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:37:54,311 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:37:54,312 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: object dict can't be used in 'await' expression
+2025-10-08 20:37:54,312 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:37:56 MSK)" executed successfully
+2025-10-08 20:37:54,313 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:37:56,554 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:38:02 MSK)" (scheduled at 2025-10-08 20:37:56.552983+03:00)
+2025-10-08 20:37:56,555 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:37:56,556 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:37:56,557 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:37:56,557 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:37:56,560 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список(словарей) получен и готов для парсинга.
+2025-10-08 20:37:56,561 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:37:56,563 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:37:56,564 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:37:56,564 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:37:56,564 - src.infrastructure.services.logger - INFO - Извлечен user:product -> {'product_id': '2060239186', 'user_id': '1053613711'}
+2025-10-08 20:37:56,565 - src.infrastructure.services.logger - INFO - Получен товар для обновления 
+2025-10-08 20:37:56,565 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:37:56,577 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331))]) (ID: 2060239186)
+2025-10-08 20:37:57,792 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:38:02,560 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:38:02 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:38:08,558 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:38:08 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:38:08,905 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:38:08,905 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:38:08,954 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-10-08 20:38:08,997 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-10-08 20:38:09,020 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-08 20:38:09,049 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2276
+2025-10-08 20:38:09,076 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3019
+2025-10-08 20:38:09,096 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-10-08 20:38:09,159 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-10-08 20:38:09,159 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 4.9, 'price_with_card': 2276, 'price_without_card': 3019, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-10-08 20:38:10,823 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:38:10,830 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331))]) (ID: 2060239186)
+2025-10-08 20:38:12,006 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:38:14,553 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:38:14 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:38:20,563 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:38:20 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:38:22,862 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:38:22,863 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:38:22,918 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-10-08 20:38:22,963 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-10-08 20:38:23,000 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-08 20:38:23,031 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2276
+2025-10-08 20:38:23,063 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3019
+2025-10-08 20:38:23,084 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-10-08 20:38:23,151 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-10-08 20:38:23,151 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 4.9, 'price_with_card': 2276, 'price_without_card': 3019, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-10-08 20:38:24,775 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:38:24,776 - src.application.use_cases.upd_product - INFO - DEBUG!!! PRICE -> Price(id=None, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 24, 776502))
+2025-10-08 20:38:24,776 - src.application.use_cases.upd_product - INFO - DEBUG!!! PRICE.WITH_CARD -> 2276
+2025-10-08 20:38:24,777 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 24, 776502))
+2025-10-08 20:38:24,789 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331))]) (ID: 2060239186)
+2025-10-08 20:38:24,791 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-08 20:38:24,797 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:38:24,797 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:38:24,798 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:38:24,799 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: object dict can't be used in 'await' expression
+2025-10-08 20:38:24,800 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:38:26 MSK)" executed successfully
+2025-10-08 20:38:24,800 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:38:26,553 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:38:32 MSK)" (scheduled at 2025-10-08 20:38:26.552983+03:00)
+2025-10-08 20:38:26,554 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:38:26,555 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:38:26,556 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:38:26,556 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:38:26,562 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список(словарей) получен и готов для парсинга.
+2025-10-08 20:38:26,562 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:38:26,565 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:38:26,565 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:38:26,566 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:38:26,566 - src.infrastructure.services.logger - INFO - Извлечен user:product -> {'product_id': '2060239186', 'user_id': '1053613711'}
+2025-10-08 20:38:26,567 - src.infrastructure.services.logger - INFO - Получен товар для обновления 
+2025-10-08 20:38:26,567 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:38:26,579 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331)), Price(id=77, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 24, 776502))]) (ID: 2060239186)
+2025-10-08 20:38:27,865 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:38:32,560 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:38:32 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:38:38,566 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:38:38 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:38:38,650 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:38:38,650 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:38:38,712 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-10-08 20:38:38,763 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-10-08 20:38:38,812 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-08 20:38:38,869 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2276
+2025-10-08 20:38:38,916 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3019
+2025-10-08 20:38:38,944 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-10-08 20:38:39,032 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-10-08 20:38:39,033 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 4.9, 'price_with_card': 2276, 'price_without_card': 3019, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-10-08 20:38:40,586 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:38:40,594 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331)), Price(id=77, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 24, 776502))]) (ID: 2060239186)
+2025-10-08 20:38:41,810 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:38:44,568 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:38:44 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:38:50,564 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:38:50 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:38:52,532 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:38:52,532 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:38:52,573 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-10-08 20:38:52,624 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-10-08 20:38:52,651 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-08 20:38:52,680 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2276
+2025-10-08 20:38:52,705 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3019
+2025-10-08 20:38:52,725 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-10-08 20:38:52,788 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-10-08 20:38:52,789 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 4.9, 'price_with_card': 2276, 'price_without_card': 3019, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-10-08 20:38:54,359 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:38:54,359 - src.application.use_cases.upd_product - INFO - DEBUG!!! PRICE -> Price(id=None, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 54, 359446))
+2025-10-08 20:38:54,359 - src.application.use_cases.upd_product - INFO - DEBUG!!! PRICE.WITH_CARD -> 2276
+2025-10-08 20:38:54,360 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 54, 359446))
+2025-10-08 20:38:54,366 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331)), Price(id=77, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 24, 776502))]) (ID: 2060239186)
+2025-10-08 20:38:54,368 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-08 20:38:54,375 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:38:54,376 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:38:54,377 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:38:54,378 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: object dict can't be used in 'await' expression
+2025-10-08 20:38:54,379 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:38:56 MSK)" executed successfully
+2025-10-08 20:38:54,380 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:38:56,560 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:39:02 MSK)" (scheduled at 2025-10-08 20:38:56.552983+03:00)
+2025-10-08 20:38:56,561 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:38:56,576 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:38:56,576 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:38:56,577 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:38:56,583 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список(словарей) получен и готов для парсинга.
+2025-10-08 20:38:56,583 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:38:56,586 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:38:56,587 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:38:56,588 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:38:56,588 - src.infrastructure.services.logger - INFO - Извлечен user:product -> {'product_id': '2060239186', 'user_id': '1053613711'}
+2025-10-08 20:38:56,589 - src.infrastructure.services.logger - INFO - Получен товар для обновления 
+2025-10-08 20:38:56,590 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:38:56,600 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331)), Price(id=77, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 24, 776502)), Price(id=78, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 54, 359446))]) (ID: 2060239186)
+2025-10-08 20:38:57,776 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:39:02,559 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:39:02 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:39:08,457 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:39:08,458 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:39:08,493 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-10-08 20:39:08,525 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-10-08 20:39:08,553 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-08 20:39:08,555 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:39:08 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:39:08,582 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2276
+2025-10-08 20:39:08,613 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3019
+2025-10-08 20:39:08,629 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-10-08 20:39:08,690 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-10-08 20:39:08,691 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 4.9, 'price_with_card': 2276, 'price_without_card': 3019, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-10-08 20:39:10,298 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:39:10,304 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331)), Price(id=77, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 24, 776502)), Price(id=78, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 54, 359446))]) (ID: 2060239186)
+2025-10-08 20:39:11,490 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:39:14,560 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:39:14 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:39:20,556 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:39:20 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:39:23,218 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:39:23,219 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:39:23,279 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-10-08 20:39:23,315 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-10-08 20:39:23,359 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-08 20:39:23,416 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2276
+2025-10-08 20:39:23,481 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3019
+2025-10-08 20:39:23,505 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-10-08 20:39:23,594 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-10-08 20:39:23,595 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 4.9, 'price_with_card': 2276, 'price_without_card': 3019, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-10-08 20:39:25,224 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:39:25,225 - src.application.use_cases.upd_product - INFO - DEBUG!!! PRICE -> Price(id=None, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 39, 25, 225292))
+2025-10-08 20:39:25,225 - src.application.use_cases.upd_product - INFO - DEBUG!!! PRICE.WITH_CARD -> 2276
+2025-10-08 20:39:25,226 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 39, 25, 225292))
+2025-10-08 20:39:25,236 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331)), Price(id=77, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 24, 776502)), Price(id=78, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 54, 359446))]) (ID: 2060239186)
+2025-10-08 20:39:25,240 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-08 20:39:25,247 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:39:25,248 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:39:25,248 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:39:25,249 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: object dict can't be used in 'await' expression
+2025-10-08 20:39:25,250 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:39:26 MSK)" executed successfully
+2025-10-08 20:39:25,250 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:39:26,554 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:39:32 MSK)" (scheduled at 2025-10-08 20:39:26.552983+03:00)
+2025-10-08 20:39:26,554 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:39:26,556 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:39:26,557 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:39:26,558 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:39:26,562 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список(словарей) получен и готов для парсинга.
+2025-10-08 20:39:26,563 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:39:26,565 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:39:26,565 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:39:26,566 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:39:26,567 - src.infrastructure.services.logger - INFO - Извлечен user:product -> {'product_id': '2060239186', 'user_id': '1053613711'}
+2025-10-08 20:39:26,567 - src.infrastructure.services.logger - INFO - Получен товар для обновления 
+2025-10-08 20:39:26,567 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:39:26,579 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331)), Price(id=77, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 24, 776502)), Price(id=78, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 54, 359446)), Price(id=79, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 39, 25, 225292))]) (ID: 2060239186)
+2025-10-08 20:39:27,812 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:39:32,567 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:39:32 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:39:38,535 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:39:38,536 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:39:38,553 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:39:38 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:39:38,625 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-10-08 20:39:38,681 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-10-08 20:39:38,726 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-08 20:39:38,778 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2276
+2025-10-08 20:39:38,825 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3019
+2025-10-08 20:39:38,852 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-10-08 20:39:38,980 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-10-08 20:39:38,980 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 4.9, 'price_with_card': 2276, 'price_without_card': 3019, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-10-08 20:39:40,747 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:39:40,755 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331)), Price(id=77, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 24, 776502)), Price(id=78, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 54, 359446)), Price(id=79, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 39, 25, 225292))]) (ID: 2060239186)
+2025-10-08 20:39:42,073 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:39:44,563 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:39:44 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:39:50,559 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:39:50 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:39:53,024 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:39:53,024 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/sYJhMXd
+2025-10-08 20:39:53,094 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2060239186
+2025-10-08 20:39:53,141 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Легинсы одежда
+2025-10-08 20:39:53,189 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-08 20:39:53,232 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 2276
+2025-10-08 20:39:53,279 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3019
+2025-10-08 20:39:53,313 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg
+2025-10-08 20:39:53,411 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']
+2025-10-08 20:39:53,412 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '2060239186', 'name': 'Легинсы одежда', 'rating': 4.9, 'price_with_card': 2276, 'price_without_card': 3019, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', 'categories': ['Одежда', 'Женщинам', 'Брюки, бриджи и капри']}
+2025-10-08 20:39:55,042 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:39:55,042 - src.application.use_cases.upd_product - INFO - DEBUG!!! PRICE -> Price(id=None, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 39, 55, 42842))
+2025-10-08 20:39:55,043 - src.application.use_cases.upd_product - INFO - DEBUG!!! PRICE.WITH_CARD -> 2276
+2025-10-08 20:39:55,044 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 39, 55, 42842))
+2025-10-08 20:39:55,055 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331)), Price(id=77, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 24, 776502)), Price(id=78, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 54, 359446)), Price(id=79, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 39, 25, 225292))]) (ID: 2060239186)
+2025-10-08 20:39:55,059 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-08 20:39:55,070 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:39:55,071 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:39:55,072 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:39:55,073 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: object dict can't be used in 'await' expression
+2025-10-08 20:39:55,073 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:39:56 MSK)" executed successfully
+2025-10-08 20:39:55,074 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:39:56,556 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:40:02 MSK)" (scheduled at 2025-10-08 20:39:56.552983+03:00)
+2025-10-08 20:39:56,557 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:39:56,558 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:39:56,558 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:39:56,559 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:39:56,563 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список(словарей) получен и готов для парсинга.
+2025-10-08 20:39:56,564 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:39:56,566 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:39:56,566 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:39:56,567 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:39:56,567 - src.infrastructure.services.logger - INFO - Извлечен user:product -> {'product_id': '2060239186', 'user_id': '1053613711'}
+2025-10-08 20:39:56,568 - src.infrastructure.services.logger - INFO - Получен товар для обновления 
+2025-10-08 20:39:56,569 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:39:56,581 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Product(id='2060239186', user_id='', name='Легинсы одежда', link='https://ozon.ru/t/sYJhMXd', image_url='https://ir.ozone.ru/s3/multimedia-1-0/wc1000/7360680852.jpg', rating=5.0, categories='{Одежда,Женщинам,"Брюки, бриджи и капри"}', prices=[Price(id=9, product_id='2060239186', with_card=2128, without_card=2823, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 9, 27, 19, 4, 2, 594587)), Price(id=75, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2128, previous_without_card=2823, created_at=datetime.datetime(2025, 10, 8, 20, 37, 23, 170492)), Price(id=76, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 37, 54, 299331)), Price(id=77, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 24, 776502)), Price(id=78, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 38, 54, 359446)), Price(id=79, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 39, 25, 225292)), Price(id=80, product_id='2060239186', with_card=2276, without_card=3019, previous_with_card=2276, previous_without_card=3019, created_at=datetime.datetime(2025, 10, 8, 20, 39, 55, 42842))]) (ID: 2060239186)
+2025-10-08 20:39:57,798 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-08 20:39:58,020 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 20:39:58,021 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 20:39:58,022 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 20:39:58,024 - src.infrastructure.parsers.session_engine - ERROR - Ошибка при загрузке страницы https://ozon.ru/t/sYJhMXd: ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+2025-10-08 20:39:58,025 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при парсинге страницы https://ozon.ru/t/sYJhMXd: ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+2025-10-08 20:39:58,025 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+2025-10-08 20:39:58,288 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:40:02,106 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002F33E340E20>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/4a5a612ccc4d635532c43423ab4b7068
+2025-10-08 20:40:02,565 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:40:02 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:40:06,167 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002F33E341150>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/4a5a612ccc4d635532c43423ab4b7068
+2025-10-08 20:40:08,563 - apscheduler.scheduler - WARNING - Execution of job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:40:08 MSK)" skipped: maximum number of running instances reached (1)
+2025-10-08 20:40:10,233 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002F33E341260>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/4a5a612ccc4d635532c43423ab4b7068
+2025-10-08 20:40:14,317 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-08 20:40:14,317 - src.core.uow - WARNING - Исключение в Unit of Work: ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+2025-10-08 20:40:14,320 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:40:14,320 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:40:14,321 - src.core.decorators - ERROR - Ошибка в функции update_product_price: ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+2025-10-08 20:40:14,321 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+2025-10-08 20:40:14,322 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:40:14 MSK)" executed successfully
+2025-10-08 20:40:14,322 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.

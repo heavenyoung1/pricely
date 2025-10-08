@@ -38,4 +38,4 @@ class UserProductsRepositoryImpl(UserProductsRepository):
         )
         records = [{'product_id': row.product_id, 'user_id': row.user_id} for row in rows]
         logger.info(f'Записи список(словарей) получен и готов для парсинга.')
-        return logger
+        return records
