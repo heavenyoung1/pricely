@@ -15809,3 +15809,30 @@ KeyError: 'full_product'
 2025-10-08 20:27:00,812 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-10-08 20:27:00,812 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-10-08 20:27:01,063 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:34:37,754 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 20:34:37,755 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 20:34:37,760 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 20:34:37,761 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 20:34:37,762 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 20:34:37,762 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 0.1 мин).
+2025-10-08 20:34:37,762 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 20:34:37,762 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 20:34:38,000 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:34:43,769 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:34:43 MSK)" (scheduled at 2025-10-08 20:34:43.760473+03:00)
+2025-10-08 20:34:43,770 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:34:43,771 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 20:34:43,842 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:34:43,842 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:34:43,843 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:34:43,945 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список(словарей) получен и готов для парсинга.
+2025-10-08 20:34:43,946 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:34:43,947 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:34:43,948 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:34:43,949 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:34:43,950 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'Logger' object is not iterable
+2025-10-08 20:34:43,951 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:34:49 MSK)" executed successfully
+2025-10-08 20:34:43,951 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:34:47,425 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 20:34:47,426 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 20:34:47,426 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 20:34:47,579 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'

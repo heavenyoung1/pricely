@@ -63,13 +63,18 @@ class APSchedulerService:
 
     async def _async_price_update(self):
         """Асинхронная часть обновления цен."""
-        products = self.product_service.get_all_products_for_update()
-        if not products:
+        user_products = self.product_service.get_all_products_for_update()
+
+        if not user_products:
             logger.info("Нет товаров для обновления.")
             return
+    
 
-        for product in products:
-            result = await self.product_service.update_product_price(product["id"])
+        for product in user_products:
+            product_id = product['product_id']
+            logger.info(f'Извлечен user:product -> {product}')
+            logger.info(f'Получен товар для обновления ')
+            result = await self.product_service.update_product_price(product_id)
 
             # Если цена изменилась — уведомляем пользователей
             if result["is_changed"]:
