@@ -74,7 +74,8 @@ class APSchedulerService:
             product_id = product['product_id']
             logger.info(f'Извлечен user:product -> {product}')
             logger.info(f'Получен товар для обновления ')
-            result = await self.product_service.update_product_price(product_id)
+            # result = await self.product_service.update_product_price(product_id)
+            result = self.product_service.update_product_price(product_id) #Сделал синхронную функцию
 
             # Если цена изменилась — уведомляем пользователей
             if result["is_changed"]:
