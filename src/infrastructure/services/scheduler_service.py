@@ -1,4 +1,5 @@
-from src.infrastructure.services import logger, product_service, NotificationService
+from src.infrastructure.services import product_service, NotificationService
+from src.infrastructure.services.logger import logger
 from src.presentation.bot.utils.keyboard import build_product_actions_keyboard
 from src.presentation.bot.handlers.products import _build_price_update_message
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -8,7 +9,7 @@ import asyncio
 
 
 class APSchedulerService:
-    def __init__(self, bot, product_service, notification_service, interval_minutes=10):
+    def __init__(self, bot, product_service, notification_service, interval_minutes=1):
         """
         Сервис планировщика (APS).
         Запускает обновление товаров и уведомления при изменении цен.
@@ -77,3 +78,7 @@ class APSchedulerService:
 
         except Exception as e:
             logger.error(f"Ошибка при выполнении планового обновления: {e}")
+
+
+# scheduler_service = APSchedulerService()
+# scheduler_service.run_price_update()

@@ -14856,3 +14856,16 @@ KeyError: 'full_product'
 2025-10-07 16:15:42,512 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-10-07 16:15:42,513 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-10-07 16:15:42,652 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-07 16:20:21,924 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-07 16:20:21,925 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-07 16:20:21,926 - aiogram.dispatcher - INFO - Start polling
+2025-10-07 16:20:22,180 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-07 16:27:51,193 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-07 16:27:51,196 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-07 16:27:51,196 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-07 16:27:51,356 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 15:01:08,135 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 15:01:08,138 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 15:01:08,155 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 15:01:08,156 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 15:01:08,156 - apscheduler.scheduler - INFO - Scheduler started

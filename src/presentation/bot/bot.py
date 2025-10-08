@@ -4,8 +4,12 @@ from aiogram import F
 from aiogram.fsm.storage.memory import MemoryStorage
 import asyncio
 
+from src.core import SQLAlchemyUnitOfWork, with_uow
 from src.presentation.bot.config import BOT_TOKEN
 from src .infrastructure.services.logger import logger
+from src.infrastructure.services.scheduler_service import APSchedulerService
+from src.infrastructure.services import ProductService, NotificationService
+
 
 # FSM состояния
 from src.presentation.bot.utils.fsm import ProductAddState
@@ -82,8 +86,21 @@ async def main() -> None:
     register_callback_handlers(dp)
     register_fallback_handler(dp)
 
-    await dp.start_polling(bot)
+    # Сервисы
+    product_service = ProductService(uow_factory=SQLAlchemyUnitOfWork)
+    notification_service = NotificationService(bot)
 
+    # Планировщик
+    scheduler = APSchedulerService(
+        bot=bot,
+        product_service=product_service,
+        notification_service=notification_service,
+        interval_minutes=5  # интервал обновления
+    )
+
+    # Запускаем планировщик
+    scheduler.start()
+    logger.info("✅ Планировщик успешно запущен!")
 
     await dp.start_polling(bot)
 
