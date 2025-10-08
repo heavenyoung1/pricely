@@ -36,6 +36,6 @@ class UserProductsRepositoryImpl(UserProductsRepository):
         rows = (
             self.session.query(ORMUserProducts).all()
         )
-        logger.info(f'НУЖНО БЫ ПРОВЕРИТЬ КАК ЭТО РАБОТАЕТ!!!')
-        records = [row for row in rows]
-        return rows
+        records = [{'product_id': row.product_id, 'user_id': row.user_id} for row in rows]
+        logger.info(f'Записи список(словарей) получен и готов для парсинга.')
+        return logger

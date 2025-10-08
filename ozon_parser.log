@@ -15564,3 +15564,248 @@ KeyError: 'full_product'
 2025-10-08 19:21:26,702 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-10-08 19:21:26,702 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-10-08 19:21:26,968 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:14:42,162 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 20:14:42,164 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 20:14:42,181 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 20:14:42,183 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 20:14:42,183 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 20:14:42,184 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-08 20:14:42,184 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 20:14:42,185 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 20:14:42,449 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:15:42,199 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 20:15:42 MSK)" (scheduled at 2025-10-08 20:15:42.180641+03:00)
+2025-10-08 20:15:42,199 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:15:42,200 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 20:15:42,281 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:15:42,281 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:15:42,282 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:15:42,374 - src.infrastructure.database.repositories.user_products_repository - INFO - НУЖНО БЫ ПРОВЕРИТЬ КАК ЭТО РАБОТАЕТ!!!
+2025-10-08 20:15:42,375 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:15:42,377 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:15:42,377 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:15:42,378 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:15:42,378 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: There is no current event loop in thread 'ThreadPoolExecutor-0_0'.
+2025-10-08 20:15:42,378 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 20:16:42 MSK)" executed successfully
+2025-10-08 20:15:42,379 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:15:50,755 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 20:15:50,756 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 20:15:50,757 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 20:15:51,016 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:16:18,612 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 20:16:18,613 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 20:16:18,617 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 20:16:18,619 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 20:16:18,619 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 20:16:18,620 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-08 20:16:18,621 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 20:16:18,621 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 20:16:18,841 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:17:18,628 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 20:17:18 MSK)" (scheduled at 2025-10-08 20:17:18.617617+03:00)
+2025-10-08 20:17:18,628 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:17:18,629 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 20:17:18,688 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:17:18,689 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:17:18,689 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:17:18,776 - src.infrastructure.database.repositories.user_products_repository - INFO - НУЖНО БЫ ПРОВЕРИТЬ КАК ЭТО РАБОТАЕТ!!!
+2025-10-08 20:17:18,776 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:17:18,779 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:17:18,779 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:17:18,780 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:17:18,781 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: There is no current event loop in thread 'ThreadPoolExecutor-0_0'.
+2025-10-08 20:17:18,781 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 20:18:18 MSK)" executed successfully
+2025-10-08 20:17:18,782 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:18:18,629 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 20:19:18 MSK)" (scheduled at 2025-10-08 20:18:18.617617+03:00)
+2025-10-08 20:18:18,630 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:18:18,630 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:18:18,631 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:18:18,632 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:18:18,645 - src.infrastructure.database.repositories.user_products_repository - INFO - НУЖНО БЫ ПРОВЕРИТЬ КАК ЭТО РАБОТАЕТ!!!
+2025-10-08 20:18:18,646 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:18:18,649 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:18:18,650 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:18:18,651 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:18:18,652 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: There is no current event loop in thread 'ThreadPoolExecutor-0_0'.
+2025-10-08 20:18:18,653 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 20:19:18 MSK)" executed successfully
+2025-10-08 20:18:18,654 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:19:18,622 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 20:20:18 MSK)" (scheduled at 2025-10-08 20:19:18.617617+03:00)
+2025-10-08 20:19:18,623 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:19:18,624 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:19:18,624 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:19:18,625 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:19:18,631 - src.infrastructure.database.repositories.user_products_repository - INFO - НУЖНО БЫ ПРОВЕРИТЬ КАК ЭТО РАБОТАЕТ!!!
+2025-10-08 20:19:18,631 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:19:18,634 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:19:18,635 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:19:18,636 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:19:18,636 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: There is no current event loop in thread 'ThreadPoolExecutor-0_0'.
+2025-10-08 20:19:18,637 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 20:20:18 MSK)" executed successfully
+2025-10-08 20:19:18,637 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:19:22,304 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 20:19:22,306 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 20:19:22,306 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 20:19:22,460 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:19:27,629 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 20:19:27,631 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 20:19:27,634 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 20:19:27,635 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 20:19:27,636 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 20:19:27,636 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-08 20:19:27,636 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 20:19:27,636 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 20:19:27,847 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:20:27,640 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 20:20:27 MSK)" (scheduled at 2025-10-08 20:20:27.634734+03:00)
+2025-10-08 20:20:27,641 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:20:27,642 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 20:20:27,701 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:20:27,702 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:20:27,702 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:20:27,788 - src.infrastructure.database.repositories.user_products_repository - INFO - НУЖНО БЫ ПРОВЕРИТЬ КАК ЭТО РАБОТАЕТ!!!
+2025-10-08 20:20:27,788 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:20:27,792 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:20:27,792 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:20:27,793 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:20:27,794 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'ORMUserProducts' object is not subscriptable
+2025-10-08 20:20:27,795 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 20:21:27 MSK)" executed successfully
+2025-10-08 20:20:27,795 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:21:16,287 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 20:21:16,288 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 20:21:16,289 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 20:21:16,553 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:21:52,186 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 20:21:52,187 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 20:21:52,190 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 20:21:52,191 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 20:21:52,191 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 20:21:52,191 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 0.2 мин).
+2025-10-08 20:21:52,191 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 20:21:52,192 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 20:21:52,403 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:22:04,199 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:12], next run at: 2025-10-08 20:22:04 MSK)" (scheduled at 2025-10-08 20:22:04.190556+03:00)
+2025-10-08 20:22:04,200 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:22:04,202 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 20:22:04,285 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:22:04,286 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:22:04,286 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:22:04,365 - src.infrastructure.database.repositories.user_products_repository - INFO - НУЖНО БЫ ПРОВЕРИТЬ КАК ЭТО РАБОТАЕТ!!!
+2025-10-08 20:22:04,366 - src.infrastructure.database.repositories.user_products_repository - INFO - rows
+2025-10-08 20:22:04,366 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:22:04,370 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:22:04,371 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:22:04,371 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:22:04,372 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'ORMUserProducts' object is not subscriptable
+2025-10-08 20:22:04,373 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:12], next run at: 2025-10-08 20:22:16 MSK)" executed successfully
+2025-10-08 20:22:04,374 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:22:09,120 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 20:22:09,121 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 20:22:09,121 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 20:22:09,374 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:22:36,084 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 20:22:36,085 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 20:22:36,088 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 20:22:36,089 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 20:22:36,089 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 20:22:36,090 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 0.1 мин).
+2025-10-08 20:22:36,090 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 20:22:36,090 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 20:22:36,320 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:22:42,097 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:22:42 MSK)" (scheduled at 2025-10-08 20:22:42.088780+03:00)
+2025-10-08 20:22:42,098 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:22:42,099 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 20:22:42,163 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:22:42,164 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:22:42,164 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:22:42,246 - src.infrastructure.database.repositories.user_products_repository - INFO - НУЖНО БЫ ПРОВЕРИТЬ КАК ЭТО РАБОТАЕТ!!!
+2025-10-08 20:22:42,247 - src.infrastructure.database.repositories.user_products_repository - INFO - [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001F463736F90>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001F46368B9D0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001F46368BB10>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001F4636E3230>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001F4636E3360>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001F46383C170>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001F463769D00>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001F463769E10>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001F4636F9F50>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001F4636FB750>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001F46382DA90>]
+2025-10-08 20:22:42,248 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:22:42,253 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:22:42,254 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:22:42,254 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:22:42,255 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'ORMUserProducts' object is not subscriptable
+2025-10-08 20:22:42,255 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:22:48 MSK)" executed successfully
+2025-10-08 20:22:42,256 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:22:44,660 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 20:22:44,661 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 20:22:44,662 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 20:22:44,915 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:24:55,451 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 20:24:55,453 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 20:24:55,458 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 20:24:55,460 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 20:24:55,460 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 20:24:55,461 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 0.1 мин).
+2025-10-08 20:24:55,461 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 20:24:55,461 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 20:24:55,675 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:25:01,474 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:25:01 MSK)" (scheduled at 2025-10-08 20:25:01.458311+03:00)
+2025-10-08 20:25:01,474 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:25:01,476 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 20:25:01,540 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:25:01,541 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:25:01,541 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:25:01,624 - src.infrastructure.database.repositories.user_products_repository - INFO - НУЖНО БЫ ПРОВЕРИТЬ КАК ЭТО РАБОТАЕТ!!!
+2025-10-08 20:25:01,625 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'list' object has no attribute 'product_id'
+2025-10-08 20:25:01,629 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:25:01,629 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:25:01,630 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'list' object has no attribute 'product_id'
+2025-10-08 20:25:01,630 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'list' object has no attribute 'product_id'
+2025-10-08 20:25:01,630 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:25:07 MSK)" executed successfully
+2025-10-08 20:25:01,631 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:25:06,181 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 20:25:06,182 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 20:25:06,183 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 20:25:06,444 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:25:34,101 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 20:25:34,102 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 20:25:34,105 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 20:25:34,106 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 20:25:34,106 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 20:25:34,107 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 0.1 мин).
+2025-10-08 20:25:34,107 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 20:25:34,107 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 20:25:34,359 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:25:40,116 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:25:40 MSK)" (scheduled at 2025-10-08 20:25:40.105552+03:00)
+2025-10-08 20:25:40,116 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:25:40,117 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 20:25:40,177 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:25:40,177 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:25:40,178 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:25:40,266 - src.infrastructure.database.repositories.user_products_repository - INFO - НУЖНО БЫ ПРОВЕРИТЬ КАК ЭТО РАБОТАЕТ!!!
+2025-10-08 20:25:40,267 - src.core.uow - WARNING - Исключение в Unit of Work: TypeError: unhashable type: 'dict'
+2025-10-08 20:25:40,269 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:25:40,269 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:25:40,270 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: unhashable type: 'dict'
+2025-10-08 20:25:40,271 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: unhashable type: 'dict'
+2025-10-08 20:25:40,271 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:25:46 MSK)" executed successfully
+2025-10-08 20:25:40,271 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:25:41,739 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 20:25:41,740 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 20:25:41,740 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 20:25:42,006 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:26:53,298 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 20:26:53,300 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 20:26:53,304 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 20:26:53,305 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 20:26:53,305 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 20:26:53,306 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 0.1 мин).
+2025-10-08 20:26:53,306 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 20:26:53,306 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 20:26:53,539 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 20:26:59,313 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:26:59 MSK)" (scheduled at 2025-10-08 20:26:59.304438+03:00)
+2025-10-08 20:26:59,313 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 20:26:59,315 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 20:26:59,380 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 20:26:59,381 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-08 20:26:59,381 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-08 20:26:59,468 - src.infrastructure.database.repositories.user_products_repository - INFO - НУЖНО БЫ ПРОВЕРИТЬ КАК ЭТО РАБОТАЕТ!!!
+2025-10-08 20:26:59,469 - src.infrastructure.database.repositories.user_products_repository - INFO - [{'product_id': '2060239186', 'user_id': '1053613711'}, {'product_id': '2782629476', 'user_id': '1053613711'}, {'product_id': '1818184981', 'user_id': '515084006'}, {'product_id': '1728110604', 'user_id': '515084006'}, {'product_id': '1565602444', 'user_id': '515084006'}, {'product_id': '816992280', 'user_id': '515084006'}, {'product_id': '1668950019', 'user_id': '515084006'}, {'product_id': '247385222', 'user_id': '515084006'}, {'product_id': '612659680', 'user_id': '515084006'}, {'product_id': '177655422', 'user_id': '515084006'}, {'product_id': '1522830591', 'user_id': '515084006'}]
+2025-10-08 20:26:59,470 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-08 20:26:59,473 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 20:26:59,474 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-08 20:26:59,474 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 20:26:59,475 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'Logger' object is not iterable
+2025-10-08 20:26:59,476 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:00:06], next run at: 2025-10-08 20:27:05 MSK)" executed successfully
+2025-10-08 20:26:59,476 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 20:27:00,811 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 20:27:00,812 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 20:27:00,812 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 20:27:01,063 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'

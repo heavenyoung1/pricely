@@ -46,35 +46,39 @@ class APSchedulerService:
         logger.info("🚀 Запуск автоматического обновления цен...")
 
         try:
-            products = self.product_service.get_all_products_for_update()
-            if not products:
-                logger.info("Нет товаров для обновления.")
-                return
-
-            loop = asyncio.get_event_loop()
-
-            for product in products:
-                result = asyncio.run_coroutine_threadsafe(
-                    self.product_service.update_product_price(product["id"]),
-                    loop
-                ).result()
-
-                # Если цена изменилась — уведомляем пользователей
-                if result["is_changed"]:
-                    users = self.product_service.get_users_by_product(product["full_product"]["id"])
-                    for user in users:
-                        chat_id = getattr(user, "chat_id", None)
-                        if chat_id:
-                            asyncio.run_coroutine_threadsafe(
-                                self.notification_service.notify_price_change(
-                                    chat_id=chat_id,
-                                    updated_product=result["full_product"],
-                                    full_product=result["full_product"]
-                                ),
-                                loop
-                            )
+            # Создаём новый event loop для этого потока
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            
+            try:
+                # Запускаем асинхронную функцию
+                loop.run_until_complete(self._async_price_update())
+            finally:
+                loop.close()
 
             logger.info("✅ Автоматическое обновление цен завершено.")
 
         except Exception as e:
             logger.error(f"Ошибка при выполнении планового обновления: {e}")
+
+    async def _async_price_update(self):
+        """Асинхронная часть обновления цен."""
+        products = self.product_service.get_all_products_for_update()
+        if not products:
+            logger.info("Нет товаров для обновления.")
+            return
+
+        for product in products:
+            result = await self.product_service.update_product_price(product["id"])
+
+            # Если цена изменилась — уведомляем пользователей
+            if result["is_changed"]:
+                users = self.product_service.get_users_by_product(product["full_product"]["id"])
+                for user in users:
+                    chat_id = getattr(user, "chat_id", None)
+                    if chat_id:
+                        await self.notification_service.notify_price_change(
+                            chat_id=chat_id,
+                            updated_product=result["full_product"],
+                            full_product=result["full_product"]
+                        )

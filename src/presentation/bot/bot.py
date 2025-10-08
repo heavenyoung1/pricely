@@ -95,7 +95,7 @@ async def main() -> None:
         bot=bot,
         product_service=product_service,
         notification_service=notification_service,
-        interval_minutes=1  # интервал обновления
+        interval_minutes=0.1  # интервал обновления
     )
 
     # Запускаем планировщик
