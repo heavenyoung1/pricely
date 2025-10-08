@@ -39,7 +39,7 @@ class APSchedulerService:
         if event.exception:
             logger.error(f"Ошибка выполнения задачи: {event.exception}")
         else:
-            logger.info("✅ Задача выполнена успешно.")
+            logger.info("✅ ShedulerService выполнил задачу успешно.")
 
     def run_price_update(self):
         """Фоновое задание для обновления цен."""
@@ -78,7 +78,3 @@ class APSchedulerService:
 
         except Exception as e:
             logger.error(f"Ошибка при выполнении планового обновления: {e}")
-
-
-# scheduler_service = APSchedulerService()
-# scheduler_service.run_price_update()

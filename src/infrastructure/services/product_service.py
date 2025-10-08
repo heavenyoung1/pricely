@@ -9,7 +9,7 @@ from src.application.use_cases import (
     GetFullProductUseCase,
     UpdateProductPriceUseCase,
     DeleteProductUseCase,
-    GetUserProductsUseCase,
+    GetProductForUserUseCase,
 )
 
 from src.domain.entities import Product, Price, User
@@ -76,7 +76,7 @@ class ProductService:
     @with_uow(commit=False)
     def get_all_products(self, user_id: str) -> list:
         '''Возвращает список словарей с полной информацией обо всех продуктах пользователя.'''
-        use_case_get_products = GetUserProductsUseCase (
+        use_case_get_products = GetProductForUserUseCase (
             product_repo=self.uow.product_repository,
             price_repo=self.uow.price_repository,
             user_products_repo=self.uow.user_products_repository
@@ -111,7 +111,6 @@ class ProductService:
         return products
 
     @with_uow(commit=True)
-    
     def update_product_price(self, product_id: str) -> dict:
         """
         Парсит цену, сохраняет в БД и возвращает полную карточку товара (dict).
@@ -155,7 +154,7 @@ class ProductService:
         Возвращает список всех товаров, которые нужно обновлять.
         Можно потом добавить фильтры (например, активные пользователи).
         """
-        use_case = GetUserProductsUseCase(
+        use_case = GetProductForUserUseCase(
             product_repo=self.uow.product_repository,
             price_repo=self.uow.price_repository,
             user_products_repo=self.uow.user_products_repository

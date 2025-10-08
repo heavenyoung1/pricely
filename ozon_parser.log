@@ -14869,3 +14869,640 @@ KeyError: 'full_product'
 2025-10-08 15:01:08,155 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
 2025-10-08 15:01:08,156 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
 2025-10-08 15:01:08,156 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 15:03:31,896 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 15:03:31,898 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 15:03:31,902 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 15:03:31,903 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 15:03:31,903 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 15:03:31,904 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 5 мин).
+2025-10-08 15:03:31,904 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 15:03:31,904 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 15:03:32,188 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 15:05:30,018 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 15:05:30,029 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 15:05:30,029 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 15:05:30,151 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 15:05:49,628 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 15:05:49,630 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 15:05:49,635 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 15:05:49,635 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 15:05:49,636 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 15:05:49,636 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-08 15:05:49,636 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 15:05:49,636 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 15:05:49,843 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 15:06:49,638 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:06:49 MSK)" (scheduled at 2025-10-08 15:06:49.634919+03:00)
+2025-10-08 15:06:49,639 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:06:49,639 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@10.157.1.75:5432/pricely_db
+2025-10-08 15:06:49,736 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:06:49,737 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:06:49,739 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:06:49,739 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:06:49,740 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:06:49,740 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:06:49,741 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:07:49 MSK)" executed successfully
+2025-10-08 15:06:49,741 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:07:49,644 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:08:49 MSK)" (scheduled at 2025-10-08 15:07:49.634919+03:00)
+2025-10-08 15:07:49,644 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:07:49,645 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:07:49,645 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:07:49,646 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:07:49,646 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:07:49,647 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:07:49,647 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:07:49,648 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:08:49 MSK)" executed successfully
+2025-10-08 15:07:49,648 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:08:49,644 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:09:49 MSK)" (scheduled at 2025-10-08 15:08:49.634919+03:00)
+2025-10-08 15:08:49,645 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:08:49,646 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:08:49,646 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:08:49,647 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:08:49,647 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:08:49,648 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:08:49,648 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:08:49,649 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:09:49 MSK)" executed successfully
+2025-10-08 15:08:49,650 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:09:49,635 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:10:49 MSK)" (scheduled at 2025-10-08 15:09:49.634919+03:00)
+2025-10-08 15:09:49,636 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:09:49,637 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:09:49,637 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:09:49,638 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:09:49,638 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:09:49,639 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:09:49,639 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:09:49,639 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:10:49 MSK)" executed successfully
+2025-10-08 15:09:49,640 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:10:49,644 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:11:49 MSK)" (scheduled at 2025-10-08 15:10:49.634919+03:00)
+2025-10-08 15:10:49,644 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:10:49,645 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:10:49,646 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:10:49,646 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:10:49,646 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:10:49,647 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:10:49,647 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:10:49,648 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:11:49 MSK)" executed successfully
+2025-10-08 15:10:49,648 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:11:49,651 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:12:49 MSK)" (scheduled at 2025-10-08 15:11:49.634919+03:00)
+2025-10-08 15:11:49,652 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:11:49,652 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:11:49,653 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:11:49,653 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:11:49,654 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:11:49,654 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:11:49,654 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:11:49,655 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:12:49 MSK)" executed successfully
+2025-10-08 15:11:49,655 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:12:49,646 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:13:49 MSK)" (scheduled at 2025-10-08 15:12:49.634919+03:00)
+2025-10-08 15:12:49,646 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:12:49,647 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:12:49,647 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:12:49,648 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:12:49,648 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:12:49,649 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:12:49,649 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:12:49,650 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:13:49 MSK)" executed successfully
+2025-10-08 15:12:49,650 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:13:49,655 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:14:49 MSK)" (scheduled at 2025-10-08 15:13:49.634919+03:00)
+2025-10-08 15:13:49,656 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:13:49,656 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:13:49,657 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:13:49,657 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:13:49,658 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:13:49,658 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:13:49,659 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:13:49,659 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:14:49 MSK)" executed successfully
+2025-10-08 15:13:49,660 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:14:49,655 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:15:49 MSK)" (scheduled at 2025-10-08 15:14:49.634919+03:00)
+2025-10-08 15:14:49,656 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:14:49,656 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:14:49,657 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:14:49,657 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:14:49,658 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:14:49,658 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:14:49,658 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:14:49,658 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:15:49 MSK)" executed successfully
+2025-10-08 15:14:49,659 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:15:49,645 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:16:49 MSK)" (scheduled at 2025-10-08 15:15:49.634919+03:00)
+2025-10-08 15:15:49,646 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:15:49,647 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:15:49,648 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:15:49,648 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:15:49,649 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:15:49,649 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:15:49,650 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:15:49,651 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:16:49 MSK)" executed successfully
+2025-10-08 15:15:49,651 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:16:49,637 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:17:49 MSK)" (scheduled at 2025-10-08 15:16:49.634919+03:00)
+2025-10-08 15:16:49,637 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:16:49,638 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:16:49,639 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:16:49,639 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:16:49,640 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:16:49,640 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:16:49,641 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:16:49,641 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:17:49 MSK)" executed successfully
+2025-10-08 15:16:49,642 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:17:49,648 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:18:49 MSK)" (scheduled at 2025-10-08 15:17:49.634919+03:00)
+2025-10-08 15:17:49,649 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:17:49,650 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:17:49,650 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:17:49,651 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:17:49,651 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:17:49,651 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:17:49,652 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:17:49,652 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:18:49 MSK)" executed successfully
+2025-10-08 15:17:49,653 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:18:49,644 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:19:49 MSK)" (scheduled at 2025-10-08 15:18:49.634919+03:00)
+2025-10-08 15:18:49,645 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:18:49,646 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:18:49,646 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:18:49,647 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:18:49,648 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:18:49,648 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:18:49,649 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:18:49,650 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:19:49 MSK)" executed successfully
+2025-10-08 15:18:49,650 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:19:49,642 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:20:49 MSK)" (scheduled at 2025-10-08 15:19:49.634919+03:00)
+2025-10-08 15:19:49,642 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:19:49,643 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:19:49,644 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:19:49,644 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:19:49,645 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:19:49,645 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:19:49,646 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:19:49,646 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:20:49 MSK)" executed successfully
+2025-10-08 15:19:49,646 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:20:49,641 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:21:49 MSK)" (scheduled at 2025-10-08 15:20:49.634919+03:00)
+2025-10-08 15:20:49,642 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:20:49,642 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:20:49,643 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:20:49,643 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:20:49,643 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:20:49,644 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:20:49,644 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:20:49,645 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:21:49 MSK)" executed successfully
+2025-10-08 15:20:49,645 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:21:49,644 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:22:49 MSK)" (scheduled at 2025-10-08 15:21:49.634919+03:00)
+2025-10-08 15:21:49,644 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:21:49,645 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:21:49,645 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:21:49,646 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:21:49,646 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:21:49,647 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:21:49,647 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:21:49,648 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:22:49 MSK)" executed successfully
+2025-10-08 15:21:49,648 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:22:49,638 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:23:49 MSK)" (scheduled at 2025-10-08 15:22:49.634919+03:00)
+2025-10-08 15:22:49,639 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:22:49,639 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:22:49,640 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:22:49,640 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:22:49,641 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:22:49,641 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:22:49,642 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:22:49,642 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:23:49 MSK)" executed successfully
+2025-10-08 15:22:49,643 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:23:49,650 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:24:49 MSK)" (scheduled at 2025-10-08 15:23:49.634919+03:00)
+2025-10-08 15:23:49,651 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:23:49,652 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:23:49,652 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:23:49,653 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:23:49,653 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:23:49,654 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:23:49,654 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:23:49,655 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:24:49 MSK)" executed successfully
+2025-10-08 15:23:49,655 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:24:49,637 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:25:49 MSK)" (scheduled at 2025-10-08 15:24:49.634919+03:00)
+2025-10-08 15:24:49,638 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:24:49,639 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:24:49,639 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:24:49,640 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:24:49,641 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:24:49,642 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:24:49,643 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:24:49,643 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:25:49 MSK)" executed successfully
+2025-10-08 15:24:49,644 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:25:49,646 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:26:49 MSK)" (scheduled at 2025-10-08 15:25:49.634919+03:00)
+2025-10-08 15:25:49,647 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:25:49,648 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:25:49,648 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:25:49,648 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:25:49,649 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:25:49,649 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:25:49,650 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:25:49,650 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:26:49 MSK)" executed successfully
+2025-10-08 15:25:49,650 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:26:49,643 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:27:49 MSK)" (scheduled at 2025-10-08 15:26:49.634919+03:00)
+2025-10-08 15:26:49,644 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:26:49,645 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:26:49,646 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:26:49,646 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:26:49,647 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:26:49,648 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:26:49,649 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:26:49,649 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:27:49 MSK)" executed successfully
+2025-10-08 15:26:49,650 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:27:49,642 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:28:49 MSK)" (scheduled at 2025-10-08 15:27:49.634919+03:00)
+2025-10-08 15:27:49,643 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:27:49,644 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:27:49,644 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:27:49,645 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:27:49,645 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:27:49,645 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:27:49,646 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:27:49,646 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:28:49 MSK)" executed successfully
+2025-10-08 15:27:49,647 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:28:49,641 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:29:49 MSK)" (scheduled at 2025-10-08 15:28:49.634919+03:00)
+2025-10-08 15:28:49,642 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:28:49,642 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:28:49,643 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:28:49,643 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:28:49,643 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:28:49,644 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:28:49,644 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:28:49,644 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:29:49 MSK)" executed successfully
+2025-10-08 15:28:49,645 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:29:49,647 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:30:49 MSK)" (scheduled at 2025-10-08 15:29:49.634919+03:00)
+2025-10-08 15:29:49,648 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:29:49,649 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:29:49,650 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:29:49,650 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:29:49,651 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:29:49,652 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:29:49,652 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:29:49,653 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:30:49 MSK)" executed successfully
+2025-10-08 15:29:49,653 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:30:49,649 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:31:49 MSK)" (scheduled at 2025-10-08 15:30:49.634919+03:00)
+2025-10-08 15:30:49,649 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:30:49,650 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:30:49,651 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:30:49,651 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:30:49,652 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:30:49,652 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:30:49,652 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:30:49,653 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:31:49 MSK)" executed successfully
+2025-10-08 15:30:49,654 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:31:49,639 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:32:49 MSK)" (scheduled at 2025-10-08 15:31:49.634919+03:00)
+2025-10-08 15:31:49,640 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:31:49,641 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:31:49,641 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:31:49,642 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:31:49,642 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:31:49,643 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:31:49,644 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:31:49,644 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:32:49 MSK)" executed successfully
+2025-10-08 15:31:49,645 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:32:49,643 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:33:49 MSK)" (scheduled at 2025-10-08 15:32:49.634919+03:00)
+2025-10-08 15:32:49,644 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:32:49,645 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:32:49,646 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:32:49,646 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:32:49,647 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:32:49,647 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:32:49,648 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:32:49,648 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:33:49 MSK)" executed successfully
+2025-10-08 15:32:49,648 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:33:49,651 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:34:49 MSK)" (scheduled at 2025-10-08 15:33:49.634919+03:00)
+2025-10-08 15:33:49,652 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:33:49,653 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:33:49,653 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:33:49,654 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:33:49,654 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:33:49,655 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:33:49,655 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:33:49,656 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:34:49 MSK)" executed successfully
+2025-10-08 15:33:49,656 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:34:49,645 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:35:49 MSK)" (scheduled at 2025-10-08 15:34:49.634919+03:00)
+2025-10-08 15:34:49,646 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:34:49,646 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:34:49,647 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:34:49,647 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:34:49,648 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:34:49,648 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:34:49,649 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:34:49,650 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:35:49 MSK)" executed successfully
+2025-10-08 15:34:49,650 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:35:49,645 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:36:49 MSK)" (scheduled at 2025-10-08 15:35:49.634919+03:00)
+2025-10-08 15:35:49,646 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:35:49,647 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:35:49,647 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:35:49,648 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:35:49,648 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:35:49,649 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:35:49,650 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:35:49,650 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:36:49 MSK)" executed successfully
+2025-10-08 15:35:49,651 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:36:49,639 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:37:49 MSK)" (scheduled at 2025-10-08 15:36:49.634919+03:00)
+2025-10-08 15:36:49,640 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:36:49,641 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:36:49,641 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:36:49,642 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:36:49,642 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:36:49,643 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:36:49,643 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:36:49,644 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:37:49 MSK)" executed successfully
+2025-10-08 15:36:49,644 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:37:49,644 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:38:49 MSK)" (scheduled at 2025-10-08 15:37:49.634919+03:00)
+2025-10-08 15:37:49,645 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:37:49,646 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:37:49,646 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:37:49,646 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:37:49,647 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:37:49,647 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:37:49,648 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:37:49,648 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:38:49 MSK)" executed successfully
+2025-10-08 15:37:49,649 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:38:49,644 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:39:49 MSK)" (scheduled at 2025-10-08 15:38:49.634919+03:00)
+2025-10-08 15:38:49,645 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:38:49,646 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:38:49,647 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:38:49,647 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:38:49,648 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:38:49,648 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:38:49,649 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:38:49,649 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:39:49 MSK)" executed successfully
+2025-10-08 15:38:49,650 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:39:49,653 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:40:49 MSK)" (scheduled at 2025-10-08 15:39:49.634919+03:00)
+2025-10-08 15:39:49,653 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:39:49,654 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:39:49,654 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:39:49,655 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:39:49,655 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:39:49,656 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:39:49,656 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:39:49,657 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:40:49 MSK)" executed successfully
+2025-10-08 15:39:49,657 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:40:49,642 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:41:49 MSK)" (scheduled at 2025-10-08 15:40:49.634919+03:00)
+2025-10-08 15:40:49,644 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:40:49,644 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:40:49,645 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:40:49,645 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:40:49,646 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:40:49,646 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:40:49,646 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:40:49,647 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:41:49 MSK)" executed successfully
+2025-10-08 15:40:49,647 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:41:49,641 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:42:49 MSK)" (scheduled at 2025-10-08 15:41:49.634919+03:00)
+2025-10-08 15:41:49,642 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:41:49,642 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:41:49,643 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:41:49,643 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:41:49,643 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:41:49,644 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:41:49,644 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:41:49,645 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:42:49 MSK)" executed successfully
+2025-10-08 15:41:49,645 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:42:49,652 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:43:49 MSK)" (scheduled at 2025-10-08 15:42:49.634919+03:00)
+2025-10-08 15:42:49,654 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:42:49,654 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:42:49,655 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:42:49,655 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:42:49,656 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:42:49,657 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:42:49,657 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:42:49,657 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:43:49 MSK)" executed successfully
+2025-10-08 15:42:49,658 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:43:49,647 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:44:49 MSK)" (scheduled at 2025-10-08 15:43:49.634919+03:00)
+2025-10-08 15:43:49,648 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:43:49,648 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:43:49,649 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:43:49,649 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:43:49,657 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:43:49,658 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:43:49,658 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:43:49,659 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:44:49 MSK)" executed successfully
+2025-10-08 15:43:49,659 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:44:49,645 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:45:49 MSK)" (scheduled at 2025-10-08 15:44:49.634919+03:00)
+2025-10-08 15:44:49,646 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:44:49,646 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:44:49,647 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:44:49,647 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:44:49,648 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:44:49,648 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:44:49,649 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:44:49,650 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:45:49 MSK)" executed successfully
+2025-10-08 15:44:49,650 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:45:49,645 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:46:49 MSK)" (scheduled at 2025-10-08 15:45:49.634919+03:00)
+2025-10-08 15:45:49,645 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:45:49,646 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:45:49,647 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:45:49,647 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:45:49,647 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:45:49,648 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:45:49,649 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:45:49,649 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:46:49 MSK)" executed successfully
+2025-10-08 15:45:49,650 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:46:49,651 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:47:49 MSK)" (scheduled at 2025-10-08 15:46:49.634919+03:00)
+2025-10-08 15:46:49,651 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:46:49,652 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:46:49,653 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:46:49,654 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:46:49,655 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:46:49,656 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:46:49,657 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:46:49,658 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:47:49 MSK)" executed successfully
+2025-10-08 15:46:49,659 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:47:49,642 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:48:49 MSK)" (scheduled at 2025-10-08 15:47:49.634919+03:00)
+2025-10-08 15:47:49,643 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:47:49,644 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:47:49,644 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:47:49,644 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:47:49,645 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:47:49,645 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:47:49,646 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:47:49,646 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:48:49 MSK)" executed successfully
+2025-10-08 15:47:49,647 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:48:49,643 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:49:49 MSK)" (scheduled at 2025-10-08 15:48:49.634919+03:00)
+2025-10-08 15:48:49,649 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:48:49,650 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:48:49,651 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:48:49,651 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:48:49,652 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:48:49,652 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:48:49,653 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:48:49,653 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:49:49 MSK)" executed successfully
+2025-10-08 15:48:49,654 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:49:49,655 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:50:49 MSK)" (scheduled at 2025-10-08 15:49:49.634919+03:00)
+2025-10-08 15:49:49,656 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:49:49,657 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:49:49,658 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:49:49,658 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:49:49,659 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:49:49,660 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:49:49,661 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:49:49,661 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:50:49 MSK)" executed successfully
+2025-10-08 15:49:49,662 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:50:49,637 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:51:49 MSK)" (scheduled at 2025-10-08 15:50:49.634919+03:00)
+2025-10-08 15:50:49,639 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:50:49,640 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:50:49,640 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:50:49,640 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:50:49,641 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:50:49,641 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:50:49,642 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:50:49,642 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:51:49 MSK)" executed successfully
+2025-10-08 15:50:49,643 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:51:49,650 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:52:49 MSK)" (scheduled at 2025-10-08 15:51:49.634919+03:00)
+2025-10-08 15:51:49,651 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:51:49,652 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:51:49,652 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:51:49,653 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:51:49,654 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:51:49,654 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:51:49,655 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:51:49,655 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:52:49 MSK)" executed successfully
+2025-10-08 15:51:49,656 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:52:49,648 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:53:49 MSK)" (scheduled at 2025-10-08 15:52:49.634919+03:00)
+2025-10-08 15:52:49,649 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:52:49,650 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:52:49,651 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:52:49,651 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:52:49,652 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:52:49,652 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:52:49,653 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:52:49,653 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:53:49 MSK)" executed successfully
+2025-10-08 15:52:49,653 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:53:49,658 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:54:49 MSK)" (scheduled at 2025-10-08 15:53:49.634919+03:00)
+2025-10-08 15:53:49,660 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:53:49,660 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:53:49,661 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:53:49,661 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:53:49,661 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:53:49,662 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:53:49,662 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:53:49,662 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:54:49 MSK)" executed successfully
+2025-10-08 15:53:49,663 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:54:49,642 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:55:49 MSK)" (scheduled at 2025-10-08 15:54:49.634919+03:00)
+2025-10-08 15:54:49,653 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:54:49,654 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:54:49,655 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:54:49,655 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:54:49,656 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:54:49,657 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:54:49,658 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:54:49,659 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:55:49 MSK)" executed successfully
+2025-10-08 15:54:49,660 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:55:49,640 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:56:49 MSK)" (scheduled at 2025-10-08 15:55:49.634919+03:00)
+2025-10-08 15:55:49,640 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:55:49,641 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:55:49,641 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:55:49,642 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:55:49,642 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:55:49,643 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:55:49,643 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:55:49,644 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:56:49 MSK)" executed successfully
+2025-10-08 15:55:49,644 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:56:49,650 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:57:49 MSK)" (scheduled at 2025-10-08 15:56:49.634919+03:00)
+2025-10-08 15:56:49,662 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:56:49,663 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:56:49,664 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:56:49,664 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:56:49,664 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:56:49,665 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:56:49,665 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:56:49,666 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:57:49 MSK)" executed successfully
+2025-10-08 15:56:49,667 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:57:49,638 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:58:49 MSK)" (scheduled at 2025-10-08 15:57:49.634919+03:00)
+2025-10-08 15:57:49,649 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:57:49,650 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:57:49,651 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:57:49,651 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:57:49,652 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:57:49,652 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:57:49,653 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:57:49,653 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:58:49 MSK)" executed successfully
+2025-10-08 15:57:49,653 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:58:49,646 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:59:49 MSK)" (scheduled at 2025-10-08 15:58:49.634919+03:00)
+2025-10-08 15:58:49,647 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:58:49,647 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:58:49,648 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:58:49,649 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:58:49,649 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:58:49,649 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:58:49,650 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:58:49,650 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 15:59:49 MSK)" executed successfully
+2025-10-08 15:58:49,651 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 15:59:49,650 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 16:00:49 MSK)" (scheduled at 2025-10-08 15:59:49.634919+03:00)
+2025-10-08 15:59:49,650 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 15:59:49,651 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 15:59:49,652 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:59:49,652 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 15:59:49,653 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 15:59:49,653 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:59:49,654 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 15:59:49,654 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 16:00:49 MSK)" executed successfully
+2025-10-08 15:59:49,657 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 16:00:49,643 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 16:01:49 MSK)" (scheduled at 2025-10-08 16:00:49.634919+03:00)
+2025-10-08 16:00:49,643 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 16:00:49,644 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 16:00:49,645 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 16:00:49,645 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 16:00:49,645 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 16:00:49,646 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 16:00:49,646 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 16:00:49,647 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 16:01:49 MSK)" executed successfully
+2025-10-08 16:00:49,648 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 16:01:49,641 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 16:02:49 MSK)" (scheduled at 2025-10-08 16:01:49.634919+03:00)
+2025-10-08 16:01:49,642 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 16:01:49,642 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 16:01:49,643 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 16:01:49,643 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 16:01:49,644 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 16:01:49,644 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 16:01:49,645 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 16:01:49,645 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 16:02:49 MSK)" executed successfully
+2025-10-08 16:01:49,645 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 16:02:49,642 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 16:03:49 MSK)" (scheduled at 2025-10-08 16:02:49.634919+03:00)
+2025-10-08 16:02:49,643 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 16:02:49,643 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 16:02:49,644 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 16:02:49,644 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 16:02:49,645 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 16:02:49,646 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 16:02:49,646 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 16:02:49,647 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 16:03:49 MSK)" executed successfully
+2025-10-08 16:02:49,648 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 16:03:49,648 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 16:04:49 MSK)" (scheduled at 2025-10-08 16:03:49.634919+03:00)
+2025-10-08 16:03:49,658 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 16:03:49,659 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 16:03:49,659 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 16:03:49,660 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 16:03:49,660 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 16:03:49,660 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 16:03:49,660 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 16:03:49,661 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 16:04:49 MSK)" executed successfully
+2025-10-08 16:03:49,661 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 18:47:55,035 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 18:47:55,037 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 18:47:55,046 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 18:47:55,048 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 18:47:55,048 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 18:47:55,048 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-08 18:47:55,048 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 18:47:55,049 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 18:47:55,270 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 18:48:55,059 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 18:48:55 MSK)" (scheduled at 2025-10-08 18:48:55.046505+03:00)
+2025-10-08 18:48:55,059 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 18:48:55,060 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 18:48:55,118 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 18:48:55,119 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 18:48:55,120 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 18:48:55,121 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 18:48:55,122 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 18:48:55,123 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 18:48:55,124 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 18:49:55 MSK)" executed successfully
+2025-10-08 18:48:55,124 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 18:49:55,058 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 18:50:55 MSK)" (scheduled at 2025-10-08 18:49:55.046505+03:00)
+2025-10-08 18:49:55,058 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 18:49:55,059 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 18:49:55,060 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 18:49:55,060 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 18:49:55,061 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 18:49:55,061 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 18:49:55,061 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 18:49:55,062 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 18:50:55 MSK)" executed successfully
+2025-10-08 18:49:55,062 - src.infrastructure.services.logger - INFO - ✅ Задача выполнена успешно.
+2025-10-08 18:49:57,016 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 18:49:57,018 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 18:49:57,018 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 18:49:57,133 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
