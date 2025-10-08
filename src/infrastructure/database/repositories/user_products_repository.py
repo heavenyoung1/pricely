@@ -30,3 +30,9 @@ class UserProductsRepositoryImpl(UserProductsRepository):
         logger.info(f'Привязка товара ID {product_id} пользователю ID {user_id}')
         reccord = ORMUserProducts(user_id=user_id, product_id=product_id)
         self.session.add(reccord)
+
+    def get_all_user_products_pair(self) -> None:
+        logger.info('Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl')
+        rows = (
+            self.session.query(ORMUserProducts).all()
+        )

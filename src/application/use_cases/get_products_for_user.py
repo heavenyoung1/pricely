@@ -12,13 +12,24 @@ from typing import List
 
 logger = logging.getLogger(__name__)
 
-class GetPairUserProductsUseCase:
+class GetProductForUserUseCase:
     def __init__(
         self,
         user_products_repo: UserProductsRepository,
+        product_repo: ProductRepository,
+        price_repo: PriceRepository,
     ):
         self.user_products_repo = user_products_repo
+        self.product_repo = product_repo
+        self.price_repo = price_repo
 
-        def execute(self) -> dict:
-            logger.info(f'Запрашиваем данные для запуска  APSchedulerService')
-            
+    def execute(self, user_id: str) -> list:
+        logger.info(f"Запрос списка товаров для пользователя ID: {user_id}")
+        raw_ids = self.user_products_repo.get_products_for_user(user_id)
+        if not raw_ids:
+            return []
+        ids = [str(x) for x in raw_ids]
+        logger.debug(f"User {user_id} product ids: {ids}")
+        return ids
+
+    
