@@ -20,7 +20,7 @@ class GetUserProductsUseCase:
     ):
         self.user_products_repo = user_products_repo
 
-        def execute(self) -> dict:
-            logger.info(f'Запрашиваем данные для запуска  APSchedulerService')
-            return self.user_products_repo.get
+    def execute(self) -> dict:
+        logger.info(f'Запрашиваем данные для запуска  APSchedulerService')
+        return self.user_products_repo.get_all_user_products_pair()
             

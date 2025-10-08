@@ -15506,3 +15506,61 @@ KeyError: 'full_product'
 2025-10-08 18:49:57,018 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-10-08 18:49:57,018 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-10-08 18:49:57,133 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 19:17:33,047 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 19:17:33,048 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 19:17:33,056 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 19:17:33,057 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 19:17:33,058 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 19:17:33,058 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-08 19:17:33,058 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 19:17:33,058 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 19:17:33,309 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 19:18:33,068 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 19:18:33 MSK)" (scheduled at 2025-10-08 19:18:33.055915+03:00)
+2025-10-08 19:18:33,069 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 19:18:33,069 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 19:18:33,149 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 19:18:33,150 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetProductForUserUseCase' object has no attribute 'get_all_products'
+2025-10-08 19:18:33,151 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 19:18:33,152 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 19:18:33,152 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetProductForUserUseCase' object has no attribute 'get_all_products'
+2025-10-08 19:18:33,153 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetProductForUserUseCase' object has no attribute 'get_all_products'
+2025-10-08 19:18:33,153 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 19:19:33 MSK)" executed successfully
+2025-10-08 19:18:33,154 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 19:19:33,061 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 19:20:33 MSK)" (scheduled at 2025-10-08 19:19:33.055915+03:00)
+2025-10-08 19:19:33,062 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 19:19:33,063 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 19:19:33,063 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetProductForUserUseCase' object has no attribute 'get_all_products'
+2025-10-08 19:19:33,064 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 19:19:33,064 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 19:19:33,065 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetProductForUserUseCase' object has no attribute 'get_all_products'
+2025-10-08 19:19:33,065 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetProductForUserUseCase' object has no attribute 'get_all_products'
+2025-10-08 19:19:33,065 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 19:20:33 MSK)" executed successfully
+2025-10-08 19:19:33,066 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 19:19:37,859 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 19:19:37,862 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 19:19:37,862 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 19:19:38,113 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 19:20:22,643 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-08 19:20:22,645 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-08 19:20:22,648 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-08 19:20:22,649 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-08 19:20:22,650 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-08 19:20:22,650 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-08 19:20:22,650 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-08 19:20:22,650 - aiogram.dispatcher - INFO - Start polling
+2025-10-08 19:20:22,867 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-08 19:21:22,651 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 19:21:22 MSK)" (scheduled at 2025-10-08 19:21:22.648833+03:00)
+2025-10-08 19:21:22,652 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-08 19:21:22,653 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-08 19:21:22,897 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-08 19:21:22,898 - src.core.uow - WARNING - Исключение в Unit of Work: AttributeError: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 19:21:22,898 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-08 19:21:22,899 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-08 19:21:22,899 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 19:21:22,900 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: 'GetUserProductsUseCase' object has no attribute 'get_all_products'
+2025-10-08 19:21:22,900 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-08 19:22:22 MSK)" executed successfully
+2025-10-08 19:21:22,901 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-08 19:21:26,700 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-08 19:21:26,702 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-08 19:21:26,702 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-08 19:21:26,968 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'

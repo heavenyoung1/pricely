@@ -36,3 +36,6 @@ class UserProductsRepositoryImpl(UserProductsRepository):
         rows = (
             self.session.query(ORMUserProducts).all()
         )
+        logger.info(f'НУЖНО БЫ ПРОВЕРИТЬ КАК ЭТО РАБОТАЕТ!!!')
+        records = [row for row in rows]
+        return rows

@@ -10,6 +10,7 @@ from src.application.use_cases import (
     UpdateProductPriceUseCase,
     DeleteProductUseCase,
     GetProductForUserUseCase,
+    GetUserProductsUseCase,
 )
 
 from src.domain.entities import Product, Price, User
@@ -154,12 +155,10 @@ class ProductService:
         Возвращает список всех товаров, которые нужно обновлять.
         Можно потом добавить фильтры (например, активные пользователи).
         """
-        use_case = GetProductForUserUseCase(
-            product_repo=self.uow.product_repository,
-            price_repo=self.uow.price_repository,
+        use_case = GetUserProductsUseCase(
             user_products_repo=self.uow.user_products_repository
         )
-        return use_case.get_all_products()
+        return use_case.execute()
 
     @with_uow(commit=True)
     def delete_product(self, product_id) -> None:
