@@ -6,7 +6,7 @@ from sqlalchemy import desc
 from src.application.interfaces.repositories import PriceRepository
 from src.infrastructure.database.mappers import PriceMapper
 from src.domain.entities import Price
-from src.infrastructure.database.models import ORMPrice, ORMProduct
+from src.infrastructure.database.models import ORMPrice
 
 logger = logging.getLogger(__name__)
 
@@ -14,60 +14,101 @@ logger = logging.getLogger(__name__)
 class PriceRepositoryImpl(PriceRepository):
     '''Реализация репозитория для работы с ценами в базе данных.'''
     def __init__(self, session: Session):
+        '''
+        Конструктор для инициализации репозитория цен.
+
+        :param session: Экземпляр SQLAlchemy Session для работы с базой данных.
+        '''
         self.session = session
 
     def save(self, price: Price) -> None:
+        '''
+        Сохранить или обновить цену в базе данных.
+
+        :param price: Объект типа Price, который необходимо сохранить.
+        :raises Exception: Если возникла ошибка при сохранении цены.
+        '''
         try:
             logger.info(f"Сохранение цены: {price}")
+            # Преобразуем доменный объект Price в ORM-объект
             orm_price = PriceMapper.domain_to_orm(price)
-            self.session.merge(orm_price) # НУЖНА, НО ПОЧЕММУ???
+            # Используем merge для объединения изменений (если объект уже существует, он обновится)
+            self.session.merge(orm_price)  # Используется merge для гибкости обновления
             logger.debug(f"Цена успешно сохранена (ID: {orm_price.id})")
         except Exception as e:
             logger.error(f"Ошибка сохранения цены {price}: {str(e)}")
             raise
     
     def get(self, price_id: str) -> Optional[Price]:
-        logger.debug(f"Поиск цены по ID: {price_id}")
+        '''
+        Получить цену по идентификатору из базы данных.
+
+        :param price_id: Идентификатор цены.
+        :return: Объект Price, если найден, иначе None.
+        '''
         orm_model = self.session.get(ORMPrice, price_id)
+
         if not orm_model:
-            logger.warning(f"Цена с ID {price_id} не найдена")
+            logger.warning(f'Цена с ID {price_id} не найдена')
             return None
+        
         price = PriceMapper.orm_to_domain(orm_model)
-        logger.info(f"Найдена цена: {price} (ID: {orm_model.id})")
+        logger.info(f'Найдена цена: {price} (ID: {orm_model.id})')
         return price
     
     def get_all_prices_by_product(self, product_id: str) -> List[Price]:
-        logger.debug(f"Получение всех цен для продукта {product_id}")
+        '''
+        Получить все цены для конкретного продукта.
+
+        :param product_id: Идентификатор продукта.
+        :return: Список объектов Price для данного продукта.
+        '''
+        logger.debug(f'Получение всех цен для продукта {product_id}')
         try:
             orm_prices = self.session.query(ORMPrice).filter_by(product_id=product_id).all()
             prices = [PriceMapper.orm_to_domain(p) for p in orm_prices]
-            logger.info(f"Найдено {len(prices)} цен для продукта {product_id}")
+            logger.info(f'Найдено {len(prices)} цен для продукта {product_id}')
             return prices
+        
         except Exception as e:
-            logger.error(f"Ошибка получения цен для продукта {product_id}: {str(e)}")
+            logger.error(f'Ошибка получения цен для продукта {product_id}: {str(e)}')
             raise
     
     def delete(self, price_id: str) -> bool:
-        logger.info(f"Попытка удаления цены с ID: {price_id}")
+        '''
+        Удалить цену по идентификатору.
+
+        :param price_id: Идентификатор цены, которую нужно удалить.
+        :return: Возвращает True, если цена была удалена, иначе False.
+        '''
+        logger.info(f'Попытка удаления цены с ID: {price_id}')
         orm_price = self.session.get(ORMPrice, price_id)
+
         if not orm_price:
-            logger.warning(f"Цена с ID {price_id} не найдена для удаления")
+            logger.warning(f'Цена с ID {price_id} не найдена для удаления')
             return False
         try:
             self.session.delete(orm_price)
-            #self.session.commit() ТРАНЗАКЦИЯМИ УПРАВЛЯЕМ В UOW!!! 
-            logger.info(f"Цена с ID {price_id} успешно удалена")
+            # Транзакциями управляет Unit of Work
+            logger.info(f'Цена с ID {price_id} успешно удалена')
             return True
+        
         except Exception as e:
-            logger.error(f"Ошибка удаления цены {price_id}: {str(e)}")
+            logger.error(f'Ошибка удаления цены {price_id}: {str(e)}')
             raise
 
     def get_latest_for_product(self, product_id: str) -> Price | None:
-        '''Достает последние данные по времени'''
+        '''
+        Получить последнюю цену по времени для продукта.
+
+        :param product_id: Идентификатор продукта.
+        :return: Объект Price, если цена найдена, иначе None.
+        '''
         logger.debug(f'Получение последней цены для продукта {product_id}')
         orm_price = (
             self.session.query(ORMPrice).filter(ORMPrice.product_id == product_id).order_by(desc(ORMPrice.created_at)).first()
         )
+
         if not orm_price:
             logger.info(f'Для продукта {product_id} нет данных о цене')
             return None

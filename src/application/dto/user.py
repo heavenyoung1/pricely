@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import List
 
-
+# УДАЛИТЬ ПОЗЖЕ
 class UserDTO(BaseModel):
     id: str
     username: str
