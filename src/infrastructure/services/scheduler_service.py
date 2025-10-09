@@ -102,7 +102,7 @@ class APSchedulerService:
                     #     await asyncio.sleep(0.1)
                     
                     logger.info("🧪 ТЕСТ: Остановка после первого товара")
-                    break
+                    # break
                         
                 except Exception as e:
                     logger.error(f"Ошибка при обработке товара: {e}", exc_info=True)
