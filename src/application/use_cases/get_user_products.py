@@ -22,5 +22,6 @@ class GetUserProductsUseCase:
 
     def execute(self) -> dict:
         logger.info(f'Запрашиваем данные для запуска  APSchedulerService')
-        return self.user_products_repo.get_all_user_products_pair()
+        #return self.user_products_repo.get_all_user_products_pair()
+        return self.user_products_repo.get_sorted_user_products()
             

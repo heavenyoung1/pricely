@@ -1,4 +1,5 @@
 import logging
+from collections import defaultdict
 
 from src.application.interfaces.repositories import UserProductsRepository
 from src.infrastructure.database.mappers import UserMapper
@@ -39,3 +40,34 @@ class UserProductsRepositoryImpl(UserProductsRepository):
         records = [{'product_id': row.product_id, 'user_id': row.user_id} for row in rows]
         logger.info(f'Записи список(словарей) получен и готов для парсинга.')
         return records
+    
+    def get_all_user_products_pair(self) -> None:
+        
+        logger.info('Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl')
+        rows = (
+            self.session.query(ORMUserProducts).all()
+        )
+        records = [{'product_id': row.product_id, 'user_id': row.user_id} for row in rows]
+        logger.info(f'Записи список(словарей) получен и готов для парсинга.')
+        return records
+    
+    def get_sorted_user_products(self) -> None:
+        '''
+        Извлекает все товары и пользователей, группируя товары по user_id.
+        Возвращает словарь вида: {user_id: [product_id, product_id, ...], ...}
+        '''
+        logger.info('Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl')
+
+        # Запрос всех строк из базы
+        rows = self.session.query(ORMUserProducts).all()
+
+        # Используем defaultdict для автоматического создания списка для каждого user_id
+        logger.info(f'Rows -> {rows}')
+        user_products = defaultdict(list)
+
+        for row in rows:
+            logger.info(f'user_products Iteration -> {user_products}')
+            user_products[row.user_id].append(row.product_id)
+
+        logger.info(f'Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.')
+        return dict(user_products)  # Преобразуем defaultdict обратно в обычный dict

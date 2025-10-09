@@ -58,75 +58,69 @@ class APSchedulerService:
 
         try:
             users_products = self.product_service.get_all_products_for_update()
+            logger.info(f'USERS_PRODUCTS ПОЛУЧЕНЫ {users_products}')
 
             if not users_products:
                 logger.info("Нет товаров для обновления.")
                 return
+            
+            # Храним информацию о товарах, которые будут отправлены пользователю
+            notification_to_send = {}
 
-            for user_product in users_products:
-                try:
-                    product_id = user_product['product_id']
-                    user_id = user_product['user_id']
-                    
-                    logger.info(f'Извлечен user:product -> {user_product}')
-                    logger.info(f'Получен товар для обновления: ID={product_id}')
-                    
-                    # Обновляем цену товара
-                    result = self.product_service.update_product_price(product_id)
-                    
-                    logger.info(f"Результат обновления для товара {product_id}: is_changed={result.get('is_changed')}")
+            for user_id, product_ids in users_products.items():
+                logger.info(f"Обрабатываем товары для пользователя {user_id}")
 
-                    if not result or 'full_product' not in result:
-                        logger.warning(f"Некорректный результат для товара {product_id}")
-                        continue
-                    
-                    full_product = result["full_product"]
-                    
-                    # ТЕСТОВЫЙ РЕЖИМ: отправляем всегда
-                    logger.info(f"🧪 ТЕСТ: Принудительная отправка уведомления пользователю {user_id}")
-                    
-                    # Создаём задачу для отправки в текущем loop
-                    asyncio.create_task(
-                        self._send_notification(user_id, full_product)
-                    )
-                    
-                    # Ждём немного, чтобы задача успела начаться
-                    await asyncio.sleep(0.1)
-                    
-                    # ПРОДАКШЕН КОД:
-                    # if result.get("is_changed", False):
-                    #     logger.info(f"🔔 Цена изменилась для товара {product_id}")
-                    #     asyncio.create_task(
-                    #         self._send_notification(user_id, full_product)
-                    #     )
-                    #     await asyncio.sleep(0.1)
-                    
-                    logger.info("🧪 ТЕСТ: Остановка после первого товара")
-                    # break
-                        
-                except Exception as e:
-                    logger.error(f"Ошибка при обработке товара: {e}", exc_info=True)
-                    continue
+                # Собираем информацию для всех товаров пользователя
+                updated_products = []
+                for product_id in product_ids:
+                    try:
+                        logger.info(f'Получаем товар для обновления: ID={product_id}')
+
+                        # Обновляем цену товара
+                        result = self.product_service.update_product_price(product_id)
+
+                        full_product = result['full_product']
+                        # Флаг об изменении цены
+                        is_changed = result['is_changed']
+
+                        if is_changed or :
+                            updated_products.append(full_product)
+
+                    except Exception as e:
+                        logger.error(f"Ошибка при обработке товара {product_id}: {e}")
+
+                if updated_products :
+                    notification_to_send[user_id] = updated_products
+
+            # Отправим уведомления для всех пользователей
+            for user_id, updated_products in notification_to_send.items():
+                # Формируем сообщение для этого пользователя
+                await self._send_notification(user_id, updated_products)
 
             logger.info("✅ Автоматическое обновление цен завершено.")
 
-        except Exception as e:
-            logger.error(f"Ошибка при выполнении планового обновления: {e}", exc_info=True)
 
-    async def _send_notification(self, chat_id: str, full_product: dict):
-        """Отправка уведомления."""
+        except Exception as e:
+            logger.error(f"Ошибка при выполнении планового обновления: {e}")
+
+    async def _send_notification(self, chat_id: str, updated_products: list):
+        """Отправка уведомления пользователю с несколькими товарами."""
         try:
             logger.info(f"📤 Попытка отправки уведомления пользователю {chat_id}")
             
-            # Формируем текст напрямую здесь
-            text = f"🔔 Цена на товар изменилась!\n\n" \
-                   f"📦 {full_product['name']}\n\n" \
-                   f"💰 Старая цена: {full_product['latest_price']['previous_price_with_card']} ₽\n" \
-                   f"💰 Новая цена: {full_product['latest_price']['with_card']} ₽\n\n" \
-                   f"🔗 {full_product['link']}"
+            # Формируем текст сообщения с информацией о нескольких товарах
+            text = "🔔 Цена на товар(ы) изменилась!\n\n"
+            
+            for product in updated_products:
+                text += (
+                    f"📦 {product['name']}\n\n"
+                    f"💰 Предыдущая цена: {product['latest_price']['previous_price_with_card']} ₽\n"
+                    f"💰 Актуальная цена: {product['latest_price']['with_card']} ₽\n\n"
+                    f"🔗 {product['link']}\n\n"
+                )
             
             logger.info(f"📝 Текст сформирован: {text[:50]}...")
-            
+
             # Прямая отправка через бота
             message = await self.bot.send_message(
                 chat_id=int(chat_id),

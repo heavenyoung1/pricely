@@ -29,16 +29,23 @@ class NotificationService:
         try:
             logger.info(f"📨 NotificationService: Отправка уведомления пользователю {chat_id}")
 
-            old_price = updated_product['latest_price']['previous_price_with_card']
-            new_price = updated_product['latest_price']['with_card']
-            price_diff = new_price - old_price
+            new_price_with_card = updated_product['latest_price']['with_card']
+            new_price_without_card = updated_product['latest_price']['without_card']
+
+            prev_price_with_card = updated_product['latest_price']['previous_price_with_card']
+            prev_price_without_card = updated_product['latest_price']['previous_price_without_card']
+
+            price_diff = new_price_with_card - prev_price_with_card
             price_emoji = "📉" if price_diff < 0 else "📈"
 
             text = (
                 f"{price_emoji} Цена на товар изменилась!\n\n"
                 f"📦 {updated_product['name']}\n\n"
-                f"💰 Старая цена: {old_price} ₽\n"
-                f"💰 Новая цена: {new_price} ₽\n"
+                f"💰 Актуальная цена (с картой): {new_price_with_card} ₽\n"
+                f"💰 Актуальная цена (без карты): {new_price_without_card} ₽\n"             
+                f"💰 Предыдущая цена (с картой): {prev_price_with_card} ₽\n"
+                 f"💰 Предыдущая цена (с картой): {prev_price_without_card} ₽\n"
+
                 f"{'💚' if price_diff < 0 else '🔴'} Разница: {price_diff:+d} ₽\n\n"
                 f"🔗 {updated_product['link']}"
             )
@@ -53,10 +60,13 @@ class NotificationService:
 
         except TelegramForbiddenError:
             logger.warning(f"⚠️ Бот заблокирован пользователем {chat_id}")
+
         except TelegramBadRequest as e:
             logger.error(f"❌ Некорректный запрос для чата {chat_id}: {e}")
+
         except TelegramAPIError as e:
             logger.error(f"❌ Ошибка Telegram API при отправке уведомления {chat_id}: {e}")
+            
         except Exception as e:
             logger.exception(f"❌ Неизвестная ошибка при отправке уведомления {chat_id}: {e}")
 

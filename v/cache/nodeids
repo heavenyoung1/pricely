@@ -40,6 +40,7 @@
   "tests/integration/test_uow.py::test_uow_commit_creates_data",
   "tests/integration/test_uow.py::test_uow_initialization",
   "tests/integration/test_uow.py::test_uow_rollback_discards_data",
+  "tests/integration/test_user_products_repo.py::test_get_success_data",
   "tests/unit/test_decorator.py::test_with_uow_commit",
   "tests/unit/test_decorator.py::test_with_uow_commit_exception",
   "tests/unit/test_decorator.py::test_with_uow_no_commit",
