@@ -96,7 +96,7 @@ class APSchedulerService:
                 await self._send_notification(user_id, full_product)
                 
                 # ========================================
-                # ПРОДАКШЕН КОД (раскомментировать когда тест пройдёт):!!!!!
+                # ПРОДАКШЕН КОД (раскоммент когда тест пройдёт):
                 # ========================================
                 # if result.get("is_changed", False):
                 #     logger.info(f"🔔 Цена изменилась для товара {product_id}, отправка уведомления пользователю {user_id}")
@@ -121,7 +121,7 @@ class APSchedulerService:
             await self.notification_service.notify_price_change(
                 chat_id=chat_id,
                 updated_product=full_product,
-                full_product=full_product
+                #full_product=full_product
             )
             logger.info(f"✅ Уведомление успешно отправлено пользователю {chat_id}")
         except Exception as e:
