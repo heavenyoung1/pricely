@@ -27,15 +27,15 @@ class CreateProductUseCase:
         self.parser = parser
 
     def execute(self, user_id: str, url: str) -> dict:
-        # 1. Парсим данные о продукте
+        # 1. Парсим данные о товаре
         try:
             product_data = self.parser.parse_product(url)
-            logger.info(f'Успешный парсинг данных для {url}: {product_data}')
+            logger.info(f'Парсинг данных для {url}: {product_data} завершен.')
         except Exception as e:
             logger.error(f'Ошибка парсинга URL {url} для пользователя {user_id}: {str(e)}')
             raise ParserProductError('Ошибка парсинга товара')
 
-        # 2. Проверяем, есть ли продукт в базе
+        # 2. Проверяем, есть ли товар в БД
         if self.product_repo.get(product_data['id']):
             logger.error(f'Товар с ID {product_data['id']} уже существует')
             raise ProductCreationError(f'Товар с ID {product_data['id']} уже существует')
@@ -52,7 +52,7 @@ class CreateProductUseCase:
         )
 
         price = Price(
-            id=None,  # БД сама создаст автоинкрементный id
+            id=None,  # автоинкрементированный ID, создаваемый в БД
             product_id=product.id,
             with_card=product_data['price_with_card'],
             without_card=product_data['price_without_card'],
@@ -61,7 +61,7 @@ class CreateProductUseCase:
             created_at=datetime.now(),
         )
 
-        # Добавляем цену к продукту
+        # Добавляем цену к товару
         product.prices.append(price)
 
         # 4. Работаем с пользователем
@@ -79,21 +79,20 @@ class CreateProductUseCase:
         else:
             if product.id not in user.products:
                 user.products.append(product.id)
-                # Не логичнее ли вынести сохранение в репозиторий ниже, чтобы сохранение было в одном месте? 
                 self.user_repo.save(user)
 
-        # 5. Сохраняем продукт и цену
+        # 5. Сохраняем товар и цену
         try:
             self.product_repo.save(product)
             self.price_repo.save(price)
 
-            # Создаём связь user <-> product в таблице user_products
+        # 6. Создаём связь user <-> product в таблице user_products
             self.user_products_repo.add_product_for_user(user_id, product.id)
         except Exception as e:
             logger.error(f'Ошибка сохранения товара {product.id}: {e}')
             raise ProductCreationError('Ошибка сохранения товара')
 
-        # Возвращаем полные данные для удобства
+        7. # Возвращаем полные данные для удобства
         return {
             'product_id': product.id,
             'product_name': product.name,

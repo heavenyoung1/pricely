@@ -47,6 +47,7 @@ class ProductService:
         return use_case.execute(user_id, url)
 
     @with_uow(commit=False)
+    # Можно все эти исключения перенести в UseCase!!!!
     def get_product(self, product_id: str) -> Product:
         try:
             use_case = GetProductUseCase(product_repo=self.uow.product_repository)

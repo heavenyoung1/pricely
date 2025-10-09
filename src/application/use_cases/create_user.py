@@ -14,7 +14,7 @@ class CreateUserUseCase:
         existing = self.user_repo.get(user.id)
         if existing:
             logger.info(f'Пользователь {user.id} уже существует, пропускаем создание')
-            return  # Пользователь уже существует, ничего не делаем
+            return  
 
         self.user_repo.save(user)
         logger.info(f'Пользователь {user.id} успешно создан')
