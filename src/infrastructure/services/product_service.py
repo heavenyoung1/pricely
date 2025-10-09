@@ -116,37 +116,32 @@ class ProductService:
         """
         Парсит цену, сохраняет в БД и возвращает полную карточку товара (dict).
         """
-        product = self.uow.product_repository.get(product_id)
-        if not product:
-            raise ValueError(f"Товар {product_id} не найден")
-
-        parsed = self.parser.parse_product(product.link)
-
-        use_case = UpdateProductPriceUseCase(
+        use_case_update_product = UpdateProductPriceUseCase(
             product_repo=self.uow.product_repository,
             price_repo=self.uow.price_repository,
             parser=OzonParser(),
         )
 
-        result = use_case.execute(
+        result_use_case_update_product = use_case_update_product.execute(
             product_id=product_id,
-            with_card=parsed["price_with_card"],
-            without_card=parsed["price_without_card"],
         )
+        is_changed = result_use_case_update_product['is_changed']
 
         # Вернём полную карточку в dict-формате (как get_full_product)
-        use_case_full = GetFullProductUseCase(
+        use_case_get_full_product = GetFullProductUseCase(
             product_repo=self.uow.product_repository,
             price_repo=self.uow.price_repository,
             user_repo=self.uow.user_repository,
         )
-        full_product = use_case_full.execute(product_id)
-
-        # Возвращаем данные вверх (но не трогаем Telegram)
-        return {
-            "full_product": full_product,
-            "is_changed": result["is_changed"],
-        }
+        
+        result_use_case_update_product = use_case_update_product.execute(product_id)
+        if result_use_case_update_product['is_changed']:
+            result_use_case_get_full_product = use_case_get_full_product.execute(product_id)
+            return {
+                "updated_product": result_use_case_get_full_product['data_return']['product_data'],
+                "is_changed": True,
+            }
+        return {"updated_product": None, "is_changed": False}
 
 
     @with_uow(commit=False)

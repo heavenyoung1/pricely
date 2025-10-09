@@ -52,7 +52,8 @@ class ProductRepositoryImpl(ProductRepository):
 
         product = ProductMapper.orm_to_domain(orm_model)
         product.prices = prices
-        logger.info(f'Найден Товар: {product} (ID: {orm_model.id})')
+        logger.info(f'Найден Товар: {product.name} (ID: {orm_model.id})')
+        # ВОТ ТУТ ПОТЕНЦИАЛЬНАЯ ПРОБЛЕМА, ВОЗВРАЩАЮТСЯ ВСЕ ЦЕНЫ ДЛЯ ТОВАРА
         return product
     
     def get_all(self, user_id: str) -> List['Product']:

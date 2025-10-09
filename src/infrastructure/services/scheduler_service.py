@@ -83,13 +83,14 @@ class APSchedulerService:
                         # Флаг об изменении цены
                         is_changed = result['is_changed']
 
-                        if is_changed or :
+                        if is_changed:
                             updated_products.append(full_product)
 
                     except Exception as e:
                         logger.error(f"Ошибка при обработке товара {product_id}: {e}")
 
                 if updated_products :
+                    logger.info(f'⚠️ Список товаров для отправки пользователю {updated_products}')
                     notification_to_send[user_id] = updated_products
 
             # Отправим уведомления для всех пользователей
