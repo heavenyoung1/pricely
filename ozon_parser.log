@@ -3334,3 +3334,433 @@ KeyboardInterrupt
 2025-10-09 18:55:04,152 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
 2025-10-09 18:55:04,303 - asyncio - ERROR - Unclosed client session
 client_session: <aiohttp.client.ClientSession object at 0x0000019CA080EAD0>
+2025-10-09 20:49:08,309 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-09 20:49:08,311 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-09 20:49:08,325 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-09 20:49:08,327 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-09 20:49:08,329 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-09 20:49:08,330 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-09 20:49:08,330 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-09 20:49:08,331 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-09 20:49:08,331 - aiogram.dispatcher - INFO - Start polling
+2025-10-09 20:49:08,604 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-09 20:49:18,321 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.1.50:5432/pricely_db
+2025-10-09 20:49:18,705 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-09 20:49:18,835 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1818184981', '1728110604', '1609078406']) получен по id: 515084006
+2025-10-09 20:49:18,836 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-09 20:49:18,836 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-09 20:49:18,838 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:49:18,839 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:49:18,839 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-09 20:49:18,840 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-09 20:49:19,143 - aiogram.event - INFO - Update id=557185484 is handled. Duration 824 ms by bot id=5702092394
+2025-10-09 20:49:20,290 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-09 20:49:20,291 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-09 20:49:20,326 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-09 20:49:20,351 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-09 20:49:20,361 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-09 20:49:20,366 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-09 20:49:20,368 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-09 20:49:20,369 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:49:20,370 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-09 20:49:20,482 - aiogram.event - INFO - Update id=557185485 is handled. Duration 193 ms by bot id=5702092394
+2025-10-09 20:49:22,361 - aiogram.event - INFO - Update id=557185486 is handled. Duration 206 ms by bot id=5702092394
+2025-10-09 20:49:32,442 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-09 20:49:36,026 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:49:46,919 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/konfety-vafelnye-35-v-shokolade-so-slivochnoy-nachinkoy-1-5-kg-1257606585/?at=GRt2k3YwpfLRY8QNcoLO4g5cGpkWXvi9QDnjLS6z0JZw&sh=5GPvD2seXg
+2025-10-09 20:49:46,920 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/konfety-vafelnye-35-v-shokolade-so-slivochnoy-nachinkoy-1-5-kg-1257606585/?at=GRt2k3YwpfLRY8QNcoLO4g5cGpkWXvi9QDnjLS6z0JZw&sh=5GPvD2seXg
+2025-10-09 20:49:47,028 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1257606585
+2025-10-09 20:49:47,051 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг
+2025-10-09 20:49:47,083 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-09 20:49:47,111 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 623
+2025-10-09 20:49:47,140 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 639
+2025-10-09 20:49:47,161 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7361856061.jpg
+2025-10-09 20:49:47,288 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Продукты питания', 'Выпечка и сладости', 'Конфеты', 'Прочие', '35']
+2025-10-09 20:49:47,289 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1257606585', 'name': 'Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг', 'rating': 4.9, 'price_with_card': 623, 'price_without_card': 639, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7361856061.jpg', 'categories': ['Продукты питания', 'Выпечка и сладости', 'Конфеты', 'Прочие', '35']}
+2025-10-09 20:49:48,907 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:49:48,908 - src.application.use_cases.create_product - INFO - Успешный парсинг данных для https://www.ozon.ru/product/konfety-vafelnye-35-v-shokolade-so-slivochnoy-nachinkoy-1-5-kg-1257606585/?at=GRt2k3YwpfLRY8QNcoLO4g5cGpkWXvi9QDnjLS6z0JZw&sh=5GPvD2seXg: {'id': '1257606585', 'name': 'Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг', 'rating': 4.9, 'price_with_card': 623, 'price_without_card': 639, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7361856061.jpg', 'categories': ['Продукты питания', 'Выпечка и сладости', 'Конфеты', 'Прочие', '35']}
+2025-10-09 20:49:48,912 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID 1257606585 не найден
+2025-10-09 20:49:48,916 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1818184981', '1728110604', '1609078406']) получен по id: 515084006
+2025-10-09 20:49:48,917 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='1257606585', user_id='515084006', name='Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг', link='https://www.ozon.ru/product/konfety-vafelnye-35-v-shokolade-so-slivochnoy-nachinkoy-1-5-kg-1257606585/?at=GRt2k3YwpfLRY8QNcoLO4g5cGpkWXvi9QDnjLS6z0JZw&sh=5GPvD2seXg', image_url='https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7361856061.jpg', rating=4.9, categories=['Продукты питания', 'Выпечка и сладости', 'Конфеты', 'Прочие', '35'], prices=[Price(id=None, product_id='1257606585', with_card=623, without_card=639, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 9, 20, 49, 48, 913037))])
+2025-10-09 20:49:48,920 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='1257606585', with_card=623, without_card=639, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 9, 20, 49, 48, 913037))
+2025-10-09 20:49:48,921 - src.infrastructure.database.repositories.user_products_repository - INFO - Привязка товара ID 1257606585 пользователю ID 515084006
+2025-10-09 20:49:48,922 - src.core.decorators - INFO - Функция create_product: выполняется commit транзакции
+2025-10-09 20:49:48,959 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:49:48,959 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:49:48,960 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-09 20:49:48,960 - src.infrastructure.services.logger - ERROR - Ошибка при добавлении товара
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 34, in add_product_process
+    result = await product_service.create_product(str(message.from_user.id), url)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object dict can't be used in 'await' expression
+2025-10-09 20:49:49,285 - aiogram.event - INFO - Update id=557185487 is handled. Duration 16951 ms by bot id=5702092394
+2025-10-09 20:50:08,334 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-09 20:51:08 MSK)" (scheduled at 2025-10-09 20:50:08.327549+03:00)
+2025-10-09 20:50:08,334 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-09 20:50:08,335 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-09 20:50:08,335 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-09 20:50:08,336 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-09 20:50:08,340 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002D4D59196D0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002D4D59199A0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002D4D597FE70>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002D4D597C910>]
+2025-10-09 20:50:08,341 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-09 20:50:08,341 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981']})
+2025-10-09 20:50:08,341 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981', '1728110604']})
+2025-10-09 20:50:08,342 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981', '1728110604', '1609078406']})
+2025-10-09 20:50:08,342 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-09 20:50:08,342 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-09 20:50:08,344 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-09 20:50:08,344 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:50:08,344 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-09 20:50:08,345 - src.infrastructure.services.logger - INFO - USERS_PRODUCTS ПОЛУЧЕНЫ {'515084006': ['1818184981', '1728110604', '1609078406', '1257606585']}
+2025-10-09 20:50:08,345 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя 515084006
+2025-10-09 20:50:08,345 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1818184981
+2025-10-09 20:50:08,345 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-09 20:50:08,362 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-09 20:50:09,617 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:50:20,503 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-09 20:50:20,503 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-09 20:50:20,555 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-09 20:50:20,590 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-09 20:50:20,631 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-09 20:50:20,666 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 169
+2025-10-09 20:50:20,703 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 178
+2025-10-09 20:50:20,731 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-09 20:50:20,812 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-09 20:50:20,813 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1818184981', 'name': 'Наклейка на банковскую карту крекер', 'rating': 4.9, 'price_with_card': 169, 'price_without_card': 178, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', 'categories': ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']}
+2025-10-09 20:50:22,371 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:50:22,380 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-09 20:50:23,589 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:50:34,452 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-09 20:50:34,453 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-09 20:50:34,506 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-09 20:50:34,549 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-09 20:50:34,589 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-09 20:50:34,628 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 169
+2025-10-09 20:50:34,667 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 178
+2025-10-09 20:50:34,696 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-09 20:50:34,787 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-09 20:50:34,787 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1818184981', 'name': 'Наклейка на банковскую карту крекер', 'rating': 4.9, 'price_with_card': 169, 'price_without_card': 178, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', 'categories': ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']}
+2025-10-09 20:50:36,452 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:50:36,453 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-09 20:50:36,455 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:50:36,455 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:50:36,456 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-09 20:50:36,456 - src.infrastructure.services.logger - ERROR - Ошибка при обработке товара 1818184981: 'full_product'
+2025-10-09 20:50:36,456 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-09 20:50:36,457 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-09 20:50:36,470 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-09 20:50:37,858 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:50:48,815 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-09 20:50:48,816 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-09 20:50:48,889 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1728110604
+2025-10-09 20:50:48,918 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый
+2025-10-09 20:50:48,946 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.8
+2025-10-09 20:50:48,973 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 15830
+2025-10-09 20:50:49,014 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 15990
+2025-10-09 20:50:49,040 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg
+2025-10-09 20:50:49,186 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']
+2025-10-09 20:50:49,186 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'rating': 4.8, 'price_with_card': 15830, 'price_without_card': 15990, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']}
+2025-10-09 20:50:50,834 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:50:50,842 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-09 20:50:52,095 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:51:02,876 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-09 20:51:02,876 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-09 20:51:02,933 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1728110604
+2025-10-09 20:51:02,984 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый
+2025-10-09 20:51:03,022 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.8
+2025-10-09 20:51:03,090 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 15830
+2025-10-09 20:51:03,135 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 15990
+2025-10-09 20:51:03,165 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg
+2025-10-09 20:51:03,335 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']
+2025-10-09 20:51:03,336 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'rating': 4.8, 'price_with_card': 15830, 'price_without_card': 15990, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']}
+2025-10-09 20:51:04,962 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:51:04,962 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-09 20:51:04,964 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:51:04,964 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:51:04,965 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-09 20:51:04,965 - src.infrastructure.services.logger - ERROR - Ошибка при обработке товара 1728110604: 'full_product'
+2025-10-09 20:51:04,966 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-09 20:51:04,966 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-09 20:51:04,974 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-09 20:51:06,207 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:51:16,994 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
+2025-10-09 20:51:16,995 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
+2025-10-09 20:51:17,046 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1609078406
+2025-10-09 20:51:17,068 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Microsoft Xbox Velocity Green Беспроводной геймпад
+2025-10-09 20:51:17,096 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-09 20:51:17,120 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 6164
+2025-10-09 20:51:17,152 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 6290
+2025-10-09 20:51:17,169 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7494502547.jpg
+2025-10-09 20:51:17,272 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Игры и консоли', 'Xbox', 'Аксессуары', 'Microsoft']
+2025-10-09 20:51:17,272 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'rating': 4.9, 'price_with_card': 6164, 'price_without_card': 6290, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7494502547.jpg', 'categories': ['Игры и консоли', 'Xbox', 'Аксессуары', 'Microsoft']}
+2025-10-09 20:51:18,885 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:51:18,894 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-09 20:51:20,085 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:51:31,035 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
+2025-10-09 20:51:31,036 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
+2025-10-09 20:51:31,075 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1609078406
+2025-10-09 20:51:31,104 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Microsoft Xbox Velocity Green Беспроводной геймпад
+2025-10-09 20:51:31,134 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-09 20:51:31,164 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 6164
+2025-10-09 20:51:31,195 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 6290
+2025-10-09 20:51:31,216 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7494502547.jpg
+2025-10-09 20:51:31,340 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Игры и консоли', 'Xbox', 'Аксессуары', 'Microsoft']
+2025-10-09 20:51:31,340 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'rating': 4.9, 'price_with_card': 6164, 'price_without_card': 6290, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7494502547.jpg', 'categories': ['Игры и консоли', 'Xbox', 'Аксессуары', 'Microsoft']}
+2025-10-09 20:51:33,032 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:51:33,033 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-09 20:51:33,035 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:51:33,035 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:51:33,036 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-09 20:51:33,036 - src.infrastructure.services.logger - ERROR - Ошибка при обработке товара 1609078406: 'full_product'
+2025-10-09 20:51:33,037 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1257606585
+2025-10-09 20:51:33,037 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-09 20:51:33,046 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг (ID: 1257606585)
+2025-10-09 20:51:34,263 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:51:45,105 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/konfety-vafelnye-35-v-shokolade-so-slivochnoy-nachinkoy-1-5-kg-1257606585/?at=GRt2k3YwpfLRY8QNcoLO4g5cGpkWXvi9QDnjLS6z0JZw&sh=5GPvD2seXg
+2025-10-09 20:51:45,106 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/konfety-vafelnye-35-v-shokolade-so-slivochnoy-nachinkoy-1-5-kg-1257606585/?at=GRt2k3YwpfLRY8QNcoLO4g5cGpkWXvi9QDnjLS6z0JZw&sh=5GPvD2seXg
+2025-10-09 20:51:45,152 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1257606585
+2025-10-09 20:51:45,184 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг
+2025-10-09 20:51:45,216 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-09 20:51:45,252 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 623
+2025-10-09 20:51:45,285 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 639
+2025-10-09 20:51:45,306 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7361856061.jpg
+2025-10-09 20:51:45,448 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Продукты питания', 'Выпечка и сладости', 'Конфеты', 'Прочие', '35']
+2025-10-09 20:51:45,448 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1257606585', 'name': 'Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг', 'rating': 4.9, 'price_with_card': 623, 'price_without_card': 639, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7361856061.jpg', 'categories': ['Продукты питания', 'Выпечка и сладости', 'Конфеты', 'Прочие', '35']}
+2025-10-09 20:51:47,100 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:51:47,108 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг (ID: 1257606585)
+2025-10-09 20:51:48,303 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:51:59,188 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/konfety-vafelnye-35-v-shokolade-so-slivochnoy-nachinkoy-1-5-kg-1257606585/?at=GRt2k3YwpfLRY8QNcoLO4g5cGpkWXvi9QDnjLS6z0JZw&sh=5GPvD2seXg
+2025-10-09 20:51:59,189 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/konfety-vafelnye-35-v-shokolade-so-slivochnoy-nachinkoy-1-5-kg-1257606585/?at=GRt2k3YwpfLRY8QNcoLO4g5cGpkWXvi9QDnjLS6z0JZw&sh=5GPvD2seXg
+2025-10-09 20:51:59,240 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1257606585
+2025-10-09 20:51:59,271 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг
+2025-10-09 20:51:59,303 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-09 20:51:59,347 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 623
+2025-10-09 20:51:59,385 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 639
+2025-10-09 20:51:59,416 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7361856061.jpg
+2025-10-09 20:51:59,550 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Продукты питания', 'Выпечка и сладости', 'Конфеты', 'Прочие', '35']
+2025-10-09 20:51:59,551 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1257606585', 'name': 'Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг', 'rating': 4.9, 'price_with_card': 623, 'price_without_card': 639, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7361856061.jpg', 'categories': ['Продукты питания', 'Выпечка и сладости', 'Конфеты', 'Прочие', '35']}
+2025-10-09 20:52:01,261 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:52:01,262 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-09 20:52:01,264 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:52:01,265 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:52:01,266 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-09 20:52:01,266 - src.infrastructure.services.logger - ERROR - Ошибка при обработке товара 1257606585: 'full_product'
+2025-10-09 20:52:01,267 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-09 20:52:01,267 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-09 20:51:08 MSK)" executed successfully
+2025-10-09 20:52:01,268 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-09 20:52:01,270 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-10-09 20:52:01,270 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-09 20:52:01,271 - apscheduler.executors.default - WARNING - Run time of job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-09 20:52:08 MSK)" was missed by 0:00:52.943689
+2025-10-09 20:52:08,333 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-09 20:53:08 MSK)" (scheduled at 2025-10-09 20:52:08.327549+03:00)
+2025-10-09 20:52:08,333 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-09 20:52:08,334 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-09 20:52:08,334 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-09 20:52:08,335 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-09 20:52:08,338 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002D4D590C460>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002D4D59B0110>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002D4D59B1010>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002D4D5842570>]
+2025-10-09 20:52:08,339 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-09 20:52:08,339 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981']})
+2025-10-09 20:52:08,340 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981', '1728110604']})
+2025-10-09 20:52:08,340 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981', '1728110604', '1609078406']})
+2025-10-09 20:52:08,340 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-09 20:52:08,340 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-09 20:52:08,342 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-09 20:52:08,343 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:52:08,343 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-09 20:52:08,344 - src.infrastructure.services.logger - INFO - USERS_PRODUCTS ПОЛУЧЕНЫ {'515084006': ['1818184981', '1728110604', '1609078406', '1257606585']}
+2025-10-09 20:52:08,344 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя 515084006
+2025-10-09 20:52:08,345 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1818184981
+2025-10-09 20:52:08,345 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-09 20:52:08,361 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-09 20:52:09,682 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:52:20,710 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-09 20:52:20,711 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-09 20:52:20,846 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-09 20:52:20,903 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-09 20:52:20,966 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-09 20:52:21,030 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 169
+2025-10-09 20:52:21,084 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 178
+2025-10-09 20:52:21,148 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-09 20:52:21,318 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-09 20:52:21,318 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1818184981', 'name': 'Наклейка на банковскую карту крекер', 'rating': 4.9, 'price_with_card': 169, 'price_without_card': 178, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', 'categories': ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']}
+2025-10-09 20:52:22,912 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:52:22,928 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-09 20:52:24,292 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:52:35,614 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-09 20:52:35,615 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-09 20:52:35,691 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-09 20:52:35,736 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-09 20:52:35,805 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-09 20:52:35,875 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 169
+2025-10-09 20:52:35,930 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 178
+2025-10-09 20:52:35,974 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-09 20:52:36,133 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-09 20:52:36,135 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1818184981', 'name': 'Наклейка на банковскую карту крекер', 'rating': 4.9, 'price_with_card': 169, 'price_without_card': 178, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', 'categories': ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']}
+2025-10-09 20:52:37,997 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:52:37,998 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-09 20:52:38,006 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:52:38,006 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:52:38,007 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-09 20:52:38,007 - src.infrastructure.services.logger - ERROR - Ошибка при обработке товара 1818184981: 'full_product'
+2025-10-09 20:52:38,008 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-09 20:52:38,008 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-09 20:52:38,035 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-09 20:52:39,380 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:52:50,258 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-09 20:52:50,259 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-09 20:52:50,306 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1728110604
+2025-10-09 20:52:50,334 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый
+2025-10-09 20:52:50,364 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.8
+2025-10-09 20:52:50,407 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 15830
+2025-10-09 20:52:50,437 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 15990
+2025-10-09 20:52:50,463 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg
+2025-10-09 20:52:50,614 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']
+2025-10-09 20:52:50,615 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'rating': 4.8, 'price_with_card': 15830, 'price_without_card': 15990, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']}
+2025-10-09 20:52:52,324 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:52:52,341 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-09 20:52:53,685 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:53:04,596 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-09 20:53:04,597 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-09 20:53:04,654 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1728110604
+2025-10-09 20:53:04,683 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый
+2025-10-09 20:53:04,709 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.8
+2025-10-09 20:53:04,741 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 15830
+2025-10-09 20:53:04,787 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 15990
+2025-10-09 20:53:04,811 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg
+2025-10-09 20:53:04,919 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']
+2025-10-09 20:53:04,919 - src.infrastructure.parsers.ozon_parser - INFO - РЕЗУЛЬТАТ ПАРСИНГА!!!: {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'rating': 4.8, 'price_with_card': 15830, 'price_without_card': 15990, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']}
+2025-10-09 20:53:06,568 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-09 20:53:06,569 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-09 20:53:06,570 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:53:06,571 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-09 20:53:06,571 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-09 20:53:06,572 - src.infrastructure.services.logger - ERROR - Ошибка при обработке товара 1728110604: 'full_product'
+2025-10-09 20:53:06,572 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-09 20:53:06,572 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-09 20:53:06,593 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-09 20:53:07,901 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-09 20:53:17,671 - src.core.uow - WARNING - Исключение в Unit of Work: KeyboardInterrupt: 
+2025-10-09 20:53:17,673 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-09 20:53:17,674 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-09 20:53:18,049 - apscheduler.executors.default - ERROR - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-09 20:53:08 MSK)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    result = func(self, session, *args, **kwargs)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 28, in parse_product
+    session.navigate(url)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 85, in navigate
+    time.sleep(self.wait_time)  # Даем странице время на загрузку
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\apscheduler\executors\base.py", line 181, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\scheduler_service.py", line 80, in run_price_update
+    result = self.product_service.update_product_price(product_id)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 125, in update_product_price
+    result_use_case_update_product = use_case_update_product.execute(
+        product_id=product_id,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 44, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 42, in wrapper
+    session.quit()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 99, in quit
+    self.driver.quit()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 219, in quit
+    super().quit()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 616, in quit
+    self.execute(Command.QUIT)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 455, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 406, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 430, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 135, in request
+    return self.request_encode_url(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<3 lines>...
+        **urlopen_kw,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 182, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1093, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 81, in create_connection
+    sock.close()
+    ~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 501, in close
+    def close(self):
+    
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+2025-10-09 20:53:18,054 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-09 20:53:18,055 - src.infrastructure.services.logger - ERROR - Ошибка выполнения задачи: 
+2025-10-09 20:53:18,056 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-10-09 20:53:18,056 - aiogram.dispatcher - WARNING - Sleep for 1.463243 seconds and try again... (tryings = 1, bot id = 5702092394)
+2025-10-09 20:53:18,057 - apscheduler.executors.default - WARNING - Run time of job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-09 20:54:08 MSK)" was missed by 0:00:09.730156
+2025-10-09 20:53:18,317 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
