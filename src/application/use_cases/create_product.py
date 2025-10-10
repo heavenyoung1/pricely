@@ -92,7 +92,7 @@ class CreateProductUseCase:
             logger.error(f'Ошибка сохранения товара {product.id}: {e}')
             raise ProductCreationError('Ошибка сохранения товара')
 
-        7. # Возвращаем полные данные для удобства
+        # 7. Возвращаем полные данные для удобства
         return {
             'product_id': product.id,
             'product_name': product.name,

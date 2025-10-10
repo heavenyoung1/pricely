@@ -127,7 +127,8 @@ class ProductService:
             product_id=product_id,
         )
         is_changed = result_use_case_update_product['is_changed']
-
+        # ===============================
+        #Перезапишу туту 
         # Вернём полную карточку в dict-формате (как get_full_product)
         use_case_get_full_product = GetFullProductUseCase(
             product_repo=self.uow.product_repository,
@@ -140,9 +141,9 @@ class ProductService:
             result_use_case_get_full_product = use_case_get_full_product.execute(product_id)
             return {
                 "updated_product": result_use_case_get_full_product['data_return']['product_data'],
-                "is_changed": True,
+                "is_changed": is_changed,
             }
-        return {"updated_product": None, "is_changed": False}
+        return {"updated_product": None, "is_changed": is_changed}
 
 
     @with_uow(commit=False)

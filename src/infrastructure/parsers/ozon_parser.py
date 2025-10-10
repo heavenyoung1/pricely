@@ -36,7 +36,7 @@ class OzonParser(Parser):
                 'image_url': self._extract_image_url(session),
                 'categories': self._extract_categories(session)
             }
-            logger.info(f"РЕЗУЛЬТАТ ПАРСИНГА!!!: {parsed_data}")
+            logger.info(f"Данные, полученные парсером: {parsed_data}")
             return parsed_data
         except Exception as e:
             logger.error(f'Ошибка при парсинге страницы {url}: {e}')

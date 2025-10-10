@@ -72,15 +72,15 @@ class UpdateProductPriceUseCase:
 
                 data_return = {
                     "is_changed": is_changed,  # Флаг, сообщить ли боту о изменении
-                        'product_data': {
-                            "id": product.id,
-                            "name": product.name,
-                            "link": product.link,
-                            "with_card": actual_price_with_card,
-                            "without_card": actual_price_without_card,
-                            "previous_price_with_card": previous_price_with_card,
-                            "previous_price_without_card": previous_price_without_card,
-                            }, 
+                    'product_data': {
+                        "id": product.id,
+                        "name": product.name,
+                        "link": product.link,
+                        "with_card": actual_price_with_card,
+                        "without_card": actual_price_without_card,
+                        "previous_price_with_card": previous_price_with_card,
+                        "previous_price_without_card": previous_price_without_card,
+                        }, 
                         }   
                 return data_return
             else:

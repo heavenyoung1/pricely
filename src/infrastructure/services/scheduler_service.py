@@ -78,13 +78,15 @@ class APSchedulerService:
 
                         # Обновляем цену товара
                         result = self.product_service.update_product_price(product_id)
-
-                        full_product = result['full_product']
+                        logger.info(f'Для обновления цены в Scheduler передан result: {result}')
+                        product = result['updated_product']
+                        logger.info(f'ПОЛУЧЕН UPDATED_PRODUCT: {product}')
                         # Флаг об изменении цены
                         is_changed = result['is_changed']
+                        logger.info(f'ПОЛУЧЕН ФЛАГ is_changed: {is_changed}')
 
                         if is_changed:
-                            updated_products.append(full_product)
+                            updated_products.append(product)
 
                     except Exception as e:
                         logger.error(f"Ошибка при обработке товара {product_id}: {e}")
