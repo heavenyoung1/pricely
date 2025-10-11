@@ -67,6 +67,7 @@ class PriceRepositoryImpl(PriceRepository):
         try:
             orm_prices = self.session.query(ORMPrice).filter_by(product_id=product_id).all()
             prices = [PriceMapper.orm_to_domain(p) for p in orm_prices]
+            # ПРОВЕРИТЬ ЧТО УДАЛЯЕТСЯ НУЖНОЕ КОЛИЧЕСТВО ЗАПИСЕЙ ДЛЯ ТОВАРА 
             logger.info(f'Найдено {len(prices)} цен для продукта {product_id}')
             return prices
         
@@ -122,3 +123,34 @@ class PriceRepositoryImpl(PriceRepository):
             previous_without_card=orm_price.previous_without_card,
             created_at=orm_price.created_at,
         )
+
+    # Проверить этот метод, что он действительно удаляет все цены
+    def delete_all_prices_for_product(self, product_id: str) -> bool:
+        '''
+        Удалить все цены для товара по product_id.
+
+        :param product_id: Идентификатор товара, для которого нужно удалить все связанные цены.
+        :return: Возвращает True, если цены были удалены, иначе False.
+        '''
+        logger.info(f'Попытка удаления всех цен для товара с ID: {product_id}')
+        
+        try:
+            # Получаем все цены для указанного товара
+            orm_prices = self.session.query(ORMPrice).filter(ORMPrice.product_id == product_id).all()
+
+            # Если нет цен для данного товара, то возвращаем False
+            if not orm_prices:
+                logger.warning(f'Нет цен для товара с ID {product_id} для удаления')
+                return False
+            
+            # Удаляем все найденные цены
+            for orm_price in orm_prices:
+                self.session.delete(orm_price)
+            
+            # Транзакциями управляет Unit of Work
+            logger.info(f'Все цены для товара с ID {product_id} успешно удалены')
+            return True
+
+        except Exception as e:
+            logger.error(f'Ошибка удаления цен для товара {product_id}: {str(e)}')
+            raise

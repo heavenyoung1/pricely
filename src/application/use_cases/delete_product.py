@@ -24,10 +24,9 @@ class DeleteProductUseCase:
 
         try:
              # Удаляем все цены по product_id
-            prices = self.price_repo.get_all_prices_by_product(product_id)
-            for price in prices:
-                self.price_repo.delete(price.id)
-                logger.debug(f'Цена {price.id} удалена для товара {product_id}')
+            self.price_repo.delete_all_prices_for_product(product_id)
+            # Этот момент проверить!!!
+            logger.info(f'Цены для товара {product_id} удалены')
 
             # Удаление товара
             self.product_repo.delete(product_id)

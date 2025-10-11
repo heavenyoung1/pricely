@@ -82,6 +82,7 @@ class UpdateProductPriceUseCase:
                     "previous_price_without_card": previous_price_without_card,
                     }, 
                 }   
+            logger.info(f'Данные возвращаемые UpdateProductUseCase {data_return}')
             return data_return
 
         except ProductNotFoundError as e:

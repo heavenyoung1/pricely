@@ -5928,3 +5928,123 @@ KeyboardInterrupt
 2025-10-11 11:56:15,389 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-10-11 11:56:15,392 - apscheduler.executors.default - WARNING - Run time of job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 11:56:59 MSK)" was missed by 0:00:15.880930
 2025-10-11 11:56:15,458 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-11 12:18:28,949 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-11 12:18:28,951 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-11 12:18:28,966 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-11 12:18:28,968 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-11 12:18:28,970 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-11 12:18:28,970 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-11 12:18:28,970 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-11 12:18:28,971 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-11 12:18:28,971 - aiogram.dispatcher - INFO - Start polling
+2025-10-11 12:18:30,664 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-11 12:19:28,982 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 12:20:28 MSK)" (scheduled at 2025-10-11 12:19:28.967889+03:00)
+2025-10-11 12:19:28,982 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-11 12:19:28,983 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@100.67.174.72:5432/pricely_db
+2025-10-11 12:19:29,108 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 12:19:29,109 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-11 12:19:29,110 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-11 12:19:50,184 - src.core.uow - WARNING - Исключение в Unit of Work: OperationalError: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:19:50,185 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-11 12:19:50,185 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 12:19:50,186 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:19:50,187 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:19:50,187 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 12:20:28 MSK)" executed successfully
+2025-10-11 12:19:50,188 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-11 12:20:28,969 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 12:21:28 MSK)" (scheduled at 2025-10-11 12:20:28.967889+03:00)
+2025-10-11 12:20:28,970 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-11 12:20:28,971 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 12:20:28,972 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-11 12:20:28,973 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-11 12:20:50,018 - src.core.uow - WARNING - Исключение в Unit of Work: OperationalError: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:20:50,020 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-11 12:20:50,020 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 12:20:50,021 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:20:50,022 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:20:50,023 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 12:21:28 MSK)" executed successfully
+2025-10-11 12:20:50,025 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-11 12:21:28,981 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 12:22:28 MSK)" (scheduled at 2025-10-11 12:21:28.967889+03:00)
+2025-10-11 12:21:28,982 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-11 12:21:28,983 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 12:21:28,983 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-11 12:21:28,984 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-11 12:21:50,029 - src.core.uow - WARNING - Исключение в Unit of Work: OperationalError: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:21:50,031 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-11 12:21:50,033 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 12:21:50,034 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:21:50,035 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:21:50,036 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 12:22:28 MSK)" executed successfully
+2025-10-11 12:21:50,037 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-11 12:22:28,982 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 12:23:28 MSK)" (scheduled at 2025-10-11 12:22:28.967889+03:00)
+2025-10-11 12:22:28,983 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-11 12:22:28,984 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 12:22:28,984 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-11 12:22:28,984 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-11 12:22:50,017 - src.core.uow - WARNING - Исключение в Unit of Work: OperationalError: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:22:50,019 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-11 12:22:50,020 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 12:22:50,021 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:22:50,022 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:22:50,023 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 12:23:28 MSK)" executed successfully
+2025-10-11 12:22:50,024 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-11 12:23:28,980 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 12:24:28 MSK)" (scheduled at 2025-10-11 12:23:28.967889+03:00)
+2025-10-11 12:23:28,982 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-11 12:23:28,983 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 12:23:28,984 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-11 12:23:28,984 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-11 12:23:50,034 - src.core.uow - WARNING - Исключение в Unit of Work: OperationalError: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:23:50,034 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-11 12:23:50,035 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 12:23:50,035 - src.core.decorators - ERROR - Ошибка в функции get_all_products_for_update: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:23:50,036 - src.infrastructure.services.logger - ERROR - Ошибка при выполнении планового обновления: (psycopg2.OperationalError) connection to server at "100.67.174.72", port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-10-11 12:23:50,037 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 12:24:28 MSK)" executed successfully
+2025-10-11 12:23:50,037 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-11 12:23:51,815 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-11 12:23:51,817 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-11 12:23:51,818 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-11 12:23:51,947 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
