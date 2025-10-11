@@ -49,20 +49,20 @@ class UpdateProductPriceUseCase:
             actual_price_with_card = product_data['price_with_card']
             actual_price_without_card = product_data['price_without_card']
 
+            # Создаем новую доменную сущность - цену
+            price = Price(
+                id=None,  # БД сама создаст автоинкрементный id
+                product_id=product.id,
+                with_card=product_data['price_with_card'],
+                without_card=product_data['price_without_card'],
+                previous_with_card=previous_price_with_card,
+                previous_without_card=previous_price_without_card,
+                created_at=datetime.now(),
+            )
+
             # Формируем флаг is_changed, если цена изменилась
             if actual_price_with_card != previous_price_with_card:
                 is_changed = True
-
-                # Создаем новую доменную сущность - цену
-                price = Price(
-                    id=None,  # БД сама создаст автоинкрементный id
-                    product_id=product.id,
-                    with_card=product_data['price_with_card'],
-                    without_card=product_data['price_without_card'],
-                    previous_with_card=previous_price_with_card,
-                    previous_without_card=previous_price_without_card,
-                    created_at=datetime.now(),
-                )
 
                 try:  # Сохраняем цену в БД
                     self.price_repo.save(price)
@@ -70,22 +70,19 @@ class UpdateProductPriceUseCase:
                     logger.error(f'Ошибка обновления цены: {e}')
                     raise PriceUpdateError(f'Ошибка обновления цены')
 
-                data_return = {
-                    "is_changed": is_changed,  # Флаг, сообщить ли боту о изменении
-                    'product_data': {
-                        "id": product.id,
-                        "name": product.name,
-                        "link": product.link,
-                        "with_card": actual_price_with_card,
-                        "without_card": actual_price_without_card,
-                        "previous_price_with_card": previous_price_with_card,
-                        "previous_price_without_card": previous_price_without_card,
-                        }, 
-                        }   
-                return data_return
-            else:
-                data_return = {"is_changed": is_changed}
-                return data_return
+            data_return = {
+                "is_changed": is_changed,  # Флаг, сообщить ли боту о изменении
+                'product_data': {
+                    "id": product.id,
+                    "name": product.name,
+                    "link": product.link,
+                    "with_card": actual_price_with_card,
+                    "without_card": actual_price_without_card,
+                    "previous_price_with_card": previous_price_with_card,
+                    "previous_price_without_card": previous_price_without_card,
+                    }, 
+                }   
+            return data_return
 
         except ProductNotFoundError as e:
             logger.error(f"Ошибка при обновлении цены: {str(e)}")

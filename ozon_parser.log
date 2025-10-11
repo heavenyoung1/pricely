@@ -5301,3 +5301,630 @@ KeyboardInterrupt
 2025-10-10 18:43:50,075 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
 2025-10-10 18:43:51,259 - asyncio - ERROR - Task was destroyed but it is pending!
 task: <Task cancelling name='Task-1' coro=<main() done, defined at C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\bot.py:79> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\tasks.py:820]>
+2025-10-11 11:51:05,782 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-11 11:51:05,787 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-11 11:51:05,806 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-11 11:51:05,808 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-11 11:51:05,810 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-11 11:51:05,811 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-11 11:51:05,811 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-11 11:51:05,811 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-11 11:51:05,812 - aiogram.dispatcher - INFO - Start polling
+2025-10-11 11:51:06,088 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-11 11:52:05,815 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 11:53:05 MSK)" (scheduled at 2025-10-11 11:52:05.808801+03:00)
+2025-10-11 11:52:05,815 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-11 11:52:05,815 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@100.67.174.72:5432/pricely_db
+2025-10-11 11:52:06,228 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:52:06,228 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-11 11:52:06,229 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-11 11:52:06,459 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000146754BB620>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000146754A2AD0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000146754A2C10>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000014675493820>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000014675493950>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000146755EC170>]
+2025-10-11 11:52:06,459 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-11 11:52:06,460 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981']})
+2025-10-11 11:52:06,461 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981', '1728110604']})
+2025-10-11 11:52:06,462 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981', '1728110604', '1609078406']})
+2025-10-11 11:52:06,462 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981', '1728110604', '1609078406', '1257606585']})
+2025-10-11 11:52:06,462 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981', '1728110604', '1609078406', '1257606585', '1671645652']})
+2025-10-11 11:52:06,463 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-11 11:52:06,463 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-11 11:52:06,467 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-11 11:52:06,468 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:52:06,468 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:52:06,469 - src.infrastructure.services.logger - INFO - USERS_PRODUCTS ПОЛУЧЕНЫ {'515084006': ['1818184981', '1728110604', '1609078406', '1257606585', '1671645652', '1994330926']}
+2025-10-11 11:52:06,469 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя 515084006
+2025-10-11 11:52:06,469 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1818184981
+2025-10-11 11:52:06,470 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:52:06,523 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-11 11:52:09,767 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:52:20,089 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-11 11:52:20,093 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-11 11:52:20,474 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-11 11:52:20,518 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-11 11:52:20,565 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-11 11:52:20,612 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 169
+2025-10-11 11:52:20,657 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 178
+2025-10-11 11:52:20,687 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir-8.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-11 11:52:20,804 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-11 11:52:20,805 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1818184981', 'name': 'Наклейка на банковскую карту крекер', 'rating': 4.9, 'price_with_card': 169, 'price_without_card': 178, 'image_url': 'https://ir-8.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', 'categories': ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']}
+2025-10-11 11:52:23,555 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-11 11:52:23,571 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-11 11:52:24,980 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:52:35,282 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-11 11:52:35,291 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-11 11:52:35,584 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-11 11:52:35,683 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-11 11:52:35,763 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-11 11:52:35,834 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 169
+2025-10-11 11:52:35,942 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 178
+2025-10-11 11:52:35,997 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir-8.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-11 11:52:36,138 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-11 11:52:36,139 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1818184981', 'name': 'Наклейка на банковскую карту крекер', 'rating': 4.9, 'price_with_card': 169, 'price_without_card': 178, 'image_url': 'https://ir-8.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', 'categories': ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']}
+2025-10-11 11:52:40,570 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-11 11:52:40,570 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-11 11:52:40,576 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:52:40,577 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:52:40,577 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:52:40,578 - src.infrastructure.services.logger - INFO - Для обновления цены в Scheduler передан result: {'updated_product': None, 'is_changed': False}
+2025-10-11 11:52:40,579 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН UPDATED_PRODUCT: None
+2025-10-11 11:52:40,580 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН ФЛАГ is_changed: False
+2025-10-11 11:52:40,581 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-11 11:52:40,582 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:52:40,609 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-11 11:52:42,045 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:52:51,562 - src.core.uow - WARNING - Исключение в Unit of Work: KeyboardInterrupt: 
+2025-10-11 11:52:51,566 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-11 11:52:51,566 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:52:51,970 - apscheduler.executors.default - ERROR - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 11:53:05 MSK)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    result = func(self, session, *args, **kwargs)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 28, in parse_product
+    session.navigate(url)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 85, in navigate
+    time.sleep(self.wait_time)  # Даем странице время на загрузку
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\apscheduler\executors\base.py", line 181, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\scheduler_service.py", line 80, in run_price_update
+    result = self.product_service.update_product_price(product_id)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 126, in update_product_price
+    result_use_case_update_product = use_case_update_product.execute(
+        product_id=product_id,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 44, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 42, in wrapper
+    session.quit()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 99, in quit
+    self.driver.quit()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 219, in quit
+    super().quit()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 616, in quit
+    self.execute(Command.QUIT)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 455, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 406, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 430, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 135, in request
+    return self.request_encode_url(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<3 lines>...
+        **urlopen_kw,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 182, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1093, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 81, in create_connection
+    sock.close()
+    ~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 501, in close
+    def close(self):
+    
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+2025-10-11 11:52:51,977 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-11 11:52:51,978 - src.infrastructure.services.logger - ERROR - Ошибка выполнения задачи: 
+2025-10-11 11:52:52,245 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:52:52,255 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1818184981', '1728110604', '1609078406', '1257606585', '1671645652', '1994330926']) получен по id: 515084006
+2025-10-11 11:52:52,256 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-11 11:52:52,256 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-11 11:52:52,259 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:52:52,260 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:52:52,260 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:52:52,261 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-11 11:52:52,266 - aiogram.event - INFO - Update id=557185495 is not handled. Duration 22 ms by bot id=5702092394
+2025-10-11 11:52:52,268 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-11 11:52:52,270 - aiogram.event - INFO - Update id=557185496 is not handled. Duration 25 ms by bot id=5702092394
+2025-10-11 11:52:59,503 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-11 11:52:59,505 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-11 11:52:59,509 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-11 11:52:59,511 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-11 11:52:59,513 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-11 11:52:59,513 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-11 11:52:59,513 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-11 11:52:59,513 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-11 11:52:59,514 - aiogram.dispatcher - INFO - Start polling
+2025-10-11 11:52:59,720 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-11 11:53:01,806 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@100.67.174.72:5432/pricely_db
+2025-10-11 11:53:01,914 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:53:02,068 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1818184981', '1728110604', '1609078406', '1257606585', '1671645652', '1994330926']) получен по id: 515084006
+2025-10-11 11:53:02,069 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-11 11:53:02,070 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-11 11:53:02,073 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:53:02,073 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:53:02,074 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:53:02,074 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-11 11:53:02,322 - aiogram.event - INFO - Update id=557185497 is handled. Duration 516 ms by bot id=5702092394
+2025-10-11 11:53:04,477 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:53:04,479 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-11 11:53:04,541 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-11 11:53:04,578 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-11 11:53:04,609 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-11 11:53:04,643 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг (ID: 1257606585)
+2025-10-11 11:53:04,674 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Кроссовки Nike W TECH HERA (ID: 1671645652)
+2025-10-11 11:53:04,710 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Робот-пылесос Roborock Q8 Max Pro,Русская версия,Белый,10000Па (ID: 1994330926)
+2025-10-11 11:53:04,721 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-11 11:53:04,733 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-11 11:53:04,736 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:53:04,738 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:53:05,117 - aiogram.event - INFO - Update id=557185498 is handled. Duration 641 ms by bot id=5702092394
+2025-10-11 11:53:06,922 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:53:06,997 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-11 11:53:07,007 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-11 11:53:07,014 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-11 11:53:07,016 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:53:07,018 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:53:07,129 - aiogram.event - INFO - Update id=557185499 is handled. Duration 292 ms by bot id=5702092394
+2025-10-11 11:53:09,689 - src.infrastructure.services.logger - INFO - Начинаем обновление цены для товара 1818184981
+2025-10-11 11:53:09,772 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:53:09,815 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-11 11:53:11,321 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:53:21,704 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-11 11:53:21,705 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-11 11:53:21,824 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-11 11:53:21,877 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-11 11:53:21,948 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-11 11:53:22,023 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 169
+2025-10-11 11:53:22,085 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 178
+2025-10-11 11:53:22,119 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir-8.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-11 11:53:22,226 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-11 11:53:22,227 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1818184981', 'name': 'Наклейка на банковскую карту крекер', 'rating': 4.9, 'price_with_card': 169, 'price_without_card': 178, 'image_url': 'https://ir-8.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', 'categories': ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']}
+2025-10-11 11:53:24,964 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-11 11:53:24,995 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-11 11:53:26,539 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:53:36,877 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-11 11:53:36,878 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-11 11:53:36,973 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-11 11:53:37,082 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-11 11:53:37,166 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-11 11:53:37,484 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 169
+2025-10-11 11:53:37,794 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 178
+2025-10-11 11:53:37,842 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir-8.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-11 11:53:38,032 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-11 11:53:38,033 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1818184981', 'name': 'Наклейка на банковскую карту крекер', 'rating': 4.9, 'price_with_card': 169, 'price_without_card': 178, 'image_url': 'https://ir-8.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', 'categories': ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']}
+2025-10-11 11:53:41,008 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-11 11:53:41,009 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-11 11:53:41,015 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:53:41,016 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:53:41,017 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:53:41,018 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обновлении цены
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 119, in handle_update_price
+    full_product_info = result['full_product']
+                        ~~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'full_product'
+2025-10-11 11:53:41,288 - aiogram.event - INFO - Update id=557185500 is handled. Duration 31603 ms by bot id=5702092394
+2025-10-11 11:53:59,524 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 11:54:59 MSK)" (scheduled at 2025-10-11 11:53:59.511017+03:00)
+2025-10-11 11:53:59,525 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-11 11:53:59,526 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:53:59,527 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска  APSchedulerService
+2025-10-11 11:53:59,527 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-11 11:53:59,538 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002643B87AF90>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002643B879FD0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002643B83C7A0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002643B826750>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002643B824DD0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002643B73E990>]
+2025-10-11 11:53:59,539 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-11 11:53:59,540 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981']})
+2025-10-11 11:53:59,541 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981', '1728110604']})
+2025-10-11 11:53:59,542 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981', '1728110604', '1609078406']})
+2025-10-11 11:53:59,543 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981', '1728110604', '1609078406', '1257606585']})
+2025-10-11 11:53:59,544 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1818184981', '1728110604', '1609078406', '1257606585', '1671645652']})
+2025-10-11 11:53:59,544 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-11 11:53:59,545 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-11 11:53:59,550 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-11 11:53:59,551 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:53:59,552 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:53:59,552 - src.infrastructure.services.logger - INFO - USERS_PRODUCTS ПОЛУЧЕНЫ {'515084006': ['1818184981', '1728110604', '1609078406', '1257606585', '1671645652', '1994330926']}
+2025-10-11 11:53:59,554 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя 515084006
+2025-10-11 11:53:59,555 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1818184981
+2025-10-11 11:53:59,557 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:53:59,594 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-11 11:54:01,116 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:54:11,899 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-11 11:54:11,900 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-11 11:54:12,046 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-11 11:54:12,146 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-11 11:54:12,220 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-11 11:54:12,290 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 169
+2025-10-11 11:54:12,361 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 178
+2025-10-11 11:54:12,441 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-11 11:54:12,666 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-11 11:54:12,666 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1818184981', 'name': 'Наклейка на банковскую карту крекер', 'rating': 4.9, 'price_with_card': 169, 'price_without_card': 178, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', 'categories': ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']}
+2025-10-11 11:54:15,471 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-11 11:54:15,495 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Наклейка на банковскую карту крекер (ID: 1818184981)
+2025-10-11 11:54:16,958 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:54:27,765 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-11 11:54:27,766 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/nakleyka-na-bankovskuyu-kartu-kreker-1818184981/
+2025-10-11 11:54:27,848 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1818184981
+2025-10-11 11:54:27,889 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наклейка на банковскую карту крекер
+2025-10-11 11:54:27,980 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-11 11:54:28,050 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 169
+2025-10-11 11:54:28,105 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 178
+2025-10-11 11:54:28,137 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg
+2025-10-11 11:54:28,221 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']
+2025-10-11 11:54:28,221 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1818184981', 'name': 'Наклейка на банковскую карту крекер', 'rating': 4.9, 'price_with_card': 169, 'price_without_card': 178, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7257215525.jpg', 'categories': ['Канцелярские товары', 'Бумажная продукция', 'Наклейки']}
+2025-10-11 11:54:30,992 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-11 11:54:30,993 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-11 11:54:30,999 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:54:30,999 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:54:31,000 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:54:31,000 - src.infrastructure.services.logger - INFO - Для обновления цены в Scheduler передан result: {'updated_product': None, 'is_changed': False}
+2025-10-11 11:54:31,001 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН UPDATED_PRODUCT: None
+2025-10-11 11:54:31,001 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН ФЛАГ is_changed: False
+2025-10-11 11:54:31,002 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-11 11:54:31,002 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:54:31,026 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-11 11:54:32,409 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:54:43,232 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-11 11:54:43,233 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-11 11:54:43,310 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1728110604
+2025-10-11 11:54:43,368 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый
+2025-10-11 11:54:43,428 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.8
+2025-10-11 11:54:43,478 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 15830
+2025-10-11 11:54:43,532 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 15990
+2025-10-11 11:54:43,565 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg
+2025-10-11 11:54:43,735 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']
+2025-10-11 11:54:43,735 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'rating': 4.8, 'price_with_card': 15830, 'price_without_card': 15990, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']}
+2025-10-11 11:54:47,986 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-11 11:54:48,004 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-11 11:54:49,360 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:55:00,376 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-11 11:55:00,377 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-11 11:55:00,452 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1728110604
+2025-10-11 11:55:00,501 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый
+2025-10-11 11:55:00,558 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.8
+2025-10-11 11:55:00,610 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 15830
+2025-10-11 11:55:00,658 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 15990
+2025-10-11 11:55:00,694 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg
+2025-10-11 11:55:00,844 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']
+2025-10-11 11:55:00,845 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'rating': 4.8, 'price_with_card': 15830, 'price_without_card': 15990, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']}
+2025-10-11 11:55:03,471 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-11 11:55:03,471 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-11 11:55:03,473 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:55:03,474 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:55:03,474 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:55:03,475 - src.infrastructure.services.logger - INFO - Для обновления цены в Scheduler передан result: {'updated_product': None, 'is_changed': False}
+2025-10-11 11:55:03,475 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН UPDATED_PRODUCT: None
+2025-10-11 11:55:03,475 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН ФЛАГ is_changed: False
+2025-10-11 11:55:03,476 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-11 11:55:03,476 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:55:03,485 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-11 11:55:04,826 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:55:16,437 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
+2025-10-11 11:55:16,442 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
+2025-10-11 11:55:16,652 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1609078406
+2025-10-11 11:55:16,717 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Microsoft Xbox Velocity Green Беспроводной геймпад
+2025-10-11 11:55:16,800 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-11 11:55:16,864 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 6164
+2025-10-11 11:55:17,009 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 6290
+2025-10-11 11:55:17,035 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7494502547.jpg
+2025-10-11 11:55:17,155 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Игры и консоли', 'Xbox', 'Аксессуары', 'Microsoft']
+2025-10-11 11:55:17,156 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'rating': 4.9, 'price_with_card': 6164, 'price_without_card': 6290, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7494502547.jpg', 'categories': ['Игры и консоли', 'Xbox', 'Аксессуары', 'Microsoft']}
+2025-10-11 11:55:19,830 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-11 11:55:19,843 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-11 11:55:21,168 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:55:31,982 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
+2025-10-11 11:55:31,982 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
+2025-10-11 11:55:32,083 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1609078406
+2025-10-11 11:55:32,136 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Microsoft Xbox Velocity Green Беспроводной геймпад
+2025-10-11 11:55:32,195 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-11 11:55:32,250 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 6164
+2025-10-11 11:55:32,318 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 6290
+2025-10-11 11:55:32,357 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7494502547.jpg
+2025-10-11 11:55:32,533 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Игры и консоли', 'Xbox', 'Аксессуары', 'Microsoft']
+2025-10-11 11:55:32,534 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'rating': 4.9, 'price_with_card': 6164, 'price_without_card': 6290, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7494502547.jpg', 'categories': ['Игры и консоли', 'Xbox', 'Аксессуары', 'Microsoft']}
+2025-10-11 11:55:35,274 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-11 11:55:35,276 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-11 11:55:35,279 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:55:35,280 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:55:35,281 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:55:35,282 - src.infrastructure.services.logger - INFO - Для обновления цены в Scheduler передан result: {'updated_product': None, 'is_changed': False}
+2025-10-11 11:55:35,283 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН UPDATED_PRODUCT: None
+2025-10-11 11:55:35,284 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН ФЛАГ is_changed: False
+2025-10-11 11:55:35,284 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1257606585
+2025-10-11 11:55:35,285 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:55:35,326 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг (ID: 1257606585)
+2025-10-11 11:55:36,797 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:55:47,583 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/konfety-vafelnye-35-v-shokolade-so-slivochnoy-nachinkoy-1-5-kg-1257606585/?at=GRt2k3YwpfLRY8QNcoLO4g5cGpkWXvi9QDnjLS6z0JZw&sh=5GPvD2seXg
+2025-10-11 11:55:47,584 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/konfety-vafelnye-35-v-shokolade-so-slivochnoy-nachinkoy-1-5-kg-1257606585/?at=GRt2k3YwpfLRY8QNcoLO4g5cGpkWXvi9QDnjLS6z0JZw&sh=5GPvD2seXg
+2025-10-11 11:55:47,715 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1257606585
+2025-10-11 11:55:47,802 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг
+2025-10-11 11:55:47,880 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-11 11:55:48,161 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 623
+2025-10-11 11:55:48,339 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 639
+2025-10-11 11:55:48,394 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7361856061.jpg
+2025-10-11 11:55:48,597 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Продукты питания', 'Выпечка и сладости', 'Конфеты', 'Прочие', '35']
+2025-10-11 11:55:48,597 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1257606585', 'name': 'Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг', 'rating': 4.9, 'price_with_card': 623, 'price_without_card': 639, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7361856061.jpg', 'categories': ['Продукты питания', 'Выпечка и сладости', 'Конфеты', 'Прочие', '35']}
+2025-10-11 11:55:52,972 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-11 11:55:52,992 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг (ID: 1257606585)
+2025-10-11 11:55:54,409 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:56:06,152 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/konfety-vafelnye-35-v-shokolade-so-slivochnoy-nachinkoy-1-5-kg-1257606585/?at=GRt2k3YwpfLRY8QNcoLO4g5cGpkWXvi9QDnjLS6z0JZw&sh=5GPvD2seXg
+2025-10-11 11:56:06,153 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/konfety-vafelnye-35-v-shokolade-so-slivochnoy-nachinkoy-1-5-kg-1257606585/?at=GRt2k3YwpfLRY8QNcoLO4g5cGpkWXvi9QDnjLS6z0JZw&sh=5GPvD2seXg
+2025-10-11 11:56:06,248 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1257606585
+2025-10-11 11:56:06,293 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг
+2025-10-11 11:56:06,352 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-11 11:56:06,427 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 623
+2025-10-11 11:56:06,498 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 639
+2025-10-11 11:56:06,679 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7361856061.jpg
+2025-10-11 11:56:07,018 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Продукты питания', 'Выпечка и сладости', 'Конфеты', 'Прочие', '35']
+2025-10-11 11:56:07,019 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1257606585', 'name': 'Конфеты вафельные 35 в шоколаде со сливочной начинкой, 1.5 кг', 'rating': 4.9, 'price_with_card': 623, 'price_without_card': 639, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-p/wc1000/7361856061.jpg', 'categories': ['Продукты питания', 'Выпечка и сладости', 'Конфеты', 'Прочие', '35']}
+2025-10-11 11:56:11,177 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-11 11:56:11,177 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-11 11:56:11,180 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:56:11,181 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-11 11:56:11,181 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:56:11,182 - src.infrastructure.services.logger - INFO - Для обновления цены в Scheduler передан result: {'updated_product': None, 'is_changed': False}
+2025-10-11 11:56:11,182 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН UPDATED_PRODUCT: None
+2025-10-11 11:56:11,183 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН ФЛАГ is_changed: False
+2025-10-11 11:56:11,183 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1671645652
+2025-10-11 11:56:11,184 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-11 11:56:11,210 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Кроссовки Nike W TECH HERA (ID: 1671645652)
+2025-10-11 11:56:12,719 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-11 11:56:15,358 - src.core.uow - WARNING - Исключение в Unit of Work: KeyboardInterrupt: 
+2025-10-11 11:56:15,361 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-11 11:56:15,362 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-11 11:56:15,373 - apscheduler.executors.default - ERROR - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 11:54:59 MSK)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] Удаленный хост принудительно разорвал существующее подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    result = func(self, session, *args, **kwargs)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 28, in parse_product
+    session.navigate(url)
+    ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 84, in navigate
+    self.driver.get(url)
+    ~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 483, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 455, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 406, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 430, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        method, url, fields=fields, headers=headers, **urlopen_kw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1432, in getresponse
+    self.close()
+    ~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 369, in close
+    def close(self) -> None:
+    
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\apscheduler\executors\base.py", line 181, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\scheduler_service.py", line 80, in run_price_update
+    result = self.product_service.update_product_price(product_id)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 126, in update_product_price
+    result_use_case_update_product = use_case_update_product.execute(
+        product_id=product_id,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 44, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 42, in wrapper
+    session.quit()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 99, in quit
+    self.driver.quit()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 219, in quit
+    super().quit()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 616, in quit
+    self.execute(Command.QUIT)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 455, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 406, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 430, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 135, in request
+    return self.request_encode_url(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<3 lines>...
+        **urlopen_kw,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 182, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1093, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 81, in create_connection
+    sock.close()
+    ~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 501, in close
+    def close(self):
+    
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+2025-10-11 11:56:15,383 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-11 11:56:15,383 - src.infrastructure.services.logger - ERROR - Ошибка выполнения задачи: 
+2025-10-11 11:56:15,388 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-10-11 11:56:15,389 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-11 11:56:15,392 - apscheduler.executors.default - WARNING - Run time of job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-11 11:56:59 MSK)" was missed by 0:00:15.880930
+2025-10-11 11:56:15,458 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
