@@ -126,6 +126,7 @@ class ProductService:
         result_use_case_update_product = use_case_update_product.execute(
             product_id=product_id,
         )
+
         is_changed = result_use_case_update_product['is_changed']
         # ===============================
         #Перезапишу туту 
@@ -137,7 +138,7 @@ class ProductService:
         )
         
         result_use_case_update_product = use_case_update_product.execute(product_id)
-        if result_use_case_update_product['is_changed']:
+        if is_changed:
             result_use_case_get_full_product = use_case_get_full_product.execute(product_id)
             return {
                 "updated_product": result_use_case_get_full_product['data_return']['product_data'],

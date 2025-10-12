@@ -116,8 +116,8 @@ async def handle_update_price(call: CallbackQuery):
         result = product_service.update_product_price(product_id)
         
         # Извлекаем полные данные о товаре
-        full_product_info = result['full_product']
-        is_changed = result.get('is_changed', False)
+        full_product_info = result['product_data']
+        is_changed = result['is_changed']
         
         logger.info(f"Получены данные товара: {full_product_info}")
 
