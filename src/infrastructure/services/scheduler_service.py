@@ -66,13 +66,14 @@ class APSchedulerService:
             
             # Храним информацию о товарах, которые будут отправлены пользователю
             notification_to_send = {}
-            logger.info(f'USER_PRODUCT_ITEMS: {users_products.items()}')
+            logger.info(f'USER_PRODUCT_ITEMS: {dict(users_products.items())}')
             for user_id, product_ids in users_products.items():
-                logger.info(f"Обрабатываем товары для пользователя {user_id}")
+                #logger.info(f"Обрабатываем товары для пользователя {user_id}")
 
                 # Собираем информацию для всех товаров пользователя
                 updated_products = []
-                logger.info(f'PRODUCT_ID, USER_ID: {[product_ids]: {user_id}}')
+                logger.info(f"Обрабатываем товары для пользователя: {user_id}")
+                logger.info(f"Товары для пользователя {user_id}: {product_ids}")
                 for product_id in product_ids:
                     try:
                         logger.info(f'Получаем товар для обновления: ID={product_id}')

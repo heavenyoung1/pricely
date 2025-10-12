@@ -81,7 +81,8 @@ class UpdateProductPriceUseCase:
                     "previous_price_with_card": previous_price_with_card,
                     "previous_price_without_card": previous_price_without_card,
                     }, 
-                }   
+                } 
+            logger.info(f"Предыдущая цена с картой: {previous_price_with_card}, новая цена с картой: {actual_price_with_card}")  
             logger.info(f'Данные возвращаемые UpdateProductUseCase {data_return}')
             return data_return
 
