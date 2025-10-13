@@ -94,7 +94,7 @@ class APSchedulerService:
                         logger.error(f"Ошибка при обработке товара {product_id}: {e}")
 
                 if updated_products :
-                    logger.info(f'⚠️ Список товаров для отправки пользователю {updated_products}')
+                    logger.info(f'⚠️  Список товаров для отправки пользователю {updated_products}')
                     notification_to_send[user_id] = updated_products
 
             # Отправим уведомления для всех пользователей
@@ -119,8 +119,8 @@ class APSchedulerService:
             for product in updated_products:
                 text += (
                     f"📦 {product['name']}\n\n"
-                    f"💰 Предыдущая цена: {product['latest_price']['previous_price_with_card']} ₽\n"
-                    f"💰 Актуальная цена: {product['latest_price']['with_card']} ₽\n\n"
+                    f"💰 Предыдущая цена: {product['previous_price_with_card']} ₽\n"
+                    f"💰 Актуальная цена: {product['with_card']} ₽\n\n"
                     f"🔗 {product['link']}\n\n"
                 )
             

@@ -128,23 +128,23 @@ class ProductService:
         )
 
         is_changed = result_use_case_update_product['is_changed']
+        updated_product = result_use_case_update_product['product_data']
         # ===============================
-        #Перезапишу туту 
+        #Перезапишу туту
         # Вернём полную карточку в dict-формате (как get_full_product)
-        use_case_get_full_product = GetFullProductUseCase(
-            product_repo=self.uow.product_repository,
-            price_repo=self.uow.price_repository,
-            user_repo=self.uow.user_repository,
-        )
-        
-        result_use_case_update_product = use_case_update_product.execute(product_id)
-        if is_changed:
-            result_use_case_get_full_product = use_case_get_full_product.execute(product_id)
-            return {
-                "updated_product": result_use_case_get_full_product['data_return']['product_data'],
-                "is_changed": is_changed,
-            }
-        return {"updated_product": None, "is_changed": is_changed}
+        # use_case_get_full_product = GetFullProductUseCase(
+        #     product_repo=self.uow.product_repository,
+        #     price_repo=self.uow.price_repository,
+        #     user_repo=self.uow.user_repository,
+        # )
+        is_changed = True
+        # if is_changed:
+        #     result_use_case_get_full_product = use_case_get_full_product.execute(product_id)
+        #     return {
+        #         "updated_product": result_use_case_get_full_product['data_return']['product_data'],
+        #         "is_changed": is_changed,
+        #     }
+        return {"updated_product": updated_product, "is_changed": is_changed}
 
 
     @with_uow(commit=False)
