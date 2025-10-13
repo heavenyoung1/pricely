@@ -7,3 +7,13 @@ from .get_full_product import GetFullProductUseCase
 from .get_products_for_user import GetProductForUserUseCase
 from .get_user_products import GetUserProductsUseCase
 
+__all__ = [
+    'CreateProductUseCase',
+    'DeleteProductUseCase',
+    'GetProductUseCase',
+    'UpdateProductPriceUseCase',
+    'CreateUserUseCase',
+    'GetFullProductUseCase',
+    'GetProductForUserUseCase',
+    'GetUserProductsUseCase',
+]
