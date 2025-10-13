@@ -18,57 +18,47 @@ class NotificationService:
         """
         self.bot = bot
 
-    async def notify_price_change(self, chat_id: str, updated_product: dict):
-        """
-        Отправляет уведомление пользователю об изменении цены товара.
-        
-        Args:
-            chat_id: ID чата пользователя
-            updated_product: Информация об обновлённом товаре
-        """
+
+    async def notify_multiple_products(self, chat_id: str, updated_products: list):
+        """Отправка уведомлений с несколькими товарами."""
         try:
             logger.info(f"📨 NotificationService: Отправка уведомления пользователю {chat_id}")
 
-            new_price_with_card = updated_product['latest_price']['with_card']
-            new_price_without_card = updated_product['latest_price']['without_card']
+            # Формируем текст сообщения с информацией о нескольких товарах
+            text = "🔔 Цена на товар(ы) изменилась!\n\n"
 
-            prev_price_with_card = updated_product['latest_price']['previous_price_with_card']
-            prev_price_without_card = updated_product['latest_price']['previous_price_without_card']
+            for product in updated_products:
+                new_price_with_card = product['with_card']
+                new_price_without_card = product['without_card']
+                prev_price_with_card = product['previous_price_with_card']
+                prev_price_without_card = product['previous_price_without_card']
+                price_diff = new_price_with_card - prev_price_with_card
+                price_emoji = "📉" if price_diff < 0 else "📈"
 
-            price_diff = new_price_with_card - prev_price_with_card
-            price_emoji = "📉" if price_diff < 0 else "📈"
+                text += (
+                    f"{price_emoji} 📦 {product['name']}\n\n"
+                    f"💰 Актуальная цена (с картой): {new_price_with_card} ₽\n"
+                    f"💰 Актуальная цена (без карты): {new_price_without_card} ₽\n"             
+                    f"💰 Предыдущая цена (с картой): {prev_price_with_card} ₽\n"
+                    f"💰 Предыдущая цена (без карты): {prev_price_without_card} ₽\n"
+                    f"{'💚' if price_diff < 0 else '🔴'} Разница: {price_diff:+d} ₽\n\n"
+                    f"[Ссылка на товар]({product['link']})\n"
+                    f"\n{'—' * 20}\n\n"  # Разделитель между товарами
+                )
 
-            text = (
-                f"{price_emoji} Цена на товар изменилась!\n\n"
-                f"📦 {updated_product['name']}\n\n"
-                f"💰 Актуальная цена (с картой): {new_price_with_card} ₽\n"
-                f"💰 Актуальная цена (без карты): {new_price_without_card} ₽\n"             
-                f"💰 Предыдущая цена (с картой): {prev_price_with_card} ₽\n"
-                 f"💰 Предыдущая цена (с картой): {prev_price_without_card} ₽\n"
+            logger.info(f"📝 Текст сформирован: {text[:50]}...")
 
-                f"{'💚' if price_diff < 0 else '🔴'} Разница: {price_diff:+d} ₽\n\n"
-                f"🔗 {updated_product['link']}"
-            )
-
-            await self.bot.send_message(
+            # Прямая отправка через бота
+            message = await self.bot.send_message(
                 chat_id=int(chat_id),
                 text=text,
-                disable_web_page_preview=False
+                disable_web_page_preview=True  # Отключаем предпросмотр ссылок
             )
-
-            logger.info(f"✅ NotificationService: Уведомление отправлено пользователю {chat_id}")
-
-        except TelegramForbiddenError:
-            logger.warning(f"⚠️ Бот заблокирован пользователем {chat_id}")
-
-        except TelegramBadRequest as e:
-            logger.error(f"❌ Некорректный запрос для чата {chat_id}: {e}")
-
-        except TelegramAPIError as e:
-            logger.error(f"❌ Ошибка Telegram API при отправке уведомления {chat_id}: {e}")
             
+            logger.info(f"✅ Сообщение ID {message.message_id} отправлено пользователю {chat_id}")
+        
         except Exception as e:
-            logger.exception(f"❌ Неизвестная ошибка при отправке уведомления {chat_id}: {e}")
+            logger.error(f"❌ Ошибка при отправке уведомления пользователю {chat_id}: {e}", exc_info=True)
 
     async def notify_multiple_users(self, users_chat_ids: list, updated_product: dict):
         """

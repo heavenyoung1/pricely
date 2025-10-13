@@ -14,7 +14,7 @@ class APSchedulerService:
         self.scheduler = AsyncIOScheduler()
         self.bot = bot
         self.product_service = product_service
-        self.notification_service = notification_service
+        self.notification_service = notification_service  # NotificationService
         self.interval_minutes = interval_minutes
         self.loop = None  # Сохраним ссылку на основной loop
 
@@ -23,7 +23,6 @@ class APSchedulerService:
 
     def start(self):
         """Запуск планировщика."""
-        # Сохраняем текущий event loop
         try:
             self.loop = asyncio.get_running_loop()
             logger.info(f"📍 Scheduler использует event loop: {self.loop}")
@@ -68,9 +67,6 @@ class APSchedulerService:
             notification_to_send = {}
             logger.info(f'USER_PRODUCT_ITEMS: {dict(users_products.items())}')
             for user_id, product_ids in users_products.items():
-                #logger.info(f"Обрабатываем товары для пользователя {user_id}")
-
-                # Собираем информацию для всех товаров пользователя
                 updated_products = []
                 logger.info(f"Обрабатываем товары для пользователя: {user_id}")
                 logger.info(f"Товары для пользователя {user_id}: {product_ids}")
@@ -93,46 +89,43 @@ class APSchedulerService:
                     except Exception as e:
                         logger.error(f"Ошибка при обработке товара {product_id}: {e}")
 
-                if updated_products :
+                if updated_products:
                     logger.info(f'⚠️  Список товаров для отправки пользователю {updated_products}')
                     notification_to_send[user_id] = updated_products
 
-            # Отправим уведомления для всех пользователей
+        # Отправим уведомления для всех пользователей
             for user_id, updated_products in notification_to_send.items():
-                # Формируем сообщение для этого пользователя
-                await self._send_notification(user_id, updated_products)
+                await self.notification_service.notify_multiple_products(user_id, updated_products)  # Используем правильный метод
 
             logger.info("✅ Автоматическое обновление цен завершено.")
 
-
         except Exception as e:
             logger.error(f"Ошибка при выполнении планового обновления: {e}")
+    # async def _send_notification(self, chat_id: str, updated_products: list):
+    #     """Отправка уведомления пользователю с несколькими товарами."""
+    #     try:
+    #         logger.info(f"📤 Попытка отправки уведомления пользователю {chat_id}")
+            
+    #         # Формируем текст сообщения с информацией о нескольких товарах
+    #         text = "🔔 Цена на товар(ы) изменилась!\n\n"
+            
+    #         for product in updated_products:
+    #             text += (
+    #                 f"📦 {product['name']}\n\n"
+    #                 f"💰 Предыдущая цена: {product['previous_price_with_card']} ₽\n"
+    #                 f"💰 Актуальная цена: {product['with_card']} ₽\n\n"
+    #                 f"🔗 {product['link']}\n\n"
+    #             )
+            
+    #         logger.info(f"📝 Текст сформирован: {text[:50]}...")
 
-    async def _send_notification(self, chat_id: str, updated_products: list):
-        """Отправка уведомления пользователю с несколькими товарами."""
-        try:
-            logger.info(f"📤 Попытка отправки уведомления пользователю {chat_id}")
+    #         # Прямая отправка через бота
+    #         message = await self.bot.send_message(
+    #             chat_id=int(chat_id),
+    #             text=text
+    #         )
             
-            # Формируем текст сообщения с информацией о нескольких товарах
-            text = "🔔 Цена на товар(ы) изменилась!\n\n"
+    #         logger.info(f"✅ Сообщение ID {message.message_id} отправлено пользователю {chat_id}")
             
-            for product in updated_products:
-                text += (
-                    f"📦 {product['name']}\n\n"
-                    f"💰 Предыдущая цена: {product['previous_price_with_card']} ₽\n"
-                    f"💰 Актуальная цена: {product['with_card']} ₽\n\n"
-                    f"🔗 {product['link']}\n\n"
-                )
-            
-            logger.info(f"📝 Текст сформирован: {text[:50]}...")
-
-            # Прямая отправка через бота
-            message = await self.bot.send_message(
-                chat_id=int(chat_id),
-                text=text
-            )
-            
-            logger.info(f"✅ Сообщение ID {message.message_id} отправлено пользователю {chat_id}")
-            
-        except Exception as e:
-            logger.error(f"❌ Ошибка при отправке уведомления пользователю {chat_id}: {e}", exc_info=True)
+    #     except Exception as e:
+    #         logger.error(f"❌ Ошибка при отправке уведомления пользователю {chat_id}: {e}", exc_info=True)
