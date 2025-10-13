@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class OzonParser(Parser):
 
-    @session_wrapper(headless=True)
+    @session_wrapper(headless=False)
     def parse_product(self, session: SessionEngine, url: str) -> Dict:
         try:
             session.navigate(url)
