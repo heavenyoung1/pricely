@@ -101,31 +101,3 @@ class APSchedulerService:
 
         except Exception as e:
             logger.error(f"Ошибка при выполнении планового обновления: {e}")
-    # async def _send_notification(self, chat_id: str, updated_products: list):
-    #     """Отправка уведомления пользователю с несколькими товарами."""
-    #     try:
-    #         logger.info(f"📤 Попытка отправки уведомления пользователю {chat_id}")
-            
-    #         # Формируем текст сообщения с информацией о нескольких товарах
-    #         text = "🔔 Цена на товар(ы) изменилась!\n\n"
-            
-    #         for product in updated_products:
-    #             text += (
-    #                 f"📦 {product['name']}\n\n"
-    #                 f"💰 Предыдущая цена: {product['previous_price_with_card']} ₽\n"
-    #                 f"💰 Актуальная цена: {product['with_card']} ₽\n\n"
-    #                 f"🔗 {product['link']}\n\n"
-    #             )
-            
-    #         logger.info(f"📝 Текст сформирован: {text[:50]}...")
-
-    #         # Прямая отправка через бота
-    #         message = await self.bot.send_message(
-    #             chat_id=int(chat_id),
-    #             text=text
-    #         )
-            
-    #         logger.info(f"✅ Сообщение ID {message.message_id} отправлено пользователю {chat_id}")
-            
-    #     except Exception as e:
-    #         logger.error(f"❌ Ошибка при отправке уведомления пользователю {chat_id}: {e}", exc_info=True)
