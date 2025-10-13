@@ -20,14 +20,22 @@ class NotificationService:
 
 
     async def notify_multiple_products(self, chat_id: str, updated_products: list):
-        """Отправка уведомлений с несколькими товарами."""
+        """
+        Отправляет уведомление нескольким товарам пользователю.
+        
+        Args:
+            chat_id: ID чата пользователя
+            updated_products: Список товаров с обновленными ценами
+        """
         try:
             logger.info(f"📨 NotificationService: Отправка уведомления пользователю {chat_id}")
 
             # Формируем текст сообщения с информацией о нескольких товарах
-            text = "🔔 Цена на товар(ы) изменилась!\n\n"
+            products_count = len(updated_products)
+            text = f"🔔 {'Цена на товар изменилась' if products_count == 1 else f'Цены на {products_count} товаров изменились'}!\n\n"
+            footer = f"\n{'—' * 25}\n\n"
 
-            for product in updated_products:
+            for i, product in enumerate(updated_products):
                 new_price_with_card = product['with_card']
                 new_price_without_card = product['without_card']
                 prev_price_with_card = product['previous_price_with_card']
@@ -35,16 +43,20 @@ class NotificationService:
                 price_diff = new_price_with_card - prev_price_with_card
                 price_emoji = "📉" if price_diff < 0 else "📈"
 
+
+                # Формируем текст для каждого товара
                 text += (
-                    f"{price_emoji} 📦 {product['name']}\n\n"
-                    f"💰 Актуальная цена (с картой): {new_price_with_card} ₽\n"
-                    f"💰 Актуальная цена (без карты): {new_price_without_card} ₽\n"             
-                    f"💰 Предыдущая цена (с картой): {prev_price_with_card} ₽\n"
-                    f"💰 Предыдущая цена (без карты): {prev_price_without_card} ₽\n"
-                    f"{'💚' if price_diff < 0 else '🔴'} Разница: {price_diff:+d} ₽\n\n"
-                    f"[Ссылка на товар]({product['link']})\n"
-                    f"\n{'—' * 20}\n\n"  # Разделитель между товарами
+                    f"{price_emoji} 📦 [*{product['name'][:50]}*]({product['link']})\n\n"
+                    f"💳 Актуальная цена: **{new_price_with_card} ₽**\n"
+                    f"💳 Предыдущая цена: **{prev_price_with_card} ₽**\n"
+                    f"{'💚' if price_diff < 0 else '🔴'} **Разница**: {price_diff:+d} ₽\n\n"
+                    #f"[Ссылка на товар]({product['link']})\n"
                 )
+                logger.info('f[i] {updated_products[product]}')
+
+                # Если это не последний элемент, добавляем разделитель
+                if i != len(updated_products) - 1:
+                    text += footer
 
             logger.info(f"📝 Текст сформирован: {text[:50]}...")
 
@@ -52,6 +64,7 @@ class NotificationService:
             message = await self.bot.send_message(
                 chat_id=int(chat_id),
                 text=text,
+                parse_mode='Markdown',  # Указываем, что формат будет Markdown
                 disable_web_page_preview=True  # Отключаем предпросмотр ссылок
             )
             
@@ -59,6 +72,7 @@ class NotificationService:
         
         except Exception as e:
             logger.error(f"❌ Ошибка при отправке уведомления пользователю {chat_id}: {e}", exc_info=True)
+
 
     async def notify_multiple_users(self, users_chat_ids: list, updated_product: dict):
         """
@@ -72,3 +86,4 @@ class NotificationService:
             await self.notify_price_change(chat_id, updated_product)
             # Небольшая задержка между отправками, чтобы не попасть под rate limit
             await asyncio.sleep(0.3)
+
