@@ -1,8 +1,7 @@
+import logging
 from aiogram.types import CallbackQuery, Message
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.fsm.context import FSMContext
-from aiogram.exceptions import TelegramBadRequest
-from datetime import datetime
 
 from src.presentation.bot.utils.fsm import ProductAddState
 from src.infrastructure.services import product_service

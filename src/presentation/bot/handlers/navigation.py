@@ -1,9 +1,10 @@
+import logging
 from aiogram.types import CallbackQuery
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from src.infrastructure.services import product_service
-from src.infrastructure.services import logger
 
+logger = logging.getLogger(__name__)
 
 async def handle_back_to_products(call: CallbackQuery):
     await call.answer()  # Отправляем ответ на callback-запрос
