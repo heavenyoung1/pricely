@@ -20,8 +20,8 @@ test: migrate-test
 	
 # Запуск бота
 bot:
-	python -m src.presentation.bot.telegram_bot
+	uv run python -m src.presentation.bot.telegram_bot
 
 # Запуск тестов
 tests:
-	python -m pytest tests -v -s --log-level=DEBUG
+	uv run python -m pytest tests -v -s --log-level=DEBUG
