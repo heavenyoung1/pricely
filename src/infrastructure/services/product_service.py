@@ -126,9 +126,10 @@ class ProductService:
         is_changed = result_use_case_update_product['is_changed']
         updated_product = result_use_case_update_product['product_data']
 
-        # ============== ВОТ ЭТО НУЖНО ДЛЯ ДЕБАГА ==============
-        # 🧪🧪🧪
-        is_changed = True
+        # ======================================================
+        # 🧪 ДЛЯ ПРОДАКШНА ЗАКОММЕНТИРОВАТЬ СТРОКУ
+        # Если is_chaned == True сообщения об изменении цены будут приходить всегда
+        # is_changed = True
         # ======================================================
 
         return {'updated_product': updated_product, 'is_changed': is_changed}
