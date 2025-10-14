@@ -11,6 +11,21 @@ if TYPE_CHECKING:
     from .user import ORMUserProducts
 
 class ORMProduct(Base):
+    '''
+    ORM модель для таблицы продуктов (products).
+
+    Этот класс представляет таблицу продуктов в базе данных, где хранятся данные о 
+    товаре, такие как артикул, название, ссылка, изображение, рейтинг, категории и цены.
+
+    Атрибуты:
+        id (str): Уникальный артикул товара (10 символов).
+        name (str): Название продукта.
+        link (str): Ссылка на продукт.
+        image_url (str): Ссылка на изображение продукта.
+        rating (float): Рейтинг продукта.
+        categories (str): Категории, к которым относится продукт.
+        created_at (datetime): Дата и время создания записи.
+    '''
     __tablename__ = 'products'
     
     id: Mapped[str] = mapped_column(String(10), primary_key=True)  # Артикул из 10 цифр, String(10) вместо String
