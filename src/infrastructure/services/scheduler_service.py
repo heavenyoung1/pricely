@@ -64,7 +64,8 @@ class APSchedulerService:
             
             # Храним информацию о товарах, которые будут отправлены пользователю
             notification_to_send = {}
-            logger.info(f'USER_PRODUCT_ITEMS: {dict(users_products.items())}')
+            logger.info(f'Товары для обновления: {dict(users_products.items())}')
+
             for user_id, product_ids in users_products.items():
                 updated_products = []
                 logger.info(f'Обрабатываем товары для пользователя: {user_id}')
@@ -77,16 +78,16 @@ class APSchedulerService:
                         result = self.product_service.update_product_price(product_id)
                         logger.info(f'Для обновления цены в Scheduler передан result: {result}')
                         product = result['updated_product']
-                        logger.info(f'ПОЛУЧЕН UPDATED_PRODUCT: {product}')
+                        logger.info(f'Получен обновленный товар: {product}')
                         # Флаг об изменении цены
                         is_changed = result['is_changed']
-                        logger.info(f'ПОЛУЧЕН ФЛАГ is_changed: {is_changed}')
+                        logger.info(f'Флаг is_changed: {is_changed}')
                         
                         if is_changed:
                             updated_products.append(product)
 
                     except Exception as e:
-                        logger.error(f'Ошибка при обработке товара {product_id}: {e}')
+                        logger.error(f'❌ Ошибка при обработке товара {product_id}: {e}')
 
                 if updated_products:
                     logger.info(f'⚠️  Список товаров для отправки пользователю {updated_products}')
@@ -99,4 +100,4 @@ class APSchedulerService:
             logger.info('✅ Автоматическое обновление цен завершено.')
 
         except Exception as e:
-            logger.error(f'Ошибка при выполнении планового обновления: {e}')
+            logger.error(f'❌ Ошибка при выполнении планового обновления: {e}')

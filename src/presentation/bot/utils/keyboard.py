@@ -7,7 +7,6 @@ def build_product_actions_keyboard(product_id: str, product_link: str) -> Inline
     '''
     keyboard = [
         [
-            #InlineKeyboardButton(text='🔄 Обновить цену', callback_data=f'update_price:{product_id}'),
             InlineKeyboardButton(text='⬅️ Назад', callback_data='back_to_products'),
             InlineKeyboardButton(text='🗑 Удалить', callback_data=f'delete_product:{product_id}'),
             

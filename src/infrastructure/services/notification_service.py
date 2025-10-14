@@ -34,23 +34,23 @@ class NotificationService:
             products_count = len(updated_products)
             product_word = get_product_word_form(products_count)  # Получаем правильную форму слова
 
-            text = f'🔔 {"Цена на " + product_word if products_count == 1 else f"Цены на {products_count} {product_word} изменились"}!\n\n'
-            footer = f'\n{"—" * 25}\n\n'  # Разделитель между товарами
+            text = f'🔔 {'Цена на ' + product_word if products_count == 1 else f'Цены на {products_count} {product_word} изменились'}!\n\n'
+            footer = f'\n{'—' * 25}\n\n'  # Разделитель между товарами
 
             # Создание клавиатуры
             inline_buttons = []  # Список кнопок для клавиатуры
 
             for i, product in enumerate(updated_products):
                 new_price_with_card = product['with_card']
-                new_price_without_card = product['without_card']
+                new_price_without_card = product['without_card'] # АРТЕФАКТ
                 prev_price_with_card = product['previous_price_with_card']
-                prev_price_without_card = product['previous_price_without_card']
-                price_diff = new_price_with_card - prev_price_with_card
+                prev_price_without_card = product['previous_price_without_card'] # АРТЕФАКТ
+                price_diff = new_price_with_card - prev_price_with_card 
                 price_emoji = '📉' if price_diff < 0 else '📈'
 
                 # Формируем текст для каждого товара
                 text += (
-                    f'{price_emoji} 📦 [*{product["name"][:50]}*]({product["link"]})\n\n'
+                    f'{price_emoji} 📦 *{product["name"]}*\n\n'
                     f'💳 Актуальная цена: **{new_price_with_card} ₽**\n'
                     f'💳 Предыдущая цена: **{prev_price_with_card} ₽**\n'
                     f'{"💚" if price_diff < 0 else "🔴"} **Разница**: {price_diff:+d} ₽\n\n'
