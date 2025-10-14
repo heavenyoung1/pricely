@@ -489,3 +489,111 @@ aiogram.exceptions.TelegramNetworkError: HTTP Client says - Request timeout erro
 2025-10-14 10:21:39,043 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-10-14 10:21:39,043 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-10-14 10:21:39,174 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-14 10:24:29,138 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-14 10:24:29,141 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-14 10:24:29,150 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-14 10:24:29,152 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-14 10:24:29,154 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-14 10:24:29,154 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-14 10:24:29,155 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 10 мин).
+2025-10-14 10:24:29,156 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-14 10:24:29,156 - aiogram.dispatcher - INFO - Start polling
+2025-10-14 10:24:29,439 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-14 10:24:35,574 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
+2025-10-14 10:24:35,734 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 10:24:35,843 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1728110604', '1609078406', '1072136113', '1068256533']) получен по id: 515084006
+2025-10-14 10:24:35,843 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-14 10:24:35,844 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-14 10:24:35,846 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 10:24:35,847 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 10:24:35,848 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 10:24:35,848 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-14 10:24:36,095 - aiogram.event - INFO - Update id=557185594 is handled. Duration 521 ms by bot id=5702092394
+2025-10-14 10:24:36,930 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 10:24:36,930 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-14 10:24:36,967 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 10:24:36,993 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 10:24:37,012 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Комплект носков adidas Sportswear C Spw Crw 3P, 3 пары (ID: 1072136113)
+2025-10-14 10:24:37,037 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Джинсы Befree (ID: 1068256533)
+2025-10-14 10:24:37,042 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-14 10:24:37,044 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 10:24:37,045 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 10:24:37,045 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 10:24:37,204 - aiogram.event - INFO - Update id=557185595 is handled. Duration 275 ms by bot id=5702092394
+2025-10-14 10:24:38,651 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 10:24:38,665 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 10:24:38,668 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-14 10:24:38,672 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 10:24:38,674 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 10:24:38,675 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 10:24:38,766 - aiogram.event - INFO - Update id=557185596 is handled. Duration 191 ms by bot id=5702092394
+2025-10-14 10:24:40,134 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 10:24:40,135 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-14 10:24:40,240 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 10:24:40,295 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 10:24:40,340 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Комплект носков adidas Sportswear C Spw Crw 3P, 3 пары (ID: 1072136113)
+2025-10-14 10:24:40,427 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Джинсы Befree (ID: 1068256533)
+2025-10-14 10:24:40,440 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-14 10:24:40,458 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 10:24:40,459 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 10:24:40,460 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 10:24:40,601 - aiogram.event - INFO - Update id=557185597 is handled. Duration 634 ms by bot id=5702092394
+2025-10-14 10:24:41,494 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 10:24:41,510 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 10:24:41,518 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-14 10:24:41,521 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 10:24:41,522 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 10:24:41,523 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 10:24:41,657 - aiogram.event - INFO - Update id=557185598 is handled. Duration 309 ms by bot id=5702092394
+2025-10-14 10:24:42,556 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 10:24:42,557 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-14 10:24:42,570 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 10:24:42,588 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 10:24:42,603 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Комплект носков adidas Sportswear C Spw Crw 3P, 3 пары (ID: 1072136113)
+2025-10-14 10:24:42,620 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Джинсы Befree (ID: 1068256533)
+2025-10-14 10:24:42,628 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-14 10:24:42,631 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 10:24:42,632 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 10:24:42,633 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 10:24:42,719 - aiogram.event - INFO - Update id=557185599 is handled. Duration 232 ms by bot id=5702092394
+2025-10-14 10:24:44,604 - aiogram.event - INFO - Update id=557185600 is handled. Duration 162 ms by bot id=5702092394
+2025-10-14 10:24:57,563 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 10:24:59,230 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-14 10:25:10,052 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://ozon.ru/t/NIpp04W
+2025-10-14 10:25:10,053 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://ozon.ru/t/NIpp04W
+2025-10-14 10:25:11,096 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1923176063
+2025-10-14 10:25:11,160 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Игрушка для питомцев в форме сигареты, которая издает звук.
+2025-10-14 10:25:11,216 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-14 10:25:11,263 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 315
+2025-10-14 10:25:11,317 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 325
+2025-10-14 10:25:11,372 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-h/wc1000/7372743173.jpg
+2025-10-14 10:25:11,503 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Товары для животных', 'Для кошек', 'Игрушки']
+2025-10-14 10:25:11,504 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1923176063', 'name': 'Игрушка для питомцев в форме сигареты, которая издает звук.', 'rating': 4.9, 'price_with_card': 315, 'price_without_card': 325, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-h/wc1000/7372743173.jpg', 'categories': ['Товары для животных', 'Для кошек', 'Игрушки']}
+2025-10-14 10:25:13,490 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-14 10:25:13,491 - src.application.use_cases.create_product - INFO - Парсинг данных для https://ozon.ru/t/NIpp04W: {'id': '1923176063', 'name': 'Игрушка для питомцев в форме сигареты, которая издает звук.', 'rating': 4.9, 'price_with_card': 315, 'price_without_card': 325, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-h/wc1000/7372743173.jpg', 'categories': ['Товары для животных', 'Для кошек', 'Игрушки']} завершен.
+2025-10-14 10:25:13,497 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID 1923176063 не найден
+2025-10-14 10:25:13,503 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1728110604', '1609078406', '1072136113', '1068256533']) получен по id: 515084006
+2025-10-14 10:25:13,507 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='1923176063', user_id='515084006', name='Игрушка для питомцев в форме сигареты, которая издает звук.', link='https://ozon.ru/t/NIpp04W', image_url='https://ir.ozone.ru/s3/multimedia-1-h/wc1000/7372743173.jpg', rating=4.9, categories=['Товары для животных', 'Для кошек', 'Игрушки'], prices=[Price(id=None, product_id='1923176063', with_card=315, without_card=325, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 14, 10, 25, 13, 498431))])
+2025-10-14 10:25:13,513 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='1923176063', with_card=315, without_card=325, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 14, 10, 25, 13, 498431))
+2025-10-14 10:25:13,514 - src.infrastructure.database.repositories.user_products_repository - INFO - Привязка товара ID 1923176063 пользователю ID 515084006
+2025-10-14 10:25:13,515 - src.core.decorators - INFO - Функция create_product: выполняется commit транзакции
+2025-10-14 10:25:13,539 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 10:25:13,540 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 10:25:13,540 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 10:25:13,854 - aiogram.event - INFO - Update id=557185601 is handled. Duration 16418 ms by bot id=5702092394
+2025-10-14 10:25:22,234 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 10:25:22,235 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-14 10:25:22,251 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 10:25:22,272 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 10:25:22,289 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Комплект носков adidas Sportswear C Spw Crw 3P, 3 пары (ID: 1072136113)
+2025-10-14 10:25:22,305 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Джинсы Befree (ID: 1068256533)
+2025-10-14 10:25:22,323 - src.infrastructure.database.repositories.product_repository - INFO - Найден Товар: Игрушка для питомцев в форме сигареты, которая издает звук. (ID: 1923176063)
+2025-10-14 10:25:22,329 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-14 10:25:22,332 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 10:25:22,333 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 10:25:22,333 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 10:25:22,434 - aiogram.event - INFO - Update id=557185602 is handled. Duration 303 ms by bot id=5702092394
+2025-10-14 10:25:28,431 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-14 10:25:28,433 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-14 10:25:28,433 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-14 10:25:28,571 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
