@@ -1,7 +1,7 @@
 from __future__ import annotations
-from sqlalchemy import String, Float, ForeignKey, DateTime, JSON
+from sqlalchemy import String, Float, DateTime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING
 from .price import ORMPrice
 from datetime import datetime
 

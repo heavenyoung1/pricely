@@ -10,9 +10,9 @@ from src.infrastructure.database.models import ORMPrice
 
 logger = logging.getLogger(__name__)
 
-
 class PriceRepositoryImpl(PriceRepository):
     '''Реализация репозитория для работы с ценами в базе данных.'''
+
     def __init__(self, session: Session):
         '''
         Конструктор для инициализации репозитория цен.
@@ -29,16 +29,16 @@ class PriceRepositoryImpl(PriceRepository):
         :raises Exception: Если возникла ошибка при сохранении цены.
         '''
         try:
-            logger.info(f"Сохранение цены: {price}")
+            logger.info(f'Сохранение цены: {price}')
             # Преобразуем доменный объект Price в ORM-объект
             orm_price = PriceMapper.domain_to_orm(price)
             # Используем merge для объединения изменений (если объект уже существует, он обновится)
             self.session.merge(orm_price)  # Используется merge для гибкости обновления
-            logger.debug(f"Цена успешно сохранена (ID: {orm_price.id})")
+            logger.debug(f'Цена успешно сохранена (ID: {orm_price.id})')
         except Exception as e:
-            logger.error(f"Ошибка сохранения цены {price}: {str(e)}")
+            logger.error(f'Ошибка сохранения цены {price}: {str(e)}')
             raise
-    
+
     def get(self, price_id: str) -> Optional[Price]:
         '''
         Получить цену по идентификатору из базы данных.
@@ -55,7 +55,7 @@ class PriceRepositoryImpl(PriceRepository):
         price = PriceMapper.orm_to_domain(orm_model)
         logger.info(f'Найдена цена: {price} (ID: {orm_model.id})')
         return price
-    
+
     def get_all_prices_by_product(self, product_id: str) -> List[Price]:
         '''
         Получить все цены для конкретного продукта.
@@ -67,14 +67,12 @@ class PriceRepositoryImpl(PriceRepository):
         try:
             orm_prices = self.session.query(ORMPrice).filter_by(product_id=product_id).all()
             prices = [PriceMapper.orm_to_domain(p) for p in orm_prices]
-            # ПРОВЕРИТЬ ЧТО УДАЛЯЕТСЯ НУЖНОЕ КОЛИЧЕСТВО ЗАПИСЕЙ ДЛЯ ТОВАРА 
             logger.info(f'Найдено {len(prices)} цен для продукта {product_id}')
             return prices
-        
         except Exception as e:
             logger.error(f'Ошибка получения цен для продукта {product_id}: {str(e)}')
             raise
-    
+
     def delete(self, price_id: str) -> bool:
         '''
         Удалить цену по идентификатору.
@@ -90,10 +88,8 @@ class PriceRepositoryImpl(PriceRepository):
             return False
         try:
             self.session.delete(orm_price)
-            # Транзакциями управляет Unit of Work
             logger.info(f'Цена с ID {price_id} успешно удалена')
             return True
-        
         except Exception as e:
             logger.error(f'Ошибка удаления цены {price_id}: {str(e)}')
             raise
@@ -124,7 +120,6 @@ class PriceRepositoryImpl(PriceRepository):
             created_at=orm_price.created_at,
         )
 
-    # Проверить этот метод, что он действительно удаляет все цены
     def delete_all_prices_for_product(self, product_id: str) -> bool:
         '''
         Удалить все цены для товара по product_id.
@@ -147,10 +142,8 @@ class PriceRepositoryImpl(PriceRepository):
             for orm_price in orm_prices:
                 self.session.delete(orm_price)
             
-            # Транзакциями управляет Unit of Work
             logger.info(f'Все цены для товара с ID {product_id} успешно удалены')
             return True
-
         except Exception as e:
             logger.error(f'Ошибка удаления цен для товара {product_id}: {str(e)}')
             raise
