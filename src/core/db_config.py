@@ -4,14 +4,15 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # Настройка логгера
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-handler = logging.StreamHandler()
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
+# logger.setLevel(logging.INFO)
+# handler = logging.StreamHandler()
+# formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+# handler.setFormatter(formatter)
+# logger.addHandler(handler)
 
 class DataBaseSettings(BaseSettings):
-    '''Настройки подключения к базе данных PostgreSQL.
+    '''
+    Настройки подключения к базе данных PostgreSQL.
 
     Читает параметры из .env файла с префиксом DB_CONFIG_.
     Автоматически проверяет типы данных и обязательные поля.
@@ -23,6 +24,8 @@ class DataBaseSettings(BaseSettings):
         PASS (str): Пароль пользователя.
         NAME (str): Название базы данных.
         CONN (str): Драйвер подключения (по умолчанию 'postgresql+psycopg2').
+        TEST_NAME (Optional[str]): Название тестовой базы данных (если используется).
+        TEST_PORT (Optional[int]): Порт тестовой базы данных (если используется).
     '''
     HOST: str
     PORT: int = 5432
@@ -36,35 +39,49 @@ class DataBaseSettings(BaseSettings):
     TEST_PORT: Optional[int] = None
 
     model_config = SettingsConfigDict(
-        env_file='.env', 
-        env_prefix='DB_', 
+        env_file='.env',
+        env_prefix='DB_',
         env_file_encoding='utf-8',
         extra='ignore',  # Игнорировать лишние переменные
     )
 
     def get_database_url(self, use_test: bool = False) -> str:
-        '''Для SQLAlchemy (с +psycopg2).'''
+        '''
+        Формирует URL для подключения к базе данных с использованием SQLAlchemy.
+
+        :param use_test: Флаг, указывающий, использовать ли тестовую базу данных.
+        :return: Строка подключения для SQLAlchemy.
+        '''
         if use_test:
             name = self.TEST_NAME
             port = self.TEST_PORT
         else:
             name = self.NAME
             port = self.PORT
-        
+
         return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{port}/{name}'
-    
+
     def get_alembic_url(self, use_test: bool = False) -> str:
-        '''Для Alembic (без +psycopg2).'''
+        '''
+        Формирует URL для Alembic (без использования psycopg2).
+
+        :param use_test: Флаг, указывающий, использовать ли тестовую базу данных.
+        :return: Строка подключения для Alembic.
+        '''
         if use_test:
             name = self.TEST_NAME
             port = self.TEST_PORT
         else:
             name = self.NAME
             port = self.PORT
-        
+
         return f'postgresql://{self.USER}:{self.PASS}@{self.HOST}:{port}/{name}'
 
     @property
     def is_test_db_configured(self) -> bool:
-        '''Проверяет, настроена ли тестовая БД.'''
+        '''
+        Проверяет, настроена ли тестовая база данных.
+
+        :return: True, если тестовая база данных настроена, иначе False.
+        '''
         return self.TEST_NAME is not None
