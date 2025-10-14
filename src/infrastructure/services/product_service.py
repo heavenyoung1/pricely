@@ -15,7 +15,7 @@ from src.application.use_cases import (
 
 from src.domain.entities import Product, Price, User
 from src.core import SQLAlchemyUnitOfWork, with_uow
-from src.infrastructure.notifications.notification_service import NotificationService
+#from src.infrastructure.notifications.notification_service import NotificationService
 
 logger = logging.getLogger(__name__)
 
@@ -24,7 +24,7 @@ class ProductService:
     def __init__(self, uow_factory, parser: Optional[OzonParser] = None, bot=None):
         self.uow_factory = uow_factory
         self.parser = parser or OzonParser()  # дефолт = OzonParser
-        self.notification_service = NotificationService(bot)
+        #self.notification_service = NotificationService(bot)
 
     @with_uow(commit=True)
     def create_user(self, user: User) -> None:
@@ -129,21 +129,11 @@ class ProductService:
 
         is_changed = result_use_case_update_product['is_changed']
         updated_product = result_use_case_update_product['product_data']
-        # ===============================
-        #Перезапишу туту
-        # Вернём полную карточку в dict-формате (как get_full_product)
-        # use_case_get_full_product = GetFullProductUseCase(
-        #     product_repo=self.uow.product_repository,
-        #     price_repo=self.uow.price_repository,
-        #     user_repo=self.uow.user_repository,
-        # )
+
+        # ============== ВОТ ЭТО НУЖНО ДЛЯ ДЕБАГА ==============
         is_changed = True
-        # if is_changed:
-        #     result_use_case_get_full_product = use_case_get_full_product.execute(product_id)
-        #     return {
-        #         "updated_product": result_use_case_get_full_product['data_return']['product_data'],
-        #         "is_changed": is_changed,
-        #     }
+        # ======================================================
+
         return {"updated_product": updated_product, "is_changed": is_changed}
 
 
