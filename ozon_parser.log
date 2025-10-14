@@ -2692,3 +2692,367 @@ task: <Task cancelling name='Task-1' coro=<main() done, defined at C:\Users\Mefy
 2025-10-14 11:28:45,961 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-10-14 11:28:45,962 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-10-14 11:28:46,080 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-14 11:29:36,050 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-14 11:29:36,052 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-14 11:29:36,056 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-14 11:29:36,058 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-14 11:29:36,059 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-14 11:29:36,060 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-14 11:29:36,060 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-14 11:29:36,061 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-14 11:29:36,061 - aiogram.dispatcher - INFO - Start polling
+2025-10-14 11:29:36,311 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-14 11:29:40,729 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
+2025-10-14 11:29:40,880 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 11:29:40,996 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1728110604', '1609078406', '2058292518']) получен по id: 515084006
+2025-10-14 11:29:40,997 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-14 11:29:40,997 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-14 11:29:41,000 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 11:29:41,001 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 11:29:41,002 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 11:29:41,002 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-14 11:29:41,291 - aiogram.event - INFO - Update id=557185698 is handled. Duration 563 ms by bot id=5702092394
+2025-10-14 11:29:42,299 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 11:29:42,300 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-14 11:29:42,361 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 11:29:42,391 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 11:29:42,421 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Мужские наручные электронные часы Casio Digital AE-1500WH-8BVEF (ID: 2058292518)
+2025-10-14 11:29:42,429 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-14 11:29:42,443 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 11:29:42,445 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 11:29:42,446 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 11:29:42,612 - aiogram.event - INFO - Update id=557185699 is handled. Duration 314 ms by bot id=5702092394
+2025-10-14 11:30:36,068 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-14 11:31:36 MSK)" (scheduled at 2025-10-14 11:30:36.058047+03:00)
+2025-10-14 11:30:36,069 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-14 11:30:36,070 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 11:30:36,070 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-14 11:30:36,070 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-14 11:30:36,074 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000013367D14F30>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000013367D14270>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000013367D39A50>]
+2025-10-14 11:30:36,075 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-14 11:30:36,075 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-14 11:30:36,076 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604', '1609078406']})
+2025-10-14 11:30:36,076 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-14 11:30:36,077 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-14 11:30:36,078 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 11:30:36,079 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 11:30:36,079 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 11:30:36,079 - src.infrastructure.services.logger - INFO - USERS_PRODUCTS ПОЛУЧЕНЫ {'515084006': ['1728110604', '1609078406', '2058292518']}
+2025-10-14 11:30:36,079 - src.infrastructure.services.logger - INFO - USER_PRODUCT_ITEMS: {'515084006': ['1728110604', '1609078406', '2058292518']}
+2025-10-14 11:30:36,080 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-14 11:30:36,080 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406', '2058292518']
+2025-10-14 11:30:36,080 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-14 11:30:36,081 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 11:30:36,091 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 11:30:37,759 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
+2025-10-14 11:30:37,760 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-14 11:30:38,861 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-14 11:30:38,862 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-14 11:30:45,075 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1728110604
+2025-10-14 11:30:45,348 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый
+2025-10-14 11:30:45,973 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.8
+2025-10-14 11:30:46,245 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 15830
+2025-10-14 11:30:46,495 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 15990
+2025-10-14 11:30:46,616 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg
+2025-10-14 11:30:50,175 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']
+2025-10-14 11:30:50,176 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'rating': 4.8, 'price_with_card': 15830, 'price_without_card': 15990, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']}
+2025-10-14 11:30:52,043 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-14 11:30:52,044 - src.application.use_cases.upd_product - INFO - Предыдущая цена с картой: 15830, новая цена с картой: 15830
+2025-10-14 11:30:52,044 - src.application.use_cases.upd_product - INFO - Данные, возвращаемые UpdateProductPriceUseCase: {'is_changed': False, 'product_data': {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'link': 'https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', 'with_card': 15830, 'without_card': 15990, 'previous_price_with_card': 15830, 'previous_price_without_card': 15990}}
+2025-10-14 11:30:52,045 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-14 11:30:52,046 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 11:30:52,047 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 11:30:52,047 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 11:30:52,048 - src.infrastructure.services.logger - INFO - Для обновления цены в Scheduler передан result: {'updated_product': {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'link': 'https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', 'with_card': 15830, 'without_card': 15990, 'previous_price_with_card': 15830, 'previous_price_without_card': 15990}, 'is_changed': True}
+2025-10-14 11:30:52,048 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН UPDATED_PRODUCT: {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'link': 'https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', 'with_card': 15830, 'without_card': 15990, 'previous_price_with_card': 15830, 'previous_price_without_card': 15990}
+2025-10-14 11:30:52,049 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН ФЛАГ is_changed: True
+2025-10-14 11:30:52,049 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-14 11:30:52,049 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 11:30:52,061 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 11:30:53,666 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
+2025-10-14 11:30:53,666 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-14 11:30:54,598 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
+2025-10-14 11:30:54,599 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
+2025-10-14 11:31:00,193 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1609078406
+2025-10-14 11:31:00,429 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Microsoft Xbox Velocity Green Беспроводной геймпад
+2025-10-14 11:31:00,776 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-14 11:31:01,249 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 6164
+2025-10-14 11:31:01,474 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 6290
+2025-10-14 11:31:01,586 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7494502547.jpg
+2025-10-14 11:31:04,730 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Игры и консоли', 'Xbox', 'Аксессуары', 'Microsoft']
+2025-10-14 11:31:04,731 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'rating': 4.9, 'price_with_card': 6164, 'price_without_card': 6290, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7494502547.jpg', 'categories': ['Игры и консоли', 'Xbox', 'Аксессуары', 'Microsoft']}
+2025-10-14 11:31:06,691 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-14 11:31:06,692 - src.application.use_cases.upd_product - INFO - Предыдущая цена с картой: 6164, новая цена с картой: 6164
+2025-10-14 11:31:06,693 - src.application.use_cases.upd_product - INFO - Данные, возвращаемые UpdateProductPriceUseCase: {'is_changed': False, 'product_data': {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'link': 'https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw', 'with_card': 6164, 'without_card': 6290, 'previous_price_with_card': 6164, 'previous_price_without_card': 6290}}
+2025-10-14 11:31:06,693 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-14 11:31:06,695 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 11:31:06,696 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 11:31:06,696 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 11:31:06,696 - src.infrastructure.services.logger - INFO - Для обновления цены в Scheduler передан result: {'updated_product': {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'link': 'https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw', 'with_card': 6164, 'without_card': 6290, 'previous_price_with_card': 6164, 'previous_price_without_card': 6290}, 'is_changed': True}
+2025-10-14 11:31:06,697 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН UPDATED_PRODUCT: {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'link': 'https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw', 'with_card': 6164, 'without_card': 6290, 'previous_price_with_card': 6164, 'previous_price_without_card': 6290}
+2025-10-14 11:31:06,698 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН ФЛАГ is_changed: True
+2025-10-14 11:31:06,698 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=2058292518
+2025-10-14 11:31:06,698 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 11:31:06,713 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Мужские наручные электронные часы Casio Digital AE-1500WH-8BVEF (ID: 2058292518)
+2025-10-14 11:31:08,116 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
+2025-10-14 11:31:08,117 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-14 11:31:09,165 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/muzhskie-naruchnye-elektronnye-chasy-casio-digital-ae-1500wh-8bvef-2058292518/?at=lRt6x4XM0FvQB7qDuqJ0Dp4I31wpJnsxryv2XiVzBwR4
+2025-10-14 11:31:09,166 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/muzhskie-naruchnye-elektronnye-chasy-casio-digital-ae-1500wh-8bvef-2058292518/?at=lRt6x4XM0FvQB7qDuqJ0Dp4I31wpJnsxryv2XiVzBwR4
+2025-10-14 11:31:15,029 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2058292518
+2025-10-14 11:31:15,264 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Мужские наручные электронные часы Casio Digital AE-1500WH-8BVEF
+2025-10-14 11:31:15,504 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-14 11:31:15,778 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 3174
+2025-10-14 11:31:16,191 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 3402
+2025-10-14 11:31:16,329 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-6/wc1000/7202053590.jpg
+2025-10-14 11:31:17,043 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Аксессуары', 'Мужчинам', 'Часы и аксессуары', 'Casio']
+2025-10-14 11:31:17,044 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '2058292518', 'name': 'Мужские наручные электронные часы Casio Digital AE-1500WH-8BVEF', 'rating': 4.9, 'price_with_card': 3174, 'price_without_card': 3402, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-6/wc1000/7202053590.jpg', 'categories': ['Аксессуары', 'Мужчинам', 'Часы и аксессуары', 'Casio']}
+2025-10-14 11:31:19,242 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-14 11:31:19,242 - src.application.use_cases.upd_product - INFO - Предыдущая цена с картой: 3174, новая цена с картой: 3174
+2025-10-14 11:31:19,243 - src.application.use_cases.upd_product - INFO - Данные, возвращаемые UpdateProductPriceUseCase: {'is_changed': False, 'product_data': {'id': '2058292518', 'name': 'Мужские наручные электронные часы Casio Digital AE-1500WH-8BVEF', 'link': 'https://www.ozon.ru/product/muzhskie-naruchnye-elektronnye-chasy-casio-digital-ae-1500wh-8bvef-2058292518/?at=lRt6x4XM0FvQB7qDuqJ0Dp4I31wpJnsxryv2XiVzBwR4', 'with_card': 3174, 'without_card': 3402, 'previous_price_with_card': 3174, 'previous_price_without_card': 3402}}
+2025-10-14 11:31:19,244 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-14 11:31:19,246 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 11:31:19,247 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 11:31:19,248 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 11:31:19,248 - src.infrastructure.services.logger - INFO - Для обновления цены в Scheduler передан result: {'updated_product': {'id': '2058292518', 'name': 'Мужские наручные электронные часы Casio Digital AE-1500WH-8BVEF', 'link': 'https://www.ozon.ru/product/muzhskie-naruchnye-elektronnye-chasy-casio-digital-ae-1500wh-8bvef-2058292518/?at=lRt6x4XM0FvQB7qDuqJ0Dp4I31wpJnsxryv2XiVzBwR4', 'with_card': 3174, 'without_card': 3402, 'previous_price_with_card': 3174, 'previous_price_without_card': 3402}, 'is_changed': True}
+2025-10-14 11:31:19,248 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН UPDATED_PRODUCT: {'id': '2058292518', 'name': 'Мужские наручные электронные часы Casio Digital AE-1500WH-8BVEF', 'link': 'https://www.ozon.ru/product/muzhskie-naruchnye-elektronnye-chasy-casio-digital-ae-1500wh-8bvef-2058292518/?at=lRt6x4XM0FvQB7qDuqJ0Dp4I31wpJnsxryv2XiVzBwR4', 'with_card': 3174, 'without_card': 3402, 'previous_price_with_card': 3174, 'previous_price_without_card': 3402}
+2025-10-14 11:31:19,249 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН ФЛАГ is_changed: True
+2025-10-14 11:31:19,249 - src.infrastructure.services.logger - INFO - ⚠️  Список товаров для отправки пользователю [{'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'link': 'https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', 'with_card': 15830, 'without_card': 15990, 'previous_price_with_card': 15830, 'previous_price_without_card': 15990}, {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'link': 'https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw', 'with_card': 6164, 'without_card': 6290, 'previous_price_with_card': 6164, 'previous_price_without_card': 6290}, {'id': '2058292518', 'name': 'Мужские наручные электронные часы Casio Digital AE-1500WH-8BVEF', 'link': 'https://www.ozon.ru/product/muzhskie-naruchnye-elektronnye-chasy-casio-digital-ae-1500wh-8bvef-2058292518/?at=lRt6x4XM0FvQB7qDuqJ0Dp4I31wpJnsxryv2XiVzBwR4', 'with_card': 3174, 'without_card': 3402, 'previous_price_with_card': 3174, 'previous_price_without_card': 3402}]
+2025-10-14 11:31:19,250 - src.infrastructure.services.notification_service - INFO - 📨 NotificationService: Отправка уведомления пользователю 515084006
+2025-10-14 11:31:19,251 - src.infrastructure.services.notification_service - INFO - 📝 Текст сформирован: 🔔 Цены на 3 товара изменились!
+
+📈 📦 [*Xiaomi S20 E...
+2025-10-14 11:31:19,533 - src.infrastructure.services.notification_service - INFO - ✅ Сообщение ID 1930 отправлено пользователю 515084006
+2025-10-14 11:31:19,533 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-14 11:31:19,533 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-14 11:31:36 MSK)" executed successfully
+2025-10-14 11:31:19,534 - src.infrastructure.services.logger - INFO - ✅ ShedulerService выполнил задачу успешно.
+2025-10-14 11:31:36,070 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-14 11:32:36 MSK)" (scheduled at 2025-10-14 11:31:36.058047+03:00)
+2025-10-14 11:31:36,071 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-14 11:31:36,071 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 11:31:36,072 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-14 11:31:36,072 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-14 11:31:36,076 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000013367D39950>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000013367D30410>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000013367D305F0>]
+2025-10-14 11:31:36,076 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-14 11:31:36,077 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-14 11:31:36,077 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604', '1609078406']})
+2025-10-14 11:31:36,077 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-14 11:31:36,078 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-14 11:31:36,079 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 11:31:36,080 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 11:31:36,080 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 11:31:36,081 - src.infrastructure.services.logger - INFO - USERS_PRODUCTS ПОЛУЧЕНЫ {'515084006': ['1728110604', '1609078406', '2058292518']}
+2025-10-14 11:31:36,081 - src.infrastructure.services.logger - INFO - USER_PRODUCT_ITEMS: {'515084006': ['1728110604', '1609078406', '2058292518']}
+2025-10-14 11:31:36,081 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-14 11:31:36,081 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406', '2058292518']
+2025-10-14 11:31:36,082 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-14 11:31:36,082 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 11:31:36,095 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 11:31:38,574 - src.core.uow - WARNING - Исключение в Unit of Work: KeyboardInterrupt: 
+2025-10-14 11:31:38,576 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 11:31:38,576 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 11:31:38,602 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-14 11:31:38,603 - apscheduler.executors.default - ERROR - Error running job update_prices
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] Удаленный хост принудительно разорвал существующее подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 366, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 455, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 406, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 430, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        method, url, fields=fields, headers=headers, **urlopen_kw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\apscheduler\executors\base.py", line 181, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\scheduler_service.py", line 78, in run_price_update
+    result = self.product_service.update_product_price(product_id)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 126, in update_product_price
+    result_use_case_update_product = use_case_update_product.execute(
+        product_id=product_id,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 41, in __init__
+    self._initialize_driver()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 65, in _initialize_driver
+    self.driver = webdriver.Chrome(options=options)
+                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 47, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        browser_name=DesiredCapabilities.CHROME["browserName"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        keep_alive=keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 69, in __init__
+    super().__init__(command_executor=executor, options=options)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 263, in __init__
+    self.start_session(capabilities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 371, in start_session
+    self.service.stop()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\common\service.py", line 152, in stop
+    self.send_remote_shutdown_command()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\common\service.py", line 132, in send_remote_shutdown_command
+    request.urlopen(f"{self.service_url}/shutdown")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\urllib\request.py", line 189, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\urllib\request.py", line 489, in open
+    response = self._open(req, data)
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\urllib\request.py", line 506, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+                              '_open', req)
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\urllib\request.py", line 466, in _call_chain
+    result = func(*args)
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\urllib\request.py", line 1348, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\urllib\request.py", line 1323, in do_open
+    r = h.getresponse()
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\apscheduler\executors\asyncio.py", line 35, in callback
+    events = f.result()
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\apscheduler\executors\base.py", line 184, in run_coroutine_job
+    formatted_tb = "".join(format_tb(tb))
+                           ~~~~~~~~~^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\traceback.py", line 63, in format_tb
+    return extract_tb(tb, limit=limit).format()
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\traceback.py", line 78, in extract_tb
+    return StackSummary._extract_from_extended_frame_gen(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        _walk_tb_with_full_positions(tb), limit=limit)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\traceback.py", line 500, in _extract_from_extended_frame_gen
+    f.line
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\traceback.py", line 373, in line
+    self._set_lines()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\traceback.py", line 351, in _set_lines
+    line = linecache.getline(self.filename, lineno).rstrip()
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\linecache.py", line 26, in getline
+    lines = getlines(filename, module_globals)
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\linecache.py", line 42, in getlines
+    return updatecache(filename, module_globals)
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\linecache.py", line 171, in updatecache
+    with tokenize.open(fullname) as fp:
+         ~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\tokenize.py", line 455, in open
+    buffer = _builtin_open(filename, 'rb')
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+2025-10-14 11:31:38,635 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-14 11:31:38,951 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Task-1' coro=<main() done, defined at C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\bot.py:79> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\tasks.py:820]>
