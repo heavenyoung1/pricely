@@ -56,7 +56,7 @@ class APSchedulerService:
 
         try:
             users_products = self.product_service.get_all_products_for_update()
-            logger.info(f'USERS_PRODUCTS ПОЛУЧЕНЫ {users_products}')
+            logger.info(f'Товары для пользователя в списке {users_products}')
 
             if not users_products:
                 logger.info('Нет товаров для обновления.')

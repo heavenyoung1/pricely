@@ -35,7 +35,7 @@ class NotificationService:
             product_word = get_product_word_form(products_count)  # Получаем правильную форму слова
 
             text = f'🔔 {'Цена на ' + product_word if products_count == 1 else f'Цены на {products_count} {product_word} изменились'}!\n\n'
-            footer = f'\n{'—' * 25}\n\n'  # Разделитель между товарами
+            footer = f'\n{'—' * 20}\n\n'  # Разделитель между товарами
 
             # Создание клавиатуры
             inline_buttons = []  # Список кнопок для клавиатуры
