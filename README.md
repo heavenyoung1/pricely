@@ -89,6 +89,7 @@ make migrate-all     # Применить миграции на обе БД
 ```
 
 Ожидаемый вывод:
+
 ```bash
 ALEMBIC_DATABASE_URL=$(uv run python scripts/db_url.py dev) uv run alembic upgrade head
 INFO  [alembic.runtime.migration] Используем заданный ALEMBIC_DATABASE_URL: postgresql://postgres:1234@192.168.154.121:5432/pricely_db
@@ -99,3 +100,18 @@ INFO  [alembic.runtime.migration] Используем заданный ALEMBIC_
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 Миграции успешно применены к обеим БД
+```
+
+## 🧪 Запуск тестов
+
+Эта команда запустит все тесты и выведет подробный лог.
+Для запуска тестов, выполните команду:
+
+
+```bash
+make tests
+```
+
+## 🔄 Запуск бота
+
+Для запуска бота, после того как вы настроили БД и миграции, выполните команду:
