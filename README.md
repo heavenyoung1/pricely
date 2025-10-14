@@ -1,22 +1,54 @@
 # 📉 Pricely
 
-Другие полезные методы:
+    Telegram-бот для отслеживания изменения цен на товары Ozon.
+    Использует архитектуру Domain-Driven Design (DDD), паттерн Unit of Work, и чистый Dependency Injection без глобальных синглтонов.
 
-`mock_method.assert_called()`          # Был ли вызван хотя бы раз
+## 🧠 Описание
 
-`mock_method.assert_called_with(args)` # Был ли вызван с конкретными аргументами (последний вызов)
+**Pricely** — это Telegram-бот, который позволяет пользователям:
 
-`mock_method.assert_not_called()`      # НЕ был вызван
+- добавлять товары по ссылке с Ozon,
 
-Обновления ORM моделей привели к этому:
-```
-# Быстрый доступ к текущей цене
-product = session.get(ORMProduct, product_id)
-current_price = product.current_price  # Через price_id
+- отслеживать текущие и предыдущие цены,
 
-# История всех цен
-all_prices = product.prices  # Через product_id в таблице prices
+- получать уведомления при изменении стоимости.
 
-# В USE_CASE всё работает как задумано:
-product.price_id = price_id  # ✅ Теперь это поле существует!
-```
+В основе — модульная, масштабируемая архитектура с чётким разделением слоёв:
+
+- Domain Layer — бизнес-сущности и правила;
+
+- Application Layer — Use Cases;
+
+- Infrastructure Layer — SQLAlchemy, репозитории, парсер, сервисы;
+
+- Presentation Layer — Telegram-интерфейс (Aiogram).
+
+## 🚀 Основные возможности
+
+✅ Добавление товара по ссылке Ozon\
+✅ Автоматическое обновление цен каждые N минут\
+✅ Уведомление пользователя при изменении цены\
+✅ Просмотр всех отслеживаемых товаров\
+✅ Удаление товаров из списка\
+✅ Интеграция с PostgreSQL\
+✅ Безопасная работа с транзакциями через Unit of Work\
+✅ Чистая Dependency Injection без контейнеров\
+
+## 🛠 Технологии
+
+| Компонент         | Технология                                             |
+| ----------------- | ------------------------------------------------------ |
+| Язык              | Python 3.13                                            |
+| Telegram Bot      | Aiogram 3                                              |
+| База данных       | PostgreSQL                                             |
+| ORM               | SQLAlchemy 2.x                                         |
+| Планировщик задач | APScheduler                                            |
+| Парсер            | Selenium                                               |
+| Логирование       | logging                                                |
+| Архитектура       | Domain-Driven Design, Unit of Work, Repository Pattern |
+
+## ⚙️ Установка
+
+```bash
+git clone https://github.com/heavenyoung1/pricely
+cd pricely
