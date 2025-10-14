@@ -1,6 +1,5 @@
 from src.application.interfaces.repositories import ProductRepository, PriceRepository, UserRepository, UserProductsRepository
 from src.domain.entities import Product, Price, User
-
 from src.infrastructure.parsers import OzonParser
 from datetime import datetime
 import logging
@@ -12,6 +11,17 @@ from src.domain.exceptions import ParserProductError, ProductCreationError
 logger = logging.getLogger(__name__)
 
 class CreateProductUseCase:
+    '''
+    Use case для создания нового товара.
+
+    Этот класс отвечает за:
+    - парсинг данных о товаре,
+    - проверку наличия товара в базе данных,
+    - создание новых сущностей товара и цены,
+    - привязку товара к пользователю,
+    - сохранение данных в базе данных.
+    '''
+
     def __init__(
         self,
         product_repo: ProductRepository,
@@ -20,6 +30,15 @@ class CreateProductUseCase:
         user_products_repo: UserProductsRepository,
         parser: ProductParser,
     ):
+        '''
+        Инициализация UseCase для создания нового товара.
+
+        :param product_repo: Репозиторий для работы с продуктами.
+        :param price_repo: Репозиторий для работы с ценами.
+        :param user_repo: Репозиторий для работы с пользователями.
+        :param user_products_repo: Репозиторий для работы с привязками пользователей и товаров.
+        :param parser: Парсер для получения данных о товаре с внешнего ресурса.
+        '''
         self.product_repo = product_repo
         self.price_repo = price_repo
         self.user_repo = user_repo
@@ -27,6 +46,21 @@ class CreateProductUseCase:
         self.parser = parser
 
     def execute(self, user_id: str, url: str) -> dict:
+        '''
+        Основной метод для выполнения логики создания товара.
+
+        1. Парсит данные о товаре с помощью парсера.
+        2. Проверяет, существует ли товар с таким ID в базе данных.
+        3. Создаёт сущности товара и цены.
+        4. Привязывает товар к пользователю.
+        5. Сохраняет товар и цену в базе данных.
+
+        :param user_id: Идентификатор пользователя, для которого создается товар.
+        :param url: Ссылка на страницу товара для парсинга.
+        :return: Словарь с полными данными о товаре и цене.
+        :raises ParserProductError: Если произошла ошибка при парсинге данных о товаре.
+        :raises ProductCreationError: Если произошла ошибка при создании товара.
+        '''
         # 1. Парсим данные о товаре
         try:
             product_data = self.parser.parse_product(url)
@@ -37,8 +71,8 @@ class CreateProductUseCase:
 
         # 2. Проверяем, есть ли товар в БД
         if self.product_repo.get(product_data['id']):
-            logger.error(f'Товар с ID {product_data['id']} уже существует')
-            raise ProductCreationError(f'Товар с ID {product_data['id']} уже существует')
+            logger.error(f'Товар с ID {product_data["id"]} уже существует')
+            raise ProductCreationError(f'Товар с ID {product_data["id"]} уже существует')
 
         # 3. Создаём сущности
         product = Product(
@@ -86,7 +120,7 @@ class CreateProductUseCase:
             self.product_repo.save(product)
             self.price_repo.save(price)
 
-        # 6. Создаём связь user <-> product в таблице user_products
+            # 6. Создаём связь user <-> product в таблице user_products
             self.user_products_repo.add_product_for_user(user_id, product.id)
         except Exception as e:
             logger.error(f'Ошибка сохранения товара {product.id}: {e}')
