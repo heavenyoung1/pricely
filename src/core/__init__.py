@@ -11,6 +11,7 @@ __all__ = [
     'UnitOfWork', 
     'with_uow',
     'SQLAlchemyUnitOfWork',
+    'DataBaseSettings'
     'DatabaseConnection',
     'db_settings',
     'db',

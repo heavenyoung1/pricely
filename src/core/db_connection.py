@@ -17,26 +17,34 @@ logger.addHandler(handler)
 
 
 class DatabaseConnection:
-    '''Класс для управления подключением к базе данных и сессиями.'''
+    '''
+    Класс для управления подключением к базе данных и сессиями.
+
+    Этот класс управляет подключением к базе данных, а также предоставляет методы
+    для создания сессий, проверки соединения и освобождения ресурсов.
+    '''
 
     def __init__(self, settings: DataBaseSettings = None):
         '''
         Инициализация подключения к базе данных.
-        
-        Args:
-            settings: Настройки БД. Если не указаны, будут загружены автоматически.
+
+        :param settings: Настройки БД. Если не указаны, будут загружены автоматически.
         '''
         self._settings = settings or DataBaseSettings()
         self._engine = None
         self._session_factory = None
 
     def init_engine(self, db_url: str = None):
-        '''Инициализирует движок SQLAlchemy и фабрику сессий (ленивая инициализация).'''
+        '''
+        Инициализирует движок SQLAlchemy и фабрику сессий (ленивая инициализация).
+
+        :param db_url: URL подключения к базе данных. Если не указан, будет использован URL из настроек.
+        '''
         if self._engine is None:
             db_url = db_url or self._settings.get_database_url(use_test=False)
             logger.info(f'Инициализация подключения к БД: {db_url}')
 
-            # создаём Engine
+            # Создаем движок подключения
             self._engine = create_engine(
                 db_url,
                 echo=False,            # можно True для отладки SQL
@@ -44,7 +52,7 @@ class DatabaseConnection:
                 pool_pre_ping=True,    # проверка соединения перед использованием
             )
 
-            # создаём sessionmaker
+            # Создаем sessionmaker
             self._session_factory = sessionmaker(
                 bind=self._engine,
                 class_=Session,
@@ -57,7 +65,11 @@ class DatabaseConnection:
     def get_session(self, db_url: str = None) -> Generator[Session, None, None]:
         '''
         Фабрика для получения контекстного менеджера сессии.
-        Используется в UnitOfWork.
+
+        Используется в паттерне UnitOfWork для управления сессиями с базой данных.
+
+        :param db_url: URL подключения к базе данных. Если не указан, будет использован URL из настроек.
+        :yield: Объект Session для работы с базой данных.
         '''
         if self._session_factory is None:
             self.init_engine(db_url)
@@ -69,7 +81,11 @@ class DatabaseConnection:
             session.close()
 
     def dispose(self):
-        '''Закрывает все соединения и освобождает ресурсы.'''
+        '''
+        Закрывает все соединения и освобождает ресурсы.
+
+        Это важно для завершения работы с базой данных и освобождения используемых ресурсов.
+        '''
         if self._engine is not None:
             logger.info('Закрытие всех соединений с БД')
             self._engine.dispose()
@@ -77,24 +93,26 @@ class DatabaseConnection:
             self._session_factory = None
 
     def test_connection(self, db_url: str = None) -> bool:
-        '''Проверка доступности БД (выполняется SELECT 1).
+        '''
+        Проверка доступности БД (выполняется SELECT 1).
 
-        Args:
-            db_url (str, optional): URL для подключения к БД. Если None, используется get_db_url.
+        :param db_url: URL для подключения к БД. Если None, используется URL из настроек.
+        :return: True, если подключение успешно, иначе False.
         '''
         self.init_engine(db_url)
         try:
             with self._engine.connect() as conn:
-                conn.execute(text("SELECT 1"))
-            logger.info("Подключение к БД успешно установлено")
+                conn.execute(text('SELECT 1'))
+            logger.info('Подключение к БД успешно установлено')
             return True
         except Exception as e:
-            logger.error(f"Ошибка подключения к БД: {e}")
+            logger.error(f'Ошибка подключения к БД: {e}')
             return False
 
+
+# Создание экземпляра конфигурации БД и объекта для работы с соединением
 db_settings = DataBaseSettings()
 db = DatabaseConnection(db_settings)
-
 
 # Это фабрика, которую будет использовать UnitOfWork
 get_session = db.get_session
