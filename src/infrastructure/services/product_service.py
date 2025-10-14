@@ -127,6 +127,7 @@ class ProductService:
         updated_product = result_use_case_update_product['product_data']
 
         # ============== ВОТ ЭТО НУЖНО ДЛЯ ДЕБАГА ==============
+        # 🧪🧪🧪
         is_changed = True
         # ======================================================
 
