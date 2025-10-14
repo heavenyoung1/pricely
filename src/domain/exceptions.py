@@ -3,7 +3,7 @@ class ApplicationError(Exception):
     pass
 
 class ParserProductError(ApplicationError):
-    '''Ошибка парсинга товара'''
+    '''Ошибка при парсинге товара.'''
     pass
 
 
@@ -13,7 +13,9 @@ class UserCreationError(ApplicationError):
     pass
 
 class ProductNotExistingDataBase(ApplicationError):
-    '''dfergerthg'''
+    '''Ошибка, возникающая, когда продукт не существует в базе данных.'''
+    pass
+
 
 # --- Product ---
 class ProductError(ApplicationError):
@@ -31,7 +33,7 @@ class ProductSavingError(ProductError):
 
 
 class ProductNotFoundError(ProductError):
-    '''Продукт не найден.'''
+    '''Ошибка, возникающая, когда продукт не найден в базе данных.'''
     pass
 
 
