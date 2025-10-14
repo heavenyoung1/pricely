@@ -1,784 +1,104 @@
-2025-10-14 12:50:32,643 - src.infrastructure.services.logger - INFO - Бот запущен
-2025-10-14 12:50:32,645 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
-2025-10-14 12:50:32,680 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
-2025-10-14 12:50:32,684 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-10-14 12:50:32,689 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
-2025-10-14 12:50:32,690 - apscheduler.scheduler - INFO - Scheduler started
-2025-10-14 12:50:32,690 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
-2025-10-14 12:50:32,691 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
-2025-10-14 12:50:32,692 - aiogram.dispatcher - INFO - Start polling
-2025-10-14 12:50:32,972 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-10-14 12:50:41,761 - aiogram.event - INFO - Update id=557185718 is handled. Duration 316 ms by bot id=5702092394
-2025-10-14 12:50:52,360 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
-2025-10-14 12:50:53,568 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:51:01,729 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
-2025-10-14 12:51:01,729 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-10-14 12:51:02,668 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-evo-lidar-suhaya-i-vlazhnaya-uborka-turbo-shchetka-8000-pa-1718175628/?at=K8tZOpBmlSn8ZGQPC2q6mw2CX2EK9ktwPrk9nTBA3jQD
-2025-10-14 12:51:02,669 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-evo-lidar-suhaya-i-vlazhnaya-uborka-turbo-shchetka-8000-pa-1718175628/?at=K8tZOpBmlSn8ZGQPC2q6mw2CX2EK9ktwPrk9nTBA3jQD
-2025-10-14 12:51:13,017 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении артикула: Message: 
-Stacktrace:
-	GetHandleVerifier [0x0x7ff72ee1e955+80021]
-	GetHandleVerifier [0x0x7ff72ee1e9b0+80112]
-	(No symbol) [0x0x7ff72eba060f]
-	(No symbol) [0x0x7ff72ebf8854]
-	(No symbol) [0x0x7ff72ebf8b1c]
-	(No symbol) [0x0x7ff72ec4c927]
-	(No symbol) [0x0x7ff72ec2126f]
-	(No symbol) [0x0x7ff72ec4968a]
-	(No symbol) [0x0x7ff72ec21003]
-	(No symbol) [0x0x7ff72ebe95d1]
-	(No symbol) [0x0x7ff72ebea3f3]
-	GetHandleVerifier [0x0x7ff72f0ddd0d+2960461]
-	GetHandleVerifier [0x0x7ff72f0d7fca+2936586]
-	GetHandleVerifier [0x0x7ff72f0f8a07+3070279]
-	GetHandleVerifier [0x0x7ff72ee3843e+185214]
-	GetHandleVerifier [0x0x7ff72ee3fe8f+216527]
-	GetHandleVerifier [0x0x7ff72ee27b94+117460]
-	GetHandleVerifier [0x0x7ff72ee27d4f+117903]
-	GetHandleVerifier [0x0x7ff72ee0dc28+11112]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:51:23,104 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении названия товара: Message: 
-Stacktrace:
-	GetHandleVerifier [0x0x7ff72ee1e955+80021]
-	GetHandleVerifier [0x0x7ff72ee1e9b0+80112]
-	(No symbol) [0x0x7ff72eba060f]
-	(No symbol) [0x0x7ff72ebf8854]
-	(No symbol) [0x0x7ff72ebf8b1c]
-	(No symbol) [0x0x7ff72ec4c927]
-	(No symbol) [0x0x7ff72ec2126f]
-	(No symbol) [0x0x7ff72ec4968a]
-	(No symbol) [0x0x7ff72ec21003]
-	(No symbol) [0x0x7ff72ebe95d1]
-	(No symbol) [0x0x7ff72ebea3f3]
-	GetHandleVerifier [0x0x7ff72f0ddd0d+2960461]
-	GetHandleVerifier [0x0x7ff72f0d7fca+2936586]
-	GetHandleVerifier [0x0x7ff72f0f8a07+3070279]
-	GetHandleVerifier [0x0x7ff72ee3843e+185214]
-	GetHandleVerifier [0x0x7ff72ee3fe8f+216527]
-	GetHandleVerifier [0x0x7ff72ee27b94+117460]
-	GetHandleVerifier [0x0x7ff72ee27d4f+117903]
-	GetHandleVerifier [0x0x7ff72ee0dc28+11112]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:51:28,405 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.8
-2025-10-14 12:51:28,674 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 11470
-2025-10-14 12:51:29,022 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 12503
-2025-10-14 12:51:29,294 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg
-2025-10-14 12:51:33,653 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Midea']
-2025-10-14 12:51:33,654 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': None, 'name': None, 'rating': 4.8, 'price_with_card': 11470, 'price_without_card': 12503, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg', 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Midea']}
-2025-10-14 12:51:36,104 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-10-14 12:51:36,105 - src.application.use_cases.create_product - INFO - Парсинг данных для https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-evo-lidar-suhaya-i-vlazhnaya-uborka-turbo-shchetka-8000-pa-1718175628/?at=K8tZOpBmlSn8ZGQPC2q6mw2CX2EK9ktwPrk9nTBA3jQD: {'id': None, 'name': None, 'rating': 4.8, 'price_with_card': 11470, 'price_without_card': 12503, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg', 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Midea']} завершен.
-2025-10-14 12:51:36,421 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID None не найден
-2025-10-14 12:51:36,444 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1728110604', '1609078406', '2582743922']) получен по id: 515084006
-2025-10-14 12:51:36,449 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь 515084006 успешно сохранен/обновлен
-2025-10-14 12:51:36,450 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id=None, user_id='515084006', name=None, link='https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-evo-lidar-suhaya-i-vlazhnaya-uborka-turbo-shchetka-8000-pa-1718175628/?at=K8tZOpBmlSn8ZGQPC2q6mw2CX2EK9ktwPrk9nTBA3jQD', image_url='https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg', rating=4.8, categories=['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Midea'], prices=[Price(id=None, product_id=None, with_card=11470, without_card=12503, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 14, 12, 51, 36, 422279))])
-2025-10-14 12:51:36,459 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id=None, with_card=11470, without_card=12503, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 14, 12, 51, 36, 422279))
-2025-10-14 12:51:36,460 - src.infrastructure.database.repositories.user_products_repository - INFO - Привязка товара ID None пользователю ID 515084006
-2025-10-14 12:51:36,461 - src.core.decorators - INFO - Функция create_product: выполняется commit транзакции
-2025-10-14 12:51:36,527 - src.core.uow - ERROR - Unit of Work: Транзакция не зафиксирована, commit не выполнен. Ошибка: (psycopg2.errors.NotNullViolation) null value in column "id" of relation "products" violates not-null constraint
-DETAIL:  Failing row contains (null, null, https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-e..., https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg, 4.8, {"Бытовая техника","Техника для дома..., 2025-10-14 12:51:36.494389).
-
-[SQL: INSERT INTO products (name, link, image_url, rating, categories, created_at) VALUES (%(name)s, %(link)s, %(image_url)s, %(rating)s, %(categories)s, %(created_at)s)]
-[parameters: {'name': None, 'link': 'https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-evo-lidar-suhaya-i-vlazhnaya-uborka-turbo-shchetka-8000-pa-1718175628/?at=K8tZOpBmlSn8ZGQPC2q6mw2CX2EK9ktwPrk9nTBA3jQD', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg', 'rating': 4.8, 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Midea'], 'created_at': datetime.datetime(2025, 10, 14, 12, 51, 36, 494389)}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2025-10-14 12:51:36,528 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:51:36,529 - src.core.uow - WARNING - Исключение в Unit of Work: IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "id" of relation "products" violates not-null constraint
-DETAIL:  Failing row contains (null, null, https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-e..., https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg, 4.8, {"Бытовая техника","Техника для дома..., 2025-10-14 12:51:36.494389).
-
-[SQL: INSERT INTO products (name, link, image_url, rating, categories, created_at) VALUES (%(name)s, %(link)s, %(image_url)s, %(rating)s, %(categories)s, %(created_at)s)]
-[parameters: {'name': None, 'link': 'https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-evo-lidar-suhaya-i-vlazhnaya-uborka-turbo-shchetka-8000-pa-1718175628/?at=K8tZOpBmlSn8ZGQPC2q6mw2CX2EK9ktwPrk9nTBA3jQD', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg', 'rating': 4.8, 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Midea'], 'created_at': datetime.datetime(2025, 10, 14, 12, 51, 36, 494389)}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2025-10-14 12:51:36,529 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:51:36,530 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:51:36,530 - src.core.decorators - ERROR - Ошибка в функции create_product: (psycopg2.errors.NotNullViolation) null value in column "id" of relation "products" violates not-null constraint
-DETAIL:  Failing row contains (null, null, https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-e..., https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg, 4.8, {"Бытовая техника","Техника для дома..., 2025-10-14 12:51:36.494389).
-
-[SQL: INSERT INTO products (name, link, image_url, rating, categories, created_at) VALUES (%(name)s, %(link)s, %(image_url)s, %(rating)s, %(categories)s, %(created_at)s)]
-[parameters: {'name': None, 'link': 'https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-evo-lidar-suhaya-i-vlazhnaya-uborka-turbo-shchetka-8000-pa-1718175628/?at=K8tZOpBmlSn8ZGQPC2q6mw2CX2EK9ktwPrk9nTBA3jQD', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg', 'rating': 4.8, 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Midea'], 'created_at': datetime.datetime(2025, 10, 14, 12, 51, 36, 494389)}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2025-10-14 12:51:36,531 - src.infrastructure.services.logger - ERROR - Ошибка при добавлении товара
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
-    self.dialect.do_execute(
-    ~~~~~~~~~~~~~~~~~~~~~~~^
-        cursor, str_statement, effective_parameters, context
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
-    cursor.execute(statement, parameters)
-    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.errors.NotNullViolation: null value in column "id" of relation "products" violates not-null constraint
-DETAIL:  Failing row contains (null, null, https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-e..., https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg, 4.8, {"Бытовая техника","Техника для дома..., 2025-10-14 12:51:36.494389).
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 34, in add_product_process
-    result = product_service.create_product(str(message.from_user.id), url)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 71, in wrapper
-    uow.commit()  # Явный commit
-    ~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\uow.py", line 124, in commit
-    self._session.commit()
-    ~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
-    trans.commit(_to_root=True)
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "<string>", line 2, in commit
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
-    self._prepare_impl()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "<string>", line 2, in _prepare_impl
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
-    self.session.flush()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
-    self._flush(objects)
-    ~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
-    with util.safe_reraise():
-         ~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
-    flush_context.execute()
-    ~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
-    rec.execute(self)
-    ~~~~~~~~~~~^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
-    util.preloaded.orm_persistence.save_obj(
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        self.mapper,
-        ^^^^^^^^^^^^
-        uow.states_for_mapper_hierarchy(self.mapper, False, False),
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        uow,
-        ^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
-    _emit_insert_statements(
-    ~~~~~~~~~~~~~~~~~~~~~~~^
-        base_mapper,
-        ^^^^^^^^^^^^
-    ...<3 lines>...
-        insert,
-        ^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
-    result = connection.execute(
-        statement,
-        params,
-        execution_options=execution_options,
-    )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1413, in execute
-    return meth(
-        self,
-        distilled_parameters,
-        execution_options or NO_OPTIONS,
-    )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
-    return connection._execute_clauseelement(
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        self, distilled_params, execution_options
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
-    ret = self._execute_context(
-        dialect,
-    ...<8 lines>...
-        cache_hit=cache_hit,
-    )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1840, in _execute_context
-    return self._exec_single_context(
-           ~~~~~~~~~~~~~~~~~~~~~~~~~^
-        dialect, context, statement, parameters
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1980, in _exec_single_context
-    self._handle_dbapi_exception(
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        e, str_statement, effective_parameters, cursor, context
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2349, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
-    self.dialect.do_execute(
-    ~~~~~~~~~~~~~~~~~~~~~~~^
-        cursor, str_statement, effective_parameters, context
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
-    cursor.execute(statement, parameters)
-    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "id" of relation "products" violates not-null constraint
-DETAIL:  Failing row contains (null, null, https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-e..., https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg, 4.8, {"Бытовая техника","Техника для дома..., 2025-10-14 12:51:36.494389).
-
-[SQL: INSERT INTO products (name, link, image_url, rating, categories, created_at) VALUES (%(name)s, %(link)s, %(image_url)s, %(rating)s, %(categories)s, %(created_at)s)]
-[parameters: {'name': None, 'link': 'https://www.ozon.ru/product/robot-pylesos-s-wi-fi-midea-vcr-m7-evo-lidar-suhaya-i-vlazhnaya-uborka-turbo-shchetka-8000-pa-1718175628/?at=K8tZOpBmlSn8ZGQPC2q6mw2CX2EK9ktwPrk9nTBA3jQD', 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7749681968.jpg', 'rating': 4.8, 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Midea'], 'created_at': datetime.datetime(2025, 10, 14, 12, 51, 36, 494389)}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2025-10-14 12:51:36,869 - apscheduler.executors.default - WARNING - Run time of job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-14 12:52:32 MSK)" was missed by 0:00:04.184567
-2025-10-14 12:51:37,143 - aiogram.event - INFO - Update id=557185719 is handled. Duration 45019 ms by bot id=5702092394
-2025-10-14 12:51:51,779 - aiogram.dispatcher - INFO - Polling stopped
-2025-10-14 12:51:51,782 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
-2025-10-14 12:51:51,782 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
-2025-10-14 12:51:51,939 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-10-14 12:51:59,290 - src.infrastructure.services.logger - INFO - Бот запущен
-2025-10-14 12:51:59,293 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
-2025-10-14 12:51:59,299 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
-2025-10-14 12:51:59,301 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-10-14 12:51:59,302 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
-2025-10-14 12:51:59,302 - apscheduler.scheduler - INFO - Scheduler started
-2025-10-14 12:51:59,303 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
-2025-10-14 12:51:59,303 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
-2025-10-14 12:51:59,303 - aiogram.dispatcher - INFO - Start polling
-2025-10-14 12:51:59,544 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-10-14 12:52:59,307 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-14 12:53:59 MSK)" (scheduled at 2025-10-14 12:52:59.301052+03:00)
-2025-10-14 12:52:59,308 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
-2025-10-14 12:52:59,309 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
-2025-10-14 12:52:59,427 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:52:59,428 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
-2025-10-14 12:52:59,428 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
-2025-10-14 12:52:59,540 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002A859575BE0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002A85957D950>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002A85957DA90>]
-2025-10-14 12:52:59,540 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
-2025-10-14 12:52:59,541 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
-2025-10-14 12:52:59,541 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604', '1609078406']})
-2025-10-14 12:52:59,542 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
-2025-10-14 12:52:59,542 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
-2025-10-14 12:52:59,544 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:52:59,545 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:52:59,545 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:52:59,546 - src.infrastructure.services.logger - INFO - USERS_PRODUCTS ПОЛУЧЕНЫ {'515084006': ['1728110604', '1609078406', '2582743922']}
-2025-10-14 12:52:59,546 - src.infrastructure.services.logger - INFO - USER_PRODUCT_ITEMS: {'515084006': ['1728110604', '1609078406', '2582743922']}
-2025-10-14 12:52:59,546 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
-2025-10-14 12:52:59,547 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406', '2582743922']
-2025-10-14 12:52:59,547 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
-2025-10-14 12:52:59,548 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:52:59,577 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
-2025-10-14 12:53:01,292 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
-2025-10-14 12:53:01,293 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-10-14 12:53:02,275 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
-2025-10-14 12:53:02,276 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
-2025-10-14 12:53:08,439 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1728110604
-2025-10-14 12:53:08,771 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый
-2025-10-14 12:53:09,008 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.8
-2025-10-14 12:53:09,346 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 15830
-2025-10-14 12:53:09,650 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 15990
-2025-10-14 12:53:09,851 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg
-2025-10-14 12:53:14,403 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']
-2025-10-14 12:53:14,406 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'rating': 4.8, 'price_with_card': 15830, 'price_without_card': 15990, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-8/wc1000/7922729852.jpg', 'categories': ['Бытовая техника', 'Техника для дома', 'Пылесосы', 'Роботы-пылесосы', 'Xiaomi']}
-2025-10-14 12:53:16,506 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-10-14 12:53:16,506 - src.application.use_cases.upd_product - INFO - Предыдущая цена с картой: 15830, новая цена с картой: 15830
-2025-10-14 12:53:16,507 - src.application.use_cases.upd_product - INFO - Данные, возвращаемые UpdateProductPriceUseCase: {'is_changed': False, 'product_data': {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'link': 'https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', 'with_card': 15830, 'without_card': 15990, 'previous_price_with_card': 15830, 'previous_price_without_card': 15990}}
-2025-10-14 12:53:16,507 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
-2025-10-14 12:53:16,509 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:53:16,510 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:53:16,510 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:53:16,511 - src.infrastructure.services.logger - INFO - Для обновления цены в Scheduler передан result: {'updated_product': {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'link': 'https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', 'with_card': 15830, 'without_card': 15990, 'previous_price_with_card': 15830, 'previous_price_without_card': 15990}, 'is_changed': True}
-2025-10-14 12:53:16,511 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН UPDATED_PRODUCT: {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'link': 'https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', 'with_card': 15830, 'without_card': 15990, 'previous_price_with_card': 15830, 'previous_price_without_card': 15990}
-2025-10-14 12:53:16,511 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН ФЛАГ is_changed: True
-2025-10-14 12:53:16,512 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
-2025-10-14 12:53:16,512 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:53:16,523 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
-2025-10-14 12:53:18,167 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
-2025-10-14 12:53:18,168 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-10-14 12:53:19,254 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
-2025-10-14 12:53:19,255 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
-2025-10-14 12:53:25,628 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 1609078406
-2025-10-14 12:53:25,873 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Microsoft Xbox Velocity Green Беспроводной геймпад
-2025-10-14 12:53:26,237 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
-2025-10-14 12:53:26,563 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 6164
-2025-10-14 12:53:26,843 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 6290
-2025-10-14 12:53:27,006 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7494502547.jpg
-2025-10-14 12:53:30,068 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Игры и консоли', 'Xbox', 'Аксессуары', 'Microsoft']
-2025-10-14 12:53:30,069 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'rating': 4.9, 'price_with_card': 6164, 'price_without_card': 6290, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-b/wc1000/7494502547.jpg', 'categories': ['Игры и консоли', 'Xbox', 'Аксессуары', 'Microsoft']}
-2025-10-14 12:53:32,154 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-10-14 12:53:32,155 - src.application.use_cases.upd_product - INFO - Предыдущая цена с картой: 6164, новая цена с картой: 6164
-2025-10-14 12:53:32,155 - src.application.use_cases.upd_product - INFO - Данные, возвращаемые UpdateProductPriceUseCase: {'is_changed': False, 'product_data': {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'link': 'https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw', 'with_card': 6164, 'without_card': 6290, 'previous_price_with_card': 6164, 'previous_price_without_card': 6290}}
-2025-10-14 12:53:32,156 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
-2025-10-14 12:53:32,168 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:53:32,169 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:53:32,169 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:53:32,170 - src.infrastructure.services.logger - INFO - Для обновления цены в Scheduler передан result: {'updated_product': {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'link': 'https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw', 'with_card': 6164, 'without_card': 6290, 'previous_price_with_card': 6164, 'previous_price_without_card': 6290}, 'is_changed': True}
-2025-10-14 12:53:32,170 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН UPDATED_PRODUCT: {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'link': 'https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw', 'with_card': 6164, 'without_card': 6290, 'previous_price_with_card': 6164, 'previous_price_without_card': 6290}
-2025-10-14 12:53:32,171 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН ФЛАГ is_changed: True
-2025-10-14 12:53:32,171 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=2582743922
-2025-10-14 12:53:32,172 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:53:32,185 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Креатин моногидрат порошок creatine 300 г, со вкусом апельсина (ID: 2582743922)
-2025-10-14 12:53:33,677 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
-2025-10-14 12:53:33,678 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-10-14 12:53:34,650 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX
-2025-10-14 12:53:34,651 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX
-2025-10-14 12:53:40,791 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2582743922
-2025-10-14 12:53:41,086 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Креатин моногидрат порошок creatine 300 г, со вкусом апельсина
-2025-10-14 12:53:41,411 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 5.0
-2025-10-14 12:53:41,715 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 593
-2025-10-14 12:53:41,887 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 661
-2025-10-14 12:53:42,016 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/8056672128.jpg
-2025-10-14 12:53:45,064 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Спорт и отдых', 'Спортивное питание', 'Креатины', 'vitmins']
-2025-10-14 12:53:45,064 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '2582743922', 'name': 'Креатин моногидрат порошок creatine 300 г, со вкусом апельсина', 'rating': 5.0, 'price_with_card': 593, 'price_without_card': 661, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/8056672128.jpg', 'categories': ['Спорт и отдых', 'Спортивное питание', 'Креатины', 'vitmins']}
-2025-10-14 12:53:47,159 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-10-14 12:53:47,160 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='2582743922', with_card=593, without_card=661, previous_with_card=606, previous_without_card=676, created_at=datetime.datetime(2025, 10, 14, 12, 53, 47, 160164))
-2025-10-14 12:53:47,161 - src.application.use_cases.upd_product - INFO - Предыдущая цена с картой: 606, новая цена с картой: 593
-2025-10-14 12:53:47,161 - src.application.use_cases.upd_product - INFO - Данные, возвращаемые UpdateProductPriceUseCase: {'is_changed': True, 'product_data': {'id': '2582743922', 'name': 'Креатин моногидрат порошок creatine 300 г, со вкусом апельсина', 'link': 'https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX', 'with_card': 593, 'without_card': 661, 'previous_price_with_card': 606, 'previous_price_without_card': 676}}
-2025-10-14 12:53:47,162 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
-2025-10-14 12:53:47,207 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:53:47,207 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:53:47,208 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:53:47,208 - src.infrastructure.services.logger - INFO - Для обновления цены в Scheduler передан result: {'updated_product': {'id': '2582743922', 'name': 'Креатин моногидрат порошок creatine 300 г, со вкусом апельсина', 'link': 'https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX', 'with_card': 593, 'without_card': 661, 'previous_price_with_card': 606, 'previous_price_without_card': 676}, 'is_changed': True}
-2025-10-14 12:53:47,208 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН UPDATED_PRODUCT: {'id': '2582743922', 'name': 'Креатин моногидрат порошок creatine 300 г, со вкусом апельсина', 'link': 'https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX', 'with_card': 593, 'without_card': 661, 'previous_price_with_card': 606, 'previous_price_without_card': 676}
-2025-10-14 12:53:47,209 - src.infrastructure.services.logger - INFO - ПОЛУЧЕН ФЛАГ is_changed: True
-2025-10-14 12:53:47,209 - src.infrastructure.services.logger - INFO - ⚠️  Список товаров для отправки пользователю [{'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'link': 'https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', 'with_card': 15830, 'without_card': 15990, 'previous_price_with_card': 15830, 'previous_price_without_card': 15990}, {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'link': 'https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw', 'with_card': 6164, 'without_card': 6290, 'previous_price_with_card': 6164, 'previous_price_without_card': 6290}, {'id': '2582743922', 'name': 'Креатин моногидрат порошок creatine 300 г, со вкусом апельсина', 'link': 'https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX', 'with_card': 593, 'without_card': 661, 'previous_price_with_card': 606, 'previous_price_without_card': 676}]
-2025-10-14 12:53:47,210 - src.infrastructure.services.notification_service - INFO - 📨 NotificationService: Отправка уведомления пользователю 515084006
-2025-10-14 12:53:47,211 - src.infrastructure.services.notification_service - INFO - 📝 Текст сформирован: 🔔 Цены на 3 товара изменились!
-
-📈 📦 [*Xiaomi S20 E...
-2025-10-14 12:53:47,457 - src.infrastructure.services.notification_service - INFO - ✅ Сообщение ID 1973 отправлено пользователю 515084006
-2025-10-14 12:53:47,457 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
-2025-10-14 12:53:47,458 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-14 12:53:59 MSK)" executed successfully
-2025-10-14 12:53:47,459 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
-2025-10-14 12:53:59,316 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-14 12:54:59 MSK)" (scheduled at 2025-10-14 12:53:59.301052+03:00)
-2025-10-14 12:53:59,317 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
-2025-10-14 12:53:59,317 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:53:59,318 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
-2025-10-14 12:53:59,318 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
-2025-10-14 12:53:59,327 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002A85956A9E0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002A85956A650>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002A859630290>]
-2025-10-14 12:53:59,328 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
-2025-10-14 12:53:59,328 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
-2025-10-14 12:53:59,329 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604', '1609078406']})
-2025-10-14 12:53:59,329 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
-2025-10-14 12:53:59,329 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
-2025-10-14 12:53:59,333 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:53:59,334 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:53:59,334 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:53:59,335 - src.infrastructure.services.logger - INFO - USERS_PRODUCTS ПОЛУЧЕНЫ {'515084006': ['1728110604', '1609078406', '2582743922']}
-2025-10-14 12:53:59,335 - src.infrastructure.services.logger - INFO - USER_PRODUCT_ITEMS: {'515084006': ['1728110604', '1609078406', '2582743922']}
-2025-10-14 12:53:59,336 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
-2025-10-14 12:53:59,336 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406', '2582743922']
-2025-10-14 12:53:59,337 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
-2025-10-14 12:53:59,337 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:53:59,360 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
-2025-10-14 12:54:00,816 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
-2025-10-14 12:54:00,817 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-10-14 12:54:01,789 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
-2025-10-14 12:54:01,789 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
-2025-10-14 12:54:02,820 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении артикула: Message: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=141.0.7390.76); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff72ee1e955+80021]
-	GetHandleVerifier [0x0x7ff72ee1e9b0+80112]
-	(No symbol) [0x0x7ff72eba060f]
-	(No symbol) [0x0x7ff72eb8c145]
-	(No symbol) [0x0x7ff72ebb177a]
-	(No symbol) [0x0x7ff72ec28b06]
-	(No symbol) [0x0x7ff72ec48fa2]
-	(No symbol) [0x0x7ff72ec21003]
-	(No symbol) [0x0x7ff72ebe95d1]
-	(No symbol) [0x0x7ff72ebea3f3]
-	GetHandleVerifier [0x0x7ff72f0ddd0d+2960461]
-	GetHandleVerifier [0x0x7ff72f0d7fca+2936586]
-	GetHandleVerifier [0x0x7ff72f0f8a07+3070279]
-	GetHandleVerifier [0x0x7ff72ee3843e+185214]
-	GetHandleVerifier [0x0x7ff72ee3fe8f+216527]
-	GetHandleVerifier [0x0x7ff72ee27b94+117460]
-	GetHandleVerifier [0x0x7ff72ee27d4f+117903]
-	GetHandleVerifier [0x0x7ff72ee0dc28+11112]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:54:02,898 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении названия товара: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff72ee1e955+80021]
-	GetHandleVerifier [0x0x7ff72ee1e9b0+80112]
-	(No symbol) [0x0x7ff72eba0425]
-	(No symbol) [0x0x7ff72ebe864f]
-	(No symbol) [0x0x7ff72ec210f2]
-	(No symbol) [0x0x7ff72ec1b89f]
-	(No symbol) [0x0x7ff72ec1a94a]
-	(No symbol) [0x0x7ff72eb6a765]
-	GetHandleVerifier [0x0x7ff72f0ddd0d+2960461]
-	GetHandleVerifier [0x0x7ff72f0d7fca+2936586]
-	GetHandleVerifier [0x0x7ff72f0f8a07+3070279]
-	GetHandleVerifier [0x0x7ff72ee3843e+185214]
-	GetHandleVerifier [0x0x7ff72ee3fe8f+216527]
-	(No symbol) [0x0x7ff72eb6970e]
-	GetHandleVerifier [0x0x7ff72f216af8+4241976]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:54:02,902 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении рейтинга: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff72ee1e955+80021]
-	GetHandleVerifier [0x0x7ff72ee1e9b0+80112]
-	(No symbol) [0x0x7ff72eba0425]
-	(No symbol) [0x0x7ff72ebe864f]
-	(No symbol) [0x0x7ff72ec210f2]
-	(No symbol) [0x0x7ff72ec1b89f]
-	(No symbol) [0x0x7ff72ec1a94a]
-	(No symbol) [0x0x7ff72eb6a765]
-	GetHandleVerifier [0x0x7ff72f0ddd0d+2960461]
-	GetHandleVerifier [0x0x7ff72f0d7fca+2936586]
-	GetHandleVerifier [0x0x7ff72f0f8a07+3070279]
-	GetHandleVerifier [0x0x7ff72ee3843e+185214]
-	GetHandleVerifier [0x0x7ff72ee3fe8f+216527]
-	(No symbol) [0x0x7ff72eb6970e]
-	GetHandleVerifier [0x0x7ff72f216af8+4241976]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:54:02,905 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении цены с картой: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff72ee1e955+80021]
-	GetHandleVerifier [0x0x7ff72ee1e9b0+80112]
-	(No symbol) [0x0x7ff72eba0425]
-	(No symbol) [0x0x7ff72ebe864f]
-	(No symbol) [0x0x7ff72ec210f2]
-	(No symbol) [0x0x7ff72ec1b89f]
-	(No symbol) [0x0x7ff72ec1a94a]
-	(No symbol) [0x0x7ff72eb6a765]
-	GetHandleVerifier [0x0x7ff72f0ddd0d+2960461]
-	GetHandleVerifier [0x0x7ff72f0d7fca+2936586]
-	GetHandleVerifier [0x0x7ff72f0f8a07+3070279]
-	GetHandleVerifier [0x0x7ff72ee3843e+185214]
-	GetHandleVerifier [0x0x7ff72ee3fe8f+216527]
-	(No symbol) [0x0x7ff72eb6970e]
-	GetHandleVerifier [0x0x7ff72f216af8+4241976]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:54:02,908 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении цены без карты: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff72ee1e955+80021]
-	GetHandleVerifier [0x0x7ff72ee1e9b0+80112]
-	(No symbol) [0x0x7ff72eba0425]
-	(No symbol) [0x0x7ff72ebe864f]
-	(No symbol) [0x0x7ff72ec210f2]
-	(No symbol) [0x0x7ff72ec1b89f]
-	(No symbol) [0x0x7ff72ec1a94a]
-	(No symbol) [0x0x7ff72eb6a765]
-	GetHandleVerifier [0x0x7ff72f0ddd0d+2960461]
-	GetHandleVerifier [0x0x7ff72f0d7fca+2936586]
-	GetHandleVerifier [0x0x7ff72f0f8a07+3070279]
-	GetHandleVerifier [0x0x7ff72ee3843e+185214]
-	GetHandleVerifier [0x0x7ff72ee3fe8f+216527]
-	(No symbol) [0x0x7ff72eb6970e]
-	GetHandleVerifier [0x0x7ff72f216af8+4241976]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:54:02,911 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении изображения: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff72ee1e955+80021]
-	GetHandleVerifier [0x0x7ff72ee1e9b0+80112]
-	(No symbol) [0x0x7ff72eba0425]
-	(No symbol) [0x0x7ff72ebe864f]
-	(No symbol) [0x0x7ff72ec210f2]
-	(No symbol) [0x0x7ff72ec1b89f]
-	(No symbol) [0x0x7ff72ec1a94a]
-	(No symbol) [0x0x7ff72eb6a765]
-	GetHandleVerifier [0x0x7ff72f0ddd0d+2960461]
-	GetHandleVerifier [0x0x7ff72f0d7fca+2936586]
-	GetHandleVerifier [0x0x7ff72f0f8a07+3070279]
-	GetHandleVerifier [0x0x7ff72ee3843e+185214]
-	GetHandleVerifier [0x0x7ff72ee3fe8f+216527]
-	(No symbol) [0x0x7ff72eb6970e]
-	GetHandleVerifier [0x0x7ff72f216af8+4241976]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:54:02,915 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении категорий: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff72ee1e955+80021]
-	GetHandleVerifier [0x0x7ff72ee1e9b0+80112]
-	(No symbol) [0x0x7ff72eba0425]
-	(No symbol) [0x0x7ff72ebe864f]
-	(No symbol) [0x0x7ff72ec210f2]
-	(No symbol) [0x0x7ff72ec1b89f]
-	(No symbol) [0x0x7ff72ec1a94a]
-	(No symbol) [0x0x7ff72eb6a765]
-	GetHandleVerifier [0x0x7ff72f0ddd0d+2960461]
-	GetHandleVerifier [0x0x7ff72f0d7fca+2936586]
-	GetHandleVerifier [0x0x7ff72f0f8a07+3070279]
-	GetHandleVerifier [0x0x7ff72ee3843e+185214]
-	GetHandleVerifier [0x0x7ff72ee3fe8f+216527]
-	(No symbol) [0x0x7ff72eb6970e]
-	GetHandleVerifier [0x0x7ff72f216af8+4241976]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:54:02,916 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': None, 'name': None, 'rating': None, 'price_with_card': None, 'price_without_card': None, 'image_url': None, 'categories': []}
-2025-10-14 12:54:04,118 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-10-14 12:54:04,118 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='1728110604', with_card=None, without_card=None, previous_with_card=15830, previous_without_card=15990, created_at=datetime.datetime(2025, 10, 14, 12, 54, 4, 118815))
-2025-10-14 12:54:04,119 - src.application.use_cases.upd_product - INFO - Предыдущая цена с картой: 15830, новая цена с картой: None
-2025-10-14 12:54:04,120 - src.application.use_cases.upd_product - INFO - Данные, возвращаемые UpdateProductPriceUseCase: {'is_changed': True, 'product_data': {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'link': 'https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', 'with_card': None, 'without_card': None, 'previous_price_with_card': 15830, 'previous_price_without_card': 15990}}
-2025-10-14 12:54:04,120 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
-2025-10-14 12:54:04,133 - src.core.uow - ERROR - Unit of Work: Транзакция не зафиксирована, commit не выполнен. Ошибка: (psycopg2.errors.NotNullViolation) null value in column "with_card" of relation "prices" violates not-null constraint
-DETAIL:  Failing row contains (201, 1728110604, null, null, 15830, 15990, 2025-10-14 12:54:04.118815).
-
-[SQL: INSERT INTO prices (product_id, with_card, without_card, previous_with_card, previous_without_card, created_at) VALUES (%(product_id)s, %(with_card)s, %(without_card)s, %(previous_with_card)s, %(previous_without_card)s, %(created_at)s) RETURNING prices.id]
-[parameters: {'product_id': '1728110604', 'with_card': None, 'without_card': None, 'previous_with_card': 15830, 'previous_without_card': 15990, 'created_at': datetime.datetime(2025, 10, 14, 12, 54, 4, 118815)}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2025-10-14 12:54:04,138 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:54:04,139 - src.core.uow - WARNING - Исключение в Unit of Work: IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "with_card" of relation "prices" violates not-null constraint
-DETAIL:  Failing row contains (201, 1728110604, null, null, 15830, 15990, 2025-10-14 12:54:04.118815).
-
-[SQL: INSERT INTO prices (product_id, with_card, without_card, previous_with_card, previous_without_card, created_at) VALUES (%(product_id)s, %(with_card)s, %(without_card)s, %(previous_with_card)s, %(previous_without_card)s, %(created_at)s) RETURNING prices.id]
-[parameters: {'product_id': '1728110604', 'with_card': None, 'without_card': None, 'previous_with_card': 15830, 'previous_without_card': 15990, 'created_at': datetime.datetime(2025, 10, 14, 12, 54, 4, 118815)}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2025-10-14 12:54:04,139 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:54:04,140 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:54:04,140 - src.core.decorators - ERROR - Ошибка в функции update_product_price: (psycopg2.errors.NotNullViolation) null value in column "with_card" of relation "prices" violates not-null constraint
-DETAIL:  Failing row contains (201, 1728110604, null, null, 15830, 15990, 2025-10-14 12:54:04.118815).
-
-[SQL: INSERT INTO prices (product_id, with_card, without_card, previous_with_card, previous_without_card, created_at) VALUES (%(product_id)s, %(with_card)s, %(without_card)s, %(previous_with_card)s, %(previous_without_card)s, %(created_at)s) RETURNING prices.id]
-[parameters: {'product_id': '1728110604', 'with_card': None, 'without_card': None, 'previous_with_card': 15830, 'previous_without_card': 15990, 'created_at': datetime.datetime(2025, 10, 14, 12, 54, 4, 118815)}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2025-10-14 12:54:04,141 - src.infrastructure.services.logger - ERROR - Ошибка при обработке товара 1728110604: (psycopg2.errors.NotNullViolation) null value in column "with_card" of relation "prices" violates not-null constraint
-DETAIL:  Failing row contains (201, 1728110604, null, null, 15830, 15990, 2025-10-14 12:54:04.118815).
-
-[SQL: INSERT INTO prices (product_id, with_card, without_card, previous_with_card, previous_without_card, created_at) VALUES (%(product_id)s, %(with_card)s, %(without_card)s, %(previous_with_card)s, %(previous_without_card)s, %(created_at)s) RETURNING prices.id]
-[parameters: {'product_id': '1728110604', 'with_card': None, 'without_card': None, 'previous_with_card': 15830, 'previous_without_card': 15990, 'created_at': datetime.datetime(2025, 10, 14, 12, 54, 4, 118815)}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2025-10-14 12:54:04,141 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
-2025-10-14 12:54:04,142 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:54:04,161 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
-2025-10-14 12:54:06,336 - src.infrastructure.parsers.session_engine - ERROR - Ошибка при инициализации WebDriver: Message: Service C:\Users\Mefyod-EA\.cache\selenium\chromedriver\win64\141.0.7390.76\chromedriver.exe unexpectedly exited. Status code was: 3221225786
-
-2025-10-14 12:54:06,337 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: Message: Service C:\Users\Mefyod-EA\.cache\selenium\chromedriver\win64\141.0.7390.76\chromedriver.exe unexpectedly exited. Status code was: 3221225786
-
-2025-10-14 12:54:06,337 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: Message: Service C:\Users\Mefyod-EA\.cache\selenium\chromedriver\win64\141.0.7390.76\chromedriver.exe unexpectedly exited. Status code was: 3221225786
-
-2025-10-14 12:54:06,338 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
-    product_data = self.parser.parse_product(product.link)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
-    session = SessionEngine(
-        headless=headless,
-    ...<2 lines>...
-        wait_time=wait_time
-    )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 41, in __init__
-    self._initialize_driver()
-    ~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 65, in _initialize_driver
-    self.driver = webdriver.Chrome(options=options)
-                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 47, in __init__
-    super().__init__(
-    ~~~~~~~~~~~~~~~~^
-        browser_name=DesiredCapabilities.CHROME["browserName"],
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<3 lines>...
-        keep_alive=keep_alive,
-        ^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 58, in __init__
-    self.service.start()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\common\service.py", line 108, in start
-    self.assert_process_still_running()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\common\service.py", line 121, in assert_process_still_running
-    raise WebDriverException(f"Service {self._path} unexpectedly exited. Status code was: {return_code}")
-selenium.common.exceptions.WebDriverException: Message: Service C:\Users\Mefyod-EA\.cache\selenium\chromedriver\win64\141.0.7390.76\chromedriver.exe unexpectedly exited. Status code was: 3221225786
-
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
-    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
-src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
-2025-10-14 12:54:06,472 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
-2025-10-14 12:54:06,474 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:54:06,474 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:54:06,475 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
-2025-10-14 12:54:06,475 - src.infrastructure.services.logger - ERROR - Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
-2025-10-14 12:54:06,476 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=2582743922
-2025-10-14 12:54:06,476 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:54:06,487 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Креатин моногидрат порошок creatine 300 г, со вкусом апельсина (ID: 2582743922)
-2025-10-14 12:54:08,172 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
-2025-10-14 12:54:08,173 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-10-14 12:54:11,160 - src.core.uow - WARNING - Исключение в Unit of Work: KeyboardInterrupt: 
-2025-10-14 12:54:11,162 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:54:11,163 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:54:11,366 - aiogram.dispatcher - INFO - Polling stopped
-2025-10-14 12:56:13,202 - src.infrastructure.services.logger - INFO - Бот запущен
-2025-10-14 12:56:13,203 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
-2025-10-14 12:56:13,211 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
-2025-10-14 12:56:13,213 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-10-14 12:56:13,215 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
-2025-10-14 12:56:13,215 - apscheduler.scheduler - INFO - Scheduler started
-2025-10-14 12:56:13,216 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
-2025-10-14 12:56:13,216 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
-2025-10-14 12:56:13,217 - aiogram.dispatcher - INFO - Start polling
-2025-10-14 12:56:13,461 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-10-14 12:56:20,639 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
-2025-10-14 12:56:20,790 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:56:20,882 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1728110604', '1609078406', '2582743922']) получен по id: 515084006
-2025-10-14 12:56:20,883 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
-2025-10-14 12:56:20,883 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
-2025-10-14 12:56:20,885 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:56:20,885 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:56:20,886 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:56:20,886 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
-2025-10-14 12:56:21,188 - aiogram.event - INFO - Update id=557185720 is handled. Duration 549 ms by bot id=5702092394
-2025-10-14 12:56:22,833 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:56:22,834 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
-2025-10-14 12:56:22,884 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
-2025-10-14 12:56:22,904 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
-2025-10-14 12:56:22,918 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Креатин моногидрат порошок creatine 300 г, со вкусом апельсина (ID: 2582743922)
-2025-10-14 12:56:22,922 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
-2025-10-14 12:56:22,924 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:56:22,925 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:56:22,926 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:56:23,023 - aiogram.event - INFO - Update id=557185721 is handled. Duration 193 ms by bot id=5702092394
-2025-10-14 12:56:24,614 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:56:24,625 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
-2025-10-14 12:56:24,631 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
-2025-10-14 12:56:24,633 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:56:24,634 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:56:24,635 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:56:24,724 - aiogram.event - INFO - Update id=557185722 is handled. Duration 176 ms by bot id=5702092394
-2025-10-14 12:57:13,216 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-14 12:58:13 MSK)" (scheduled at 2025-10-14 12:57:13.213273+03:00)
-2025-10-14 12:57:13,217 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
-2025-10-14 12:57:13,217 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:57:13,219 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
-2025-10-14 12:57:13,219 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
-2025-10-14 12:57:13,224 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000018C4E634F30>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000018C4E634270>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000018C4E65DA50>]
-2025-10-14 12:57:13,225 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
-2025-10-14 12:57:13,226 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
-2025-10-14 12:57:13,226 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604', '1609078406']})
-2025-10-14 12:57:13,226 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
-2025-10-14 12:57:13,227 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
-2025-10-14 12:57:13,230 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:57:13,231 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 12:57:13,232 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:57:13,232 - src.infrastructure.services.logger - INFO - USERS_PRODUCTS ПОЛУЧЕНЫ {'515084006': ['1728110604', '1609078406', '2582743922']}
-2025-10-14 12:57:13,233 - src.infrastructure.services.logger - INFO - USER_PRODUCT_ITEMS: {'515084006': ['1728110604', '1609078406', '2582743922']}
-2025-10-14 12:57:13,233 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
-2025-10-14 12:57:13,234 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406', '2582743922']
-2025-10-14 12:57:13,234 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
-2025-10-14 12:57:13,235 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:57:13,252 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
-2025-10-14 12:57:14,832 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
-2025-10-14 12:57:14,833 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-10-14 12:57:15,354 - src.infrastructure.parsers.session_engine - ERROR - Ошибка при загрузке страницы https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/: ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
-2025-10-14 12:57:15,355 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при парсинге страницы https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/: ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
-2025-10-14 12:57:15,355 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
-2025-10-14 12:57:17,394 - src.core.uow - WARNING - Исключение в Unit of Work: KeyboardInterrupt: 
-2025-10-14 12:57:17,397 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:57:17,398 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:57:17,410 - apscheduler.executors.default - ERROR - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-14 12:58:13 MSK)" raised an exception
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
-    )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1430, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 331, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 292, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 719, in readinto
-    return self._sock.recv_into(b)
-           ~~~~~~~~~~~~~~~~~~~~^^^
-ConnectionResetError: [WinError 10054] Удаленный хост принудительно разорвал существующее подключение
-
-During handling of the above exception, another exception occurred:
-
+2025-10-14 13:35:11,039 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-14 13:35:11,040 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-14 13:35:11,046 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-14 13:35:11,047 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-14 13:35:11,048 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-14 13:35:11,049 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-14 13:35:11,049 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-14 13:35:11,049 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-14 13:35:11,049 - aiogram.dispatcher - INFO - Start polling
+2025-10-14 13:35:11,317 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-14 13:35:16,148 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
+2025-10-14 13:35:16,332 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:35:16,333 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-14 13:35:16,480 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 13:35:16,495 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 13:35:16,512 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Креатин моногидрат порошок creatine 300 г, со вкусом апельсина (ID: 2582743922)
+2025-10-14 13:35:16,516 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-14 13:35:16,519 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:35:16,520 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:35:16,520 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:35:16,775 - aiogram.event - INFO - Update id=557185730 is handled. Duration 629 ms by bot id=5702092394
+2025-10-14 13:35:19,081 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:35:19,093 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Креатин моногидрат порошок creatine 300 г, со вкусом апельсина (ID: 2582743922)
+2025-10-14 13:35:19,095 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-14 13:35:19,098 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:35:19,099 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:35:19,100 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:35:19,233 - aiogram.event - INFO - Update id=557185731 is handled. Duration 338 ms by bot id=5702092394
+2025-10-14 13:35:20,662 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:35:20,675 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Креатин моногидрат порошок creatine 300 г, со вкусом апельсина (ID: 2582743922)
+2025-10-14 13:35:20,679 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-14 13:35:20,681 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:35:20,681 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:35:20,682 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:35:20,761 - aiogram.event - INFO - Update id=557185732 is handled. Duration 215 ms by bot id=5702092394
+2025-10-14 13:35:21,935 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:35:21,951 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Креатин моногидрат порошок creatine 300 г, со вкусом апельсина (ID: 2582743922)
+2025-10-14 13:35:21,952 - src.infrastructure.database.repositories.price_repository - INFO - Попытка удаления всех цен для товара с ID: 2582743922
+2025-10-14 13:35:21,955 - src.infrastructure.database.repositories.price_repository - INFO - Все цены для товара с ID 2582743922 успешно удалены
+2025-10-14 13:35:21,956 - src.application.use_cases.delete_product - INFO - Цены для товара 2582743922 удалены
+2025-10-14 13:35:21,957 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: 2582743922
+2025-10-14 13:35:21,978 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID 2582743922 успешно удален
+2025-10-14 13:35:21,986 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id  не найден
+2025-10-14 13:35:21,987 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID 2582743922
+2025-10-14 13:35:21,987 - src.core.decorators - INFO - Функция delete_product: выполняется commit транзакции
+2025-10-14 13:35:22,083 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:35:22,084 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:35:22,084 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:35:22,085 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:35:22,086 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-14 13:35:22,112 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 13:35:22,132 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 13:35:22,137 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-14 13:35:22,140 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:35:22,141 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:35:22,142 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:35:22,240 - aiogram.event - INFO - Update id=557185733 is handled. Duration 370 ms by bot id=5702092394
+2025-10-14 13:36:11,064 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-14 13:37:11 MSK)" (scheduled at 2025-10-14 13:36:11.047526+03:00)
+2025-10-14 13:36:11,065 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-14 13:36:11,065 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:36:11,066 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-14 13:36:11,066 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-14 13:36:11,075 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002560C7DF130>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002560DAA47C0>]
+2025-10-14 13:36:11,076 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-14 13:36:11,077 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-14 13:36:11,077 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-14 13:36:11,078 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-14 13:36:11,079 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:36:11,080 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:36:11,080 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:36:11,081 - src.infrastructure.services.logger - INFO - USERS_PRODUCTS ПОЛУЧЕНЫ {'515084006': ['1728110604', '1609078406']}
+2025-10-14 13:36:11,081 - src.infrastructure.services.logger - INFO - USER_PRODUCT_ITEMS: {'515084006': ['1728110604', '1609078406']}
+2025-10-14 13:36:11,082 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-14 13:36:11,082 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-14 13:36:11,083 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-14 13:36:11,084 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:36:11,103 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 13:36:13,209 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
+2025-10-14 13:36:13,211 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-14 13:36:14,493 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-14 13:36:14,495 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-14 13:36:18,747 - src.core.uow - WARNING - Исключение в Unit of Work: KeyboardInterrupt: 
+2025-10-14 13:36:18,750 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:36:18,751 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:36:18,797 - apscheduler.executors.default - ERROR - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-14 13:37:11 MSK)" raised an exception
 Traceback (most recent call last):
   File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 41, in wrapper
     result = func(self, session, *args, **kwargs)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 34, in parse_product
-    session.navigate(url)
-    ~~~~~~~~~~~~~~~~^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 93, in navigate
-    self.driver.get(url)
-    ~~~~~~~~~~~~~~~^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 483, in get
-    self.execute(Command.GET, {"url": url})
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 455, in execute
-    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 406, in execute
-    return self._request(command_info[0], url, body=data)
-           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 430, in _request
-    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
-    return self.request_encode_body(
-           ~~~~~~~~~~~~~~~~~~~~~~~~^
-        method, url, fields=fields, headers=headers, **urlopen_kw
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 37, in parse_product
+    'id': self._extract_id(session),
+          ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 68, in _extract_id
+    element_obj = WebDriverWait(session.driver, session.wait_time).until(
+        EC.visibility_of_element_located((By.XPATH, "//div[contains(text(),'Артикул')]"))
     )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
-    return self.urlopen(method, url, **extra_kw)
-           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
-    response = conn.urlopen(method, u.request_uri, **kw)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
-    retries = retries.increment(
-        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
-    )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\retry.py", line 474, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
-    response = self._make_request(
-        conn,
-    ...<10 lines>...
-        **response_kw,
-    )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 565, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1430, in getresponse
-    response.begin()
-    ~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 331, in begin
-    version, status, reason = self._read_status()
-                              ~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 292, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 719, in readinto
-    return self._sock.recv_into(b)
-           ~~~~~~~~~~~~~~~~~~~~^^^
-urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 137, in until
+    time.sleep(self._poll)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
 
 During handling of the above exception, another exception occurred:
 
@@ -884,398 +204,145 @@ Traceback (most recent call last):
   File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
     raise KeyboardInterrupt()
 KeyboardInterrupt
-2025-10-14 12:57:17,492 - aiogram.dispatcher - INFO - Polling stopped
-2025-10-14 12:57:17,494 - src.infrastructure.services.logger - ERROR - Ошибка выполнения задачи: 
-2025-10-14 12:57:17,775 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-10-14 12:59:21,189 - src.infrastructure.services.logger - INFO - Бот запущен
-2025-10-14 12:59:21,191 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
-2025-10-14 12:59:21,199 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
-2025-10-14 12:59:21,200 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-10-14 12:59:21,202 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
-2025-10-14 12:59:21,203 - apscheduler.scheduler - INFO - Scheduler started
-2025-10-14 12:59:21,203 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
-2025-10-14 12:59:21,204 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
-2025-10-14 12:59:21,204 - aiogram.dispatcher - INFO - Start polling
-2025-10-14 12:59:21,411 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-10-14 12:59:29,503 - aiogram.event - INFO - Update id=557185723 is handled. Duration 300 ms by bot id=5702092394
-2025-10-14 12:59:31,535 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
-2025-10-14 12:59:31,699 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 12:59:33,787 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
-2025-10-14 12:59:33,792 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-10-14 12:59:35,849 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX
-2025-10-14 12:59:35,850 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX
-2025-10-14 12:59:43,087 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении артикула: Message: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=141.0.7390.76); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff7f9b4e955+80021]
-	GetHandleVerifier [0x0x7ff7f9b4e9b0+80112]
-	(No symbol) [0x0x7ff7f98d060f]
-	(No symbol) [0x0x7ff7f98bc145]
-	(No symbol) [0x0x7ff7f98e177a]
-	(No symbol) [0x0x7ff7f9958b06]
-	(No symbol) [0x0x7ff7f9978fa2]
-	(No symbol) [0x0x7ff7f9951003]
-	(No symbol) [0x0x7ff7f99195d1]
-	(No symbol) [0x0x7ff7f991a3f3]
-	GetHandleVerifier [0x0x7ff7f9e0dd0d+2960461]
-	GetHandleVerifier [0x0x7ff7f9e07fca+2936586]
-	GetHandleVerifier [0x0x7ff7f9e28a07+3070279]
-	GetHandleVerifier [0x0x7ff7f9b6843e+185214]
-	GetHandleVerifier [0x0x7ff7f9b6fe8f+216527]
-	GetHandleVerifier [0x0x7ff7f9b57b94+117460]
-	GetHandleVerifier [0x0x7ff7f9b57d4f+117903]
-	GetHandleVerifier [0x0x7ff7f9b3dc28+11112]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:59:43,308 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении названия товара: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff7f9b4e955+80021]
-	GetHandleVerifier [0x0x7ff7f9b4e9b0+80112]
-	(No symbol) [0x0x7ff7f98d0425]
-	(No symbol) [0x0x7ff7f991864f]
-	(No symbol) [0x0x7ff7f99510f2]
-	(No symbol) [0x0x7ff7f994b89f]
-	(No symbol) [0x0x7ff7f994a94a]
-	(No symbol) [0x0x7ff7f989a765]
-	GetHandleVerifier [0x0x7ff7f9e0dd0d+2960461]
-	GetHandleVerifier [0x0x7ff7f9e07fca+2936586]
-	GetHandleVerifier [0x0x7ff7f9e28a07+3070279]
-	GetHandleVerifier [0x0x7ff7f9b6843e+185214]
-	GetHandleVerifier [0x0x7ff7f9b6fe8f+216527]
-	(No symbol) [0x0x7ff7f989970e]
-	GetHandleVerifier [0x0x7ff7f9f46af8+4241976]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:59:43,312 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении рейтинга: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff7f9b4e955+80021]
-	GetHandleVerifier [0x0x7ff7f9b4e9b0+80112]
-	(No symbol) [0x0x7ff7f98d0425]
-	(No symbol) [0x0x7ff7f991864f]
-	(No symbol) [0x0x7ff7f99510f2]
-	(No symbol) [0x0x7ff7f994b89f]
-	(No symbol) [0x0x7ff7f994a94a]
-	(No symbol) [0x0x7ff7f989a765]
-	GetHandleVerifier [0x0x7ff7f9e0dd0d+2960461]
-	GetHandleVerifier [0x0x7ff7f9e07fca+2936586]
-	GetHandleVerifier [0x0x7ff7f9e28a07+3070279]
-	GetHandleVerifier [0x0x7ff7f9b6843e+185214]
-	GetHandleVerifier [0x0x7ff7f9b6fe8f+216527]
-	(No symbol) [0x0x7ff7f989970e]
-	GetHandleVerifier [0x0x7ff7f9f46af8+4241976]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:59:43,316 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении цены с картой: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff7f9b4e955+80021]
-	GetHandleVerifier [0x0x7ff7f9b4e9b0+80112]
-	(No symbol) [0x0x7ff7f98d0425]
-	(No symbol) [0x0x7ff7f991864f]
-	(No symbol) [0x0x7ff7f99510f2]
-	(No symbol) [0x0x7ff7f994b89f]
-	(No symbol) [0x0x7ff7f994a94a]
-	(No symbol) [0x0x7ff7f989a765]
-	GetHandleVerifier [0x0x7ff7f9e0dd0d+2960461]
-	GetHandleVerifier [0x0x7ff7f9e07fca+2936586]
-	GetHandleVerifier [0x0x7ff7f9e28a07+3070279]
-	GetHandleVerifier [0x0x7ff7f9b6843e+185214]
-	GetHandleVerifier [0x0x7ff7f9b6fe8f+216527]
-	(No symbol) [0x0x7ff7f989970e]
-	GetHandleVerifier [0x0x7ff7f9f46af8+4241976]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:59:43,320 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении цены без карты: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff7f9b4e955+80021]
-	GetHandleVerifier [0x0x7ff7f9b4e9b0+80112]
-	(No symbol) [0x0x7ff7f98d0425]
-	(No symbol) [0x0x7ff7f991864f]
-	(No symbol) [0x0x7ff7f99510f2]
-	(No symbol) [0x0x7ff7f994b89f]
-	(No symbol) [0x0x7ff7f994a94a]
-	(No symbol) [0x0x7ff7f989a765]
-	GetHandleVerifier [0x0x7ff7f9e0dd0d+2960461]
-	GetHandleVerifier [0x0x7ff7f9e07fca+2936586]
-	GetHandleVerifier [0x0x7ff7f9e28a07+3070279]
-	GetHandleVerifier [0x0x7ff7f9b6843e+185214]
-	GetHandleVerifier [0x0x7ff7f9b6fe8f+216527]
-	(No symbol) [0x0x7ff7f989970e]
-	GetHandleVerifier [0x0x7ff7f9f46af8+4241976]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:59:43,324 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении изображения: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff7f9b4e955+80021]
-	GetHandleVerifier [0x0x7ff7f9b4e9b0+80112]
-	(No symbol) [0x0x7ff7f98d0425]
-	(No symbol) [0x0x7ff7f991864f]
-	(No symbol) [0x0x7ff7f99510f2]
-	(No symbol) [0x0x7ff7f994b89f]
-	(No symbol) [0x0x7ff7f994a94a]
-	(No symbol) [0x0x7ff7f989a765]
-	GetHandleVerifier [0x0x7ff7f9e0dd0d+2960461]
-	GetHandleVerifier [0x0x7ff7f9e07fca+2936586]
-	GetHandleVerifier [0x0x7ff7f9e28a07+3070279]
-	GetHandleVerifier [0x0x7ff7f9b6843e+185214]
-	GetHandleVerifier [0x0x7ff7f9b6fe8f+216527]
-	(No symbol) [0x0x7ff7f989970e]
-	GetHandleVerifier [0x0x7ff7f9f46af8+4241976]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:59:43,330 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении категорий: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
-Stacktrace:
-	GetHandleVerifier [0x0x7ff7f9b4e955+80021]
-	GetHandleVerifier [0x0x7ff7f9b4e9b0+80112]
-	(No symbol) [0x0x7ff7f98d0425]
-	(No symbol) [0x0x7ff7f991864f]
-	(No symbol) [0x0x7ff7f99510f2]
-	(No symbol) [0x0x7ff7f994b89f]
-	(No symbol) [0x0x7ff7f994a94a]
-	(No symbol) [0x0x7ff7f989a765]
-	GetHandleVerifier [0x0x7ff7f9e0dd0d+2960461]
-	GetHandleVerifier [0x0x7ff7f9e07fca+2936586]
-	GetHandleVerifier [0x0x7ff7f9e28a07+3070279]
-	GetHandleVerifier [0x0x7ff7f9b6843e+185214]
-	GetHandleVerifier [0x0x7ff7f9b6fe8f+216527]
-	(No symbol) [0x0x7ff7f989970e]
-	GetHandleVerifier [0x0x7ff7f9f46af8+4241976]
-	BaseThreadInitThunk [0x0x7ffd986de8d7+23]
-	RtlUserThreadStart [0x0x7ffd99068d9c+44]
-
-2025-10-14 12:59:43,331 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': None, 'name': None, 'rating': None, 'price_with_card': None, 'price_without_card': None, 'image_url': None, 'categories': []}
-2025-10-14 12:59:44,666 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-10-14 12:59:44,667 - src.application.use_cases.create_product - INFO - Парсинг данных для https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX: {'id': None, 'name': None, 'rating': None, 'price_with_card': None, 'price_without_card': None, 'image_url': None, 'categories': []} завершен.
-2025-10-14 12:59:44,836 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID None не найден
-2025-10-14 12:59:44,849 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1728110604', '1609078406', '2582743922']) получен по id: 515084006
-2025-10-14 12:59:44,854 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь 515084006 успешно сохранен/обновлен
-2025-10-14 12:59:44,855 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id=None, user_id='515084006', name=None, link='https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX', image_url=None, rating=None, categories=[], prices=[Price(id=None, product_id=None, with_card=None, without_card=None, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 14, 12, 59, 44, 837561))])
-2025-10-14 12:59:44,860 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id=None, with_card=None, without_card=None, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 14, 12, 59, 44, 837561))
-2025-10-14 12:59:44,860 - src.infrastructure.database.repositories.user_products_repository - INFO - Привязка товара ID None пользователю ID 515084006
-2025-10-14 12:59:44,861 - src.core.decorators - INFO - Функция create_product: выполняется commit транзакции
-2025-10-14 12:59:44,876 - src.core.uow - ERROR - Unit of Work: Транзакция не зафиксирована, commit не выполнен. Ошибка: (psycopg2.errors.NotNullViolation) null value in column "id" of relation "products" violates not-null constraint
-DETAIL:  Failing row contains (null, null, https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine..., null, null, {}, 2025-10-14 12:59:44.867161).
-
-[SQL: INSERT INTO products (name, link, image_url, rating, categories, created_at) VALUES (%(name)s, %(link)s, %(image_url)s, %(rating)s, %(categories)s, %(created_at)s)]
-[parameters: {'name': None, 'link': 'https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX', 'image_url': None, 'rating': None, 'categories': [], 'created_at': datetime.datetime(2025, 10, 14, 12, 59, 44, 867161)}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2025-10-14 12:59:44,877 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:59:44,877 - src.core.uow - WARNING - Исключение в Unit of Work: IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "id" of relation "products" violates not-null constraint
-DETAIL:  Failing row contains (null, null, https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine..., null, null, {}, 2025-10-14 12:59:44.867161).
-
-[SQL: INSERT INTO products (name, link, image_url, rating, categories, created_at) VALUES (%(name)s, %(link)s, %(image_url)s, %(rating)s, %(categories)s, %(created_at)s)]
-[parameters: {'name': None, 'link': 'https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX', 'image_url': None, 'rating': None, 'categories': [], 'created_at': datetime.datetime(2025, 10, 14, 12, 59, 44, 867161)}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2025-10-14 12:59:44,878 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 12:59:44,879 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 12:59:44,879 - src.core.decorators - ERROR - Ошибка в функции create_product: (psycopg2.errors.NotNullViolation) null value in column "id" of relation "products" violates not-null constraint
-DETAIL:  Failing row contains (null, null, https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine..., null, null, {}, 2025-10-14 12:59:44.867161).
-
-[SQL: INSERT INTO products (name, link, image_url, rating, categories, created_at) VALUES (%(name)s, %(link)s, %(image_url)s, %(rating)s, %(categories)s, %(created_at)s)]
-[parameters: {'name': None, 'link': 'https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX', 'image_url': None, 'rating': None, 'categories': [], 'created_at': datetime.datetime(2025, 10, 14, 12, 59, 44, 867161)}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2025-10-14 12:59:44,880 - src.infrastructure.services.logger - ERROR - Ошибка при добавлении товара
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
-    self.dialect.do_execute(
-    ~~~~~~~~~~~~~~~~~~~~~~~^
-        cursor, str_statement, effective_parameters, context
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
-    cursor.execute(statement, parameters)
-    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.errors.NotNullViolation: null value in column "id" of relation "products" violates not-null constraint
-DETAIL:  Failing row contains (null, null, https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine..., null, null, {}, 2025-10-14 12:59:44.867161).
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 34, in add_product_process
-    result = product_service.create_product(str(message.from_user.id), url)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 71, in wrapper
-    uow.commit()  # Явный commit
-    ~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\uow.py", line 124, in commit
-    self._session.commit()
-    ~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
-    trans.commit(_to_root=True)
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "<string>", line 2, in commit
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
-    self._prepare_impl()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "<string>", line 2, in _prepare_impl
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
-    self.session.flush()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
-    self._flush(objects)
-    ~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
-    with util.safe_reraise():
-         ~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
-    flush_context.execute()
-    ~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
-    rec.execute(self)
-    ~~~~~~~~~~~^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
-    util.preloaded.orm_persistence.save_obj(
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        self.mapper,
-        ^^^^^^^^^^^^
-        uow.states_for_mapper_hierarchy(self.mapper, False, False),
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        uow,
-        ^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
-    _emit_insert_statements(
-    ~~~~~~~~~~~~~~~~~~~~~~~^
-        base_mapper,
-        ^^^^^^^^^^^^
-    ...<3 lines>...
-        insert,
-        ^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
-    result = connection.execute(
-        statement,
-        params,
-        execution_options=execution_options,
-    )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1413, in execute
-    return meth(
-        self,
-        distilled_parameters,
-        execution_options or NO_OPTIONS,
-    )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
-    return connection._execute_clauseelement(
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        self, distilled_params, execution_options
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
-    ret = self._execute_context(
-        dialect,
-    ...<8 lines>...
-        cache_hit=cache_hit,
-    )
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1840, in _execute_context
-    return self._exec_single_context(
-           ~~~~~~~~~~~~~~~~~~~~~~~~~^
-        dialect, context, statement, parameters
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1980, in _exec_single_context
-    self._handle_dbapi_exception(
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        e, str_statement, effective_parameters, cursor, context
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2349, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1961, in _exec_single_context
-    self.dialect.do_execute(
-    ~~~~~~~~~~~~~~~~~~~~~~~^
-        cursor, str_statement, effective_parameters, context
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 944, in do_execute
-    cursor.execute(statement, parameters)
-    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "id" of relation "products" violates not-null constraint
-DETAIL:  Failing row contains (null, null, https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine..., null, null, {}, 2025-10-14 12:59:44.867161).
-
-[SQL: INSERT INTO products (name, link, image_url, rating, categories, created_at) VALUES (%(name)s, %(link)s, %(image_url)s, %(rating)s, %(categories)s, %(created_at)s)]
-[parameters: {'name': None, 'link': 'https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX', 'image_url': None, 'rating': None, 'categories': [], 'created_at': datetime.datetime(2025, 10, 14, 12, 59, 44, 867161)}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2025-10-14 12:59:45,067 - aiogram.event - INFO - Update id=557185724 is handled. Duration 13637 ms by bot id=5702092394
-2025-10-14 12:59:55,094 - aiogram.dispatcher - INFO - Polling stopped
-2025-10-14 12:59:55,096 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
-2025-10-14 12:59:55,096 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
-2025-10-14 12:59:55,233 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-10-14 13:00:01,282 - src.infrastructure.services.logger - INFO - Бот запущен
-2025-10-14 13:00:01,283 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
-2025-10-14 13:00:01,289 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
-2025-10-14 13:00:01,291 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-10-14 13:00:01,292 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
-2025-10-14 13:00:01,292 - apscheduler.scheduler - INFO - Scheduler started
-2025-10-14 13:00:01,293 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
-2025-10-14 13:00:01,293 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
-2025-10-14 13:00:01,294 - aiogram.dispatcher - INFO - Start polling
-2025-10-14 13:00:01,535 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
-2025-10-14 13:00:53,093 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
-2025-10-14 13:00:53,282 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 13:00:53,391 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1728110604', '1609078406', '2582743922']) получен по id: 515084006
-2025-10-14 13:00:53,392 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
-2025-10-14 13:00:53,392 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
-2025-10-14 13:00:53,394 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 13:00:53,395 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
-2025-10-14 13:00:53,396 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 13:00:53,396 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
-2025-10-14 13:00:53,615 - aiogram.event - INFO - Update id=557185725 is handled. Duration 523 ms by bot id=5702092394
-2025-10-14 13:00:55,018 - aiogram.event - INFO - Update id=557185726 is handled. Duration 184 ms by bot id=5702092394
-2025-10-14 13:00:59,788 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
-2025-10-14 13:01:01,515 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
-2025-10-14 13:01:01,516 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
-2025-10-14 13:01:02,482 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX
-2025-10-14 13:01:02,483 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX
-2025-10-14 13:01:08,779 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 2582743922
-2025-10-14 13:01:09,027 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Креатин моногидрат порошок creatine 300 г, со вкусом апельсина
-2025-10-14 13:01:09,250 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 5.0
-2025-10-14 13:01:09,555 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 593
-2025-10-14 13:01:09,786 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 661
-2025-10-14 13:01:09,904 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-0/wc1000/8056672128.jpg
-2025-10-14 13:01:10,547 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Спорт и отдых', 'Спортивное питание', 'Креатины', 'vitmins']
-2025-10-14 13:01:10,548 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '2582743922', 'name': 'Креатин моногидрат порошок creatine 300 г, со вкусом апельсина', 'rating': 5.0, 'price_with_card': 593, 'price_without_card': 661, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/8056672128.jpg', 'categories': ['Спорт и отдых', 'Спортивное питание', 'Креатины', 'vitmins']}
-2025-10-14 13:01:12,742 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
-2025-10-14 13:01:12,742 - src.application.use_cases.create_product - INFO - Парсинг данных для https://www.ozon.ru/product/kreatin-monogidrat-poroshok-creatine-300-g-so-vkusom-apelsina-2582743922/?at=QktJOZoRMcGxm1y6fQzGplGSDkRXZXfZq63jrsEkxYDX: {'id': '2582743922', 'name': 'Креатин моногидрат порошок creatine 300 г, со вкусом апельсина', 'rating': 5.0, 'price_with_card': 593, 'price_without_card': 661, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-0/wc1000/8056672128.jpg', 'categories': ['Спорт и отдых', 'Спортивное питание', 'Креатины', 'vitmins']} завершен.
-2025-10-14 13:01:12,764 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Креатин моногидрат порошок creatine 300 г, со вкусом апельсина (ID: 2582743922)
-2025-10-14 13:01:12,764 - src.application.use_cases.create_product - ERROR - Товар с ID 2582743922 уже существует
-2025-10-14 13:01:12,765 - src.core.uow - WARNING - Исключение в Unit of Work: ProductCreationError: Товар с ID 2582743922 уже существует
-2025-10-14 13:01:12,768 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
-2025-10-14 13:01:12,769 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
-2025-10-14 13:01:12,769 - src.core.decorators - ERROR - Ошибка в функции create_product: Товар с ID 2582743922 уже существует
-2025-10-14 13:01:12,770 - src.infrastructure.services.logger - ERROR - Ошибка при добавлении товара
-Traceback (most recent call last):
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\handlers\products.py", line 34, in add_product_process
-    result = product_service.create_product(str(message.from_user.id), url)
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
-    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 47, in create_product
-    return use_case.execute(user_id, url)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\create_product.py", line 75, in execute
-    raise ProductCreationError(f'Товар с ID {product_data["id"]} уже существует')
-src.domain.exceptions.ProductCreationError: Товар с ID 2582743922 уже существует
-2025-10-14 13:01:12,786 - apscheduler.executors.default - WARNING - Run time of job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-14 13:02:01 MSK)" was missed by 0:00:11.495713
-2025-10-14 13:01:12,895 - aiogram.event - INFO - Update id=557185727 is handled. Duration 13205 ms by bot id=5702092394
-2025-10-14 13:01:21,358 - aiogram.dispatcher - INFO - Polling stopped
-2025-10-14 13:01:21,360 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
-2025-10-14 13:01:21,361 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
-2025-10-14 13:01:21,515 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-14 13:36:18,878 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-14 13:36:18,878 - src.infrastructure.services.logger - ERROR - Ошибка выполнения задачи: 
+2025-10-14 13:36:19,138 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-14 13:44:09,725 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-14 13:44:09,727 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-14 13:44:09,734 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-14 13:44:09,736 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-14 13:44:09,738 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-14 13:44:09,738 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-14 13:44:09,738 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-14 13:44:09,739 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-14 13:44:09,739 - aiogram.dispatcher - INFO - Start polling
+2025-10-14 13:44:09,987 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-14 13:44:10,283 - aiogram.event - INFO - Update id=557185734 is handled. Duration 231 ms by bot id=5702092394
+2025-10-14 13:44:15,770 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
+2025-10-14 13:44:15,930 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:44:15,930 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-14 13:44:16,069 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 13:44:16,089 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 13:44:16,092 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-14 13:44:16,094 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:44:16,094 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:44:16,095 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:44:16,191 - aiogram.event - INFO - Update id=557185735 is handled. Duration 423 ms by bot id=5702092394
+2025-10-14 13:44:17,368 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:44:17,388 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 13:44:17,393 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-14 13:44:17,397 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:44:17,398 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:44:17,398 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:44:17,502 - aiogram.event - INFO - Update id=557185736 is handled. Duration 225 ms by bot id=5702092394
+2025-10-14 13:44:18,540 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:44:18,540 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-14 13:44:18,561 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 13:44:18,587 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 13:44:18,593 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-14 13:44:18,599 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:44:18,601 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:44:18,602 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:44:18,684 - aiogram.event - INFO - Update id=557185737 is handled. Duration 232 ms by bot id=5702092394
+2025-10-14 13:44:19,448 - aiogram.event - INFO - Update id=557185738 is handled. Duration 187 ms by bot id=5702092394
+2025-10-14 13:44:27,971 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:44:30,978 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
+2025-10-14 13:44:30,979 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-14 13:44:31,973 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/napolnitel-dlya-koshachego-tualeta-komkuyushchiysya-tofu-12-l-cat-step-tofu-original-149648776/?at=16tL3WLx8uXRM2YAsQkGELZfnnp480HzYVrRgIWnMkgV
+2025-10-14 13:44:31,976 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/napolnitel-dlya-koshachego-tualeta-komkuyushchiysya-tofu-12-l-cat-step-tofu-original-149648776/?at=16tL3WLx8uXRM2YAsQkGELZfnnp480HzYVrRgIWnMkgV
+2025-10-14 13:44:40,718 - src.infrastructure.parsers.ozon_parser - INFO - Найден артикул: 149648776
+2025-10-14 13:44:40,796 - src.infrastructure.parsers.ozon_parser - INFO - Найдено название товара: Наполнитель для кошачьего туалета комкующийся тофу 12 л Cat Step Tofu Original
+2025-10-14 13:44:40,873 - src.infrastructure.parsers.ozon_parser - INFO - Найден рейтинг: 4.9
+2025-10-14 13:44:40,946 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена с картой: 1369
+2025-10-14 13:44:41,017 - src.infrastructure.parsers.ozon_parser - INFO - Найдена цена без карты: 1433
+2025-10-14 13:44:41,066 - src.infrastructure.parsers.ozon_parser - INFO - Найдено изображение: https://ir.ozone.ru/s3/multimedia-1-w/wc1000/7352980268.jpg
+2025-10-14 13:44:41,278 - src.infrastructure.parsers.ozon_parser - INFO - Найдены категории: ['Товары для животных', 'Для кошек', 'Туалеты и наполнители', 'Наполнители для туалета', 'Cat Step']
+2025-10-14 13:44:41,279 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': '149648776', 'name': 'Наполнитель для кошачьего туалета комкующийся тофу 12 л Cat Step Tofu Original', 'rating': 4.9, 'price_with_card': 1369, 'price_without_card': 1433, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-w/wc1000/7352980268.jpg', 'categories': ['Товары для животных', 'Для кошек', 'Туалеты и наполнители', 'Наполнители для туалета', 'Cat Step']}
+2025-10-14 13:44:43,260 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-14 13:44:43,260 - src.application.use_cases.create_product - INFO - Парсинг данных для https://www.ozon.ru/product/napolnitel-dlya-koshachego-tualeta-komkuyushchiysya-tofu-12-l-cat-step-tofu-original-149648776/?at=16tL3WLx8uXRM2YAsQkGELZfnnp480HzYVrRgIWnMkgV: {'id': '149648776', 'name': 'Наполнитель для кошачьего туалета комкующийся тофу 12 л Cat Step Tofu Original', 'rating': 4.9, 'price_with_card': 1369, 'price_without_card': 1433, 'image_url': 'https://ir.ozone.ru/s3/multimedia-1-w/wc1000/7352980268.jpg', 'categories': ['Товары для животных', 'Для кошек', 'Туалеты и наполнители', 'Наполнители для туалета', 'Cat Step']} завершен.
+2025-10-14 13:44:43,267 - src.infrastructure.database.repositories.product_repository - WARNING - Товар с ID 149648776 не найден
+2025-10-14 13:44:43,279 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1728110604', '1609078406']) получен по id: 515084006
+2025-10-14 13:44:43,285 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь 515084006 успешно сохранен/обновлен
+2025-10-14 13:44:43,286 - src.infrastructure.database.repositories.product_repository - INFO - Сохранение товара: Product(id='149648776', user_id='515084006', name='Наполнитель для кошачьего туалета комкующийся тофу 12 л Cat Step Tofu Original', link='https://www.ozon.ru/product/napolnitel-dlya-koshachego-tualeta-komkuyushchiysya-tofu-12-l-cat-step-tofu-original-149648776/?at=16tL3WLx8uXRM2YAsQkGELZfnnp480HzYVrRgIWnMkgV', image_url='https://ir.ozone.ru/s3/multimedia-1-w/wc1000/7352980268.jpg', rating=4.9, categories=['Товары для животных', 'Для кошек', 'Туалеты и наполнители', 'Наполнители для туалета', 'Cat Step'], prices=[Price(id=None, product_id='149648776', with_card=1369, without_card=1433, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 14, 13, 44, 43, 268020))])
+2025-10-14 13:44:43,290 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='149648776', with_card=1369, without_card=1433, previous_with_card=None, previous_without_card=None, created_at=datetime.datetime(2025, 10, 14, 13, 44, 43, 268020))
+2025-10-14 13:44:43,291 - src.infrastructure.database.repositories.user_products_repository - INFO - Привязка товара ID 149648776 пользователю ID 515084006
+2025-10-14 13:44:43,292 - src.core.decorators - INFO - Функция create_product: выполняется commit транзакции
+2025-10-14 13:44:43,362 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:44:43,363 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:44:43,363 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:44:43,571 - aiogram.event - INFO - Update id=557185739 is handled. Duration 15758 ms by bot id=5702092394
+2025-10-14 13:44:49,004 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-14 13:44:49,007 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-14 13:44:49,007 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-14 13:44:49,149 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-14 13:45:02,176 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-14 13:45:02,178 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-14 13:45:02,183 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-14 13:45:02,185 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-14 13:45:02,188 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-14 13:45:02,188 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-14 13:45:02,189 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-14 13:45:02,189 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-14 13:45:02,189 - aiogram.dispatcher - INFO - Start polling
+2025-10-14 13:45:02,379 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'testtest'
+2025-10-14 13:45:04,335 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
+2025-10-14 13:45:04,428 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:45:04,491 - src.infrastructure.database.repositories.user_repository - INFO - Пользователь User(id='515084006', username='heavenyoung', chat_id='515084006', products=['1728110604', '1609078406', '149648776']) получен по id: 515084006
+2025-10-14 13:45:04,492 - src.application.use_cases.create_user - INFO - Пользователь 515084006 уже существует, пропускаем создание
+2025-10-14 13:45:04,492 - src.core.decorators - INFO - Функция create_user: выполняется commit транзакции
+2025-10-14 13:45:04,498 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:45:04,499 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:45:04,499 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:45:04,500 - src.infrastructure.services.logger - INFO - Пользователь 515084006 создан или уже существует
+2025-10-14 13:45:04,695 - aiogram.event - INFO - Update id=557185740 is handled. Duration 361 ms by bot id=5702092394
+2025-10-14 13:45:06,443 - aiogram.event - INFO - Update id=557185741 is handled. Duration 272 ms by bot id=5702092394
+2025-10-14 13:45:08,247 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:45:08,248 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-14 13:45:08,296 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 13:45:08,321 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 13:45:08,344 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Наполнитель для кошачьего туалета комкующийся тофу 12 л Cat Step Tofu Original (ID: 149648776)
+2025-10-14 13:45:08,352 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-14 13:45:08,355 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:45:08,357 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:45:08,357 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:45:08,530 - aiogram.event - INFO - Update id=557185742 is handled. Duration 285 ms by bot id=5702092394
+2025-10-14 13:45:09,936 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:45:09,950 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Наполнитель для кошачьего туалета комкующийся тофу 12 л Cat Step Tofu Original (ID: 149648776)
+2025-10-14 13:45:09,955 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-14 13:45:09,959 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:45:09,959 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:45:09,960 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:45:10,055 - aiogram.event - INFO - Update id=557185743 is handled. Duration 197 ms by bot id=5702092394
+2025-10-14 13:45:11,069 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:45:11,084 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Наполнитель для кошачьего туалета комкующийся тофу 12 л Cat Step Tofu Original (ID: 149648776)
+2025-10-14 13:45:11,089 - src.core.decorators - INFO - Функция get_full_product: commit пропущен, выполняется rollback
+2025-10-14 13:45:11,091 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:45:11,093 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:45:11,094 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:45:11,179 - aiogram.event - INFO - Update id=557185744 is handled. Duration 176 ms by bot id=5702092394
+2025-10-14 13:45:12,184 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:45:12,199 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Наполнитель для кошачьего туалета комкующийся тофу 12 л Cat Step Tofu Original (ID: 149648776)
+2025-10-14 13:45:12,200 - src.infrastructure.database.repositories.price_repository - INFO - Попытка удаления всех цен для товара с ID: 149648776
+2025-10-14 13:45:12,203 - src.infrastructure.database.repositories.price_repository - INFO - Все цены для товара с ID 149648776 успешно удалены
+2025-10-14 13:45:12,204 - src.application.use_cases.delete_product - INFO - Цены для товара 149648776 удалены
+2025-10-14 13:45:12,205 - src.infrastructure.database.repositories.product_repository - INFO - Попытка удаления товара с ID: 149648776
+2025-10-14 13:45:12,219 - src.infrastructure.database.repositories.product_repository - INFO - Товар с ID 149648776 успешно удален
+2025-10-14 13:45:12,222 - src.infrastructure.database.repositories.user_repository - WARNING - Пользователь с id  не найден
+2025-10-14 13:45:12,223 - src.application.use_cases.delete_product - INFO - Операция удаления выполнена для ID 149648776
+2025-10-14 13:45:12,224 - src.core.decorators - INFO - Функция delete_product: выполняется commit транзакции
+2025-10-14 13:45:12,263 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:45:12,265 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:45:12,266 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:45:12,268 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-14 13:45:12,268 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-14 13:45:12,289 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-14 13:45:12,304 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-14 13:45:12,313 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-14 13:45:12,317 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-14 13:45:12,318 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-14 13:45:12,319 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-14 13:45:12,405 - aiogram.event - INFO - Update id=557185745 is handled. Duration 288 ms by bot id=5702092394
+2025-10-14 13:45:18,832 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-14 13:45:18,834 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-14 13:45:18,835 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-14 13:45:18,962 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'testtest'

@@ -9,7 +9,7 @@ async def command_start_handler(message: Message) -> None:
     user = User(
         id=str(message.from_user.id),
         username=message.from_user.username,
-        chat_id=str(message.chat.id), #От этого поля нужно будет избавиться!!!
+        chat_id=str(message.chat.id), 
     )
     try:
         product_service.create_user(user)
@@ -22,4 +22,4 @@ async def command_start_handler(message: Message) -> None:
     await message.answer(
         f'👋 Добро пожаловать, {message.from_user.full_name}! Я бот для отслеживания цен Ozon.',
         reply_markup=keyboard
-                         )
+    )

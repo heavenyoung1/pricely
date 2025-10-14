@@ -7,16 +7,16 @@ def main_menu() -> ReplyKeyboardMarkup:
     '''
     buttons = [
         [
-            KeyboardButton(text="➕ Добавить товар"),
-            KeyboardButton(text="📋 Мои товары")
+            KeyboardButton(text='➕ Добавить товар'),
+            KeyboardButton(text='📋 Мои товары')
         ],
         [
-            KeyboardButton(text="➖ Удалить товар"),
-            KeyboardButton(text="🗑️ Очистить все")
+            KeyboardButton(text='➖ Удалить товар'),
+            KeyboardButton(text='🗑️ Очистить все')
         ],
         [
-            KeyboardButton(text="📊 Статистика"),
-            KeyboardButton(text="ℹ️ Помощь")
+            KeyboardButton(text='📊 Статистика'),
+            KeyboardButton(text='ℹ️ Помощь')
         ]
     ]
     
