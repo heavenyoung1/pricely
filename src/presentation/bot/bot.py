@@ -22,7 +22,7 @@ from .handlers.products import (
     add_product_process, 
     get_my_product_list, 
     handle_product_button,
-    handle_update_price,
+    #handle_update_price,
     )
 
 from src.presentation.bot.handlers.delete import (
@@ -36,45 +36,45 @@ from src.presentation.bot.handlers.error import fallback
 
 # Функция для регистрации всех обработчиков
 def register_message_handlers(dp):
-    """Регистрация обработчиков для сообщений"""
+    '''Регистрация обработчиков для сообщений'''
     dp.message.register(command_start_handler, CommandStart())
-    dp.message.register(command_help_handler, Command("help"))
+
 
     # Обработка текстовых кнопок
-    dp.message.register(add_product_request, F.text == "➕ Добавить товар")
-    dp.message.register(get_my_product_list, F.text == "📋 Мои товары")
-    dp.message.register(choose_product_to_delete, F.text == "➖ Удалить товар")
-    dp.message.register(command_help_handler, F.text == "📖 Справка")
+    dp.message.register(add_product_request, F.text == '➕ Добавить товар')
+    dp.message.register(get_my_product_list, F.text == '📋 Мои товары')
+    dp.message.register(choose_product_to_delete, F.text == '➖ Удалить товар')
+    dp.message.register(command_help_handler, F.text == '📖 Справка')
 
     # Добавление продукта через FSM
-    dp.message.register(add_product_request, Command("add_product"))
+    dp.message.register(add_product_request, Command('add_product'))
     dp.message.register(add_product_process, ProductAddState.waiting_for_url)
 
     # Список товаров
-    dp.message.register(get_my_product_list, Command("my_products"))
+    dp.message.register(get_my_product_list, Command('my_products'))
 
     # Удаление товара
-    dp.message.register(choose_product_to_delete, Command("delete"))
+    dp.message.register(choose_product_to_delete, Command('delete'))
 
 def register_callback_handlers(dp):
-    """Регистрация обработчиков для callback-запросов"""
-    dp.callback_query.register(handle_delete_product_request, lambda call: call.data.startswith("delete_product:"))
-    dp.callback_query.register(handle_confirm_delete, lambda call: call.data.startswith("confirm_delete:"))
-    dp.callback_query.register(handle_cancel_delete, lambda call: call.data.startswith("cancel_delete:"))
+    '''Регистрация обработчиков для callback-запросов'''
+    dp.callback_query.register(handle_delete_product_request, lambda call: call.data.startswith('delete_product:'))
+    dp.callback_query.register(handle_confirm_delete, lambda call: call.data.startswith('confirm_delete:'))
+    dp.callback_query.register(handle_cancel_delete, lambda call: call.data.startswith('cancel_delete:'))
 
     # Навигация
-    dp.callback_query.register(handle_back_to_products, F.data == "back_to_products")
+    dp.callback_query.register(handle_back_to_products, F.data == 'back_to_products')
 
     # Действия с товарами
-    dp.callback_query.register(handle_product_button, lambda call: call.data.startswith("product:"))
-    dp.callback_query.register(handle_update_price, lambda call: call.data.startswith("update_price:"))
+    dp.callback_query.register(handle_product_button, lambda call: call.data.startswith('product:'))
+    #dp.callback_query.register(handle_update_price, lambda call: call.data.startswith('update_price:'))
 
 def register_fallback_handler(dp):
-    """Регистрация фолбек обработчика"""
+    '''Регистрация фолбек обработчика'''
     dp.message.register(fallback)
 
 
-    logger.info("Все хендлеры зарегистрированы.")
+    logger.info('Все хендлеры зарегистрированы.')
 
 async def main() -> None:
     bot = Bot(token=BOT_TOKEN)
@@ -100,7 +100,7 @@ async def main() -> None:
 
     # Запускаем планировщик
     scheduler.start()
-    logger.info("✅ Планировщик успешно запущен!")
+    logger.info('✅ Планировщик успешно запущен!')
 
     await dp.start_polling(bot)
 

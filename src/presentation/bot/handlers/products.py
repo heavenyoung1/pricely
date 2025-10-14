@@ -101,41 +101,6 @@ async def handle_product_button(call: CallbackQuery):
         logger.exception('Ошибка в handle_product_button')
         await call.answer(f'Ошибка: {e}', show_alert=True)
 
-
-# ================= ОБНОВИТЬ ЦЕНУ ================= #
-
-async def handle_update_price(call: CallbackQuery):
-    '''Обновляет цену товара и отображает результат.'''
-    product_id = call.data.split(':', 1)[1]
-    logger.info(f'Начинаем обновление цены для товара {product_id}')
-
-    try:
-        await call.answer('⏳ Обновляем цену...')
-        
-        # update_product_price возвращает {"full_product": {...}, "is_changed": bool}
-        result = product_service.update_product_price(product_id)
-        
-        # Извлекаем полные данные о товаре
-        full_product_info = result['product_data']
-        is_changed = result['is_changed']
-        
-        logger.info(f'Получены данные товара: {full_product_info}')
-
-        new_text = _build_price_update_message(full_product_info, full_product_info)
-        new_markup = build_product_actions_keyboard(product_id, full_product_info['link'])
-
-        await _safe_edit_message(
-            call.message, 
-            new_text, 
-            new_markup,
-            is_changed,
-        )
-
-    except Exception as e:
-        logger.exception('❌ Ошибка при обновлении цены')
-        await _show_error_message(call, product_id)
-
-
 # ================= ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ================= #
 
 def _truncate_name(name: str, max_length: int = 60) -> str:
@@ -214,3 +179,37 @@ async def _show_error_message(call: CallbackQuery, product_id: str):
         )
     except Exception:
         logger.exception('Не удалось обновить сообщение с ошибкой')
+
+# =================   ДЛЯ ДЕБАГА  ================= #
+# ================= ОБНОВИТЬ ЦЕНУ ================= #
+
+# async def handle_update_price(call: CallbackQuery):
+#     '''Обновляет цену товара и отображает результат.'''
+#     product_id = call.data.split(':', 1)[1]
+#     logger.info(f'Начинаем обновление цены для товара {product_id}')
+
+#     try:
+#         await call.answer('⏳ Обновляем цену...')
+        
+#         # update_product_price возвращает {"full_product": {...}, "is_changed": bool}
+#         result = product_service.update_product_price(product_id)
+        
+#         # Извлекаем полные данные о товаре
+#         full_product_info = result['product_data']
+#         is_changed = result['is_changed']
+        
+#         logger.info(f'Получены данные товара: {full_product_info}')
+
+#         new_text = _build_price_update_message(full_product_info, full_product_info)
+#         new_markup = build_product_actions_keyboard(product_id, full_product_info['link'])
+
+#         await _safe_edit_message(
+#             call.message, 
+#             new_text, 
+#             new_markup,
+#             is_changed,
+#         )
+
+#     except Exception as e:
+#         logger.exception('❌ Ошибка при обновлении цены')
+#         await _show_error_message(call, product_id)

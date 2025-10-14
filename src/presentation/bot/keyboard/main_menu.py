@@ -16,7 +16,7 @@ def main_menu() -> ReplyKeyboardMarkup:
         ],
         [
             KeyboardButton(text='📊 Статистика'),
-            KeyboardButton(text='ℹ️ Помощь')
+            KeyboardButton(text='📖 Справка')
         ]
     ]
     
