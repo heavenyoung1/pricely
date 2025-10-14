@@ -20,6 +20,16 @@ async def command_start_handler(message: Message) -> None:
 
     keyboard = main_menu()
     await message.answer(
-        f'👋 Добро пожаловать, {message.from_user.full_name}! Я бот для отслеживания цен Ozon.',
+        f'''
+👋 Добро пожаловать, {message.from_user.full_name}! Я — Pricely, твой личный помощник по отслеживанию цен на Ozon 🛒
+
+📦 Просто пришли мне ссылку на товар, и я:
+    • Добавлю его в список отслеживания  
+    • Буду регулярно проверять цену  
+    • Уведомлю тебя, когда она снизится 💸
+
+✨ Начнём? Отправь ссылку на любой товар с Ozon!
+        ''',
         reply_markup=keyboard
     )
+
