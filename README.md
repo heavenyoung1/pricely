@@ -52,3 +52,13 @@
 ```bash
 git clone https://github.com/heavenyoung1/pricely
 cd pricely
+uv sync
+```
+
+## 🧾 Переменные окружения
+Скопируйте файл .env.example в .env
+```bash
+cp .env.example .env
+```
+
+Теперь откройте файл `.env` и настройте переменные окружения для подключения к базе данных и других сервисов.
