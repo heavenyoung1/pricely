@@ -24,4 +24,4 @@ bot:
 
 # Запуск тестов
 tests:
-	pytest -v -s --log-level=DEBUG
+	python -m pytest tests -v -s --log-level=DEBUG
