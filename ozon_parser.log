@@ -1,0 +1,4 @@
+2025-10-15 12:58:30,161 - __main__ - INFO - UserAgent успешно получен Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+2025-10-15 12:58:30,163 - __main__ - ERROR - Ошибка считывания Прокси: [Errno 2] No such file or directory: 'proxy.json'
+2025-10-15 12:58:30,163 - __main__ - ERROR - Ошибка получения Прокси: [Errno 2] No such file or directory: 'proxy.json'
+2025-10-15 12:59:46,180 - __main__ - INFO - UserAgent успешно получен Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.43 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 OPR/115.0.0.0

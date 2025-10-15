@@ -5,7 +5,7 @@ from .user_agents import user_agents_list as user_agents
 
 logger = logging.getLogger(__name__)
 
-def get_user_agent():
+def _get_user_agent():
     try:
         index = random.randrange(len(user_agents))
         user_agent = user_agents[index]
@@ -16,18 +16,19 @@ def get_user_agent():
         raise
 
 # Загрузка прокси из файла
-def load_proxies():
+def _load_proxies():
     try:
-        with open("proxy.json", "r") as file:
+        with open('src/infrastructure/parsers/utils/proxy.json', 'r', encoding='utf-8') as file:
             proxies = json.load(file)
         return proxies
     except Exception as e:
         logger.error(f'Ошибка считывания Прокси: {e}')
         raise
 
-def get_proxy():
+
+def _get_proxy():
     try:
-        proxies = load_proxies()
+        proxies = _load_proxies()
         proxy_data = random.choice(proxies)
         proxy = proxy_data['proxy']
         user = proxy_data['user']
