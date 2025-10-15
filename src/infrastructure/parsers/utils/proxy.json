@@ -1,0 +1,27 @@
+[
+  {
+    "proxy": "46.8.222.144:3000",
+    "user": "XX5gZ",
+    "password": "juD8L88von"
+  },
+  {
+    "proxy": "46.8.222.165:3000",
+    "user": "XX5gZ",
+    "password": "juD8L88von"
+  },
+  {
+    "proxy": "141.98.132.64:3000",
+    "user": "XX5gZ",
+    "password": "juD8L88von"
+  },
+  {
+    "proxy": "185.166.160.156:3000",
+    "user": "XX5gZ",
+    "password": "juD8L88von"
+  },
+  {
+    "proxy": "109.107.160.108:3000",
+    "user": "XX5gZ",
+    "password": "juD8L88von"
+  }
+]
