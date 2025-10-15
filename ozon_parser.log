@@ -2,3 +2,1644 @@
 2025-10-15 12:58:30,163 - __main__ - ERROR - Ошибка считывания Прокси: [Errno 2] No such file or directory: 'proxy.json'
 2025-10-15 12:58:30,163 - __main__ - ERROR - Ошибка получения Прокси: [Errno 2] No such file or directory: 'proxy.json'
 2025-10-15 12:59:46,180 - __main__ - INFO - UserAgent успешно получен Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.43 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 OPR/115.0.0.0
+2025-10-15 13:10:39,344 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-15 13:10:39,347 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-15 13:10:39,376 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-15 13:10:39,379 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-15 13:10:39,381 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-15 13:10:39,382 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-15 13:10:39,382 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 60 мин).
+2025-10-15 13:10:39,382 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-15 13:10:39,383 - aiogram.dispatcher - INFO - Start polling
+2025-10-15 13:10:39,676 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:10:39,749 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
+2025-10-15 13:10:40,245 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:10:40,246 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-15 13:10:40,852 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:10:40,882 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:10:40,888 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-15 13:10:40,893 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:10:40,894 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:10:40,895 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:10:40,899 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:10:40,900 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-15 13:10:40,959 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:10:40,986 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:10:40,993 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-15 13:10:41,005 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:10:41,006 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:10:41,007 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:10:41,010 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:10:41,011 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-15 13:10:41,073 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:10:41,102 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:10:41,109 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-15 13:10:41,115 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:10:41,116 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:10:41,117 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:10:41,118 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:10:41,119 - src.application.use_cases.get_products_for_user - INFO - Запрос списка товаров для пользователя ID: 515084006
+2025-10-15 13:10:41,159 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:10:41,200 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:10:41,209 - src.core.decorators - INFO - Функция get_all_products: commit пропущен, выполняется rollback
+2025-10-15 13:10:41,213 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:10:41,214 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:10:41,215 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:10:41,434 - aiogram.event - INFO - Update id=557185845 is handled. Duration 1693 ms by bot id=5702092394
+2025-10-15 13:10:41,462 - aiogram.event - INFO - Update id=557185846 is handled. Duration 1720 ms by bot id=5702092394
+2025-10-15 13:10:41,482 - aiogram.event - INFO - Update id=557185847 is handled. Duration 1739 ms by bot id=5702092394
+2025-10-15 13:10:41,507 - aiogram.event - INFO - Update id=557185848 is handled. Duration 1764 ms by bot id=5702092394
+2025-10-15 13:10:41,523 - aiogram.event - INFO - Update id=557185851 is handled. Duration 1779 ms by bot id=5702092394
+2025-10-15 13:10:41,547 - aiogram.event - INFO - Update id=557185849 is handled. Duration 1803 ms by bot id=5702092394
+2025-10-15 13:10:41,571 - aiogram.event - INFO - Update id=557185850 is handled. Duration 1827 ms by bot id=5702092394
+2025-10-15 13:10:58,125 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-15 13:10:58,131 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-15 13:10:58,131 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-15 13:10:58,300 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:11:04,103 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-15 13:11:04,104 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-15 13:11:04,109 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-15 13:11:04,110 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-15 13:11:04,111 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-15 13:11:04,111 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-15 13:11:04,112 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 60 мин).
+2025-10-15 13:11:04,112 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-15 13:11:04,112 - aiogram.dispatcher - INFO - Start polling
+2025-10-15 13:11:04,310 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:11:04,703 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-15 13:11:04,704 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-15 13:11:04,704 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-15 13:11:04,885 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:11:30,846 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-15 13:11:30,849 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-15 13:11:30,855 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-15 13:11:30,857 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-15 13:11:30,859 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-15 13:11:30,859 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-15 13:11:30,860 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-15 13:11:30,860 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-15 13:11:30,860 - aiogram.dispatcher - INFO - Start polling
+2025-10-15 13:11:31,083 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:12:30,896 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:13:30 MSK)" (scheduled at 2025-10-15 13:12:30.857201+03:00)
+2025-10-15 13:12:31,002 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:12:31,069 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
+2025-10-15 13:12:31,601 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:12:31,614 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:12:31,625 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:12:32,328 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000222070A5BE0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000222070AD6D0>]
+2025-10-15 13:12:32,329 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:12:32,330 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:12:32,330 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:12:32,331 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:12:32,356 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:12:32,357 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:12:32,358 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:12:32,358 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:12:32,359 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:12:32,360 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:12:32,361 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:12:32,361 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:12:32,362 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:12:32,483 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:12:32,513 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:12:32,514 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:12:32,515 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:12:32,527 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:12:32,543 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:12:32,544 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:12:32,545 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:12:32,546 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:12:32,547 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:12:32,548 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:12:32,716 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:12:32,731 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:12:32,732 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:12:32,733 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:12:32,737 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:12:32,765 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:12:32,766 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:12:32,767 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:12:32,768 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:12:32,768 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:12:32,769 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:13:30 MSK)" executed successfully
+2025-10-15 13:12:32,770 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:13:30,869 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:14:30 MSK)" (scheduled at 2025-10-15 13:13:30.857201+03:00)
+2025-10-15 13:13:30,871 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:13:30,872 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:13:30,872 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:13:30,873 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:13:30,881 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000222070ADA90>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000222070A22C0>]
+2025-10-15 13:13:30,882 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:13:30,883 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:13:30,883 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:13:30,884 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:13:30,887 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:13:30,888 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:13:30,888 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:13:30,889 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:13:30,890 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:13:30,890 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:13:30,891 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:13:30,892 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:13:30,893 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:13:30,932 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:13:30,939 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:13:30,940 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:13:30,942 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:13:30,949 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:13:30,954 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:13:30,955 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:13:30,956 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:13:30,957 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:13:30,958 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:13:30,960 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:13:30,985 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:13:30,994 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:13:30,995 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:13:30,997 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:13:31,004 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:13:31,011 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:13:31,013 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:13:31,013 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:13:31,014 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:13:31,015 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:13:31,016 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:14:30 MSK)" executed successfully
+2025-10-15 13:13:31,017 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:14:30,873 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:15:30 MSK)" (scheduled at 2025-10-15 13:14:30.857201+03:00)
+2025-10-15 13:14:30,873 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:14:30,874 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:14:30,875 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:14:30,875 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:14:30,887 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000222070A1A70>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000222070AB650>]
+2025-10-15 13:14:30,888 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:14:30,889 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:14:30,890 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:14:30,890 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:14:30,894 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:14:30,895 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:14:30,896 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:14:30,896 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:14:30,897 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:14:30,898 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:14:30,899 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:14:30,899 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:14:30,900 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:14:30,933 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:14:30,940 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:14:30,940 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:14:30,941 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:14:30,943 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:14:30,946 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:14:30,948 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:14:30,948 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:14:30,949 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:14:30,950 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:14:30,952 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:14:30,978 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:14:30,984 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:14:30,984 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:14:30,985 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:14:30,988 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:14:30,991 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:14:30,992 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:14:30,992 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:14:30,993 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:14:30,993 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:14:30,994 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:15:30 MSK)" executed successfully
+2025-10-15 13:14:30,994 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:15:30,864 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:16:30 MSK)" (scheduled at 2025-10-15 13:15:30.857201+03:00)
+2025-10-15 13:15:30,865 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:15:30,865 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:15:30,866 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:15:30,866 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:15:30,877 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022205E37020>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022205E37240>]
+2025-10-15 13:15:30,878 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:15:30,878 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:15:30,879 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:15:30,879 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:15:30,882 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:15:30,884 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:15:30,884 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:15:30,885 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:15:30,886 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:15:30,887 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:15:30,887 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:15:30,888 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:15:30,889 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:15:30,913 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:15:30,918 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:15:30,918 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:15:30,919 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:15:30,923 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:15:30,928 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:15:30,928 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:15:30,929 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:15:30,929 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:15:30,929 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:15:30,930 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:15:30,953 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:15:30,962 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:15:30,963 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:15:30,963 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:15:30,966 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:15:30,968 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:15:30,968 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:15:30,969 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:15:30,969 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:15:30,970 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:15:30,970 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:16:30 MSK)" executed successfully
+2025-10-15 13:15:30,972 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:16:30,919 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:17:30 MSK)" (scheduled at 2025-10-15 13:16:30.857201+03:00)
+2025-10-15 13:16:30,957 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:16:31,026 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:16:31,038 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:16:31,048 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:16:31,075 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220710DA50>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220710DD50>]
+2025-10-15 13:16:31,077 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:16:31,083 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:16:31,085 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:16:31,087 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:16:31,101 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:16:31,117 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:16:31,134 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:16:31,137 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:16:31,183 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:16:31,198 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:16:31,200 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:16:31,211 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:16:31,229 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:16:31,389 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:16:31,450 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:16:31,451 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:16:31,452 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:16:31,456 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:16:31,481 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:16:31,482 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:16:31,482 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:16:31,483 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:16:31,483 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:16:31,484 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:16:31,574 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:16:31,582 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:16:31,583 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:16:31,585 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:16:31,617 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:16:31,636 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:16:31,638 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:16:31,695 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:16:31,701 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:16:31,708 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:16:31,714 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:17:30 MSK)" executed successfully
+2025-10-15 13:16:31,744 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:17:30,865 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:18:30 MSK)" (scheduled at 2025-10-15 13:17:30.857201+03:00)
+2025-10-15 13:17:30,866 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:17:30,866 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:17:30,867 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:17:30,867 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:17:30,876 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022207100F50>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000222071005F0>]
+2025-10-15 13:17:30,877 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:17:30,877 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:17:30,878 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:17:30,878 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:17:30,882 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:17:30,883 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:17:30,883 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:17:30,884 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:17:30,885 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:17:30,885 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:17:30,886 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:17:30,886 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:17:30,888 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:17:30,908 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:17:30,914 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:17:30,914 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:17:30,915 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:17:30,917 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:17:30,923 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:17:30,924 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:17:30,925 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:17:30,925 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:17:30,926 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:17:30,927 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:17:30,947 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:17:30,950 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:17:30,951 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:17:30,951 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:17:30,955 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:17:30,960 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:17:30,962 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:17:30,962 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:17:30,964 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:17:30,964 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:17:30,965 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:18:30 MSK)" executed successfully
+2025-10-15 13:17:30,966 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:18:30,860 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:19:30 MSK)" (scheduled at 2025-10-15 13:18:30.857201+03:00)
+2025-10-15 13:18:30,861 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:18:30,862 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:18:30,862 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:18:30,863 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:18:30,870 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022207143A10>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022207140E50>]
+2025-10-15 13:18:30,871 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:18:30,871 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:18:30,872 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:18:30,872 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:18:30,875 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:18:30,876 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:18:30,876 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:18:30,877 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:18:30,877 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:18:30,878 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:18:30,878 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:18:30,879 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:18:30,879 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:18:30,889 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:18:30,893 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:18:30,893 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:18:30,894 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:18:30,912 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:18:30,915 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:18:30,915 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:18:30,916 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:18:30,916 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:18:30,917 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:18:30,917 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:18:30,931 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:18:30,935 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:18:30,935 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:18:30,936 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:18:30,938 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:18:30,941 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:18:30,941 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:18:30,942 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:18:30,942 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:18:30,943 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:18:30,943 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:19:30 MSK)" executed successfully
+2025-10-15 13:18:30,944 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:19:30,862 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:20:30 MSK)" (scheduled at 2025-10-15 13:19:30.857201+03:00)
+2025-10-15 13:19:30,863 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:19:30,864 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:19:30,864 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:19:30,865 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:19:30,874 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000222070B4FC0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022206F6E750>]
+2025-10-15 13:19:30,875 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:19:30,876 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:19:30,876 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:19:30,876 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:19:30,879 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:19:30,880 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:19:30,880 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:19:30,881 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:19:30,886 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:19:30,886 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:19:30,886 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:19:30,887 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:19:30,887 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:19:30,900 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:19:30,904 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:19:30,905 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:19:30,905 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:19:30,907 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:19:30,909 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:19:30,909 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:19:30,909 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:19:30,910 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:19:30,910 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:19:30,911 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:19:30,922 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:19:30,925 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:19:30,926 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:19:30,926 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:19:30,928 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:19:30,930 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:19:30,930 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:19:30,930 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:19:30,931 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:19:30,931 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:19:30,932 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:20:30 MSK)" executed successfully
+2025-10-15 13:19:30,932 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:20:30,873 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:21:30 MSK)" (scheduled at 2025-10-15 13:20:30.857201+03:00)
+2025-10-15 13:20:30,873 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:20:30,874 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:20:30,875 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:20:30,875 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:20:30,882 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022206F6E510>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022206F52FC0>]
+2025-10-15 13:20:30,883 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:20:30,883 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:20:30,884 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:20:30,884 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:20:30,887 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:20:30,888 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:20:30,889 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:20:30,889 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:20:30,890 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:20:30,890 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:20:30,891 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:20:30,891 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:20:30,892 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:20:30,912 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:20:30,916 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:20:30,917 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:20:30,918 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:20:30,920 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:20:30,924 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:20:30,925 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:20:30,925 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:20:30,926 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:20:30,927 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:20:30,928 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:20:30,943 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:20:30,947 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:20:30,948 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:20:30,948 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:20:30,951 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:20:30,956 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:20:30,957 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:20:30,957 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:20:30,958 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:20:30,959 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:20:30,959 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:21:30 MSK)" executed successfully
+2025-10-15 13:20:30,960 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:21:30,866 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:22:30 MSK)" (scheduled at 2025-10-15 13:21:30.857201+03:00)
+2025-10-15 13:21:30,867 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:21:30,868 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:21:30,868 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:21:30,869 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:21:30,909 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022206F52FC0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022207139590>]
+2025-10-15 13:21:30,909 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:21:30,910 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:21:30,910 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:21:30,911 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:21:30,913 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:21:30,913 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:21:30,914 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:21:30,914 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:21:30,915 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:21:30,915 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:21:30,915 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:21:30,915 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:21:30,916 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:21:30,933 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:21:30,939 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:21:30,940 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:21:30,940 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:21:30,943 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:21:30,945 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:21:30,946 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:21:30,947 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:21:30,947 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:21:30,947 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:21:30,948 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:21:30,961 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:21:30,965 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:21:30,966 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:21:30,966 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:21:30,968 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:21:30,975 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:21:30,976 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:21:30,977 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:21:30,977 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:21:30,978 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:21:30,978 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:22:30 MSK)" executed successfully
+2025-10-15 13:21:30,979 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:22:30,874 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:23:30 MSK)" (scheduled at 2025-10-15 13:22:30.857201+03:00)
+2025-10-15 13:22:30,875 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:22:30,875 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:22:30,876 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:22:30,877 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:22:30,890 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022207138690>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220701B4A0>]
+2025-10-15 13:22:30,891 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:22:30,891 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:22:30,892 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:22:30,893 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:22:30,896 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:22:30,897 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:22:30,897 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:22:30,898 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:22:30,898 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:22:30,898 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:22:30,899 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:22:30,899 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:22:30,899 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:22:30,913 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:22:30,918 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:22:30,919 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:22:30,919 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:22:30,921 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:22:30,925 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:22:30,926 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:22:30,926 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:22:30,927 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:22:30,927 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:22:30,928 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:22:30,947 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:22:30,952 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:22:30,953 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:22:30,954 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:22:30,957 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:22:30,960 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:22:30,961 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:22:30,962 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:22:30,962 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:22:30,963 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:22:30,963 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:23:30 MSK)" executed successfully
+2025-10-15 13:22:30,964 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:23:30,861 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:24:30 MSK)" (scheduled at 2025-10-15 13:23:30.857201+03:00)
+2025-10-15 13:23:30,862 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:23:30,862 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:23:30,863 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:23:30,863 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:23:30,869 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000222070DF150>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022207133A50>]
+2025-10-15 13:23:30,869 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:23:30,870 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:23:30,870 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:23:30,871 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:23:30,872 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:23:30,872 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:23:30,873 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:23:30,873 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:23:30,873 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:23:30,873 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:23:30,874 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:23:30,874 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:23:30,874 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:23:30,898 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:23:30,901 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:23:30,901 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:23:30,902 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:23:30,904 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:23:30,906 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:23:30,906 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:23:30,907 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:23:30,907 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:23:30,907 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:23:30,908 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:23:30,916 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:23:30,919 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:23:30,919 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:23:30,920 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:23:30,922 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:23:30,924 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:23:30,924 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:23:30,924 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:23:30,925 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:23:30,925 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:23:30,925 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:24:30 MSK)" executed successfully
+2025-10-15 13:23:30,926 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:24:30,870 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:25:30 MSK)" (scheduled at 2025-10-15 13:24:30.857201+03:00)
+2025-10-15 13:24:30,871 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:24:30,872 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:24:30,873 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:24:30,873 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:24:30,881 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000022207144750>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000222071446E0>]
+2025-10-15 13:24:30,882 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:24:30,882 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:24:30,883 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:24:30,883 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:24:30,885 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:24:30,885 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:24:30,886 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:24:30,887 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:24:30,887 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:24:30,887 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:24:30,887 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:24:30,888 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:24:30,888 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:24:30,896 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:24:30,898 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:24:30,899 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:24:30,899 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:24:30,901 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:24:30,903 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:24:30,903 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:24:30,903 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:24:30,904 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:24:30,904 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:24:30,905 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:24:30,914 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:24:30,917 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:24:30,917 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:24:30,917 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:24:30,920 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:24:30,921 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:24:30,930 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:24:30,931 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:24:30,931 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:24:30,931 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:24:30,931 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:25:30 MSK)" executed successfully
+2025-10-15 13:24:30,932 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:25:30,870 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:26:30 MSK)" (scheduled at 2025-10-15 13:25:30.857201+03:00)
+2025-10-15 13:25:30,871 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:25:30,871 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:25:30,872 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:25:30,873 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:25:30,878 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220713EDB0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220713EC90>]
+2025-10-15 13:25:30,879 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:25:30,880 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:25:30,880 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:25:30,880 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:25:30,883 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:25:30,884 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:25:30,884 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:25:30,885 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:25:30,885 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:25:30,885 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:25:30,886 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:25:30,886 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:25:30,886 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:25:30,913 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:25:30,918 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:25:30,918 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:25:30,919 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:25:30,920 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:25:30,923 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:25:30,924 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:25:30,924 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:25:30,925 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:25:30,926 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:25:30,926 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:25:30,938 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:25:30,940 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:25:30,941 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:25:30,941 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:25:30,943 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:25:30,944 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:25:30,945 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:25:30,945 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:25:30,945 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:25:30,945 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:25:30,946 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:26:30 MSK)" executed successfully
+2025-10-15 13:25:30,946 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:26:30,872 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:27:30 MSK)" (scheduled at 2025-10-15 13:26:30.857201+03:00)
+2025-10-15 13:26:30,873 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:26:30,873 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:26:30,874 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:26:30,874 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:26:30,880 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220713EC30>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220713E7B0>]
+2025-10-15 13:26:30,880 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:26:30,880 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:26:30,881 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:26:30,881 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:26:30,883 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:26:30,884 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:26:30,884 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:26:30,885 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:26:30,885 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:26:30,885 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:26:30,886 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:26:30,887 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:26:30,887 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:26:30,894 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:26:30,898 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:26:30,898 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:26:30,899 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:26:30,901 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:26:30,903 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:26:30,903 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:26:30,904 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:26:30,904 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:26:30,904 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:26:30,904 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:26:30,913 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:26:30,917 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:26:30,917 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:26:30,918 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:26:30,920 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:26:30,922 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:26:30,923 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:26:30,923 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:26:30,924 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:26:30,924 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:26:30,924 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:27:30 MSK)" executed successfully
+2025-10-15 13:26:30,925 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:27:30,870 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:28:30 MSK)" (scheduled at 2025-10-15 13:27:30.857201+03:00)
+2025-10-15 13:27:30,871 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:27:30,872 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:27:30,872 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:27:30,872 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:27:30,890 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220713E630>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220713DF10>]
+2025-10-15 13:27:30,890 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:27:30,891 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:27:30,891 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:27:30,892 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:27:30,894 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:27:30,895 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:27:30,895 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:27:30,896 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:27:30,896 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:27:30,897 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:27:30,897 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:27:30,897 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:27:30,898 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:27:30,911 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:27:30,915 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:27:30,915 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:27:30,916 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:27:30,918 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:27:30,920 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:27:30,921 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:27:30,921 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:27:30,922 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:27:30,922 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:27:30,922 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:27:30,933 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:27:30,937 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:27:30,938 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:27:30,938 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:27:30,940 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:27:30,942 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:27:30,943 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:27:30,943 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:27:30,943 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:27:30,944 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:27:30,944 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:28:30 MSK)" executed successfully
+2025-10-15 13:27:30,944 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:28:30,865 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:29:30 MSK)" (scheduled at 2025-10-15 13:28:30.857201+03:00)
+2025-10-15 13:28:30,866 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:28:30,867 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:28:30,867 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:28:30,867 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:28:30,873 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220713EE10>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220713E8D0>]
+2025-10-15 13:28:30,874 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:28:30,874 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:28:30,884 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:28:30,885 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:28:30,887 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:28:30,888 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:28:30,889 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:28:30,889 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:28:30,890 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:28:30,890 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:28:30,890 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:28:30,891 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:28:30,891 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:28:30,901 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:28:30,904 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:28:30,904 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:28:30,905 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:28:30,906 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:28:30,907 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:28:30,908 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:28:30,908 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:28:30,908 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:28:30,908 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:28:30,908 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:28:30,921 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:28:30,924 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:28:30,925 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:28:30,925 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:28:30,927 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:28:30,929 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:28:30,929 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:28:30,930 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:28:30,930 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:28:30,930 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:28:30,931 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:29:30 MSK)" executed successfully
+2025-10-15 13:28:30,931 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:29:30,863 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:30:30 MSK)" (scheduled at 2025-10-15 13:29:30.857201+03:00)
+2025-10-15 13:29:30,864 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:29:30,864 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:29:30,865 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:29:30,865 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:29:30,871 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220713EB70>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220713E570>]
+2025-10-15 13:29:30,872 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:29:30,872 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:29:30,872 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:29:30,872 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:29:30,874 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:29:30,874 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:29:30,875 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:29:30,876 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:29:30,876 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:29:30,877 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:29:30,878 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:29:30,879 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:29:30,879 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:29:30,893 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:29:30,896 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:29:30,897 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:29:30,897 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:29:30,899 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:29:30,902 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:29:30,903 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:29:30,903 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:29:30,904 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:29:30,904 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:29:30,905 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:29:30,918 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:29:30,923 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:29:30,923 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:29:30,924 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:29:30,926 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:29:30,928 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:29:30,929 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:29:30,929 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:29:30,930 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:29:30,931 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:29:30,931 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:30:30 MSK)" executed successfully
+2025-10-15 13:29:30,932 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:30:30,863 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:31:30 MSK)" (scheduled at 2025-10-15 13:30:30.857201+03:00)
+2025-10-15 13:30:30,864 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:30:30,865 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:30:30,865 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:30:30,866 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:30:30,887 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220713E5D0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000002220713E810>]
+2025-10-15 13:30:30,888 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:30:30,888 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:30:30,889 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:30:30,889 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:30:30,890 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:30:30,891 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:30:30,891 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:30:30,891 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:30:30,891 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:30:30,892 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:30:30,892 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:30:30,892 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:30:30,892 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:30:30,907 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:30:30,910 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:30:30,910 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:30:30,911 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:30:30,912 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:30:30,914 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:30:30,915 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:30:30,916 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:30:30,916 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:30:30,916 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:30:30,917 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:30:30,930 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:30:30,934 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:30:30,934 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+2025-10-15 13:30:30,934 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 37, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                                    ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: SessionEngine._get_user_agent() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:30:30,936 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:30:30,938 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:30:30,938 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:30:30,938 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:30:30,939 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:30:30,939 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:30:30,939 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:31:30 MSK)" executed successfully
+2025-10-15 13:30:30,939 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:30:32,789 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-15 13:30:32,790 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-15 13:30:32,791 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-15 13:30:33,062 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'Pricely'

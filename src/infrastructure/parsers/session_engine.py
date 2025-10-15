@@ -1,14 +1,18 @@
+import random 
+import json
+import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium_stealth import stealth
-import logging
-from typing import Optional
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
+from typing import Optional
+
+from .user_agents import user_agents_list as user_agents
 
 logger = logging.getLogger(__name__)
+
 
 class SessionEngine:
     '''Класс для управления сессией браузера с поддержкой кук и заголовков'''
@@ -30,15 +34,37 @@ class SessionEngine:
             wait_time (int): Время ожидания для загрузки страниц (сек).
         '''
         self.headless = headless
-        self.user_agent = user_agent or (
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-            'AppleWebKit/537.36 (KHTML, like Gecko) '
-            'Chrome/129.0.0.0 Safari/537.36'
-        )
-        self.proxy = proxy
+        self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+        self.proxy = self._get_proxy()  # Выбираем случайный прокси
         self.wait_time = wait_time
         self.driver: Optional[webdriver.Chrome] = None
         self._initialize_driver()
+
+    def _get_user_agent(self):
+        '''Загружает список User-Agent из файла и выбирает случайный'''
+        try:
+            index = random.randrange(len(user_agents))
+            user_agent = user_agents[index]
+            logger.info(f'UserAgent успешно получен {user_agent}')
+            return user_agent
+        except Exception as e:
+            logger.error(f'Ошибка получения UserAgent: {e}')
+            raise
+
+    def _get_proxy(self):
+        try:
+            with open('src/infrastructure/parsers/utils/proxy.json', 'r', encoding='utf-8') as file:
+                proxies = json.load(file)
+            proxy_data = random.choice(proxies)
+            proxy = proxy_data['proxy']
+            user = proxy_data['user']
+            password = proxy_data['password']
+            proxy_str = f'http://{user}:{password}@{proxy}'  # Прокси с авторизацией
+            return proxy_str
+        
+        except Exception as e:
+            logger.error(f'Ошибка получения Прокси: {e}')
+            raise
 
     def _initialize_driver(self) -> None:
         '''Инициализирует WebDriver с заданными настройками'''
@@ -56,8 +82,10 @@ class SessionEngine:
                 chrome_args.append('--headless=new')
             if self.user_agent:
                 chrome_args.append(f'--user-agent={self.user_agent}')
+                logger.info(f'Для SessionEngine применен UserAgent: {self.user_agent}')
             if self.proxy:
                 chrome_args.append(f'--proxy-server={self.proxy}')
+                logger.info(f'Для SessionEngine применен Proxy: {self.proxy}')
 
             for arg in chrome_args:
                 options.add_argument(arg)
