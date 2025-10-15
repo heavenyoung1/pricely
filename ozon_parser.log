@@ -1643,3 +1643,1555 @@ src.domain.exceptions.PriceUpdateError: Ошибка при парсинге д�
 2025-10-15 13:30:32,790 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
 2025-10-15 13:30:32,791 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
 2025-10-15 13:30:33,062 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:34:31,565 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-15 13:34:31,567 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-15 13:34:31,595 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-15 13:34:31,599 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-15 13:34:31,600 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-15 13:34:31,600 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-15 13:34:31,601 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-15 13:34:31,601 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-15 13:34:31,601 - aiogram.dispatcher - INFO - Start polling
+2025-10-15 13:34:31,848 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:35:31,606 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:36:31 MSK)" (scheduled at 2025-10-15 13:35:31.599493+03:00)
+2025-10-15 13:35:31,607 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:35:31,607 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
+2025-10-15 13:35:31,681 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:35:31,682 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:35:31,682 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:35:31,760 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001CA78B15BE0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001CA78B1D590>]
+2025-10-15 13:35:31,761 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:35:31,762 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:35:31,763 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:35:31,763 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:35:31,766 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:35:31,766 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:35:31,767 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:35:31,767 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:35:31,767 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:35:31,767 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:35:31,768 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:35:31,768 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:35:31,768 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:35:31,790 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:35:31,796 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0
+2025-10-15 13:35:31,796 - src.infrastructure.parsers.session_engine - ERROR - Ошибка получения Прокси: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:35:31,797 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:35:31,797 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:35:31,797 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 38, in __init__
+    self.proxy = self._get_proxy()  # Выбираем случайный прокси
+                 ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 56, in _get_proxy
+    with open('src/infrastructure/parsers/utils/proxy.json', 'r', encoding='utf-8') as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:35:31,803 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:35:31,805 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:35:31,806 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:35:31,806 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:35:31,807 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:35:31,807 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:35:31,808 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:35:31,820 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:35:31,824 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0
+2025-10-15 13:35:31,824 - src.infrastructure.parsers.session_engine - ERROR - Ошибка получения Прокси: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:35:31,825 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:35:31,825 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:35:31,825 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 38, in __init__
+    self.proxy = self._get_proxy()  # Выбираем случайный прокси
+                 ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 56, in _get_proxy
+    with open('src/infrastructure/parsers/utils/proxy.json', 'r', encoding='utf-8') as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:35:31,827 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:35:31,830 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:35:31,831 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:35:31,831 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:35:31,832 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:35:31,832 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:35:31,833 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:36:31 MSK)" executed successfully
+2025-10-15 13:35:31,833 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:36:31,610 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:37:31 MSK)" (scheduled at 2025-10-15 13:36:31.599493+03:00)
+2025-10-15 13:36:31,611 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:36:31,612 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:36:31,612 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:36:31,612 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:36:31,618 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001CA78B1D950>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001CA78B123F0>]
+2025-10-15 13:36:31,619 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:36:31,619 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:36:31,619 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:36:31,620 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:36:31,622 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:36:31,622 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:36:31,622 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:36:31,623 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:36:31,623 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:36:31,623 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:36:31,623 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:36:31,624 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:36:31,624 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:36:31,632 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:36:31,634 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.43 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 OPR/117.0.0.0
+2025-10-15 13:36:31,635 - src.infrastructure.parsers.session_engine - ERROR - Ошибка получения Прокси: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:36:31,635 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:36:31,635 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:36:31,636 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 38, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                 ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 56, in _get_proxy
+    '''Загружает список прокси из файла и выбирает случайный'''
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:36:31,664 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:36:31,667 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:36:31,667 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:36:31,667 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:36:31,668 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:36:31,668 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:36:31,668 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:36:31,683 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:36:31,688 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0
+2025-10-15 13:36:31,689 - src.infrastructure.parsers.session_engine - ERROR - Ошибка получения Прокси: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:36:31,689 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:36:31,690 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:36:31,691 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 38, in __init__
+    self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
+                 ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 56, in _get_proxy
+    '''Загружает список прокси из файла и выбирает случайный'''
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:36:31,692 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:36:31,696 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:36:31,696 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:36:31,696 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:36:31,697 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:36:31,697 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:36:31,698 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:37:31 MSK)" executed successfully
+2025-10-15 13:36:31,698 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:36:34,524 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-15 13:36:34,525 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-15 13:36:34,525 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-15 13:36:34,682 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:37:07,775 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-15 13:37:07,776 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-15 13:37:07,779 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-15 13:37:07,780 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-15 13:37:07,781 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-15 13:37:07,782 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-15 13:37:07,782 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-15 13:37:07,782 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-15 13:37:07,782 - aiogram.dispatcher - INFO - Start polling
+2025-10-15 13:37:07,971 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:38:07,792 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:39:07 MSK)" (scheduled at 2025-10-15 13:38:07.780764+03:00)
+2025-10-15 13:38:07,793 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:38:07,793 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
+2025-10-15 13:38:07,886 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:38:07,887 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:38:07,887 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:38:07,985 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001D621D25BE0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001D621D2D590>]
+2025-10-15 13:38:07,986 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:38:07,986 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:38:07,987 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:38:07,987 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:38:07,989 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:38:07,990 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:38:07,990 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:38:07,990 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:38:07,991 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:38:07,991 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:38:07,991 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:38:07,992 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:38:07,992 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:38:08,017 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:38:08,027 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен: Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+2025-10-15 13:38:08,028 - src.infrastructure.parsers.session_engine - ERROR - Ошибка получения Прокси: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:38:08,029 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:38:08,029 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:38:08,030 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 39, in __init__
+    self.proxy = self._get_proxy()  # Выбираем случайный прокси
+                 ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 58, in _get_proxy
+    with open('src/infrastructure/parsers/utils/proxy.json', 'r', encoding='utf-8') as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:38:08,032 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:38:08,035 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:38:08,036 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:38:08,037 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:38:08,037 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:38:08,038 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:38:08,038 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:38:08,052 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:38:08,056 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен: Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.43 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 OPR/116.0.0.0
+2025-10-15 13:38:08,057 - src.infrastructure.parsers.session_engine - ERROR - Ошибка получения Прокси: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:38:08,057 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:38:08,058 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:38:08,059 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 39, in __init__
+    self.proxy = self._get_proxy()  # Выбираем случайный прокси
+                 ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 58, in _get_proxy
+    with open('src/infrastructure/parsers/utils/proxy.json', 'r', encoding='utf-8') as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:38:08,061 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:38:08,064 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:38:08,064 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:38:08,065 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:38:08,065 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:38:08,066 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:38:08,066 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:39:07 MSK)" executed successfully
+2025-10-15 13:38:08,067 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:39:07,783 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:40:07 MSK)" (scheduled at 2025-10-15 13:39:07.780764+03:00)
+2025-10-15 13:39:07,784 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:39:07,785 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:39:07,785 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:39:07,786 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:39:07,795 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001D621D2D950>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001D621D1A520>]
+2025-10-15 13:39:07,796 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:39:07,796 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:39:07,796 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:39:07,797 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:39:07,800 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:39:07,800 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:39:07,801 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:39:07,802 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:39:07,802 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:39:07,803 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:39:07,803 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:39:07,804 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:39:07,804 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:39:07,823 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:39:07,827 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36
+2025-10-15 13:39:07,828 - src.infrastructure.parsers.session_engine - ERROR - Ошибка получения Прокси: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:39:07,828 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:39:07,829 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1728110604: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:39:07,829 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1728110604: Ошибка при парсинге данных для товара 1728110604
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 39, in __init__
+    self.proxy = self._get_proxy()  # Выбираем случайный прокси
+                 ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 58, in _get_proxy
+    with open('src/infrastructure/parsers/utils/proxy.json', 'r', encoding='utf-8') as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1728110604
+2025-10-15 13:39:07,832 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:39:07,836 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:39:07,837 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:39:07,837 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:39:07,838 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: Ошибка при обновлении цены товара 1728110604
+2025-10-15 13:39:07,839 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:39:07,839 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:39:07,854 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:39:07,858 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.43 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 OPR/117.0.0.0
+2025-10-15 13:39:07,858 - src.infrastructure.parsers.session_engine - ERROR - Ошибка получения Прокси: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:39:07,858 - src.infrastructure.parsers.session_decorator - ERROR - Ошибка в декорируемой функции: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:39:07,859 - src.application.use_cases.upd_product - ERROR - Ошибка при парсинге данных для товара 1609078406: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+2025-10-15 13:39:07,859 - src.application.use_cases.upd_product - ERROR - Неизвестная ошибка при обновлении цены товара 1609078406: Ошибка при парсинге данных для товара 1609078406
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 35, in wrapper
+    session = SessionEngine(
+        headless=headless,
+    ...<2 lines>...
+        wait_time=wait_time
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 39, in __init__
+    self.proxy = self._get_proxy()  # Выбираем случайный прокси
+                 ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 58, in _get_proxy
+    with open('src/infrastructure/parsers/utils/proxy.json', 'r', encoding='utf-8') as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'src/infrastructure/parsers/utils/proxy.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 68, in execute
+    raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
+src.domain.exceptions.PriceUpdateError: Ошибка при парсинге данных для товара 1609078406
+2025-10-15 13:39:07,860 - src.core.uow - WARNING - Исключение в Unit of Work: PriceUpdateError: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:39:07,865 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:39:07,866 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:39:07,866 - src.core.decorators - ERROR - Ошибка в функции update_product_price: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:39:07,866 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: Ошибка при обновлении цены товара 1609078406
+2025-10-15 13:39:07,867 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:39:07,867 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:40:07 MSK)" executed successfully
+2025-10-15 13:39:07,868 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:39:34,193 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-15 13:39:34,194 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-15 13:39:34,195 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-15 13:39:34,369 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:39:38,412 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-15 13:39:38,413 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-15 13:39:38,416 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-15 13:39:38,417 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-15 13:39:38,418 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-15 13:39:38,418 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-15 13:39:38,419 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-15 13:39:38,419 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-15 13:39:38,419 - aiogram.dispatcher - INFO - Start polling
+2025-10-15 13:39:38,658 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:40:38,432 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:41:38 MSK)" (scheduled at 2025-10-15 13:40:38.417762+03:00)
+2025-10-15 13:40:38,433 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:40:38,433 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
+2025-10-15 13:40:38,522 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:40:38,522 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:40:38,523 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:40:38,618 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000157C2F95BE0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x00000157C2F9D590>]
+2025-10-15 13:40:38,619 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:40:38,620 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:40:38,620 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:40:38,620 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:40:38,623 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:40:38,623 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:40:38,623 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:40:38,624 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:40:38,624 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:40:38,624 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:40:38,625 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:40:38,625 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:40:38,626 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:40:38,649 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:40:38,656 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0
+2025-10-15 13:40:38,657 - src.infrastructure.parsers.session_engine - INFO - Прокси успешно получен: http://XX5gZ:juD8L88von@46.8.222.165:3000
+2025-10-15 13:40:43,070 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
+2025-10-15 13:40:43,071 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-15 13:40:43,222 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-15 13:40:43,223 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-15 13:40:53,453 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении артикула: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff66b1ae9e5+80021]
+	GetHandleVerifier [0x0x7ff66b1aea40+80112]
+	(No symbol) [0x0x7ff66af3060f]
+	(No symbol) [0x0x7ff66af88854]
+	(No symbol) [0x0x7ff66af88b1c]
+	(No symbol) [0x0x7ff66afdc927]
+	(No symbol) [0x0x7ff66afb126f]
+	(No symbol) [0x0x7ff66afd968a]
+	(No symbol) [0x0x7ff66afb1003]
+	(No symbol) [0x0x7ff66af795d1]
+	(No symbol) [0x0x7ff66af7a3f3]
+	GetHandleVerifier [0x0x7ff66b46dd8d+2960445]
+	GetHandleVerifier [0x0x7ff66b46804a+2936570]
+	GetHandleVerifier [0x0x7ff66b488a87+3070263]
+	GetHandleVerifier [0x0x7ff66b1c84ce+185214]
+	GetHandleVerifier [0x0x7ff66b1cff1f+216527]
+	GetHandleVerifier [0x0x7ff66b1b7c24+117460]
+	GetHandleVerifier [0x0x7ff66b1b7ddf+117903]
+	GetHandleVerifier [0x0x7ff66b19dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:41:03,639 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении названия товара: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff66b1ae9e5+80021]
+	GetHandleVerifier [0x0x7ff66b1aea40+80112]
+	(No symbol) [0x0x7ff66af3060f]
+	(No symbol) [0x0x7ff66af88854]
+	(No symbol) [0x0x7ff66af88b1c]
+	(No symbol) [0x0x7ff66afdc927]
+	(No symbol) [0x0x7ff66afb126f]
+	(No symbol) [0x0x7ff66afd968a]
+	(No symbol) [0x0x7ff66afb1003]
+	(No symbol) [0x0x7ff66af795d1]
+	(No symbol) [0x0x7ff66af7a3f3]
+	GetHandleVerifier [0x0x7ff66b46dd8d+2960445]
+	GetHandleVerifier [0x0x7ff66b46804a+2936570]
+	GetHandleVerifier [0x0x7ff66b488a87+3070263]
+	GetHandleVerifier [0x0x7ff66b1c84ce+185214]
+	GetHandleVerifier [0x0x7ff66b1cff1f+216527]
+	GetHandleVerifier [0x0x7ff66b1b7c24+117460]
+	GetHandleVerifier [0x0x7ff66b1b7ddf+117903]
+	GetHandleVerifier [0x0x7ff66b19dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:41:13,841 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении рейтинга: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff66b1ae9e5+80021]
+	GetHandleVerifier [0x0x7ff66b1aea40+80112]
+	(No symbol) [0x0x7ff66af3060f]
+	(No symbol) [0x0x7ff66af88854]
+	(No symbol) [0x0x7ff66af88b1c]
+	(No symbol) [0x0x7ff66afdc927]
+	(No symbol) [0x0x7ff66afb126f]
+	(No symbol) [0x0x7ff66afd968a]
+	(No symbol) [0x0x7ff66afb1003]
+	(No symbol) [0x0x7ff66af795d1]
+	(No symbol) [0x0x7ff66af7a3f3]
+	GetHandleVerifier [0x0x7ff66b46dd8d+2960445]
+	GetHandleVerifier [0x0x7ff66b46804a+2936570]
+	GetHandleVerifier [0x0x7ff66b488a87+3070263]
+	GetHandleVerifier [0x0x7ff66b1c84ce+185214]
+	GetHandleVerifier [0x0x7ff66b1cff1f+216527]
+	GetHandleVerifier [0x0x7ff66b1b7c24+117460]
+	GetHandleVerifier [0x0x7ff66b1b7ddf+117903]
+	GetHandleVerifier [0x0x7ff66b19dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:41:25,388 - src.core.uow - WARNING - Исключение в Unit of Work: KeyboardInterrupt: 
+2025-10-15 13:41:25,392 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:41:25,439 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-15 13:41:26,071 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Task-3' coro=<Event.wait() running at C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\locks.py:213> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\tasks.py:820]>
+2025-10-15 13:41:26,072 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000157C1D76F90>
+2025-10-15 13:41:26,073 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Task-2' coro=<Dispatcher._polling() running at C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py:373> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\tasks.py:820]>
+2025-10-15 13:41:26,074 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Task-1' coro=<main() done, defined at C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\bot.py:79> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\tasks.py:820]>
+2025-10-15 13:41:26,075 - aiogram.dispatcher - ERROR - Failed to fetch updates - RuntimeError: Event loop is closed
+2025-10-15 13:41:26,076 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-15 13:41:26,076 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:41:46,341 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-15 13:41:46,343 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-15 13:41:46,346 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-15 13:41:46,347 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-15 13:41:46,348 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-15 13:41:46,348 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-15 13:41:46,349 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-15 13:41:46,349 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-15 13:41:46,349 - aiogram.dispatcher - INFO - Start polling
+2025-10-15 13:41:46,526 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:42:46,360 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:43:46 MSK)" (scheduled at 2025-10-15 13:42:46.347839+03:00)
+2025-10-15 13:42:46,363 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:42:46,364 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
+2025-10-15 13:42:46,506 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:42:46,507 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:42:46,507 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:42:46,825 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001DBC6A35BE0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001DBC6A3D590>]
+2025-10-15 13:42:46,825 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:42:46,825 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:42:46,826 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:42:46,826 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:42:46,829 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:42:46,829 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:42:46,829 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:42:46,830 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:42:46,830 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:42:46,831 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:42:46,831 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:42:46,832 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:42:46,832 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:42:46,884 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:42:46,898 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен: Mozilla/5.0 (Windows NT 10.0; rv:139.0) Gecko/20100101 Firefox/139.0
+2025-10-15 13:42:46,900 - src.infrastructure.parsers.session_engine - INFO - Прокси успешно получен: http://XX5gZ:juD8L88von@141.98.132.64:3000
+2025-10-15 13:42:48,604 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
+2025-10-15 13:42:48,605 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-15 13:42:48,882 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-15 13:42:48,883 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-15 13:42:59,133 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении артикула: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff785f8e9e5+80021]
+	GetHandleVerifier [0x0x7ff785f8ea40+80112]
+	(No symbol) [0x0x7ff785d1060f]
+	(No symbol) [0x0x7ff785d68854]
+	(No symbol) [0x0x7ff785d68b1c]
+	(No symbol) [0x0x7ff785dbc927]
+	(No symbol) [0x0x7ff785d9126f]
+	(No symbol) [0x0x7ff785db968a]
+	(No symbol) [0x0x7ff785d91003]
+	(No symbol) [0x0x7ff785d595d1]
+	(No symbol) [0x0x7ff785d5a3f3]
+	GetHandleVerifier [0x0x7ff78624dd8d+2960445]
+	GetHandleVerifier [0x0x7ff78624804a+2936570]
+	GetHandleVerifier [0x0x7ff786268a87+3070263]
+	GetHandleVerifier [0x0x7ff785fa84ce+185214]
+	GetHandleVerifier [0x0x7ff785faff1f+216527]
+	GetHandleVerifier [0x0x7ff785f97c24+117460]
+	GetHandleVerifier [0x0x7ff785f97ddf+117903]
+	GetHandleVerifier [0x0x7ff785f7dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:43:09,313 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении названия товара: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff785f8e9e5+80021]
+	GetHandleVerifier [0x0x7ff785f8ea40+80112]
+	(No symbol) [0x0x7ff785d1060f]
+	(No symbol) [0x0x7ff785d68854]
+	(No symbol) [0x0x7ff785d68b1c]
+	(No symbol) [0x0x7ff785dbc927]
+	(No symbol) [0x0x7ff785d9126f]
+	(No symbol) [0x0x7ff785db968a]
+	(No symbol) [0x0x7ff785d91003]
+	(No symbol) [0x0x7ff785d595d1]
+	(No symbol) [0x0x7ff785d5a3f3]
+	GetHandleVerifier [0x0x7ff78624dd8d+2960445]
+	GetHandleVerifier [0x0x7ff78624804a+2936570]
+	GetHandleVerifier [0x0x7ff786268a87+3070263]
+	GetHandleVerifier [0x0x7ff785fa84ce+185214]
+	GetHandleVerifier [0x0x7ff785faff1f+216527]
+	GetHandleVerifier [0x0x7ff785f97c24+117460]
+	GetHandleVerifier [0x0x7ff785f97ddf+117903]
+	GetHandleVerifier [0x0x7ff785f7dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:43:19,508 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении рейтинга: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff785f8e9e5+80021]
+	GetHandleVerifier [0x0x7ff785f8ea40+80112]
+	(No symbol) [0x0x7ff785d1060f]
+	(No symbol) [0x0x7ff785d68854]
+	(No symbol) [0x0x7ff785d68b1c]
+	(No symbol) [0x0x7ff785dbc927]
+	(No symbol) [0x0x7ff785d9126f]
+	(No symbol) [0x0x7ff785db968a]
+	(No symbol) [0x0x7ff785d91003]
+	(No symbol) [0x0x7ff785d595d1]
+	(No symbol) [0x0x7ff785d5a3f3]
+	GetHandleVerifier [0x0x7ff78624dd8d+2960445]
+	GetHandleVerifier [0x0x7ff78624804a+2936570]
+	GetHandleVerifier [0x0x7ff786268a87+3070263]
+	GetHandleVerifier [0x0x7ff785fa84ce+185214]
+	GetHandleVerifier [0x0x7ff785faff1f+216527]
+	GetHandleVerifier [0x0x7ff785f97c24+117460]
+	GetHandleVerifier [0x0x7ff785f97ddf+117903]
+	GetHandleVerifier [0x0x7ff785f7dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:43:29,698 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении цены с картой: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff785f8e9e5+80021]
+	GetHandleVerifier [0x0x7ff785f8ea40+80112]
+	(No symbol) [0x0x7ff785d1060f]
+	(No symbol) [0x0x7ff785d68854]
+	(No symbol) [0x0x7ff785d68b1c]
+	(No symbol) [0x0x7ff785dbc927]
+	(No symbol) [0x0x7ff785d9126f]
+	(No symbol) [0x0x7ff785db968a]
+	(No symbol) [0x0x7ff785d91003]
+	(No symbol) [0x0x7ff785d595d1]
+	(No symbol) [0x0x7ff785d5a3f3]
+	GetHandleVerifier [0x0x7ff78624dd8d+2960445]
+	GetHandleVerifier [0x0x7ff78624804a+2936570]
+	GetHandleVerifier [0x0x7ff786268a87+3070263]
+	GetHandleVerifier [0x0x7ff785fa84ce+185214]
+	GetHandleVerifier [0x0x7ff785faff1f+216527]
+	GetHandleVerifier [0x0x7ff785f97c24+117460]
+	GetHandleVerifier [0x0x7ff785f97ddf+117903]
+	GetHandleVerifier [0x0x7ff785f7dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:43:39,894 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении цены без карты: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff785f8e9e5+80021]
+	GetHandleVerifier [0x0x7ff785f8ea40+80112]
+	(No symbol) [0x0x7ff785d1060f]
+	(No symbol) [0x0x7ff785d68854]
+	(No symbol) [0x0x7ff785d68b1c]
+	(No symbol) [0x0x7ff785dbc927]
+	(No symbol) [0x0x7ff785d9126f]
+	(No symbol) [0x0x7ff785db968a]
+	(No symbol) [0x0x7ff785d91003]
+	(No symbol) [0x0x7ff785d595d1]
+	(No symbol) [0x0x7ff785d5a3f3]
+	GetHandleVerifier [0x0x7ff78624dd8d+2960445]
+	GetHandleVerifier [0x0x7ff78624804a+2936570]
+	GetHandleVerifier [0x0x7ff786268a87+3070263]
+	GetHandleVerifier [0x0x7ff785fa84ce+185214]
+	GetHandleVerifier [0x0x7ff785faff1f+216527]
+	GetHandleVerifier [0x0x7ff785f97c24+117460]
+	GetHandleVerifier [0x0x7ff785f97ddf+117903]
+	GetHandleVerifier [0x0x7ff785f7dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:43:50,076 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении изображения: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff785f8e9e5+80021]
+	GetHandleVerifier [0x0x7ff785f8ea40+80112]
+	(No symbol) [0x0x7ff785d1060f]
+	(No symbol) [0x0x7ff785d68854]
+	(No symbol) [0x0x7ff785d68b1c]
+	(No symbol) [0x0x7ff785dbc927]
+	(No symbol) [0x0x7ff785d9126f]
+	(No symbol) [0x0x7ff785db968a]
+	(No symbol) [0x0x7ff785d91003]
+	(No symbol) [0x0x7ff785d595d1]
+	(No symbol) [0x0x7ff785d5a3f3]
+	GetHandleVerifier [0x0x7ff78624dd8d+2960445]
+	GetHandleVerifier [0x0x7ff78624804a+2936570]
+	GetHandleVerifier [0x0x7ff786268a87+3070263]
+	GetHandleVerifier [0x0x7ff785fa84ce+185214]
+	GetHandleVerifier [0x0x7ff785faff1f+216527]
+	GetHandleVerifier [0x0x7ff785f97c24+117460]
+	GetHandleVerifier [0x0x7ff785f97ddf+117903]
+	GetHandleVerifier [0x0x7ff785f7dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:44:00,251 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении категорий: Message: 
+
+2025-10-15 13:44:00,251 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': None, 'name': None, 'rating': None, 'price_with_card': None, 'price_without_card': None, 'image_url': None, 'categories': []}
+2025-10-15 13:44:01,972 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-15 13:44:01,972 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='1728110604', with_card=None, without_card=None, previous_with_card=15830, previous_without_card=15990, created_at=datetime.datetime(2025, 10, 15, 13, 44, 1, 972523))
+2025-10-15 13:44:01,974 - src.application.use_cases.upd_product - INFO - Предыдущая цена с картой: 15830, новая цена с картой: None
+2025-10-15 13:44:01,974 - src.application.use_cases.upd_product - INFO - Данные, возвращаемые UpdateProductPriceUseCase: {'is_changed': True, 'product_data': {'id': '1728110604', 'name': 'Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый', 'link': 'https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/', 'with_card': None, 'without_card': None, 'previous_price_with_card': 15830, 'previous_price_without_card': 15990}}
+2025-10-15 13:44:01,974 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-15 13:44:02,082 - src.core.uow - ERROR - Unit of Work: Транзакция не зафиксирована, commit не выполнен. Ошибка: (psycopg2.errors.NotNullViolation) null value in column "with_card" of relation "prices" violates not-null constraint
+DETAIL:  Failing row contains (203, 1728110604, null, null, 15830, 15990, 2025-10-15 13:44:01.972523).
+
+[SQL: INSERT INTO prices (product_id, with_card, without_card, previous_with_card, previous_without_card, created_at) VALUES (%(product_id)s, %(with_card)s, %(without_card)s, %(previous_with_card)s, %(previous_without_card)s, %(created_at)s) RETURNING prices.id]
+[parameters: {'product_id': '1728110604', 'with_card': None, 'without_card': None, 'previous_with_card': 15830, 'previous_without_card': 15990, 'created_at': datetime.datetime(2025, 10, 15, 13, 44, 1, 972523)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-15 13:44:02,083 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:44:02,085 - src.core.uow - WARNING - Исключение в Unit of Work: IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "with_card" of relation "prices" violates not-null constraint
+DETAIL:  Failing row contains (203, 1728110604, null, null, 15830, 15990, 2025-10-15 13:44:01.972523).
+
+[SQL: INSERT INTO prices (product_id, with_card, without_card, previous_with_card, previous_without_card, created_at) VALUES (%(product_id)s, %(with_card)s, %(without_card)s, %(previous_with_card)s, %(previous_without_card)s, %(created_at)s) RETURNING prices.id]
+[parameters: {'product_id': '1728110604', 'with_card': None, 'without_card': None, 'previous_with_card': 15830, 'previous_without_card': 15990, 'created_at': datetime.datetime(2025, 10, 15, 13, 44, 1, 972523)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-15 13:44:02,085 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:44:02,086 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:44:02,086 - src.core.decorators - ERROR - Ошибка в функции update_product_price: (psycopg2.errors.NotNullViolation) null value in column "with_card" of relation "prices" violates not-null constraint
+DETAIL:  Failing row contains (203, 1728110604, null, null, 15830, 15990, 2025-10-15 13:44:01.972523).
+
+[SQL: INSERT INTO prices (product_id, with_card, without_card, previous_with_card, previous_without_card, created_at) VALUES (%(product_id)s, %(with_card)s, %(without_card)s, %(previous_with_card)s, %(previous_without_card)s, %(created_at)s) RETURNING prices.id]
+[parameters: {'product_id': '1728110604', 'with_card': None, 'without_card': None, 'previous_with_card': 15830, 'previous_without_card': 15990, 'created_at': datetime.datetime(2025, 10, 15, 13, 44, 1, 972523)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-15 13:44:02,087 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1728110604: (psycopg2.errors.NotNullViolation) null value in column "with_card" of relation "prices" violates not-null constraint
+DETAIL:  Failing row contains (203, 1728110604, null, null, 15830, 15990, 2025-10-15 13:44:01.972523).
+
+[SQL: INSERT INTO prices (product_id, with_card, without_card, previous_with_card, previous_without_card, created_at) VALUES (%(product_id)s, %(with_card)s, %(without_card)s, %(previous_with_card)s, %(previous_without_card)s, %(created_at)s) RETURNING prices.id]
+[parameters: {'product_id': '1728110604', 'with_card': None, 'without_card': None, 'previous_with_card': 15830, 'previous_without_card': 15990, 'created_at': datetime.datetime(2025, 10, 15, 13, 44, 1, 972523)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-15 13:44:02,089 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1609078406
+2025-10-15 13:44:02,091 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:44:02,190 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Microsoft Xbox Velocity Green Беспроводной геймпад (ID: 1609078406)
+2025-10-15 13:44:02,197 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
+2025-10-15 13:44:02,198 - src.infrastructure.parsers.session_engine - INFO - Прокси успешно получен: http://XX5gZ:juD8L88von@185.166.160.156:3000
+2025-10-15 13:44:03,729 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
+2025-10-15 13:44:03,731 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-15 13:44:03,978 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
+2025-10-15 13:44:03,980 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw
+2025-10-15 13:44:14,267 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении артикула: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff785f8e9e5+80021]
+	GetHandleVerifier [0x0x7ff785f8ea40+80112]
+	(No symbol) [0x0x7ff785d1060f]
+	(No symbol) [0x0x7ff785d68854]
+	(No symbol) [0x0x7ff785d68b1c]
+	(No symbol) [0x0x7ff785dbc927]
+	(No symbol) [0x0x7ff785d9126f]
+	(No symbol) [0x0x7ff785db968a]
+	(No symbol) [0x0x7ff785d91003]
+	(No symbol) [0x0x7ff785d595d1]
+	(No symbol) [0x0x7ff785d5a3f3]
+	GetHandleVerifier [0x0x7ff78624dd8d+2960445]
+	GetHandleVerifier [0x0x7ff78624804a+2936570]
+	GetHandleVerifier [0x0x7ff786268a87+3070263]
+	GetHandleVerifier [0x0x7ff785fa84ce+185214]
+	GetHandleVerifier [0x0x7ff785faff1f+216527]
+	GetHandleVerifier [0x0x7ff785f97c24+117460]
+	GetHandleVerifier [0x0x7ff785f97ddf+117903]
+	GetHandleVerifier [0x0x7ff785f7dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:44:24,723 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении названия товара: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff785f8e9e5+80021]
+	GetHandleVerifier [0x0x7ff785f8ea40+80112]
+	(No symbol) [0x0x7ff785d1060f]
+	(No symbol) [0x0x7ff785d68854]
+	(No symbol) [0x0x7ff785d68b1c]
+	(No symbol) [0x0x7ff785dbc927]
+	(No symbol) [0x0x7ff785d9126f]
+	(No symbol) [0x0x7ff785db968a]
+	(No symbol) [0x0x7ff785d91003]
+	(No symbol) [0x0x7ff785d595d1]
+	(No symbol) [0x0x7ff785d5a3f3]
+	GetHandleVerifier [0x0x7ff78624dd8d+2960445]
+	GetHandleVerifier [0x0x7ff78624804a+2936570]
+	GetHandleVerifier [0x0x7ff786268a87+3070263]
+	GetHandleVerifier [0x0x7ff785fa84ce+185214]
+	GetHandleVerifier [0x0x7ff785faff1f+216527]
+	GetHandleVerifier [0x0x7ff785f97c24+117460]
+	GetHandleVerifier [0x0x7ff785f97ddf+117903]
+	GetHandleVerifier [0x0x7ff785f7dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:44:35,129 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении рейтинга: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff785f8e9e5+80021]
+	GetHandleVerifier [0x0x7ff785f8ea40+80112]
+	(No symbol) [0x0x7ff785d1060f]
+	(No symbol) [0x0x7ff785d68854]
+	(No symbol) [0x0x7ff785d68b1c]
+	(No symbol) [0x0x7ff785dbc927]
+	(No symbol) [0x0x7ff785d9126f]
+	(No symbol) [0x0x7ff785db968a]
+	(No symbol) [0x0x7ff785d91003]
+	(No symbol) [0x0x7ff785d595d1]
+	(No symbol) [0x0x7ff785d5a3f3]
+	GetHandleVerifier [0x0x7ff78624dd8d+2960445]
+	GetHandleVerifier [0x0x7ff78624804a+2936570]
+	GetHandleVerifier [0x0x7ff786268a87+3070263]
+	GetHandleVerifier [0x0x7ff785fa84ce+185214]
+	GetHandleVerifier [0x0x7ff785faff1f+216527]
+	GetHandleVerifier [0x0x7ff785f97c24+117460]
+	GetHandleVerifier [0x0x7ff785f97ddf+117903]
+	GetHandleVerifier [0x0x7ff785f7dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:44:45,492 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении цены с картой: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff785f8e9e5+80021]
+	GetHandleVerifier [0x0x7ff785f8ea40+80112]
+	(No symbol) [0x0x7ff785d1060f]
+	(No symbol) [0x0x7ff785d68854]
+	(No symbol) [0x0x7ff785d68b1c]
+	(No symbol) [0x0x7ff785dbc927]
+	(No symbol) [0x0x7ff785d9126f]
+	(No symbol) [0x0x7ff785db968a]
+	(No symbol) [0x0x7ff785d91003]
+	(No symbol) [0x0x7ff785d595d1]
+	(No symbol) [0x0x7ff785d5a3f3]
+	GetHandleVerifier [0x0x7ff78624dd8d+2960445]
+	GetHandleVerifier [0x0x7ff78624804a+2936570]
+	GetHandleVerifier [0x0x7ff786268a87+3070263]
+	GetHandleVerifier [0x0x7ff785fa84ce+185214]
+	GetHandleVerifier [0x0x7ff785faff1f+216527]
+	GetHandleVerifier [0x0x7ff785f97c24+117460]
+	GetHandleVerifier [0x0x7ff785f97ddf+117903]
+	GetHandleVerifier [0x0x7ff785f7dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:44:55,866 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении цены без карты: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff785f8e9e5+80021]
+	GetHandleVerifier [0x0x7ff785f8ea40+80112]
+	(No symbol) [0x0x7ff785d1060f]
+	(No symbol) [0x0x7ff785d68854]
+	(No symbol) [0x0x7ff785d68b1c]
+	(No symbol) [0x0x7ff785dbc927]
+	(No symbol) [0x0x7ff785d9126f]
+	(No symbol) [0x0x7ff785db968a]
+	(No symbol) [0x0x7ff785d91003]
+	(No symbol) [0x0x7ff785d595d1]
+	(No symbol) [0x0x7ff785d5a3f3]
+	GetHandleVerifier [0x0x7ff78624dd8d+2960445]
+	GetHandleVerifier [0x0x7ff78624804a+2936570]
+	GetHandleVerifier [0x0x7ff786268a87+3070263]
+	GetHandleVerifier [0x0x7ff785fa84ce+185214]
+	GetHandleVerifier [0x0x7ff785faff1f+216527]
+	GetHandleVerifier [0x0x7ff785f97c24+117460]
+	GetHandleVerifier [0x0x7ff785f97ddf+117903]
+	GetHandleVerifier [0x0x7ff785f7dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:45:06,147 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении изображения: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff785f8e9e5+80021]
+	GetHandleVerifier [0x0x7ff785f8ea40+80112]
+	(No symbol) [0x0x7ff785d1060f]
+	(No symbol) [0x0x7ff785d68854]
+	(No symbol) [0x0x7ff785d68b1c]
+	(No symbol) [0x0x7ff785dbc927]
+	(No symbol) [0x0x7ff785d9126f]
+	(No symbol) [0x0x7ff785db968a]
+	(No symbol) [0x0x7ff785d91003]
+	(No symbol) [0x0x7ff785d595d1]
+	(No symbol) [0x0x7ff785d5a3f3]
+	GetHandleVerifier [0x0x7ff78624dd8d+2960445]
+	GetHandleVerifier [0x0x7ff78624804a+2936570]
+	GetHandleVerifier [0x0x7ff786268a87+3070263]
+	GetHandleVerifier [0x0x7ff785fa84ce+185214]
+	GetHandleVerifier [0x0x7ff785faff1f+216527]
+	GetHandleVerifier [0x0x7ff785f97c24+117460]
+	GetHandleVerifier [0x0x7ff785f97ddf+117903]
+	GetHandleVerifier [0x0x7ff785f7dcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 13:45:16,418 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении категорий: Message: 
+
+2025-10-15 13:45:16,419 - src.infrastructure.parsers.ozon_parser - INFO - Данные, полученные парсером: {'id': None, 'name': None, 'rating': None, 'price_with_card': None, 'price_without_card': None, 'image_url': None, 'categories': []}
+2025-10-15 13:45:17,938 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-15 13:45:17,939 - src.infrastructure.database.repositories.price_repository - INFO - Сохранение цены: Price(id=None, product_id='1609078406', with_card=None, without_card=None, previous_with_card=6164, previous_without_card=6290, created_at=datetime.datetime(2025, 10, 15, 13, 45, 17, 939024))
+2025-10-15 13:45:17,939 - src.application.use_cases.upd_product - INFO - Предыдущая цена с картой: 6164, новая цена с картой: None
+2025-10-15 13:45:17,940 - src.application.use_cases.upd_product - INFO - Данные, возвращаемые UpdateProductPriceUseCase: {'is_changed': True, 'product_data': {'id': '1609078406', 'name': 'Microsoft Xbox Velocity Green Беспроводной геймпад', 'link': 'https://www.ozon.ru/product/microsoft-xbox-velocity-green-besprovodnoy-geympad-1609078406/?at=79tnlGpLxu1vJl3kfKqn3gQfp3n2WlSJABkyip72WYw&sh=5GPvD58cXw', 'with_card': None, 'without_card': None, 'previous_price_with_card': 6164, 'previous_price_without_card': 6290}}
+2025-10-15 13:45:17,940 - src.core.decorators - INFO - Функция update_product_price: выполняется commit транзакции
+2025-10-15 13:45:17,953 - src.core.uow - ERROR - Unit of Work: Транзакция не зафиксирована, commit не выполнен. Ошибка: (psycopg2.errors.NotNullViolation) null value in column "with_card" of relation "prices" violates not-null constraint
+DETAIL:  Failing row contains (204, 1609078406, null, null, 6164, 6290, 2025-10-15 13:45:17.939024).
+
+[SQL: INSERT INTO prices (product_id, with_card, without_card, previous_with_card, previous_without_card, created_at) VALUES (%(product_id)s, %(with_card)s, %(without_card)s, %(previous_with_card)s, %(previous_without_card)s, %(created_at)s) RETURNING prices.id]
+[parameters: {'product_id': '1609078406', 'with_card': None, 'without_card': None, 'previous_with_card': 6164, 'previous_without_card': 6290, 'created_at': datetime.datetime(2025, 10, 15, 13, 45, 17, 939024)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-15 13:45:17,954 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:45:17,954 - src.core.uow - WARNING - Исключение в Unit of Work: IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "with_card" of relation "prices" violates not-null constraint
+DETAIL:  Failing row contains (204, 1609078406, null, null, 6164, 6290, 2025-10-15 13:45:17.939024).
+
+[SQL: INSERT INTO prices (product_id, with_card, without_card, previous_with_card, previous_without_card, created_at) VALUES (%(product_id)s, %(with_card)s, %(without_card)s, %(previous_with_card)s, %(previous_without_card)s, %(created_at)s) RETURNING prices.id]
+[parameters: {'product_id': '1609078406', 'with_card': None, 'without_card': None, 'previous_with_card': 6164, 'previous_without_card': 6290, 'created_at': datetime.datetime(2025, 10, 15, 13, 45, 17, 939024)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-15 13:45:17,955 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:45:17,955 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:45:17,956 - src.core.decorators - ERROR - Ошибка в функции update_product_price: (psycopg2.errors.NotNullViolation) null value in column "with_card" of relation "prices" violates not-null constraint
+DETAIL:  Failing row contains (204, 1609078406, null, null, 6164, 6290, 2025-10-15 13:45:17.939024).
+
+[SQL: INSERT INTO prices (product_id, with_card, without_card, previous_with_card, previous_without_card, created_at) VALUES (%(product_id)s, %(with_card)s, %(without_card)s, %(previous_with_card)s, %(previous_without_card)s, %(created_at)s) RETURNING prices.id]
+[parameters: {'product_id': '1609078406', 'with_card': None, 'without_card': None, 'previous_with_card': 6164, 'previous_without_card': 6290, 'created_at': datetime.datetime(2025, 10, 15, 13, 45, 17, 939024)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-15 13:45:17,956 - src.infrastructure.services.logger - ERROR - ❌ Ошибка при обработке товара 1609078406: (psycopg2.errors.NotNullViolation) null value in column "with_card" of relation "prices" violates not-null constraint
+DETAIL:  Failing row contains (204, 1609078406, null, null, 6164, 6290, 2025-10-15 13:45:17.939024).
+
+[SQL: INSERT INTO prices (product_id, with_card, without_card, previous_with_card, previous_without_card, created_at) VALUES (%(product_id)s, %(with_card)s, %(without_card)s, %(previous_with_card)s, %(previous_without_card)s, %(created_at)s) RETURNING prices.id]
+[parameters: {'product_id': '1609078406', 'with_card': None, 'without_card': None, 'previous_with_card': 6164, 'previous_without_card': 6290, 'created_at': datetime.datetime(2025, 10, 15, 13, 45, 17, 939024)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-10-15 13:45:17,957 - src.infrastructure.services.logger - INFO - ✅ Автоматическое обновление цен завершено.
+2025-10-15 13:45:17,957 - apscheduler.executors.default - INFO - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:43:46 MSK)" executed successfully
+2025-10-15 13:45:17,957 - src.infrastructure.services.logger - INFO - ✅ SchedulerService выполнил задачу успешно.
+2025-10-15 13:45:17,961 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-10-15 13:45:17,962 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 5702092394)
+2025-10-15 13:45:17,963 - apscheduler.executors.default - WARNING - Run time of job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:45:46 MSK)" was missed by 0:00:31.616032
+2025-10-15 13:45:29,180 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 5702092394)
+2025-10-15 13:45:46,360 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:46:46 MSK)" (scheduled at 2025-10-15 13:45:46.347839+03:00)
+2025-10-15 13:45:46,360 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 13:45:46,360 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:45:46,361 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 13:45:46,361 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 13:45:46,368 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001DBC6AE9590>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x000001DBC6A23100>]
+2025-10-15 13:45:46,368 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 13:45:46,368 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 13:45:46,368 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 13:45:46,369 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 13:45:46,371 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:45:46,372 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 13:45:46,372 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:45:46,372 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:45:46,373 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 13:45:46,373 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 13:45:46,373 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 13:45:46,373 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 13:45:46,374 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 13:45:46,386 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 13:45:46,389 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен: Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+2025-10-15 13:45:46,390 - src.infrastructure.parsers.session_engine - INFO - Прокси успешно получен: http://XX5gZ:juD8L88von@46.8.222.165:3000
+2025-10-15 13:45:48,130 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
+2025-10-15 13:45:48,130 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-15 13:45:48,349 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-15 13:45:48,350 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-15 13:45:59,548 - src.core.uow - WARNING - Исключение в Unit of Work: KeyboardInterrupt: 
+2025-10-15 13:45:59,553 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 13:45:59,553 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 13:45:59,586 - apscheduler.executors.default - ERROR - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 13:46:46 MSK)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 41, in wrapper
+    result = func(self, session, *args, **kwargs)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 37, in parse_product
+    'id': self._extract_id(session),
+          ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 68, in _extract_id
+    element_obj = WebDriverWait(session.driver, session.wait_time).until(
+        EC.visibility_of_element_located((By.XPATH, "//div[contains(text(),'Артикул')]"))
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 129, in until
+    value = method(self._driver)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 217, in _predicate
+    return _element_if_visible(driver.find_element(*locator))
+                               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 926, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 455, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 406, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 430, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        method, url, fields=fields, headers=headers, **urlopen_kw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1093, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 81, in create_connection
+    sock.close()
+    ~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 501, in close
+    def close(self):
+    
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\apscheduler\executors\base.py", line 181, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\scheduler_service.py", line 78, in run_price_update
+    result = self.product_service.update_product_price(product_id)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 122, in update_product_price
+    result_use_case_update_product = use_case_update_product.execute(
+        product_id=product_id,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 50, in wrapper
+    session.quit()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 136, in quit
+    self.driver.quit()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 219, in quit
+    super().quit()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 616, in quit
+    self.execute(Command.QUIT)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 455, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 406, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 430, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 135, in request
+    return self.request_encode_url(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<3 lines>...
+        **urlopen_kw,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 182, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1093, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 81, in create_connection
+    sock.close()
+    ~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 501, in close
+    def close(self):
+    
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+2025-10-15 13:45:59,631 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-15 13:45:59,632 - apscheduler.executors.default - ERROR - Error running job update_prices
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 41, in wrapper
+    result = func(self, session, *args, **kwargs)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 37, in parse_product
+    'id': self._extract_id(session),
+          ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 68, in _extract_id
+    element_obj = WebDriverWait(session.driver, session.wait_time).until(
+        EC.visibility_of_element_located((By.XPATH, "//div[contains(text(),'Артикул')]"))
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 129, in until
+    value = method(self._driver)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 217, in _predicate
+    return _element_if_visible(driver.find_element(*locator))
+                               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 926, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 455, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 406, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 430, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        method, url, fields=fields, headers=headers, **urlopen_kw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1093, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 81, in create_connection
+    sock.close()
+    ~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 501, in close
+    def close(self):
+    
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\apscheduler\executors\base.py", line 181, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\scheduler_service.py", line 78, in run_price_update
+    result = self.product_service.update_product_price(product_id)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 122, in update_product_price
+    result_use_case_update_product = use_case_update_product.execute(
+        product_id=product_id,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 50, in wrapper
+    session.quit()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_engine.py", line 136, in quit
+    self.driver.quit()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 219, in quit
+    super().quit()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 616, in quit
+    self.execute(Command.QUIT)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 455, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 406, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 430, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 135, in request
+    return self.request_encode_url(
+           ~~~~~~~~~~~~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<3 lines>...
+        **urlopen_kw,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 182, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1093, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 81, in create_connection
+    sock.close()
+    ~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 501, in close
+    def close(self):
+    
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\apscheduler\executors\asyncio.py", line 35, in callback
+    events = f.result()
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\apscheduler\executors\base.py", line 196, in run_coroutine_job
+    traceback.clear_frames(tb)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\traceback.py", line 269, in clear_frames
+    tb.tb_frame.clear()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+2025-10-15 13:45:59,642 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 13:46:01,089 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Task-1' coro=<main() running at C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\presentation\bot\bot.py:105> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\tasks.py:820]>
+2025-10-15 15:10:11,483 - src.infrastructure.services.logger - INFO - Бот запущен
+2025-10-15 15:10:11,485 - src.infrastructure.services.logger - INFO - Все хендлеры зарегистрированы.
+2025-10-15 15:10:11,510 - src.infrastructure.services.logger - INFO - 📍 Scheduler использует event loop: <ProactorEventLoop running=True closed=False debug=False>
+2025-10-15 15:10:11,514 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-10-15 15:10:11,518 - apscheduler.scheduler - INFO - Added job "APSchedulerService.run_price_update" to job store "default"
+2025-10-15 15:10:11,518 - apscheduler.scheduler - INFO - Scheduler started
+2025-10-15 15:10:11,518 - src.infrastructure.services.logger - INFO - 🔁 APScheduler запущен (интервал: 1 мин).
+2025-10-15 15:10:11,518 - src.infrastructure.services.logger - INFO - ✅ Планировщик успешно запущен!
+2025-10-15 15:10:11,519 - aiogram.dispatcher - INFO - Start polling
+2025-10-15 15:10:15,168 - aiogram.dispatcher - INFO - Run polling for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 15:11:11,523 - apscheduler.executors.default - INFO - Running job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 15:12:11 MSK)" (scheduled at 2025-10-15 15:11:11.513821+03:00)
+2025-10-15 15:11:11,524 - src.infrastructure.services.logger - INFO - 🚀 Запуск автоматического обновления цен...
+2025-10-15 15:11:11,525 - src.core.db_connection - INFO - Инициализация подключения к БД: postgresql+psycopg2://postgres:1234@192.168.175.129:5432/pricely_db
+2025-10-15 15:11:11,657 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 15:11:11,658 - src.application.use_cases.get_user_products - INFO - Запрашиваем данные для запуска APSchedulerService
+2025-10-15 15:11:11,658 - src.infrastructure.database.repositories.user_products_repository - INFO - Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl
+2025-10-15 15:11:12,003 - src.infrastructure.database.repositories.user_products_repository - INFO - Rows -> [<src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000020E733B5BE0>, <src.infrastructure.database.models.users_products.ORMUserProducts object at 0x0000020E733BD590>]
+2025-10-15 15:11:12,004 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {})
+2025-10-15 15:11:12,004 - src.infrastructure.database.repositories.user_products_repository - INFO - user_products Iteration -> defaultdict(<class 'list'>, {'515084006': ['1728110604']})
+2025-10-15 15:11:12,005 - src.infrastructure.database.repositories.user_products_repository - INFO - Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.
+2025-10-15 15:11:12,005 - src.core.decorators - INFO - Функция get_all_products_for_update: commit пропущен, выполняется rollback
+2025-10-15 15:11:12,009 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 15:11:12,009 - src.core.uow - INFO - Unit of Work: транзакция зафиксирована, commit выполнен
+2025-10-15 15:11:12,010 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 15:11:12,011 - src.infrastructure.services.logger - INFO - Товары для пользователя в списке {'515084006': ['1728110604', '1609078406']}
+2025-10-15 15:11:12,012 - src.infrastructure.services.logger - INFO - Товары для обновления: {'515084006': ['1728110604', '1609078406']}
+2025-10-15 15:11:12,013 - src.infrastructure.services.logger - INFO - Обрабатываем товары для пользователя: 515084006
+2025-10-15 15:11:12,014 - src.infrastructure.services.logger - INFO - Товары для пользователя 515084006: ['1728110604', '1609078406']
+2025-10-15 15:11:12,015 - src.infrastructure.services.logger - INFO - Получаем товар для обновления: ID=1728110604
+2025-10-15 15:11:12,016 - src.core.uow - INFO - Unit of Work инициализирован с сессией и репозиториями
+2025-10-15 15:11:12,073 - src.infrastructure.database.repositories.product_repository - INFO - Найден товар: Xiaomi S20 EU (BHR8629EU) Робот-пылесос, сухая и влажная уборка, белый (ID: 1728110604)
+2025-10-15 15:11:12,090 - src.infrastructure.parsers.session_engine - INFO - UserAgent успешно получен: Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.43 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 OPR/117.0.0.0
+2025-10-15 15:11:12,092 - src.infrastructure.parsers.session_engine - INFO - Прокси успешно получен: http://XX5gZ:juD8L88von@185.166.160.156:3000
+2025-10-15 15:11:14,932 - src.infrastructure.parsers.session_engine - INFO - Stealth-настройки успешно применены.
+2025-10-15 15:11:14,934 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно инициализирован.
+2025-10-15 15:11:15,253 - src.infrastructure.parsers.session_engine - INFO - Успешно загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-15 15:11:15,254 - src.infrastructure.parsers.ozon_parser - INFO - Загружена страница: https://www.ozon.ru/product/xiaomi-s20-eu-bhr8629eu-robot-pylesos-suhaya-i-vlazhnaya-uborka-belyy-1728110604/
+2025-10-15 15:11:25,600 - src.infrastructure.parsers.ozon_parser - ERROR - Ошибка при извлечении артикула: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6dd5ee9e5+80021]
+	GetHandleVerifier [0x0x7ff6dd5eea40+80112]
+	(No symbol) [0x0x7ff6dd37060f]
+	(No symbol) [0x0x7ff6dd3c8854]
+	(No symbol) [0x0x7ff6dd3c8b1c]
+	(No symbol) [0x0x7ff6dd41c927]
+	(No symbol) [0x0x7ff6dd3f126f]
+	(No symbol) [0x0x7ff6dd41968a]
+	(No symbol) [0x0x7ff6dd3f1003]
+	(No symbol) [0x0x7ff6dd3b95d1]
+	(No symbol) [0x0x7ff6dd3ba3f3]
+	GetHandleVerifier [0x0x7ff6dd8add8d+2960445]
+	GetHandleVerifier [0x0x7ff6dd8a804a+2936570]
+	GetHandleVerifier [0x0x7ff6dd8c8a87+3070263]
+	GetHandleVerifier [0x0x7ff6dd6084ce+185214]
+	GetHandleVerifier [0x0x7ff6dd60ff1f+216527]
+	GetHandleVerifier [0x0x7ff6dd5f7c24+117460]
+	GetHandleVerifier [0x0x7ff6dd5f7ddf+117903]
+	GetHandleVerifier [0x0x7ff6dd5ddcb8+11112]
+	BaseThreadInitThunk [0x0x7ff92fa3e8d7+23]
+	RtlUserThreadStart [0x0x7ff931148d9c+44]
+
+2025-10-15 15:11:33,290 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020E733BF750>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/e9e4b46e8fdb3b30e7f540f4da15cae6
+2025-10-15 15:11:37,359 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020E733BF4D0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/e9e4b46e8fdb3b30e7f540f4da15cae6
+2025-10-15 15:11:41,430 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020E733A5BA0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение')': /session/e9e4b46e8fdb3b30e7f540f4da15cae6
+2025-10-15 15:11:45,475 - src.infrastructure.parsers.session_engine - INFO - WebDriver успешно закрыт.
+2025-10-15 15:11:45,477 - src.core.uow - WARNING - Исключение в Unit of Work: KeyboardInterrupt: 
+2025-10-15 15:11:45,481 - src.core.uow - INFO - Unit of Work: транзакция откачена, rollback выполнен
+2025-10-15 15:11:45,481 - src.core.uow - INFO - Unit of Work завершил работу, сессия закрыта
+2025-10-15 15:11:45,521 - apscheduler.executors.default - ERROR - Job "APSchedulerService.run_price_update (trigger: interval[0:01:00], next run at: 2025-10-15 15:12:11 MSK)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\apscheduler\executors\base.py", line 181, in run_coroutine_job
+    retval = await job.func(*job.args, **job.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\scheduler_service.py", line 78, in run_price_update
+    result = self.product_service.update_product_price(product_id)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\core\decorators.py", line 64, in wrapper
+    result = func(self, *args, **kwargs) # Убрал передачу аргумента uow
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\services\product_service.py", line 122, in update_product_price
+    result_use_case_update_product = use_case_update_product.execute(
+        product_id=product_id,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\application\use_cases\upd_product.py", line 65, in execute
+    product_data = self.parser.parse_product(product.link)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\session_decorator.py", line 41, in wrapper
+    result = func(self, session, *args, **kwargs)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 38, in parse_product
+    'name': self._extract_name(session),
+            ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\src\infrastructure\parsers\ozon_parser.py", line 86, in _extract_name
+    element_obj = WebDriverWait(session.driver, session.wait_time).until(
+        EC.visibility_of_element_located((By.XPATH, "//div[@data-widget='webProductHeading']//h1"))
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 129, in until
+    value = method(self._driver)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 217, in _predicate
+    return _element_if_visible(driver.find_element(*locator))
+                               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 926, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 455, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 406, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 430, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        method, url, fields=fields, headers=headers, **urlopen_kw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1093, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\http\client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\Mefyod-EA\Documents\my_projects\pricely\.venv\Lib\site-packages\urllib3\util\connection.py", line 81, in create_connection
+    sock.close()
+    ~~~~~~~~~~^^
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\socket.py", line 501, in close
+    def close(self):
+    
+  File "C:\Users\Mefyod-EA\AppData\Roaming\uv\python\cpython-3.13.3-windows-x86_64-none\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+2025-10-15 15:11:45,533 - aiogram.dispatcher - INFO - Polling stopped
+2025-10-15 15:11:45,534 - src.infrastructure.services.logger - ERROR - Ошибка выполнения задачи: 
+2025-10-15 15:11:45,806 - aiogram.dispatcher - INFO - Polling stopped for bot @heavenyoung_testbot id=5702092394 - 'Pricely'
+2025-10-15 15:11:46,196 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000020E733BEC10>

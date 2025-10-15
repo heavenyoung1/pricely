@@ -14,6 +14,7 @@ from .user_agents import user_agents_list as user_agents
 logger = logging.getLogger(__name__)
 
 
+
 class SessionEngine:
     '''Класс для управления сессией браузера с поддержкой кук и заголовков'''
 
@@ -40,28 +41,29 @@ class SessionEngine:
         self.driver: Optional[webdriver.Chrome] = None
         self._initialize_driver()
 
-    def _get_user_agent(self):
+    def _get_user_agent(self) -> str:
         '''Загружает список User-Agent из файла и выбирает случайный'''
         try:
             index = random.randrange(len(user_agents))
             user_agent = user_agents[index]
-            logger.info(f'UserAgent успешно получен {user_agent}')
+            logger.info(f'UserAgent успешно получен: {user_agent}')
             return user_agent
         except Exception as e:
             logger.error(f'Ошибка получения UserAgent: {e}')
             raise
 
-    def _get_proxy(self):
+    def _get_proxy(self) -> str:
+        '''Загружает список прокси из файла и выбирает случайный'''
         try:
-            with open('src/infrastructure/parsers/utils/proxy.json', 'r', encoding='utf-8') as file:
+            with open('src/infrastructure/parsers/proxy.json', 'r', encoding='utf-8') as file:
                 proxies = json.load(file)
             proxy_data = random.choice(proxies)
             proxy = proxy_data['proxy']
             user = proxy_data['user']
             password = proxy_data['password']
             proxy_str = f'http://{user}:{password}@{proxy}'  # Прокси с авторизацией
+            logger.info(f'Прокси успешно получен: {proxy_str}')
             return proxy_str
-        
         except Exception as e:
             logger.error(f'Ошибка получения Прокси: {e}')
             raise
@@ -80,12 +82,8 @@ class SessionEngine:
 
             if self.headless:
                 chrome_args.append('--headless=new')
-            if self.user_agent:
-                chrome_args.append(f'--user-agent={self.user_agent}')
-                logger.info(f'Для SessionEngine применен UserAgent: {self.user_agent}')
-            if self.proxy:
-                chrome_args.append(f'--proxy-server={self.proxy}')
-                logger.info(f'Для SessionEngine применен Proxy: {self.proxy}')
+            chrome_args.append(f'--user-agent={self.user_agent}')
+            chrome_args.append(f'--proxy-server={self.proxy}')  # Используем случайный прокси
 
             for arg in chrome_args:
                 options.add_argument(arg)
@@ -119,7 +117,6 @@ class SessionEngine:
         '''Переходит по указанному URL и ожидает загрузки страницы'''
         try:
             self.driver.get(url)
-            # Используем WebDriverWait для более надежного ожидания элементов
             WebDriverWait(self.driver, self.wait_time).until(
                 EC.presence_of_element_located((By.TAG_NAME, 'body'))
             )
@@ -140,3 +137,4 @@ class SessionEngine:
                 logger.info('WebDriver успешно закрыт.')
             except Exception as e:
                 logger.error(f'Ошибка при закрытии WebDriver: {e}')
+
