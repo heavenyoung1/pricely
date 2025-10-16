@@ -10,6 +10,7 @@ dependencies = [
     "apscheduler>=3.11.0",
     "black>=25.1.0",
     "bs4>=0.0.2",
+    "dependency-injector>=4.48.2",
     "deprecated>=1.2.18",
     "psycopg2>=2.9.11",
     "psycopg2-binary>=2.9.10",
