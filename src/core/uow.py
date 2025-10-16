@@ -67,7 +67,7 @@ class SQLAlchemyUnitOfWork(UnitOfWork):
         self.user_products_repository = UserProductsRepositoryImpl(self._session)
         
         # 5. ЛОГГИРУЕМ успешную инициализацию
-        logger.info('Unit of Work инициализирован с сессией и репозиториями')
+        logger.info('🏗️ Unit of Work инициализирован с сессией и репозиториями')
         
         # 6. ВОЗВРАЩАЕМ СЕБЯ для использования в блоке 'with'
         # Теперь можно писать: with uow as u: u.products.get(...)
@@ -108,7 +108,7 @@ class SQLAlchemyUnitOfWork(UnitOfWork):
                 self._session = None          # Убираем ссылку на сессию
                 self._session_context = None  # Убираем ссылку на контекст
                 
-                logger.info("Unit of Work завершил работу, сессия закрыта")
+                logger.info("✅ Unit of Work завершил работу, сессия закрыта")
 
     def commit(self):
         '''
@@ -122,16 +122,17 @@ class SQLAlchemyUnitOfWork(UnitOfWork):
                 # 2. ВЫПОЛНЯЕМ COMMIT - фиксируем изменения в БД
                 # 💾 Этот момент когда все временные изменения становятся постоянными
                 self._session.commit()
-                logger.info('Unit of Work: транзакция зафиксирована, commit выполнен')
+                logger.info('✅ Unit of Work: транзакция зафиксирована, commit выполнен')
                 
             except Exception as e:
                 # 3. ОБРАБАТЫВАЕМ ОШИБКИ при коммите
                 # 🚨 Если commit не удался (например, нарушение constraints БД)
-                logger.error(f'Unit of Work: Транзакция не зафиксирована, commit не выполнен. Ошибка: {e}')
+                logger.error(f'❌ Unit of Work: Транзакция не зафиксирована, commit не выполнен. Ошибка: {e}')
                 
                 # 4. ВЫПОЛНЯЕМ ROLLBACK при ошибке коммита
                 # 🔄 Откатываем изменения чтобы не оставить транзакцию в подвешенном состоянии
-                self.rollback()
+                # Кажется тут ничего не нужно потому что 
+                #self.rollback()
                 
                 # 5. ВЫЗОВЕМ исключение 
                 raise

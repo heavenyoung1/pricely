@@ -54,10 +54,10 @@ class UserProductsRepositoryImpl(UserProductsRepository):
 
         :return: Список словарей с полями 'product_id' и 'user_id'.
         '''
-        logger.info('Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl')
+        #logger.debug('Извлекаем данные {product_id:user_id} из репозитория UserProductsRepositoryImpl')
         rows = self.session.query(ORMUserProducts).all()
         records = [{'product_id': row.product_id, 'user_id': row.user_id} for row in rows]
-        logger.info('Записи список(словарей) получен и готов для парсинга.')
+        #logger.debug('Записи список(словарей) получен и готов для парсинга.')
         return records
 
     def get_sorted_user_products(self) -> dict:
@@ -78,8 +78,8 @@ class UserProductsRepositoryImpl(UserProductsRepository):
         user_products = defaultdict(list)
 
         for row in rows:
-            logger.info(f'user_products Iteration -> {user_products}')
+            # logger.debug(f'user_products Iteration -> {user_products}')
             user_products[row.user_id].append(row.product_id)
 
-        logger.info(f'Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.')
+        #logger.info(f'Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.')
         return dict(user_products)  # Преобразуем defaultdict обратно в обычный dict

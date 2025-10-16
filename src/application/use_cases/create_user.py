@@ -39,4 +39,4 @@ class CreateUserUseCase:
 
         # 2. Сохраняем нового пользователя
         self.user_repo.save(user)
-        logger.info(f'Пользователь {user.id} успешно создан')
+        logger.info(f'✅ Пользователь {user.id} успешно создан')

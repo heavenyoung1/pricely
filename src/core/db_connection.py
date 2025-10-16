@@ -42,7 +42,7 @@ class DatabaseConnection:
         '''
         if self._engine is None:
             db_url = db_url or self._settings.get_database_url(use_test=False)
-            logger.info(f'Инициализация подключения к БД: {db_url}')
+            logger.info(f'🔗 Инициализация подключения к БД: {db_url}')
 
             # Создаем движок подключения
             self._engine = create_engine(

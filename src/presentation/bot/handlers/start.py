@@ -13,7 +13,7 @@ async def command_start_handler(message: Message) -> None:
     )
     try:
         product_service.create_user(user)
-        logger.info(f'Пользователь {user.id} создан или уже существует')
+        logger.info(f'👤 Пользователь {user.id} создан или уже существует')
 
     except Exception as e:
         logger.warning(f'Ошибка создания пользователя {user.id}: {e}')

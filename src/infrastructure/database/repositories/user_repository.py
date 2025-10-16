@@ -32,9 +32,9 @@ class UserRepositoryImpl(UserRepository):
         try:
             # Преобразуем доменную модель пользователя в ORM модель и сохраняем
             self.session.merge(UserMapper.domain_to_orm(user))
-            logger.info(f'Пользователь {user.id} успешно сохранен/обновлен')
+            logger.info(f'💾 Пользователь {user.id} успешно сохранен/обновлен')
         except Exception as e:
-            logger.error(f'Ошибка сохранения пользователя {user}: {str(e)}')
+            logger.error(f'❌ Ошибка сохранения пользователя {user}: {str(e)}')
             raise
 
     def get(self, user_id: str) -> Optional['User']:
@@ -50,7 +50,7 @@ class UserRepositoryImpl(UserRepository):
                 user = UserMapper.orm_to_domain(orm_user)
                 logger.info(f'Пользователь {user} получен по id: {user_id}')
                 return user
-            logger.warning(f'Пользователь с id {user_id} не найден')
+            logger.warning(f'⚠️ Пользователь с id {user_id} не найден')
             return None
         except Exception as e:
             logger.error(f'Ошибка получения пользователя с id {user_id}: {str(e)}')

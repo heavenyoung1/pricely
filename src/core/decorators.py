@@ -67,16 +67,16 @@ def with_uow(commit: bool = False, uow_class: type = SQLAlchemyUnitOfWork):
                     if commit:
                         # Если commit=True - логируем и позволяем контекстному менеджеру
                         # выполнить commit при успешном завершении
-                        logger.info(f'Функция {func.__name__}: выполняется commit транзакции')
+                        # logger.debug(f'⚠️ Функция {func.__name__}: выполняется commit транзакции')
                         uow.commit()  # Явный commit
                         # Примечание: commit обычно выполняется в методе __exit__ 
                         # контекстного менеджера при успешном завершении блока with
                     else:
                         # Если commit=False - явно выполняем rollback
                         # Это предотвращает случайное сохранение изменений
-                        logger.info(f'Функция {func.__name__}: commit пропущен, выполняется rollback')
+                        logger.info(f'Функция {func.__name__}: commit пропускаем') #выполняется rollback
                         # Явный rollback отменяет все изменения в текущей транзакции
-                        uow.rollback()
+                        #uow.rollback()
                     
                     # Возвращаем результат оригинальной функции
                     return result
