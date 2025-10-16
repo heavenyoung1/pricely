@@ -523,7 +523,6 @@ dependencies = [
     { name = "selenium" },
     { name = "selenium-stealth" },
     { name = "sqlalchemy" },
-    { name = "telebot" },
     { name = "undetected-chromedriver" },
 ]
 
@@ -544,7 +543,6 @@ requires-dist = [
     { name = "selenium", specifier = ">=4.35.0" },
     { name = "selenium-stealth", specifier = ">=1.0.6" },
     { name = "sqlalchemy", specifier = ">=2.0.42" },
-    { name = "telebot", specifier = ">=0.0.5" },
     { name = "undetected-chromedriver", specifier = ">=3.5.5" },
 ]
 
@@ -693,21 +691,6 @@ wheels = [
 ]
 
 [[package]]
-name = "pytelegrambotapi"
-version = "4.28.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "aiohttp" },
-    { name = "pytest" },
-    { name = "requests" },
-    { name = "wheel" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/02/81/57590c3c481ff3e848b5ae17371a01d903fd21ec1cfa0e7aeaf75e2db3d2/pytelegrambotapi-4.28.0.tar.gz", hash = "sha256:54efd71efb3b48b27301a6cec9ac27bfbd3feb1b5ec1fa23ab26ab4d2df7d376", size = 1358887 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/d2/80/c5ed58a0a75200814ba0238103f713edeb4c1039d4deb9a255b7d79c5a9d/pytelegrambotapi-4.28.0-py3-none-any.whl", hash = "sha256:dc9156a781ebf67cb87ce5cca963a827b871578fafac40eb4e072535cdcb9696", size = 290699 },
-]
-
-[[package]]
 name = "pytest"
 version = "8.4.1"
 source = { registry = "https://pypi.org/simple" }
@@ -836,19 +819,6 @@ wheels = [
 ]
 
 [[package]]
-name = "telebot"
-version = "0.0.5"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "pytelegrambotapi" },
-    { name = "requests" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/1f/3b/e4188cffaf370f432f15d518cbb53a438200ee7ef68c6db1acab337634e1/telebot-0.0.5.tar.gz", hash = "sha256:848a5885b57247b65edd0e92647b4372ebd8d41611dca3f344788c11deac2571", size = 4752 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/ad/2f/d8d669be86c42dd2075d7b25bb6de73a3181661a79ef6a3c53dc811f17a1/telebot-0.0.5-py3-none-any.whl", hash = "sha256:50327c240243480d40ade4ea5bea4f464bf57d4ff000ea669fcd705396074863", size = 4840 },
-]
-
-[[package]]
 name = "trio"
 version = "0.30.0"
 source = { registry = "https://pypi.org/simple" }
@@ -973,15 +943,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/86/eb/20b6cdf273913d0ad05a6a14aed4b9a85591c18a987a3d47f20fa13dcc47/websockets-15.0.1-cp313-cp313-win32.whl", hash = "sha256:ba9e56e8ceeeedb2e080147ba85ffcd5cd0711b89576b83784d8605a7df455fa", size = 176393 },
     { url = "https://files.pythonhosted.org/packages/1b/6c/c65773d6cab416a64d191d6ee8a8b1c68a09970ea6909d16965d26bfed1e/websockets-15.0.1-cp313-cp313-win_amd64.whl", hash = "sha256:e09473f095a819042ecb2ab9465aee615bd9c2028e4ef7d933600a8401c79561", size = 176837 },
     { url = "https://files.pythonhosted.org/packages/fa/a8/5b41e0da817d64113292ab1f8247140aac61cbf6cfd085d6a0fa77f4984f/websockets-15.0.1-py3-none-any.whl", hash = "sha256:f7a866fbc1e97b5c617ee4116daaa09b722101d4a3c170c787450ba409f9736f", size = 169743 },
-]
-
-[[package]]
-name = "wheel"
-version = "0.45.1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/8a/98/2d9906746cdc6a6ef809ae6338005b3f21bb568bea3165cfc6a243fdc25c/wheel-0.45.1.tar.gz", hash = "sha256:661e1abd9198507b1409a20c02106d9670b2576e916d58f520316666abca6729", size = 107545 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/0b/2c/87f3254fd8ffd29e4c02732eee68a83a1d3c346ae39bc6822dcbcb697f2b/wheel-0.45.1-py3-none-any.whl", hash = "sha256:708e7481cc80179af0e556bbf0cc00b8444c7321e2700b8d8580231d13017248", size = 72494 },
 ]
 
 [[package]]
