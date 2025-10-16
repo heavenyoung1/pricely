@@ -16,7 +16,6 @@ async def add_product_request(message: Message, state: FSMContext):
     '''Инициирует процесс добавления товара.'''
     await message.answer('📦 Отправь ссылку на товар с Ozon')
     await state.set_state(ProductAddState.waiting_for_url)
-    await message.answer('⏳ Парсинг начался, ожидайте...')
 
 
 async def add_product_process(message: Message, state: FSMContext):
