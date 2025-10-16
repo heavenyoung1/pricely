@@ -48,19 +48,21 @@ class SessionEngine:
         try:
             index = random.randrange(len(user_agents))
             user_agent = user_agents[index]
-            logger.info(f'UserAgent успешно получен: {user_agent}')
+            logger.info(f'UserAgent успешно получен: {user_agent}, индекс из массива UserAgent = {index}')
             return user_agent
         except Exception as e:
             logger.error(f'Ошибка получения UserAgent: {e}')
             raise
 
     def _get_proxy(self) -> str:
-        '''Возвращает прокси с аутентификацией из предоставленных данных'''
+        '''Загружает список прокси из файла и выбирает случайный'''
         try:
-            # Прокси данные
-            proxy = "46.8.222.144:3000"
-            user = "XXS6gZ"
-            password = "juD8L88von"
+            with open('src/infrastructure/parsers/proxy.json', 'r', encoding='utf-8') as file:
+                proxies = json.load(file)
+            proxy_data = random.choice(proxies)
+            proxy = proxy_data['proxy']
+            user = proxy_data['user']
+            password = proxy_data['password']
             proxy_str = f'http://{user}:{password}@{proxy}'  # Прокси с авторизацией
             logger.info(f'Прокси успешно получен: {proxy_str}')
             return proxy_str
@@ -95,6 +97,9 @@ class SessionEngine:
 
             for arg in chrome_args:
                 options.add_argument(arg)
+
+            logger.info(f'Proxy успешно применены к движку =={self.proxy}==')
+            logger.info(f'UserAgent успешно применены к движку =={self.user_agent}==')
 
             self.driver = webdriver.Chrome(options=options)
             self._apply_stealth_settings()

@@ -1,18 +1,18 @@
 import random 
 import json
 import logging
+from typing import Optional
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium_stealth import stealth
+from selenium.webdriver.common.proxy import Proxy, ProxyType
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from typing import Optional
 
 from .user_agents import user_agents_list as user_agents
 
 logger = logging.getLogger(__name__)
-
 
 
 class SessionEngine:
@@ -62,7 +62,7 @@ class SessionEngine:
             user = proxy_data['user']
             password = proxy_data['password']
             proxy_str = f'http://{user}:{password}@{proxy}'  # Прокси с авторизацией
-            logger.info(f'Прокси успешно получен: {proxy_str}')
+            logger.info(f'Прокси успешно получен: http://{user}:password@{proxy}')
             return proxy_str
         except Exception as e:
             logger.error(f'Ошибка получения Прокси: {e}')
@@ -82,15 +82,22 @@ class SessionEngine:
 
             if self.headless:
                 chrome_args.append('--headless=new')
-            chrome_args.append(f'--user-agent={self.user_agent}')
-            chrome_args.append(f'--proxy-server={self.proxy}')  # Используем случайный прокси
-
+            if self.user_agent:
+                chrome_args.append(f'--user-agent={self.user_agent}')
+            # Применение Proxy
+            if self.proxy:
+                options.proxy = Proxy({
+                    'proxyType': ProxyType.MANUAL,
+                    'httpProxy': self.proxy,  # Прокси для HTTP
+                    'sslProxy': self.proxy,   # Прокси для HTTPS
+                })
             for arg in chrome_args:
                 options.add_argument(arg)
 
             self.driver = webdriver.Chrome(options=options)
             self._apply_stealth_settings()
             logger.info('WebDriver успешно инициализирован.')
+            
         except Exception as e:
             logger.error(f'Ошибка при инициализации WebDriver: {e}')
             raise

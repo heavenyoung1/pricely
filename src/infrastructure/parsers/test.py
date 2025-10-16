@@ -7,7 +7,7 @@ engine = SessionEngine(
     headless=False,
     #proxy="http://XXS6gZ:juD8L88von@141.98.132.64:3000",  # твой прокси
     #proxy=,  # твой прокси
-    user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    #user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
     wait_time=10,
 )
 
