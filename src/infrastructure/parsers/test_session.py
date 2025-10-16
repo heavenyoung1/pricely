@@ -86,8 +86,6 @@ class SessionEngine:
                 chrome_args.append('--headless=new')
             if self.user_agent:
                 chrome_args.append(f'--user-agent={self.user_agent}')
-            # if self.proxy:
-            #     chrome_args.append(f'--proxy-server={self.proxy}')  # Используем случайный прокси
             if self.proxy:
                 options.proxy = Proxy({
                     'proxyType': ProxyType.MANUAL,
@@ -150,4 +148,3 @@ class SessionEngine:
                 logger.info('WebDriver успешно закрыт.')
             except Exception as e:
                 logger.error(f'Ошибка при закрытии WebDriver: {e}')
-
