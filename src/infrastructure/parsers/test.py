@@ -1,4 +1,4 @@
-from .session_engine import SessionEngine  # импортируй свой класс
+from .test_session import SessionEngine  # импортируй свой класс
 import time
 import traceback
 
@@ -6,7 +6,7 @@ import traceback
 engine = SessionEngine(
     headless=False,
     #proxy="http://XXS6gZ:juD8L88von@141.98.132.64:3000",  # твой прокси
-    proxy=None,  # твой прокси
+    #proxy=,  # твой прокси
     user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
     wait_time=10,
 )

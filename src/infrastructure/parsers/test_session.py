@@ -8,6 +8,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from typing import Optional
+from selenium.webdriver.common.proxy import Proxy
+from selenium.webdriver.common.proxy import ProxyType
 
 from .user_agents import user_agents_list as user_agents
 
@@ -36,7 +38,7 @@ class SessionEngine:
         '''
         self.headless = headless
         self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
-        self.proxy = proxy # or self._get_proxy()  # Выбираем случайный прокси
+        self.proxy = proxy or self._get_proxy()  # Выбираем случайный прокси
         self.wait_time = wait_time
         self.driver: Optional[webdriver.Chrome] = None
         self._initialize_driver()
@@ -53,14 +55,12 @@ class SessionEngine:
             raise
 
     def _get_proxy(self) -> str:
-        '''Загружает список прокси из файла и выбирает случайный'''
+        '''Возвращает прокси с аутентификацией из предоставленных данных'''
         try:
-            with open('src/infrastructure/parsers/proxy.json', 'r', encoding='utf-8') as file:
-                proxies = json.load(file)
-            proxy_data = random.choice(proxies)
-            proxy = proxy_data['proxy']
-            user = proxy_data['user']
-            password = proxy_data['password']
+            # Прокси данные
+            proxy = "46.8.222.144:3000"
+            user = "XXS6gZ"
+            password = "juD8L88von"
             proxy_str = f'http://{user}:{password}@{proxy}'  # Прокси с авторизацией
             logger.info(f'Прокси успешно получен: {proxy_str}')
             return proxy_str
@@ -84,8 +84,14 @@ class SessionEngine:
                 chrome_args.append('--headless=new')
             if self.user_agent:
                 chrome_args.append(f'--user-agent={self.user_agent}')
+            # if self.proxy:
+            #     chrome_args.append(f'--proxy-server={self.proxy}')  # Используем случайный прокси
             if self.proxy:
-                chrome_args.append(f'--proxy-server={self.proxy}')  # Используем случайный прокси
+                options.proxy = Proxy({
+                    'proxyType': ProxyType.MANUAL,
+                    'httpProxy': self.proxy,  # Прокси для HTTP
+                    'sslProxy': self.proxy,   # Прокси для HTTPS
+                })
 
             for arg in chrome_args:
                 options.add_argument(arg)
