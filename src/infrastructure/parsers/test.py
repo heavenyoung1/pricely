@@ -13,7 +13,9 @@ engine = SessionEngine(
 
 # Проверим IP
 try:
-    engine.navigate("https://httpbin.org/ip")
+    #engine.navigate("https://httpbin.org/ip")
+    engine.navigate("https://www.ozon.ru/product/krossovki-reebok-glide-dmx-1615856937/?at=46tRg56M5SZ0vxKoS6PDG0BiY7ZNM5S2DX8nATvgExAz&sh=5GPvD1YKxQ")
+    
     page_source = engine.driver.page_source  # Получаем исходный код страницы
     print(page_source)  # Выведет IP (должен быть прокси IP)
 except Exception as e:
