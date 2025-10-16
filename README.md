@@ -3,6 +3,8 @@
 Telegram-бот для отслеживания изменения цен на товары Ozon.
 Использует архитектуру Domain-Driven Design (DDD), паттерн Unit of Work, и чистый Dependency Injection без глобальных синглтонов.
 
+УДАЛИТЬ ПАКЕТ pyautogui позже!!!
+
 ## 🧠 Описание
 
 **Pricely** — это Telegram-бот, который позволяет пользователям:

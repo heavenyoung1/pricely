@@ -1,6 +1,5 @@
 # Python cache
 __pycache__/
 .env
-log
 ozon_parser.log
-.log
+proxy.json
