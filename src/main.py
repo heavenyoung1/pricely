@@ -34,7 +34,7 @@ async def main() -> None:
         bot=bot,
         product_service=product_service,
         notification_service=notification_service,
-        interval_minutes=120  # интервал обновления
+        interval_minutes=1  # интервал обновления
     )
     scheduler.start()
     logger.info('✅ Планировщик успешно запущен!')
