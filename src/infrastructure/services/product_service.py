@@ -158,6 +158,3 @@ class ProductService:
         except Exception as e:
             logger.error(f'Ошибка при удалении продукта {product_id}: {str(e)}')
             raise
-
-# Инициализация сервиса
-#product_service = ProductService(uow_factory=SQLAlchemyUnitOfWork)
