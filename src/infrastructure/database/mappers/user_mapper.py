@@ -1,7 +1,6 @@
 from deprecated import deprecated
 
 from src.domain.entities import User
-from src.application.dto import UserDTO
 from src.infrastructure.database.models import ORMUser
 
 
@@ -13,38 +12,6 @@ class UserMapper:
     - Domain
     - ORM (Object-Relational Mapping)
     '''
-
-    @staticmethod
-    @deprecated(reason='Этот метод скоро будет удален. Используйте новый метод для преобразования.')
-    def dto_to_domain(dto: UserDTO) -> User:
-        '''
-        Преобразует объект UserDTO в объект User (доменная модель).
-
-        :param dto: Объект типа UserDTO.
-        :return: Объект типа User (доменная модель).
-        '''
-        return User(
-            id=dto.id,
-            username=dto.username,
-            chat_id=dto.chat_id,
-            products=dto.products,
-        )
-
-    @staticmethod
-    @deprecated(reason='Этот метод скоро будет удален. Используйте новый метод для преобразования.')
-    def domain_to_dto(domain: User) -> UserDTO:
-        '''
-        Преобразует объект User (доменная модель) в объект UserDTO (Data Transfer Object).
-
-        :param domain: Объект типа User (доменная модель).
-        :return: Объект типа UserDTO.
-        '''
-        return UserDTO(
-            id=domain.id,
-            username=domain.username,
-            chat_id=domain.chat_id,
-            products=domain.products,
-        )
 
     @staticmethod
     def domain_to_orm(domain: User) -> ORMUser:

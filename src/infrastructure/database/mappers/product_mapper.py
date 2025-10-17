@@ -2,7 +2,6 @@ from pydantic import HttpUrl
 from deprecated import deprecated
 
 from src.domain.entities import Product
-from src.application.dto import ProductDTO
 from src.infrastructure.database.models import ORMProduct
 from src.infrastructure.database.mappers.price_mapper import PriceMapper
 
@@ -15,44 +14,6 @@ class ProductMapper:
     - Domain
     - ORM (Object-Relational Mapping)
     '''
-
-    @staticmethod
-    @deprecated(reason='Этот метод скоро будет удален. Используйте новый метод для преобразования.')
-    def dto_to_domain(dto: ProductDTO) -> Product:
-        '''
-        Преобразует объект ProductDTO в объект Product (доменная модель).
-
-        :param dto: Объект типа ProductDTO.
-        :return: Объект типа Product (доменная модель).
-        '''
-        return Product(
-            id=dto.id,
-            user_id=dto.user_id,
-            name=dto.name,
-            link=str(dto.link),
-            image_url=str(dto.image_url),
-            rating=dto.rating,
-            categories=dto.categories,
-        )
-
-    @staticmethod
-    @deprecated(reason='Этот метод скоро будет удален. Используйте новый метод для преобразования.')
-    def domain_to_dto(domain: Product) -> ProductDTO:
-        '''
-        Преобразует объект Product (доменная модель) в объект ProductDTO (Data Transfer Object).
-
-        :param domain: Объект типа Product (доменная модель).
-        :return: Объект типа ProductDTO.
-        '''
-        return ProductDTO(
-            id=domain.id,
-            user_id=domain.user_id,
-            name=domain.name,
-            link=HttpUrl(domain.link),
-            image_url=HttpUrl(domain.image_url),
-            rating=domain.rating,
-            categories=domain.categories,
-        )
 
     @staticmethod
     def domain_to_orm(domain: Product) -> ORMProduct:
