@@ -116,7 +116,7 @@ class ProductService:
         use_case_update_product = UpdateProductPriceUseCase(
             product_repo=self.uow.product_repository,
             price_repo=self.uow.price_repository,
-            parser=self.parser, # Используем self.parser вместо какого-то глобального!
+            parser=self.parser,
         )
 
         result_use_case_update_product = use_case_update_product.execute(

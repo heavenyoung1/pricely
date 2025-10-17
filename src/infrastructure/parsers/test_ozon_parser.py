@@ -19,7 +19,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-class OzonParser(Parser):
+class TestOzonParser(Parser):
     '''Парсер товаров с Ozon. Реализует парсинг данных о товаре с маркетплейса Ozon.'''
 
     @session_wrapper(headless=True)

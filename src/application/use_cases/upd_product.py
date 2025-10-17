@@ -60,15 +60,15 @@ class UpdateProductPriceUseCase:
             previous_price_with_card = last_price.with_card if last_price else None
             previous_price_without_card = last_price.without_card if last_price else None
 
-            # 3. Парсим новые данные о товаре с помощью парсера
+            # 3. ПРОВЕРЯЕМ новые данные о товаре с помощью парсера, используется другой метод
             try:
-                product_data = self.parser.parse_product(product.link)
+                parsed_check_price = self.parser.check_product(product.link)
             except Exception as e:
                 logger.error(f'Ошибка при парсинге данных для товара {product_id}: {e}')
                 raise PriceUpdateError(f'Ошибка при парсинге данных для товара {product_id}')
 
-            actual_price_with_card = product_data['price_with_card']
-            actual_price_without_card = product_data['price_without_card']
+            actual_price_with_card = parsed_check_price['price_with_card']
+            actual_price_without_card = parsed_check_price['price_without_card']
 
             # 4. Создаём новую сущность цены
             price = Price(
