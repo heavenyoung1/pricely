@@ -18,7 +18,7 @@ async def add_product_request(message: Message, state: FSMContext):
     await state.set_state(ProductAddState.waiting_for_url)
 
 
-async def add_product_process(message: Message, state: FSMContext):
+async def add_product_process(message: Message, state: FSMContext, product_service):
     '''Обрабатывает URL товара и добавляет товар в систему.'''
     if not await state.get_state() == ProductAddState.waiting_for_url:
         return
@@ -48,7 +48,7 @@ async def add_product_process(message: Message, state: FSMContext):
 
 # ================= ПОЛУЧИТЬ СПИСОК ТОВАРОВ ================= #
 
-async def get_my_product_list(message: Message):
+async def get_my_product_list(message: Message, product_service):
     '''Отображает список товаров пользователя.'''
     try:
         products = product_service.get_all_products(str(message.from_user.id))
@@ -73,7 +73,7 @@ async def get_my_product_list(message: Message):
         await message.answer(f'❌ Ошибка: {e}')
 
 
-async def handle_product_button(call: CallbackQuery):
+async def handle_product_button(call: CallbackQuery, product_service):
     '''Отображает детальную информацию о товаре.'''
     await call.answer()
     

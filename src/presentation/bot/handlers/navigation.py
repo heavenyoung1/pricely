@@ -6,7 +6,7 @@ from src.infrastructure.services import product_service
 
 logger = logging.getLogger(__name__)
 
-async def handle_back_to_products(call: CallbackQuery):
+async def handle_back_to_products(call: CallbackQuery, product_service):
     await call.answer()  # Отправляем ответ на callback-запрос
 
     try:

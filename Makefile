@@ -20,7 +20,7 @@ test: migrate-test
 	
 # Запуск бота
 bot:
-	uv run python -m src.presentation.bot.bot
+	uv run python -m src.main
 
 # Запуск тестов
 tests:

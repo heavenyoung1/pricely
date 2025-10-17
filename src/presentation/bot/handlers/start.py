@@ -5,7 +5,7 @@ from src.infrastructure.services import product_service
 from src.infrastructure.services import logger
 from src.presentation.bot.keyboard.main_menu import main_menu
 
-async def command_start_handler(message: Message) -> None:
+async def command_start_handler(message: Message, product_service) -> None:
     user = User(
         id=str(message.from_user.id),
         username=message.from_user.username,
@@ -28,7 +28,7 @@ async def command_start_handler(message: Message) -> None:
     • Буду регулярно проверять цену  
     • Уведомлю тебя, когда она снизится 💸
 
-✨ Начнём? Отправь ссылку на любой товар с Ozon!
+✨ Начнём? Открой клавиатуру и отправь ссылку на любой товар с Ozon!
         ''',
         reply_markup=keyboard
     )

@@ -116,7 +116,7 @@ class ProductService:
         use_case_update_product = UpdateProductPriceUseCase(
             product_repo=self.uow.product_repository,
             price_repo=self.uow.price_repository,
-            parser=OzonParser(),
+            parser=self.parser, # Используем self.parser вместо какого-то глобального!
         )
 
         result_use_case_update_product = use_case_update_product.execute(
@@ -158,6 +158,3 @@ class ProductService:
         except Exception as e:
             logger.error(f'Ошибка при удалении продукта {product_id}: {str(e)}')
             raise
-
-# Инициализация сервиса
-product_service = ProductService(uow_factory=SQLAlchemyUnitOfWork)

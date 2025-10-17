@@ -7,7 +7,7 @@ from src.presentation.bot.utils.keyboard import build_product_actions_keyboard
 
 logger = logging.getLogger(__name__)
 
-async def choose_product_to_delete(message: Message):
+async def choose_product_to_delete(message: Message, product_service):
     '''Показываем список товаров для удаления'''
     try:
         products = product_service.get_all_products(str(message.from_user.id))
@@ -31,7 +31,7 @@ async def choose_product_to_delete(message: Message):
         await message.answer('❌ Произошла ошибка. Попробуйте ещё раз.')
 
 
-async def handle_delete_product_request(call: CallbackQuery):
+async def handle_delete_product_request(call: CallbackQuery, product_service):
     '''Запрос подтверждения удаления'''
     await call.answer()
     product_id = call.data.split(':', 1)[1]
@@ -62,7 +62,7 @@ async def handle_delete_product_request(call: CallbackQuery):
             await call.message.answer('❌ Произошла ошибка. Попробуйте ещё раз.')
 
 
-async def handle_confirm_delete(call: CallbackQuery):
+async def handle_confirm_delete(call: CallbackQuery, product_service):
     '''Подтверждение удаления'''
     await call.answer()
     product_id = call.data.split(':', 1)[1]
@@ -99,7 +99,7 @@ async def handle_confirm_delete(call: CallbackQuery):
             await call.message.answer('❌ Произошла ошибка при удалении. Попробуйте ещё раз.')
 
 
-async def handle_cancel_delete(call: CallbackQuery):
+async def handle_cancel_delete(call: CallbackQuery, product_service):
     '''Отмена удаления'''
     await call.answer()
     product_id = call.data.split(':', 1)[1]
