@@ -42,7 +42,7 @@ class ProductMapper:
         '''
         return Product(
             id=orm.id,
-            user_id='',  # Убрано, так как нет в ORM
+            user_id='', # Вот тут я что-то не понял!!!
             name=orm.name,
             link=orm.link,
             image_url=orm.image_url,
