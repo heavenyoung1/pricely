@@ -36,7 +36,7 @@ class SessionEngine:
         '''
         self.headless = headless
         self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
-        self.proxy = self._get_proxy()  # Выбираем случайный прокси
+        self.proxy = proxy or self._get_proxy() if proxy is None else proxy  # Загружаем прокси, если оно не передано
         self.wait_time = wait_time
         self.driver: Optional[webdriver.Chrome] = None
         self._initialize_driver()
@@ -52,21 +52,31 @@ class SessionEngine:
             logger.error(f'Ошибка получения UserAgent: {e}')
             raise
 
-    def _get_proxy(self) -> str:
-        '''Загружает список прокси из файла и выбирает случайный'''
+    def _get_proxy(self) -> Optional[str]:
+        '''Загружает список прокси из файла и выбирает случайный, если файл не пустой.'''
         try:
+            # Проверяем наличие файла с прокси
             with open('src/infrastructure/parsers/proxy.json', 'r', encoding='utf-8') as file:
                 proxies = json.load(file)
-            proxy_data = random.choice(proxies)
-            proxy = proxy_data['proxy']
-            user = proxy_data['user']
-            password = proxy_data['password']
-            proxy_str = f'http://{user}:{password}@{proxy}'  # Прокси с авторизацией
-            logger.info(f'Прокси успешно получен: http://{user}:password@{proxy}')
-            return proxy_str
+
+            if proxies:  # Если прокси не пустые
+                proxy_data = random.choice(proxies)
+                proxy = proxy_data['proxy']
+                user = proxy_data['user']
+                password = proxy_data['password']
+                proxy_str = f'http://{user}:{password}@{proxy}'  # Прокси с авторизацией
+                logger.info(f'Прокси успешно получен: {proxy_str}')
+                return proxy_str
+            else:
+                logger.warning('⚠️  Список прокси пуст.')
+                return None
+            
+        except FileNotFoundError:
+            logger.error('❌  Файл с прокси не найден.')
+            return None
         except Exception as e:
-            logger.error(f'Ошибка получения Прокси: {e}')
-            raise
+            logger.error(f'❌  Ошибка получения Прокси: {e}')
+            return None
 
     def _initialize_driver(self) -> None:
         '''Инициализирует WebDriver с заданными настройками'''
@@ -91,12 +101,15 @@ class SessionEngine:
                     'httpProxy': self.proxy,  # Прокси для HTTP
                     'sslProxy': self.proxy,   # Прокси для HTTPS
                 })
+            elif not self.proxy:
+                logger.info('⚠️ Proxy не переданы. Проверьте наличие файла либо наличие Proxy в файле: ')
+                logger.info('⚠️ Путь до файла == src/infrastructure/parsers/proxy.json ==')
             for arg in chrome_args:
                 options.add_argument(arg)
 
             self.driver = webdriver.Chrome(options=options)
             self._apply_stealth_settings()
-            logger.info('WebDriver успешно инициализирован.')
+            logger.info('🔗 WebDriver успешно инициализирован.')
             
         except Exception as e:
             logger.error(f'Ошибка при инициализации WebDriver: {e}')
