@@ -1,5 +1,9 @@
 # 📉 Pricely
 
+![Python version](https://img.shields.io/badge/Python-3.13%2B-blue.svg)
+![Status](https://img.shields.io/badge/status-in%20development-orange)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 Telegram-бот для отслеживания изменения цен на товары Ozon.
 Использует архитектуру Domain-Driven Design (DDD), паттерн Unit of Work, и чистый Dependency Injection без глобальных синглтонов.
 
