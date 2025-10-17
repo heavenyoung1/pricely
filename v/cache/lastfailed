@@ -1,0 +1,8 @@
+{
+  "tests/integration/test_product_service.py::test_get_full_product_success": true,
+  "tests/integration/test_product_service.py::test_update_product_price": true,
+  "tests/unit/test_repo_product.py::test_get_all_product": true,
+  "tests/unit/test_use_case_delete_product.py::test_delete_product_use_case_success": true,
+  "tests/unit/test_use_case_get_full_product.py::test_get_full_product_use_case_success": true,
+  "tests/unit/test_use_case_update_product.py::test_upd_price_use_case_success": true
+}

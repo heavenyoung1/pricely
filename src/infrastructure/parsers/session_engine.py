@@ -23,7 +23,7 @@ class SessionEngine:
             headless: bool = False,
             user_agent: Optional[str] = None,
             proxy: Optional[str] = None,
-            wait_time: int = 10,
+            wait_time: int = 5,
     ):
         '''
         Инициализация движка сессии.
@@ -83,11 +83,11 @@ class SessionEngine:
         try:
             options = Options()
             chrome_args = [
-                '--no-sandbox',
-                '--disable-gpu',
-                '--disable-blink-features=AutomationControlled',
-                '--start-maximized',
-                '--disable-logging',
+                '--no-sandbox',  # Отключение sandbox, если на CI/CD есть проблемы.
+                '--disable-gpu', # Отключение GPU, если это headless-режим или на сервере.
+                '--disable-blink-features=AutomationControlled', # Маскировка от автоматизированных систем.
+                '--start-maximized', # Можно оставить для графических режимов.
+                '--disable-logging', # Отключение логирования, если оно не нужно.
             ]
 
             if self.headless:

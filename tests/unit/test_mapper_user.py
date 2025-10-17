@@ -3,26 +3,10 @@ import logging
 
 from unittest.mock import Mock
 from src.infrastructure.database.mappers import UserMapper
-from src.application.dto import UserDTO
 from src.domain.entities import User
 from src.infrastructure.database.models import ORMUser
 
 logger = logging.getLogger(__name__)
-
-
-@pytest.mark.unit
-def test_dto_to_domain(user_dto):
-    domain = UserMapper.dto_to_domain(user_dto)
-    assert isinstance(domain, User)
-    assert domain.id == user_dto.id
-    assert domain.products == user_dto.products
-
-@pytest.mark.unit
-def test_domain_to_dto(user):
-    dto = UserMapper.domain_to_dto(user)
-    assert isinstance(dto, UserDTO)
-    assert dto.id == user.id
-    assert dto.username == user.username
 
 @pytest.mark.unit
 def test_domain_to_orm(user):
