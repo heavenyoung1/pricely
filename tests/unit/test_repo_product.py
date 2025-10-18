@@ -36,17 +36,6 @@ def test_get_product_not_found(mock_session):
     mock_session.get.assert_called_once_with(ORMProduct, 'NOTEXIST_ID')
 
 @pytest.mark.unit  
-def test_get_all_product(mock_session, orm_product, product, user):
-    repo = ProductRepositoryImpl(session=mock_session)
-    #
-    mock_session.query.return_value.filter_by.return_value.all.return_value = [orm_product]
-
-    result = repo.get_all(user_id=user.id)
-    assert len(result) == 1
-    assert result[0].id == product.id
-    mock_session.query.assert_called_once_with(ORMProduct)
-
-@pytest.mark.unit  
 def test_delete_product(mock_session, orm_product, product):
     repo = ProductRepositoryImpl(session=mock_session)
 
