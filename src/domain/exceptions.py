@@ -16,6 +16,9 @@ class ProductNotExistingDataBase(ApplicationError):
     '''Ошибка, возникающая, когда продукт не существует в базе данных.'''
     pass
 
+class UserNotFoundError(ApplicationError):
+    '''Ошибка при получении пользователя.'''
+    pass
 
 # --- Product ---
 class ProductError(ApplicationError):

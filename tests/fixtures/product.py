@@ -15,7 +15,7 @@ def product():
         link='https://www.ozon.ru/product/ryukzak-muzhskoy-gorodskoy-sportivnyy-tevin-816992280/',
         image_url='https://ir.ozone.ru/s3/multimedia-f/wc1000/6723691791.jpg',
         rating=4.9,
-        categories='Аксессуары, Мужчинам, Сумки и рюкзаки, Рюкзаки, TEVIN'
+        categories=['Аксессуары', 'Мужчинам', 'Сумки и рюкзаки', 'Рюкзаки', 'TEVIN']
     )
 
 @pytest.fixture

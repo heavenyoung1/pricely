@@ -24,12 +24,12 @@ def pure_mock_parser():
     '''Чистый мок для ProductParser.'''
     mock = Mock()
     mock.parse_product.return_value = {
-        'id': 'p1',
-        'name': 'Test Product',
-        'image_url': 'https://example.com/image.jpg',
-        'rating': 4.5,
-        'categories': ['cat1', 'cat2'],
-        'price_with_card': 100,
-        'price_without_card': 120,
+        'id': '816992280',
+        'name': 'Рюкзак мужской городской спортивный',
+        'image_url': 'https://ir.ozone.ru/s3/multimedia-f/wc1000/6723691791.jpg',
+        'rating': 4.9,
+        'categories': ['Аксессуары', 'Мужчинам', 'Сумки и рюкзаки', 'Рюкзаки', 'TEVIN'],
+        'price_with_card': 1676,
+        'price_without_card': 1827,
     }
     return mock
