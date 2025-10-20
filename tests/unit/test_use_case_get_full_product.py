@@ -8,12 +8,14 @@ def test_get_full_product_use_case_success(
     pure_mock_price_repo,
     pure_mock_user_repo,
     product,
-    price,
+    price_created_first,
+    price_after_checking,
     user,
 ):
     '''Тест успешного получения полной информации о товаре (продукт, цены, пользователь).'''
     pure_mock_product_repo.get.return_value = product
-    pure_mock_price_repo.get_all_prices_by_product.return_value = [price]
+    #pure_mock_price_repo.get_all_prices_by_product.return_value = [price_created_first, price_after_checking]
+    pure_mock_price_repo.get_latest_for_product.return_value = price_after_checking  # Возвращаем нужный объект
     pure_mock_user_repo.get.return_value = user
 
     use_case = GetFullProductUseCase(
@@ -26,9 +28,10 @@ def test_get_full_product_use_case_success(
 
     assert result["id"] == product.id
     assert result["name"] == product.name
-    assert len(result["prices"]) == 1
-    assert result["prices"][0]["with_card"] == price.with_card
-    assert result["user"]["id"] == user.id
+    assert result['latest_price']['with_card'] == price_after_checking.with_card
+    assert result['latest_price']['without_card'] == price_after_checking.without_card
+    assert result['latest_price']['previous_price_with_card'] == price_after_checking.previous_with_card
+    assert result['latest_price']['previous_price_without_card'] == price_after_checking.previous_without_card
 
 
 @pytest.mark.unit
