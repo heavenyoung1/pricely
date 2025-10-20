@@ -10,7 +10,17 @@ def user():
         id='635777007',
         username='Ololoshka',
         chat_id='635777007',
-        #products=['816992280', '1522830591']
+        products=[]
+    )
+
+@pytest.fixture
+def user_second():
+    '''Фикстура тестового доменного User'''
+    return User(
+        id='635777007',
+        username='Ololoshka',
+        chat_id='635777007',
+        products=['816992280', '1522830591']
     )
 
 @pytest.fixture
@@ -21,3 +31,5 @@ def orm_user():
         username='Ololoshka',
         chat_id='635777007',
     )
+
+
