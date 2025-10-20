@@ -2,7 +2,7 @@ import pytest
 import logging
 
 from src.application.use_cases.create_product import CreateProductUseCase
-from src.domain.exceptions import ProductCreationError
+from src.domain.exceptions import ProductCreationError, ParserProductError
 
 
 logger = logging.getLogger(__name__)
@@ -17,10 +17,11 @@ def test_create_product_success_new_user(
     product,
     user,
 ):
-    # Setup
-    pure_mock_user_repo.get.return_value = None 
-    pure_mock_product_repo.get.return_value = None
+    # Arrange
+    pure_mock_user_repo.get.return_value = None # Новый пользователь
+    pure_mock_product_repo.get.return_value = None # Новый товар
 
+    # Act
     use_case = CreateProductUseCase(
         product_repo=pure_mock_product_repo,
         price_repo=pure_mock_price_repo,
@@ -34,13 +35,15 @@ def test_create_product_success_new_user(
     assert result["product_name"] == product.name
     assert result["user_id"] == user.id
 
+    # Assert
     pure_mock_parser.parse_product.assert_called_once_with('https://example.com/product')
     pure_mock_user_repo.get.assert_called_once_with(user.id)
     pure_mock_product_repo.get.assert_called_once_with(product.id)
 
-    assert pure_mock_user_repo.save.call_count == 1
     assert pure_mock_product_repo.save.call_count == 1 
     pure_mock_price_repo.save.assert_called_once()
+    assert pure_mock_user_repo.save.call_count == 1
+
 
 @pytest.mark.unit
 def test_create_product_success_existing_user(
@@ -75,36 +78,91 @@ def test_create_product_success_existing_user(
     pure_mock_price_repo.save.assert_called_once()
     pure_mock_user_repo.save.assert_called_once()
 
-# @pytest.mark.unit
-# def test_create_product_fails_product_exists(
-#     pure_mock_product_repo,
-#     pure_mock_price_repo,
-#     pure_mock_user_repo,
-#     pure_mock_user_products_repo,
-#     pure_mock_parser,
-#     product,
-# ):
-#     pure_mock_parser.parse_product.return_value = {
-#         "id": "816992280",
-#         "name": "Test Product",
-#         "image_url": "https://example.com/image.jpg",
-#         "rating": 4.5,
-#         "categories": ["cat1", "cat2"],
-#         "price_with_card": 100,
-#         "price_without_card": 120,
-#     }
-#     pure_mock_product_repo.get.return_value = product
+    # Проверяем, что товар был добавлен в список продуктов пользователя
+    assert product.id in user.products
 
-#     use_case = CreateProductUseCase(
-#         product_repo=pure_mock_product_repo,
-#         price_repo=pure_mock_price_repo,
-#         user_repo=pure_mock_user_repo,
-#         parser=pure_mock_parser,
-#         user_products_repo=pure_mock_user_products_repo,
-#     )
+@pytest.mark.unit
+def test_create_product_fails_product_exists(
+    pure_mock_product_repo,
+    pure_mock_price_repo,
+    pure_mock_user_repo,
+    pure_mock_user_products_repo,
+    pure_mock_parser,
+    parser_data,
+    product,
+):
+    # Arrange
+    pure_mock_product_repo.get.return_value = product  # Товар уже существует
 
-#     with pytest.raises(ProductCreationError, match="уже существует"):
-#         use_case.execute(user_id="u1", url="https://example.com/product")
+    # Act
+    use_case = CreateProductUseCase(
+        product_repo=pure_mock_product_repo,
+        price_repo=pure_mock_price_repo,
+        user_repo=pure_mock_user_repo,
+        parser=pure_mock_parser,
+        user_products_repo=pure_mock_user_products_repo,
+    )
 
-#     pure_mock_product_repo.save.assert_not_called()
-#     pure_mock_price_repo.save.assert_not_called()
+    # Assert
+    with pytest.raises(ProductCreationError, match="Товар с ID 816992280 уже существует"):
+        use_case.execute(user_id="u1", url="https://example.com/product")
+
+    pure_mock_product_repo.save.assert_not_called()
+    pure_mock_price_repo.save.assert_not_called()
+    pure_mock_user_repo.save.assert_not_called()
+
+@pytest.mark.unit
+def test_create_product_fails_parsing_error(
+    pure_mock_product_repo,
+    pure_mock_price_repo,
+    pure_mock_user_repo,
+    pure_mock_user_products_repo,
+    pure_mock_parser,
+    product,
+):
+    # Настроим mock для парсера, чтобы он выбрасывал ошибку
+    pure_mock_parser.parse_product.side_effect = Exception("Ошибка парсинга URL")
+
+    # Act & Assert
+    use_case = CreateProductUseCase(
+        product_repo=pure_mock_product_repo,
+        price_repo=pure_mock_price_repo,
+        user_repo=pure_mock_user_repo,
+        parser=pure_mock_parser,
+        user_products_repo=pure_mock_user_products_repo,
+    )
+    with pytest.raises(ParserProductError, match="Ошибка парсинга товара"):
+        use_case.execute(user_id="635777007", url="https://example.com/product")
+
+    pure_mock_product_repo.save.assert_not_called()
+    pure_mock_price_repo.save.assert_not_called()
+
+@pytest.mark.unit
+def test_create_product_fails_save_error(
+    pure_mock_product_repo,
+    pure_mock_price_repo,
+    pure_mock_user_repo,
+    pure_mock_user_products_repo,
+    pure_mock_parser,
+    product,
+    user,
+):
+    pure_mock_product_repo.get.return_value = product
+    pure_mock_user_repo.get.return_value = None
+
+    pure_mock_product_repo.save.side_effect = ProductCreationError('Ошибка сохранения товара')
+    # Act
+    use_case = CreateProductUseCase(
+        product_repo=pure_mock_product_repo,
+        price_repo=pure_mock_price_repo,
+        user_repo=pure_mock_user_repo,
+        parser=pure_mock_parser,
+        user_products_repo=pure_mock_user_products_repo,
+    )
+
+    # Assert    
+    with pytest.raises(ProductCreationError, match="Товар с ID 816992280 уже существует"):
+        use_case.execute(user_id="635777007", url="https://example.com/product")
+
+    pure_mock_product_repo.save.assert_not_called()
+    pure_mock_price_repo.save.assert_not_called()

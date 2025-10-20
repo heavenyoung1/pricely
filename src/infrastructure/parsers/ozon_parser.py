@@ -8,6 +8,7 @@ import logging
 import sys
 
 from src.infrastructure.parsers.interfaces import Parser
+from src.domain.exceptions import ParserProductError
 
 logging.basicConfig(
     level=logging.INFO,
@@ -42,11 +43,19 @@ class OzonParser(Parser):
                 'image_url': self._extract_image_url(session),
                 'categories': self._extract_categories(session)
             }
+            # Если не удалось извлечь критически важные данные, выбрасываем ошибку
+            if not parsed_data['id'] or not parsed_data['name']:
+                raise ParserProductError(f'Не удалось извлечь необходимые данные с страницы: {url}')
+            
             logger.info(f'Данные, полученные парсером: {parsed_data}')
             return parsed_data
+        
+        except ParserProductError as e:
+            logger.error(f'Ошибка парсинга страницы {url}: {e}')
+            raise  # Выбрасываем наше специфичное исключение
         except Exception as e:
             logger.error(f'Ошибка при парсинге страницы {url}: {e}')
-            raise
+            raise ParserProductError(f'Ошибка парсинга товара по ссылке: {url}')
 
     @session_wrapper(headless=False)
     def check_product(self, session: SessionEngine, url: str) -> Dict:
