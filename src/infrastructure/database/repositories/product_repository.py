@@ -76,23 +76,23 @@ class ProductRepositoryImpl(ProductRepository):
 
         return product
 
-    def get_all(self, user_id: str) -> List[Product]:
-        '''
-        Получить все товары пользователя.
+    # def get_all(self, user_id: str) -> List[Product]:
+    #     '''
+    #     Получить все товары пользователя.
 
-        :param user_id: Идентификатор пользователя, чьи товары необходимо получить.
-        :return: Список объектов Product для данного пользователя.
-        '''
-        logger.debug(f'Поиск всех товаров пользователя {user_id}')
-        try:
-            orm_models = self.session.query(ORMProduct).all()
-            logger.debug(f'GET_ALL -> Найдены ORM модели {orm_models}')
-            products = [ProductMapper.orm_to_domain(m) for m in orm_models]
-            logger.info(f'Найдено {len(products)} товаров для пользователя {user_id}')
-            return products
-        except Exception as e:
-            logger.error(f'Ошибка получения всех товаров пользователя {user_id}: {str(e)}')
-            raise
+    #     :param user_id: Идентификатор пользователя, чьи товары необходимо получить.
+    #     :return: Список объектов Product для данного пользователя.
+    #     '''
+    #     logger.debug(f'Поиск всех товаров пользователя {user_id}')
+    #     try:
+    #         orm_models = self.session.query(ORMProduct).all()
+    #         logger.debug(f'GET_ALL -> Найдены ORM модели {orm_models}')
+    #         products = [ProductMapper.orm_to_domain(m) for m in orm_models]
+    #         logger.info(f'Найдено {len(products)} товаров для пользователя {user_id}')
+    #         return products
+    #     except Exception as e:
+    #         logger.error(f'Ошибка получения всех товаров пользователя {user_id}: {str(e)}')
+    #         raise
 
     def delete(self, product_id: str) -> bool:
         '''

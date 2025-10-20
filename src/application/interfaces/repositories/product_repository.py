@@ -30,16 +30,6 @@ class ProductRepository(ABC):
         pass
 
     @abstractmethod
-    def get_all(self, user_id: str) -> List[Product]:
-        '''
-        Получает все товары пользователя.
-
-        :param user_id: Идентификатор пользователя, чьи товары нужно получить.
-        :return: Список объектов Product для данного пользователя.
-        '''
-        pass
-
-    @abstractmethod
     def delete(self, product_id: str) -> bool:
         '''
         Удаляет товар по идентификатору.

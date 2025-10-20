@@ -81,5 +81,5 @@ class UserProductsRepositoryImpl(UserProductsRepository):
             # logger.debug(f'user_products Iteration -> {user_products}')
             user_products[row.user_id].append(row.product_id)
 
-        #logger.info(f'Записи список (user_id: [product_id, product_id, ...]) получен и готов для парсинга.')
+        #logger.info(f'Записи список (user_id:[] [product_id, product_id, ...]) получен и готов для парсинга.')
         return dict(user_products)  # Преобразуем defaultdict обратно в обычный dict

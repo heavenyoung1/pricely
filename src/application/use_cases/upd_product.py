@@ -54,7 +54,7 @@ class UpdateProductPriceUseCase:
             if not product:
                 raise ProductNotFoundError(f'Товар {product_id} не найден')
 
-            # 2. Достаём последние цены из БД
+            # 2. Достаём актуальную цену из БД
             last_price = self.price_repo.get_latest_for_product(product_id)
 
             previous_price_with_card = last_price.with_card if last_price else None

@@ -34,9 +34,9 @@ class CreateUserUseCase:
         # 1. Проверяем, существует ли пользователь
         existing = self.user_repo.get(user.id)
         if existing:
-            logger.info(f'Пользователь {user.id} уже существует, пропускаем создание')
+            logger.info(f'⚠️ Пользователь {user.username} (ID - {user.id}) уже существует.')
             return
 
         # 2. Сохраняем нового пользователя
         self.user_repo.save(user)
-        logger.info(f'✅ Пользователь {user.id} успешно создан')
+        logger.info(f'✅ Пользователь {user.username} (ID - {user.id}) успешно создан.')

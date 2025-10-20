@@ -5,42 +5,54 @@ from src.domain.entities import Price
 from src.infrastructure.database.models import ORMPrice
 
 
-
 @pytest.fixture
-def price():
-    '''Price для юнит-тестов (ещё не сохранён в БД).'''
+def price_created_first():
+    '''Price для юнит-тестов  '''
     return Price(
-        id=None,  # 🔥 None до вставки в БД
-        product_id='p1',
-        with_card=100,
-        without_card=120,
-        previous_with_card=90,
-        previous_without_card=110,
+        id=None,
+        product_id='816992280',
+        with_card=1676,
+        without_card=1827,
+        previous_with_card=None,
+        previous_without_card=None,
         created_at=datetime(2025, 1, 1),  
     )
 
 @pytest.fixture
-def price_second():
+def price_after_checking():
     '''Фикстура тестового доменного Price'''
     return Price(
         id=None,  # 🔥 тоже None
-        product_id='p1',
-        with_card=120,
-        without_card=140,
-        previous_with_card=100,    
-        previous_without_card=120,
-        created_at=datetime(2025, 1, 2)
+        product_id='816992280',
+        with_card=1950,
+        without_card=1901,
+        previous_with_card=1676,    
+        previous_without_card=1827,
+        created_at=datetime(2025, 1, 2),
     )
 
 @pytest.fixture
-def orm_price():
+def orm_price_created_first():
     '''Фикстура тестового ORM Price'''
     return ORMPrice(
-        id=1,  # в БД уже сохранён → id есть
-        product_id='p1',
-        with_card=100,
-        without_card=120,
-        previous_with_card=90,
-        previous_without_card=110,
-        created_at=datetime(2025, 1, 1),
+        id=1,
+        product_id='816992280',
+        with_card=1676,
+        without_card=1827,
+        previous_with_card=None,
+        previous_without_card=None,
+        created_at=datetime(2025, 1, 1),  
+    )
+
+@pytest.fixture
+def orm_price_created_checking():
+    '''Фикстура тестового ORM Price'''
+    return ORMPrice(
+        id=1,
+        product_id='816992280',
+        with_card=1676,
+        without_card=1827,
+        previous_with_card=1676,
+        previous_without_card=1827,
+        created_at=datetime(2025, 1, 12),
     )

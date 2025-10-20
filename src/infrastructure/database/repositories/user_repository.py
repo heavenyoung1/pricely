@@ -30,8 +30,18 @@ class UserRepositoryImpl(UserRepository):
         :param user: Объект типа User, который необходимо сохранить или обновить.
         '''
         try:
-            # Преобразуем доменную модель пользователя в ORM модель и сохраняем
-            self.session.merge(UserMapper.domain_to_orm(user))
+            # Прежде чем добавить или обновить, проверяем, есть ли уже пользователь в базе
+            existing_user = self.session.query(ORMUser).filter(ORMUser.id == user.id).first()
+
+            if existing_user:
+                # Если пользователь существует, используем merge для обновления
+                logger.info(f'Пользователь {user.id} уже существует. Выполняем обновление.')
+                self.session.merge(UserMapper.domain_to_orm(user))  # Обновляем
+            else:
+                # Если пользователя нет в базе, добавляем нового
+                logger.info(f'Пользователь {user.id} не найден. Добавляем нового пользователя.')
+                self.session.add(UserMapper.domain_to_orm(user))  # Добавляем нового пользователя
+
             logger.info(f'💾 Пользователь {user.id} успешно сохранен/обновлен')
         except Exception as e:
             logger.error(f'❌ Ошибка сохранения пользователя {user}: {str(e)}')
