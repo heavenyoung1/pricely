@@ -3,6 +3,7 @@ import logging
 
 from src.application.use_cases.create_product import CreateProductUseCase
 from src.domain.exceptions import ProductCreationError, ParserProductError
+from src.application.use_cases.create_product import is_url, exctract_link
 
 
 logger = logging.getLogger(__name__)
@@ -166,3 +167,42 @@ def test_create_product_fails_save_error(
 
     pure_mock_product_repo.save.assert_not_called()
     pure_mock_price_repo.save.assert_not_called()
+
+@pytest.mark.unit
+def test_create_product_fails_save_error(
+    pure_mock_product_repo,
+    pure_mock_price_repo,
+    pure_mock_user_repo,
+    pure_mock_user_products_repo,
+    pure_mock_parser,
+    product,
+    user,
+):
+    # Настроим mock для метода save, чтобы он выбрасывал исключение
+    pure_mock_product_repo.get.return_value = None  # Продукта нет в БД
+    pure_mock_user_repo.get.return_value = user  # Пользователь существует
+    pure_mock_product_repo.save.side_effect = ProductCreationError('Ошибка сохранения товара')
+    
+    # Создаем use case
+    use_case = CreateProductUseCase(
+        product_repo=pure_mock_product_repo,
+        price_repo=pure_mock_price_repo,
+        user_repo=pure_mock_user_repo,
+        parser=pure_mock_parser,
+        user_products_repo=pure_mock_user_products_repo,
+    )
+
+    # Проверяем, что при попытке выполнить create_product будет выброшено исключение
+    with pytest.raises(ProductCreationError, match="Ошибка сохранения товара"):
+        use_case.execute(user_id=user.id, url='https://example.com/product')
+
+@pytest.mark.unit
+def test_is_url():
+    # Положительные тесты
+    assert is_url("https://example.com") == True
+    assert is_url("Книга") == False
+
+@pytest.mark.unit
+def test_exctract_link():
+    assert exctract_link("https://example.com") == "https://example.com"
+    assert exctract_link("Книга художественная https://example.com") == "https://example.com"
