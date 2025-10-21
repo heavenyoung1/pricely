@@ -18,10 +18,11 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: ${{ secrets.DB_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
-          POSTGRES_DB: pricely_db
+          POSTGRES_USER: ${DB_USER}       # Переменная из .env
+          POSTGRES_PASSWORD: ${DB_PASS}   # Переменная из .env
+          POSTGRES_DB: ${DB_NAME}         # Переменная из .env
         options: >-
+          --env-file .env
           --health-cmd="pg_isready -U postgres"
           --health-interval=10s
           --health-timeout=5s
@@ -32,10 +33,11 @@ jobs:
         ports:
           - 5433:5432
         env:
-          POSTGRES_USER: ${{ secrets.DB_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
-          POSTGRES_DB: pricely_test_db
+          POSTGRES_USER: ${DB_USER}       # Переменная из .env
+          POSTGRES_PASSWORD: ${DB_PASS}   # Переменная из .env
+          POSTGRES_DB: ${DB_TEST_NAME}         # Переменная из .env
         options: >-
+          --env-file .env
           --health-cmd="pg_isready -U postgres"
           --health-interval=10s
           --health-timeout=5s
@@ -49,6 +51,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'  
+
+      - name: Print environment variables
+        run: |
+          echo "DB_HOST=$DB_HOST"
+          echo "POSTGRES_USER=$POSTGRES_USER"
+          echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD"
   
       - name: Install dependencies using uv
         run: |
