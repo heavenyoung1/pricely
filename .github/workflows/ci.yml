@@ -70,6 +70,16 @@ jobs:
             sleep 2
           done
 
+        env:
+          DB_HOST: 192.168.175.129
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASS: ${{ secrets.DB_PASS }}
+          DB_NAME: pricely_db
+          DB_TEST_NAME: pricely_test_db
+          DB_PORT: 5432
+          DB_TEST_PORT: 5433
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+
       - name: Run migrations for dev environment
         run: |
           make migrate-dev  # Запуск миграций для dev базы данных
@@ -81,8 +91,4 @@ jobs:
       - name: Run tests
         run: |
           make test  # Запускаем тесты с помощью makefile
-          
-      # - name: Upload coverage to Codecov
-      #   uses: codecov/codecov-action@v3
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}  # Токен Codecov для приватных репозиториев
+        
