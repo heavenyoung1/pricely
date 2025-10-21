@@ -7,10 +7,10 @@ make -n down:
 	docker-compose down -v
 
 migrate-dev:
-	ALEMBIC_DATABASE_URL=$$(uv run python scripts/db_url.py dev) uv run alembic upgrade head
+	ALEMBIC_DATABASE_URL=$$(uv run python -c "from src.core.db_config import DataBaseSettings; db = DataBaseSettings(); print(db.get_alembic_url(use_test=False))") uv run alembic upgrade head
 
 migrate-test:
-	ALEMBIC_DATABASE_URL=$$(uv run python scripts/db_url.py test) uv run alembic upgrade head
+	ALEMBIC_DATABASE_URL=$$(uv run python -c "from src.core.db_config import DataBaseSettings; db = DataBaseSettings(); print(db.get_alembic_url(use_test=True))") uv run alembic upgrade head
 
 migrate-all: migrate-dev migrate-test
 	@echo "Миграции успешно применены к обеим БД"
