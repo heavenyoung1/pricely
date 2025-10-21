@@ -45,6 +45,10 @@ class DataBaseSettings(BaseSettings):
         extra='ignore',  # Игнорировать лишние переменные
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        logger.debug(f"Loaded DB settings: {self.model_dump()}")
+
     def get_database_url(self, use_test: bool = False) -> str:
         '''
         Формирует URL для подключения к базе данных с использованием SQLAlchemy.
@@ -59,7 +63,9 @@ class DataBaseSettings(BaseSettings):
             name = self.NAME
             port = self.PORT
 
-        return f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{port}/{name}'
+        db_url = f'{self.CONN}://{self.USER}:{self.PASS}@{self.HOST}:{port}/{name}'
+        logger.debug(f"⚠️ Сгенерирован database URL: {db_url}")
+        return db_url
 
     def get_alembic_url(self, use_test: bool = False) -> str:
         '''
@@ -75,7 +81,9 @@ class DataBaseSettings(BaseSettings):
             name = self.NAME
             port = self.PORT
 
-        return f'postgresql://{self.USER}:{self.PASS}@{self.HOST}:{port}/{name}'
+        alembic_url = f'postgresql://{self.USER}:{self.PASS}@{self.HOST}:{port}/{name}'
+        logger.debug(f"⚠️ Сгенерирован Alembic URL: {alembic_url}")
+        return alembic_url
 
     @property
     def is_test_db_configured(self) -> bool:
