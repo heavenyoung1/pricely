@@ -18,9 +18,9 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: ${DB_USER}       # Переменная из .env
-          POSTGRES_PASSWORD: ${DB_PASS}   # Переменная из .env
-          POSTGRES_DB: ${DB_NAME}         # Переменная из .env
+          POSTGRES_USER: "postgres"      # Переменная из .env
+          POSTGRES_PASSWORD: "1234"   # Переменная из .env
+          POSTGRES_DB: "pricely_db"        # Переменная из .env
         options: >-
           --env-file .env
           --health-cmd="pg_isready -U postgres"
@@ -33,9 +33,9 @@ jobs:
         ports:
           - 5433:5432
         env:
-          POSTGRES_USER: ${DB_USER}       # Переменная из .env
-          POSTGRES_PASSWORD: ${DB_PASS}   # Переменная из .env
-          POSTGRES_DB: ${DB_TEST_NAME}         # Переменная из .env
+          POSTGRES_USER: "postgres"      # Переменная из .env
+          POSTGRES_PASSWORD: "1234"   # Переменная из .env
+          POSTGRES_DB: "pricely_test_db"        # Переменная из .env
         options: >-
           --env-file .env
           --health-cmd="pg_isready -U postgres"
