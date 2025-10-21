@@ -22,6 +22,7 @@ jobs:
           POSTGRES_PASSWORD: ${DB_PASS}   # Переменная из .env
           POSTGRES_DB: ${DB_NAME}         # Переменная из .env
         options: >-
+          --env-file .env
           --health-cmd="pg_isready -U postgres"
           --health-interval=10s
           --health-timeout=5s
@@ -36,6 +37,7 @@ jobs:
           POSTGRES_PASSWORD: ${DB_PASS}   # Переменная из .env
           POSTGRES_DB: ${DB_TEST_NAME}         # Переменная из .env
         options: >-
+          --env-file .env
           --health-cmd="pg_isready -U postgres"
           --health-interval=10s
           --health-timeout=5s
