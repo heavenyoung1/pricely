@@ -18,8 +18,8 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: ${{ secrets.DB_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 1234
           POSTGRES_DB: pricely_db
         options: >-
           --health-cmd="pg_isready -U postgres"
@@ -32,8 +32,8 @@ jobs:
         ports:
           - 5433:5432
         env:
-          POSTGRES_USER: ${{ secrets.DB_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 1234
           POSTGRES_DB: pricely_test_db
         options: >-
           --health-cmd="pg_isready -U postgres"
@@ -69,16 +69,6 @@ jobs:
             echo "Waiting for postgres_test to be ready..."
             sleep 2
           done
-
-        env:
-          DB_HOST: 192.168.175.129
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASS: ${{ secrets.DB_PASS }}
-          DB_NAME: pricely_db
-          DB_TEST_NAME: pricely_test_db
-          DB_PORT: 5432
-          DB_TEST_PORT: 5433
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
 
       - name: Run migrations for dev environment
         run: |
