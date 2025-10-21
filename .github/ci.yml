@@ -12,6 +12,35 @@ jobs:
   test:
     runs-on: ubuntu-latest  # Используем Ubuntu для выполнения тестов
 
+    services:
+      postgres_dev:
+        image: postgres:16
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
+          POSTGRES_DB: pricely_db
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+      postgres_test:
+        image: postgres:16
+        ports:
+          - 5433:5432
+        env:
+          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
+          POSTGRES_DB: pricely_test_db
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2  # Клонируем репозиторий
@@ -27,6 +56,20 @@ jobs:
           uv --version  # Проверяем версию uv
           uv sync  # Синхронизируем зависимости, используя uv
 
+      - name: Wait for PostgreSQL to be ready (dev)
+        run: |
+          until pg_isready -h localhost -p 5432 -U postgres; do
+            echo "Waiting for postgres_dev to be ready..."
+            sleep 2
+          done
+
+      - name: Wait for PostgreSQL to be ready (test)
+        run: |
+          until pg_isready -h localhost -p 5433 -U postgres; do
+            echo "Waiting for postgres_test to be ready..."
+            sleep 2
+          done
+
       - name: Run migrations for dev environment
         run: |
           make migrate-dev  # Запуск миграций для dev базы данных
@@ -39,7 +82,7 @@ jobs:
         run: |
           make test  # Запускаем тесты с помощью makefile
           
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}  # Токен Codecov для приватных репозиториев
+      # - name: Upload coverage to Codecov
+      #   uses: codecov/codecov-action@v3
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}  # Токен Codecov для приватных репозиториев
