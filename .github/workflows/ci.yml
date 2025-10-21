@@ -22,7 +22,6 @@ jobs:
           POSTGRES_PASSWORD: 1234   # Переменная из .env
           POSTGRES_DB: pricely_db       # Переменная из .env
         options: >-
-          --env-file .env
           --health-cmd="pg_isready -U postgres"
           --health-interval=10s
           --health-timeout=5s
@@ -37,7 +36,6 @@ jobs:
           POSTGRES_PASSWORD: 1234   # Переменная из .env
           POSTGRES_DB: pricely_db       # Переменная из .env
         options: >-
-          --env-file .env
           --health-cmd="pg_isready -U postgres"
           --health-interval=10s
           --health-timeout=5s
