@@ -45,18 +45,7 @@ class DataBaseSettings(BaseSettings):
         env_file_encoding='utf-8',
         extra='ignore',  # Игнорировать лишние переменные
     )
-
-    def __init__(self, **kwargs):
-        # Дебаг: выводим все переменные окружения перед инициализацией
-        logger.debug(">>> Загружаем настройки базы данных...")
-        self._debug_print_env_vars()  # Функция для дебага переменных окружения
-
-        # Инициализация базы данных через Pydantic
-        super().__init__(**kwargs)
-        
-        # Дебаг: выводим атрибуты, загруженные из настроек
-        logger.debug(f"DB Settings Loaded: {self.model_dump()}")
-
+    
     def _debug_print_env_vars(self):
         """
         Печатает все переменные окружения, которые начинаются с DB_.

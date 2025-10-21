@@ -52,9 +52,9 @@ jobs:
 
       - name: Print environment variables
         run: |
-          echo "DB_HOST=$DB_HOST"
           echo "POSTGRES_USER=$POSTGRES_USER"
           echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD"
+          echo "POSTGRES_DB=$POSTGRES_DB"
   
       - name: Install dependencies using uv
         run: |
