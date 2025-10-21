@@ -49,6 +49,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'  
+
+      - name: Print environment variables
+        run: |
+          echo "DB_HOST=$DB_HOST"
+          echo "POSTGRES_USER=$POSTGRES_USER"
+          echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD"
   
       - name: Install dependencies using uv
         run: |
