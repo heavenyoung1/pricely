@@ -49,13 +49,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'  
-
-      - name: Debug environment
-        run: |
-          echo "DB_HOST=$DB_HOST"
-          echo "DB_USER=$DB_USER"
-          echo "DB_NAME=$DB_NAME"
-          env | grep DB_
   
       - name: Install dependencies using uv
         run: |
