@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # Настройка логгера
 logger = logging.getLogger(__name__)
-# logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 # handler = logging.StreamHandler()
 # formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 # handler.setFormatter(formatter)
@@ -46,8 +46,24 @@ class DataBaseSettings(BaseSettings):
     )
 
     def __init__(self, **kwargs):
+        # Дебаг: выводим все переменные окружения перед инициализацией
+        logger.debug(">>> Загружаем настройки базы данных...")
+        self._debug_print_env_vars()  # Функция для дебага переменных окружения
+
+        # Инициализация базы данных через Pydantic
         super().__init__(**kwargs)
-        logger.debug(f"Loaded DB settings: {self.model_dump()}")
+        
+        # Дебаг: выводим атрибуты, загруженные из настроек
+        logger.debug(f"DB Settings Loaded: {self.model_dump()}")
+
+    def _debug_print_env_vars(self):
+        """
+        Печатает все переменные окружения, которые начинаются с DB_.
+        """
+        logger.debug(">>> Текущие переменные окружения:")
+        for key, value in os.environ.items():
+            if key.startswith('DB_'):
+                logger.debug(f"{key}: {value}")
 
     def get_database_url(self, use_test: bool = False) -> str:
         '''
