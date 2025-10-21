@@ -18,8 +18,8 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: 1234
+          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
           POSTGRES_DB: pricely_db
         options: >-
           --health-cmd="pg_isready -U postgres"
@@ -32,8 +32,8 @@ jobs:
         ports:
           - 5433:5432
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: 1234
+          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
           POSTGRES_DB: pricely_test_db
         options: >-
           --health-cmd="pg_isready -U postgres"
