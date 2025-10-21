@@ -11,6 +11,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest  # Используем Ubuntu для выполнения тестов
+    env:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: pricely_db
 
     services:
       postgres_dev:
@@ -43,7 +47,7 @@ jobs:
 
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v2  # Клонируем репозиторий
+        uses: actions/checkout@v4  # Клонируем репозиторий
 
       - name: Set up Python
         uses: actions/setup-python@v5

@@ -112,6 +112,7 @@ class DatabaseConnection:
 
 # Создание экземпляра конфигурации БД и объекта для работы с соединением
 db_settings = DataBaseSettings()
+print(db_settings.model_dump())  # Выводит все загруженные настройки
 db = DatabaseConnection(db_settings)
 
 # Это фабрика, которую будет использовать UnitOfWork
