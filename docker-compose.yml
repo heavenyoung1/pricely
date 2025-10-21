@@ -4,9 +4,9 @@ services:
     image: postgres:16
     container_name: pricely_postgres_dev
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: pricely_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - "5432:5432" # Порт на хосте Linux: порт в контейнере
     volumes:
@@ -18,9 +18,9 @@ services:
     image: postgres:16
     container_name: pricely_postgres_test
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: pricely_test_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_TEST_NAME}
     ports:
       - "5433:5432" # Тестовая БД на другом порту
     volumes:
@@ -33,25 +33,9 @@ services:
       timeout: 10s
       retries: 5
 
-  # НОВЫЙ сервер для упражнений в SQL
-  postgres_sql_practice:
-    image: postgres:16
-    container_name: pricely_postgres_sql_practice
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: sql_practice_db
-    ports:
-      - "5434:5432"  # Новый порт для практики
-    volumes:
-      - postgres_data_practice:/var/lib/postgresql/data
-    networks:
-      - pricely_network
-
 volumes:
   postgres_data_dev:
   postgres_data_test:
-  postgres_data_practice:  # Новый volume для практики
 
 networks:
   pricely_network:
