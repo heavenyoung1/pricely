@@ -15,11 +15,12 @@ jobs:
       DB_USER: ${{ secrets.DB_USER }}
       DB_PASS: ${{ secrets.DB_PASS }}
       DB_NAME: ${{ secrets.DB_NAME }}
-      DB_TEST_NAME: ${{ secrets.DB_TEST_NAME }}
       DB_HOST: ${{ secrets.DB_HOST }}
       DB_PORT: ${{ secrets.DB_PORT }}
+
+      DB_TEST_NAME: ${{ secrets.DB_TEST_NAME }}
       DB_TEST_PORT: ${{ secrets.DB_TEST_PORT }}
-      PYTHONPATH: ./src  # Убедитесь, что PYTHONPATH указывает на папку с исходниками
+      PYTHONPATH: ./src 
 
     services:
       postgres_dev:
@@ -28,7 +29,7 @@ jobs:
           - 5432:5432
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: 1234
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
           POSTGRES_DB: pricely_db
         options: >-
           --health-cmd="pg_isready -U postgres"
@@ -42,7 +43,7 @@ jobs:
           - 5433:5432
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: 1234
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
           POSTGRES_DB: pricely_test_db
         options: >-
           --health-cmd="pg_isready -U postgres"
