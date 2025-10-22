@@ -12,13 +12,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: pricely_db
-      POSTGRES_TEST_DB: pricely_test_db
-      POSTGRES_HOST: localhost
-      POSTGRES_PORT_DEV: 5432
-      POSTGRES_PORT_TEST: 5433
+      DB_USER: postgres
+      DB_PASS: 1234
+      DB_NAME: pricely_db
+      DB_TEST_NAME: pricely_test_db
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_TEST_PORT: 5433
       PYTHONPATH: ./src  # Убедитесь, что PYTHONPATH указывает на папку с исходниками
 
     services:
@@ -66,9 +66,9 @@ jobs:
 
       - name: Print environment variables
         run: |
-          echo "POSTGRES_USER=$POSTGRES_USER"
-          echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD"
-          echo "POSTGRES_DB=$POSTGRES_DB"
+          echo "DB_USER=$DB_USER"
+          echo "DB_PASSWORD=$DB_PASSWORD"
+          echo "DB_DB=$DB_DB"
 
       - name: Install dependencies using uv
         run: |

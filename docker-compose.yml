@@ -20,7 +20,7 @@ services:
     environment:
       POSTGRES_USER: postgres      # Переменная из .env
       POSTGRES_PASSWORD: 1234   # Переменная из .env
-      POSTGRES_DB: pricely_db       # Переменная из .env
+      POSTGRES_DB: pricely_test_db       # Переменная из .env
     ports:
       - "5433:5432" # Тестовая БД на другом порту
     volumes:
