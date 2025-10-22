@@ -12,13 +12,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      DB_USER: postgres
-      DB_PASS: 1234
-      DB_NAME: pricely_db
-      DB_TEST_NAME: pricely_test_db
-      DB_HOST: localhost
-      DB_PORT: 5432
-      DB_TEST_PORT: 5433
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASS: ${{ secrets.DB_PASS }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      DB_TEST_NAME: ${{ secrets.DB_TEST_NAME }}
+      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_PORT: ${{ secrets.DB_PORT }}
+      DB_TEST_PORT: ${{ secrets.DB_TEST_PORT }}
       PYTHONPATH: ./src  # Убедитесь, что PYTHONPATH указывает на папку с исходниками
 
     services:
@@ -63,12 +63,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y postgresql-client
-
-      - name: Print environment variables
-        run: |
-          echo "DB_USER=$DB_USER"
-          echo "DB_PASSWORD=$DB_PASSWORD"
-          echo "DB_DB=$DB_DB"
 
       - name: Install dependencies using uv
         run: |
