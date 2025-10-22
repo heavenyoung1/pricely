@@ -1,25 +1,15 @@
-name: CI Pipeline
 
 on:
   push:
     branches:
-      - master
+      - master  # Запускаем при пушах в основную ветку
   pull_request:
     branches:
-      - master
+      - master  # Запускаем для pull-request в основную ветку
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-    env:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: pricely_db
-      POSTGRES_TEST_DB: pricely_test_db
-      POSTGRES_HOST: localhost
-      POSTGRES_PORT_DEV: 5432
-      POSTGRES_PORT_TEST: 5433
-      PYTHONPATH: ./src  # Убедитесь, что PYTHONPATH указывает на папку с исходниками
+    runs-on: ubuntu-latest  # Используем Ubuntu для выполнения тестов
 
     services:
       postgres_dev:
@@ -27,8 +17,8 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: 1234
+          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
           POSTGRES_DB: pricely_db
         options: >-
           --health-cmd="pg_isready -U postgres"
@@ -41,8 +31,8 @@ jobs:
         ports:
           - 5433:5432
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: 1234
+          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
           POSTGRES_DB: pricely_test_db
         options: >-
           --health-cmd="pg_isready -U postgres"
@@ -52,29 +42,24 @@ jobs:
 
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2  # Клонируем репозиторий
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
-
-      - name: Install PostgreSQL client
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y postgresql-client
+          python-version: '3.13'  
 
       - name: Print environment variables
         run: |
+          echo "DB_HOST=$DB_HOST"
           echo "POSTGRES_USER=$POSTGRES_USER"
           echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD"
-          echo "POSTGRES_DB=$POSTGRES_DB"
-
+  
       - name: Install dependencies using uv
         run: |
-          pip install uv --upgrade
-          uv --version
-          uv sync
+          pip install uv --upgrade  # Устанавливаем uv
+          uv --version  # Проверяем версию uv
+          uv sync  # Синхронизируем зависимости, используя uv
 
       - name: Wait for PostgreSQL to be ready (dev)
         run: |
@@ -92,12 +77,13 @@ jobs:
 
       - name: Run migrations for dev environment
         run: |
-          make migrate-dev
+          make migrate-dev  # Запуск миграций для dev базы данных
 
       - name: Run migrations for test environment
         run: |
-          make migrate-test
+          make migrate-test  # Запуск миграций для dev базы данных
 
       - name: Run tests
         run: |
-          make tests
+          make test  # Запускаем тесты с помощью makefile
+        
