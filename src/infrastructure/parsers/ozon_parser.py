@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 class OzonParser(Parser):
     '''Парсер товаров с Ozon. Реализует парсинг данных о товаре с маркетплейса Ozon.'''
 
-    @session_wrapper(headless=False)
+    @session_wrapper(headless=True)
     def parse_product(self, session: SessionEngine, url: str) -> Dict:
         '''Парсит страницу товара по URL и возвращает данные о товаре.
 
