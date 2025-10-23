@@ -1,6 +1,27 @@
 #!/bin/bash
 
-# 1. Клонирование репозитория (если ещё не сделано)
+# 1. Обновление списка пакетов
+echo "Обновляем список пакетов..."
+sudo apt update -y
+
+# 2. Установка необходимых утилит (make и docker-compose)
+echo "Проверяем, установлен ли make..."
+if ! command -v make &> /dev/null; then
+  echo "Утилита make не найдена, устанавливаем..."
+  sudo apt install -y make
+else
+  echo "Утилита make уже установлена."
+fi
+
+echo "Проверяем, установлен ли docker-compose..."
+if ! command -v docker-compose &> /dev/null; then
+  echo "docker-compose не найден, устанавливаем..."
+  sudo apt install -y docker-compose
+else
+  echo "docker-compose уже установлен."
+fi
+
+# 3. Клонирование репозитория (если ещё не сделано)
 if [ ! -d "pricely" ]; then
   echo "Клонируем репозиторий..."
   git clone https://github.com/heavenyoung1/pricely
@@ -10,7 +31,7 @@ else
   cd pricely
 fi
 
-# 2. Проверка наличия утилиты uv
+# 4. Проверка наличия утилиты uv
 if command -v uv &> /dev/null; then
   echo "Утилита uv уже установлена, пропускаем установку."
 else
@@ -21,12 +42,15 @@ else
   exit 0  # Прерываем выполнение скрипта, чтобы пользователь перезапустил терминал
 fi
 
-# 3. Активация виртуального окружения при помощи утилиты `uv`
+# 5. Активация виртуального окружения с помощью утилиты `uv`
 echo "Активируем виртуальное окружение с помощью uv..."
 uv sync
 
-# 4. Проверка наличия установленного Google Chrome
-if command -v google-chrome &> /dev/null; then
+# 6. Проверка наличия установленного Google Chrome
+echo "Проверяем, установлен ли Google Chrome..."
+
+# Используем which для поиска пути к исполнимому файлу
+if command -v google-chrome-stable &> /dev/null || command -v google-chrome &> /dev/null; then
   echo "Google Chrome уже установлен, пропускаем установку."
 else
   echo "Google Chrome не найден, скачиваем..."
@@ -39,7 +63,7 @@ else
   echo "Google Chrome установлен успешно"
 fi
 
-# 5. Проверка наличия установленного ChromeDriver
+# 7. Проверка наличия установленного ChromeDriver
 if command -v chromedriver &> /dev/null; then
   echo "ChromeDriver уже установлен, пропускаем установку."
 else
@@ -53,7 +77,7 @@ else
   echo "ChromeDriver скачан и установлен"
 fi
 
-# 6. Создание пустого файла proxy.json
+# 8. Создание пустого файла proxy.json
 PROXY_FILE="src/infrastructure/parsers/proxy.json"
 if [ ! -f "$PROXY_FILE" ]; then
   echo "Создаём пустой файл proxy.json..."
@@ -66,7 +90,7 @@ else
   echo "Файл proxy.json уже существует."
 fi
 
-# 7. Конфигурация подключений (создание .env файла)
+# 9. Конфигурация подключений (создание .env файла)
 if [ ! -f ".env" ]; then
   echo "Создаём файл .env из .env.example..."
   cp .env.example .env
@@ -78,7 +102,7 @@ fi
 echo "Откройте файл .env для настройки подключений к базе данных и другим сервисам:"
 nano .env
 
-# 8. Поднятие баз данных с помощью `docker-compose`
+# 10. Поднятие баз данных с помощью `docker-compose`
 echo "Запускаем Docker контейнеры для баз данных..."
 docker-compose up -d
 
@@ -86,21 +110,21 @@ docker-compose up -d
 echo "Проверяем, что контейнеры работают..."
 docker ps
 
-# 9. Применение миграций к БД
+# 11. Применение миграций к БД
 echo "Применяем миграции к БД..."
 make migrate-all
 
-# 10. Запуск тестов
+# 12. Запуск тестов
 echo "Запускаем тесты..."
 make tests
 
-# 11. Завершаем процесс развертывания
+# 13. Завершаем процесс развертывания
 echo "Все компоненты собраны и настроены успешно!"
 
-# 12. Запуск бота
+# 14. Запуск бота
 echo "Запускаем бота..."
 make bot
 
-# 13. Завершаем процесс
+# 15. Завершаем процесс
 echo "Процесс развертывания завершён!"
 

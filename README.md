@@ -146,7 +146,7 @@ make bot
 git clone https://github.com/heavenyoung1/pricely
 cd pricely
 sudo chmod +x scripts/deploy.sh
-./deploy.sh
+./scripts/deploy.sh
 ```
 
 ## Ввод данных
