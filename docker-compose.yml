@@ -4,9 +4,9 @@ services:
     image: postgres:16
     container_name: pricely_postgres_dev
     environment:
-      POSTGRES_USER: postgres      # Переменная из .env
-      POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}   # Переменная из .env
-      POSTGRES_DB: pricely_db       # Переменная из .env
+      POSTGRES_USER: ${DB_USER}      # Переменная из .env
+      POSTGRES_PASSWORD: ${DB_PASS}    # Переменная из .env
+      POSTGRES_DB: ${DB_NAME}        # Переменная из .env
     ports:
       - "5432:5432" # Порт на хосте Linux: порт в контейнере
     volumes:
@@ -18,9 +18,9 @@ services:
     image: postgres:16
     container_name: pricely_postgres_test
     environment:
-      POSTGRES_USER: postgres      # Переменная из .env
-      POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}   # Переменная из .env
-      POSTGRES_DB: pricely_test_db       # Переменная из .env
+      POSTGRES_USER: ${DB_USER}      # Переменная из .env
+      POSTGRES_PASSWORD: ${DB_PASS}   # Переменная из .env
+      POSTGRES_DB: ${DB_TEST_NAME}       # Переменная из .env
     ports:
       - "5433:5432" # Тестовая БД на другом порту
     volumes:
@@ -28,7 +28,7 @@ services:
     networks:
       - pricely_network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
       interval: 30s
       timeout: 10s
       retries: 5
