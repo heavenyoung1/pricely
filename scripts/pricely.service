@@ -1,0 +1,26 @@
+[Unit]
+Description=Pricely - Service for Tracking Price on Marketplace Ozon.
+After=network.target docker.service
+
+[Service]
+User=admin
+Group=docker
+Environment="PATH=/home/admin/.local/bin:$PATH"
+WorkingDirectory=/opt/pricely
+
+ExecStartPre=/usr/bin/docker-compose -f /opt/pricely/docker-compose.yml up -d
+
+ExecStartPre=/usr/bin/make migrate-all
+ExecStartPre=/usr/bin/make tests
+
+ExecStart=/usr/bin/make bot
+
+Restart=always
+RestartSec=5
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=pricely
+
+[Install]
+WantedBy=multi-user.target
