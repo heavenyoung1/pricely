@@ -4,6 +4,7 @@ from src.infrastructure.database.models import ORMUserProducts
 from src.infrastructure.database.repositories import UserProductsRepositoryImpl
 
 import logging
+
 logger = logging.getLogger(__name__)
 
 

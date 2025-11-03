@@ -5,9 +5,9 @@ from .user import ORMUser
 from .users_products import ORMUserProducts
 
 __all__ = [
-    'Base', 
-    'ORMProduct', 
-    'ORMPrice', 
-    'ORMUser',
-    'ORMUserProducts',
-    ]
+    "Base",
+    "ORMProduct",
+    "ORMPrice",
+    "ORMUser",
+    "ORMUserProducts",
+]

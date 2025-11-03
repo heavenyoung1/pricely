@@ -1,4 +1,4 @@
-import random 
+import random
 import json
 import logging
 from typing import Optional
@@ -16,16 +16,16 @@ logger = logging.getLogger(__name__)
 
 
 class SessionEngine:
-    '''Класс для управления сессией браузера с поддержкой кук и заголовков'''
+    """Класс для управления сессией браузера с поддержкой кук и заголовков"""
 
     def __init__(
-            self,
-            headless: bool = False,
-            user_agent: Optional[str] = None,
-            proxy: Optional[str] = None,
-            wait_time: int = 5,
+        self,
+        headless: bool = False,
+        user_agent: Optional[str] = None,
+        proxy: Optional[str] = None,
+        wait_time: int = 5,
     ):
-        '''
+        """
         Инициализация движка сессии.
 
         Args:
@@ -33,128 +33,139 @@ class SessionEngine:
             user_agent (str, optional): Пользовательский user-agent.
             proxy (str, optional): Прокси-сервер в формате http://host:port.
             wait_time (int): Время ожидания для загрузки страниц (сек).
-        '''
+        """
         self.headless = headless
-        self.user_agent = user_agent or self._get_user_agent()  # Выбираем случайный User-Agent
-        self.proxy = proxy or self._get_proxy() if proxy is None else proxy  # Загружаем прокси, если оно не передано
+        self.user_agent = (
+            user_agent or self._get_user_agent()
+        )  # Выбираем случайный User-Agent
+        self.proxy = (
+            proxy or self._get_proxy() if proxy is None else proxy
+        )  # Загружаем прокси, если оно не передано
         self.wait_time = wait_time
         self.driver: Optional[webdriver.Chrome] = None
         self._initialize_driver()
 
     def _get_user_agent(self) -> str:
-        '''Загружает список User-Agent из файла и выбирает случайный'''
+        """Загружает список User-Agent из файла и выбирает случайный"""
         try:
             index = random.randrange(len(user_agents))
             user_agent = user_agents[index]
-            logger.info(f'UserAgent успешно получен: {user_agent}')
+            logger.info(f"UserAgent успешно получен: {user_agent}")
             return user_agent
         except Exception as e:
-            logger.error(f'Ошибка получения UserAgent: {e}')
+            logger.error(f"Ошибка получения UserAgent: {e}")
             raise
 
     def _get_proxy(self) -> Optional[str]:
-        '''Загружает список прокси из файла и выбирает случайный, если файл не пустой.'''
+        """Загружает список прокси из файла и выбирает случайный, если файл не пустой."""
         try:
             # Проверяем наличие файла с прокси
-            with open('src/infrastructure/parsers/proxy.json', 'r', encoding='utf-8') as file:
+            with open(
+                "src/infrastructure/parsers/proxy.json", "r", encoding="utf-8"
+            ) as file:
                 proxies = json.load(file)
 
             if proxies:  # Если прокси не пустые
                 proxy_data = random.choice(proxies)
-                proxy = proxy_data['proxy']
-                user = proxy_data['user']
-                password = proxy_data['password']
-                proxy_str = f'http://{user}:{password}@{proxy}'  # Прокси с авторизацией
-                logger.info(f'Прокси успешно получен: {proxy_str}')
+                proxy = proxy_data["proxy"]
+                user = proxy_data["user"]
+                password = proxy_data["password"]
+                proxy_str = f"http://{user}:{password}@{proxy}"  # Прокси с авторизацией
+                logger.info(f"Прокси успешно получен: {proxy_str}")
                 return proxy_str
             else:
-                logger.warning('⚠️  Список прокси пуст.')
+                logger.warning("⚠️  Список прокси пуст.")
                 return None
-            
+
         except FileNotFoundError:
-            logger.error('❌  Файл с прокси не найден.')
+            logger.error("❌  Файл с прокси не найден.")
             return None
         except Exception as e:
-            logger.error(f'❌  Ошибка получения Прокси: {e}')
+            logger.error(f"❌  Ошибка получения Прокси: {e}")
             return None
 
     def _initialize_driver(self) -> None:
-        '''Инициализирует WebDriver с заданными настройками'''
+        """Инициализирует WebDriver с заданными настройками"""
         try:
             options = Options()
             chrome_args = [
-                '--no-sandbox',  # Отключение sandbox, если на CI/CD есть проблемы.
-                '--disable-gpu', # Отключение GPU, если это headless-режим или на сервере.
-                '--disable-blink-features=AutomationControlled', # Маскировка от автоматизированных систем.
-                '--start-maximized', # Можно оставить для графических режимов.
-                '--disable-logging', # Отключение логирования, если оно не нужно.
+                "--no-sandbox",  # Отключение sandbox, если на CI/CD есть проблемы.
+                "--disable-gpu",  # Отключение GPU, если это headless-режим или на сервере.
+                "--disable-blink-features=AutomationControlled",  # Маскировка от автоматизированных систем.
+                "--start-maximized",  # Можно оставить для графических режимов.
+                "--disable-logging",  # Отключение логирования, если оно не нужно.
             ]
 
             if self.headless:
-                chrome_args.append('--headless=new')
+                chrome_args.append("--headless=new")
             if self.user_agent:
-                chrome_args.append(f'--user-agent={self.user_agent}')
+                chrome_args.append(f"--user-agent={self.user_agent}")
             # Применение Proxy
             if self.proxy:
-                options.proxy = Proxy({
-                    'proxyType': ProxyType.MANUAL,
-                    'httpProxy': self.proxy,  # Прокси для HTTP
-                    'sslProxy': self.proxy,   # Прокси для HTTPS
-                })
+                options.proxy = Proxy(
+                    {
+                        "proxyType": ProxyType.MANUAL,
+                        "httpProxy": self.proxy,  # Прокси для HTTP
+                        "sslProxy": self.proxy,  # Прокси для HTTPS
+                    }
+                )
             elif not self.proxy:
-                logger.info('⚠️ Proxy не переданы. Проверьте наличие файла либо наличие Proxy в файле: ')
-                logger.info('⚠️ Путь до файла == src/infrastructure/parsers/proxy.json ==')
+                logger.info(
+                    "⚠️ Proxy не переданы. Проверьте наличие файла либо наличие Proxy в файле: "
+                )
+                logger.info(
+                    "⚠️ Путь до файла == src/infrastructure/parsers/proxy.json =="
+                )
             for arg in chrome_args:
                 options.add_argument(arg)
 
             self.driver = webdriver.Chrome(options=options)
             self._apply_stealth_settings()
-            logger.info('🔗 WebDriver успешно инициализирован.')
-            
+            logger.info("🔗 WebDriver успешно инициализирован.")
+
         except Exception as e:
-            logger.error(f'Ошибка при инициализации WebDriver: {e}')
+            logger.error(f"Ошибка при инициализации WebDriver: {e}")
             raise
 
     def _apply_stealth_settings(self) -> None:
-        '''Применяет stealth-настройки для маскировки браузера'''
+        """Применяет stealth-настройки для маскировки браузера"""
         try:
             stealth(
                 self.driver,
-                languages=['en-US', 'en'],
-                vendor='Google Inc.',
-                platform='Win32',
-                webgl_vendor='Intel Inc.',
-                renderer='Intel Iris OpenGL Engine',
+                languages=["en-US", "en"],
+                vendor="Google Inc.",
+                platform="Win32",
+                webgl_vendor="Intel Inc.",
+                renderer="Intel Iris OpenGL Engine",
                 fix_hairline=True,
                 user_agent=self.user_agent,
             )
-            logger.info('Stealth-настройки успешно применены.')
+            logger.info("Stealth-настройки успешно применены.")
         except Exception as e:
-            logger.error(f'Ошибка при применении stealth-настроек: {e}')
+            logger.error(f"Ошибка при применении stealth-настроек: {e}")
             raise
 
     def navigate(self, url: str) -> None:
-        '''Переходит по указанному URL и ожидает загрузки страницы'''
+        """Переходит по указанному URL и ожидает загрузки страницы"""
         try:
             self.driver.get(url)
             WebDriverWait(self.driver, self.wait_time).until(
-                EC.presence_of_element_located((By.TAG_NAME, 'body'))
+                EC.presence_of_element_located((By.TAG_NAME, "body"))
             )
-            logger.info(f'Успешно загружена страница: {url}')
+            logger.info(f"Успешно загружена страница: {url}")
         except Exception as e:
-            logger.error(f'Ошибка при загрузке страницы {url}: {e}')
+            logger.error(f"Ошибка при загрузке страницы {url}: {e}")
             raise
 
     def _extract_text(self, element) -> str:
-        '''Извлекает текст из элемента, если он существует'''
-        return element.text.strip() if element else 'N/A'
+        """Извлекает текст из элемента, если он существует"""
+        return element.text.strip() if element else "N/A"
 
     def quit(self) -> None:
-        '''Закрывает WebDriver'''
+        """Закрывает WebDriver"""
         if self.driver:
             try:
                 self.driver.quit()
-                logger.info('WebDriver успешно закрыт.')
+                logger.info("WebDriver успешно закрыт.")
             except Exception as e:
-                logger.error(f'Ошибка при закрытии WebDriver: {e}')
-
+                logger.error(f"Ошибка при закрытии WebDriver: {e}")

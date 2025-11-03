@@ -6,10 +6,10 @@ from src.infrastructure.database.models import ORMPrice
 
 @pytest.mark.unit
 def test_domain_to_orm_with_valid_data(price_created_first):
-    '''
+    """
     Тестирование преобразования доменной модели в ORM модель
     с валидными данными.
-    '''
+    """
     orm_price = PriceMapper.domain_to_orm(price_created_first)
 
     # Проверяем тип данных
@@ -24,10 +24,10 @@ def test_domain_to_orm_with_valid_data(price_created_first):
 
 @pytest.mark.unit
 def test_orm_to_domain_with_valid_data(orm_price_created_first):
-    '''
+    """
     Тестирование преобразования ORM модели в доменную модель
     с валидными данными.
-    '''
+    """
     domain_price = PriceMapper.orm_to_domain(orm_price_created_first)
 
     # Проверяем тип данных
@@ -39,10 +39,10 @@ def test_orm_to_domain_with_valid_data(orm_price_created_first):
 
 @pytest.mark.unit
 def test_domain_to_orm_with_some_changes(price_after_checking):
-    '''
+    """
     Тестирование преобразования доменной модели в ORM модель
     с измененными данными.
-    '''
+    """
     orm_price = PriceMapper.domain_to_orm(price_after_checking)
 
     # Проверяем тип данных
@@ -54,10 +54,10 @@ def test_domain_to_orm_with_some_changes(price_after_checking):
 
 @pytest.mark.unit
 def test_orm_to_domain_with_some_changes(orm_price_created_checking):
-    '''
+    """
     Тестирование преобразования ORM модели в доменную модель
     с измененными данными.
-    '''
+    """
     domain_price = PriceMapper.orm_to_domain(orm_price_created_checking)
 
     # Проверяем тип данных
@@ -65,6 +65,7 @@ def test_orm_to_domain_with_some_changes(orm_price_created_checking):
 
     # Проверяем, что данные маппятся корректно
     assert_prices_equal(orm_price_created_checking, domain_price)
+
 
 # Универсальная функция для проверки совпадения всех полей
 def assert_prices_equal(orm_price, domain_price):

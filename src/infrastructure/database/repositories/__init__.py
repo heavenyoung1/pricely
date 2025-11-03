@@ -3,5 +3,4 @@ from .price_repository import PriceRepositoryImpl
 from .user_repository import UserRepositoryImpl
 from .user_products_repository import UserProductsRepositoryImpl
 
-__all__ = ['ProductRepositoryImpl', 'PriceRepositoryImpl', 'UserRepositoryImpl']
-
+__all__ = ["ProductRepositoryImpl", "PriceRepositoryImpl", "UserRepositoryImpl"]
