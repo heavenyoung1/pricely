@@ -1,130 +1,189 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-# 1. Обновление списка пакетов
-echo "Обновляем список пакетов..."
+echo "== [1] Обновляем список пакетов =="
 sudo apt update -y
 
-# 2. Установка необходимых утилит (make и docker-compose)
-echo "Проверяем, установлен ли make..."
-if ! command -v make &> /dev/null; then
-  echo "Утилита make не найдена, устанавливаем..."
+echo "== [2] Проверяем и ставим утилиты make и docker-compose/docker compose =="
+if ! command -v make >/dev/null 2>&1; then
+  echo "make не найден — устанавливаю..."
   sudo apt install -y make
 else
-  echo "Утилита make уже установлена."
+  echo "make уже установлен."
 fi
 
-echo "Проверяем, установлен ли docker-compose..."
-if ! command -v docker-compose &> /dev/null; then
-  echo "docker-compose не найден, устанавливаем..."
-  sudo apt install -y docker-compose
-else
-  echo "docker-compose уже установлен."
+# Проверяем наличие docker (демон) и compose
+if ! command -v docker >/dev/null 2>&1; then
+  echo "Docker не найден — поставьте Docker Engine перед продолжением."
+  echo "См.: https://docs.docker.com/engine/install/"
+  exit 1
 fi
 
-# 3. Клонирование репозитория (если ещё не сделано)
-if [ ! -d "pricely" ]; then
-  echo "Клонируем репозиторий..."
-  git clone https://github.com/heavenyoung1/pricely
-  cd pricely
+# Определяем, какая именно команда compose доступна
+COMPOSE_CMD=""
+if command -v docker-compose >/dev/null 2>&1; then
+  COMPOSE_CMD="docker-compose"
+elif docker compose version >/dev/null 2>&1; then
+  COMPOSE_CMD="docker compose"
 else
-  echo "Репозиторий уже клонирован. Переходим в каталог..."
-  cd pricely
+  echo "Docker Compose не найден — устанавливаю пакет docker-compose..."
+  sudo apt install -y docker-compose || true
+  if command -v docker-compose >/dev/null 2>&1; then
+    COMPOSE_CMD="docker-compose"
+  elif docker compose version >/dev/null 2>&1; then
+    COMPOSE_CMD="docker compose"
+  else
+    echo "Не удалось обнаружить docker-compose. Проверьте установку Docker Compose (v1 или v2) и повторите."
+    exit 1
+  fi
+fi
+echo "Будет использоваться команда compose: '${COMPOSE_CMD}'"
+
+echo "== [3] Проверяем членство пользователя в группе docker =="
+CURRENT_USER="${SUDO_USER:-$USER}"
+if id -nG "$CURRENT_USER" | grep -qw docker; then
+  echo "Пользователь ${CURRENT_USER} уже в группе docker."
+else
+  echo "Добавляю ${CURRENT_USER} в группу docker..."
+  sudo usermod -aG docker "$CURRENT_USER"
+  echo "✅ Готово. Перезайдите в сессию (или выполните 'newgrp docker') и запустите скрипт снова."
+  exit 0
 fi
 
-# 4. Проверка наличия утилиты uv
-if command -v uv &> /dev/null; then
-  echo "Утилита uv уже установлена, пропускаем установку."
+echo "== [4] UV: проверяем наличие утилиты uv =="
+if command -v uv >/dev/null 2>&1; then
+  echo "uv уже установлен."
 else
-  echo "Утилита uv не найдена, скачиваем..."
+  echo "uv не найден — устанавливаю..."
   curl -LsSf https://astral.sh/uv/install.sh | sh
-  echo "Утилита uv установлена. Необходимо перезапустить терминал для активации."
-  echo "Закройте и откройте терминал или выполните команду: source ~/.bashrc"
-  exit 0  # Прерываем выполнение скрипта, чтобы пользователь перезапустил терминал
+  # Подхватываем PATH текущей сессии, если установщик прописал в .bashrc/.profile
+  if [ -f "$HOME/.bashrc" ]; then source "$HOME/.bashrc" || true; fi
+  if [ -f "$HOME/.profile" ]; then source "$HOME/.profile" || true; fi
+  if ! command -v uv >/dev/null 2>&1; then
+    echo "uv установлен, но не в PATH текущей сессии. Перезапустите терминал ИЛИ выполните 'source ~/.bashrc' и запустите скрипт снова."
+    exit 0
+  fi
 fi
 
-# 5. Активация виртуального окружения с помощью утилиты `uv`
-echo "Активируем виртуальное окружение с помощью uv..."
-uv sync
+echo "== [5] Синхронизируем виртуальное окружение через uv =="
+uv sync  # создаст .venv и поставит зависимости
 
-# 6. Проверка наличия установленного Google Chrome
-echo "Проверяем, установлен ли Google Chrome..."
-
-# Используем which для поиска пути к исполнимому файлу
-if command -v google-chrome-stable &> /dev/null || command -v google-chrome &> /dev/null; then
-  echo "Google Chrome уже установлен, пропускаем установку."
+echo "== [6] Проверяем Google Chrome =="
+if command -v google-chrome-stable >/dev/null 2>&1 || command -v google-chrome >/dev/null 2>&1 || command -v chrome >/dev/null 2>&1; then
+  echo "Chrome уже установлен."
 else
-  echo "Google Chrome не найден, скачиваем..."
+  echo "Chrome не найден — скачиваю сборку for-testing..."
   CHROME_URL="https://storage.googleapis.com/chrome-for-testing-public/141.0.7390.122/linux64/chrome-linux64.zip"
   curl -LsSf -o chrome-linux64.zip "$CHROME_URL"
-  unzip chrome-linux64.zip -d chrome-linux64
+  unzip -o chrome-linux64.zip -d chrome-linux64
   chmod +x ./chrome-linux64/chrome-linux64
   sudo mv ./chrome-linux64/chrome-linux64 /usr/local/bin/chrome
-  rm chrome-linux64.zip
-  echo "Google Chrome установлен успешно"
+  rm -f chrome-linux64.zip
+  echo "Chrome установлен как /usr/local/bin/chrome"
 fi
 
-# 7. Проверка наличия установленного ChromeDriver
-if command -v chromedriver &> /dev/null; then
-  echo "ChromeDriver уже установлен, пропускаем установку."
+echo "== [7] Проверяем ChromeDriver =="
+if command -v chromedriver >/dev/null 2>&1; then
+  echo "chromedriver уже установлен."
 else
-  echo "ChromeDriver не найден, скачиваем..."
+  echo "chromedriver не найден — скачиваю соответствующую версию..."
   CHROMEDRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/141.0.7390.122/linux64/chromedriver-linux64.zip"
   curl -LsSf -o chromedriver.zip "$CHROMEDRIVER_URL"
-  unzip chromedriver.zip -d chrome-linux64
+  unzip -o chromedriver.zip -d chrome-linux64
   chmod +x ./chrome-linux64/chromedriver-linux64/chromedriver
   sudo mv ./chrome-linux64/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
-  rm chromedriver.zip
-  echo "ChromeDriver скачан и установлен"
+  rm -f chromedriver.zip
+  echo "chromedriver установлен как /usr/local/bin/chromedriver"
 fi
 
-# 8. Создание пустого файла proxy.json
+echo "== [8] Создаём пустой proxy.json (если нет) =="
 PROXY_FILE="src/infrastructure/parsers/proxy.json"
 if [ ! -f "$PROXY_FILE" ]; then
-  echo "Создаём пустой файл proxy.json..."
   mkdir -p "$(dirname "$PROXY_FILE")"
-  
-  # Создаем пустой файл
-  touch "$PROXY_FILE"
-  echo "Файл proxy.json создан. Пожалуйста, заполните его при необходимости."
+  : > "$PROXY_FILE"
+  echo "Создан пустой $PROXY_FILE — при необходимости заполни."
 else
-  echo "Файл proxy.json уже существует."
+  echo "$PROXY_FILE уже существует."
 fi
 
-# 9. Конфигурация подключений (создание .env файла)
+echo "== [9] Готовим .env =="
 if [ ! -f ".env" ]; then
-  echo "Создаём файл .env из .env.example..."
-  cp .env.example .env
+  if [ -f ".env.example" ]; then
+    cp .env.example .env
+    echo "Создан .env из .env.example"
+  else
+    echo "В репозитории нет .env.example — создаю пустой .env"
+    : > .env
+  fi
 else
-  echo ".env уже существует"
+  echo ".env уже существует."
 fi
 
-# Открываем файл .env для редактирования и настройки (пользователь должен сделать это вручную)
-echo "Откройте файл .env для настройки подключений к базе данных и другим сервисам:"
+echo "== [10] Открой .env для настройки (база, токены и пр.) =="
+echo "Нажми Ctrl+X для выхода, Y для сохранения (если были изменения)."
 nano .env
 
-# 10. Поднятие баз данных с помощью `docker-compose`
-echo "Запускаем Docker контейнеры для баз данных..."
-docker-compose up -d
+echo "== [11] Поднимаем базу/зависимости Docker Compose =="
+${COMPOSE_CMD} -f docker-compose.yml up -d
 
-# Подтверждаем, что контейнеры работают
-echo "Проверяем, что контейнеры работают..."
+echo "== [12] Проверяем контейнеры =="
 docker ps
 
-# 11. Применение миграций к БД
-echo "Применяем миграции к БД..."
+echo "== [13] Миграции БД =="
 make migrate-all
 
-# 12. Запуск тестов
-echo "Запускаем тесты..."
+echo "== [14] Тесты =="
 make tests
 
-# 13. Завершаем процесс развертывания
-echo "Все компоненты собраны и настроены успешно!"
+echo "== [15] Устанавливаем и включаем systemd-службу pricely =="
+# предполагаем, что юнит лежит в репозитории по пути ./scripts/pricely.service
+SERVICE_SRC="./scripts/pricely.service"
+if [ ! -f "$SERVICE_SRC" ]; then
+  echo "⚠️  Не найден $SERVICE_SRC. Уточни путь к юниту в репозитории."
+  exit 1
+fi
 
-# 14. Запуск бота
-echo "Запускаем бота..."
-make bot
+SERVICE_NAME="pricely.service"
+SERVICE_DST="/etc/systemd/system/${SERVICE_NAME}"
+TMP_UNIT="$(mktemp)"
 
-# 15. Завершаем процесс
-echo "Процесс развертывания завершён!"
+# 1) копируем исходник во временный файл
+cp "$SERVICE_SRC" "$TMP_UNIT"
 
+# 2) подправляем юнит под текущую машину
+# - актуальный WorkingDirectory = текущий репозиторий
+WD="$(pwd)"
+# - актуальный пользователь
+SERV_USER="$CURRENT_USER"
+# - корректный PATH в среде systemd (чтобы находились uv/make/docker)
+SYS_PATH="/home/${SERV_USER}/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
+
+# правки через sed (idempotent)
+sed -i \
+  -e "s|^User=.*|User=${SERV_USER}|" \
+  -e "s|^Group=.*|Group=docker|" \
+  -e "s|^WorkingDirectory=.*|WorkingDirectory=${WD}|" \
+  -e "s|^Environment=.*|Environment=PATH=${SYS_PATH}|" \
+  -e "s|^After=network\.target docker\.service|After=network-online.target docker.service|" \
+  "$TMP_UNIT"
+
+# если у нас compose v2 — меняем docker-compose -> docker compose
+if [ "$COMPOSE_CMD" = "docker compose" ]; then
+  sed -i -e 's|/usr/bin/docker-compose|/usr/bin/docker compose|g' "$TMP_UNIT"
+fi
+
+# 3) ставим юнит в систему
+echo "Копирую юнит в ${SERVICE_DST}…"
+sudo cp "$TMP_UNIT" "$SERVICE_DST"
+rm -f "$TMP_UNIT"
+
+# 4) применяем и включаем
+sudo systemctl daemon-reload
+sudo systemctl enable --now "${SERVICE_NAME}"
+
+echo "== [16] Статус службы =="
+systemctl --no-pager --full status "${SERVICE_NAME}" || true
+echo "Логи (последние строки):"
+journalctl -u "${SERVICE_NAME}" -n 50 --no-pager || true
+
+echo "✅ Готово! Окружение собрано, служба установлена и запущена."
