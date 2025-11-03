@@ -4,8 +4,8 @@ from .user_repository import UserRepository
 from .user_products_repository import UserProductsRepository
 
 __all__ = [
-    'ProductRepository', 
-    'PriceRepository', 
-    'UserRepository',
-    'UserProductsRepository',
-    ]
+    "ProductRepository",
+    "PriceRepository",
+    "UserRepository",
+    "UserProductsRepository",
+]

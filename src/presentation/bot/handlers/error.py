@@ -1,4 +1,5 @@
 from aiogram.types import Message
 
+
 async def fallback(message: Message):
-    await message.answer('❓ Неизвестная команда. Напишите /help')
+    await message.answer("❓ Неизвестная команда. Напишите /help")

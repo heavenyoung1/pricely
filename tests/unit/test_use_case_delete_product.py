@@ -16,8 +16,11 @@ def test_delete_product_use_case_success(
 ):
     # Настраиваем моки
     pure_mock_product_repo.get.return_value = product
-    pure_mock_price_repo.get_all_prices_by_product.return_value = [price_created_first ,price_after_checking]
-    #pure_mock_price_repo.get_latest_for_product.return_value = price
+    pure_mock_price_repo.get_all_prices_by_product.return_value = [
+        price_created_first,
+        price_after_checking,
+    ]
+    # pure_mock_price_repo.get_latest_for_product.return_value = price
     pure_mock_user_repo.get.return_value = user
 
     # Добавляем товар в список продуктов пользователя для успешного вызова save
@@ -32,11 +35,14 @@ def test_delete_product_use_case_success(
     use_case.execute(product_id=product.id)
 
     # Проверяем вызовы
-    pure_mock_price_repo.delete_all_prices_for_product.assert_called_once_with(product.id)
+    pure_mock_price_repo.delete_all_prices_for_product.assert_called_once_with(
+        product.id
+    )
     pure_mock_product_repo.delete.assert_called_once_with(product.id)
     pure_mock_user_repo.get.assert_called_once_with(product.user_id)
     pure_mock_user_repo.save.assert_called_once_with(user)
     assert product.id not in user.products
+
 
 @pytest.mark.unit
 def test_delete_product_use_case_unsuccess_notexist_in_db(
@@ -53,8 +59,11 @@ def test_delete_product_use_case_unsuccess_notexist_in_db(
         user_repo=pure_mock_user_repo,
     )
 
-    with pytest.raises(ProductNotExistingDataBase, match=f'Товар {product.id} не существует в БД!'):
+    with pytest.raises(
+        ProductNotExistingDataBase, match=f"Товар {product.id} не существует в БД!"
+    ):
         use_case.execute(product_id=product.id)
+
 
 @pytest.mark.unit
 def test_delete_product_use_case_fails(
@@ -68,7 +77,10 @@ def test_delete_product_use_case_fails(
 ):
     # Настроим моки
     pure_mock_product_repo.get.return_value = product
-    pure_mock_price_repo.get_all_prices_by_product.return_value = [price_created_first ,price_after_checking]
+    pure_mock_price_repo.get_all_prices_by_product.return_value = [
+        price_created_first,
+        price_after_checking,
+    ]
     pure_mock_user_repo.get.return_value = user
 
     # Симулируем ошибку при удалении товара в репозитории
@@ -86,7 +98,7 @@ def test_delete_product_use_case_fails(
         use_case.execute(product_id=product.id)
 
     # Проверяем, что другие методы не были вызваны
-    # 🧪🧪🧪(ТИКЕТ #26) СТРОКА НИЖЕ НЕ ДОЛЖНА ВЫПОЛНЯТЬСЯ 
-    #pure_mock_price_repo.delete_all_prices_for_product.assert_not_called()
+    # 🧪🧪🧪(ТИКЕТ #26) СТРОКА НИЖЕ НЕ ДОЛЖНА ВЫПОЛНЯТЬСЯ
+    # pure_mock_price_repo.delete_all_prices_for_product.assert_not_called()
     pure_mock_product_repo.save.assert_not_called()
     pure_mock_user_repo.save.assert_not_called()

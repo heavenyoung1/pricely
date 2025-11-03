@@ -9,7 +9,7 @@ from src.application.use_cases.upd_product import UpdateProductPriceUseCase
 @pytest.mark.unit
 def test_upd_price_use_case_success(
     pure_mock_product_repo,
-    pure_mock_price_repo,   
+    pure_mock_price_repo,
     product,
     price_created_first,
     price_after_checking,
@@ -18,8 +18,8 @@ def test_upd_price_use_case_success(
     pure_mock_product_repo.get.return_value = product
     pure_mock_price_repo.get_latest_for_product.return_value = price_created_first
     pure_mock_parser.check_product.return_value = {
-        'price_with_card': price_after_checking.with_card,
-        'price_without_card': price_after_checking.without_card,
+        "price_with_card": price_after_checking.with_card,
+        "price_without_card": price_after_checking.without_card,
     }
 
     use_case = UpdateProductPriceUseCase(
@@ -31,11 +31,11 @@ def test_upd_price_use_case_success(
 
     # Проверяем, что продукт был получен
     pure_mock_product_repo.get.assert_called_once_with(product.id)
-    
+
     # Проверяем, что последняя цена была получена для продукта
     pure_mock_price_repo.get_latest_for_product.assert_called_once_with(product.id)
 
-# Проверяем, что обновленная цена была сохранена, игнорируя created_at
+    # Проверяем, что обновленная цена была сохранена, игнорируя created_at
     pure_mock_price_repo.save.assert_called_once_with(
         Price(
             id=None,
@@ -49,7 +49,8 @@ def test_upd_price_use_case_success(
     )
 
     # Проверка флага изменения цены
-    assert result['is_changed'] is True
+    assert result["is_changed"] is True
+
 
 @pytest.mark.unit
 def test_upd_price_use_case_product_not_found(
@@ -71,6 +72,7 @@ def test_upd_price_use_case_product_not_found(
     with pytest.raises(ProductNotFoundError, match=f"Товар 1234567891 не найден"):
         use_case.execute(product_id="1234567891")
 
+
 @pytest.mark.unit
 def test_upd_price_use_case_parsing_error(
     pure_mock_product_repo,
@@ -81,7 +83,9 @@ def test_upd_price_use_case_parsing_error(
     # Настроим моки
     pure_mock_product_repo.get.return_value = product
     pure_mock_price_repo.get_latest_for_product.return_value = None
-    pure_mock_parser.check_product.side_effect = Exception("Парсинг не удался")  # Исключение при парсинге
+    pure_mock_parser.check_product.side_effect = Exception(
+        "Парсинг не удался"
+    )  # Исключение при парсинге
 
     use_case = UpdateProductPriceUseCase(
         product_repo=pure_mock_product_repo,
@@ -90,8 +94,11 @@ def test_upd_price_use_case_parsing_error(
     )
 
     # Проверяем, что выбрасывается ошибка PriceUpdateError
-    with pytest.raises(PriceUpdateError, match=f"Ошибка при обновлении цены товара {product.id}"):
+    with pytest.raises(
+        PriceUpdateError, match=f"Ошибка при обновлении цены товара {product.id}"
+    ):
         use_case.execute(product_id=product.id)
+
 
 @pytest.mark.unit
 def test_upd_price_use_case_no_change(
@@ -105,8 +112,8 @@ def test_upd_price_use_case_no_change(
     pure_mock_product_repo.get.return_value = product
     pure_mock_price_repo.get_latest_for_product.return_value = price_created_first
     pure_mock_parser.check_product.return_value = {
-        'price_with_card': price_created_first.with_card,
-        'price_without_card': price_created_first.without_card,
+        "price_with_card": price_created_first.with_card,
+        "price_without_card": price_created_first.without_card,
     }  # Цена не изменилась
 
     use_case = UpdateProductPriceUseCase(
@@ -117,7 +124,8 @@ def test_upd_price_use_case_no_change(
     result = use_case.execute(product_id=product.id)
 
     # Проверяем, что флаг изменения цены установлен в False
-    assert result['is_changed'] is False
+    assert result["is_changed"] is False
+
 
 @pytest.mark.unit
 def test_upd_price_use_case_unexpected_error(
@@ -131,12 +139,14 @@ def test_upd_price_use_case_unexpected_error(
     pure_mock_product_repo.get.return_value = product
     pure_mock_price_repo.get_latest_for_product.return_value = price_created_first
     pure_mock_parser.check_product.return_value = {
-        'price_with_card': 1950,
-        'price_without_card': 1900,
+        "price_with_card": 1950,
+        "price_without_card": 1900,
     }
 
     # Симулируем ошибку в репозитории при сохранении
-    pure_mock_price_repo.save.side_effect = Exception("Неизвестная ошибка при сохранении")
+    pure_mock_price_repo.save.side_effect = Exception(
+        "Неизвестная ошибка при сохранении"
+    )
 
     use_case = UpdateProductPriceUseCase(
         product_repo=pure_mock_product_repo,

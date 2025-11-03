@@ -9,13 +9,13 @@ from .get_user_products import GetUserProductsUseCase
 from .get_user import GetUserUseCase
 
 __all__ = [
-    'CreateProductUseCase',
-    'DeleteProductUseCase',
-    'GetProductUseCase',
-    'UpdateProductPriceUseCase',
-    'CreateUserUseCase',
-    'GetFullProductUseCase',
-    'GetProductForUserUseCase',
-    'GetUserProductsUseCase',
-    'GetUserUseCase',
+    "CreateProductUseCase",
+    "DeleteProductUseCase",
+    "GetProductUseCase",
+    "UpdateProductPriceUseCase",
+    "CreateUserUseCase",
+    "GetFullProductUseCase",
+    "GetProductForUserUseCase",
+    "GetUserProductsUseCase",
+    "GetUserUseCase",
 ]

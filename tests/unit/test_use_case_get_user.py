@@ -4,6 +4,7 @@ from src.application.use_cases import GetUserUseCase
 from src.domain.entities import User
 from src.domain.exceptions import UserNotFoundError
 
+
 @pytest.mark.unit
 def test_get_user_success(pure_mock_user_repo):
     # Настроим мок репозитория, чтобы он возвращал тестового пользователя
@@ -37,7 +38,9 @@ def test_get_user_not_found(pure_mock_user_repo):
     use_case = GetUserUseCase(user_repo=pure_mock_user_repo)
 
     # Проверяем, что метод выбрасывает исключение
-    with pytest.raises(UserNotFoundError, match=f'Пользователь с ID {user_id} не найден'):
+    with pytest.raises(
+        UserNotFoundError, match=f"Пользователь с ID {user_id} не найден"
+    ):
         use_case.execute(user_id=user_id)
 
     # Проверяем, что метод get был вызван с нужным user_id

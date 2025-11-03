@@ -11,45 +11,45 @@ from src.core.db_config import DataBaseSettings
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 handler = logging.StreamHandler()
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 
 class DatabaseConnection:
-    '''
+    """
     Класс для управления подключением к базе данных и сессиями.
 
     Этот класс управляет подключением к базе данных, а также предоставляет методы
     для создания сессий, проверки соединения и освобождения ресурсов.
-    '''
+    """
 
     def __init__(self, settings: DataBaseSettings = None):
-        '''
+        """
         Инициализация подключения к базе данных.
 
         :param settings: Настройки БД. Если не указаны, будут загружены автоматически.
-        '''
+        """
         self._settings = settings or DataBaseSettings()
         self._engine = None
         self._session_factory = None
 
     def init_engine(self, db_url: str = None):
-        '''
+        """
         Инициализирует движок SQLAlchemy и фабрику сессий (ленивая инициализация).
 
         :param db_url: URL подключения к базе данных. Если не указан, будет использован URL из настроек.
-        '''
+        """
         if self._engine is None:
             db_url = db_url or self._settings.get_database_url(use_test=False)
-            logger.info(f'🔗 Инициализация подключения к БД: {db_url}')
+            logger.info(f"🔗 Инициализация подключения к БД: {db_url}")
 
             # Создаем движок подключения
             self._engine = create_engine(
                 db_url,
-                echo=False,            # можно True для отладки SQL
-                future=True,           # включаем SQLAlchemy 2.0 API
-                pool_pre_ping=True,    # проверка соединения перед использованием
+                echo=False,  # можно True для отладки SQL
+                future=True,  # включаем SQLAlchemy 2.0 API
+                pool_pre_ping=True,  # проверка соединения перед использованием
             )
 
             # Создаем sessionmaker
@@ -63,14 +63,14 @@ class DatabaseConnection:
 
     @contextmanager
     def get_session(self, db_url: str = None) -> Generator[Session, None, None]:
-        '''
+        """
         Фабрика для получения контекстного менеджера сессии.
 
         Используется в паттерне UnitOfWork для управления сессиями с базой данных.
 
         :param db_url: URL подключения к базе данных. Если не указан, будет использован URL из настроек.
         :yield: Объект Session для работы с базой данных.
-        '''
+        """
         if self._session_factory is None:
             self.init_engine(db_url)
 
@@ -81,38 +81,38 @@ class DatabaseConnection:
             session.close()
 
     def dispose(self):
-        '''
+        """
         Закрывает все соединения и освобождает ресурсы.
 
         Это важно для завершения работы с базой данных и освобождения используемых ресурсов.
-        '''
+        """
         if self._engine is not None:
-            logger.info('Закрытие всех соединений с БД')
+            logger.info("Закрытие всех соединений с БД")
             self._engine.dispose()
             self._engine = None
             self._session_factory = None
 
     def test_connection(self, db_url: str = None) -> bool:
-        '''
+        """
         Проверка доступности БД (выполняется SELECT 1).
 
         :param db_url: URL для подключения к БД. Если None, используется URL из настроек.
         :return: True, если подключение успешно, иначе False.
-        '''
+        """
         self.init_engine(db_url)
         try:
             with self._engine.connect() as conn:
-                conn.execute(text('SELECT 1'))
-            logger.info('Подключение к БД успешно установлено')
+                conn.execute(text("SELECT 1"))
+            logger.info("Подключение к БД успешно установлено")
             return True
         except Exception as e:
-            logger.error(f'Ошибка подключения к БД: {e}')
+            logger.error(f"Ошибка подключения к БД: {e}")
             return False
 
 
 # Создание экземпляра конфигурации БД и объекта для работы с соединением
 db_settings = DataBaseSettings()
-#print(db_settings.model_dump())  # Выводит все загруженные настройки
+# print(db_settings.model_dump())  # Выводит все загруженные настройки
 db = DatabaseConnection(db_settings)
 
 # Это фабрика, которую будет использовать UnitOfWork

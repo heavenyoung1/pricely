@@ -46,7 +46,6 @@
 #         assert full_product['latest_price']['without_card'] == price_created_first.without_card
 
 
-
 # @pytest.mark.integration
 # def test_get_full_product_not_found(uow, pure_mock_parser):
 #     service = ProductService(uow_factory=lambda: uow, parser=pure_mock_parser)

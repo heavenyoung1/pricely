@@ -5,8 +5,8 @@ from .middlewares import ServiceMiddleware
 from .logger import logger
 
 __all__ = [
-    'ProductService',
-    'NotificationService',
-    'APSchedulerService',
-    'ServiceMiddleware',
-    ]
+    "ProductService",
+    "NotificationService",
+    "APSchedulerService",
+    "ServiceMiddleware",
+]

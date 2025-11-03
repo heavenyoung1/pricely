@@ -1,7 +1,10 @@
 import logging
 from typing import Optional
 from src.domain.exceptions import (
-    ProductNotFoundError, UserCreationError, ParserProductError, ProductCreationError
+    ProductNotFoundError,
+    UserCreationError,
+    ParserProductError,
+    ProductCreationError,
 )
 from src.infrastructure.parsers import OzonParser
 from src.application.use_cases import (
@@ -21,7 +24,7 @@ logger = logging.getLogger(__name__)
 
 
 class ProductService:
-    '''Сервисный слой для оркестрации UseCase с использованием UnitOfWork.'''
+    """Сервисный слой для оркестрации UseCase с использованием UnitOfWork."""
 
     def __init__(self, uow_factory, parser: Optional[OzonParser] = None):
         self.uow_factory = uow_factory
@@ -29,29 +32,29 @@ class ProductService:
 
     @with_uow(commit=True)
     def create_user(self, user: User) -> None:
-        '''Создает нового пользователя.'''
+        """Создает нового пользователя."""
         try:
             use_case = CreateUserUseCase(user_repo=self.uow.user_repository)
             use_case.execute(user)
         except Exception as e:
-            logger.error(f'Ошибка при создании пользователя {user.id}: {str(e)}')
-            raise UserCreationError(f'Ошибка создания пользователя: {str(e)}')
+            logger.error(f"Ошибка при создании пользователя {user.id}: {str(e)}")
+            raise UserCreationError(f"Ошибка создания пользователя: {str(e)}")
 
     @with_uow(commit=True)
     def create_product(self, user_id: str, url: str) -> dict:
-        '''Создает новый товар по URL.
-        
+        """Создает новый товар по URL.
+
         Args:
             user_id: ID пользователя
             url: URL товара на Ozon
-            
+
         Returns:
             dict с информацией о созданном товаре
-            
+
         Raises:
             ParserProductError: если парсер не может обработать URL
             ProductCreationError: если ошибка при создании в БД
-        '''
+        """
         try:
             use_case = CreateProductUseCase(
                 user_repo=self.uow.user_repository,
@@ -63,28 +66,30 @@ class ProductService:
             return use_case.execute(user_id, url)
         except ParserProductError:
             # Пробросим как есть - это ошибка парсера, не сервиса
-            logger.warning(f'Ошибка парсинга URL {url}: ParserProductError')
+            logger.warning(f"Ошибка парсинга URL {url}: ParserProductError")
             raise
         except Exception as e:
-            logger.error(f'Ошибка при создании продукта для пользователя {user_id}: {str(e)}')
-            raise ProductCreationError(f'Ошибка создания продукта: {str(e)}')
+            logger.error(
+                f"Ошибка при создании продукта для пользователя {user_id}: {str(e)}"
+            )
+            raise ProductCreationError(f"Ошибка создания продукта: {str(e)}")
 
     @with_uow(commit=False)
     def get_product(self, product_id: str) -> Product:
-        '''Получить товар по ID.'''
+        """Получить товар по ID."""
         try:
             use_case = GetProductUseCase(product_repo=self.uow.product_repository)
             return use_case.execute(product_id)
         except ProductNotFoundError as e:
-            logger.warning(f'Продукт {product_id} не найден: {str(e)}')
+            logger.warning(f"Продукт {product_id} не найден: {str(e)}")
             raise
         except Exception as e:
-            logger.error(f'Ошибка при получении продукта {product_id}: {str(e)}')
+            logger.error(f"Ошибка при получении продукта {product_id}: {str(e)}")
             raise
 
     @with_uow(commit=False)
     def get_full_product(self, product_id: str):
-        '''Получить полную информацию о товаре.'''
+        """Получить полную информацию о товаре."""
         try:
             use_case = GetFullProductUseCase(
                 product_repo=self.uow.product_repository,
@@ -93,27 +98,33 @@ class ProductService:
             )
             return use_case.execute(product_id)
         except ProductNotFoundError as e:
-            logger.warning(f'Продукт {product_id} не найден: {str(e)}')
+            logger.warning(f"Продукт {product_id} не найден: {str(e)}")
             raise
         except Exception as e:
-            logger.error(f'Ошибка при получении полной информации о продукте {product_id}: {str(e)}')
+            logger.error(
+                f"Ошибка при получении полной информации о продукте {product_id}: {str(e)}"
+            )
             raise
 
     @with_uow(commit=False)
     def get_all_products(self, user_id: str) -> list:
-        '''Возвращает все продукты пользователя.'''
+        """Возвращает все продукты пользователя."""
         try:
             use_case_get_products = GetProductForUserUseCase(
                 product_repo=self.uow.product_repository,
                 price_repo=self.uow.price_repository,
-                user_products_repo=self.uow.user_products_repository
+                user_products_repo=self.uow.user_products_repository,
             )
             product_refs = use_case_get_products.execute(user_id=user_id)
-            
+
             if not product_refs:
                 return []
 
-            if isinstance(product_refs, list) and product_refs and isinstance(product_refs[0], dict):
+            if (
+                isinstance(product_refs, list)
+                and product_refs
+                and isinstance(product_refs[0], dict)
+            ):
                 return product_refs
 
             use_case_for_products = GetFullProductUseCase(
@@ -129,28 +140,32 @@ class ProductService:
                     product_full = use_case_for_products.execute(pid_str)
                     products.append(product_full)
                 except ProductNotFoundError:
-                    logger.warning(f'Product {pid} is referenced for user {user_id} but not found in products table')
+                    logger.warning(
+                        f"Product {pid} is referenced for user {user_id} but not found in products table"
+                    )
                 except Exception as e:
-                    logger.error(f'Ошибка получения полной карточки для {pid}: {e}')
-                    
+                    logger.error(f"Ошибка получения полной карточки для {pid}: {e}")
+
             return products
         except Exception as e:
-            logger.error(f'Ошибка при получении всех продуктов для пользователя {user_id}: {e}')
+            logger.error(
+                f"Ошибка при получении всех продуктов для пользователя {user_id}: {e}"
+            )
             raise
 
     @with_uow(commit=True)
     def update_product_price(self, product_id: str) -> dict:
-        '''Обновляет цену товара и возвращает полную карточку товара.
-        
+        """Обновляет цену товара и возвращает полную карточку товара.
+
         Args:
             product_id: ID продукта для обновления
-            
+
         Returns:
             dict с ключами 'updated_product' и 'is_changed'
-            
+
         Raises:
             ProductNotFoundError: если продукт не найден
-        '''
+        """
         try:
             use_case_update_product = UpdateProductPriceUseCase(
                 product_repo=self.uow.product_repository,
@@ -162,39 +177,39 @@ class ProductService:
                 product_id=product_id,
             )
 
-            is_changed = result_use_case_update_product['is_changed']
-            updated_product = result_use_case_update_product['product_data']
+            is_changed = result_use_case_update_product["is_changed"]
+            updated_product = result_use_case_update_product["product_data"]
 
-            return {'updated_product': updated_product, 'is_changed': is_changed}
+            return {"updated_product": updated_product, "is_changed": is_changed}
         except ProductNotFoundError:
-            logger.warning(f'Продукт {product_id} не найден при обновлении цены')
+            logger.warning(f"Продукт {product_id} не найден при обновлении цены")
             raise
         except Exception as e:
-            logger.error(f'Ошибка при обновлении цены продукта {product_id}: {e}')
+            logger.error(f"Ошибка при обновлении цены продукта {product_id}: {e}")
             raise
 
     @with_uow(commit=False)
     def get_all_products_for_update(self):
-        '''Возвращает список всех товаров, которые нужно обновлять.'''
+        """Возвращает список всех товаров, которые нужно обновлять."""
         try:
             use_case = GetUserProductsUseCase(
                 user_products_repo=self.uow.user_products_repository
             )
             return use_case.execute()
         except Exception as e:
-            logger.error(f'Ошибка при получении товаров для обновления: {e}')
+            logger.error(f"Ошибка при получении товаров для обновления: {e}")
             raise
 
     @with_uow(commit=True)
     def delete_product(self, product_id) -> None:
-        '''Удаляет продукт.
-        
+        """Удаляет продукт.
+
         Args:
             product_id: ID продукта для удаления
-            
+
         Raises:
             ProductNotFoundError: если продукт не найден
-        '''
+        """
         try:
             use_case = DeleteProductUseCase(
                 user_repo=self.uow.user_repository,
@@ -203,8 +218,8 @@ class ProductService:
             )
             use_case.execute(product_id)
         except ProductNotFoundError as e:
-            logger.warning(f'Продукт {product_id} не найден: {str(e)}')
+            logger.warning(f"Продукт {product_id} не найден: {str(e)}")
             raise
         except Exception as e:
-            logger.error(f'Ошибка при удалении продукта {product_id}: {str(e)}')
+            logger.error(f"Ошибка при удалении продукта {product_id}: {str(e)}")
             raise

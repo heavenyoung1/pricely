@@ -28,7 +28,9 @@ db_settings = DataBaseSettings()
 db_url = os.getenv("ALEMBIC_DATABASE_URL")
 if not db_url:
     # Если ALEMBIC_DATABASE_URL не задан, определяем URL через DataBaseSettings
-    use_test = os.getenv("TEST_DATABASE_URL") is not None or db_settings.is_test_db_configured
+    use_test = (
+        os.getenv("TEST_DATABASE_URL") is not None or db_settings.is_test_db_configured
+    )
     db_url = db_settings.get_alembic_url(use_test=use_test)
     logger.info(f"ALEMBIC_DATABASE_URL не задан, используем: {db_url}")
 else:
@@ -39,6 +41,7 @@ config.set_main_option("sqlalchemy.url", db_url)
 
 # Импортируем модели
 target_metadata = Base.metadata
+
 
 def run_migrations_offline() -> None:
     url = config.get_main_option("sqlalchemy.url")
@@ -61,9 +64,7 @@ def run_migrations_online() -> None:
     )
 
     with connectable.connect() as connection:
-        context.configure(
-            connection=connection, target_metadata=target_metadata
-        )
+        context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():
             context.run_migrations()

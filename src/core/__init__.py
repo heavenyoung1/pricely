@@ -7,12 +7,11 @@ from .uow import SQLAlchemyUnitOfWork
 from .uow_interface import UnitOfWork
 
 __all__ = [
-    'get_session',
-    'UnitOfWork', 
-    'with_uow',
-    'SQLAlchemyUnitOfWork',
-    'DataBaseSettings'
-    'DatabaseConnection',
-    'db_settings',
-    'db',
-    ]
+    "get_session",
+    "UnitOfWork",
+    "with_uow",
+    "SQLAlchemyUnitOfWork",
+    "DataBaseSettings" "DatabaseConnection",
+    "db_settings",
+    "db",
+]
