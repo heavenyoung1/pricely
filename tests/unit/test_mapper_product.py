@@ -37,12 +37,3 @@ def assert_products_equal(orm_product, domain_product):
     assert (
         orm_product.link == domain_product.link
     ), f"Несоответствие ссылки: {orm_product.link} != {domain_product.link}"
-    assert (
-        orm_product.image_url == domain_product.image_url
-    ), f"Несоответствие URL изображения: {orm_product.image_url} != {domain_product.image_url}"
-    assert (
-        orm_product.rating == domain_product.rating
-    ), f"Несоответствие рейтинга: {orm_product.rating} != {domain_product.rating}"
-    assert (
-        orm_product.categories == domain_product.categories
-    ), f"Несоответствие категорий: {orm_product.categories} != {domain_product.categories}"

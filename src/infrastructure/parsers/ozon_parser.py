@@ -38,11 +38,8 @@ class OzonParser(Parser):
             parsed_data = {
                 "id": self._extract_id(session),
                 "name": self._extract_name(session),
-                "rating": self._extract_rating(session),
                 "price_with_card": self._extract_price_with_card(session),
                 "price_without_card": self._extract_price_without_card(session),
-                "image_url": self._extract_image_url(session),
-                "categories": self._extract_categories(session),
             }
             # Если не удалось извлечь критически важные данные, выбрасываем ошибку
             if not parsed_data["id"] or not parsed_data["name"]:
@@ -171,70 +168,4 @@ class OzonParser(Parser):
             return price
         except Exception as e:
             logger.error(f"Ошибка при извлечении цены без карты: {e}")
-            return None
-
-    def _extract_categories(self, session: SessionEngine) -> List[str]:
-        """Извлекает категории товара.
-
-        :param session: Экземпляр сессии.
-        :return: Список категорий товара.
-        """
-        try:
-            elements = WebDriverWait(session.driver, session.wait_time).until(
-                EC.presence_of_all_elements_located((By.XPATH, "//ol//li//span"))
-            )
-            categories = [
-                session._extract_text(e).strip()
-                for e in elements
-                if session._extract_text(e)
-            ]
-            logger.info(f"Найдены категории: {categories}")
-            return categories
-        except Exception as e:
-            logger.error(f"Ошибка при извлечении категорий: {e}")
-            return []
-
-    def _extract_rating(self, session: SessionEngine) -> Optional[float]:
-        """Извлекает рейтинг товара.
-
-        :param session: Экземпляр сессии.
-        :return: Рейтинг товара.
-        """
-        try:
-            element_obj = WebDriverWait(session.driver, session.wait_time).until(
-                EC.visibility_of_element_located(
-                    (By.XPATH, "//div[contains(text(),'отзыв')]")
-                )
-            )
-            text = session._extract_text(element_obj)  # например: "4.8 • 233 отзыва"
-            rating_part, _ = text.split("•")
-            rating = float(rating_part.strip().replace(",", "."))
-            logger.info(f"Найден рейтинг: {rating}")
-            return rating
-        except Exception as e:
-            logger.error(f"Ошибка при извлечении рейтинга: {e}")
-            return None
-
-    def _extract_image_url(self, session: SessionEngine) -> Optional[str]:
-        """Извлекает URL изображения товара.
-
-        :param session: Экземпляр сессии.
-        :return: URL изображения товара.
-        """
-        try:
-            element_obj = WebDriverWait(session.driver, session.wait_time).until(
-                EC.presence_of_element_located(
-                    (By.XPATH, "//div[@data-widget='webGallery']//img")
-                )
-            )
-            image_url = element_obj.get_attribute("src")
-            if image_url:
-                # Увеличиваем качество до 1000px
-                image_url = image_url.replace("/wc38/", "/wc1000/").replace(
-                    "/wc50/", "/wc1000/"
-                )
-            logger.info(f"Найдено изображение: {image_url}")
-            return image_url
-        except Exception as e:
-            logger.error(f"Ошибка при извлечении изображения: {e}")
             return None

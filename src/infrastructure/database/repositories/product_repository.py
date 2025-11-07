@@ -37,9 +37,6 @@ class ProductRepositoryImpl(ProductRepository):
                 # Обновляем поля существующего продукта
                 existing.name = product.name
                 existing.link = product.link
-                existing.image_url = product.image_url
-                existing.rating = product.rating
-                existing.categories = product.categories
             else:
                 # Создаем новый ORM продукт и добавляем его в сессию
                 orm_product = ProductMapper.domain_to_orm(product)
