@@ -72,9 +72,6 @@ class GetFullProductUseCase:
             "id": product.id,
             "name": product.name,
             "link": product.link,
-            "image_url": product.image_url,
-            "rating": product.rating,
-            "categories": product.categories,
             "latest_price": latest,
             "created_at": latest_price.created_at if latest_price else None,
         }

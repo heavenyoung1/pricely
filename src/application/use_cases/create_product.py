@@ -95,9 +95,6 @@ class CreateProductUseCase:
             user_id=user_id,
             name=product_data["name"],
             link=valid_url,
-            image_url=product_data["image_url"],
-            rating=product_data["rating"],
-            categories=product_data["categories"],
         )
 
         price = Price(
@@ -147,9 +144,6 @@ class CreateProductUseCase:
             "product_name": product.name,
             "user_id": product.user_id,
             "link": product.link,
-            "image_url": product.image_url,
-            "rating": product.rating,
-            "categories": product.categories,
             "with_card": price.with_card,
             "without_card": price.without_card,
         }

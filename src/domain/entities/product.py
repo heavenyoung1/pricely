@@ -26,9 +26,6 @@ class Product:
     user_id: str  # Связь с пользователем (заполняется в UseCase)
     name: str
     link: str
-    image_url: str
-    rating: float
-    categories: str
     prices: List["Price"] = field(default_factory=list)
 
     @property

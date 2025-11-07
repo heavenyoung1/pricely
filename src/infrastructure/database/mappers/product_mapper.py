@@ -27,9 +27,6 @@ class ProductMapper:
             id=domain.id,
             name=domain.name,
             link=domain.link,
-            image_url=domain.image_url,
-            rating=domain.rating,
-            categories=domain.categories,
         )
 
     @staticmethod
@@ -42,12 +39,9 @@ class ProductMapper:
         """
         return Product(
             id=orm.id,
-            user_id="",  # Вот тут я что-то не понял!!!
+            user_id="",
             name=orm.name,
             link=orm.link,
-            image_url=orm.image_url,
-            rating=orm.rating,
-            categories=orm.categories,
             prices=(
                 [PriceMapper.orm_to_domain(p) for p in orm.prices] if orm.prices else []
             ),
