@@ -13,9 +13,8 @@ def main_menu() -> ReplyKeyboardMarkup:
         ],
         [
             KeyboardButton(text="➖ Удалить товар"),
-            KeyboardButton(text="🗑️ Очистить все"),
+            KeyboardButton(text="📖 Справка"),
         ],
-        [KeyboardButton(text="📊 Статистика"), KeyboardButton(text="📖 Справка")],
     ]
 
     kb = ReplyKeyboardMarkup(keyboard=buttons, resize_keyboard=True)
