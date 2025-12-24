@@ -14,7 +14,7 @@ class UserMapper:
     """
 
     @staticmethod
-    def domain_to_orm(domain: User) -> ORMUser:
+    def to_orm(domain: User) -> ORMUser:
         """
         Преобразует объект User (доменная модель) в объект ORMUser (ORM модель для работы с БД).
 
@@ -24,7 +24,6 @@ class UserMapper:
         return ORMUser(
             id=domain.id,
             username=domain.username,
-            chat_id=domain.chat_id,
         )
 
     @staticmethod
@@ -38,7 +37,6 @@ class UserMapper:
         return User(
             id=orm.id,
             username=orm.username,
-            chat_id=orm.chat_id,
             products=(
                 [up.product_id for up in orm.user_products] if orm.user_products else []
             ),
