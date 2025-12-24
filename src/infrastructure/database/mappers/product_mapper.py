@@ -16,7 +16,7 @@ class ProductMapper:
     """
 
     @staticmethod
-    def domain_to_orm(domain: Product) -> ORMProduct:
+    def to_orm(domain: Product) -> ORMProduct:
         """
         Преобразует объект Product (доменная модель) в объект ORMProduct (ORM модель для работы с БД).
 
@@ -30,7 +30,7 @@ class ProductMapper:
         )
 
     @staticmethod
-    def orm_to_domain(orm: ORMProduct) -> Product:
+    def to_domain(orm: ORMProduct) -> Product:
         """
         Преобразует объект ORMProduct (ORM модель) в объект Product (доменная модель).
 
