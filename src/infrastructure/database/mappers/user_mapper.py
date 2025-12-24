@@ -27,7 +27,7 @@ class UserMapper:
         )
 
     @staticmethod
-    def orm_to_domain(orm: ORMUser) -> User:
+    def to_domain(orm: ORMUser) -> User:
         """
         Преобразует объект ORMUser (ORM модель) в объект User (доменная модель).
 

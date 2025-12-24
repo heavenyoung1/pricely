@@ -14,7 +14,6 @@ from src.core.exceptions import EntityNotFoundException
 
 class ProductRepository:
     def __init__(self, session: AsyncSession):
-        '''Инициализация репозитория с асинхронной сессией SQLAlchemy.'''
         self.session = session
 
     async def save(self, product: Product) -> 'Product':
@@ -78,3 +77,19 @@ class ProductRepository:
 
         products = [ProductMapper.to_domain(product) for product in orm_products]
         logger.info(f'Получено {len(products)} для пользователя {user_id}')
+
+    async def delete(self, product_id: int):
+         # 1. Выполнение запроса на извлечение данных из БД
+        stmt = select(ORMPrice).where(ORMPrice.product_id == product_id)
+        result = await self.session.delete(stmt)
+
+        stmt = select(ORMProduct).where(ORMProduct.id == product_id)
+        result = await self.session.delete(stmt)
+
+        # А ТУТ НУЖНЫ КАКИЕ ТО ФЛАШИ ИЛИ ПОДОБНОЕ ДЕРЬМО?
+
+        if result:
+            logger.info(f'Товар с ID {product_id} удален')
+            return True
+        return None 
+    
