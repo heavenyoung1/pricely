@@ -14,7 +14,7 @@ from src.domain.exceptions import (
 )
 
 
-class UserRepository():
+class UserRepository:
     def __init__(self, session: AsyncSession):
         self.session = session
 
@@ -30,12 +30,12 @@ class UserRepository():
             await self.session.flush()
 
             # 4. Конвертируем обратно ORM → Domain (с ID)
-            user.id = orm_user.id 
+            user.id = orm_user.id
 
             # Возвращаем доменную сущность
             logger.info(f'Пользователь с ID {user.id} успешно сохранен в БД.')
             return user
-        
+
         except SQLAlchemyError as error:
             message = f'Ошибка при сохранении пользователя: {error}'
             logger.error(message)
@@ -47,12 +47,12 @@ class UserRepository():
             statement = select(ORMUser).where(ORMUser.id == id)
             result = await self.session.execute(statement)
             orm_user = result.scalar_one_or_none()
-            
+
             # 2. Проверка существования записи в БД
             if not orm_user:
                 logger.error(f'Пользователь с ID = {id} не найден')
                 return None
-                
+
             # 3. Конвертируем ORM → Domain
             user = UserMapper.to_domain(orm_user)
             return user
@@ -66,7 +66,7 @@ class UserRepository():
             # 1. Проверка наличия ID
             if user.id is None:
                 raise ValueError(f'Передан пользователь без ID')
-            
+
             # 2. Получаем существующий ORM объект
             statement = select(ORMUser).where(ORMUser.id == user.id)
             result = await self.session.execute(statement)
@@ -75,7 +75,7 @@ class UserRepository():
             # 3. Проверка существования
             if orm_user is None:
                 raise UserNotFoundError(user.id)
-            
+
             # 4. Обновляем ORM объект из Domain
             updated_orm = UserMapper.to_orm(user)
             # Обновляем атрибуты существующего объекта
@@ -90,12 +90,11 @@ class UserRepository():
             logger.info(f'Пользователь обновлен: ID = {updated_user.id}')
             return updated_user
         except UserNotFoundError:
-            raise # Пробрасываем доменное исключение дальше
+            raise  # Пробрасываем доменное исключение дальше
         except SQLAlchemyError as error:
             message = f'Ошибка при обновлении пользователя: {error}'
             logger.error(message)
             raise DatabaseError(message)
-
 
     async def delete(self, id: int) -> bool:
         try:

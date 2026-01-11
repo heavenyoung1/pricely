@@ -11,7 +11,7 @@ from src.infrastructure.database.models.price import ORMPrice
 from src.domain.exceptions import DatabaseError
 
 
-class PriceRepository():
+class PriceRepository:
     def __init__(self, session: AsyncSession):
         self.session = session
 
@@ -27,7 +27,7 @@ class PriceRepository():
             await self.session.flush()
 
             # 4. Конвертируем обратно ORM → Domain (с ID)
-            price.id = orm_price.id 
+            price.id = orm_price.id
 
             # Возвращаем доменную сущность
             logger.info(f'Цена с ID {price.id} успешно сохранена в БД.')
@@ -49,16 +49,18 @@ class PriceRepository():
             )
             result = await self.session.execute(statement)
             orm_price = result.scalar_one_or_none()
-            
+
             # 2. Проверка существования записи в БД
             if not orm_price:
-                logger.warning(f'Актуальная цена для товара с ID = {product_id} не найдена')
+                logger.warning(
+                    f'Актуальная цена для товара с ID = {product_id} не найдена'
+                )
                 return None
-                
+
             # 3. Конвертируем ORM → Domain
             price = PriceMapper.to_domain(orm_price)
             return price
-        
+
         except SQLAlchemyError as error:
             message = f'Ошибка при получении актуальной цены: {error}'
             logger.error(message)
@@ -74,12 +76,12 @@ class PriceRepository():
             )
             result = await self.session.execute(statement)
             orm_prices = result.scalars().all()
-            
+
             # 2. Конвертируем ORM → Domain
             prices = [PriceMapper.to_domain(orm_price) for orm_price in orm_prices]
             logger.info(f'Найдено {len(prices)} цен для товара с ID = {product_id}')
             return prices
-        
+
         except SQLAlchemyError as error:
             message = f'Ошибка при получении всех цен товара: {error}'
             logger.error(message)
@@ -89,7 +91,7 @@ class PriceRepository():
         '''Удалить все цены для товара. Возвращает количество удаленных записей'''
         try:
             # 1. Получаем все ORM объекты для удаления
-            statement = select(ORMPrice).where(ORMPrice.product_id == str(product_id))
+            statement = select(ORMPrice).where(ORMPrice.product_id == product_id)
             result = await self.session.execute(statement)
             orm_prices = result.scalars().all()
 
@@ -106,7 +108,7 @@ class PriceRepository():
 
             logger.info(f'Удалено {count} цен для товара с ID {product_id}')
             return count
-        
+
         except SQLAlchemyError as error:
             message = f'Ошибка при удалении цен товара: {error}'
             logger.error(message)

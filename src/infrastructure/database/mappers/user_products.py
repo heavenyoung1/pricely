@@ -6,13 +6,13 @@ class UserProductsMapper:
     @staticmethod
     def to_orm(domain: UserProducts) -> 'ORMUserProducts':
         return ORMUserProducts(
-            user_id=str(domain.user_id),
-            product_id=str(domain.product_id),
+            user_id=domain.user_id,
+            product_id=domain.product_id,
         )
 
     @staticmethod
     def to_domain(orm: ORMUserProducts) -> 'UserProducts':
         return UserProducts(
-            user_id=int(orm.user_id),
-            product_id=int(orm.product_id),
+            user_id=orm.user_id,
+            product_id=orm.product_id,
         )

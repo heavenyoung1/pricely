@@ -11,7 +11,7 @@ from src.infrastructure.database.models.user_products import ORMUserProducts
 from src.domain.exceptions import DatabaseError
 
 
-class UserProductsRepository():
+class UserProductsRepository:
     def __init__(self, session: AsyncSession):
         self.session = session
 
@@ -19,7 +19,7 @@ class UserProductsRepository():
         try:
             # 1. Создаем domain entity
             user_products = UserProducts(user_id=user_id, product_id=product_id)
-            
+
             # 2. Конвертация Domain → ORM
             orm_user_products = UserProductsMapper.to_orm(user_products)
 
@@ -30,9 +30,11 @@ class UserProductsRepository():
             await self.session.flush()
 
             # Возвращаем доменную сущность
-            logger.info(f'Связь пользователь-товар сохранена: user_id={user_id}, product_id={product_id}')
+            logger.info(
+                f'Связь пользователь-товар сохранена: user_id={user_id}, product_id={product_id}'
+            )
             return user_products
-        
+
         except SQLAlchemyError as error:
             message = f'Ошибка при сохранении связи пользователь-товар: {error}'
             logger.error(message)
@@ -42,15 +44,19 @@ class UserProductsRepository():
         '''Получить все товары пользователя (список ID товаров)'''
         try:
             # 1. Формируем запрос
-            statement = select(ORMUserProducts).where(ORMUserProducts.user_id == str(user_id))
+            statement = select(ORMUserProducts).where(
+                ORMUserProducts.user_id == user_id
+            )
             result = await self.session.execute(statement)
             orm_user_products = result.scalars().all()
-            
+
             # 2. Конвертируем ORM → Domain и извлекаем product_id
-            product_ids = [int(orm.product_id) for orm in orm_user_products]
-            logger.info(f'Найдено {len(product_ids)} товаров для пользователя с ID = {user_id}')
+            product_ids = [orm.product_id for orm in orm_user_products]
+            logger.info(
+                f'Найдено {len(product_ids)} товаров для пользователя с ID = {user_id}'
+            )
             return product_ids
-        
+
         except SQLAlchemyError as error:
             message = f'Ошибка при получении товаров пользователя: {error}'
             logger.error(message)
@@ -61,24 +67,28 @@ class UserProductsRepository():
         try:
             # 1. Получаем ORM объект
             statement = select(ORMUserProducts).where(
-                ORMUserProducts.user_id == str(user_id),
-                ORMUserProducts.product_id == str(product_id)
+                ORMUserProducts.user_id == user_id,
+                ORMUserProducts.product_id == product_id,
             )
             result = await self.session.execute(statement)
             orm_user_products = result.scalar_one_or_none()
 
             # 2. Если не найден
             if not orm_user_products:
-                logger.warning(f'Связь пользователь-товар не найдена: user_id={user_id}, product_id={product_id}')
+                logger.warning(
+                    f'Связь пользователь-товар не найдена: user_id={user_id}, product_id={product_id}'
+                )
                 return False
 
             # 3. Удаляем
             self.session.delete(orm_user_products)
             await self.session.flush()
 
-            logger.info(f'Связь пользователь-товар удалена: user_id={user_id}, product_id={product_id}')
+            logger.info(
+                f'Связь пользователь-товар удалена: user_id={user_id}, product_id={product_id}'
+            )
             return True
-        
+
         except SQLAlchemyError as error:
             message = f'Ошибка при удалении связи пользователь-товар: {error}'
             logger.error(message)
@@ -95,16 +105,16 @@ class UserProductsRepository():
             # 2. Группируем по user_id
             grouped: Dict[int, List[int]] = {}
             for orm in orm_user_products:
-                user_id = int(orm.user_id)
-                product_id = int(orm.product_id)
-                
+                user_id = orm.user_id
+                product_id = orm.product_id
+
                 if user_id not in grouped:
                     grouped[user_id] = []
                 grouped[user_id].append(product_id)
 
             logger.info(f'Найдено {len(grouped)} пользователей с товарами')
             return grouped
-        
+
         except SQLAlchemyError as error:
             message = f'Ошибка при получении сгруппированных данных: {error}'
             logger.error(message)

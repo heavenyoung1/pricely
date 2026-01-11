@@ -4,7 +4,7 @@ from src.infrastructure.database.models.user import ORMUser
 
 class UserMapper:
     @staticmethod
-    def to_orm(domain: User) -> 'ORMUser':
+    def to_orm(domain: User) -> "ORMUser":
         return ORMUser(
             id=domain.id if domain.id else None,
             name=domain.username,
@@ -12,7 +12,7 @@ class UserMapper:
         )
 
     @staticmethod
-    def to_domain(orm: ORMUser) -> 'User':
+    def to_domain(orm: ORMUser) -> "User":
         return User(
             id=orm.id,
             username=orm.name,
