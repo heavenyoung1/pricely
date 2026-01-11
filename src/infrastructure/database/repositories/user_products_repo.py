@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List, Dict
 
 from src.core.logger import logger
-from src.domain.enttities.user_products import UserProducts
+from src.domain.entities.user_products import UserProducts
 from src.infrastructure.database.mappers.user_products import UserProductsMapper
 from src.infrastructure.database.models.user_products import ORMUserProducts
 

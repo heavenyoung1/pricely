@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Optional
 
-from src.domain.enttities.product import Product
+from src.domain.entities.product import Product
 
 
 class IProductRepository(ABC):

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List, Dict
 
-from src.domain.enttities.user_products import UserProducts
+from src.domain.entities.user_products import UserProducts
 
 
 class IUserProductsRepository(ABC):

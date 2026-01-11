@@ -1,4 +1,4 @@
-from src.domain.enttities.user import User
+from src.domain.entities.user import User
 from src.infrastructure.database.models.user import ORMUser
 
 

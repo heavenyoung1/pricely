@@ -1,4 +1,4 @@
-from src.domain.enttities.product import Product
+from src.domain.entities.product import Product
 from src.infrastructure.database.models.product import ORMProduct
 
 

@@ -1,4 +1,4 @@
-from src.domain.enttities.price import Price
+from src.domain.entities.price import Price
 from src.infrastructure.database.models.price import ORMPrice
 
 

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Optional, List
 
-from src.domain.enttities.price import Price
+from src.domain.entities.price import Price
 
 
 class IPriceRepository(ABC):

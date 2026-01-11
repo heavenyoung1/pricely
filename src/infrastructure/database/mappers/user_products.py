@@ -1,4 +1,4 @@
-from src.domain.enttities.user_products import UserProducts
+from src.domain.entities.user_products import UserProducts
 from src.infrastructure.database.models.user_products import ORMUserProducts
 
 

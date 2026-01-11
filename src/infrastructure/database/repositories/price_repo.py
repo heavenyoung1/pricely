@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Optional, List
 
 from src.core.logger import logger
-from src.domain.enttities.price import Price
+from src.domain.entities.price import Price
 from src.infrastructure.database.mappers.price import PriceMapper
 from src.infrastructure.database.models.price import ORMPrice
 

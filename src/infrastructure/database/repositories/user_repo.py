@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Optional
 
 from src.core.logger import logger
-from src.domain.enttities.user import User
+from src.domain.entities.user import User
 from src.infrastructure.database.mappers.user import UserMapper
 from src.infrastructure.database.models.user import ORMUser
 
