@@ -15,6 +15,7 @@ class ORMProduct(Base):
     articule: Mapped[str] = mapped_column(String(10), nullable=False)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     link: Mapped[str] = mapped_column(String(255), nullable=False)
+    change: Mapped[int] = mapped_column(Integer, default=5)
     created_at: Mapped[datetime] = mapped_column(
         DateTime, nullable=False, server_default=func.now()
     )

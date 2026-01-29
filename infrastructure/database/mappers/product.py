@@ -10,6 +10,7 @@ class ProductMapper:
             article=domain.articule,
             name=domain.name,
             link=domain.link,
+            change=domain.change,
         )
 
     @staticmethod
@@ -19,4 +20,5 @@ class ProductMapper:
             article=orm.articule,
             name=orm.name,
             link=orm.link,
+            change=orm.change,
         )

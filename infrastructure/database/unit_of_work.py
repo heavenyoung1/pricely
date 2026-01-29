@@ -8,6 +8,7 @@ from infrastructure.database.repositories.user_repo import UserRepository
 from infrastructure.database.repositories.user_products_repo import (
     UserProductsRepository,
 )
+from core.config.database import DataBaseConnection
 from core.logger import logger
 
 
