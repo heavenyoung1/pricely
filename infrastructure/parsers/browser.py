@@ -80,11 +80,10 @@ class BrowserManager(IBrowserManager):
         await self._create_context()
 
         logger.info(
-            f'Браузер запущен, режим headless включен -> {self.headless}',
-            f'User-Agent {self.user_agent[:50]}...',
+            f'Браузер запущен, режим headless включен -> {self.headless} ,User-Agent {self.user_agent[:50]}...',
         )
 
-    async def _create_create(self) -> None:
+    async def _create_context(self) -> None:
         '''Создает контекст браузера с настройками антидетекта'''
         try:
             if not self._browser:
@@ -155,3 +154,36 @@ class BrowserManager(IBrowserManager):
         logger.info(f'Страница загружена URL - {url}')
 
         return page
+
+    async def close(self) -> None:
+        '''
+        Корректно закрывает браузер и Playwright
+        Освобождает все ресурсы
+        '''
+        if self._context:
+            await self._context.close()
+            self._context = None
+
+        if self._browser:
+            await self._browser.close()
+            self._browser = None
+
+        if self._playwright:
+            await self._playwright.stop()
+            self._playwright = None
+
+        logger.info(f'Браузер закрыт')
+
+    @staticmethod
+    def _get_random_user_agent() -> str:
+        '''Возвращает случайный User-Agent из списка'''
+        return random.choice(USER_AGENTS)
+    
+    async def __aenter__(self):
+        '''Поддержка async context manager'''
+        await self.start()
+        return self
+
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        '''Автоматическое закрытие при выходе из контекста'''
+        await self.close()

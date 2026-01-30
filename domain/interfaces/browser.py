@@ -37,19 +37,19 @@ class IBrowserManager(ABC):
         '''
         pass
 
-    @abstractmethod
-    async def wait_for_selector(
-        self, page: Page, selector: str, timeout: Optional[int] = None
-    ) -> None:
-        '''
-        Ждать появления элемента на странице
+    # @abstractmethod
+    # async def wait_for_selector(
+    #     self, page: Page, selector: str, timeout: Optional[int] = None
+    # ) -> None:
+    #     '''
+    #     Ждать появления элемента на странице
 
-        Args:
-            page: Страница для ожидания
-            selector: CSS или XPath селектор
-            timeout: Таймаут ожидания в миллисекундах
-        '''
-        pass
+    #     Args:
+    #         page: Страница для ожидания
+    #         selector: CSS или XPath селектор
+    #         timeout: Таймаут ожидания в миллисекундах
+    #     '''
+    #     pass
 
     @abstractmethod
     async def close(self) -> None:
