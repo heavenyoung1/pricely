@@ -8,18 +8,18 @@ class Collector:
     def __init__(self, uow_factory: UnitOfWorkFactory):
         self.uow_factory = uow_factory
 
-    async def pick_up(self):
-        async with self.uow_factory as uow:
+    async def pick_up(self) -> List[Dict[int, List[int]]]:
+        async with self.uow_factory.create() as uow:
             try:
-                data = await uow.user_product_repo.get_all_grouped()
+                data = await uow.user_products_repo.get_all_grouped()
                 return data
             except Exception as e:
                 logger.error(f'Ошибка при сборе данных: {e}')
-                raise Exception(f'Ошибка при сборе данных: {e}')
-            
+                raise
+
     async def to_vectorize(
-            self, 
-            data: List[Dict[int, List[str]]]) -> None:
+            self,
+            data: List[Dict[int, List[str]]]) -> Dict[int, List[str]]:
         '''
         Пример получаемых данных
         correct_data = [
@@ -32,16 +32,16 @@ class Collector:
 
         result = {}
 
-        async with self.uow_factory as uow:
+        async with self.uow_factory.create() as uow:
             for item in data:
                 # Каждый item - словарь с одной парой {user_id: products}
                 for user_id, products in item.items():
                     # 1. Получаем пользователя
                     user = await uow.user_repo.get(user_id)
                     if not user:
-                        logger.error(f'Пользователь {user.id} не найден')
+                        logger.error(f'Пользователь {user_id} не найден')
                         continue
-                    
+
                     chat_id = user.chat_id
 
                     # 2. Инициализируем список URL для этого chat_id
@@ -53,20 +53,19 @@ class Collector:
                         product = await uow.product_repo.get(product_id)
 
                         if not product:
-                            logger.error(f'Товар не найден')
+                            logger.error(f'Товар {product_id} не найден')
                             continue
-                        
+
                         product_url = product.url
                         result[chat_id].append(product_url)
         return result
 
-    async def submit(self, data: Dict[int, List[str]]) -> None:
+    async def submit(self, data: Dict[int, List[str]]) -> List[UserProductsData]:
         output_data = []
-        for i in data:
-            for chat_id, urls in data.items():
-                row = UserProductsData(
-                    chat_id=chat_id,
-                    product_links=urls,
-                )
-                output_data.append(row)
+        for chat_id, urls in data.items():
+            row = UserProductsData(
+                chat_id=chat_id,
+                product_links=urls,
+            )
+            output_data.append(row)
         return output_data
