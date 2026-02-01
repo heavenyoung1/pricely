@@ -97,6 +97,21 @@ class ProductRepository:
             logger.error(message)
             raise DatabaseError(message)
 
+    async def get_by_link(self, link: str) -> Optional['Product']:
+        try:
+            statement = select(ORMProduct).where(ORMProduct.link == link)
+            result = await self.session.execute(statement)
+            orm_product = result.scalar_one_or_none()
+
+            if not orm_product:
+                return None
+
+            return ProductMapper.to_domain(orm_product)
+        except SQLAlchemyError as error:
+            message = f'Ошибка при поиске товара по ссылке: {error}'
+            logger.error(message)
+            raise DatabaseError(message)
+
     async def delete(self, id: int) -> bool:
         try:
             # 1. Получаем ORM объект
