@@ -70,7 +70,7 @@ async def add_product_url(
             user_id = user.id
 
         # Парсим и добавляем товар
-        async with BrowserManager(headless=True) as browser:
+        async with BrowserManager() as browser:
             parser = ProductParser(
                 browser=browser,
                 fields_for_add=ProductFieldsForAdd(),

@@ -12,7 +12,7 @@ class CreateUserUseCase:
         async with self.uow_factory.create() as uow:
             try:
                 user = User.create(
-                    name=user_create.username,
+                    username=user_create.username,
                     chat_id=user_create.chat_id,
                 )
 

@@ -10,11 +10,11 @@ class User:
     @staticmethod
     def create(
         *,
-        name: str,
+        username: str,
         chat_id: str,
     ) -> 'User':
         return User(
             id=None,
-            name=name,
+            username=username,
             chat_id=chat_id,
         )

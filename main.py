@@ -16,7 +16,7 @@ async def run():
     collector = Collector(uow_factory)
     update_prices = CheckPriceUseCase(uow_factory)
 
-    async with BrowserManager(headless=True) as browser:
+    async with BrowserManager() as browser:
         parser = ProductParser(
             browser=browser,
             fields_for_add=ProductFieldsForAdd(),

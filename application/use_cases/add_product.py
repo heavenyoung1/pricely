@@ -27,7 +27,7 @@ class AddProductUseCase:
         self,
         url: str,
         user_id: int,
-        changed: int,
+        change: int,
     ) -> Product:
         '''
         Добавляет товар по URL для указанного пользователя.
@@ -65,7 +65,7 @@ class AddProductUseCase:
                 article=parsed.article,
                 name=parsed.name,
                 link=parsed.link,
-                change=changed,
+                change=change,
             )
             saved_product = await uow.product_repo.save(product)
 
