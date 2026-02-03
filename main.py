@@ -5,7 +5,7 @@ from core.logger import logger
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
 from infrastructure.parsers.browser import BrowserManager
 from infrastructure.parsers.parser import ProductParser
-from domain.entities.product_fields import ProductFields
+from domain.entities.product_fields import ProductFieldsForAdd, ProductFieldsForCheck
 from application.collector import Collector
 from application.use_cases.check_price import CheckPriceUseCase
 
@@ -17,7 +17,11 @@ async def run():
     update_prices = CheckPriceUseCase(uow_factory)
 
     async with BrowserManager(headless=True) as browser:
-        parser = ProductParser(browser=browser, fields=ProductFields())
+        parser = ProductParser(
+            browser=browser,
+            fields_for_add=ProductFieldsForAdd(),
+            fields_for_check=ProductFieldsForCheck(),
+        )
 
         # 1. Собираем данные из БД: {user_id: [product_ids]}
         raw_data = await collector.pick_up()

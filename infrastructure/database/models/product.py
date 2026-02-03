@@ -4,8 +4,6 @@ from datetime import datetime
 from typing import List
 
 from infrastructure.database.models.base import Base
-from infrastructure.database.models.price import ORMPrice
-from infrastructure.database.models.user_products import ORMUserProducts
 
 
 class ORMProduct(Base):

@@ -1,0 +1,34 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Tests
+tests/
+pytest.ini
+
+# Local env
+.env
+
+# Build
+*.egg-info/
+dist/
+build/
+
+# Misc
+*.log
+.DS_Store

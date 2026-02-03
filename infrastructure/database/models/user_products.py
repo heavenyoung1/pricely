@@ -2,8 +2,6 @@ from sqlalchemy import String, Integer, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from infrastructure.database.models.base import Base
-from infrastructure.database.models.product import ORMProduct
-from infrastructure.database.models.user import ORMUser
 
 
 class ORMUserProducts(Base):

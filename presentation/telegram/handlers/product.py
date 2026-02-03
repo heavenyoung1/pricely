@@ -6,7 +6,7 @@ from aiogram.fsm.state import State, StatesGroup
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
 from infrastructure.parsers.browser import BrowserManager
 from infrastructure.parsers.parser import ProductParser
-from domain.entities.product_fields import ProductFields
+from domain.entities.product_fields import ProductFieldsForAdd, ProductFieldsForCheck
 from application.use_cases.add_product import AddProductUseCase
 from application.use_cases.get_user_products import GetUserProductsUseCase
 from application.use_cases.get_product import GetProductUseCase
@@ -71,7 +71,11 @@ async def add_product_url(
 
         # Парсим и добавляем товар
         async with BrowserManager(headless=True) as browser:
-            parser = ProductParser(browser=browser, fields=ProductFields())
+            parser = ProductParser(
+                browser=browser,
+                fields_for_add=ProductFieldsForAdd(),
+                fields_for_check=ProductFieldsForCheck(),
+            )
             add_product = AddProductUseCase(
                 parser=parser,
                 uow_factory=uow_factory,

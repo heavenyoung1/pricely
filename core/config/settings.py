@@ -15,9 +15,9 @@ class Settings(BaseSettings):
     DB_PASSWORD: str
     DB_NAME: str
 
-    # SQLAlchemy параметры
-    DRIVER: str = 'sqlite+aiosqlite://'
-    SYNC_DRIVER: str = 'sqlite://'
+    # SQLAlchemy параметры (PostgreSQL)
+    DRIVER: str = 'postgresql+asyncpg'
+    SYNC_DRIVER: str = 'postgresql+psycopg2'
 
     def url(self) -> URL:
         '''Собрать URL подключения безопасно'''
