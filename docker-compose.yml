@@ -1,44 +1,16 @@
 services:
-  # PostgreSQL база данных
   db:
     image: postgres:16-alpine
     container_name: pricely_db
     restart: unless-stopped
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  # Telegram бот
-  bot:
-    build: .
-    container_name: pricely_bot
-    restart: unless-stopped
-    env_file:
-      - .env
-    command: python -m presentation.telegram.bot
-    depends_on:
-      db:
-        condition: service_healthy
-
-  # Воркер для парсинга цен
-  worker:
-    build: .
-    container_name: pricely_worker
-    restart: unless-stopped
-    env_file:
-      - .env
-    command: python main.py
-    depends_on:
-      db:
-        condition: service_healthy
 
 volumes:
   postgres_data:
