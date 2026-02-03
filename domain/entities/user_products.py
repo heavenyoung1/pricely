@@ -15,7 +15,32 @@ class UserProductsData:
     product_links: List[str]
 
 @dataclass
-class CheckedProduct:
+class ParsedProduct:
+    article: str
+    name: str
+    link: str
+    price_with_card: int
+    price_without_card: int
+
+    @staticmethod
+    def create(
+        *,
+        article: str,
+        name: str,
+        link: str,
+        price_with_card: int,
+        price_without_card: int,
+    ) -> 'ParsedProduct':
+        return ParsedProduct(
+            article=article,
+            name=name,
+            link=link,
+            price_with_card=price_with_card,
+            price_without_card=price_without_card,
+        )
+
+@dataclass
+class CheckedPrice:
     url: str
     price_with_card: int
     price_without_card: int
@@ -26,8 +51,8 @@ class CheckedProduct:
         url: str,
         price_with_card: int,
         price_without_card: int,
-    ) -> 'CheckedProduct':
-        return CheckedProduct(
+    ) -> 'CheckedPrice':
+        return CheckedPrice(
             url=url,
             price_with_card=price_with_card,
             price_without_card=price_without_card,
