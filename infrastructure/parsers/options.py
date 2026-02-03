@@ -39,7 +39,7 @@ CONTEXT_OPTIONS: Dict = {
     'locale': 'ru-RU',
     'timezone_id': 'Europe/Moscow',
     'permissions': ['geolocation'],
-    'geolocation': {'latitude': 55.7558, 'longitude': 37.6173},  # Москва
+    'geolocation': {'latitude': 53.2521, 'longitude': 34.3717},  # Брянск
     'color_scheme': 'light',
     'extra_http_headers': {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
