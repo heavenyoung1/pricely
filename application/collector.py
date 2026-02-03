@@ -123,7 +123,7 @@ class Collector:
                             logger.error(f'Товар {product_id} не найден')
                             continue
 
-                        product_url = product.url
+                        product_url = product.link
                         result[chat_id].append(product_url)
         return result
 

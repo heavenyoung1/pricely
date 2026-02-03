@@ -5,6 +5,9 @@ from sqlalchemy.engine import URL
 class Settings(BaseSettings):
     '''Конфигурация приложения'''
 
+    # Telegram Bot
+    BOT_TOKEN: str
+
     # Конфиг БД
     DB_HOST: str = 'localhost'
     DB_PORT: int = 5432

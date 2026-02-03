@@ -16,6 +16,11 @@ class IUserRepository(ABC):
         pass
 
     @abstractmethod
+    async def get_by_chat_id(self, chat_id: str) -> Optional[User]:
+        '''Получить пользователя по chat_id'''
+        pass
+
+    @abstractmethod
     async def update(self, user: User) -> User:
         '''Обновить пользователя'''
         pass

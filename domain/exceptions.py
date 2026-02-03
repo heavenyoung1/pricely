@@ -23,7 +23,7 @@ class UserCreateError(Exception):
         self.user_id = user_id
         super().__init__(f'Не удалось создать пользователя с ID={user_id}')
 
-class PropductCreateError(Exception):
+class ProductCreateError(Exception):
     def __init__(self, article: str):
         self.article = article
         super().__init__(f'Не удалось создать товар (АРТИКУЛ - {article})')

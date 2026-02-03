@@ -28,7 +28,7 @@ async def run():
         logger.info(f'Получено {len(vectorized)} chat_id для парсинга')
 
         # 3. Упаковываем в UserProductsData
-        tasks = await collector.submit(vectorized)
+        tasks = await collector.form_groups(vectorized)
         logger.info(f'Сформировано {len(tasks)} задач на парсинг')
 
         # 4. Парсим страницы и обновляем цены

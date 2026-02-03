@@ -61,6 +61,21 @@ class UserRepository:
             logger.error(message)
             raise DatabaseError(message)
 
+    async def get_by_chat_id(self, chat_id: str) -> Optional['User']:
+        try:
+            statement = select(ORMUser).where(ORMUser.chat_id == chat_id)
+            result = await self.session.execute(statement)
+            orm_user = result.scalar_one_or_none()
+
+            if not orm_user:
+                return None
+
+            return UserMapper.to_domain(orm_user)
+        except SQLAlchemyError as error:
+            message = f'Ошибка при получении пользователя по chat_id: {error}'
+            logger.error(message)
+            raise DatabaseError(message)
+
     async def update(self, user: User) -> 'User':
         try:
             # 1. Проверка наличия ID
