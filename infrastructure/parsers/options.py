@@ -35,7 +35,7 @@ BROWSER_ARGS: List[str] = [
 
 # Настройки контекста браузера
 CONTEXT_OPTIONS: Dict = {
-    'viewport': {'width': 1920, 'height': 1080},
+    'viewport': {'width': 1280, 'height': 720},
     'locale': 'ru-RU',
     'timezone_id': 'Europe/Moscow',
     'permissions': ['geolocation'],

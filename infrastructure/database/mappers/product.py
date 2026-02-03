@@ -7,7 +7,7 @@ class ProductMapper:
     def to_orm(domain: Product) -> 'ORMProduct':
         return ORMProduct(
             id=domain.id,
-            article=domain.articule,
+            article=domain.article,
             name=domain.name,
             link=domain.link,
             change=domain.change,
@@ -17,7 +17,7 @@ class ProductMapper:
     def to_domain(orm: ORMProduct) -> 'Product':
         return Product(
             id=orm.id,
-            article=orm.articule,
+            article=orm.article,
             name=orm.name,
             link=orm.link,
             change=orm.change,

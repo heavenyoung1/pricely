@@ -118,7 +118,7 @@ class ProductRepository:
             # 4. Обновляем ORM объект из Domain
             updated_orm = ProductMapper.to_orm(product)
             # Обновляем атрибуты существующего объекта
-            orm_product.articule = updated_orm.articule
+            orm_product.article = updated_orm.article
             orm_product.name = updated_orm.name
             orm_product.link = updated_orm.link
 

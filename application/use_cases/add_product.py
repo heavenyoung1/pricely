@@ -44,7 +44,7 @@ class AddProductUseCase:
         '''
         # 1. Парсим данные со страницы
         parsed = await self.parser.parse_new_product(url)
-        logger.info(f'Спаршен товар: {parsed.name}')
+        logger.info(f'В браузере получен товар: {parsed.name}')
 
         async with self.uow_factory.create() as uow:
             # 2. Проверяем, не существует ли уже такой товар

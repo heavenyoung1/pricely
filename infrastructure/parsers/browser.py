@@ -33,9 +33,10 @@ class BrowserManager(IBrowserManager):
 
     def __init__(
         self,
-        headless: bool = True,
+        headless: bool = False,
         proxy: Optional[dict] = None,
         user_agent: Optional[str] = None,
+        delay: int = 2000,
     ):
         '''
         Args:
@@ -46,6 +47,7 @@ class BrowserManager(IBrowserManager):
         self.headless = headless
         self.proxy = proxy
         self.user_agent = user_agent or self._get_random_user_agent()
+        self.delay = delay
 
         # Внутренние объекты Playwright
         self._playwright: Optional[Playwright] = None
@@ -149,7 +151,7 @@ class BrowserManager(IBrowserManager):
         await page.goto(url, wait_until='domcontentloaded')
 
         # Небольшая задержка для загрузки динамического контента
-        await page.wait_for_timeout(1000)
+        await page.wait_for_timeout(self.delay)
 
         logger.info(f'Страница загружена URL - {url}')
 

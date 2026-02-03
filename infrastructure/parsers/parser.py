@@ -54,7 +54,12 @@ class ProductParser(IProductParser):
         for field in dataclass_fields(self.fields_for_add):
             xpath = getattr(self.fields_for_add, field.name)
             text = await self._extract_text(page, xpath)
-            parsed_data[field.name] = self._clean_price(text)
+            if field.name == 'article':
+                parsed_data[field.name] = self._extract_article(text)
+            elif field.name == 'name':
+                parsed_data[field.name] = text
+            else:
+                parsed_data[field.name] = self._clean_price(text)
 
         parsed_product = ParsedProduct.create(
             article=parsed_data['article'],
@@ -119,6 +124,22 @@ class ProductParser(IProductParser):
             return text.strip() if text else None
         except Exception:
             return None
+
+    @staticmethod
+    def _extract_article(text: Optional[str]) -> Optional[str]:
+        '''
+        Извлекает артикул из текста.
+
+        Args:
+            text: Строка с артикулом (например, 'Артикул: 1287151806').
+
+        Returns:
+            Артикул как строка или None, если текст пустой.
+        '''
+        if not text:
+            return None
+        digits = ''.join(c for c in text if c.isdigit())
+        return digits if digits else None
 
     @staticmethod
     def _clean_price(text: Optional[str]) -> Optional[int]:

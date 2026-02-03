@@ -7,6 +7,7 @@ class Settings(BaseSettings):
 
     # Telegram Bot
     BOT_TOKEN: str
+    APP_VERSION: str
 
     # Конфиг БД
     DB_HOST: str = 'localhost'
