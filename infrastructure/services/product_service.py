@@ -17,6 +17,7 @@ from domain.exceptions import UserCreateError
 
 class ProductService:
     '''Сервисный слой для оркестрации UseCase'''
+
     def __init__(self):
         database = DataBaseConnection()
         uow_factory = UnitOfWorkFactory(database)
@@ -33,5 +34,3 @@ class ProductService:
         except Exception as e:
             logger.error(f'Ошибка при создании пользователя: {e}')
             raise Exception(f'Ошибка при создании пользователя: {e}')
-
-        

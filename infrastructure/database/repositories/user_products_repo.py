@@ -99,7 +99,7 @@ class UserProductsRepository:
             message = f'Ошибка при получении товаров пользователя: {error}'
             logger.error(message)
             raise DatabaseError(message)
-        
+
     async def get_all_product_ids(self) -> List[int]:
         '''
         Получает список всех отслеживаемых товаров.
@@ -122,9 +122,7 @@ class UserProductsRepository:
 
             # 2. Конвертируем ORM → Domain и извлекаем product_id
             product_ids = [orm.product_id for orm in orm_product_ids]
-            logger.info(
-                f'Найдено {len(product_ids)} товаров'
-            )
+            logger.info(f'Найдено {len(product_ids)} товаров')
         except SQLAlchemyError as error:
             message = f'Ошибка при получении всех товаров: {error}'
             logger.error(message)

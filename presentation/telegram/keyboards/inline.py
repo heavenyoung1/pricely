@@ -21,7 +21,11 @@ def product_list(products: List[Product]) -> InlineKeyboardMarkup:
     for product in products:
         builder.row(
             InlineKeyboardButton(
-                text=f'{product.name[:30]}...' if len(product.name) > 30 else product.name,
+                text=(
+                    f'{product.name[:30]}...'
+                    if len(product.name) > 30
+                    else product.name
+                ),
                 callback_data=f'product:{product.id}',
             )
         )
@@ -47,7 +51,9 @@ def confirm_delete(product_id: int) -> InlineKeyboardMarkup:
     '''Подтверждение удаления'''
     builder = InlineKeyboardBuilder()
     builder.row(
-        InlineKeyboardButton(text='Да, удалить', callback_data=f'confirm_delete:{product_id}'),
+        InlineKeyboardButton(
+            text='Да, удалить', callback_data=f'confirm_delete:{product_id}'
+        ),
         InlineKeyboardButton(text='Отмена', callback_data=f'product:{product_id}'),
     )
     return builder.as_markup()

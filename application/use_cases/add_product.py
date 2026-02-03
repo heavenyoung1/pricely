@@ -24,9 +24,9 @@ class AddProductUseCase:
         self.uow_factory = uow_factory
 
     async def execute(
-        self, 
-        url: str, 
-        user_id: int, 
+        self,
+        url: str,
+        user_id: int,
         changed: int,
     ) -> Product:
         '''
@@ -82,5 +82,7 @@ class AddProductUseCase:
             # 5. Связываем товар с пользователем
             await uow.user_products_repo.save(user_id, saved_product.id)
 
-            logger.info(f'Товар добавлен: {saved_product.name} (ID: {saved_product.id})')
+            logger.info(
+                f'Товар добавлен: {saved_product.name} (ID: {saved_product.id})'
+            )
             return saved_product

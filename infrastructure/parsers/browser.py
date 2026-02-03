@@ -178,7 +178,7 @@ class BrowserManager(IBrowserManager):
     def _get_random_user_agent() -> str:
         '''Возвращает случайный User-Agent из списка'''
         return random.choice(USER_AGENTS)
-    
+
     async def __aenter__(self):
         '''Поддержка async context manager'''
         await self.start()

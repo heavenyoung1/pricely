@@ -56,7 +56,7 @@ class ProductRepository:
             # 3. Конвертируем ORM → Domain
             product = ProductMapper.to_domain(orm_product)
             return product
-        
+
         except SQLAlchemyError as error:
             message = f'Ошибка при получении товара: {error}'
             logger.error(message)
@@ -94,7 +94,7 @@ class ProductRepository:
             product = ProductMapper.to_domain(orm_product)
             link = product.link
             return link
-        
+
         except SQLAlchemyError as error:
             message = f'Ошибка при получении товара: {error}'
             logger.error(message)
@@ -147,7 +147,7 @@ class ProductRepository:
 
             product = ProductMapper.to_domain(orm_product)
             return product
-        
+
         except SQLAlchemyError as error:
             message = f'Ошибка при поиске товара по ссылке: {error}'
             logger.error(message)

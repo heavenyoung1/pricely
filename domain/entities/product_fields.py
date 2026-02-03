@@ -10,6 +10,7 @@ class ProductFieldsForAdd:
         '//span[contains(text(),"₽") and contains(@class,"tsHeadline500Medium")]'
     )
 
+
 @dataclass
 class ProductFieldsForCheck:
     price_with_card: int = '//span[@class="tsHeadline600Large"]'

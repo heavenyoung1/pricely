@@ -72,13 +72,8 @@ class CheckPriceUseCase:
                     changed_prices.append(new_price)
 
                     direction = '↓' if current_price_with_card < price_with else '↑'
-                    logger.info(f'Цена изменилась {direction}: {product.name} ({price_with} → {current_price_with_card})')
+                    logger.info(
+                        f'Цена изменилась {direction}: {product.name} ({price_with} → {current_price_with_card})'
+                    )
 
         return changed_prices
-                
-
-
-
-
-
-

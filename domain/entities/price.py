@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from core.logger import logger
 
+
 @dataclass
 class Price:
     id: int
@@ -32,6 +33,8 @@ class Price:
         '''Валидация и нормализация данных после создания'''
 
         # Валидация цены
-        if not isinstance(self.with_card, int) or not isinstance(self.without_card, int):
+        if not isinstance(self.with_card, int) or not isinstance(
+            self.without_card, int
+        ):
             logger.error(f'Полученная при парсинге цена не является типом INTEGER')
             raise ValueError()

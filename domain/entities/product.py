@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from core.logger import logger
 
+
 @dataclass
 class Product:
     id: int
@@ -25,11 +26,12 @@ class Product:
         if not isinstance(self.article, str):
             logger.error(f'Арткул не является типом string')
             raise ValueError()
-        
+
         if not isinstance(self.name, str):
             logger.error(f'Название товара не является типом string')
             raise ValueError()
-        
+
+
 @dataclass
 class FullProduct:
     id: int

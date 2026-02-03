@@ -4,6 +4,7 @@ from domain.entities.user_products import UserProductsData
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
 from core.logger import logger
 
+
 class Collector:
     '''
     Сборщик данных для подготовки информации о товарах пользователей.
@@ -60,19 +61,16 @@ class Collector:
         async with self.uow_factory.create() as uow:
             try:
                 data_ids = await uow.user_products_repo.get_all_product_ids()
-                data_urls = [
-                    await uow.product_repo.get_link(id) for id in data_ids
-                    ]
+                data_urls = [await uow.product_repo.get_link(id) for id in data_ids]
                 return data_urls
 
             except Exception as e:
                 logger.error(f'Ошибка при получении всех товаров: {e}')
                 raise
 
-
     async def to_vectorize(
-            self,
-            data: List[Dict[int, List[int]]]) -> Dict[int, List[str]]:
+        self, data: List[Dict[int, List[int]]]
+    ) -> Dict[int, List[str]]:
         '''
         Преобразует данные: заменяет user_id на chat_id, product_id на URL.
 
@@ -150,4 +148,3 @@ class Collector:
             )
             output_data.append(row)
         return output_data
-

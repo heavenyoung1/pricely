@@ -4,15 +4,18 @@ from typing import List
 
 from domain.exceptions import PriceNotFoundError
 
+
 @dataclass
 class UserProducts:
     user_id: int
     product_id: int
 
+
 @dataclass
 class UserProductsData:
     chat_id: int
     product_links: List[str]
+
 
 @dataclass
 class ParsedProduct:
@@ -39,6 +42,7 @@ class ParsedProduct:
             price_without_card=price_without_card,
         )
 
+
 @dataclass
 class CheckedPrice:
     url: str
@@ -57,7 +61,7 @@ class CheckedPrice:
             price_with_card=price_with_card,
             price_without_card=price_without_card,
         )
-    
+
     def __post_init__(self):
         '''Валидация и нормализация данных после создания'''
         if not isinstance(self.price_with_card, int):

@@ -3,7 +3,7 @@ from typing import Optional, List
 
 from domain.entities.user_products import ParsedProduct, CheckedPrice
 from domain.entities.product_fields import (
-    ProductFieldsForAdd, 
+    ProductFieldsForAdd,
     ProductFieldsForCheck,
 )
 from application.interfaces.browser import IBrowserManager
@@ -15,11 +15,11 @@ class ProductParser(IProductParser):
     '''Парсер товаров для извлечения данных со страниц магазина.'''
 
     def __init__(
-            self,
-            browser: IBrowserManager,
-            fields_for_add: ProductFieldsForAdd,
-            fields_for_check: ProductFieldsForCheck,
-            ) -> None:
+        self,
+        browser: IBrowserManager,
+        fields_for_add: ProductFieldsForAdd,
+        fields_for_check: ProductFieldsForCheck,
+    ) -> None:
         '''
         Инициализирует парсер товаров.
 
