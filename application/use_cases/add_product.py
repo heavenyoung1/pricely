@@ -1,0 +1,86 @@
+from infrastructure.database.unit_of_work import UnitOfWorkFactory
+
+from domain.interfaces.parser import IProductParser
+from domain.entities.product import Product
+from domain.entities.price import Price
+from domain.exceptions import ProductAlreadyExistsError
+from core.logger import logger
+
+
+class AddProductUseCase:
+    '''
+    Use Case для добавления нового товара в отслеживание.
+
+    Парсит страницу товара, создаёт записи Product и Price,
+    и связывает товар с пользователем.
+    '''
+
+    def __init__(
+        self,
+        parser: IProductParser,
+        uow_factory: UnitOfWorkFactory,
+    ) -> None:
+        self.parser = parser
+        self.uow_factory = uow_factory
+
+    async def execute(
+        self, 
+        url: str, 
+        user_id: int, 
+        changed: int,
+    ) -> Product:
+        '''
+        Добавляет товар по URL для указанного пользователя.
+
+        Args:
+            url: URL страницы товара.
+            user_id: ID пользователя, добавляющего товар.
+
+        Returns:
+            Созданный Product.
+
+        Raises:
+            ProductAlreadyExistsError: Если товар уже отслеживается этим пользователем.
+        '''
+        # 1. Парсим данные со страницы
+        parsed = await self.parser.parse_new_product(url)
+        logger.info(f'Спаршен товар: {parsed.name}')
+
+        async with self.uow_factory.create() as uow:
+            # 2. Проверяем, не существует ли уже такой товар
+            existing = await uow.product_repo.get_by_link(url)
+            if existing:
+                # Проверяем, отслеживает ли уже этот пользователь
+                user_product_ids = await uow.user_products_repo.get_all_by_user(user_id)
+                if existing.id in user_product_ids:
+                    raise ProductAlreadyExistsError(url)
+
+                # Товар есть, но пользователь его не отслеживает — связываем
+                await uow.user_products_repo.save(user_id, existing.id)
+                logger.info(f'Товар привязан к пользователю: {existing.name}')
+                return existing
+
+            # 3. Создаём новый товар
+            product = Product.create(
+                article=parsed.article,
+                name=parsed.name,
+                link=parsed.link,
+                change=changed,
+            )
+            saved_product = await uow.product_repo.save(product)
+
+            # 4. Создаём начальную цену
+            price = Price.create(
+                product_id=saved_product.id,
+                with_card=parsed.price_with_card,
+                without_card=parsed.price_without_card,
+                previous_with_card=parsed.price_with_card,
+                previous_without_card=parsed.price_without_card,
+            )
+            await uow.price_repo.save(price)
+
+            # 5. Связываем товар с пользователем
+            await uow.user_products_repo.save(user_id, saved_product.id)
+
+            logger.info(f'Товар добавлен: {saved_product.name} (ID: {saved_product.id})')
+            return saved_product

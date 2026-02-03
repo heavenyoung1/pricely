@@ -129,7 +129,9 @@ class ProductRepository:
             if not orm_product:
                 return None
 
-            return ProductMapper.to_domain(orm_product)
+            product = ProductMapper.to_domain(orm_product)
+            return product
+        
         except SQLAlchemyError as error:
             message = f'Ошибка при поиске товара по ссылке: {error}'
             logger.error(message)

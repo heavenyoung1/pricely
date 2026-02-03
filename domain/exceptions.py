@@ -34,3 +34,9 @@ class PriceCreateError(Exception):
         super().__init__(f'Не удалось создать цену (ID товара - {product_id})')
 
 
+class ProductAlreadyExistsError(Exception):
+    def __init__(self, url: str):
+        self.url = url
+        super().__init__(f'Товар уже отслеживается: {url}')
+
+

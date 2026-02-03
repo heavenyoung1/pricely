@@ -6,8 +6,8 @@ from domain.entities.product_fields import (
     ProductFieldsForAdd, 
     ProductFieldsForCheck,
 )
-from domain.interfaces.browser import IBrowserManager
-from domain.interfaces.parser import IProductParser
+from application.interfaces.browser import IBrowserManager
+from application.interfaces.parser import IProductParser
 from core.logger import logger
 
 

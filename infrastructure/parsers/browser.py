@@ -8,7 +8,7 @@ from playwright.async_api import (
     Playwright,
 )
 
-from domain.interfaces.browser import IBrowserManager
+from application.interfaces.browser import IBrowserManager
 from .options import (
     USER_AGENTS,
     BROWSER_ARGS,
