@@ -1,7 +1,7 @@
 from sqlalchemy import select
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.ext.asyncio import AsyncSession
-from typing import Optional
+from typing import Optional, List
 
 from core.logger import logger
 from domain.entities.product import Product
@@ -61,7 +61,23 @@ class ProductRepository:
             message = f'Ошибка при получении товара: {error}'
             logger.error(message)
             raise DatabaseError(message)
-        
+
+    async def get_many(self, ids: List[int]) -> List[Product]:
+        try:
+            if not ids:
+                return []
+
+            statement = select(ORMProduct).where(ORMProduct.id.in_(ids))
+            result = await self.session.execute(statement)
+            orm_products = result.scalars().all()
+
+            return [ProductMapper.to_domain(p) for p in orm_products]
+
+        except SQLAlchemyError as error:
+            message = f'Ошибка при получении товаров: {error}'
+            logger.error(message)
+            raise DatabaseError(message)
+
     async def get_link(self, id: int) -> Optional['Product']:
         try:
             # 1. Формируем запрос

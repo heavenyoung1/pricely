@@ -29,3 +29,17 @@ class Product:
         if not isinstance(self.name, str):
             logger.error(f'Название товара не является типом string')
             raise ValueError()
+        
+@dataclass
+class FullProduct:
+    id: int
+    article: str
+    name: str
+    link: str
+
+    with_card: int
+    without_card: int
+    previous_with_card: int
+    previous_without_card: int
+
+    change: int

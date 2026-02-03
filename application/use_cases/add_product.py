@@ -1,6 +1,6 @@
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
 
-from domain.interfaces.parser import IProductParser
+from application.interfaces.parser import IProductParser
 from domain.entities.product import Product
 from domain.entities.price import Price
 from domain.exceptions import ProductAlreadyExistsError
