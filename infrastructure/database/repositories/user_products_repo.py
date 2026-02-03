@@ -12,10 +12,36 @@ from domain.exceptions import DatabaseError
 
 
 class UserProductsRepository:
+    '''
+    Репозиторий для работы со связями пользователь-товар.
+
+    Обеспечивает CRUD-операции и специализированные запросы
+    для таблицы связей между пользователями и их товарами.
+    '''
+
     def __init__(self, session: AsyncSession):
+        '''
+        Инициализация репозитория.
+
+        Args:
+            session: Асинхронная сессия SQLAlchemy для работы с БД.
+        '''
         self.session = session
 
     async def save(self, user_id: int, product_id: int) -> 'UserProducts':
+        '''
+        Сохраняет связь между пользователем и товаром.
+
+        Args:
+            user_id: Идентификатор пользователя.
+            product_id: Идентификатор товара.
+
+        Returns:
+            Доменная сущность UserProducts с сохранённой связью.
+
+        Raises:
+            DatabaseError: При ошибке сохранения в БД.
+        '''
         try:
             # 1. Создаем domain entity
             user_products = UserProducts(user_id=user_id, product_id=product_id)
@@ -41,7 +67,19 @@ class UserProductsRepository:
             raise DatabaseError(message)
 
     async def get_all_by_user(self, user_id: int) -> List[int]:
-        '''Получить все товары пользователя (список ID товаров)'''
+        '''
+        Получает все товары конкретного пользователя.
+
+        Args:
+            user_id: Идентификатор пользователя.
+
+        Returns:
+            Список product_id товаров, отслеживаемых пользователем.
+            Пример: [1, 5, 12]
+
+        Raises:
+            DatabaseError: При ошибке запроса к БД.
+        '''
         try:
             # 1. Формируем запрос
             statement = select(ORMUserProducts).where(
@@ -61,9 +99,52 @@ class UserProductsRepository:
             message = f'Ошибка при получении товаров пользователя: {error}'
             logger.error(message)
             raise DatabaseError(message)
+        
+    async def get_all_product_ids(self) -> List[int]:
+        '''
+        Получает список всех отслеживаемых товаров.
+
+        Возвращает идентификаторы всех товаров из таблицы связей
+        (могут содержать дубликаты, если товар отслеживается несколькими пользователями).
+
+        Returns:
+            Список всех product_id из таблицы связей.
+            Пример: [1, 2, 3, 1, 5] — товар 1 отслеживается двумя пользователями.
+
+        Raises:
+            DatabaseError: При ошибке запроса к БД.
+        '''
+        try:
+            # 1. Формируем запрос
+            statement = select(ORMUserProducts.product_id)
+            result = await self.session.execute(statement)
+            orm_product_ids = result.scalar.all()
+
+            # 2. Конвертируем ORM → Domain и извлекаем product_id
+            product_ids = [orm.product_id for orm in orm_product_ids]
+            logger.info(
+                f'Найдено {len(product_ids)} товаров'
+            )
+        except SQLAlchemyError as error:
+            message = f'Ошибка при получении всех товаров: {error}'
+            logger.error(message)
+            raise DatabaseError(message)
 
     async def delete(self, user_id: int, product_id: int) -> bool:
-        '''Удалить связь пользователь-товар'''
+        '''
+        Удаляет связь между пользователем и товаром.
+
+        Args:
+            user_id: Идентификатор пользователя.
+            product_id: Идентификатор товара.
+
+        Returns:
+            True — связь успешно удалена.
+            False — связь не найдена.
+
+        Raises:
+            DatabaseError: При ошибке удаления из БД.
+        '''
         try:
             # 1. Получаем ORM объект
             statement = select(ORMUserProducts).where(
@@ -95,7 +176,19 @@ class UserProductsRepository:
             raise DatabaseError(message)
 
     async def get_all_grouped(self) -> Dict[int, List[int]]:
-        '''Получить сгруппированные данные: словарь {user_id: [product_ids]}'''
+        '''
+        Получает все связи, сгруппированные по пользователям.
+
+        Формирует словарь, где ключ — user_id, значение — список
+        product_id товаров этого пользователя.
+
+        Returns:
+            Словарь {user_id: [product_id, ...]}.
+            Пример: {123: [1, 2], 456: [3, 4, 5]}
+
+        Raises:
+            DatabaseError: При ошибке запроса к БД.
+        '''
         try:
             # 1. Получаем все записи
             statement = select(ORMUserProducts)

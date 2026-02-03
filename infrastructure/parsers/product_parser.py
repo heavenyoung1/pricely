@@ -1,8 +1,11 @@
 from dataclasses import fields as dataclass_fields
-from typing import Optional, List, Dict, Any
+from typing import Optional, List
 
-from domain.entities.user_products import UserProductsData
-from domain.entities.product_fields import ProductFields
+from domain.entities.user_products import UserProductsData, CheckedProduct
+from domain.entities.product_fields import (
+    ProductFieldsForAdd, 
+    ProductFieldsForCheck,
+)
 from domain.interfaces.browser import IBrowserManager
 from core.logger import logger
 
@@ -11,39 +14,35 @@ class ProductParser():
     def __init__(
             self,
             browser: IBrowserManager,
-            fields: ProductFields,
+            fiels_for_add: ProductFieldsForAdd,
+            fields_for_check: ProductFieldsForCheck,
             ) -> None:
         self.browser = browser
-        self.fields = fields
+        self.fiels_for_add = fiels_for_add
+        self.fields_for_check = fields_for_check
 
-    async def parse(
+    async def check_parse(
             self,
-            data: UserProductsData
-    ) -> List[Dict[str, Any]]:
+            data: List[str]
+    ) -> List[CheckedProduct]:
         results = []
-
-        for url in data.product_links:
+        for url in data:
             page = await self.browser.open_page(url)
-            try:
-                parsed = {
-                    'chat_id': data.chat_id,
-                    'url': url,
-                }
 
-                for field in dataclass_fields(self.fields):
-                    xpath = getattr(self.fields, field.name)
-                    text = await self._extract_text(page, xpath)
+            # Собираем данные в словарь
+            parsed_data = {}
+            for field in dataclass_fields(self.fields_for_check):
+                xpath = getattr(self.fields_for_check, field.name)
+                text = await self._extract_text(page, xpath)
+                parsed_data[field.name] = self._clean_price(text)
 
-                    if field.name in ('price_with_card', 'price_without_card'):
-                        parsed[field.name] = self._clean_price(text)
-                    else:
-                        parsed[field.name] = text
-
-                results.append(parsed)
-            except Exception as e:
-                logger.error(f'Ошибка при парсинге {url}: {e}')
-            finally:
-                await page.close()
+            parsed_product = CheckedProduct.create(
+                url=url,
+                price_with_card=parsed_data['price_with_card'],
+                price_without_card=parsed_data['price_without_card'],
+            )
+            results.append(parsed_product)
+            logger.info(f"Проверена цена: {url}")
 
         return results
 

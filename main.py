@@ -7,12 +7,12 @@ from infrastructure.parsers.browser import BrowserManager
 from infrastructure.parsers.product_parser import ProductParser
 from domain.entities.product_fields import ProductFields
 from application.collector import Collector
-from application.use_cases.price import UpdatePricesUseCase
+from application.use_cases.old_price import UpdatePricesUseCase
 
 
 async def run():
-    db = DataBaseConnection()
-    uow_factory = UnitOfWorkFactory(db)
+    database = DataBaseConnection()
+    uow_factory = UnitOfWorkFactory(database)
     collector = Collector(uow_factory)
     update_prices = UpdatePricesUseCase(uow_factory)
 

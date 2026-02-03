@@ -1,6 +1,7 @@
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
 from domain.entities.user import User
 from core.logger import logger
+from domain.exceptions import UserCreateError
 
 
 class CreateUserUseCase:
@@ -15,12 +16,12 @@ class CreateUserUseCase:
                     chat_id=user_create.chat_id,
                 )
 
-                save_user = await uow.user_repo.save(user=user)
+                save_user = await uow.user_repo.save(user)
 
                 logger.info(f'Пользователь {save_user.username} сохранен в БД')
 
                 return save_user
 
-            except Exception as e:
-                logger.error(f'Ошибка при создании клиента: {e}')
-                raise Exception(f'Ошибка при создании клиента: {e}')
+            except UserCreateError as e:
+                logger.error(f'Ошибка при создании пользователя: {e}')
+                raise UserCreateError(user.id)

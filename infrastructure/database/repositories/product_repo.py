@@ -56,6 +56,29 @@ class ProductRepository:
             # 3. Конвертируем ORM → Domain
             product = ProductMapper.to_domain(orm_product)
             return product
+        
+        except SQLAlchemyError as error:
+            message = f'Ошибка при получении товара: {error}'
+            logger.error(message)
+            raise DatabaseError(message)
+        
+    async def get_link(self, id: int) -> Optional['Product']:
+        try:
+            # 1. Формируем запрос
+            statement = select(ORMProduct).where(ORMProduct.id == id)
+            result = await self.session.execute(statement)
+            orm_product = result.scalar_one_or_none()
+
+            # 2. Проверка существования записи в БД
+            if not orm_product:
+                logger.error(f'Товар с ID = {id} не найден')
+                return None
+
+            # 3. Конвертируем ORM → Domain
+            product = ProductMapper.to_domain(orm_product)
+            link = product.link
+            return link
+        
         except SQLAlchemyError as error:
             message = f'Ошибка при получении товара: {error}'
             logger.error(message)
