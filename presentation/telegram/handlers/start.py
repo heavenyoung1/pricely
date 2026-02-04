@@ -1,11 +1,13 @@
 from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import CommandStart
+from aiogram.fsm.context import FSMContext
 
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
 from application.use_cases.create_user import CreateUserUseCase
 from domain.entities.user import User
-from presentation.telegram.keyboards.reply import main_menu
+from presentation.telegram.keyboards.reply import main_menu, INFO
+from core.config.settings import settings
 from core.logger import logger
 
 router = Router()
@@ -51,3 +53,24 @@ async def back_to_menu(callback: CallbackQuery):
         reply_markup=main_menu(),
     )
     await callback.answer()
+
+
+@router.message(F.text == INFO)
+async def show_info(message: Message, state: FSMContext):
+    '''Справка о боте'''
+    await state.clear()
+
+    text = (
+        f'<b>📖 Справка</b>\n\n'
+        f'<b>Pricely</b> — бот для отслеживания цен на товары Ozon.\n\n'
+        f'<b>Как пользоваться:</b>\n'
+        f'1. Нажми "➕ Добавить товар"\n'
+        f'2. Отправь ссылку на товар с Ozon\n'
+        f'3. Бот будет следить за ценой и уведомит тебя, '
+        f'когда она изменится более чем на 5%\n\n'
+        f'<b>Связь с разработчиком:</b>\n'
+        f'Telegram: @heavenyoung\n\n'
+        f'<b>Версия:</b> {settings.APP_VERSION}'
+    )
+
+    await message.answer(text, reply_markup=main_menu())
