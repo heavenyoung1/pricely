@@ -118,7 +118,9 @@ async def add_product_url(
 
 
 @router.message(F.text == BTN_MY_PRODUCTS)
-async def my_products(message: Message, state: FSMContext, uow_factory: UnitOfWorkFactory):
+async def my_products(
+    message: Message, state: FSMContext, uow_factory: UnitOfWorkFactory
+):
     '''Список товаров пользователя'''
     await state.clear()
     chat_id = str(message.chat.id)

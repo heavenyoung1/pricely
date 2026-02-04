@@ -14,6 +14,7 @@
 import asyncio
 import signal
 
+from infrastructure.parsers.proxy import ProxyController
 from core.config.database import DataBaseConnection
 from core.config.settings import settings
 from core.logger import logger
@@ -51,8 +52,13 @@ async def main():
             # Windows не поддерживает add_signal_handler
             pass
 
+    # Получаем прокси если включено
+    proxy_controller = ProxyController()
+    proxy = proxy_controller.get_proxy_if_enabled(settings.USE_PROXY)
+    logger.info(f'[MAIN] Прокси для браузера: {proxy}')
+
     try:
-        async with BrowserManager() as browser:
+        async with BrowserManager(proxy=proxy) as browser:
             parser = ProductParser(
                 browser=browser,
                 fields_for_add=ProductFieldsForAdd(),

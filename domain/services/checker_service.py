@@ -83,7 +83,9 @@ class CheckerService:
             messages = await self._build_messages(notifications)
             published_count = await self.publisher.publish_many(messages)
 
-            logger.info(f'Проверка завершена. Опубликовано {published_count} уведомлений')
+            logger.info(
+                f'Проверка завершена. Опубликовано {published_count} уведомлений'
+            )
 
         except Exception as e:
             logger.error(f'Ошибка при проверке цен: {e}')

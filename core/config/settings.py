@@ -31,6 +31,7 @@ class Settings(BaseSettings):
     # Browser
     HEADLESS: bool = True
     DELAY: int = 2000
+    USE_PROXY: bool = False
 
     @property
     def redis_url(self) -> str:

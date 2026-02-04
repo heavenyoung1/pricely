@@ -1,13 +1,15 @@
 import asyncio
 
+from application.collector import Collector
+from infrastructure.parsers.proxy import ProxyController
+from application.use_cases.check_price import CheckPriceUseCase
 from core.config.database import DataBaseConnection
+from core.config.settings import settings
 from core.logger import logger
+from domain.entities.product_fields import ProductFieldsForAdd, ProductFieldsForCheck
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
 from infrastructure.parsers.browser import BrowserManager
 from infrastructure.parsers.parser import ProductParser
-from domain.entities.product_fields import ProductFieldsForAdd, ProductFieldsForCheck
-from application.collector import Collector
-from application.use_cases.check_price import CheckPriceUseCase
 
 
 async def run():
@@ -15,7 +17,11 @@ async def run():
     uow_factory = UnitOfWorkFactory(database)
     collector = Collector(uow_factory)
 
-    async with BrowserManager() as browser:
+    # Получаем прокси если включено
+    proxy_controller = ProxyController()
+    proxy = proxy_controller.get_proxy_if_enabled(settings.USE_PROXY)
+
+    async with BrowserManager(proxy=proxy) as browser:
         parser = ProductParser(
             browser=browser,
             fields_for_add=ProductFieldsForAdd(),

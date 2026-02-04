@@ -42,3 +42,10 @@ class ProductAlreadyExistsError(Exception):
     def __init__(self, url: str):
         self.url = url
         super().__init__(f'Товар уже отслеживается: {url}')
+
+
+class ProxyNotFoundError(Exception):
+    def __init__(self, message: str, user_message: str = ''):
+        self.message = message
+        self.user_message = user_message
+        super().__init__(message)

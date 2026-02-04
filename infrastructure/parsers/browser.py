@@ -54,6 +54,7 @@ class BrowserManager(IBrowserManager):
         self._playwright: Optional[Playwright] = None
         self._browser: Optional[Browser] = None
         self._context: Optional[BrowserContext] = None
+        logger.info(f'[PROXY CHECK] {proxy}')
 
     async def start(self) -> None:
         '''
@@ -71,13 +72,11 @@ class BrowserManager(IBrowserManager):
             'headless': self.headless,
             'args': BROWSER_ARGS,
         }
-
-        # Добавляем прокси если указан
-        if self.proxy:
-            launch_options['proxy'] = self.proxy
-
+        logger.info(f'[PROXY BROWSER] {launch_options}')
         # Запускаем Chromium
-        self._browser = await self._playwright.chromium.launch(**launch_options)
+        self._browser = await self._playwright.chromium.launch(
+            **launch_options, proxy=self.proxy
+        )
 
         # Создаем контекст с реалистичными настройками
         await self._create_context()
@@ -99,15 +98,31 @@ class BrowserManager(IBrowserManager):
             # Добавляем User-Agent
             context_opts['user_agent'] = self.user_agent
 
+            # Добавляем прокси если указан (с поддержкой аутентификации)
+            if self.proxy:
+                context_opts['proxy'] = self.proxy
+                logger.info(
+                    f'[BROWSER] Прокси добавлен в контекст: server={self.proxy.get("server")}'
+                )
+                logger.debug(f'[BROWSER] Полные настройки прокси: {self.proxy}')
+            else:
+                logger.info('[BROWSER] Прокси НЕ используется (proxy=None)')
+
+            logger.debug(
+                f'[BROWSER] Создание контекста с опциями: {list(context_opts.keys())}'
+            )
+
             # Создаем контекст
             self._context = await self._browser.new_context(**context_opts)
+
+            logger.info('[BROWSER] Контекст браузера успешно создан')
 
             # Устанавливаем таймауты
             self._context.set_default_timeout(DEFAULT_TIMEOUT)
             self._context.set_default_navigation_timeout(NAVIGATION_TIMEOUT)
 
         except Exception as e:
-            logger.error(f'Ошибка {e}')
+            logger.error(f'[BROWSER] Ошибка создания контекста: {e}')
             raise Exception(f'Ошибка {e}')
 
     async def get_browser(self) -> Browser:
@@ -148,15 +163,21 @@ class BrowserManager(IBrowserManager):
 
         logger.debug(f'Открываем страницу URL - {url}')
 
-        # Переходим по URL
-        await page.goto(url, wait_until='domcontentloaded')
+        try:
+            # Переходим по URL
+            await page.goto(url, wait_until='domcontentloaded')
 
-        # Небольшая задержка для загрузки динамического контента
-        await page.wait_for_timeout(self.delay)
+            # Небольшая задержка для загрузки динамического контента
+            await page.wait_for_timeout(self.delay)
 
-        logger.info(f'Страница загружена URL - {url}')
+            logger.info(f'Страница загружена URL - {url}')
 
-        return page
+            return page
+        except Exception as e:
+            # Закрываем страницу при ошибке навигации
+            await page.close()
+            logger.error(f'Ошибка загрузки страницы {url}: {e}')
+            raise
 
     async def close(self) -> None:
         '''
