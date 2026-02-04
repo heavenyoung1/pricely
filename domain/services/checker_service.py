@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING
+from typing import List
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
@@ -6,12 +6,12 @@ from apscheduler.triggers.cron import CronTrigger
 from application.collector import Collector
 from application.use_cases.check_price import CheckPriceUseCase
 from application.use_cases.create_notify import CreateNotifyUseCase
+from domain.entities.notification import Notification
 from infrastructure.parsers.parser import ProductParser
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
+from infrastructure.redis.publisher import NotificationPublisher
+from infrastructure.redis.message import NotificationMessage
 from core.logger import logger
-
-if TYPE_CHECKING:
-    from infrastructure.services.telegram_sender import TelegramNotificationSender
 
 
 class CheckerService:
@@ -22,18 +22,18 @@ class CheckerService:
     - Запуск проверки цен по расписанию
     - Сбор URL товаров для парсинга
     - Проверку изменений цен
-    - Координацию отправки уведомлений
+    - Публикацию уведомлений в Redis очередь
     '''
 
     def __init__(
         self,
         uow_factory: UnitOfWorkFactory,
         parser: ProductParser,
-        notification_sender: 'TelegramNotificationSender',
+        publisher: NotificationPublisher,
     ):
         self.uow_factory = uow_factory
         self.parser = parser
-        self.notification_sender = notification_sender
+        self.publisher = publisher
         self.scheduler = AsyncIOScheduler()
 
     async def run_check(self) -> None:
@@ -43,7 +43,7 @@ class CheckerService:
         1. Собирает URL всех отслеживаемых товаров
         2. Парсит текущие цены
         3. Сравнивает с БД и сохраняет изменения
-        4. Формирует и отправляет уведомления
+        4. Формирует и публикует уведомления в Redis
         '''
         logger.info('Запуск проверки цен...')
 
@@ -79,13 +79,52 @@ class CheckerService:
             notify_use_case = CreateNotifyUseCase()
             notifications = await notify_use_case.execute(changed_prices, user_links)
 
-            # 5. Отправляем уведомления
-            sent_count = await self.notification_sender.send(notifications)
+            # 5. Конвертируем в Redis сообщения и публикуем
+            messages = await self._build_messages(notifications)
+            published_count = await self.publisher.publish_many(messages)
 
-            logger.info(f'Проверка завершена. Отправлено {sent_count} уведомлений')
+            logger.info(f'Проверка завершена. Опубликовано {published_count} уведомлений')
 
         except Exception as e:
             logger.error(f'Ошибка при проверке цен: {e}')
+
+    async def _build_messages(
+        self, notifications: List[Notification]
+    ) -> List[NotificationMessage]:
+        '''
+        Собирает полные данные для уведомлений.
+
+        Обогащает уведомления данными из БД (chat_id, product info),
+        чтобы бот мог отправить сообщение без обращения к БД.
+        '''
+        messages = []
+
+        async with self.uow_factory.create() as uow:
+            for notify in notifications:
+                # Получаем chat_id пользователя
+                user = await uow.user_repo.get(notify.user_id)
+                if not user:
+                    logger.warning(f'Пользователь {notify.user_id} не найден')
+                    continue
+
+                # Получаем информацию о товаре
+                product = await uow.product_repo.get(notify.price.product_id)
+                if not product:
+                    logger.warning(f'Товар {notify.price.product_id} не найден')
+                    continue
+
+                message = NotificationMessage(
+                    chat_id=user.chat_id,
+                    product_name=product.name,
+                    product_link=product.link,
+                    price_with_card=notify.price.with_card,
+                    price_without_card=notify.price.without_card,
+                    previous_with_card=notify.price.previous_with_card,
+                    previous_without_card=notify.price.previous_without_card,
+                )
+                messages.append(message)
+
+        return messages
 
     def start(self, cron: str = '0 */4 * * *') -> None:
         '''

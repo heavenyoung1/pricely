@@ -16,9 +16,21 @@ class Settings(BaseSettings):
     DB_PASSWORD: str
     DB_NAME: str
 
+    # Redis
+    REDIS_HOST: str = 'localhost'
+    REDIS_PORT: int = 6379
+    REDIS_QUEUE_NAME: str = 'pricely:notifications'
+
+    # Checker
+    CHECKER_CRON: str = '0 */4 * * *'  # каждые 4 часа
+
     # SQLAlchemy параметры (PostgreSQL)
     DRIVER: str = 'postgresql+asyncpg'
     SYNC_DRIVER: str = 'postgresql+psycopg2'
+
+    @property
+    def redis_url(self) -> str:
+        return f'redis://{self.REDIS_HOST}:{self.REDIS_PORT}'
 
     def url(self) -> URL:
         '''Собрать URL подключения безопасно'''

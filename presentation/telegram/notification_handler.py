@@ -1,0 +1,63 @@
+'''
+Обработчик уведомлений из Redis очереди.
+
+Слушает очередь и отправляет уведомления пользователям через Telegram.
+'''
+
+from aiogram import Bot
+
+from core.logger import logger
+from infrastructure.redis.message import NotificationMessage
+
+
+class NotificationHandler:
+    '''Обрабатывает уведомления из Redis и отправляет в Telegram'''
+
+    def __init__(self, bot: Bot):
+        self.bot = bot
+
+    async def handle(self, message: NotificationMessage) -> None:
+        '''
+        Обработать одно уведомление.
+
+        Args:
+            message: Сообщение из Redis очереди.
+        '''
+        try:
+            text = self._format_message(message)
+            await self.bot.send_message(
+                chat_id=message.chat_id,
+                text=text,
+                parse_mode='HTML',
+            )
+            logger.info(f'Уведомление отправлено: chat_id={message.chat_id}')
+        except Exception as e:
+            logger.error(f'Ошибка отправки уведомления chat_id={message.chat_id}: {e}')
+
+    def _format_message(self, msg: NotificationMessage) -> str:
+        '''Форматирует сообщение об изменении цены'''
+        old_price = msg.previous_with_card
+        new_price = msg.price_with_card
+        diff = old_price - new_price
+
+        if diff > 0:
+            emoji = '📉'
+            direction = 'снизилась'
+        else:
+            emoji = '📈'
+            direction = 'выросла'
+            diff = abs(diff)
+
+        # Формируем название с ссылкой или без
+        if msg.product_link:
+            name_line = f'📦 <a href="{msg.product_link}">{msg.product_name}</a>'
+        else:
+            name_line = f'📦 {msg.product_name}'
+
+        return (
+            f'{emoji} <b>Цена {direction}!</b>\n\n'
+            f'{name_line}\n\n'
+            f'💰 Старая цена: <s>{old_price:,}</s> ₽\n'
+            f'💰 Новая цена: <b>{new_price:,}</b> ₽\n'
+            f'📊 Разница: {diff:,} ₽'
+        )

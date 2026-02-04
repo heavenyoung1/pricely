@@ -8,7 +8,7 @@ COPY pyproject.toml uv.lock ./
 
 # Устанавливаем uv и зависимости
 RUN pip install uv && \
-    uv pip install --system -r pyproject.toml
+    uv sync --frozen --no-dev
 
 # Устанавливаем браузеры Playwright
 RUN playwright install chromium
