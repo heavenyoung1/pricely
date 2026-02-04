@@ -22,6 +22,8 @@ from presentation.telegram.keyboards.reply import (
     main_menu,
     BTN_ADD_PRODUCT,
     BTN_MY_PRODUCTS,
+    REMOVE_MY_PRODUCT,
+    INFO,
 )
 from core.logger import logger
 
@@ -35,6 +37,7 @@ class AddProductState(StatesGroup):
 @router.message(F.text == BTN_ADD_PRODUCT)
 async def add_product_start(message: Message, state: FSMContext):
     '''Начало добавления товара'''
+    await state.clear()
     await message.answer(
         'Отправь ссылку на товар:',
         reply_markup=cancel(),
@@ -42,7 +45,10 @@ async def add_product_start(message: Message, state: FSMContext):
     await state.set_state(AddProductState.waiting_for_url)
 
 
-@router.message(AddProductState.waiting_for_url)
+MENU_BUTTONS = {BTN_ADD_PRODUCT, BTN_MY_PRODUCTS, REMOVE_MY_PRODUCT, INFO}
+
+
+@router.message(AddProductState.waiting_for_url, ~F.text.in_(MENU_BUTTONS))
 async def add_product_url(
     message: Message,
     state: FSMContext,
@@ -91,8 +97,8 @@ async def add_product_url(
 
         await message.answer(
             f'✅ Товар добавлен!\n\n'
-            f'<b>{product.name}</b>\n'
-            f'💳 <b>Цена с картой</b: {product.price_with_card} ',
+            f'📦 <a href="{product.link}">{product.name}</a>\n'
+            f'💳 <b>Цена с картой:</b> {product.price_with_card} ₽',
             reply_markup=main_menu(),
         )
 
@@ -112,8 +118,9 @@ async def add_product_url(
 
 
 @router.message(F.text == BTN_MY_PRODUCTS)
-async def my_products(message: Message, uow_factory: UnitOfWorkFactory):
+async def my_products(message: Message, state: FSMContext, uow_factory: UnitOfWorkFactory):
     '''Список товаров пользователя'''
+    await state.clear()
     chat_id = str(message.chat.id)
 
     async with uow_factory.create() as uow:
