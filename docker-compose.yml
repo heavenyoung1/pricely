@@ -21,13 +21,29 @@ services:
     volumes:
       - redis_data:/data
 
+  migrate:
+    build: .
+    container_name: pricely_migrate
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+    env_file:
+      - .env
+    command: uv run alembic upgrade head
+    restart: "no"
+
   bot:
     build: .
     container_name: pricely_bot
     restart: unless-stopped
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_started
+      redis:
+        condition: service_started
+      migrate:
+        condition: service_completed_successfully
     environment:
       - DB_HOST=db
       - REDIS_HOST=redis
@@ -40,8 +56,12 @@ services:
     container_name: pricely_checker
     restart: unless-stopped
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_started
+      redis:
+        condition: service_started
+      migrate:
+        condition: service_completed_successfully
     environment:
       - DB_HOST=db
       - REDIS_HOST=redis

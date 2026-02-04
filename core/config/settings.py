@@ -28,6 +28,10 @@ class Settings(BaseSettings):
     DRIVER: str = 'postgresql+asyncpg'
     SYNC_DRIVER: str = 'postgresql+psycopg2'
 
+    # Browser
+    HEADLESS: bool = True
+    DELAY: int = 2000
+
     @property
     def redis_url(self) -> str:
         return f'redis://{self.REDIS_HOST}:{self.REDIS_PORT}'

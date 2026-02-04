@@ -17,6 +17,7 @@ from .options import (
     NAVIGATION_TIMEOUT,
 )
 
+from core.config.settings import settings
 from core.logger import logger
 
 
@@ -33,7 +34,7 @@ class BrowserManager(IBrowserManager):
 
     def __init__(
         self,
-        headless: bool = False,
+        headless: bool = settings.HEADLESS,
         proxy: Optional[dict] = None,
         user_agent: Optional[str] = None,
         delay: int = 2000,
