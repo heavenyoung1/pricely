@@ -148,17 +148,15 @@ async def show_product(callback: CallbackQuery, uow_factory: UnitOfWorkFactory):
         product = await get_product.execute(product_id)
 
         text = (
-            f'<b>{product.name}</b>\n\n'
-            f'Артикул: {product.article}\n'
-            f'Цена с картой: {product.price_with_card} ₽\n'
-            f'Цена без карты: {product.price_without_card} ₽\n'
-            f'Порог уведомления: {product.change}%\n'
-            f'{product.link}'
+            f'📦 <a href="{product.link}">{product.name}</a>\n\n'
+            f'💳 <b>Цена с картой:</b> {product.price_with_card} ₽\n'
+            f'💵 <b>Цена без карты:</b> {product.price_without_card} ₽\n'
         )
 
         await callback.message.edit_text(
             text,
             reply_markup=product_detail(product_id),
+            disable_web_page_preview=False,
         )
 
     except ProductNotFoundError:
@@ -189,7 +187,7 @@ async def my_products_callback(callback: CallbackQuery, uow_factory: UnitOfWorkF
         await callback.message.edit_text('У тебя пока нет отслеживаемых товаров.')
     else:
         await callback.message.edit_text(
-            f'Твои товары ({len(products)}):',
+            f'Твои товары:',
             reply_markup=product_list(products),
         )
 
