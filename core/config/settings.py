@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     REDIS_QUEUE_NAME: str = 'pricely:notifications'
 
     # Checker
-    CHECKER_CRON: str = '0 */4 * * *'  # каждые 4 часа
+    CHECKER_CRON: str = '0 */2 * * *'  # каждые 2 часа
 
     # SQLAlchemy параметры (PostgreSQL)
     DRIVER: str = 'postgresql+asyncpg'

@@ -61,6 +61,8 @@ class ProductParser(IProductParser):
             else:
                 parsed_data[field.name] = self._clean_price(text)
 
+        await page.close()
+
         parsed_product = ParsedProduct.create(
             article=parsed_data['article'],
             name=parsed_data['name'],
@@ -96,6 +98,8 @@ class ProductParser(IProductParser):
                 xpath = getattr(self.fields_for_check, field.name)
                 text = await self._extract_text(page, xpath)
                 parsed_data[field.name] = self._clean_price(text)
+
+            await page.close()
 
             checked_price = CheckedPrice.create(
                 url=url,

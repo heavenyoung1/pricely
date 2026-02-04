@@ -139,13 +139,11 @@ class UserProductsRepository:
             # 1. Формируем запрос
             statement = select(ORMUserProducts.product_id)
             result = await self.session.execute(statement)
-            orm_product_ids = result.scalar.all()
+            orm_product_ids = result.scalars().all()
 
-            # 2. Конвертируем ORM → Domain и извлекаем product_id
-            link_product_user = [orm.product_id for orm in orm_product_ids]
             logger.info(f'Найдено {len(orm_product_ids)} товаров')
 
-            return link_product_user
+            return orm_product_ids
         except SQLAlchemyError as error:
             message = f'Ошибка при получении всех товаров: {error}'
             logger.error(message)
