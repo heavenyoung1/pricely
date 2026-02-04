@@ -11,10 +11,10 @@ RUN pip install uv && \
     uv sync --frozen --no-dev
 
 # Устанавливаем браузеры Playwright
-RUN playwright install chromium
+RUN uv run playwright install chromium
 
 # Копируем исходный код
 COPY . .
 
 # По умолчанию запускаем бота
-CMD ["python", "-m", "presentation.telegram.bot"]
+CMD ["uv", "run", "python", "-m", "presentation.telegram.bot"]

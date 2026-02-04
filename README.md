@@ -48,15 +48,26 @@ pricely_v2/
 
 1. Клонировать репозиторий:
 ```bash
-git clone https://github.com/heavenyoung1/pricely_v2
-cd pricely_v2
+git clone git@github.com:heavenyoung1/pricely.git
+cd pricely
 ```
+
+2. Создать файл `.env` на основе `.env.example`:
+```bash
+cp .env.example .env
+nano .env
+```
+
 
 2. Создать виртуальное окружение и установить зависимости:
 ```bash
 uv venv
 uv pip install -r pyproject.toml
 ```
+
+3. Заполнить переменные окружения в `.env`:
+`nano .env`
+`Ctrl + O -> Enter -> Ctrl + X`
 
 3. Установить браузеры Playwright:
 ```bash

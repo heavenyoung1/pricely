@@ -33,7 +33,7 @@ services:
       - REDIS_HOST=redis
     env_file:
       - .env
-    command: python -m presentation.telegram.bot
+    command: uv run python -m presentation.telegram.bot
 
   checker:
     build: .
@@ -47,7 +47,7 @@ services:
       - REDIS_HOST=redis
     env_file:
       - .env
-    command: python -m checker_main
+    command: uv run python -m checker_main
 
 volumes:
   postgres_data:
