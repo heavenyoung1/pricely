@@ -5,10 +5,24 @@ from domain.exceptions import UserCreateError
 
 
 class CreateUserUseCase:
+    '''Use case для создания нового пользователя в системе.'''
+
     def __init__(self, uow_factory: UnitOfWorkFactory):
         self.uow_factory = uow_factory
 
-    async def execute(self, user_create: User):
+    async def execute(self, user_create: User) -> User:
+        '''
+        Создаёт и сохраняет нового пользователя в БД.
+
+        Args:
+            user_create: Данные пользователя (username, chat_id).
+
+        Returns:
+            Созданный и сохранённый пользователь.
+
+        Raises:
+            UserCreateError: При ошибке создания пользователя.
+        '''
         async with self.uow_factory.create() as uow:
             try:
                 user = User.create(

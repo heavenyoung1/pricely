@@ -100,6 +100,27 @@ class UserProductsRepository:
             logger.error(message)
             raise DatabaseError(message)
 
+    async def get_users_by_product_ids(
+            self, 
+            product_ids: list[int],
+            ) -> list[UserProducts]:
+        try:
+            if not product_ids:
+                return []
+
+            statement = select(ORMUserProducts).where(
+                ORMUserProducts.product_id.in_(product_ids)
+                )
+            result = await self.session.execute(statement)
+            orm_user_products = result.scalars().all()
+
+            return [UserProductsMapper.to_domain(up) for up in orm_user_products]
+
+        except SQLAlchemyError as error:
+            message = f'Ошибка при получении товаров: {error}'
+            logger.error(message)
+            raise DatabaseError(message)
+        
     async def get_all_product_ids(self) -> List[int]:
         '''
         Получает список всех отслеживаемых товаров.
@@ -121,8 +142,10 @@ class UserProductsRepository:
             orm_product_ids = result.scalar.all()
 
             # 2. Конвертируем ORM → Domain и извлекаем product_id
-            product_ids = [orm.product_id for orm in orm_product_ids]
-            logger.info(f'Найдено {len(product_ids)} товаров')
+            link_product_user = [orm.product_id for orm in orm_product_ids]
+            logger.info(f'Найдено {len(orm_product_ids)} товаров')
+
+            return link_product_user
         except SQLAlchemyError as error:
             message = f'Ошибка при получении всех товаров: {error}'
             logger.error(message)

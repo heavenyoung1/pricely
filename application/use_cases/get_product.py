@@ -6,10 +6,24 @@ from domain.exceptions import ProductNotFoundError
 
 
 class GetProductUseCase:
+    '''Use case для получения полной информации о товаре.'''
+
     def __init__(self, uow_factory: UnitOfWorkFactory):
         self.uow_factory = uow_factory
 
     async def execute(self, product_id: int) -> Optional[FullProduct]:
+        '''
+        Получает полную информацию о товаре включая текущие и предыдущие цены.
+
+        Args:
+            product_id: Идентификатор товара.
+
+        Returns:
+            FullProduct с данными товара и ценами.
+
+        Raises:
+            ProductNotFoundError: Если товар не найден.
+        '''
         async with self.uow_factory.create() as uow:
             product = await uow.product_repo.get(product_id)
             if not product:
