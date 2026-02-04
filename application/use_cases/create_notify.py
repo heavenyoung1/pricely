@@ -8,9 +8,9 @@ from domain.entities.user_products import UserProducts
 
 class CreateNotifyUseCase:
     async def execute(
-            self,
-            changed_price: List[Price],
-            user_links: List[UserProducts],
+        self,
+        changed_price: List[Price],
+        user_links: List[UserProducts],
     ) -> List[Notification]:
         '''
         Формирует список уведомлений для пользователей об изменении цен.
@@ -38,4 +38,3 @@ class CreateNotifyUseCase:
                 notifications.append(Notification(user_id=user_id, price=price))
 
         return notifications
-        

@@ -101,16 +101,16 @@ class UserProductsRepository:
             raise DatabaseError(message)
 
     async def get_users_by_product_ids(
-            self, 
-            product_ids: list[int],
-            ) -> list[UserProducts]:
+        self,
+        product_ids: list[int],
+    ) -> list[UserProducts]:
         try:
             if not product_ids:
                 return []
 
             statement = select(ORMUserProducts).where(
                 ORMUserProducts.product_id.in_(product_ids)
-                )
+            )
             result = await self.session.execute(statement)
             orm_user_products = result.scalars().all()
 
@@ -120,7 +120,7 @@ class UserProductsRepository:
             message = f'Ошибка при получении товаров: {error}'
             logger.error(message)
             raise DatabaseError(message)
-        
+
     async def get_all_product_ids(self) -> List[int]:
         '''
         Получает список всех отслеживаемых товаров.

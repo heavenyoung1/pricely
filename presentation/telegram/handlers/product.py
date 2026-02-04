@@ -18,7 +18,11 @@ from presentation.telegram.keyboards.inline import (
     confirm_delete,
     cancel,
 )
-from presentation.telegram.keyboards.reply import main_menu, BTN_ADD_PRODUCT, BTN_MY_PRODUCTS
+from presentation.telegram.keyboards.reply import (
+    main_menu,
+    BTN_ADD_PRODUCT,
+    BTN_MY_PRODUCTS,
+)
 from core.logger import logger
 
 router = Router()
@@ -171,7 +175,9 @@ async def my_products_callback(callback: CallbackQuery, uow_factory: UnitOfWorkF
     async with uow_factory.create() as uow:
         user = await uow.user_repo.get_by_chat_id(chat_id)
         if not user:
-            await callback.message.edit_text('Ошибка: пользователь не найден. Напиши /start')
+            await callback.message.edit_text(
+                'Ошибка: пользователь не найден. Напиши /start'
+            )
             await callback.answer()
             return
 

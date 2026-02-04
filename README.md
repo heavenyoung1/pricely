@@ -13,7 +13,7 @@ Telegram-бот для отслеживания цен на товары в ин
 
 ## Технологии
 
-- **Python 3.13+**
+- **Python 3.14.2**
 - **aiogram 3** — фреймворк для Telegram ботов
 - **PostgreSQL** — база данных
 - **SQLAlchemy 2** — ORM
@@ -40,7 +40,7 @@ pricely_v2/
 
 ### Требования
 
-- Python 3.13+
+- Python 3.14.2
 - PostgreSQL 16+
 - uv (менеджер пакетов)
 
