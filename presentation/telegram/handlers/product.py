@@ -17,8 +17,8 @@ from presentation.telegram.keyboards.inline import (
     product_detail,
     confirm_delete,
     cancel,
-    main_menu,
 )
+from presentation.telegram.keyboards.reply import main_menu, BTN_ADD_PRODUCT, BTN_MY_PRODUCTS
 from core.logger import logger
 
 router = Router()
@@ -28,15 +28,14 @@ class AddProductState(StatesGroup):
     waiting_for_url = State()
 
 
-@router.callback_query(F.data == 'add_product')
-async def add_product_start(callback: CallbackQuery, state: FSMContext):
+@router.message(F.text == BTN_ADD_PRODUCT)
+async def add_product_start(message: Message, state: FSMContext):
     '''Начало добавления товара'''
-    await callback.message.edit_text(
+    await message.answer(
         'Отправь ссылку на товар:',
         reply_markup=cancel(),
     )
     await state.set_state(AddProductState.waiting_for_url)
-    await callback.answer()
 
 
 @router.message(AddProductState.waiting_for_url)
@@ -87,7 +86,7 @@ async def add_product_url(
             )
 
         await message.answer(
-            f'Товар добавлен!\n\n'
+            f'✅ Товар добавлен!\n\n'
             f'<b>{product.name}</b>\n'
             f'Артикул: {product.article}',
             reply_markup=main_menu(),
@@ -95,7 +94,7 @@ async def add_product_url(
 
     except ProductAlreadyExistsError:
         await message.answer(
-            'Этот товар уже отслеживается.',
+            '📭 Этот товар уже отслеживается.',
             reply_markup=main_menu(),
         )
     except Exception as e:
@@ -108,35 +107,31 @@ async def add_product_url(
     await state.clear()
 
 
-@router.callback_query(F.data == 'my_products')
-async def my_products(callback: CallbackQuery, uow_factory: UnitOfWorkFactory):
+@router.message(F.text == BTN_MY_PRODUCTS)
+async def my_products(message: Message, uow_factory: UnitOfWorkFactory):
     '''Список товаров пользователя'''
-    chat_id = str(callback.message.chat.id)
+    chat_id = str(message.chat.id)
 
     async with uow_factory.create() as uow:
         user = await uow.user_repo.get_by_chat_id(chat_id)
         if not user:
-            await callback.message.edit_text(
+            await message.answer(
                 'Ошибка: пользователь не найден. Напиши /start',
             )
-            await callback.answer()
             return
 
     get_products = GetUserProductsUseCase(uow_factory)
     products = await get_products.execute(user.id)
 
     if not products:
-        await callback.message.edit_text(
-            'У тебя пока нет отслеживаемых товаров.',
-            reply_markup=main_menu(),
+        await message.answer(
+            '📭 У тебя пока нет отслеживаемых товаров.',
         )
     else:
-        await callback.message.edit_text(
+        await message.answer(
             f'Твои товары ({len(products)}):',
             reply_markup=product_list(products),
         )
-
-    await callback.answer()
 
 
 @router.callback_query(F.data.startswith('product:'))
@@ -162,9 +157,33 @@ async def show_product(callback: CallbackQuery, uow_factory: UnitOfWorkFactory):
         )
 
     except ProductNotFoundError:
+        await callback.message.delete()
+        await callback.message.answer('Товар не найден.')
+
+    await callback.answer()
+
+
+@router.callback_query(F.data == 'my_products')
+async def my_products_callback(callback: CallbackQuery, uow_factory: UnitOfWorkFactory):
+    '''Возврат к списку товаров (из inline кнопок)'''
+    chat_id = str(callback.message.chat.id)
+
+    async with uow_factory.create() as uow:
+        user = await uow.user_repo.get_by_chat_id(chat_id)
+        if not user:
+            await callback.message.edit_text('Ошибка: пользователь не найден. Напиши /start')
+            await callback.answer()
+            return
+
+    get_products = GetUserProductsUseCase(uow_factory)
+    products = await get_products.execute(user.id)
+
+    if not products:
+        await callback.message.edit_text('У тебя пока нет отслеживаемых товаров.')
+    else:
         await callback.message.edit_text(
-            'Товар не найден.',
-            reply_markup=main_menu(),
+            f'Твои товары ({len(products)}):',
+            reply_markup=product_list(products),
         )
 
     await callback.answer()
@@ -191,15 +210,11 @@ async def delete_product(callback: CallbackQuery, uow_factory: UnitOfWorkFactory
         remove_product = RemoveProductUseCase(uow_factory)
         await remove_product.execute(product_id)
 
-        await callback.message.edit_text(
-            'Товар удалён.',
-            reply_markup=main_menu(),
-        )
+        await callback.message.delete()
+        await callback.message.answer('Товар удалён.')
 
     except ProductNotFoundError:
-        await callback.message.edit_text(
-            'Товар не найден.',
-            reply_markup=main_menu(),
-        )
+        await callback.message.delete()
+        await callback.message.answer('Товар не найден.')
 
     await callback.answer()

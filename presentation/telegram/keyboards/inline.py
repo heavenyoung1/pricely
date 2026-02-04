@@ -5,16 +5,6 @@ from typing import List
 from domain.entities.product import Product
 
 
-def main_menu() -> InlineKeyboardMarkup:
-    '''Главное меню'''
-    builder = InlineKeyboardBuilder()
-    builder.row(
-        InlineKeyboardButton(text='Добавить товар', callback_data='add_product'),
-        InlineKeyboardButton(text='Мои товары', callback_data='my_products'),
-    )
-    return builder.as_markup()
-
-
 def product_list(products: List[Product]) -> InlineKeyboardMarkup:
     '''Список товаров пользователя'''
     builder = InlineKeyboardBuilder()
@@ -52,9 +42,9 @@ def confirm_delete(product_id: int) -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     builder.row(
         InlineKeyboardButton(
-            text='Да, удалить', callback_data=f'confirm_delete:{product_id}'
+            text='✅ Да, удалить', callback_data=f'confirm_delete:{product_id}'
         ),
-        InlineKeyboardButton(text='Отмена', callback_data=f'product:{product_id}'),
+        InlineKeyboardButton(text='❌ Отмена', callback_data=f'product:{product_id}'),
     )
     return builder.as_markup()
 
@@ -63,6 +53,6 @@ def cancel() -> InlineKeyboardMarkup:
     '''Кнопка отмены'''
     builder = InlineKeyboardBuilder()
     builder.row(
-        InlineKeyboardButton(text='Отмена', callback_data='back_to_menu'),
+        InlineKeyboardButton(text='❌ Отмена', callback_data='back_to_menu'),
     )
     return builder.as_markup()

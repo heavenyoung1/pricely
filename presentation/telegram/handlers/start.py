@@ -5,7 +5,7 @@ from aiogram.filters import CommandStart
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
 from application.use_cases.create_user import CreateUserUseCase
 from domain.entities.user import User
-from presentation.telegram.keyboards.inline import main_menu
+from presentation.telegram.keyboards.reply import main_menu
 from core.logger import logger
 
 router = Router()
@@ -37,8 +37,9 @@ async def cmd_start(message: Message, uow_factory: UnitOfWorkFactory):
 
 @router.callback_query(F.data == 'back_to_menu')
 async def back_to_menu(callback: CallbackQuery):
-    '''Возврат в главное меню'''
-    await callback.message.edit_text(
+    '''Возврат в главное меню (из inline кнопок)'''
+    await callback.message.delete()
+    await callback.message.answer(
         'Выбери действие:',
         reply_markup=main_menu(),
     )
