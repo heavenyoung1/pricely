@@ -14,7 +14,6 @@ async def run():
     database = DataBaseConnection()
     uow_factory = UnitOfWorkFactory(database)
     collector = Collector(uow_factory)
-    update_prices = CheckPriceUseCase(uow_factory)
 
     async with BrowserManager() as browser:
         parser = ProductParser(
@@ -23,32 +22,27 @@ async def run():
             fields_for_check=ProductFieldsForCheck(),
         )
 
-        # 1. Собираем данные из БД: {user_id: [product_ids]}
-        raw_data = await collector.pick_up()
-        logger.info(f'Собрано {len(raw_data)} групп пользователей')
+        # 1. Собираем URL всех товаров для проверки
+        urls = await collector.collect_data_for_parsing()
 
-        # 2. Преобразуем ID → URL: {chat_id: [urls]}
-        vectorized = await collector.to_vectorize(raw_data)
-        logger.info(f'Получено {len(vectorized)} chat_id для парсинга')
+        if not urls:
+            logger.info('Нет товаров для проверки')
+            await uow_factory.close()
+            return
 
-        # 3. Упаковываем в UserProductsData
-        tasks = await collector.form_groups(vectorized)
-        logger.info(f'Сформировано {len(tasks)} задач на парсинг')
+        logger.info(f'Найдено {len(urls)} товаров для проверки')
 
-        # 4. Парсим страницы и обновляем цены
-        all_changes = []
-        for task in tasks:
-            parsed = await parser.parse(task)
-            changes = await update_prices.execute(parsed)
-            all_changes.extend(changes)
+        # 2. Проверяем цены и получаем изменившиеся
+        check_price_use_case = CheckPriceUseCase(parser, uow_factory)
+        changed_prices = await check_price_use_case.execute(urls)
 
-        # 5. Итог
-        if all_changes:
-            logger.info(f'Обнаружено {len(all_changes)} изменений цен')
-            for change in all_changes:
+        # 3. Итог
+        if changed_prices:
+            logger.info(f'Обнаружено {len(changed_prices)} изменений цен')
+            for price in changed_prices:
                 logger.info(
-                    f'  {change["name"]}: '
-                    f'{change["old_price"]} -> {change["new_price"]}'
+                    f'  Товар #{price.product_id}: '
+                    f'{price.previous_with_card} -> {price.with_card}'
                 )
         else:
             logger.info('Изменений цен не обнаружено')

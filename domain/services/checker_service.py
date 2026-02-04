@@ -11,7 +11,7 @@ from infrastructure.database.unit_of_work import UnitOfWorkFactory
 from core.logger import logger
 
 if TYPE_CHECKING:
-    from infrastructure.notifications.telegram_sender import TelegramNotificationSender
+    from infrastructure.services.telegram_sender import TelegramNotificationSender
 
 
 class CheckerService:
