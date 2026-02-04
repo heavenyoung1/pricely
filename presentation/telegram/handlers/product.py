@@ -59,7 +59,7 @@ async def add_product_url(
         )
         return
 
-    await message.answer('Добавляю товар, подожди...')
+    await message.answer('⏳ Добавляю товар, ожидайте...')
 
     try:
         # Получаем user_id
@@ -86,19 +86,19 @@ async def add_product_url(
             product = await add_product.execute(
                 url=url,
                 user_id=user_id,
-                change=5,  # Порог уведомления по умолчанию 5%
+                change=5,
             )
 
         await message.answer(
             f'✅ Товар добавлен!\n\n'
             f'<b>{product.name}</b>\n'
-            f'Артикул: {product.article}',
+            f'💳 <b>Цена с картой</b: {product.price_with_card} ',
             reply_markup=main_menu(),
         )
 
     except ProductAlreadyExistsError:
         await message.answer(
-            '📭 Этот товар уже отслеживается.',
+            '❗ Этот товар уже отслеживается.',
             reply_markup=main_menu(),
         )
     except Exception as e:
@@ -133,7 +133,7 @@ async def my_products(message: Message, uow_factory: UnitOfWorkFactory):
         )
     else:
         await message.answer(
-            f'Твои товары ({len(products)}):',
+            f'Твои товары:',
             reply_markup=product_list(products),
         )
 
@@ -152,7 +152,8 @@ async def show_product(callback: CallbackQuery, uow_factory: UnitOfWorkFactory):
             f'Артикул: {product.article}\n'
             f'Цена с картой: {product.price_with_card} ₽\n'
             f'Цена без карты: {product.price_without_card} ₽\n'
-            f'Порог уведомления: {product.change}%'
+            f'Порог уведомления: {product.change}%\n'
+            f'{product.link}'
         )
 
         await callback.message.edit_text(

@@ -1,8 +1,9 @@
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
 
 from application.interfaces.parser import IProductParser
-from domain.entities.product import Product
+from domain.entities.product import Product, FullProduct
 from domain.entities.price import Price
+
 from domain.exceptions import ProductAlreadyExistsError
 from core.logger import logger
 
@@ -85,4 +86,15 @@ class AddProductUseCase:
             logger.info(
                 f'Товар добавлен: {saved_product.name} (ID: {saved_product.id})'
             )
-            return saved_product
+
+            return FullProduct(
+                id=product.id,
+                article=product.article,
+                name=product.name,
+                link=product.link,
+                price_with_card=price.with_card,
+                price_without_card=price.without_card,
+                price_previous_with_card=price.previous_with_card,
+                price_previous_without_card=price.previous_without_card,
+                change=product.change,
+            )

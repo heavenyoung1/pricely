@@ -39,9 +39,9 @@ class FullProduct:
     name: str
     link: str
 
-    with_card: int
-    without_card: int
-    previous_with_card: int
-    previous_without_card: int
+    price_with_card: int
+    price_without_card: int
+    price_previous_with_card: int
+    price_previous_without_card: int
 
     change: int

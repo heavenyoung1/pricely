@@ -166,7 +166,7 @@ class ProductRepository:
                 return False
 
             # 3. Удаляем
-            self.session.delete(orm_product)
+            await self.session.delete(orm_product)
             await self.session.flush()
 
             logger.info(f'Товар с ID {id} удален')

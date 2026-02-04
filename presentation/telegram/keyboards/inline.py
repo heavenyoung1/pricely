@@ -20,7 +20,7 @@ def product_list(products: List[Product]) -> InlineKeyboardMarkup:
             )
         )
     builder.row(
-        InlineKeyboardButton(text='« Назад', callback_data='back_to_menu'),
+        InlineKeyboardButton(text='⬅️ Назад', callback_data='back_to_menu'),
     )
     return builder.as_markup()
 
@@ -29,10 +29,10 @@ def product_detail(product_id: int) -> InlineKeyboardMarkup:
     '''Детали товара'''
     builder = InlineKeyboardBuilder()
     builder.row(
-        InlineKeyboardButton(text='Удалить', callback_data=f'delete:{product_id}'),
+        InlineKeyboardButton(text='🗑️ Удалить', callback_data=f'delete:{product_id}'),
     )
     builder.row(
-        InlineKeyboardButton(text='« К списку', callback_data='my_products'),
+        InlineKeyboardButton(text='⬅️ Назад', callback_data='my_products'),
     )
     return builder.as_markup()
 
