@@ -82,7 +82,7 @@ class BrowserManager(IBrowserManager):
         await self._create_context()
 
         logger.info(
-            f'Браузер запущен, режим headless включен -> {self.headless} ,User-Agent {self.user_agent[:50]}...',
+            f'Браузер запущен, режим headless {"ВКЛЮЧЕН" if self.headless else "ОТКЛЮЧЕН"} ,User-Agent {self.user_agent[:50]}...',
         )
 
     async def _create_context(self) -> None:
