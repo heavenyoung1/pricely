@@ -1,6 +1,7 @@
 from typing import List, Dict
 
 from domain.entities.user_products import UserProductsData
+# from domain.entities.notification import NewNotification
 from domain.entities.price import Price
 
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
@@ -52,21 +53,22 @@ class Collector:
                 logger.error(f'Ошибка при получении всех товаров: {e}')
                 raise
 
-    # async def collect_data_for_send_notifications(
-    #         self, 
-    #         changed_prices: List['Price'],
-    #         ) -> List['NewNotification']:
-    #     product_ids = [price.product_id for price in changed_prices]
-    #     async with self.uow_factory.create() as uow:
-    #         data_records = await uow.general_repo.get_records_by_changed_prices(product_ids)
-    #     logger.debug(f'[DATA_RECORDS] {data_records}')
-    #     grouped_data = {}
-    #     for record in data_records:
-    #         if not grouped_data.get(record.chat_id):
-    #             grouped_data[record.chat_id] = [].append(record)
-    #         else:
-    #             key, value = grouped_data.items()
-    #             value.append(record)
+    async def collect_data_for_send_notifications(
+            self, 
+            changed_prices: List['Price'],
+            ):
+        prices_ids = [price.id for price in changed_prices]
+        logger.debug(f'[prices_ids] {prices_ids}')
+        async with self.uow_factory.create() as uow:
+            data_records = await uow.general_repo.get_records_by_changed_prices(prices_ids)
+        logger.debug(f'[DATA_RECORDS] {data_records}')
+        grouped_data = {}
+        for record in data_records:
+            if not grouped_data.get(record.chat_id):
+                grouped_data[record.chat_id] = [record]
+            else:
+                grouped_data[record['chat_id']].append(record)
         
-    #     logger.debug(f'[GROUPED_DATA] {grouped_data}')
+        logger.debug(f'[GROUPED_DATA] {grouped_data}')
+        return grouped_data
 

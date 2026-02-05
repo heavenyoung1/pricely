@@ -32,7 +32,6 @@ class GeneralRepository:
                     ORMProduct.article,
                     ORMProduct.id.label('product_id'),
                     ORMProduct.name,
-                    ORMProduct.article,
                     ORMPrice.id.label('price_id'),
                     ORMPrice.with_card.label('product_with_card'),
                     ORMPrice.without_card.label('product_without_card'),

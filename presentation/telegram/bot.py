@@ -10,7 +10,7 @@ from core.logger import logger
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
 from infrastructure.redis.subscriber import NotificationSubscriber
 from presentation.telegram.handlers import setup_routers
-from presentation.telegram.notification_handler import NotificationHandler
+from domain.services.notify_service import NotificationHandler
 
 
 async def on_startup(bot: Bot):

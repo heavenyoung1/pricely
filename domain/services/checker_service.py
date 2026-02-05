@@ -65,68 +65,33 @@ class CheckerService:
             if not changed_prices:
                 logger.info('Изменений цен не обнаружено')
                 return
-
             logger.info(f'Обнаружено {len(changed_prices)} изменений цен')
 
-            # 3. Получаем связи user-product для изменившихся товаров
-            product_ids = [price.product_id for price in changed_prices]
-            async with self.uow_factory.create() as uow:
-                user_links = await uow.user_products_repo.get_users_by_product_ids(
-                    product_ids
-                )
+            await collector.collect_data_for_send_notifications(changed_prices)
 
-            # 4. Формируем уведомления
-            notify_use_case = CreateNotifyUseCase()
-            notifications = await notify_use_case.execute(changed_prices, user_links)
+            # # 3. Получаем связи user-product для изменившихся товаров
+            # product_ids = [price.product_id for price in changed_prices]
+            # async with self.uow_factory.create() as uow:
+            #     user_links = await uow.user_products_repo.get_users_by_product_ids(
+            #         product_ids
+            #     )
 
-            # 5. Конвертируем в Redis сообщения и публикуем
-            messages = await self._build_messages(notifications)
-            published_count = await self.publisher.publish_many(messages)
+            # # 4. Формируем уведомления
+            # notify_use_case = CreateNotifyUseCase()
+            # notifications = await notify_use_case.execute(changed_prices, user_links)
 
-            logger.info(
-                f'Проверка завершена. Опубликовано {published_count} уведомлений'
-            )
+            # # 5. Конвертируем в Redis сообщения и публикуем
+            # messages = await self._build_messages(notifications)
+            # published_count = await self.publisher.publish_many(messages)
+
+            # logger.info(
+            #     f'Проверка завершена. Опубликовано {published_count} уведомлений'
+            # )
 
         except Exception as e:
             logger.error(f'Ошибка при проверке цен: {e}')
 
-    async def _build_messages(
-        self, notifications: List[Notification]
-    ) -> List[NotificationMessage]:
-        '''
-        Собирает полные данные для уведомлений.
 
-        Обогащает уведомления данными из БД (chat_id, product info),
-        чтобы бот мог отправить сообщение без обращения к БД.
-        '''
-        messages = []
-
-        async with self.uow_factory.create() as uow:
-            for notify in notifications:
-                # Получаем chat_id пользователя
-                user = await uow.user_repo.get(notify.user_id)
-                if not user:
-                    logger.warning(f'Пользователь {notify.user_id} не найден')
-                    continue
-
-                # Получаем информацию о товаре
-                product = await uow.product_repo.get(notify.price.product_id)
-                if not product:
-                    logger.warning(f'Товар {notify.price.product_id} не найден')
-                    continue
-
-                message = NotificationMessage(
-                    chat_id=user.chat_id,
-                    product_name=product.name,
-                    product_link=product.link,
-                    price_with_card=notify.price.with_card,
-                    price_without_card=notify.price.without_card,
-                    previous_with_card=notify.price.previous_with_card,
-                    previous_without_card=notify.price.previous_without_card,
-                )
-                messages.append(message)
-
-        return messages
 
     def start(self, cron: str = '0 */4 * * *') -> None:
         '''

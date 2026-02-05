@@ -75,5 +75,5 @@ class CheckPriceUseCase:
                     logger.info(
                         f'Цена изменилась {direction}: {product.name} ({price_with} → {current_price_with_card})'
                     )
-
+        logger.debug(f'[CHANGED_PRICES] {changed_prices}')
         return changed_prices
