@@ -65,8 +65,11 @@ services:
     environment:
       - DB_HOST=db
       - REDIS_HOST=redis
+      - DISPLAY=${DISPLAY}
     env_file:
       - .env
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
     command: uv run python -m checker_main
 
 volumes:
