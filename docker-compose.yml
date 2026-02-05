@@ -11,6 +11,11 @@ services:
       POSTGRES_DB: ${DB_NAME}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   redis:
     image: redis:7-alpine
@@ -25,7 +30,8 @@ services:
     build: .
     container_name: pricely_migrate
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - DB_HOST=db
     env_file:
@@ -65,11 +71,8 @@ services:
     environment:
       - DB_HOST=db
       - REDIS_HOST=redis
-      - DISPLAY=${DISPLAY}
     env_file:
       - .env
-    volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
     command: uv run python -m checker_main
 
 volumes:
