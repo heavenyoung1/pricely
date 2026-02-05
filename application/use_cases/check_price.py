@@ -58,7 +58,7 @@ class CheckPriceUseCase:
                 percent = change / 100
                 min_difference = percent * price_with
 
-                # 4. Проверяем, изменилась ли цена больше чем на change%
+                # 4. Проверяем, изменилась ли цена больше чем на change %
                 price_diff = abs(price_with - current_price_with_card)
                 if price_diff > min_difference:
                     new_price = Price.create(

@@ -54,7 +54,6 @@ class BrowserManager(IBrowserManager):
         self._playwright: Optional[Playwright] = None
         self._browser: Optional[Browser] = None
         self._context: Optional[BrowserContext] = None
-        logger.info(f'[PROXY CHECK] {proxy}')
 
     async def start(self) -> None:
         '''

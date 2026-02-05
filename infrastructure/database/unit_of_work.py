@@ -8,6 +8,9 @@ from infrastructure.database.repositories.user_repo import UserRepository
 from infrastructure.database.repositories.user_products_repo import (
     UserProductsRepository,
 )
+from infrastructure.database.repositories.general_repo import (
+    GeneralRepository,
+)
 from core.config.database import DataBaseConnection
 from core.logger import logger
 
@@ -21,6 +24,7 @@ class UnitOfWork:
         self.product_repo = ProductRepository(session)
         self.price_repo = PriceRepository(session)
         self.user_products_repo = UserProductsRepository(session)
+        self.general_repo = GeneralRepository(session)
 
     async def __aenter__(self):
         '''Вход в async context manager.'''
