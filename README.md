@@ -1,147 +1,153 @@
 # Pricely
 
-### Локальная установка
+![Python](https://img.shields.io/badge/Python-3.13+-3776AB?logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Docker](https://img.shields.io/badge/Docker-Supported-2496ED?logo=docker&logoColor=white)
+
+Telegram-бот для мониторинга цен на товары в интернет-магазинах. Автоматически отслеживает изменения цен и отправляет уведомления пользователям через Telegram.
+
+## Возможности
+
+- Отслеживание цен на товары по ссылке
+- Автоматическая периодическая проверка цен по расписанию (cron)
+- Уведомления в Telegram при изменении цены
+- Поддержка прокси для парсинга
+- Групповая рассылка уведомлений
+
+## Стек технологий
+
+- **Язык:** Python 3.13+
+- **Telegram:** aiogram 3
+- **Парсинг:** Playwright (Chromium)
+- **БД:** PostgreSQL 16, SQLAlchemy 2, Alembic
+- **Очередь:** Redis 7
+- **Планировщик:** APScheduler
+- **Контейнеризация:** Docker, Docker Compose
+
+## Архитектура
+
+Проект построен на принципах Clean Architecture:
+
+```
+├── domain/           # Бизнес-сущности и доменные сервисы
+├── application/      # Use cases и интерфейсы репозиториев
+├── infrastructure/   # Реализация: БД, парсер, Redis
+├── presentation/     # Telegram-бот (хэндлеры, клавиатуры)
+└── checker_main.py   # Точка входа сервиса проверки цен
+```
+
+## Развертывание
+
+### Предварительные требования
+
+- [Docker](https://docs.docker.com/get-docker/) и [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Установка
 
 1. Клонировать репозиторий:
-```bash
-git clone git@github.com:heavenyoung1/pricely.git
-cd pricely
-```
 
-2. Создать файл `.env` на основе `.env.example`:
-```bash
-cp .env.example .env
-nano .env
-```
+   ```bash
+   git clone https://github.com/heavenyoung1/pricely.git
+   cd pricely
+   ```
 
-3. Сборка и запуск через docker-compose
+2. Создать файл `.env` на основе `.env.example` и заполнить значения:
 
+   ```bash
+   cp .env.example .env
+   ```
 
-2. Создать виртуальное окружение и установить зависимости:
-```bash
-uv venv
-uv pip install -r pyproject.toml
-```
+   Переменные .env:
 
-3. Заполнить переменные окружения в `.env`:
-`nano .env`
-`Ctrl + O -> Enter -> Ctrl + X`
+   - `CHECKER_CRON` — расписание проверки цен в формате cron (например, `'0 */6 * * *'` — каждые 6 часов)
 
-3. Установить браузеры Playwright:
-```bash
-playwright install chromium
-```
+3. Собрать и запустить все сервисы:
 
-4. Создать файл `.env` на основе `.env.example`:
-```bash
-cp .env.example .env
-```
+   ```bash
+   docker compose up -d --build
+   ```
 
-5. Заполнить переменные окружения в `.env`:
-```env
-DB_HOST=localhost
-DB_PORT=5432
-DB_USER=postgres
-DB_PASSWORD=your_password
-DB_NAME=pricely_prod
+   Будут запущены:
 
-BOT_TOKEN=your_telegram_bot_token
-```
+   | Сервис    | Описание                              |
+   |-----------|---------------------------------------|
+   | `db`      | PostgreSQL 16                         |
+   | `redis`   | Redis 7                               |
+   | `migrate` | Применение миграций Alembic           |
+   | `bot`     | Telegram-бот                          |
+   | `checker` | Сервис периодической проверки цен     |
 
-6. Запустить PostgreSQL и применить миграции:
-```bash
-docker-compose up -d db
-alembic upgrade head
-```
+4. Проверить статус сервисов:
 
-7. Запустить бота:
-```bash
-python -m presentation.telegram.bot
-```
+   ```bash
+   docker compose ps
+   ```
 
-### Docker
+5. Посмотреть логи:
 
-1. Заполнить `.env` файл
+   ```bash
+   docker compose logs -f bot checker
+   ```
 
-2. Запустить всё через docker-compose:
-```bash
-docker-compose up -d
-```
+## Полезные команды
 
-## Использование
-
-1. Найти бота в Telegram и отправить `/start`
-2. Нажать "Добавить товар" и отправить ссылку на товар
-3. Бот спарсит информацию и добавит товар в отслеживание
-4. При изменении цены выше порога — получить уведомление
-
-## Проверка цен
-
-Для запуска проверки цен всех товаров:
-```bash
-python main.py
-```
-
-## Разработка
-
-### Линтинг и форматирование
+### Сборка
 
 ```bash
-ruff check .
-black .
+# Собрать все образы
+docker compose build
+
+# Собрать конкретный сервис
+docker compose build bot
+
+# Собрать без кэша (полная пересборка)
+docker compose build --no-cache
 ```
 
-### Тесты
+### Запуск и остановка
 
 ```bash
-pytest
+# Запустить все сервисы
+docker compose up -d
+
+# Собрать и запустить (если были изменения в коде)
+docker compose up -d --build
+
+# Остановить все сервисы
+docker compose down
+
+# Остановить и удалить volumes (БД, Redis)
+docker compose down -v
+```
+
+### Перезапуск
+
+```bash
+# Перезапустить все сервисы
+docker compose restart
+
+# Перезапустить конкретный сервис
+docker compose restart bot
+docker compose restart checker
+
+# Пересобрать и перезапустить один сервис (после изменения кода)
+docker compose up -d --build bot
+```
+
+### Логи
+
+```bash
+# Логи всех сервисов
+docker compose logs
+
+# Логи конкретного сервиса в реальном времени
+docker compose logs -f bot
+docker compose logs -f checker
+
+# Последние 100 строк логов
+docker compose logs --tail 100 bot
 ```
 
 ## Лицензия
 
-MIT
-
-
-### Отладка
-
-1. На Linux (Docker) — только БД и Redis:
-
-
-docker compose up db redis -d
-2. На Windows — в разных терминалах:
-
-Сначала в .env укажи IP Linux машины (или localhost если Docker на той же машине):
-
-
-DB_HOST=192.168.1.xxx   # или localhost
-REDIS_HOST=192.168.1.xxx
-HEADLESS=false          # чтобы видеть браузер
-Потом в разных терминалах:
-
-
-# Терминал 1 — бот
-uv run python -m presentation.telegram.bot
-
-# Терминал 2 — чекер
-uv run python -m checker_main
-
-### CRON
-CRON — формат расписания из Unix/Linux. Пять полей через пробел:
-
-
-┌───────────── минута (0-59)
-│ ┌─────────── час (0-23)
-│ │ ┌───────── день месяца (1-31)
-│ │ │ ┌─────── месяц (1-12)
-│ │ │ │ ┌───── день недели (0-6, 0=воскресенье)
-│ │ │ │ │
-* * * * *
-
-Выражение	Значение
-* * * * *	каждую минуту
-*/5 * * * *	каждые 5 минут
-0 * * * *	каждый час (в :00)
-0 */4 * * *	каждые 4 часа
-0 9 * * *	каждый день в 9:00
-0 9 * * 1	каждый понедельник в 9:00
-0 0 1 * *	1-го числа каждого месяца в полночь
+[MIT](LICENSE)

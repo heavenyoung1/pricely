@@ -58,7 +58,11 @@ async def main():
     logger.info(f'[MAIN] Прокси для браузера: {proxy}')
 
     try:
-        async with BrowserManager(proxy=proxy) as browser:
+        async with BrowserManager(
+            proxy=proxy,
+            delay=settings.DELAY,
+            
+            ) as browser:
             parser = ProductParser(
                 browser=browser,
                 fields_for_add=ProductFieldsForAdd(),

@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     REDIS_QUEUE_NAME: str = 'pricely:notifications'
 
     # Checker
-    CHECKER_CRON: str = '0 */2 * * *'  # каждые 2 часа
+    CHECKER_CRON: str
 
     # SQLAlchemy параметры (PostgreSQL)
     DRIVER: str = 'postgresql+asyncpg'
@@ -30,8 +30,8 @@ class Settings(BaseSettings):
 
     # Browser
     HEADLESS: bool = True
-    DELAY: int = 2000
-    USE_PROXY: bool = False
+    DELAY: int = 5000
+    USE_PROXY: bool
 
     @property
     def redis_url(self) -> str:

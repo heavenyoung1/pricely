@@ -37,7 +37,7 @@ class BrowserManager(IBrowserManager):
         headless: bool = settings.HEADLESS,
         proxy: Optional[dict] = None,
         user_agent: Optional[str] = None,
-        delay: int = 2000,
+        delay: int = settings.DELAY,
     ):
         '''
         Args:
@@ -83,6 +83,7 @@ class BrowserManager(IBrowserManager):
         logger.info(
             f'Браузер запущен, режим headless {"ВКЛЮЧЕН" if self.headless else "ОТКЛЮЧЕН"} ,User-Agent {self.user_agent[:50]}...',
         )
+        logger.debug(f'[DELAY] {self.delay}')
 
     async def _create_context(self) -> None:
         '''Создает контекст браузера с настройками антидетекта'''
