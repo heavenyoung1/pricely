@@ -84,9 +84,8 @@ class NotificationHandler:
             name_line = f'📦 {item.product_name}'
 
         return (
-            f'{emoji} <b>Цена {direction}!</b>\n\n'
-            f'{name_line}\n\n'
-            f'💰 Старая цена: <s>{old_price:,}</s> ₽\n'
-            f'💰 Новая цена: <b>{new_price:,}</b> ₽\n'
+            f'{name_line}\n'
+            f'{emoji} <b>Цена {direction}!</b>\n'
+            f'💰 Актуальная цена: <s>{old_price:,}</s> <b>{new_price:,}</b> ₽\n'
             f'📊 Разница: {diff:,} ₽'
         )
