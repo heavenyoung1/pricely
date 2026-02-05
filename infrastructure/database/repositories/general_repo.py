@@ -14,7 +14,6 @@ from domain.exceptions import DatabaseError
 from core.logger import logger
 
 
-
 class GeneralRepository:
     def __init__(self, session: AsyncSession):
         self.session = session
@@ -32,11 +31,14 @@ class GeneralRepository:
                     ORMProduct.article,
                     ORMProduct.id.label('product_id'),
                     ORMProduct.name,
+                    ORMProduct.link.label('product_link'),
                     ORMPrice.id.label('price_id'),
                     ORMPrice.with_card.label('product_with_card'),
                     ORMPrice.without_card.label('product_without_card'),
                     ORMPrice.previous_with_card.label('product_previous_with_card'),
-                    ORMPrice.previous_without_card.label('product_previous_without_card'),
+                    ORMPrice.previous_without_card.label(
+                        'product_previous_without_card'
+                    ),
                     ORMUser.name.label('username'),
                     ORMUser.id.label('user_id'),
                     ORMUser.chat_id,

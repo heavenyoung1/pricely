@@ -1,16 +1,12 @@
-from typing import List
-
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 
 from application.collector import Collector
 from application.use_cases.check_price import CheckPriceUseCase
-from application.use_cases.create_notify import CreateNotifyUseCase
-from domain.entities.notification import Notification
 from infrastructure.parsers.parser import ProductParser
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
 from infrastructure.redis.publisher import NotificationPublisher
-from infrastructure.redis.message import NotificationMessage
+from infrastructure.redis.message import NotificationMessage, PriceChangeItem
 from core.logger import logger
 
 
@@ -67,31 +63,33 @@ class CheckerService:
                 return
             logger.info(f'Обнаружено {len(changed_prices)} изменений цен')
 
-            await collector.collect_data_for_send_notifications(changed_prices)
+            grouped_data = await collector.collect_data_for_send_notifications(
+                changed_prices
+            )
 
-            # # 3. Получаем связи user-product для изменившихся товаров
-            # product_ids = [price.product_id for price in changed_prices]
-            # async with self.uow_factory.create() as uow:
-            #     user_links = await uow.user_products_repo.get_users_by_product_ids(
-            #         product_ids
-            #     )
+            # 3. Конвертируем сгруппированные данные в Redis-сообщения и публикуем
+            messages = []
+            for chat_id, records in grouped_data.items():
+                items = [
+                    PriceChangeItem(
+                        product_name=r['name'],
+                        product_link=r['product_link'],
+                        price_with_card=r['product_with_card'],
+                        price_without_card=r['product_without_card'],
+                        previous_with_card=r['product_previous_with_card'],
+                        previous_without_card=r['product_previous_without_card'],
+                    )
+                    for r in records
+                ]
+                messages.append(NotificationMessage(chat_id=chat_id, items=items))
 
-            # # 4. Формируем уведомления
-            # notify_use_case = CreateNotifyUseCase()
-            # notifications = await notify_use_case.execute(changed_prices, user_links)
-
-            # # 5. Конвертируем в Redis сообщения и публикуем
-            # messages = await self._build_messages(notifications)
-            # published_count = await self.publisher.publish_many(messages)
-
-            # logger.info(
-            #     f'Проверка завершена. Опубликовано {published_count} уведомлений'
-            # )
+            published_count = await self.publisher.publish_many(messages)
+            logger.info(
+                f'Проверка завершена. Опубликовано {published_count} уведомлений'
+            )
 
         except Exception as e:
             logger.error(f'Ошибка при проверке цен: {e}')
-
-
 
     def start(self, cron: str = '0 */4 * * *') -> None:
         '''

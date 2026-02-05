@@ -68,7 +68,9 @@ async def test_browser_proxy_ip():
         context = await browser.get_context()
         page = await context.new_page()
 
-        await page.goto('http://httpbin.org/ip', wait_until='domcontentloaded', timeout=30000)
+        await page.goto(
+            'http://httpbin.org/ip', wait_until='domcontentloaded', timeout=30000
+        )
         await page.wait_for_timeout(2000)
 
         body = await page.inner_text('body')

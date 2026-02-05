@@ -1,7 +1,3 @@
-from typing import List
-
-from domain.entities.notification import Notification
-
 '''
 Обработчик уведомлений из Redis очереди.
 
@@ -9,9 +5,10 @@ from domain.entities.notification import Notification
 '''
 
 from aiogram import Bot
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, LinkPreviewOptions
 
 from core.logger import logger
-from infrastructure.redis.message import NotificationMessage
+from infrastructure.redis.message import NotificationMessage, PriceChangeItem
 
 
 class NotificationHandler:
@@ -25,61 +22,52 @@ class NotificationHandler:
         Обработать одно уведомление.
 
         Args:
-            message: Сообщение из Redis очереди.
+            message: Сообщение из Redis очереди (один пользователь, много товаров).
         '''
         try:
             text = self._format_message(message)
+            keyboard = self._build_keyboard(message)
             await self.bot.send_message(
                 chat_id=message.chat_id,
                 text=text,
+                reply_markup=keyboard,
+                link_preview_options=LinkPreviewOptions(is_disabled=True),
                 parse_mode='HTML',
             )
-            logger.info(f'Уведомление отправлено: chat_id={message.chat_id}')
+            logger.info(
+                f'Уведомление отправлено: chat_id={message.chat_id}, товаров: {len(message.items)}'
+            )
         except Exception as e:
             logger.error(f'Ошибка отправки уведомления chat_id={message.chat_id}: {e}')
 
-    async def _build_messages(
-        self, notifications: List[Notification]
-    ) -> List[NotificationMessage]:
-        '''
-        Собирает полные данные для уведомлений.
-
-        Обогащает уведомления данными из БД (chat_id, product info),
-        чтобы бот мог отправить сообщение без обращения к БД.
-        '''
-        messages = []
-
-        async with self.uow_factory.create() as uow:
-            for notify in notifications:
-                # Получаем chat_id пользователя
-                user = await uow.user_repo.get(notify.user_id)
-                if not user:
-                    logger.warning(f'Пользователь {notify.user_id} не найден')
-                    continue
-
-                # Получаем информацию о товаре
-                product = await uow.product_repo.get(notify.price.product_id)
-                if not product:
-                    logger.warning(f'Товар {notify.price.product_id} не найден')
-                    continue
-
-                message = NotificationMessage(
-                    chat_id=user.chat_id,
-                    product_name=product.name,
-                    product_link=product.link,
-                    price_with_card=notify.price.with_card,
-                    price_without_card=notify.price.without_card,
-                    previous_with_card=notify.price.previous_with_card,
-                    previous_without_card=notify.price.previous_without_card,
+    def _build_keyboard(self, msg: NotificationMessage) -> InlineKeyboardMarkup | None:
+        '''Строит инлайн-кнопки со ссылками на товары'''
+        buttons = []
+        for item in msg.items:
+            if item.product_link:
+                buttons.append(
+                    [
+                        InlineKeyboardButton(
+                            text=f'{item.product_name[:40]}',
+                            url=item.product_link,
+                        )
+                    ]
                 )
-                messages.append(message)
-
-        return messages
+        if not buttons:
+            return None
+        return InlineKeyboardMarkup(inline_keyboard=buttons)
 
     def _format_message(self, msg: NotificationMessage) -> str:
-        '''Форматирует сообщение об изменении цены'''
-        old_price = msg.previous_with_card
-        new_price = msg.price_with_card
+        '''Форматирует сообщение с несколькими изменёнными товарами'''
+        parts = []
+        for item in msg.items:
+            parts.append(self._format_item(item))
+        return '\n\n━━━━━━━━━━━━━━━\n\n'.join(parts)
+
+    def _format_item(self, item: PriceChangeItem) -> str:
+        '''Форматирует один товар с изменённой ценой'''
+        old_price = item.previous_with_card
+        new_price = item.price_with_card
         diff = old_price - new_price
 
         if diff > 0:
@@ -90,11 +78,10 @@ class NotificationHandler:
             direction = 'выросла'
             diff = abs(diff)
 
-        # Формируем название с ссылкой или без
-        if msg.product_link:
-            name_line = f'📦 <a href="{msg.product_link}">{msg.product_name}</a>'
+        if item.product_link:
+            name_line = f'📦 <a href="{item.product_link}">{item.product_name}</a>'
         else:
-            name_line = f'📦 {msg.product_name}'
+            name_line = f'📦 {item.product_name}'
 
         return (
             f'{emoji} <b>Цена {direction}!</b>\n\n'
