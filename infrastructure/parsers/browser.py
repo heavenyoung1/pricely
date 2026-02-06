@@ -71,10 +71,13 @@ class BrowserManager(IBrowserManager):
             'headless': self.headless,
             'args': BROWSER_ARGS,
         }
-        logger.info(f'[PROXY BROWSER] {launch_options}')
+        if self.proxy:
+            launch_options['proxy'] = self.proxy
+            logger.debug(f'[LAUNCH OPTIONS] {launch_options}')
+
         # Запускаем Chromium
         self._browser = await self._playwright.chromium.launch(
-            **launch_options, proxy=self.proxy
+            **launch_options,
         )
 
         # Создаем контекст с реалистичными настройками
@@ -99,23 +102,21 @@ class BrowserManager(IBrowserManager):
             context_opts['user_agent'] = self.user_agent
 
             # Добавляем прокси если указан (с поддержкой аутентификации)
-            if self.proxy:
-                context_opts['proxy'] = self.proxy
-                logger.info(
-                    f'[BROWSER] Прокси добавлен в контекст: server={self.proxy.get("server")}'
-                )
-                logger.debug(f'[BROWSER] Полные настройки прокси: {self.proxy}')
-            else:
-                logger.info('[BROWSER] Прокси НЕ используется (proxy=None)')
+            # if self.proxy:
+            #     context_opts['proxy'] = self.proxy
+            #     logger.info(
+            #         f'[BROWSER] Прокси добавлен в контекст: server={self.proxy.get("server")}'
+            #     )
+            #     logger.debug(f'[BROWSER] Полные настройки прокси: {self.proxy}')
+            # else:
+            #     logger.info('[BROWSER] Прокси НЕ используется (proxy=None)')
 
-            logger.debug(
-                f'[BROWSER] Создание контекста с опциями: {list(context_opts.keys())}'
-            )
+            # logger.debug(
+            #     f'[BROWSER] Создание контекста с опциями: {list(context_opts.keys())}'
+            # )
 
             # Создаем контекст
             self._context = await self._browser.new_context(**context_opts)
-
-            logger.info('[BROWSER] Контекст браузера успешно создан')
 
             # Устанавливаем таймауты
             self._context.set_default_timeout(DEFAULT_TIMEOUT)

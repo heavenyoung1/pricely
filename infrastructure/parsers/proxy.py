@@ -65,7 +65,7 @@ class ProxyController:
 
             proxy = Proxy(
                 proxy=proxy_data['proxy'],
-                user=proxy_data['user'],
+                user=proxy_data['username'],
                 password=proxy_data['password'],
             )
 
@@ -107,6 +107,30 @@ class ProxyController:
                 user_message='❌ Ошибка при получении прокси',
             )
 
+    def check_proxy(self, proxy_str: str) -> bool:
+        '''
+        Проверяет работоспособность прокси.
+
+        Args:
+            proxy_str: Прокси в формате http://user:password@host:port
+
+        Returns:
+            True если прокси работает, False иначе
+        '''
+        try:
+            response = requests.get(
+                self.CHECK_URL,
+                proxies={'http': proxy_str, 'https': proxy_str},
+                timeout=self.TIMEOUT,
+            )
+            if response.status_code == 200:
+                logger.info(f'[PROXY] Прокси работает, IP: {response.json().get("origin")}')
+                return True
+            return False
+        except Exception as e:
+            logger.warning(f'[PROXY] Прокси не работает: {e}')
+            return False
+
     def get_proxy_for_playwright(self) -> Optional[dict]:
         '''
         Возвращает прокси в формате для Playwright.
@@ -129,8 +153,8 @@ class ProxyController:
             proxy_data = random.choice(proxies)
 
             proxy_dict = {
-                "server": f"https://{proxy_data['proxy']}",
-                "username": proxy_data["user"],
+                "server": f"http://{proxy_data['proxy']}",
+                "username": proxy_data["username"],
                 "password": proxy_data["password"],
             }
 

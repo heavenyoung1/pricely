@@ -3,7 +3,10 @@ from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 
+from core.config.settings import settings
+
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
+from infrastructure.parsers.proxy import ProxyController
 from application.tools.adapter import LinkAdapter
 from infrastructure.parsers.browser import BrowserManager
 from infrastructure.parsers.parser import ProductParser
@@ -81,8 +84,15 @@ async def add_product_url(
                 return
             user_id = user.id
 
+        # Получаем прокси если включено
+        proxy_controller = ProxyController()
+        proxy = proxy_controller.get_proxy_if_enabled(settings.USE_PROXY)
+
         # Парсим и добавляем товар
-        async with BrowserManager() as browser:
+        async with BrowserManager(
+            proxy=proxy,
+            delay=settings.DELAY,
+        ) as browser:
             parser = ProductParser(
                 browser=browser,
                 fields_for_add=ProductFieldsForAdd(),
