@@ -4,6 +4,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
+from application.tools.adapter import LinkAdapter
 from infrastructure.parsers.browser import BrowserManager
 from infrastructure.parsers.parser import ProductParser
 from domain.entities.product_fields import ProductFieldsForAdd, ProductFieldsForCheck
@@ -55,15 +56,17 @@ async def add_product_url(
     uow_factory: UnitOfWorkFactory,
 ):
     '''Обработка URL товара'''
-    url = message.text.strip()
+    # url = message.text.strip()
 
-    # Валидация URL
-    if not url.startswith('http'):
-        await message.answer(
-            'Некорректная ссылка. Отправь ссылку, начинающуюся с http:',
-            reply_markup=cancel(),
-        )
-        return
+    #Валидация URL
+    # if not url.startswith('http'):
+    #     await message.answer(
+    #         'Некорректная ссылка. Отправь ссылку, начинающуюся с http:',
+    #         reply_markup=cancel(),
+    #     )
+    #     return
+    
+    url = await LinkAdapter.exctract_link(message.text)
 
     await message.answer('⏳ Добавляю товар, ожидайте...')
 

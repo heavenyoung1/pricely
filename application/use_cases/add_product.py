@@ -1,5 +1,8 @@
+import re
+
 from infrastructure.database.unit_of_work import UnitOfWorkFactory
 
+from application.tools.adapter import LinkAdapter
 from application.interfaces.parser import IProductParser
 from domain.entities.product import Product, FullProduct
 from domain.entities.price import Price
@@ -43,12 +46,15 @@ class AddProductUseCase:
         Raises:
             ProductAlreadyExistsError: Если товар уже отслеживается этим пользователем.
         '''
-        # 1. Парсим данные со страницы
+        # 1. Преобразуем ссылку в нужный формат
+        # valid_url = await LinkAdapter.exctract_link(url)
+
+        # 2. Парсим данные со страницы
         parsed = await self.parser.parse_new_product(url)
         logger.info(f'В браузере получен товар: {parsed.name}')
 
         async with self.uow_factory.create() as uow:
-            # 2. Проверяем, не существует ли уже такой товар
+            # 3. Проверяем, не существует ли уже такой товар
             existing = await uow.product_repo.get_by_link(url)
             if existing:
                 # Проверяем, отслеживает ли уже этот пользователь
@@ -61,7 +67,7 @@ class AddProductUseCase:
                 logger.info(f'Товар привязан к пользователю: {existing.name}')
                 return existing
 
-            # 3. Создаём новый товар
+            # 4. Создаём новый товар
             product = Product.create(
                 article=parsed.article,
                 name=parsed.name,
@@ -70,7 +76,7 @@ class AddProductUseCase:
             )
             saved_product = await uow.product_repo.save(product)
 
-            # 4. Создаём начальную цену
+            # 5. Создаём начальную цену
             price = Price.create(
                 product_id=saved_product.id,
                 with_card=parsed.price_with_card,
@@ -80,7 +86,7 @@ class AddProductUseCase:
             )
             await uow.price_repo.save(price)
 
-            # 5. Связываем товар с пользователем
+            # 6. Связываем товар с пользователем
             await uow.user_products_repo.save(user_id, saved_product.id)
 
             logger.info(
@@ -98,3 +104,26 @@ class AddProductUseCase:
                 price_previous_without_card=price.previous_without_card,
                 change=product.change,
             )
+
+def is_url(text):
+    '''Проверяет, начинается ли строка с https://'''
+    pattern = r'^https?://'
+    return bool(re.match(pattern, text))
+
+
+def exctract_link(text: str) -> str:
+    '''
+    Проверяет, является ли переданный текст ссылкой на Ozon. Если это не ссылка,
+    извлекает ссылку из текста.
+
+    :param input_str: Строка, которая может быть ссылкой или содержать ссылку.
+    :return: Ссылка на товар на Ozon.
+    :raises ValueError: Если в строке не найдено валидной ссылки на Ozon.
+    '''
+    if is_url(text):
+        return text
+
+    listing = text.split()
+    url = listing[-1]
+    logger.debug(f'[URL] ПОЛУЧЕНА ССЫЛКА {url}')
+    return url
