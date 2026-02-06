@@ -54,12 +54,21 @@ class ProductParser(IProductParser):
         for field in dataclass_fields(self.fields_for_add):
             xpath = getattr(self.fields_for_add, field.name)
             text = await self._extract_text(page, xpath)
+            logger.debug(f'[PARSER] Поле {field.name}: xpath={xpath}, text={text}')
             if field.name == 'article':
                 parsed_data[field.name] = self._extract_article(text)
             elif field.name == 'name':
                 parsed_data[field.name] = text
             else:
                 parsed_data[field.name] = self._clean_price(text)
+
+        # Сохраняем скриншот для отладки если name не найден
+        if not parsed_data.get('name'):
+            try:
+                await page.screenshot(path='/app/debug_screenshot.png', full_page=True)
+                logger.warning('[PARSER] Товар не найден! Скриншот: /app/debug_screenshot.png')
+            except Exception as e:
+                logger.warning(f'[PARSER] Не удалось сохранить скриншот: {e}')
 
         await page.close()
 
