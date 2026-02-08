@@ -59,6 +59,7 @@ Telegram-бот для мониторинга цен на товары в инт
 
    ```bash
    cp .env.example .env
+   sudo nano .env
    ```
 
    Переменные .env:
@@ -92,6 +93,33 @@ Telegram-бот для мониторинга цен на товары в инт
    ```bash
    docker compose logs -f bot checker
    ```
+
+## Работа с прокси
+
+По умолчанию используется протокол **HTTP** и порт **3000**. SOCKS-прокси (порт 3001) не поддерживаются.
+
+Создать файл с данными прокси:
+
+```bash
+sudo touch infrastructure/parsers/proxy.json
+```
+
+Заполнить `infrastructure/parsers/proxy.json` согласно структуре:
+
+```json
+[
+  {
+    "proxy": "192.168.101.1:3000",
+    "username": "LOGIN",
+    "password": "PASSWORD"
+  },
+  {
+    "proxy": "192.168.101.1:3000",
+    "username": "LOGIN",
+    "password": "PASSWORD"
+  }
+]
+```
 
 ## Полезные команды
 
