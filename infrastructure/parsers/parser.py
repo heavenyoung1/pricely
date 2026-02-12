@@ -66,7 +66,9 @@ class ProductParser(IProductParser):
         if not parsed_data.get('name'):
             try:
                 await page.screenshot(path='/app/debug_screenshot.png', full_page=True)
-                logger.warning('[PARSER] Товар не найден! Скриншот: /app/debug_screenshot.png')
+                logger.warning(
+                    '[PARSER] Товар не найден! Скриншот: /app/debug_screenshot.png'
+                )
             except Exception as e:
                 logger.warning(f'[PARSER] Не удалось сохранить скриншот: {e}')
 

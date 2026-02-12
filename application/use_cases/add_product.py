@@ -105,6 +105,7 @@ class AddProductUseCase:
                 change=product.change,
             )
 
+
 def is_url(text):
     '''Проверяет, начинается ли строка с https://'''
     pattern = r'^https?://'

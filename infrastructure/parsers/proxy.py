@@ -124,7 +124,9 @@ class ProxyController:
                 timeout=self.TIMEOUT,
             )
             if response.status_code == 200:
-                logger.info(f'[PROXY] Прокси работает, IP: {response.json().get("origin")}')
+                logger.info(
+                    f'[PROXY] Прокси работает, IP: {response.json().get("origin")}'
+                )
                 return True
             return False
         except Exception as e:

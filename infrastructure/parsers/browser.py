@@ -7,10 +7,9 @@ from playwright.async_api import (
     Page,
     Playwright,
 )
-
+from .agent import UserAgentController
 from application.interfaces.browser import IBrowserManager
 from .options import (
-    USER_AGENTS,
     BROWSER_ARGS,
     CONTEXT_OPTIONS,
     DEFAULT_TIMEOUT,
@@ -47,8 +46,9 @@ class BrowserManager(IBrowserManager):
         '''
         self.headless = headless
         self.proxy = proxy
-        self.user_agent = user_agent or self._get_random_user_agent()
+        self.user_agent = user_agent or UserAgentController().get_user_agent()
         self.delay = delay
+
 
         # Внутренние объекты Playwright
         self._playwright: Optional[Playwright] = None
@@ -100,20 +100,6 @@ class BrowserManager(IBrowserManager):
 
             # Добавляем User-Agent
             context_opts['user_agent'] = self.user_agent
-
-            # Добавляем прокси если указан (с поддержкой аутентификации)
-            # if self.proxy:
-            #     context_opts['proxy'] = self.proxy
-            #     logger.info(
-            #         f'[BROWSER] Прокси добавлен в контекст: server={self.proxy.get("server")}'
-            #     )
-            #     logger.debug(f'[BROWSER] Полные настройки прокси: {self.proxy}')
-            # else:
-            #     logger.info('[BROWSER] Прокси НЕ используется (proxy=None)')
-
-            # logger.debug(
-            #     f'[BROWSER] Создание контекста с опциями: {list(context_opts.keys())}'
-            # )
 
             # Создаем контекст
             self._context = await self._browser.new_context(**context_opts)

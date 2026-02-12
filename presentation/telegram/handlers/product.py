@@ -61,14 +61,14 @@ async def add_product_url(
     '''Обработка URL товара'''
     # url = message.text.strip()
 
-    #Валидация URL
+    # Валидация URL
     # if not url.startswith('http'):
     #     await message.answer(
     #         'Некорректная ссылка. Отправь ссылку, начинающуюся с http:',
     #         reply_markup=cancel(),
     #     )
     #     return
-    
+
     url = await LinkAdapter.exctract_link(message.text)
 
     await message.answer('⏳ Добавляю товар, ожидайте...')

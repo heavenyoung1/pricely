@@ -61,8 +61,7 @@ async def main():
         async with BrowserManager(
             proxy=proxy,
             delay=settings.DELAY,
-            
-            ) as browser:
+        ) as browser:
             parser = ProductParser(
                 browser=browser,
                 fields_for_add=ProductFieldsForAdd(),
